@@ -1,0 +1,39 @@
+[[global]]
+  name = "News"
+  weight = 1
+  identifier = "news"
+  url = "/news/"
+
+[[global]]
+  name = "Docs"
+  weight = 5
+  identifier = "docs"
+  url = "/documentation/"
+
+[[global]]
+  name = "Resources"
+  weight = 10
+  identifier = "resources"
+  url = "/resources/"
+
+[[global]]
+  name = "Community"
+  weight = 20
+  icon = true
+  identifier = "community"
+  url = "/community/"
+
+# Anything with a weight > 100 gets an external icon
+[[global]]
+  name = "GitHub"
+  weight = 200
+  identifier = "github"
+  post = "external"
+  url = "https://github.com/microcks/microcks"
+
+[[global]]
+  name = "About"
+  weight = 210
+  icon = true
+  identifier = "about"
+  url = "/about/"

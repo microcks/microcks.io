@@ -1,0 +1,24 @@
+- heading: "Business friendly"
+  tagline: "Ease collaboration and reuse"
+  copy: "Use the tool your business expert knows: Postman, SoapUI, OpenAPI or whatever! No need to learn a new DSL or configuration syntax."
+  image_path: /images/noun_users.svg
+- heading: "Experiment"
+  tagline: "Prototype fast, succeed or fail fast"
+  copy: "Experiment new APIs using the Backend as a Service feature, play and iterate before creating your API contract."
+  image_path: /images/noun_science_experiment.svg
+- heading: "REST and SOAP"
+  tagline: "Same tool for new API and legacy WebServices"
+  copy: "Scale to hundreds of mocks, billions of hits on a single instance. Microcks is totally elastic thanks to cloud-native design. "
+  image_path: /images/noun_exchanges.svg
+- heading: "Continuous Integeration"
+  tagline: "Mock and test continuously"
+  copy: "Integrate seemlessly in your continuous build or pipelines. We provide plugins, CLI or containers for you to choose the best option."
+  image_path: /images/noun_recycle.svg
+- heading: "Kubernetes ready"
+  tagline: "Want the choice on deployment?"
+  copy: "Microcks can be deployed on any cloud provider on in-house infrastructure using Kube. It using Operator for full-automated maintenance and cruise control."
+  image_path: /images/noun_kubernetes.svg
+- heading: "Scalable"
+  tagline: "Mocks does not have to be expensive!"
+  copy: "Scale to hundreds of mocks, billions of hits on a single instance. Microcks is totally elastic thanks to cloud-native design. "
+  image_path: /images/noun_rocket.svg
