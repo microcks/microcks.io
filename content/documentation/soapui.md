@@ -39,7 +39,7 @@ In order to be correctly imported and understood by Microcks, your SoapUI projec
 * The name of Mock Responses should be something like `"&lt;sample_id&gt; Response"`. For example: `"Karla Response"`,
 * The name of matching rules should be something like `"&lt;sample_id&gt;"`. For example: `"Karla"`,
 				
-We recommend having a look at our sample SoapUI projects for <a href="https://raw.githubusercontent.com/microcks/microcks/master/samples/HelloService-soapui-project.xml">SOAP WebServices</a> and for <a href="https://raw.githubusercontent.com/microcks/microcks/master/samples/HelloAPI-soapui-project.xml">REST APIs</a> to fully understand and see in action those conventions.
+We recommend having a look at our sample SoapUI projects for [SOAP WebServices](https://raw.githubusercontent.com/microcks/microcks/master/samples/HelloService-soapui-project.xml) and for [REST APIs](https://raw.githubusercontent.com/microcks/microcks/master/samples/HelloAPI-soapui-project.xml) to fully understand and see in action those conventions.
 			
 ## Project initialisation
 			
