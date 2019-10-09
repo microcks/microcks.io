@@ -43,4 +43,4 @@ Tests history for an API/Service is easily accessible from the microservice [sum
 			
 Specific test details can be visualized : Microcks also records the request and response pairs exchanged with the tested endpoint so that you'll be able to access payload content as well as header. Failures are tracked and violated assertions messages displayed as shown in the screenshot below :
 			
-![test-details](/images/.png)
+![test-details](/images/test-details.png)

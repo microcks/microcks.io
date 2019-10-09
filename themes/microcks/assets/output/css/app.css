@@ -5145,11 +5145,11 @@ a.home-link {
 a.header-link {
   text-decoration-line: none !important
 }
-.prose > p > a {
+.prose > * > a, .prose > * > * > a {
   color: #ff1745;
   text-decoration-line: none;
 }
-.prose > p > a:hover {
+.prose > * > a:hover, .prose > * > * > a:hover {
   text-decoration-line: underline;
 }
 
