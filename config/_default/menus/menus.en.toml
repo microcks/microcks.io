@@ -37,3 +37,42 @@
   icon = true
   identifier = "about"
   url = "/about/"
+
+## Documentation Menus
+
+[[docs]]
+  name = "Using"
+  weight = 5
+  identifier = "using"
+  url = "/using/"
+
+[[docs]]
+  name = "Installing"
+  weight = 15
+  identifier = "installing"
+  url = "/installing/"
+
+[[docs]]
+  name = "Automating"
+  weight = 20
+  identifier = "automating"
+  post = "break"
+  url = "/automating/"
+
+[[docs]]
+  name = "Resources"
+  weight = 25
+  identifier = "resources"
+  url = "/resources/"
+
+[[docs]]
+  name = "Community"
+  weight = 30
+  identifier = "community"
+  url = "/community/"
+
+[[docs]]
+  name = "About"
+  weight = 35
+  identifier = "about"
+  url = "/about/"

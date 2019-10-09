@@ -1,16 +1,17 @@
 ---
 draft: false
-title: "Using Microcks from Jenkins"
+title: "Integrating Microcks from Jenkins"
 date: 2019-09-01
 publishdate: 2019-09-01
 lastmod: 2019-09-02
 menu:
   docs:
-    parent: Automating
-    name: Using Microcks from Jenkins
-    weight: 40
+    parent: automating
+    name: Integrating Microcks from Jenkins
+    weight: 20
 toc: true
 weight: 30 #rem
+categories: [automating]
 ---
 
 ## Microcks Jenkins plugin
@@ -21,17 +22,17 @@ Using this plugin, it is really easy to integrate tests stages within your Conti
 			
 ### Getting raw plugin
       
-While not being distributed yet as an official Jenkins plugin, Microcks Jenkins plugin is available and can be downloaded from <a href="http://central.maven.org/maven2/io/github/microcks/microcks-jenkins-plugin/">Central Maven repository</a>. Just get the <a href="http://central.maven.org/maven2/io/github/microcks/microcks-jenkins-plugin/0.2.0/microcks-jenkins-plugin-0.2.0.hpi">HPI file</a> and install it on your Jenkins master <a href="https://jenkins.io/doc/book/managing/plugins/">your preferred way</a>.
+While not being distributed yet as an official Jenkins plugin, Microcks Jenkins plugin is available and can be downloaded from [Central Maven repository](http://central.maven.org/maven2/io/github/microcks/microcks-jenkins-plugin/). Just get the [HPI file](http://central.maven.org/maven2/io/github/microcks/microcks-jenkins-plugin/0.2.0/microcks-jenkins-plugin-0.2.0.hpi) and install it on your Jenkins master [your preferred way](https://jenkins.io/doc/book/managing/plugins/).
             
 Pick up the version corresponding to your Microcks installation :
 
-* <a href="http://central.maven.org/maven2/io/github/microcks/microcks-jenkins-plugin/0.2.0/microcks-jenkins-plugin-0.2.0.hpi">0.2.0 version</a> from Microcks `0.7.0` or greater
-* <a href="http://central.maven.org/maven2/io/github/microcks/microcks-jenkins-plugin/0.1.1/microcks-jenkins-plugin-0.1.1.hpi">0.1.1 version</a> from Microcks version before `0.7.0`
+* [0.2.0 version](http://central.maven.org/maven2/io/github/microcks/microcks-jenkins-plugin/0.2.0/microcks-jenkins-plugin-0.2.0.hpi) from Microcks `0.7.0` or greater
+* [0.1.1 version](http://central.maven.org/maven2/io/github/microcks/microcks-jenkins-plugin/0.1.1/microcks-jenkins-plugin-0.1.1.hpi) from Microcks version before `0.7.0`
 			
 
 ### Building an OpenShift Jenkins master embedding plugin
 			
-A common option for running Jenkins is through OpenShift platform. In that case, you may want to create your own custom Jenkins master container image embedding this plugin. While there's <a href="https://github.com/clerixmaxime/custom-jenkins">many ways of building such images</a>, as Microcks plugin is not yet an official Jenkins plugin, we provide our own OpenShift configuration for that.
+A common option for running Jenkins is through OpenShift platform. In that case, you may want to create your own custom Jenkins master container image embedding this plugin. While there's [many ways of building such images](https://github.com/clerixmaxime/custom-jenkins), as Microcks plugin is not yet an official Jenkins plugin, we provide our own OpenShift configuration for that.
 			
 Given you have an OpenShift installation running and you're logged on it, just execute that command from terminal:
 
@@ -44,14 +45,14 @@ This should start a `Build` and then create an `ImageStream` called `microcks-je
 ## Setting up Microcks Jenkins plugin
 
 Since the version `0.2.0`, this plugin is using identified **Service Accounts** when connecting to Microcks server. It is also able to manage multiple Microcks installation and hide the technical details from your Jobs using Microcks plugins. As a Jenkins administrator, go to the **Manage Jenkins** page and find the **Microcks** section. You should be able to add and configure as many instance of Microcks installation as you want like in the 2 configured in screenshot below:
-			
-![](/images/jenkins-installations.png)
+
+![jenkins-installations](/images/jenkins-installations.png)
 			
 A Microcks installation configuration need 5 parameters:
 * A `Name` will be used by your Jobs or Pipelines as a reference of an environment,
 * The `API URL` is the endpoint of your Microcks server receiving API calls,
 * The `Keycloak URL` is the endpoint of the Keycloak associated with your Microcks server. You should set it the full URL including the realm name your instance is attached,
-* The `Credentials` to use for authenticating the Service Account and allowing it to retrieve an OAuth token (more on that on <a href="../../automating/service-account/">Service Account</a>). These are Crederentials that should be registered into Jenkins,
+* The `Credentials` to use for authenticating the Service Account and allowing it to retrieve an OAuth token (more on that on [service-account](/automating/service-account)). These are Crederentials that should be registered into Jenkins,
 * The `Disable Cert Validation` box you have to check if you have a HTTPS setup with auto-signed certificates.
 			
 You should then be able to test the connection to endpoints and save your configuration. Later, your Jobs and Pipelines will just use the installation `Name` to refer it from their build steps.

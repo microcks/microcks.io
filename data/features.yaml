@@ -7,8 +7,8 @@
   copy: "Experiment new APIs using the Backend as a Service feature, play and iterate before creating your API contract."
   image_path: /images/noun_science_experiment.svg
 - heading: "REST and SOAP"
-  tagline: "Same tool for new API and legacy WebServices"
-  copy: "Scale to hundreds of mocks, billions of hits on a single instance. Microcks is totally elastic thanks to cloud-native design. "
+  tagline: "Same tool for API and WebServices"
+  copy: "Sure we do love new REST APIs but we may also have a bunch of legacy services. Why not applyging same practices? We support both!"
   image_path: /images/noun_exchanges.svg
 - heading: "Continuous Integeration"
   tagline: "Mock and test continuously"

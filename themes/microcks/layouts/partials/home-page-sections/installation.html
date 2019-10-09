@@ -3,28 +3,36 @@
 
     <div class="w-100 w-50-ns">
       <div class="w-80 center tc nested-copy-line-height">
-        <h3 class="f2 black">Install in seconds, build in milliseconds.</h3>
-        <p class="f3">Hugo works on macOS, Windows, Linux, FreeBSD, and others.</p>
-        <p class="f3">Host on any server or your favorite CDN.</p>
+        <h3 class="f2 black">Install & run everywhere.</h3>
+        <p class="f3">Microcks is container based and works on Kubernetes, OpenShift, Docker Compose or Nomad.</p>
+        <p class="f3">We provide an Operator on <a href="https://operatorhub.io" class="home-link">OperatorHub.io {{ partial "svg/link-ext.svg" (dict "fill" "#333" "size" "14") }}</a> for easy and intelligent installation.</p>
+      </div>
+      <div class="w-80 center tc">
+        <a href="https://operatorhub.io/operator/microcks">
+          <img src="/images/operatorhub.png" alt="OperatorHub.io" class="h4 pv3 ph3">
+          <img src="/images/microcks-big.png" alt="Microcks on OperatorHub" class="h4 pv3 ph3">
+        </a>
       </div>
     </div>
 
     <!-- RIGHT -->
     <div class="w-100 w-50-ns tc">
-      <div class="h4">
-        <img src="/images/gopher-hero.svg" alt="Hugo Gopher" class="h4">
+      <div class="h3">
+        <img src="/images/kubernetes.svg" alt="Install on Kubernetes" class="h3 pv3 ph3">
+        <img src="/images/openshift.svg" alt="Install on OpenShift" class="h3 pv3 ph3">
+        <img src="/images/docker.svg" alt="Install on Docker" class="h3 pv3 ph3">
       </div>
-      <p class="f6 mid-gray m0 p0 pt3">Mac OS</p>
-      <div class="code f6 bg-black light-green lh-copy pv3 ph3 br2 w-100 w-50-ns center mb2 tl">
-        $ brew install hugo <br />
+      <p class="f6 mid-gray m0 p0 pt3">Kubernetes using Helm chart</p>
+      <div class="code f6 bg-black light-green lh-copy pv3 ph3 br2 w-100 w-70-ns center mb2 tl">
+        $ helm install ./microcks --name microcks <br />
       </div>
-      <p class="f6 mid-gray">Windows</p>
-      <div class="code f6 bg-black light-green lh-copy pv3 ph3 br2 w-100 w-50-ns center tl">
-        $ choco install hugo -confirm <br />
+      <p class="f6 mid-gray">OpenShift using Template</p>
+      <div class="code f6 bg-black light-green lh-copy pv3 ph3 br2 w-100 w-70-ns center tl">
+        $ oc new-app --template=microcks-persistent<br />
       </div>
-      <p class="f6 mid-gray">Linux</p>
-      <div class="code f6 bg-black light-green lh-copy pv3 ph3 br2 w-100 w-50-ns center tl">
-        $  snap install hugo <br />
+      <p class="f6 mid-gray">Docker Compose</p>
+      <div class="code f6 bg-black light-green lh-copy pv3 ph3 br2 w-100 w-70-ns center tl">
+        $ docker-compose -f microcks.yml up -d <br />
       </div>
      
 

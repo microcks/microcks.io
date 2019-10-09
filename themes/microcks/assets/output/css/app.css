@@ -4723,7 +4723,7 @@ pre {
 .bg-accent-color                      {background-color: #EBB951}
 .hover-bg-accent-color:hover          {background-color: #EBB951}
 .accent-color-light                   {color: #ff1745}
-.hover-accent-color-light:hover                   {color: #ff1745}
+.hover-accent-color-light:hover       {color: #ff1745}
 .bg-accent-color-light                {background-color: #ff1745}
 .hover-bg-accent-color-light:hover    {background-color: #ff1745}
 .accent-color-dark                    {color: #33ba91}
@@ -5135,5 +5135,34 @@ code, .code, pre code, .highlight pre  {
   max-width: 60%;
   margin-right: 20%;
   z-index: 1;
+}
+
+a.home-link {
+  color: #ff1745;
+  text-decoration-line: none !important
+}
+
+a.header-link {
+  text-decoration-line: none !important
+}
+.prose > p > a {
+  color: #ff1745;
+  text-decoration-line: none;
+}
+.prose > p > a:hover {
+  text-decoration-line: underline;
+}
+
+svg.hover-accent-color-light {
+  color: #ff1745;
+  opacity: 1;
+}
+
+code:not([class]) {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
 }
 /* purgecss end ignore */

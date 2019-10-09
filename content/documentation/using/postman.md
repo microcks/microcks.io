@@ -6,11 +6,11 @@ publishdate: 2019-09-01
 lastmod: 2019-09-02
 menu:
   docs:
-    parent: Using
+    parent: using
     name: Postman usage for Microcks
-    weight: 35
+    weight: 30
 toc: true
-weight: 35 #rem
+weight: 30 #rem
 ---
 
 ## Overview

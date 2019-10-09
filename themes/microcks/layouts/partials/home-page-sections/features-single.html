@@ -2,7 +2,7 @@
   {{ range .Params.sections }}
   {{ $.Scratch.Add "i" 1 }}{{ $i := $.Scratch.Get "i" }}
 
-    <section class="w-100  ph4 ph5-ns pv4 pv6-ns mid-gray {{ .color_classes }}">
+    <section class="w-100 ph4 ph5-ns pv4 pv6-ns mid-gray {{ .color_classes }}">
       <div class="flex-ns flex-wrap center mw9">
 
         <div class="w-100 w-50-l {{ if modBool $i 2 }}order-1{{ else }}order-0{{ end }}">

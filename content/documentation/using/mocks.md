@@ -6,9 +6,9 @@ publishdate: 2019-09-01
 lastmod: 2019-09-02
 menu:
   docs:
-    parent: Using
+    parent: using
     name: Using exposed mocks
-    weight: 30
+    weight: 80
 toc: true
 weight: 30 #rem
 ---
