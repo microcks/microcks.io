@@ -1,4 +1,4 @@
-require("typeface-muli")
+//require("typeface-muli")
 import styles from './css/main.css';
 import './js/anchorforid.js'
 import './js/clipboardjs.js'

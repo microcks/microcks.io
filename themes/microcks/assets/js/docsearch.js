@@ -1,7 +1,8 @@
 var docsearch = require('docsearch.js/dist/cdn/docsearch.js');
 docsearch({
-  apiKey: '167e7998590aebda7f9fedcf86bc4a55',
-  indexName: 'hugodocs',
+  appId: 'HAOH56NU0L',
+  apiKey: '813d24f4234329f165a773a9fc0e5011',
+  indexName: 'microcks.io',
   inputSelector: '#search-input',
-  debug: true // Set debug to true if you want to inspect the dropdown
+  debug: false // Set debug to true if you want to inspect the dropdown
 });

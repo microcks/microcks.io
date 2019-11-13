@@ -37,4 +37,58 @@
   max-width:90%;
 }
 
+.sans-serif {
+  font-family: 'Source Sans Pro', sans-serif !important;
+  color: #434343;
+}
+.fem {
+  font-family: 'Alegreya Sans SC', sans-serif !important;
+}
+
+.logo-img {
+  position: absolute;
+  display: block;
+  height: 120px;
+  width: 120px;
+  top: 0.5em;
+  left: 0.5em;
+}
+.microcks-mocks-img {
+  float: right;
+  position: relative;
+  top: 2em;
+  width: 25%;
+  max-width: 60%;
+  margin-right: 20%;
+  z-index: 1;
+}
+
+a.home-link {
+  color: #ff1745;
+  text-decoration-line: none !important
+}
+
+a.header-link {
+  text-decoration-line: none !important
+}
+.prose > * > a, .prose > * > * > a {
+  color: #ff1745;
+  text-decoration-line: none;
+}
+.prose > * > a:hover, .prose > * > * > a:hover {
+  text-decoration-line: underline;
+}
+
+svg.hover-accent-color-light {
+  color: #ff1745;
+  opacity: 1;
+}
+
+code:not([class]) {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
 /* purgecss end ignore */
