@@ -1,0 +1,31 @@
+{
+  "name": "microcks.io",
+  "version": "1.0.0",
+  "description": "Public website for Microcks.io",
+  "main": "index.js",
+  "dependencies": {
+    "atomic-algolia": "^0.3.17"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "algolia": "atomic-algolia"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/microcks/microcks.io.git"
+  },
+  "keywords": [
+    "api",
+    "mocking",
+    "testing",
+    "kubernetes",
+    "openshift"
+  ],
+  "author": "Laurent Broudoux",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/microcks/microcks.io/issues"
+  },
+  "homepage": "https://github.com/microcks/microcks.io#readme"
+}

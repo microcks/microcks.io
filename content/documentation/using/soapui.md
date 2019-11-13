@@ -35,9 +35,9 @@ In order to be correctly imported and understood by Microcks, your SoapUI projec
 				
 * Your SoapUI project may contain one or more Service definitions. However, because it's a best practice to consider each Service or API as an autonomous and isolated software asset, we'd recommend managing only one Service definition per SoapUI project,
 * Your SoapUI Mock Service should define a custom property named `version` that allows tracking of Service(s) version. It is a good practice to change this version identifier for each Service or API interface versioned changes,
-* The name of Tests Requests should be something like `"&lt;sample_id&gt; Request"`. For example: `"Karla Request"`,
-* The name of Mock Responses should be something like `"&lt;sample_id&gt; Response"`. For example: `"Karla Response"`,
-* The name of matching rules should be something like `"&lt;sample_id&gt;"`. For example: `"Karla"`,
+* The name of Tests Requests should be something like `"<sample_id&> Request"`. For example: `"Karla Request"`,
+* The name of Mock Responses should be something like `"<sample_id> Response"`. For example: `"Karla Response"`,
+* The name of matching rules should be something like `"<sample_id>"`. For example: `"Karla"`,
 				
 We recommend having a look at our sample SoapUI projects for [SOAP WebServices](https://raw.githubusercontent.com/microcks/microcks/master/samples/HelloService-soapui-project.xml) and for [REST APIs](https://raw.githubusercontent.com/microcks/microcks/master/samples/HelloAPI-soapui-project.xml) to fully understand and see in action those conventions.
 			
@@ -51,7 +51,7 @@ The screenshot below shows how to add a WSDL to an existing empty project :
 
 ## Defining Test Requests
 			
-The sample requests that are used by Microcks are indeed *SoapUI TestSuite* requests. So select the newly imported Service, right-click and choose *Generate TestSuite*. You should get this following screenshot where you select these options, validate and then give your TestSuite a name like `"&lt;Service&gt; TestSuite"` or something:
+The sample requests that are used by Microcks are indeed *SoapUI TestSuite* requests. So select the newly imported Service, right-click and choose *Generate TestSuite*. You should get this following screenshot where you select these options, validate and then give your TestSuite a name like `"<Service> TestSuite"` or something:
 			
 ![soapui-create-testsuite](/images/soapui-create-testsuite.png)
 			
@@ -59,11 +59,11 @@ You are now free to create as many *TestSteps* as you want within the *TestCases
 			
 ![soapui-testrequest](/images/soapui-testrequest.png)
 			
-As shown above, you are also free to add some assertions within your TestStep requests. The SoapUI documentation introduces the assertion concept on [this page](https://www.soapui.org/functional-testing/assertion-teststep.html). Assertions in TestSteps can be later reused when wanting to use Microcks for <a href="../tests/">Contract testing</a> of your Service.
+As shown above, you are also free to add some assertions within your TestStep requests. The SoapUI documentation introduces the assertion concept on [this page](https://www.soapui.org/functional-testing/assertion-teststep.html). Assertions in TestSteps can be later reused when wanting to use Microcks for [Contract testing](../tests) of your Service.
 			
 ## Defining Mock Responses
 			
-Mock Responses you will need to define later will be defined through a *SoapUI ServiceMock*. You have to select the newly imported Service, right-click and choose *Generate MockService*. You can let the default options as shown below and give your MockService a name like `"&lt;Service&gt; Mock"`:
+Mock Responses you will need to define later will be defined through a *SoapUI ServiceMock*. You have to select the newly imported Service, right-click and choose *Generate MockService*. You can let the default options as shown below and give your MockService a name like `"<Service> Mock"`:
 			
 ![soapui-create-servicemock](/images/soapui-create-servicemock.png)
 			

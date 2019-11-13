@@ -1,0 +1,23 @@
+{{ define "main" }}
+
+<article class="cf ph4 pv3 pv5-ns">
+  <div class="flex-ns flex-wrap center mw9">
+    <!-- LEFT -->
+    <div class="w-100 w-60-ns">
+      <h1 class="primary-color-dark">
+        {{ .Title }}
+      </h1>
+      <div class="prose" id="prose">
+        {{ .Content }}
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="w-100 w-40-ns tc">
+      <a class="twitter-timeline" data-lang="en" data-width="500" data-dnt="true" href="https://twitter.com/microcksio?ref_src=twsrc%5Etfw">Tweets by microcksio</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+  </div>
+</article>
+{{ end }}
+  

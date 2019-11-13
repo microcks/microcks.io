@@ -4,5 +4,5 @@ docsearch({
   apiKey: '813d24f4234329f165a773a9fc0e5011',
   indexName: 'microcks.io',
   inputSelector: '#search-input',
-  debug: false // Set debug to true if you want to inspect the dropdown
+  debug: true // Set debug to true if you want to inspect the dropdown
 });

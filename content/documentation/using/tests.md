@@ -17,7 +17,7 @@ weight: 30 #rem
 			
 Microcks offers mocks but can also be used for **Contract testing** of API or services being under development. You spend a lot of time describing request/response pairs and matching rules: it would be a shame not to use this sample as test cases once the development is on its way!
 			
-From the page displaying basic information on your [](../mocks/#mocks-info">microservice mocks), you have the ability to launch new tests against different endpoints that may be representing different environment into your development process. Hitting the <b>NEW TEST...</b> button, leads you to the following form where you will be able to specify an target URL for test, as weel as a Runner - a testing strategy for your new launch :
+From the page displaying basic information on your [microservice mocks](../mocks/#mocks-info), you have the ability to launch new tests against different endpoints that may be representing different environment into your development process. Hitting the <b>NEW TEST...</b> button, leads you to the following form where you will be able to specify an target URL for test, as weel as a Runner - a testing strategy for your new launch :
 			
 ![test-form](/images/test-form.png)
 			

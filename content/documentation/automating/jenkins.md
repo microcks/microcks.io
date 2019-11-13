@@ -10,7 +10,7 @@ menu:
     name: Integrating Microcks from Jenkins
     weight: 20
 toc: true
-weight: 30 #rem
+weight: 20 #rem
 categories: [automating]
 ---
 

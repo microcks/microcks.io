@@ -31,13 +31,6 @@
   post = "external"
   url = "https://github.com/microcks/microcks"
 
-[[global]]
-  name = "About"
-  weight = 210
-  icon = true
-  identifier = "about"
-  url = "/about/"
-
 ## Documentation Menus
 
 [[docs]]
@@ -70,9 +63,3 @@
   weight = 30
   identifier = "community"
   url = "/community/"
-
-[[docs]]
-  name = "About"
-  weight = 35
-  identifier = "about"
-  url = "/about/"

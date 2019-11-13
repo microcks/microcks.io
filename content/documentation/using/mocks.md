@@ -17,7 +17,7 @@ weight: 30 #rem
     
 ### Getting infos on microservices mocks
 			
-Well, now that you have [](./index.html">install</a> Microcks, created your own API/Service repository using [](../soapui/">SoapUI</a> or [](../postman/">Postman</a> and discover how to [](./index.html">import and browse content</a>, you are ready to learn more about how to use mocks managed by Microcks.
+Well, now that you have [installed](/documentation/getting-staretd) Microcks, created your own API/Service repository using [SoapUI](../soapui/) or [Postman](../postman/) and discover how to [import and browse content](/documentation/getting-started), you are ready to learn more about how to use mocks managed by Microcks.
 
 First, let's have a look at the summary page presenting an API or Service managed by Microcks. This summary page contains three sections related to different part of the API/Service :
 
@@ -49,6 +49,7 @@ Invoking Mocks is now pretty easy if you have read the upper section! Just use M
 			
 			
 As a rule of thumb, here is how the URL fragment for mocks are built and exposed within Microcks :
+
 * Mocks for REST API mocks are exposed on `/rest` sub-context. Mock for SOAP API mocks are exposed on `/soap` sub-context,
 * Name of API/Service is then added as path element of URL. Special characters of name are encoded within URL part,
 * Version of API/Service is then added as path element of URL,

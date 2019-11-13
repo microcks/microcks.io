@@ -10,5 +10,5 @@ menu:
     name: Microcks Service Accounts
     weight: 10
 toc: true
-weight: 30 #rem
+weight: 10 #rem
 ---
