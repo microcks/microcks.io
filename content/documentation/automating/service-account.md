@@ -11,4 +11,5 @@ menu:
     weight: 10
 toc: true
 weight: 10 #rem
+categories: [automating]
 ---

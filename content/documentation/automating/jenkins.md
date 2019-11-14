@@ -36,7 +36,7 @@ A common option for running Jenkins is through OpenShift platform. In that case,
 			
 Given you have an OpenShift installation running and you're logged on it, just execute that command from terminal:
 
-```sh
+```
 $ oc process -f https://raw.githubusercontent.com/microcks/microcks-jenkins-plugin/master/openshift-jenkins-master-bc.yml | oc create -f -
 ```
 
