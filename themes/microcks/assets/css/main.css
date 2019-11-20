@@ -57,10 +57,10 @@
   float: right;
   position: relative;
   top: 2em;
-  width: 25%;
-  max-width: 60%;
+  width: 400px;
+  max-width: 100%;
   margin-right: 20%;
-  z-index: 1;
+  z-index: 999;
 }
 
 a.home-link {
