@@ -1,3 +1,4 @@
-[submodule "themes/hugo"]
-	path = themes/hugo
-	url = https://github.com/gohugoio/gohugoioTheme.git
+[submodule "public"]
+	path = public
+	url = https://github.com/microcks/microcks.github.io.git
+	branch = master
