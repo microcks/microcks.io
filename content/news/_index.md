@@ -8,7 +8,7 @@ categories: [releases]
 
 ### Microcks core
 
-#### 0.8.0 on 16 Nov 2019
+#### 0.8.0 on 27 Nov 2019
 
 We just release version **0.8.0** of Microcks core! This release holds something like **40** issues fix!
 
