@@ -11,7 +11,6 @@ menu:
     weight: 40
 toc: true
 weight: 40 #rem
-categories: [automating]
 ---
 
 ## Microcks Tekton

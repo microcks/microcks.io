@@ -11,7 +11,6 @@ menu:
     weight: 20
 toc: true
 weight: 20 #rem
-categories: [automating]
 ---
 
 ## Microcks Jenkins plugin

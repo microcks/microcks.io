@@ -11,7 +11,6 @@ menu:
     weight: 50
 toc: true
 weight: 50 #rem
-categories: [automating]
 ---
 
 ## Microcks own's API

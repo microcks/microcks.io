@@ -11,7 +11,6 @@ menu:
     weight: 30
 toc: true
 weight: 30 #rem
-categories: [installing]
 ---
 
 ## Installing with Docker-compose

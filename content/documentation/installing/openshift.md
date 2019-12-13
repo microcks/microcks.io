@@ -11,7 +11,6 @@ menu:
     weight: 30
 toc: true
 weight: 20 #rem
-categories: [installing]
 ---
 
 ## Installing on OpenShift

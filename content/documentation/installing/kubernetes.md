@@ -11,7 +11,6 @@ menu:
     weight: 30
 toc: true
 weight: 10 #rem
-categories: [installing]
 ---
 
 ## Installing on Kubernetes

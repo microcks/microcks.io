@@ -11,5 +11,4 @@ menu:
     weight: 30
 toc: true
 weight: 30 #rem
-categories: [administrating]
 ---

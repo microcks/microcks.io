@@ -1,4 +1,4 @@
-<header class="flex-none w-100 bg-primary-color pv4 ph3">
+<header class="flex-none w-100 bg-primary-color pv3 ph3">
   {{ if .Params.categories }}
     {{ range .Params.categories }}
       <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}" class="f6 fw8 mb0 link mid-gray dim mr3">
@@ -21,7 +21,6 @@
       {{ . | markdownify }}
     </div>
   {{ end }}
-
   <!--
   NOTE: Removed to test builds without it.
   partial "components/author-github-data" (dict "context" . "size" "110") -->
