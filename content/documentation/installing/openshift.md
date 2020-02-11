@@ -1,21 +1,19 @@
 ---
 draft: false
-title: "Installing on OpenShift"
+title: "Installing with OpenShift templates"
 date: 2019-09-01
 publishdate: 2019-09-01
 lastmod: 2019-09-02
 menu:
   docs:
     parent: installing
-    name: Installing on OpenShift
-    weight: 30
+    name: Installing with OpenShift templates
+    weight: 20
 toc: true
 weight: 20 #rem
 ---
 
-## Installing on OpenShift
-
-### Instructions
+## Instructions
 
 The easiest way of installing Microcks for production use in most secured conditions is to do it on OpenShift. OpenShift in version 3.6 or greater is required. It is assumed that you have some kind of OpenShift cluster instance running and available. This instance can take several forms depending on your environment and needs:
 
@@ -27,7 +25,7 @@ The easiest way of installing Microcks for production use in most secured condit
 
 Then you have to ensure that Microcks templates for OpenShift are added and available into your Cluster. Templates come in 2 flavors: ephemeral or persistent. In persistent mode, template will claim a persistent volume during instanciation, such a volume should be available to your team / project on OpenShift cluster. Add the templates, by using these commands :
 
-```
+```sh
 $ oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-ephemeral-full-template.yml -n openshift
 $ oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-persistent-full-template.yml -n openshift
 ```
@@ -40,7 +38,7 @@ Once this is done can now create a new project and instanciate the template of y
 
 Typically, you'll got this kind of commands for a local Minishift instance:
 
-```
+```sh
 $ oc new-project microcks --display-name="Microcks"
 $ oc new-app --template=microcks-persistent \
    --param=APP_ROUTE_HOSTNAME=microcks-microcks.192.168.99.100.nip.io \

@@ -25,13 +25,19 @@ On this page, you will go through :
 
 Microcks may be installed in many ways depending your preferred environment. Basically, it can be installed on Kubernetes, on OpenShift, using Docker-Compose or directly using binary and source of Microcks.
 	
-### Installing on Kubernetes</h3>
+### Installing with Kubernetes Operator
+
+We provide an Operator that is distributed through [OperatorHub.io](https://operatorhub.io/operator/microcks) for easy install and management of Microcks as a Kubernetes-native application.
+
+Have a look on this [page](/documentation/installing/operator) for more informations.
+
+### Installing on Kubernetes with Helm
 
 We provide [basic Kubernetes manifest](https://raw.githubusercontent.com/microcks/microcks/master/install/kubernetes/kubernetes-ephemeral-full.yml) for simple needs but also a `Chart` for using with [Helm](https://helm.sh/) Packet Manager. This is definitely the preferred way of installing apps on Kubernetes.
 
 Have a look on this [page](/documentation/installing/kubernetes) for more informations.
 
-### Installing on OpenShift
+### Installing with OpenShift templates
 
 We provide OpenShift templates in many flavors for rapid deployment onto OpenShift. We will basically have different installation options:
 
@@ -101,4 +107,4 @@ Now that you have basic information on how to setup and use Microcks, you can go
 * Creating your definition files using [SoapUI](/documentation/using/soapui) or [Postman](/documentation/using/postman),
 * Using [exposed mocks](/documentation/using/mocks) and using variables,
 * Executing your [tests on endpoints](/documentation/using/tests) where your services and API are deployed,
-* Using [advanced features]((/documentation/using/admin)) of Microcks and admin stuffs.
+* Using [advanced features]((/documentation/using/advanced)) of Microcks and admin stuffs.

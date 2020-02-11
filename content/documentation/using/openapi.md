@@ -31,8 +31,8 @@ We will illustrate how Microcks is using OpenAPI specification through a `Car AP
             
 Within this sample specification, we have defined 2 mocks - one for the registering operation and another for the listing cars operation:
 
-* The `POST /owner/{owner}/car` operation defines a sample called `laurent_307` where we'll register a Peugeot 307 for Laurent,* 
-* The `GET /owner/{owner}/car` operation defines a sample called `laurent_cars` where we'll list the cars owned by Laurent.* 
+* The `POST /owner/{owner}/car` operation defines a sample called `laurent_307` where we'll register a Peugeot 307 for Laurent,
+* The `GET /owner/{owner}/car` operation defines a sample called `laurent_cars` where we'll list the cars owned by Laurent.
 
 ### Specifying request params
       

@@ -127,7 +127,7 @@ x-request-id: 123
 
 > Operation parameters constraints are saved into Microcks database and not replaced by a new importation of your Service or API definition. They can be independently set and updated using the [Microcks APIs](../automating/api/).
 
-## Custom dispacthing rules for mocks
+## Custom dispatching rules for mocks
 
 Coming soon...
 

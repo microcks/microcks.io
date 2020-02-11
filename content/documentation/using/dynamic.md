@@ -13,8 +13,6 @@ toc: true
 weight: 30 #rem
 ---
 
-## Getting dynamic mocks
-
 ## Creating dynamic mocks
       
 Eventhough Microcks promotes a contract first approach for defining mocks, we are well aware that in real-life it may be difficult starting that way without a great maturity on API and Service contracts. We often meet situations where design and development teams need to play a bit with a fake API to really figure out their needs and how they should then design API contract. In order to help with those situation, Microcks offers the ability to dynamically generate a generic API that you may use as a sandbox.

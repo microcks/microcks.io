@@ -3,7 +3,7 @@ draft: false
 title: "Postman usage for Microcks"
 date: 2019-09-01
 publishdate: 2019-09-01
-lastmod: 2019-09-02
+lastmod: 2020-01-02
 menu:
   docs:
     parent: using
@@ -22,6 +22,7 @@ Microcks has been tested with latest version of Postman and uses the Collection 
 ### Steps for creating a repository
 
 In order to create a tests and mocks repository using Postman, you'll need to follow the steps below:
+
 * Initialize a Postman collection that will hold the repository,
 * Create Examples and fill request parameters, headers and body,
 * Describe associated response in terms of status, headers and body,
@@ -31,17 +32,18 @@ In order to create a tests and mocks repository using Postman, you'll need to fo
 ### Conventions
 			
 In order to be correctly imported and understood by Microcks, your Postman collection should follow a little set of reasonable conventions and best practices.
+
 * Your Postman collection may contain one or more API definitions. However, because it's a best practice to consider each API as an autonomous and isolated software asset, we'd recommend managing only one API definition per Postman collection and not mixing requests related to different APIs within the same Collection,</li>
 * Your Postman collection description should hold a custom property named `version` that allows tracking of API version. It is a good practice to change this version identifier for each API interface versionned changes. As of writing, Postman does not allow editing of such custom property although the Collection v2 format allow them. By convention, we allow setting it through the collection description using this syntax: `version=1.0 - Here is now the full description of my collection...`.
 
-We recommend having a look at our sample Postman collection for https://raw.githubusercontent.com/microcks/microcks/master/samples/PetstoreAPI-collection.json">Test API to fully understand and see in action those conventions.
+We recommend having a look at our sample Postman collection for [Test API](https://raw.githubusercontent.com/microcks/microcks/master/samples/PetstoreAPI-collection.json) to fully understand and see in action those conventions.
 
 ## Collection initialisation
 			
 Collection initialization is done through *Import* of an existing resource into Postman. A best practice being using a "contract first" approach for API definition and management, you'll typically choose to *Import File* or *Import From Link* referencing a Swagger or OpenAPI contract definition.
 			
 			
-The screenshot below shows how to create a new collection from a Swagger file. We are using here the [Test API](https://raw.githubusercontent.com/lbroudoux/apicurio-test/master/apis/test-api.json") Swagger file.
+The screenshot below shows how to create a new collection from a Swagger file. We are using here the [Test API](https://raw.githubusercontent.com/lbroudoux/apicurio-test/master/apis/test-api.json) Swagger file.
 			
 ![postman-import](/images/postman-import.png)
 			
@@ -58,7 +60,7 @@ As stated by Postman documentation :
 						
 The next step is now to create a bunch of examples for each of the requests/operations of your Collection as explained by the [Postman documentation](https://www.getpostman.com/docs/postman/collections/examples). You'll give each example a meaningful name regarding the use-case it supposed to represent. Do not forget to save your example!
 						
-In contrary to ../soapui/#defining-dispatch-rules">SoapUI usage, you will not need defining mapping rules between sample requests and responses : example are perfectly suited for that.
+In contrary to [SoapUI usage](./soapui/#defining-dispatch-rules), you will not need defining mapping rules between sample requests and responses : example are perfectly suited for that.
 			
 ## Defining Test Scripts
 			
@@ -73,7 +75,8 @@ As an illustration to how Microcks use Postman and offers, let's imagine we are 
 			
 You will notice the usage of following JavaScript code: `var expectedId = globals["id"];`. What does that mean? Indeed, `globals` is an array of variables managed by Postman runtime. Usually, you have to pre-populate this array using *Pre-request script*. When running this tests in Microcks, such pre-request initialization are automatically performed for you! Every variable used within your request definition (URI parameters or query string parameters) are injected into the `globals` context so that you can directly used them within your script.
 						
-The execution of Postman tests using Microcks follows this flow :
+The execution of Postman tests using Microcks follows this flow:
+
 * for each example defined for a request, collect URI and query string parameters as key/value pairs,
 * inject each pair within `globals` JavaScript array,
 * invoke request attached script with the `globals` injected into runtime context,

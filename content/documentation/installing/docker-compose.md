@@ -13,13 +13,11 @@ toc: true
 weight: 30 #rem
 ---
 
-## Installing with Docker-compose
-
-### Localhost installation
+## Localhost installation
 
 For those of you familiar with simple Docker Compose, a <code>docker-compose</code> file is available within GitHub repository and can be used to rapidly test up things. First step is to clone the repository and then to execute docker-compose with local clone like in this commands:
 
-```        
+```sh      
 $ git clone https://github.com/microcks/microcks.git
 $ cd microcks/install/docker-compose
 $ docker-compose -f microcks.yml up -d
@@ -29,7 +27,7 @@ $ docker-compose -f microcks.yml up -d
 
 After some minutes and components have been deployed, you should end up with a Spring-boot container, a MongoDB container, a Postman-runtime and a Keycloak container like in the trace below. The default user is <code>admin</code> with <code>123</code> password. The Microcks application is now available on <code>http://localhost:8080</code> URL.
 
-```
+```sh
 $ docker ps
 CONTAINER ID        IMAGE                                      COMMAND                  CREATED             STATUS              PORTS                    NAMES
 6a563e9d87c1        microcks/microcks:latest                  "/bin/sh -c 'exec ..."   6 days ago          Up 33 seconds       0.0.0.0:8080->8080/tcp   microcks
@@ -44,7 +42,7 @@ When installing on a shared server that will be accessed from some other places 
 
 The directives just below show the detailed operations when using simple HTTP. If want to use HTTPS, you'll have to update the <code>sslRequired</code> and <code>keycloak.ssl-required</code> properties to <code>external</code> value.
 
-```
+```sh
 $ hostname -f
   myserver.example.com
 $ cd microcks/install/docker-compose/
