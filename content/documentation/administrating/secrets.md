@@ -49,4 +49,6 @@ Now that you have created and managed a secret, you can add it to your Import Jo
 
 ![secret-job-edit](/images/secret-job-edit.png)
 
-When Microcks will scheduled and execute this job to check update of artifact resource, it will simply used the referenced secret.
+When Microcks will scheduled and execute this job to check update of artifact resource, it will simply used the referenced secret. Now your job is identifier as using a secret on the UI:
+
+![secret-job-marker](/images/secret-job-marker.png)
