@@ -42,18 +42,65 @@ If you own a bunch of Swagger specifications, you won't be able to directly impo
 
 ## Direct upload
 
+The first way of adding new Services or APIs mocks to your Microcks instance is by realizing a direct upload of the artifact. From the left vertical navigation bar, just select the **Importers** menu entry and then choose `Upload`. You'll then see a dialog window allowing you to browse your filesystem and pick a new file to upload.
 
+![artifacts-upload](/images/artifacts-upload.png)
+
+Hit the `Upload` green button. Upload and then artifact import shoud then occur with notification messages appearing on the top right corner. Newly discovered Services and APIs can be found into the **APIs | Services** repository.
+
+While this method is very convenient for quick test, we'll have to re-import your artifact file on every new change...
 
 ## Scheduled import
 
+Another way of adding new Services or APIs mocks is by scheduling an **Importer Job** into Microcks. Actually we see it as the best way to achieve continuous, iteratove and incremental discovery of your Services and APIs mocks and tests. The principle is very simple: you'll save your artifact file into the Git repository of your choice (public or private) and Microcks will take care of periodically checking if chnages have been applied and new mock or services definitions are present into your artifact.
+ 
 ![artifacts-scheduling](/images/artifacts-scheduling.png)
 
-### Creating a new scheduled import
+> Though we think that Git repository (or vesion control system) are the best place to keep such artifacts, Microcks only require simple HTTP service indeed. So you may store your artifact on a simple filesystem as long as it is reachable using HTTP.
+
+Still from the left vertical navigation bar, just select the **Importers** menu entry and then see the list of already existing importers.
+
+Once created, importer jobs can be managed, activated or forced through this scree. You'll see colored marker for each job line:
+
+* `Scanned` means that job is actually scheduled for next importation run. Otherwise `Inactive`  will be displayed.
+* `Imported` means thet job has been successfully imported on previous run. Otherwise `Last import errors` will be displayed with a popup showing last error,
+* `Services` is a shortcut to access the services definitions discovered by this job.
+
+Using the 3-dotted menu, you can easily enable/disable of force the job.
 
 ![importer-status](/images/importer-status.png)
 
+### Creating a new scheduled import
+
+You may declare a new Importer job hitting the `Create` button.
+
+A wizard modal then appear as creating an Importer is a 2-steps process. First step is about mandatory basic properties such as the name of your Importer and the repository URL it will use to check for discovering API mocks.
+
 ![importer-step1](/images/importer-step1.png)
+
+Second step is about authentication options for accessing the repository. Depending on the type of repository (public or private) you may need to enable/disable certificate validaton as well as manage an authentication process through the usage of a **Secret**. See more on Secrets [here](../../administrating/secrets).
 
 ![importer-step3](/images/importer-step2.png)
 
+Finally the review displays a summary before effective creation of the Importer Job.
+
 ![importer-step3](/images/importer-step3.png)
+
+On first time creation the Job is automatically `Scanned` and `Imported`.
+
+
+### Configure scheduling interval
+
+Scheduling interval can be globally configured for all the Jobs. It is a global setting and not a per-Job one. This is achieved through the `services.update.interval` property into the `application.properties` configuration file that takes the value of `SERVICES_UPDATE_INTERVAL` environment variable. The value shoud be set to a valid [CRON expression](https://en.wikipedia.org/wiki/Cron#CRON_expression) ; default is every 2 hours.
+
+```properties
+services.update.interval=${SERVICES_UPDATE_INTERVAL:0 0 0/2 * * *}
+```
+
+## Errors management
+
+As import can be scheduled and take some *little* time, it is done asynchronously regarding the humain interaction that has triggered it. We then did choose not having a blocking process regarding errors management: Microcks importers will try to discover and import services but will die silently in case of any failure. We also think that this also promotes iterative and incremental way of working: you know that your job will not roughly fail if your new samples are not yet complete.
+
+Some of the error messages will be reported through the `Last import errors` status but some not... We try making the logged informations clearer regarding this type of errors but we incite you having a look at the **Trouble shooting** section of each specific importer documentation if the discovered services informations do not match with your expectations.
+
+We hope releasing in near future some kind of `linter` that may help with analysing your artifact to check compliance with recommended practices and conventions.
