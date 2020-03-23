@@ -27,7 +27,7 @@ A simple form is now display, asking you to give the following Service Propertie
 * `Service Name and Version` will be the unique identifiers of the new dynamic service you want to create,
 * `Resource` will the kind of resource (as REST protocol understands *resource*) that will be manage by dynamic service.
   
-![dynamic-form](/images/dynamic-form.png")
+![dynamic-form](/images/dynamic-form.png)
   
 Just hit the `Add` button and you are few seconds away of having a ready-to-use REST Service/API that proposes different operations as shown in capture below. This Service/API is immediately exposing mocks endpoints for the different operations. It Swagger contract is also directly available for download.
   
