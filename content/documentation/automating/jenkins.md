@@ -21,12 +21,12 @@ Using this plugin, it is really easy to integrate tests stages within your Conti
 			
 ### Getting raw plugin
       
-While not being distributed yet as an official Jenkins plugin, Microcks Jenkins plugin is available and can be downloaded from [Central Maven repository](http://central.maven.org/maven2/io/github/microcks/microcks-jenkins-plugin/). Just get the [HPI file](http://central.maven.org/maven2/io/github/microcks/microcks-jenkins-plugin/0.2.0/microcks-jenkins-plugin-0.2.0.hpi) and install it on your Jenkins master [your preferred way](https://jenkins.io/doc/book/managing/plugins/).
+While not being distributed yet as an official Jenkins plugin, Microcks Jenkins plugin is available and can be downloaded from [Central Maven repository](https://repo.maven.apache.org/maven2/io/github/microcks/microcks-jenkins-plugin/). Just get the [HPI file](http://repo.maven.apache.org/maven2/io/github/microcks/microcks-jenkins-plugin/0.2.0/microcks-jenkins-plugin-0.2.0.hpi) and install it on your Jenkins master [your preferred way](https://jenkins.io/doc/book/managing/plugins/).
             
 Pick up the version corresponding to your Microcks installation :
 
-* [0.2.0 version](http://central.maven.org/maven2/io/github/microcks/microcks-jenkins-plugin/0.2.0/microcks-jenkins-plugin-0.2.0.hpi) from Microcks `0.7.0` or greater
-* [0.1.1 version](http://central.maven.org/maven2/io/github/microcks/microcks-jenkins-plugin/0.1.1/microcks-jenkins-plugin-0.1.1.hpi) from Microcks version before `0.7.0`
+* [0.2.0 version](https://repo.maven.apache.org/maven2/io/github/microcks/microcks-jenkins-plugin/0.2.0/microcks-jenkins-plugin-0.2.0.hpi) from Microcks `0.7.0` or greater
+* [0.1.1 version](https://repo.maven.apache.org/maven2/io/github/microcks/microcks-jenkins-plugin/0.1.1/microcks-jenkins-plugin-0.1.1.hpi) from Microcks version before `0.7.0`
 			
 
 ### Building an OpenShift Jenkins master embedding plugin
