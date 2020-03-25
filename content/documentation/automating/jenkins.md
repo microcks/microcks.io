@@ -40,6 +40,13 @@ $ oc process -f https://raw.githubusercontent.com/microcks/microcks-jenkins-plug
 ```
 
 This should start a `Build` and then create an `ImageStream` called `microcks-jenkins-master` in your current project. After few minutes, a `microcks-jenkins-master:latest` container image should be available and you may be able to reference it as a bootstrap when creating a new Jenkins Service on OpenShift.
+
+If you already have a Jenkins deployment you want to update, just issue the two following commands:
+
+```
+$ oc set triggers dc/jenkins --remove --from-image=openshift/jenkins:2
+$ oc set triggers dc/jenkins --from-image=microcks-jenkins-master:latest -c jenkins
+```
 			
 ## Setting up Microcks Jenkins plugin
 
