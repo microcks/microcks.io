@@ -3,7 +3,7 @@ draft: false
 title: "Installing with docker-compose"
 date: 2019-09-01
 publishdate: 2019-09-01
-lastmod: 2019-09-02
+lastmod: 2020-03-26
 menu:
   docs:
     parent: installing
@@ -15,17 +15,31 @@ weight: 30 #rem
 
 ## Localhost installation
 
-For those of you familiar with simple Docker Compose, a <code>docker-compose</code> file is available within GitHub repository and can be used to rapidly test up things. First step is to clone the repository and then to execute docker-compose with local clone like in this commands:
+For those of you familiar with simple Docker Compose, a <code>docker-compose</code> file is available within GitHub repository and can be used to rapidly test up things. First step is to clone the repository, prepare TLS certificates and then to execute docker-compose with local clone. For easy certificates generations, we've have prepared a sole script that takes care of generating everything in a local `/keystore` folder. Just follow this procedure:
 
 ```sh      
 $ git clone https://github.com/microcks/microcks.git
 $ cd microcks/install/docker-compose
-$ docker-compose -f microcks.yml up -d
+$ ./setup-tls-run.sh
+[...]
+Starting Microcks using docker-compose ...
+------------------------------------------
+Stop it with: docker-compose -f microcks.yml stop
+Re-launch it with: docker-compose -f microcks.yml start
+Clean everything with: docker-compose -f microcks.yml down
+------------------------------------------
+Go to https://localhost:8080 to use it
+Having issues? Check you have changed microcks.yml to your platform
+
+Starting microcks-keycloak        ... done
+Starting microcks-mongo           ... done
+Starting microcks-postman-runtime ... done
+Starting microcks                 ... done
 ```
 
 > Depending on your operating system, you'll have to first edit the `microcks.yml` file to comment and uncomment the value for `KEYCLOAK_URL` variable. Use the `docker.for.mac.localhost` or `docker.for.win.localhost` values accordingly.
 
-After some minutes and components have been deployed, you should end up with a Spring-boot container, a MongoDB container, a Postman-runtime and a Keycloak container like in the trace below. The default user is <code>admin</code> with <code>123</code> password. The Microcks application is now available on <code>http://localhost:8080</code> URL.
+After some minutes and components have been deployed, you should end up with a Spring-boot container, a MongoDB container, a Postman-runtime and a Keycloak container like in the trace below. The default user is <code>admin</code> with <code>123</code> password. The Microcks application is now available on <code>https://localhost:8080</code> URL.
 
 ```sh
 $ docker ps
