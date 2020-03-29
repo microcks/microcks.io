@@ -3,7 +3,7 @@ draft: false
 title: "Integrating Microcks from Jenkins"
 date: 2019-09-01
 publishdate: 2019-09-01
-lastmod: 2019-09-02
+lastmod: 2020-03-29
 menu:
   docs:
     parent: automating
@@ -55,6 +55,7 @@ Since the version `0.2.0`, this plugin is using identified **Service Accounts** 
 ![jenkins-installations](/images/jenkins-installations.png)
 			
 A Microcks installation configuration need 5 parameters:
+
 * A `Name` will be used by your Jobs or Pipelines as a reference of an environment,
 * The `API URL` is the endpoint of your Microcks server receiving API calls,
 * The `Keycloak URL` is the endpoint of the Keycloak associated with your Microcks server. You should set it the full URL including the realm name your instance is attached,
@@ -74,7 +75,7 @@ Jenkins plugins may be used in 2 ways:
 			
 When defining a new project into Jenkins GUI, you may want to add a new `Launch Microcks Test Runner` step as shown in the capture below.
 			
-![jenkins-build-step](/images/jenkins-build-step.png" class="img-responsive"/>
+![jenkins-build-step](/images/jenkins-build-step.png)
 			
 The parameters that can be set here are:
 
