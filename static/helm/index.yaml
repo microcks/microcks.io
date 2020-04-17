@@ -3,9 +3,9 @@ entries:
   microcks:
   - apiVersion: v2
     appVersion: 0.9.0
-    created: "2020-04-15T18:11:07.296401+02:00"
+    created: "2020-04-17T12:37:27.551484+02:00"
     description: Microcks - API Mocking and Testing
-    digest: b5680b70ae51fc7caad7b896efedc378b0caf0292a3999a2f7a829247c80c2c4
+    digest: a93922c8ed835d6545269b4b18727405482f60b3b756cdaf7d193912949a8ef7
     home: https://microcks.io
     icon: https://microcks.io/images/microcks-big.png
     keywords:
@@ -23,8 +23,8 @@ entries:
     - https://microcks.io
     type: application
     urls:
-    - https://microcks.io/helm/microcks-0.9.0-helm-3.kube-1.17.tgz
-    version: 0.9.0-helm-3.kube-1.17
+    - https://microcks.io/helm/microcks-0.9.0.tgz
+    version: 0.9.0
   - apiVersion: v2
     appVersion: 0.8.0
     created: "2020-02-26T09:21:04.15071+01:00"
@@ -47,6 +47,6 @@ entries:
     - https://microcks.io
     type: application
     urls:
-    - https://microcks.io/helm/microcks-0.8.0-helm-3.kube-1.17.tgz
+    - https://microcks.io/helm/microcks-0.8.0.tgz
     version: 0.8.0-helm-3.kube-1.17
-generated: "2020-04-15T18:11:07.294739+02:00"
+generated: "2020-04-17T12:37:27.549574+02:00"
