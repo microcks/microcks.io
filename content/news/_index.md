@@ -8,6 +8,21 @@ categories: [releases]
 
 ### Microcks core
 
+#### 0.9.0 on 20 Apr 2020
+
+We are delighted pleased to announce the Microcks release **0.9.0** that introduces a tremendous amount of enhancements and new features.
+
+Big thanks to our growing community for all the work done, the raised issues and the collected feedback during the last 5 months to make it possible.
+
+Among the many novelties, it embeds: 
+* Easier installation experience with availability on Helm Hub and OperatorHub.io,
+* Better security with TLS everywhere and Red Hat Universal Base Images,
+* Richer management and content organization features,
+* Dynamic mocking support,
+* Testing integration using #tekton pipelines.
+
+Check out our [Medium release notes](https://medium.com/microcksio/microcks-0-9-0-release-ae43c9a0061) and stay tuned for more to come around!
+
 #### 0.8.0 on 27 Nov 2019
 
 We just release version **0.8.0** of Microcks core! This release holds something like **40** issues fix!
