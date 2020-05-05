@@ -8,6 +8,16 @@ categories: [releases]
 
 ### Microcks core
 
+#### 0.9.1 on 5 May 2020
+
+Version **0.9.1** is a minor bug-fix release for some features included into **0.9.0**. More specifically, it fixes:
+
+* The evaluation of request params for dynamic mock response generation,
+* The conservation of overriden properties during successive imports,
+* Some JavaScript errors in the UI that may slowdown on large services repository.
+
+Please check [GitHub milestone](https://github.com/microcks/microcks/milestone/9?closed=1) for the list of enhancement and issues.
+
 #### 0.9.0 on 20 Apr 2020
 
 We are delighted pleased to announce the Microcks release **0.9.0** that introduces a tremendous amount of enhancements and new features.
@@ -15,6 +25,7 @@ We are delighted pleased to announce the Microcks release **0.9.0** that introdu
 Big thanks to our growing community for all the work done, the raised issues and the collected feedback during the last 5 months to make it possible.
 
 Among the many novelties, it embeds: 
+
 * Easier installation experience with availability on Helm Hub and OperatorHub.io,
 * Better security with TLS everywhere and Red Hat Universal Base Images,
 * Richer management and content organization features,
