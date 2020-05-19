@@ -8,6 +8,12 @@ categories: [releases]
 
 ### Microcks core
 
+#### 0.9.2 on 19 May 2020
+
+Version **0.9.2** is a minor bug-fix release embedding a fix for a regression that occurs since **0.9.0** release - and fix was expressly needed by one of our community members ;-)
+
+Issue #220 make it possible again to retrieve APIs or WebServices contracts using Microcks API. Please see [issue #220](https://github.com/microcks/microcks/issues/220) for details.
+
 #### 0.9.1 on 5 May 2020
 
 Version **0.9.1** is a minor bug-fix release for some features included into **0.9.0**. More specifically, it fixes:
