@@ -21,20 +21,20 @@ Once you get your Microcks instance up and running, the next step is to start ad
 
 As previously introduced, Microcks *"turns out your API contract into live mocks in seconds"* - the noticeable part of these sentence being **API contract**. The cool things here is that is does not require you to produce another document: it is able to reuse existing **artifacts** that you may gather Microcks with. In order to be usable by Microcks, such artifacts should hold syntactical contracts but also full samples on how your Service is expected to work - and this is only possible by embedding complete pairs of requests and responses.
 
-Microcks supports the folloming editing tools and export/import formats as **artifacts** formats:
+Microcks supports the following editing tools and export/import formats as **artifacts** formats:
 
 ![artifacts-formats](/images/artifacts-formats.png)
 
 We provide built-in parsers and importers for the following formats:
 
 * [SoapUI projects](https://www.soapui.org/soapui-projects/soapui-projects.html) files starting with the version 5.1 or SoapUI. See our [documentation](../soapui/) on some conventions you should follow for this project structure,
-* [Postman collecitons](https://learning.postman.com/docs/postman/collections/data-formats/) files with v1.0 or v2.x file format. See our [documentation](../postman/) on some conventions you should follow for this collection structure,
+* [Postman collections](https://learning.postman.com/docs/postman/collections/data-formats/) files with v1.0 or v2.x file format. See our [documentation](../postman/) on some conventions you should follow for this collection structure,
 * [Apicurio Studio](https://apicurio-studio.readme.io/docs/integrate-microcks-for-mocking-your-api) direct integration when working on OpenAPI 3.x API specifications,
 * [OpenAPI v3.x](http://spec.openapis.org/oas/v3.0.3) files whether using the YAML of JSON format. See our [documentation](../openapi/) on some conventions you should follow for this specification,
 
 > People very often ask *"Why the Swagger format - aka OpenApi 2.0 - isn't supported by Microcks?"*. This is because Swagger is incomplete for specifying mocks as it does not allow full specifications of examples. Sure, the Swagger spec allows you to illustrate responses with samples but it does not allow you to do so with request or request parameters (whether in path, query or headers). And if some tools - like Swagger UI - seems to compose sample requests, they're only doing this using schema information with random generated values...
 
-If you own a bunch of Swagger specifications, you won't be able to directly import thme into Microcks - see the above note on the reason why. Thus, you will need to have an extra step and use a wrapper tool (Postman or SoapUI) for adding complete requests / responses pairs that will be used as the basis of your API real-life mocks.
+If you own a bunch of Swagger specifications, you won't be able to directly import them into Microcks - see the above note on the reason why. Thus, you will need to have an extra step and use a wrapper tool (Postman or SoapUI) for adding complete requests / responses pairs that will be used as the basis of your API real-life mocks.
 
 ![artifacts-swagger-adaptations](/images/artifacts-swagger-adaptations.png)
 
@@ -52,18 +52,18 @@ While this method is very convenient for quick test, we'll have to re-import you
 
 ## Scheduled import
 
-Another way of adding new Services or APIs mocks is by scheduling an **Importer Job** into Microcks. Actually we see it as the best way to achieve continuous, iteratove and incremental discovery of your Services and APIs mocks and tests. The principle is very simple: you'll save your artifact file into the Git repository of your choice (public or private) and Microcks will take care of periodically checking if chnages have been applied and new mock or services definitions are present into your artifact.
+Another way of adding new Services or APIs mocks is by scheduling an **Importer Job** into Microcks. Actually we see it as the best way to achieve continuous, iterative and incremental discovery of your Services and APIs mocks and tests. The principle is very simple: you'll save your artifact file into the Git repository of your choice (public or private) and Microcks will take care of periodically checking if changes have been applied and new mock or services definitions are present into your artifact.
  
 ![artifacts-scheduling](/images/artifacts-scheduling.png)
 
-> Though we think that Git repository (or vesion control system) are the best place to keep such artifacts, Microcks only require simple HTTP service indeed. So you may store your artifact on a simple filesystem as long as it is reachable using HTTP.
+> Though we think that Git repository (or version control system) are the best place to keep such artifacts, Microcks only require simple HTTP service indeed. So you may store your artifact on a simple filesystem as long as it is reachable using HTTP.
 
 Still from the left vertical navigation bar, just select the **Importers** menu entry and then see the list of already existing importers.
 
-Once created, importer jobs can be managed, activated or forced through this scree. You'll see colored marker for each job line:
+Once created, importer jobs can be managed, activated or forced through this screen. You'll see colored marker for each job line:
 
-* `Scanned` means that job is actually scheduled for next importation run. Otherwise `Inactive`  will be displayed.
-* `Imported` means thet job has been successfully imported on previous run. Otherwise `Last import errors` will be displayed with a popup showing last error,
+* `Scanned` means that the job is actually scheduled for next importation run. Otherwise `Inactive`  will be displayed.
+* `Imported` means that the job has been successfully imported on previous run. Otherwise `Last import errors` will be displayed with a popup showing the last error,
 * `Services` is a shortcut to access the services definitions discovered by this job.
 
 Using the 3-dotted menu, you can easily enable/disable of force the job.
@@ -74,7 +74,7 @@ Using the 3-dotted menu, you can easily enable/disable of force the job.
 
 You may declare a new Importer job hitting the `Create` button.
 
-A wizard modal then appear as creating an Importer is a 2-steps process. First step is about mandatory basic properties such as the name of your Importer and the repository URL it will use to check for discovering API mocks.
+A wizard modal then appears as creating an Importer is a 2-steps process. First step is about mandatory basic properties such as the name of your Importer and the repository URL it will use to check for discovering API mocks.
 
 ![importer-step1](/images/importer-step1.png)
 
@@ -101,6 +101,6 @@ services.update.interval=${SERVICES_UPDATE_INTERVAL:0 0 0/2 * * *}
 
 As import can be scheduled and take some *little* time, it is done asynchronously regarding the humain interaction that has triggered it. We then did choose not having a blocking process regarding errors management: Microcks importers will try to discover and import services but will die silently in case of any failure. We also think that this also promotes iterative and incremental way of working: you know that your job will not roughly fail if your new samples are not yet complete.
 
-Some of the error messages will be reported through the `Last import errors` status but some not... We try making the logged informations clearer regarding this type of errors but we incite you having a look at the **Trouble shooting** section of each specific importer documentation if the discovered services informations do not match with your expectations.
+Some of the error messages will be reported through the `Last import errors` status but some not... We try making the logged informations clearer regarding this type of errors but we incite you to have a look at the **Trouble shooting** section of each specific importer documentation if the discovered services informations do not match with your expectations.
 
 We hope releasing in near future some kind of `linter` that may help with analysing your artifact to check compliance with recommended practices and conventions.
