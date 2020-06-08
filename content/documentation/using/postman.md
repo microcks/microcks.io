@@ -34,7 +34,7 @@ In order to create a tests and mocks repository using Postman, you'll need to fo
 In order to be correctly imported and understood by Microcks, your Postman collection should follow a little set of reasonable conventions and best practices.
 
 * Your Postman collection may contain one or more API definitions. However, because it's a best practice to consider each API as an autonomous and isolated software asset, we'd recommend managing only one API definition per Postman collection and not mixing requests related to different APIs within the same Collection,</li>
-* Your Postman collection description should hold a custom property named `version` that allows tracking of API version. It is a good practice to change this version identifier for each API interface versionned changes. As of writing, Postman does not allow editing of such custom property although the Collection v2 format allow them. By convention, we allow setting it through the collection description using this syntax: `version=1.0 - Here is now the full description of my collection...`.
+* Your Postman collection description should hold a custom property named `version` that allows tracking of API version. It is a good practice to change this version identifier for each API interface versioned changes. As of writing, Postman does not allow editing of such custom property although the Collection v2 format allow them. By convention, we allow setting it through the collection description using this syntax: `version=1.0 - Here is now the full description of my collection...`.
 
 We recommend having a look at our sample Postman collection for [Test API](https://raw.githubusercontent.com/microcks/microcks/master/samples/PetstoreAPI-collection.json) to fully understand and see in action those conventions.
 
@@ -60,20 +60,20 @@ As stated by Postman documentation :
 						
 The next step is now to create a bunch of examples for each of the requests/operations of your Collection as explained by the [Postman documentation](https://www.getpostman.com/docs/postman/collections/examples). You'll give each example a meaningful name regarding the use-case it supposed to represent. Do not forget to save your example!
 						
-In contrary to [SoapUI usage](./soapui/#defining-dispatch-rules), you will not need defining mapping rules between sample requests and responses : example are perfectly suited for that.
+In contrary to [SoapUI usage](../soapui/#defining-dispatch-rules), you will not need defining mapping rules between sample requests and responses : example are perfectly suited for that.
 			
 ## Defining Test Scripts
 			
-> This is an optional step that is only required if you also want to use Microcks for testing your Service or API implement as the development process goes.
+> This is an optional step that is only required if you also want to use Microcks to test your Service or API implementation as the development process progresses.
 			
 			
-Postman allows to attach some test scripts defined in JavaScript to a request or `Operation`. Contrary to ../soapui/#defining-tests">SoapUI usage where different tests assertions can be put on each test requests, Postman only allows you to attach script to the request level and not to examples. Such scripts should then be written so that they can be applied to the different examples but Microcks offers some way to ease that. For a global views of tests in Postman and their capabilities, we recommend reading the [Introducting to Scripts](https://www.getpostman.com/docs/postman/scripts/intro_to_scripts).
+Postman allows to attach some test scripts defined in JavaScript to a request or `Operation`. Contrary to [SoapUI usage](../soapui/#defining-tests) where different tests assertions can be put on each test request, Postman only allows you to attach scripts to the request level and not to examples. Such scripts should then be written so that they can be applied to the different examples but Microcks offers some way to ease that. For a global view of tests in Postman and their capabilities, we recommend reading the [Introduction to Scripts](https://www.getpostman.com/docs/postman/scripts/intro_to_scripts).
 			
-As an illustration to how Microcks use Postman and offers, let's imagine we are still using the [Test API](https://raw.githubusercontent.com/lbroudoux/apicurio-test/master/apis/test-api.json) we mentionned aboved. There's an `Operation` allowing to retrieve an order using its unique identifier. We have followed the previous section and have defined 2 examples for the corresponding request in Collection. Now we want to write a test that ensure that when API is invoked, the returned `order` has the `id` we specified into URI. We will write a test script that way:
+As an illustration to how Microcks use Postman and offers, let's imagine we are still using the [Test API](https://raw.githubusercontent.com/lbroudoux/apicurio-test/master/apis/test-api.json) we mentioned above. There's an `Operation` allowing to retrieve an order using its unique identifier. We have followed the previous section and have defined 2 examples for the corresponding request in Collection. Now we want to write a test that ensure that when API is invoked, the returned `order` has the `id` we specified into URI. We will write a test script that way:
 			
 ![postman-script](/images/postman-script.png)
 			
-You will notice the usage of following JavaScript code: `var expectedId = globals["id"];`. What does that mean? Indeed, `globals` is an array of variables managed by Postman runtime. Usually, you have to pre-populate this array using *Pre-request script*. When running this tests in Microcks, such pre-request initialization are automatically performed for you! Every variable used within your request definition (URI parameters or query string parameters) are injected into the `globals` context so that you can directly used them within your script.
+You will notice the usage of following JavaScript code: `var expectedId = globals["id"];`. What does that mean? Indeed, `globals` is an array of variables managed by the Postman runtime. Usually, you have to pre-populate this array using *Pre-request script*. When running this test in Microcks, such pre-request initialization is automatically performed for you! Every variable used within your request definition (URI parameters or query string parameters) are injected into the `globals` context so that you can directly used them within your script.
 						
 The execution of Postman tests using Microcks follows this flow:
 
@@ -82,11 +82,11 @@ The execution of Postman tests using Microcks follows this flow:
 * invoke request attached script with the `globals` injected into runtime context,
 * collect the results within `tests` array to detect success or failure.
 
-Here's below another example of such a generic script that validated the received JSON content:
+Here is another example of such a generic script that validates the received JSON content:
 			
 ![postman-script-validation](/images/postman-script-validation.png)
 			
-This script validates that all the JSON `order` objects returned in response have all the `status` that is requested using the query parameter `status` value. Otherwise, a `Valid response` assertion failure is thrown and stored into the tests array.
+This script validates that all the JSON `order` objects returned in response all have the `status` that is requested using the query parameter `status` value. Otherwise, a `Valid response` assertion failure is thrown and stored into the tests array.
 
 ## Export Postman collection
 			
