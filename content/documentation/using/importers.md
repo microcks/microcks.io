@@ -46,7 +46,7 @@ The first way of adding new Services or APIs mocks to your Microcks instance is 
 
 ![artifacts-upload](/images/artifacts-upload.png)
 
-Hit the `Upload` green button. Upload and then artifact import shoud then occur with notification messages appearing on the top right corner. Newly discovered Services and APIs can be found into the **APIs | Services** repository.
+Hit the `Upload` green button. Upload and then artifact import should then occur with notification messages appearing on the top right corner. Newly discovered Services and APIs can be found into the **APIs | Services** repository.
 
 While this method is very convenient for quick test, we'll have to re-import your artifact file on every new change...
 
@@ -78,7 +78,7 @@ A wizard modal then appears as creating an Importer is a 2-steps process. First 
 
 ![importer-step1](/images/importer-step1.png)
 
-Second step is about authentication options for accessing the repository. Depending on the type of repository (public or private) you may need to enable/disable certificate validaton as well as manage an authentication process through the usage of a **Secret**. See more on Secrets [here](../../administrating/secrets).
+Second step is about authentication options for accessing the repository. Depending on the type of repository (public or private) you may need to enable/disable certificate validation as well as manage an authentication process through the usage of a **Secret**. See more on Secrets [here](../../administrating/secrets).
 
 ![importer-step3](/images/importer-step2.png)
 
@@ -91,7 +91,7 @@ On first time creation the Job is automatically `Scanned` and `Imported`.
 
 ### Configure scheduling interval
 
-Scheduling interval can be globally configured for all the Jobs. It is a global setting and not a per-Job one. This is achieved through the `services.update.interval` property into the `application.properties` configuration file that takes the value of `SERVICES_UPDATE_INTERVAL` environment variable. The value shoud be set to a valid [CRON expression](https://en.wikipedia.org/wiki/Cron#CRON_expression) ; default is every 2 hours.
+Scheduling interval can be globally configured for all the Jobs. It is a global setting and not a per-Job one. This is achieved through the `services.update.interval` property into the `application.properties` configuration file that takes the value of `SERVICES_UPDATE_INTERVAL` environment variable. The value should be set to a valid [CRON expression](https://en.wikipedia.org/wiki/Cron#CRON_expression) ; default is every 2 hours.
 
 ```properties
 services.update.interval=${SERVICES_UPDATE_INTERVAL:0 0 0/2 * * *}
@@ -99,8 +99,8 @@ services.update.interval=${SERVICES_UPDATE_INTERVAL:0 0 0/2 * * *}
 
 ## Errors management
 
-As import can be scheduled and take some *little* time, it is done asynchronously regarding the humain interaction that has triggered it. We then did choose not having a blocking process regarding errors management: Microcks importers will try to discover and import services but will die silently in case of any failure. We also think that this also promotes iterative and incremental way of working: you know that your job will not roughly fail if your new samples are not yet complete.
+As import can be scheduled and take some *little* time, it is done asynchronously regarding the human interaction that has triggered it. We then did choose not having a blocking process regarding errors management: Microcks importers will try to discover and import services but will die silently in case of any failure. We also think that this also promotes iterative and incremental way of working: you know that your job will not roughly fail if your new samples are not yet complete.
 
-Some of the error messages will be reported through the `Last import errors` status but some not... We try making the logged informations clearer regarding this type of errors but we incite you to have a look at the **Trouble shooting** section of each specific importer documentation if the discovered services informations do not match with your expectations.
+Some of the error messages will be reported through the `Last import errors` status but some not... We try making the logged information clearer regarding this type of errors but we incite you to have a look at the **Trouble shooting** section of each specific importer documentation if the discovered services information do not match with your expectations.
 
-We hope releasing in near future some kind of `linter` that may help with analysing your artifact to check compliance with recommended practices and conventions.
+We hope releasing in near future some kind of `linter` that may help with analyzing your artifact to check compliance with recommended practices and conventions.
