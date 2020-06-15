@@ -52,23 +52,36 @@ b3cb4840597b        mongo:3.3.12                               "/entrypoint.sh m
 
 ## Server installation
       
-When installing on a shared server that will be accessed from some other places and machines, you'll need to tweak some configuration files before launching the <code>docker-compose</code> command. The properties to setup/update in that case are the URL to access and redirect to Keycloak server and the access mode to Keycloak depending on the protocol your want to use.
+When installing on a shared server that will be accessed from some other places and machines, you'll need to tweak some configuration files before launching the <code>docker-compose</code> command. The properties to setup/update in that case are the URL to access and redirect to Keycloak server.
 
-The directives just below show the detailed operations when using simple HTTP. If want to use HTTPS, you'll have to update the <code>sslRequired</code> and <code>keycloak.ssl-required</code> properties to <code>external</code> value.
+You'll also need some valid certs, keystore and trustore in the `keycloak` folder for both the Microks and the Keycloak components. You can use this simple useful docker image for generating them:
+
+```sh
+$ docker run -v $PWD/keystore:/certs -e SERVER_HOSTNAMES="myserver.example.com" -it nmasse/mkcert:0.1
+$ mv ./keystore/server.crt ./keystore/tls.crt
+$ mv ./keystore/server.key ./keystore/tls.key
+$ mv ./keystore/server.p12 ./keystore/microcks.p12
+$ ls keystore/
+keystore.jks   microcks.p12   rootCA-key.pem rootCA.pem     tls.crt        tls.key        truststore.jks
+```
+
+Here are below the basic commands for doing the setup:
 
 ```sh
 $ hostname -f
   myserver.example.com
 $ cd microcks/install/docker-compose/
 $ cp keycloak-realm/microcks-realm-sample.json keycloak-realm/microcks-realm-sample.json.bak
-$ apt-get install jq
-$ jq '.applications |= map(if .name == "microcks-app-js" then .redirectUris = [ "http://myserver.example.com:8080/*" ] else . end) | .sslRequired |= "none"' keycloak-realm/microcks-realm-sample.json.bak > keycloak-realm/microcks-realm-sample.json
-$ perl -i.bak -pe 's|KEYCLOAK_URL=http://localhost:8180/auth|KEYCLOAK_URL=http://myserver.example.com:8180/auth|' microcks.yml
-$ perl -i.bak -pe 's|keycloak.ssl-required=external|keycloak.ssl-required=none|' config/application.properties
+$ apt-get install -y jq docker-compose
+
+$ jq '.applications |= map(if .name == "microcks-app-js" then .redirectUris = [ "https://myserver.example.com:8080/*" ] else . end)' keycloak-realm/microcks-realm-sample.json.bak > keycloak-realm/microcks-realm-sample.json
+$ perl -i.bak -pe 's|KEYCLOAK_URL=https://localhost:8543/auth|KEYCLOAK_URL=https://myserver.example.com:8543/auth|' microcks.yml
+
 $ sudo docker-compose -f microcks.yml up -d
 ```
 
 All this directives are grouped into a single script named <code>setup-microcks-apt.sh</code> you'll find into the <code>install/docker-compose</code> directory. You can use it to setup your single server installation of Microcks. Just run the <code>docker-compose -f microcks.yml up -d</code><br/> command after having used this script.
+
 
 ## Quick Azure installation
 
