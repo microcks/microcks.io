@@ -7,6 +7,10 @@ menu:
 toc: true
 ---
 
+### Media resources
+
+- [Logos and assets](/resources/media/media-resources)
+
 ### Articles
 
 - [Mocking Microservices Made Easy with Microcks](https://blog.openshift.com/mocking-microservices-made-easy-microcks/)
