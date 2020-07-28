@@ -1,0 +1,35 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Swagger UI</title>
+  <link href="/swagger-ui/swagger-ui.css" media="screen" rel="stylesheet" type="text/css" />
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+  <script src="/swagger-ui/lib/jquery-1.8.0.min.js" type="text/javascript"></script>
+  <script src="/swagger-ui/swagger-ui-bundle.js" type="text/javascript"></script>
+  <script src="/swagger-ui/swagger-ui-standalone-preset.js" type="text/javascript"></script>
+  <script src="/scripts/iframeResizer.contentWindow.min.js" type="text/javascript"></script>
+
+  <script type="text/javascript">
+    window.onload = function () {
+      var url = parent.shortcode_url;
+
+      const ui = SwaggerUIBundle({
+        url: url,
+        dom_id: '#swagger-ui-container',
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIStandalonePreset
+        ]
+      })
+
+      window.ui = ui
+    }
+  </script>
+</head>
+
+<body class="swagger-section">
+  <div id="swagger-ui-container" class="swagger-ui-wrap"></div>
+</body>
+
+</html>

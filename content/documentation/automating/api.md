@@ -19,4 +19,6 @@ As a tool focused on APIs, Microcks also offers its own API that allows you to q
       
 The Swagger-UI below allows you to browse and discover the various API endpoints.
 
-{{ partial "swagger-ui.html" }}
+
+{{< oai-spec url="https://raw.githubusercontent.com/microcks/microcks/master/api/microcks-openapi-v1.0.yaml" >}}
+
