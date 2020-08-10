@@ -3,7 +3,7 @@ draft: false
 title: "OpenAPI usage for Microcks"
 date: 2019-09-01
 publishdate: 2019-09-01
-lastmod: 2019-09-02
+lastmod: 2020-08-04
 menu:
   docs:
     parent: using
@@ -19,11 +19,11 @@ weight: 30 #rem
       
 As [OpenAPI](https://www.openapis.org/) emerges as an Open standard and provides way of defining [Example Objects](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md#exampleObject), Microcks has recently evolved to provide direct support for OpenAPI 3.0.
       
-With this new feature, you'll now be able to directly import your OpenAPI specification as a Job within Microcks. Then, it directly discover service definition as well as request/response samples defined as OpenAPI examples. If your specification embeds a JSON or OpenAPI schema definition for your custom datatypes, Microcks will use it for validating received response payload during [tests](../tests"> when using the `OPEN_API_SCHEMA` strategy.
+With this new feature, you'll now be able to directly import your OpenAPI specification as a Job within Microcks. Then, it directly discover service definition as well as request/response samples defined as OpenAPI examples. If your specification embeds a JSON or OpenAPI schema definition for your custom datatypes, Microcks will use it for validating received response payload during [tests](../tests) when using the `OPEN_API_SCHEMA` strategy.
       
 ### Conventions
       
-With OpenAPI [Example Objects](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md#exampleObject), you are no able to define named example fragments within your OpenAPI specification in YAML or JSON format. In order to produce working mocks, Microcks will need complete request/response samples. So to gather and aggregate fragments into something coherent, the importer will take care of collecting fragments having the same name and re-assemble them into comprehensive request/response pair.
+With OpenAPI [Example Objects](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md#exampleObject), you are now able to define named example fragments within your OpenAPI specification in YAML or JSON format. In order to produce working mocks, Microcks will need complete request/response samples. So to gather and aggregate fragments into something coherent, the importer will take care of collecting fragments having the same name and re-assemble them into comprehensive request/response pair.
       
 ## Illustration
       

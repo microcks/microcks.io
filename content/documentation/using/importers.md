@@ -3,7 +3,7 @@ draft: false
 title: "Importing Services & APIs"
 date: 2020-02-26
 publishdate: 2020-02-26
-lastmod: 2020-02-26
+lastmod: 2020-08-04
 menu:
   docs:
     parent: using
@@ -31,6 +31,8 @@ We provide built-in parsers and importers for the following formats:
 * [Postman collections](https://learning.postman.com/docs/postman/collections/data-formats/) files with v1.0 or v2.x file format. See our [documentation](../postman/) on some conventions you should follow for this collection structure,
 * [Apicurio Studio](https://apicurio-studio.readme.io/docs/integrate-microcks-for-mocking-your-api) direct integration when working on OpenAPI 3.x API specifications,
 * [OpenAPI v3.x](http://spec.openapis.org/oas/v3.0.3) files whether using the YAML of JSON format. See our [documentation](../openapi/) on some conventions you should follow for this specification,
+* [AsyncAPI v2.x](https://www.asyncapi.com/docs/specifications/2.0.0) files whether using the YAML or JSON format. See our [documentation](../asyncapi/) on some conventions you should follow for this specification, 
+
 
 > People very often ask *"Why the Swagger format - aka OpenApi 2.0 - isn't supported by Microcks?"*. This is because Swagger is incomplete for specifying mocks as it does not allow full specifications of examples. Sure, the Swagger spec allows you to illustrate responses with samples but it does not allow you to do so with request or request parameters (whether in path, query or headers). And if some tools - like Swagger UI - seems to compose sample requests, they're only doing this using schema information with random generated values...
 

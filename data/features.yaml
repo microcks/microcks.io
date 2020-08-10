@@ -6,9 +6,9 @@
   tagline: "Prototype fast, succeed or fail fast"
   copy: "Experiment new APIs using the Backend as a Service feature, play and iterate before creating your API contract."
   image_path: /images/noun_science_experiment.svg
-- heading: "REST and SOAP"
-  tagline: "Same tool for API and WebServices"
-  copy: "Sure we do love new REST APIs but we may also have a bunch of legacy services. Why not applyging same practices? We support both!"
+- heading: "REST, SOAP and Events"
+  tagline: "One tool for all your APIs, events and WS"
+  copy: "Sure we do love REST APIs but event-driven APIs are araising and we also have a bunch of legacy Web-Services. Why not applyging same practices? We support all of them!"
   image_path: /images/noun_exchanges.svg
 - heading: "Continuous Integeration"
   tagline: "Mock and test continuously"

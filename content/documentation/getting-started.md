@@ -63,13 +63,15 @@ As you may have guessed, <b>API | Services</b> is about browsing your [micro]-se
 
 ### Loading samples
 
-We provide different samples that illustrate different ways of creating service definitions. The 2 firsts are definition files realized using SoapUI and demonstrating SOAP and REST services. The third one is a definition file built using Postman and demonstrating the famous Petstore API. Using the <b>Importers</b> entry point from home screen or top navigation bar, use the Importers management page to add 3 new jobs. For each, you will be asked a name and a repository URL. Use the informations below:
+We provide different samples that illustrate different ways of creating service definitions. The 2 firsts are definition files realized using SoapUI and demonstrating SOAP and REST services. The third one is a definition file built using Postman and demonstrating the famous Petstore API. The fourth one is an OpenAPI v3 specification file and present the advantages of holding both the contract specification and the examples. The Last one is an AsyncAPI v2 specification file - [AsyncAPI](https://www.asyncapi.com/) being a new specification format dedicated to asychronous and event-oriented APIs. Using the <b>Importers</b> entry point from home screen or left navigation bar, use the Importers management page to add 5 new jobs. For each, you will be asked a name and a repository URL. Use the informations below:
 
 * Hello SOAP Service : `https://raw.githubusercontent.com/microcks/microcks/master/samples/HelloService-soapui-project.xml`
 * Hello REST API : `https://raw.githubusercontent.com/microcks/microcks/master/samples/HelloAPI-soapui-project.xml`
 * Petstore API : `https://raw.githubusercontent.com/microcks/microcks/master/samples/PetstoreAPI-collection.json`
+* Pastry API : `https://raw.githubusercontent.com/microcks/microcks/master/samples/APIPastry-openapi.yaml`
+* User signed-up API : `https://raw.githubusercontent.com/microcks/microcks/master/samples/UserSignedUpAPI-asyncapi.yml`
 				
-Now that you have created your Jobs, you have to <code>Activate</code> them (this make them eligible to a periodically check) and to <code>Force import</code> them (this make a forced refresh right now). After some moments and a page refresh, you should see the status of Jobs changed like in screenshot below:
+Now that you have created your Jobs, they are automatically <code>Activated</code> (this make them eligible to a periodically check) and to <code>Imported</code> (this make a forced refresh right now). After some moments and a page refresh, you should see the status of Jobs changed like in screenshot below:
 			
 <img src="/images/sample-jobs.png" class="img-responsive"/>
 
@@ -88,7 +90,7 @@ Now choosing the <b>Petstore API</b> REST API, you'll be able to access details,
 Using this URL, you can call the exposed mock for <b>Petstore API</b> using the following curl command:
 
 ```
-$ curl "http://microcks-microcks.192.168.99.100.nip.io/rest/Petstore+API/1.0/pet/findByStatus?status=available&user_key=70f735676ec46351c6699c4bb767878a"
+$ curl "http://microcks.192.168.64.7.nip.io/rest/Petstore+API/1.0/pet/findByStatus?status=available&user_key=70f735676ec46351c6699c4bb767878a"
 ```
 
 And you should receive the following response:
@@ -104,7 +106,7 @@ Ta Dam !
 Now that you have basic information on how to setup and use Microcks, you can go further with:
 
 * Understanding how Microcks [compare to alternatives](/documentation/using/alternatives),
-* Creating your definition files using [SoapUI](/documentation/using/soapui) or [Postman](/documentation/using/postman),
+* Creating your definition files using [OpenAPI](/documentation/using/openapi), [AsyncAPI](/documentation/using/asyncapi), [SoapUI](/documentation/using/soapui) or [Postman](/documentation/using/postman),
 * Using [exposed mocks](/documentation/using/mocks) and using variables,
 * Executing your [tests on endpoints](/documentation/using/tests) where your services and API are deployed,
 * Using [advanced features]((/documentation/using/advanced)) of Microcks and admin stuffs.

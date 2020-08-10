@@ -176,6 +176,14 @@ now(dd/MM/yyyy HH:mm:ss) // 11/02/2020 13:48:12
 now(dd/MM/yyyy, 1M) // 11/03/2020
 ```
 
+### UUID generator
+
+The `uuid()`function allows to simply generate a UUID compliant with RFC 4122 (see https://www.cryptosys.net/pki/uuid-rfc4122.html).
+
+```js
+uuid() // 3F897E85-62CE-4B2C-A957-FCF0CCE649FD
+```
+
 ### Random Integer generator
 
 The `randomInt()` function allows to generate a random integer.

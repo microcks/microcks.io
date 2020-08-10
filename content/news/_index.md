@@ -8,6 +8,17 @@ categories: [releases]
 
 ### Microcks core
 
+#### 1.0.0 on 07 Aug 2020
+
+We are very pleased to announce the Microcks release **1.0.0**!
+
+* The major announcement is the support of [AsyncAPI](https://asyncapi.com) for Event-driven APIs,
+* A lot of security enhancements including major components versions bump, better Keycloak reuse and container images systematic scanning. 
+
+Check out our [Medium release notes](https://medium.com/microcksio/microcks-0-9-0-release-ae43c9a0061)!
+
+You can also check [GitHub milestone](https://github.com/microcks/microcks/milestone/10?closed=1) for the full list of closed issues.
+
 #### 0.9.2 on 19 May 2020
 
 Version **0.9.2** is a minor bug-fix release embedding a fix for a regression that occurs since **0.9.0** release - and fix was expressly needed by one of our community members ;-)
@@ -26,7 +37,7 @@ Please check [GitHub milestone](https://github.com/microcks/microcks/milestone/9
 
 #### 0.9.0 on 20 Apr 2020
 
-We are delighted pleased to announce the Microcks release **0.9.0** that introduces a tremendous amount of enhancements and new features.
+We are delighted to announce the Microcks release **0.9.0** that introduces a tremendous amount of enhancements and new features.
 
 Big thanks to our growing community for all the work done, the raised issues and the collected feedback during the last 5 months to make it possible.
 
