@@ -8,14 +8,14 @@ categories: [releases]
 
 ### Microcks core
 
-#### 1.0.0 on 07 Aug 2020
+#### 1.0.0 on 11 Aug 2020
 
 We are very pleased to announce the Microcks release **1.0.0**!
 
 * The major announcement is the support of [AsyncAPI](https://asyncapi.com) for Event-driven APIs,
 * A lot of security enhancements including major components versions bump, better Keycloak reuse and container images systematic scanning. 
 
-Check out our [Medium release notes](https://medium.com/microcksio/microcks-0-9-0-release-ae43c9a0061)!
+Check out our [Medium release notes](https://medium.com/microcksio/microcks-1-0-0-release-5a5d0dbaf212)!
 
 You can also check [GitHub milestone](https://github.com/microcks/microcks/milestone/10?closed=1) for the full list of closed issues.
 
