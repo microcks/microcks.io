@@ -3,9 +3,9 @@ entries:
   microcks:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2020-08-11T09:44:57.412622+02:00"
+    created: "2020-08-12T15:10:17.454506+02:00"
     description: Microcks - API Mocking and Testing
-    digest: ea8d8b8f177cb5479e264310ceac04e4a752cf16bbc2514c40eaea187afc07f2
+    digest: 50e5022ae71bc1a4cb7bf34c88ac38ad50c3196db730abf65e7ce89086f094f5
     home: https://microcks.io
     icon: https://microcks.io/images/microcks-big.png
     keywords:
