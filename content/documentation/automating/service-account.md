@@ -21,13 +21,13 @@ Microcks is using [OpenId Connect](https://openid.net/connect/) and [OAuth 2.0 b
 
 Microcks comes with a default account named `microcks-serviceaccount` that comes with default installation but you are free to create as many account as you may have robots users.
 
-### Inspecting defaul Service Account
+### Inspecting default Service Account
 
 Let's start inspecting the properties of the default Service Account to check its anatomy ;-) Start connecting as an administrator to the Keycloak instance your Microcks instance is running.
 
 > Hint: just issue the following unauthenticated API call to Microcks to get the Keycloak URL and the name of realm you're using:
 
-```json
+```sh
 $ curl https://microcks.example.com/api/keycloak/config -s -k | jq .
 {
   "realm": "microcks",
@@ -38,7 +38,7 @@ $ curl https://microcks.example.com/api/keycloak/config -s -k | jq .
 }
 ```
 
-Authenticate as administrator into the Keycloak administration console and browse the realm Microcks is using. You should have the list of defined `Applications` or `Client` defined on this realm and see the default `microcks-serviceaccount` as in below screenshot:
+Authenticate as administrator into the Keycloak administration console and browse the realm Microcks is using. You should have the list of defined `Applications` or `Clients` defined on this realm and see the default `microcks-serviceaccount` as in below screenshot:
 
 ![service-account-clients](/images/service-account-clients.png)
 
