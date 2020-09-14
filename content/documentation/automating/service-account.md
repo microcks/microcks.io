@@ -89,12 +89,10 @@ $ curl https://microcks.example.com/api/services -H 'Authorization: Bearer eyJhb
     "id": "5ddc0abd448ff8ba296c13b3",
     "name": "API Pastry",
     "version": "1.0.0",
-    "xmlNS": null,
     "type": "REST",
     "metadata": {
       "createdOn": 1574701757816,
       "lastUpdate": 1599316976801,
-      "annotations": null,
       "labels": {
         "domain": "pastry",
         "status": "deprecated"
@@ -104,31 +102,19 @@ $ curl https://microcks.example.com/api/services -H 'Authorization: Bearer eyJhb
       {
         "name": "GET /pastry/:name",
         "method": "GET",
-        "inputName": null,
-        "outputName": null,
-        "bindings": null,
         "dispatcher": "URI_PARTS",
         "dispatcherRules": "name",
-        "defaultDelay": null,
         "resourcePaths": [
           "/pastry/Eclair%20Cafe",
           "/pastry/Millefeuille"
-        ],
-        "parameterConstraints": null
+        ]
       },
       {
         "name": "GET /pastry",
         "method": "GET",
-        "inputName": null,
-        "outputName": null,
-        "bindings": null,
-        "dispatcher": null,
-        "dispatcherRules": null,
-        "defaultDelay": null,
         "resourcePaths": [
           "/pastry"
-        ],
-        "parameterConstraints": null
+        ]
       }
     ]
   }
