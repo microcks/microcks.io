@@ -18,3 +18,6 @@ params = ["categories", "tags"]
 
 [outputs]
 home = ["HTML", "Algolia"]
+
+[markup.goldmark.renderer]
+unsafe= true
