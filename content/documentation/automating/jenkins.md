@@ -3,7 +3,7 @@ draft: false
 title: "Integrating Microcks from Jenkins"
 date: 2019-09-01
 publishdate: 2019-09-01
-lastmod: 2020-03-29
+lastmod: 2020-10-01
 menu:
   docs:
     parent: automating
@@ -21,12 +21,7 @@ Using this plugin, it is really easy to integrate tests stages within your Conti
 			
 ### Getting raw plugin
       
-While not being distributed yet as an official Jenkins plugin, Microcks Jenkins plugin is available and can be downloaded from [Central Maven repository](https://repo.maven.apache.org/maven2/io/github/microcks/microcks-jenkins-plugin/). Just get the [HPI file](http://repo.maven.apache.org/maven2/io/github/microcks/microcks-jenkins-plugin/0.2.0/microcks-jenkins-plugin-0.2.0.hpi) and install it on your Jenkins master [your preferred way](https://jenkins.io/doc/book/managing/plugins/).
-            
-Pick up the version corresponding to your Microcks installation :
-
-* [0.2.0 version](https://repo.maven.apache.org/maven2/io/github/microcks/microcks-jenkins-plugin/0.2.0/microcks-jenkins-plugin-0.2.0.hpi) from Microcks `0.7.0` or greater
-* [0.1.1 version](https://repo.maven.apache.org/maven2/io/github/microcks/microcks-jenkins-plugin/0.1.1/microcks-jenkins-plugin-0.1.1.hpi) from Microcks version before `0.7.0`
+While not being distributed yet as an official Jenkins plugin, Microcks Jenkins plugin is available and can be downloaded from [Central Maven repository](https://repo.maven.apache.org/maven2/io/github/microcks/microcks-jenkins-plugin/). Just get the [HPI file](https://repo.maven.apache.org/maven2/io/github/microcks/microcks-jenkins-plugin/0.3.0/microcks-jenkins-plugin-0.3.0.hpi) and install it on your Jenkins master [your preferred way](https://jenkins.io/doc/book/managing/plugins/).
 			
 
 ### Building an OpenShift Jenkins master embedding plugin
@@ -50,7 +45,7 @@ $ oc set triggers dc/jenkins --from-image=microcks-jenkins-master:latest -c jenk
 			
 ## Setting up Microcks Jenkins plugin
 
-Since the version `0.2.0`, this plugin is using identified **Service Accounts** when connecting to Microcks server. It is also able to manage multiple Microcks installation and hide the technical details from your Jobs using Microcks plugins. As a Jenkins administrator, go to the **Manage Jenkins** page and find the **Microcks** section. You should be able to add and configure as many instance of Microcks installation as you want like in the 2 configured in screenshot below:
+This plugin is using identified [Service Account](../service-account) when connecting to Microcks server. It is also able to manage multiple Microcks installation and hide the technical details from your Jobs using Microcks plugins. As a Jenkins administrator, go to the **Manage Jenkins** page and find the **Microcks** section. You should be able to add and configure as many instance of Microcks installation as you want like in the 2 configured in screenshot below:
 
 ![jenkins-installations](/images/jenkins-installations.png)
 			
@@ -58,8 +53,7 @@ A Microcks installation configuration need 5 parameters:
 
 * A `Name` will be used by your Jobs or Pipelines as a reference of an environment,
 * The `API URL` is the endpoint of your Microcks server receiving API calls,
-* The `Keycloak URL` is the endpoint of the Keycloak associated with your Microcks server. You should set it the full URL including the realm name your instance is attached,
-* The `Credentials` to use for authenticating the Service Account and allowing it to retrieve an OAuth token (more on that on [service-account](/automating/service-account)). These are Crederentials that should be registered into Jenkins,
+* The `Credentials` to use for authenticating the Service Account and allowing it to retrieve an OAuth token (more on that on [Service Account](/automating/service-account)). These are Crederentials that should be registered into Jenkins,
 * The `Disable Cert Validation` box you have to check if you have a HTTPS setup with auto-signed certificates.
 			
 You should then be able to test the connection to endpoints and save your configuration. Later, your Jobs and Pipelines will just use the installation `Name` to refer it from their build steps.
@@ -100,7 +94,7 @@ node('maven') {
   }
   stage ('testInDev') {
     // Add Microcks test here.
-    microcksTest(server: 'minishiftMicrocks',
+    microcksTest(server: 'microcks-mlinishift',
       serviceId: 'Beer Catalog API:0.9',
       testEndpoint: 'http://beer-catalog-impl-beer-catalog-dev.52.174.149.59.nip.io/api/',
       runnerType: 'POSTMAN', verbose: 'true')

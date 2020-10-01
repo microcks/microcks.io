@@ -3,7 +3,7 @@ draft: false
 title: "Using Microcks from Tekton"
 date: 2019-11-11
 publishdate: 2019-11-11
-lastmod: 2019-11-11
+lastmod: 2020-10-01
 menu:
   docs:
     parent: automating
@@ -22,43 +22,42 @@ The [Tekton](https://tekton.dev/) Pipelines project provides Kubernetes-style re
 The [`microcks-test-task.yaml`](https://github.com/microcks/microcks-cli/blob/master/tekton/microcks-test-task.yaml) resource holds a sample of a Tekton Task for testing with Microcks. You may remove default values for parameters or put your own here.
 
 ```yaml
-apiVersion: tekton.dev/v1alpha1
+apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
   name: microcks-test
 spec:
-  inputs:
-    params:
-      - name: apiNameAndVersion
-        type: string
-        description: "<apiName:apiVersion>: Service to test reference. Exemple: 'Beer Catalog API:0.9'"
-        default: "Beer Catalog API:0.9"
-      - name: testEndpoint
-        type: string
-        description: "URL where is deployed implementation to test"
-      - name: runner
-        type: string
-        description: "Test strategy (one of: HTTP, SOAP, SOAP_UI, POSTMAN, OPEN_API_SCHEMA)"
-        default: HTTP
-      - name: microcksURL
-        type: string
-        description: "Microcks instance API endpoint"
-      - name: keycloakClientId
-        type: string
-        description: "Keycloak Realm Service Account ClientId"
-        default: microcks-serviceaccount
-      - name: keycloakClientSecret
-        type: string
-        description: "Keycloak Realm Service Account ClientSecret"
-        default: 7deb71e8-8c80-4376-95ad-00a399ee3ca1
-      - name: waitFor
-        type: string
-        description: "Time to wait for test to finish (int + one of: milli, sec, min)"
-        default: 5sec
-      - name: operationsHeaders
-        type: string
-        description: "JSON that override some operations headers for the tests to launch"
-        default: ""
+  params:
+    - name: apiNameAndVersion
+      type: string
+      description: "<apiName:apiVersion>: Service to test reference. Exemple: 'Beer Catalog API:0.9'"
+      default: "Beer Catalog API:0.9"
+    - name: testEndpoint
+      type: string
+      description: "URL where is deployed implementation to test"
+    - name: runner
+      type: string
+      description: "Test strategy (one of: HTTP, SOAP, SOAP_UI, POSTMAN, OPEN_API_SCHEMA, ASYNC_API_SCHEMA)"
+      default: HTTP
+    - name: microcksURL
+      type: string
+      description: "Microcks instance API endpoint"
+    - name: keycloakClientId
+      type: string
+      description: "Keycloak Realm Service Account ClientId"
+      default: microcks-serviceaccount
+    - name: keycloakClientSecret
+      type: string
+      description: "Keycloak Realm Service Account ClientSecret"
+      default: 7deb71e8-8c80-4376-95ad-00a399ee3ca1
+    - name: waitFor
+      type: string
+      description: "Time to wait for test to finish (int + one of: milli, sec, min)"
+      default: 5sec
+    - name: operationsHeaders
+      type: string
+      description: "JSON that override some operations headers for the tests to launch"
+      default: ""
   steps:
     - name: microcks-test
       image: microcks/microcks-cli:latest
@@ -67,10 +66,10 @@ spec:
       args:
         - '-c'
         - >-
-          microcks-cli test '$(inputs.params.apiNameAndVersion)' $(inputs.params.testEndpoint) $(inputs.params.runner) \
-            --microcksURL=$(inputs.params.microcksURL) --waitFor=$(inputs.params.waitFor) \
-            --keycloakClientId=$(inputs.params.keycloakClientId) --keycloakClientSecret=$(inputs.params.keycloakClientSecret) \
-            --insecure --operationsHeaders='$(inputs.params.operationsHeaders)'
+          microcks-cli test '$(params.apiNameAndVersion)' $(params.testEndpoint) $(params.runner) \
+            --microcksURL=$(params.microcksURL) --waitFor=$(params.waitFor) \
+            --keycloakClientId=$(params.keycloakClientId) --keycloakClientSecret=$(params.keycloakClientSecret) \
+            --insecure --operationsHeaders='$(params.operationsHeaders)'
 ```
 
 You can just create this task within your namespace with:
@@ -87,44 +86,45 @@ You should have previously created your secret using something like this:
 $ kubectl create secret generic microcks-test-customcerts-secret --from-file=ca.crt=ca.crt
 ```
 
+> You may want to consider putting your `keycloakClientId`, `keycloakClientSecret` and optional `customCaCerts` into some Kubernetes Secrets. Consider the [`microcks-test-with-secret`](https://github.com/microcks/microcks-cli/blob/master/tekton/microcks-test-with-secret.yaml) sample for that.
+
 ### Executing a Task
 
 Running a task can be done either by creating a `TaskRun` resource of through the [`tkn` CLI tool](https://github.com/tektoncd/cli). Both methods should provide the values for parameters of the `microcks-test`task. Here below an example on running such a task:
 
 ```yaml
-apiVersion: tekton.dev/v1alpha1
+apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
   name: microcks-test-taskrun-beer-catalog
 spec:
   taskRef:
     name: microcks-test
-  inputs:
-    params:
-      - name: apiNameAndVersion
-        value: "Beer Catalog API:0.9"
-      - name: testEndpoint
-        value: http://beer-catalog-impl-beer-catalog-dev.apps.144.76.24.92.nip.io/api/
-      - name: runner
-        value: POSTMAN
-      - name: microcksURL
-        value: http://microcks.apps.144.76.24.92.nip.io/api/
-      - name: waitFor
-        value: 12sec
-      - name: keycloakClientId
-        value: microcks-serviceaccount
-      - name: keycloakClientSecret
-        value: 34a49089-7566-45a0-88a6-112b297fd803
-      - name: operationsHeaders
-        value: |-
-          {
-            "globals": [
-              {"name": "x-api-key", "values": "my-values"}
-            ],
-            "GET /beer": [
-              {"name": "x-trace-id", "values": "xcvbnsdfghjklm"}
-            ]
-          }
+  params:
+    - name: apiNameAndVersion
+      value: "Beer Catalog API:0.9"
+    - name: testEndpoint
+      value: http://beer-catalog-impl-beer-catalog-dev.apps.144.76.24.92.nip.io/api/
+    - name: runner
+      value: POSTMAN
+    - name: microcksURL
+      value: http://microcks.apps.144.76.24.92.nip.io/api/
+    - name: waitFor
+      value: 12sec
+    - name: keycloakClientId
+      value: microcks-serviceaccount
+    - name: keycloakClientSecret
+      value: 34a49089-7566-45a0-88a6-112b297fd803
+    - name: operationsHeaders
+      value: |-
+        {
+          "globals": [
+            {"name": "x-api-key", "values": "my-values"}
+          ],
+          "GET /beer": [
+            {"name": "x-trace-id", "values": "xcvbnsdfghjklm"}
+          ]
+        }
 ```
 
 Once you have adapted the parameter values to your own environment, you can just create the resource into your namespace:
@@ -144,13 +144,12 @@ $ tkn taskrun logs  microcks-test-taskrun-beer-catalog
 [microcks-test] MicrocksClient got status for test "5dcd11fc9b625c0001b0e185" - success: true, inProgress: false 
 ```
 
-
 ## Tekton Pipeline
 
 A `Pipeline` defines a list of `Tasks` to execute in order. The same variable substitution you used in `TaskRun` is also available here and you may create a specific pipeline like this: 
 
 ```yaml
-apiVersion: tekton.dev/v1alpha1
+apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
   name: microcks-pipeline-beer-catalog

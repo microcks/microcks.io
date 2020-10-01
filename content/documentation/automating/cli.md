@@ -3,7 +3,7 @@ draft: false
 title: "CLI for Microcks"
 date: 2019-09-01
 publishdate: 2019-09-01
-lastmod: 2019-09-02
+lastmod: 2020-10-01
 menu:
   docs:
     parent: automating
@@ -29,7 +29,7 @@ where `[command]` can be one of the following:
 * `help` to display usage informations,
 * `test` to launch new test on Microcks server.
 
-The main `test` command has abunch of arguments and flags so that you can use it that way:
+The main `test` command has a bunch of arguments and flags so that you can use it that way:
 ```
 $ microcks-cli test <apiName:apiVersion> <testEndpoint> <runner> \
 	--microcksURL=<> --waitFor=5sec \
@@ -46,12 +46,12 @@ Binary releases for Linux, MacOS or Windows platform are available on the GitHub
 
 ### Container image
 
-The `microcks-cli` is now available as a container image as version `0.2.0`. So that you'd be able to easily use it from a GitLab CI or a [Tekton pipeline](../tekton). The hosting repository is now on Docker Hub [here](https://hub.docker.com/r/microcks/microcks-cli).
+The `microcks-cli` is now available as a container image as version `0.3.0`. So that you'd be able to easily use it from a GitLab CI or a [Tekton pipeline](../tekton). The hosting repository is now on Quay.io [here](https://quay.io/repository/microcks/microcks-cli?tab=info).
 
 Below a sample on how using the image without getting the CLI binary:
 
 ```
-$ docker run -it microcks/microcks-cli:latest microcks-cli test 'Beer Catalog API:0.9' \
+$ docker run -it quay.io/microcks/microcks-cli:latest microcks-cli test 'Beer Catalog API:0.9' \
     http://beer-catalog-impl-beer-catalog-dev.apps.144.76.24.92.nip.io/api/ POSTMAN \
     --microcksURL=http://microcks.apps.144.76.24.92.nip.io/api/ \
     --keycloakClientId=microcks-serviceaccount \ --keycloakClientSecret=7deb71e8-8c80-4376-95ad-00a399ee3ca1 --waitFor=8sec \

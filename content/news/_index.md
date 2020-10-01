@@ -2,6 +2,7 @@
 title: "News about Microcks"
 layout: tweets-columns
 categories: [releases]
+lastmod: 2020-10-01
 ---
 
 ## Fresh Releases
@@ -23,7 +24,7 @@ You can also check [GitHub milestone](https://github.com/microcks/microcks/miles
 
 Version **0.9.2** is a minor bug-fix release embedding a fix for a regression that occurs since **0.9.0** release - and fix was expressly needed by one of our community members ;-)
 
-Issue #220 make it possible again to retrieve APIs or WebServices contracts using Microcks API. Please see [issue #220](https://github.com/microcks/microcks/issues/220) for details.
+[Issue #220](https://github.com/microcks/microcks/issues/220) make it possible again to retrieve APIs or WebServices contracts using Microcks API. Please check [details](https://github.com/microcks/microcks/issues/220).
 
 #### 0.9.1 on 5 May 2020
 
@@ -51,24 +52,31 @@ Among the many novelties, it embeds:
 
 Check out our [Medium release notes](https://medium.com/microcksio/microcks-0-9-0-release-ae43c9a0061) and stay tuned for more to come around!
 
-#### 0.8.0 on 27 Nov 2019
-
-We just release version **0.8.0** of Microcks core! This release holds something like **40** issues fix!
-
-Among some other stuffs, we now have:
-
-* Support for media type negociation on REST mocks,
-* Support of CORS policy for REST mocks,
-* Support of `PATCH` and `OPTIONS` operations on REST mocks,
-* Multi-format support for OpenAPI v3 examples,
-* Addition of users management from the Microcks UI,
-* Addition of custom JSON body dispatcher,
-* Many UI improvements like embedded help, about modal and easier importer creation flow,
-* Fix of HTTPS with custom certificates support for accessing private repositories.
-
-Please check [GitHub milestone](https://github.com/microcks/microcks/milestone/6?closed=1) for the list of enhancement and issues.
+[Look at the History for older release notes](./history)
 
 ### Microcks extensions
+
+#### microcks-jenkins-plugin 0.3.0 on 18 Sep 2020
+
+The **0.3.0** release mainly brings support for `AsyncAPI` testing feature but also some other enhancements:
+
+* It adds the `ASYNC_API_SCHEMA` option for the `runner` argument of the `test`command,
+* It adds the `Secret Name` parameter allowing to reference a Microcks secret holding authentication parameters for the tested endpoint,
+* It aligns the configuration on CLI configuration, removing the `Keycloak URL` parameters. Making the config simpler,
+* It makes the configuration more robust by taking care od adding an `/api` prefix on Microcks URL if missing,
+* It fixes the persistence of some Build Step attributes when using the graphical editor.
+
+Please check [GitHub milestone](https://github.com/microcks/microcks-jenkins-plugin/milestone/1?closed=1) for the list of enhancement and issues.
+
+#### microcks-cli 0.3.0 on 17 Sep 2020
+
+This **0.3.0** release brings support for `AsyncAPI` testing feature:
+
+* It adds the `ASYNC_API_SCHEMA` option for the `runner` argument of the `test`command,
+* It adds the `--secretName` feature flag for the `test` command allowing to reference a Microcks secret holding authentication parameters for the tested endpoint,
+* Container image for `microcks-cli` is now hosted on [here](https://quay.io/repository/microcks/microcks-cli?tab=tags) Quay.io
+
+Have a look at [GitHub milestone](https://github.com/microcks/microcks-cli/milestone/2?closed=1) for the list of enhancement and issues.
 
 #### microcks-cli 0.2.0 on 14 Aug 2019
 

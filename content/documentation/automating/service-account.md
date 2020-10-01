@@ -17,7 +17,7 @@ weight: 10 #rem
 
 ### Introduction
 
-Microcks is using [OpenId Connect](https://openid.net/connect/) and [OAuth 2.0 bearer tokens](https://oauth.net/2/bearer-tokens/) to secure its frontend and API access. While this is very convenient for interactive users, it may be unpracticable for machine-to-machine authentication when you want to interact with Microcks from a robot, CI/CD pipeline or simple CLI tool. For that, we decided to implement the simple [OAuth 2.0 Client Credentials Grant](https://oauth.net/2/grant-types/client-credentials/) in addition of other grants. This authentication is implemented using `Service Accounts` clients defined into the Realm configuration in Keycloak.
+Microcks is using [OpenId Connect](https://openid.net/connect/) and [OAuth 2.0 bearer tokens](https://oauth.net/2/bearer-tokens/) to secure its frontend and API access. While this is very convenient for interactive users, it may be unpracticable for machine-to-machine authentication when you want to interact with Microcks from a robot, CI/CD pipeline or simple CLI tool. For that, we decided to implement the simple [OAuth 2.0 Client Credentials Grant](https://oauth.net/2/grant-types/client-credentials/) in addition of other grants. This authentication is implemented using *Service Accounts* clients defined into the Realm configuration in Keycloak.
 
 Microcks comes with a default account named `microcks-serviceaccount` that comes with default installation but you are free to create as many account as you may have robots users.
 
