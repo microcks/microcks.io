@@ -13,10 +13,10 @@
       </div>
       <div class="w-50 w-50-ns ph3">
         <h2><a href="{{ .Permalink }}" class="post-link">{{ .Title }}</a></h2>
-        <p class="f6" style="height: 6em; line-height: 1.45em; overflow:hidden; text-overflow:ellipsis;">{{ .Summary }}</p>
+        <p class="f5" style="height: 6em; line-height: 1.45em; overflow:hidden; text-overflow:ellipsis;">{{ .Summary }}</p>
         <a href="{{.Permalink}}" class="f5 link tc v-mid bg-accent-color-light white ph2 pv2 br3 fem">Read More</a>
       </div>
-    </div>    
+    </div>
   </div>
   {{ end }}
   {{ $paginator := .Paginate (where .Data.Pages "Layout" "post") 3 }}

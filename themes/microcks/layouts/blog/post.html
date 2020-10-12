@@ -9,7 +9,7 @@
       <div class="flex-ns flex-wrap">
         <div class="w-50">
           <img src="{{ .Params.author_image}}" alt="{{.Title}}" class="w-10 br4">  
-          <span class="f7 ph3" style="vertical-align: super;">
+          <span class="f6 ph3" style="vertical-align: super;">
             <b>{{ .Params.author }}</b> (<a href="https://twitter.com/{{ .Params.author_twitter }}" class="home-link">@{{ .Params.author_twitter }}</a>)
             on {{ .PublishDate.Format "Jan 2, 2006" }}
           </span>
@@ -19,7 +19,7 @@
   </div>
   <div class="flex-ns flex-wrap">
     <div class="w-60-l w-70-m w-80-xs center">
-      <div class="prose pv3" id="prose">{{ .Content }}</div>
+      <div class="prose pv3 f4" id="prose">{{ .Content }}</div>
       <!-- comments -->
       {{ if site.DisqusShortname }}
       <div class="pv4">
