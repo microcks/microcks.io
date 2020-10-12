@@ -11,6 +11,12 @@
   url = "/documentation/"
 
 [[global]]
+  name = "Blog"
+  weight = 6
+  identifier = "blog"
+  url = "/blog/"
+
+[[global]]
   name = "Resources"
   weight = 10
   identifier = "resources"

@@ -86,6 +86,15 @@ a.home-link {
   text-decoration-line: none !important
 }
 
+a.post-link {
+  color: #1a2932;
+  text-decoration-line: none !important
+}
+a.post-link:hover {
+  color: #ff1745;
+  text-decoration-line: underline;
+}
+
 a.header-link {
   text-decoration-line: none !important
 }
@@ -113,6 +122,28 @@ code:not([class]) {
   color: #c7254e;
   background-color: #f9f2f4;
   border-radius: 4px;
+}
+
+/* pagination.html: https://github.com/gohugoio/hugo/blob/master/tpl/tplimpl/template_embedded.go#L117 */
+.pagination {
+  margin: 3rem 0;
+}
+.pagination li {
+  display: inline-block;
+  margin-right: .375rem;
+  font-size: .875rem;
+  margin-bottom: 2.5em;
+}
+.pagination li a {
+  padding: .5rem .625rem;
+  background-color: white;
+  color: #ff1745;
+  border: 0px solid #ddd;
+  border-radius: 3px;
+  text-decoration: none;
+}
+.pagination li.disabled {
+  display: none;
 }
 
 @media screen and (min-width: 30em) {
@@ -359,5 +390,27 @@ code:not([class]) {
     margin-right: 16rem;
   }
 
+  .w1-xs {  width: 1rem; }
+  .w2-xs {  width: 2rem; }
+  .w3-xs {  width: 4rem; }
+  .w4-xs {  width: 8rem; }
+  .w5-xs {  width: 16rem; }
+  .w-10-xs { width:  10%; }
+  .w-20-xs { width:  20%; }
+  .w-25-x { width:  25%; }
+  .w-30-xs { width:  30%; }
+  .w-33-xs { width:  33%; }
+  .w-34-xs { width:  34%; }
+  .w-40-xs { width:  40%; }
+  .w-50-xs { width:  50%; }
+  .w-60-xs { width:  60%; }
+  .w-70-xs { width:  70%; }
+  .w-75-xs { width:  75%; }
+  .w-80-xs { width:  80%; }
+  .w-90-xs { width:  90%; }
+  .w-100-xs { width: 100%; }
+  .w-third-xs { width: 33.33333%; }
+  .w-two-thirds-xs { width: 66.66667%; }
+  .w-auto-xs { width: auto; }
 }
 /* purgecss end ignore */

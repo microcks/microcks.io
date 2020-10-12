@@ -1,0 +1,33 @@
+{{ define "main" }}
+
+<section class="cf ph4 pv3 pv3-ns">
+  <div class="w-60 w-60-ns center tc tc-ns pv3">
+    <h1 class="primary-color-dark">{{ .Title }}</h1>
+  </div>
+  <div class="flex-ns flex-wrap">
+    <div class="w-60-l w-70-m w-80-xs center">
+      <div class="flex-ns flex-wrap">
+        <div class="w-50">
+          <img src="{{ .Params.author_image | absURL }}" alt="{{.Title}}" class="w-10 br4">  
+          <span class="f7 ph3" style="vertical-align: super;">
+            <b>{{ .Params.author }}</b> (<a href="https://twitter.com/{{ .Params.author_twitter }}" class="home-link">@{{ .Params.author_twitter }}</a>)
+            on {{ .PublishDate.Format "Jan 2, 2006" }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="flex-ns flex-wrap">
+    <div class="w-60-l w-70-m w-80-xs center">
+      <div class="prose pv3" id="prose">{{ .Content }}</div>
+      <!-- comments -->
+      {{ if site.DisqusShortname }}
+      <div class="pv4">
+        {{ template "_internal/disqus.html" . }}
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+  

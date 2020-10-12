@@ -1,0 +1,43 @@
+{{ define "main" }}
+
+<section class="cf ph4 pv3 pv3-ns">
+    <div class="w-60 w-60-ns center tc tc-ns pv3">
+        <h1 class="primary-color-dark">Microcs latest blog posts</h1>
+    </div>
+    
+    {{ range first 1 (where .Data.Pages "Layout" "post") }}
+    <div class="w-60 w-60-ns center pv3">
+        <div class="flex-ns flex-wrap center mw9">
+            <div class="w-50 w-50-ns ph3 pt5">
+                <img src="{{ .Params.image | absURL }}" alt="{{.Title}}" class="img-fluid w-100 br3">
+            </div>
+            <div class="w-50 w-50-ns ph3">
+                <h2><a href="{{ .Permalink }}" class="post-link">{{ .Title }}</a></h2>
+                <p class="f6" style="height: 6em; line-height: 1.45em; overflow:hidden; text-overflow:ellipsis;">{{ .Summary }}</p>
+                <a href="{{.Permalink}}" class="f5 link tc v-mid bg-accent-color-light white ph2 pv2 br3 fem">Read More</a>
+            </div>
+        </div>
+        
+    </div>
+    {{ end }}
+    {{ $paginator := .Paginate (where .Data.Pages "Layout" "post") 3 }}
+    <div class="w-60 w-60-ns center pv5">
+        <div class="flex-ns flex-wrap center mw9">
+        {{ range $paginator.Pages }}
+            <div class="w-33 w-33-ns ph3">
+                <img src="{{ .Params.image | absURL }}" alt="{{.Title}}" class="img-fluid w-100 br3">
+                <div class="card-body p-0">
+                    <h4><a href="{{ .Permalink }}" class="post-link">{{ .Title }}</a></h4>
+                    <p class="f6" style="height: 6em; line-height: 1.45em; overflow:hidden; text-overflow:ellipsis;">{{ .Summary }}</p>
+                    <a href="{{.Permalink}}" class="home-link">Read More</a>
+                </div>
+            </div>
+        {{ end }}
+        </div>
+        <div class="pv2 tc tc-ns">
+            {{ template "_internal/pagination.html" . }}
+        </div>
+    </div>
+</section>
+
+{{ end }}
