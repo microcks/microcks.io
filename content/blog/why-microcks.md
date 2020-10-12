@@ -5,11 +5,11 @@ layout: post
 date: 2020-10-12
 publishdate: 2020-10-12
 lastmod: 2020-10-12
-image: "images/blog/why-microcks.png"
+image: "/images/blog/why-microcks.png"
 categories: [blog]
 author: "Laurent Broudoux"
 author_title: "MicrocksIO founder"
-author_image: "images/blog/bio/lbroudoux.jpeg"
+author_image: "/images/blog/bio/lbroudoux.jpeg"
 author_twitter: "lbroudoux"
 ---
 

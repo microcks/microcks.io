@@ -5,8 +5,12 @@ layout: post
 date: 2020-06-26
 publishdate: 2020-06-26
 lastmod: 2020-06-26
-image: "images/blog/microcks-on-aws.png"
+image: "/images/blog/microcks-on-aws.png"
 categories: [blog]
+author: "Laurent Broudoux"
+author_title: "MicrocksIO founder"
+author_image: "/images/blog/bio/lbroudoux.jpeg"
+author_twitter: "lbroudoux"
 ---
 
 Whilst we recommend installing Microcks on Kubernetes for easy management and enhanced capabilities, it can also be deployed onto a regular Virtual Machine. This post details how you can setup Microcks onto an AWS EC2 instance if you’re familiar with this environment and want a quick test drive. It takes something like 6–7 minutes to complete from end-to-end. It’s an illustration of official setup documentation.

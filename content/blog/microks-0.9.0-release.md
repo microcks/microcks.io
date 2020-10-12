@@ -5,8 +5,12 @@ layout: post
 date: 2020-05-17
 publishdate: 2020-05-17
 lastmod: 2020-05-17
-image: "images/blog/microcks-0.9.0-enterprise-grade.png"
+image: "/images/blog/microcks-0.9.0-enterprise-grade.png"
 categories: [blog]
+author: "Laurent Broudoux"
+author_title: "MicrocksIO founder"
+author_image: "/images/blog/bio/lbroudoux.jpeg"
+author_twitter: "lbroudoux"
 ---
 
 I am delighted to announce Microcks release 0.9.0 — the Open source Kubernetes native tool for API Mocking and Testing. This new version introduces a tremendous amount of enhancements and new features.

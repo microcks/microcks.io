@@ -5,8 +5,12 @@ layout: post
 date: 2020-08-11
 publishdate: 2020-08-11
 lastmod: 2020-08-11
-image: "images/blog/microcks-1.0.0-loves-asyncapi.png"
+image: "/images/blog/microcks-1.0.0-loves-asyncapi.png"
 categories: [blog]
+author: "Laurent Broudoux"
+author_title: "MicrocksIO founder"
+author_image: "/images/blog/bio/lbroudoux.jpeg"
+author_twitter: "lbroudoux"
 ---
 
 Today is a very special day as we launch Microcks 1.0.0 and as it materializes a vision we had 18 months ago when starting investing more time on what was just a fun side-project at that time. That vision was about building one simple, scalable and consolidating tool for all the Enterprise services mocking and testing needs — whatever the type of services or API: green-field or legacy.
