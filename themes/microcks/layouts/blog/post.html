@@ -8,7 +8,7 @@
     <div class="w-60-l w-70-m w-80-xs center">
       <div class="flex-ns flex-wrap">
         <div class="w-50">
-          <img src="{{ .Params.author_image | absURL }}" alt="{{.Title}}" class="w-10 br4">  
+          <img src="{{ .Params.author_image}}" alt="{{.Title}}" class="w-10 br4">  
           <span class="f7 ph3" style="vertical-align: super;">
             <b>{{ .Params.author }}</b> (<a href="https://twitter.com/{{ .Params.author_twitter }}" class="home-link">@{{ .Params.author_twitter }}</a>)
             on {{ .PublishDate.Format "Jan 2, 2006" }}
