@@ -3,7 +3,7 @@ draft: false
 title: "Managing Users"
 date: 2019-11-18
 publishdate: 2019-11-18
-lastmod: 2019-11-19
+lastmod: 2020-10-09
 menu:
   docs:
     parent: administrating
@@ -17,7 +17,7 @@ weight: 10 #rem
 
 Since its inception, Microcks relies on a third party component named [Keycloak](https://www.keycloak.org) for managing security related topics like users identification, users  authentication and habilitations as well as API endpoints protection. Keycloak is also used for providing service accounts authentication and authorization. This topic is detailed in a [dedicated page](../automating/service-account).
 
-Basic installation of Microcks (through Kubernetes Operator, Helm Chart, OpenShift template or Docker-compose) comes with its own Keycloak instance embedding the definitions of Microcks needed component into what is called a realm. Advanced installation of Microcks can reuse an existing Keycloak instance and will require your administrator to create a new dedicated [realm](https://www.keycloak.org/docs/latest/server_admin/index.html#_create-realm). We provide a sample of such a realm configuration that can be imported into your instance [here](https://github.com/microcks/microcks/blob/master/install/docker-compose/keycloak-realm/microcks-realm-sample.json).
+Basic installation of Microcks (through Kubernetes Operator, Helm Chart, OpenShift template or Docker-compose) comes with its own Keycloak instance embedding the definitions of Microcks needed component into what is called a **realm**. Advanced installation of Microcks can reuse an existing Keycloak instance and will require your administrator to create a new dedicated [realm](https://www.keycloak.org/docs/latest/server_admin/index.html#_create-realm). We provide a sample of such a realm configuration that can be imported into your instance [here](https://github.com/microcks/microcks/blob/master/install/docker-compose/keycloak-realm/microcks-realm-sample.json).
 
 Basically, Microcks own components only need the reference of the Keycloak instance endpoint - the URL with `/auth` suffix - into an environment variable called `KEYCLOAK_URL`.
 
@@ -48,7 +48,7 @@ keycloak.ssl-required=external
 
 ## Authorization
 
-Microcks realm typically defines 3 application roles that are defined as [realm roles](https://www.keycloak.org/docs/latest/server_admin/index.html#realm-roles) on the Keycloak side.
+Microcks realm typically defines 3 application roles that are defined as [client roles](https://www.keycloak.org/docs/latest/server_admin/index.html#client-roles) on the Keycloak side. Theses roles are attached to the `microcks-app` client application.
 
 These roles are:
 
@@ -65,6 +65,9 @@ Whilst checks on the client side is disseminated into the pages code, endpoints 
 See an excerpt below:
 
 ```properties
+keycloak.resource=microcks-app
+keycloak.use-resource-role-mappings=true
+
 # Keycloak access configuration properties
 keycloak.security-constraints[0].authRoles[0]=admin
 keycloak.security-constraints[0].authRoles[1]=manager
