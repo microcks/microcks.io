@@ -26,4 +26,69 @@ Let’s do a quick review on what’s new in this release!
 
 ## Installation experience
 
+First contact with a new solution comes usually from the installion process itself and we care about user experience to make your life easier ;-)
 
+Microcks is now available on Helm Hub and has its own Chart repo. So installing Microcks via Helm is just 2 commands:
+
+```sh
+$ helm repo add microcks https://microcks.io/helm
+$ helm install microcks microcks/microcks —-version 0.9.0 --set microcks.url=microcks.$(minikube ip).nip.io,keycloak.url=keycloak.$(minikube ip).nip.io
+```
+
+> More details here: https://hub.helm.sh/charts/microcks/microcks
+
+Microcks Operator is available on [OperatorHub.io](https://operatorhub.io/operator/microcks) and has been upgraded to version `0.3.0` and now managed the **Seamless Upgrade** as defined by the capability model:
+
+While this version is still tagged as Alpha (till we reach the Full Lifecycle capability level at least), it is already in production on many Kubernetes clusters and has been reported as rock solid by community users.
+
+> More details here : https://operatorhub.io/operator/microcks
+
+OpenShift Templates have been created for OpenShift 4.x, upgrading some components and removing `cluster-admin` privileges that were mandatory so far.
+
+> It’s now easier to install it in your own project without requiring security operations at the cluster level.
+
+Whether your are using Helm or Operator to install Microcks, we have introduced some new and useful options : reusing existing Keycloak or MongoDB instances, reusing secrets for credentials, reusing TLS certificates for ingress security.
+
+> These options let you reuse already existing and shared services that you may have provisioned with your favorites options, allowing a better integration with your Enterprise ecosystem.
+
+As security matters and it is one our top priority : TLS is now the default for each setup method — we’ll generate auto-signed certificates for you if none provided. On the packaging side, we also released a new container image that is now based on [Red Hat Universal Base Image](https://developers.redhat.com/products/rhel/ubi/).
+
+> This led to a lightweight image — we reduced the size from 240 MB to 160 MB — and much more secure as the UBI has a reduced attack surface and is very frequently updated and patched.
+
+## Management features
+
+As an administrator you’ll need effective way to manage users and repository access rights.
+
+Most of the features were already existing but not documented nor easily accessible, so we fixed that. You’ll find documentation on:
+
+* How to [manage your users](https://microcks.io/documentation/administrating/users/) assigning them application roles,
+* How to [define secrets for your Enterprise repository](https://microcks.io/documentation/administrating/secrets/) such as Git ones,
+* How to [snapshot and restore your repository](https://microcks.io/documentation/administrating/snapshots/) content.
+
+As a repository content manager, we add new features regarding repository organization. With this new release, you’ll now be able to assign `labels` to your API or services. This offer you a lot of flexibility to categorize and organize your repository the way you would like.
+
+Labels can also be used on the main repository page allowing you to filter and display the most important labels when browsing repository content.
+
+> Full details are documented here: https://microcks.io/documentation/using/advanced/organizing/
+
+## Mocking enhancements
+
+The mocking engine of Microcks did receive some enhancements too!
+
+The more noticeable being now the ability to generate dynamic response content. We still do think and stick to the idea that non generated samples are of real value… but this was a recurrent community request and we finally listened and change our mind a bit ;-)
+
+So now, you can use variables references and functions to describe dynamic results that helps to simulate real expected behavior, for example:
+
+```json
+{
+  "id": "{{ randomString(64) }}",
+  "date": "{{ now(dd/MM/yyyy) }}",
+  "message": "Hello {{ request.body/name }}"
+}
+```
+
+Upon invocation, the mock engine will use this template and interpret the expressions between double-mustaches (`{{` and `}}`).
+
+> See full details documented here: https://microcks.io/documentation/using/advanced/templates/
+
+We also added some nice documentation enhancements like Content-type negociation, Parameters constraints and Custom dispatching rules.
