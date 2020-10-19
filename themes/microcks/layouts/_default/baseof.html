@@ -41,8 +41,14 @@
       {{ partial "site-manifest.html" . }}
       {{- partial "head-additions.html" . -}}
       {{- template "_internal/opengraph.html" . -}}
+      {{ if .Params.image }}
+      <meta name="og:image" content="{{ .Params.image | absURL }}"></meta>
+      {{ end }}
       {{- template "_internal/schema.html" . -}}
       {{- template "_internal/twitter_cards.html" . -}}
+      {{ if .Params.image }}
+      <meta name="twitter:image" content="{{ .Params.image | absURL }}"></meta>
+      {{ end }}
 
       {{ if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production")  }}
         {{ partial "gtag" . }}
