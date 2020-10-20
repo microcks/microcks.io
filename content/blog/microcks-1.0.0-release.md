@@ -35,11 +35,13 @@ With this release we mainly focused on event-driven capabilities and finalizing 
 
 > Starting with version `1.0.0`, Microcks is now able to import AsyncAPI definitions for enriching the API catalogs with `Event` typed APIs.
 
+![microcks-1.0.0-release-asyncapi](/images/blog/microcks-1.0.0-release-asyncapi.png)
+
 AsyncAPI defines multiple protocol bindings to details protocol specific issues. In this `1.0.0`, we have decided to focus on the `KAFKA` binding. Microcks installation procedure now offers to deploy a dedicated [Apache Kafka](https://kafka.apache.org/) broker as part of your setup or to reuse an already existing broker.
 
 > Mocking events on Kafka with Microcks is now super easy! When set up accordingly, it is also able to mock the API by publishing sample messages on a dedicated topic. See this video below for a full demonstration.
 
-https://youtu.be/uZaWAekvUz4
+{{< youtube id="uZaWAekvUz4" autoplay="false" >}}
 
 
 ## Security enhancements
@@ -57,6 +59,8 @@ Many users from the community also asked for enhancements when reusing an existi
 > More details here: https://github.com/microcks/microcks/issues/237
 
 Finally, we did move our container images repositories from [Docker Hub](https://hub.docker.com/orgs/microcks) to [Quay.io](https://quay.io/) infrastructure. The major reason for moving to Quay.io is their excellent, built-in security vulnerabilities scan for container images. Now, for each and every commit into the Microcks repository, newly produced container images are scanned and trigger a notification if a vulnerability is found.
+
+![microcks-1.0.0-release-quay](/images/blog/microcks-1.0.0-release-quay.png)
 
 All the latest images from Microcks now have an “All green” scan report ;-)
 

@@ -3,7 +3,7 @@ draft: false
 title: "Getting started"
 date: 2019-09-01
 publishdate: 2019-09-01
-lastmod: 2019-09-02
+lastmod: 2020-10-19
 menu:
   docs:
     parent: using
@@ -33,19 +33,9 @@ Have a look on this [page](/documentation/installing/operator) for more informat
 
 ### Installing on Kubernetes with Helm
 
-We provide [basic Kubernetes manifest](https://raw.githubusercontent.com/microcks/microcks/master/install/kubernetes/kubernetes-ephemeral-full.yml) for simple needs but also a `Chart` for using with [Helm](https://helm.sh/) Packet Manager. This is definitely the preferred way of installing apps on Kubernetes.
+We provide a Helm 3 `Chart` for using with [Helm](https://helm.sh/) Packet Manager. This is definitely the preferred way of installing apps on Kubernetes.
 
 Have a look on this [page](/documentation/installing/kubernetes) for more informations.
-
-### Installing with OpenShift templates
-
-We provide OpenShift templates in many flavors for rapid deployment onto OpenShift. We will basically have different installation options:
-
-* Ephemeral or Persistent setup,
-* Embedding Keycloak or using an external mutualized instance,
-* With or without HTTPS Routes setup.
-			
-Have a look on this [page](/documentation/installing/openshift") for more informations.
 			
 ### Installing using Docker Compose
 			
@@ -77,7 +67,7 @@ Now that you have created your Jobs, they are automatically <code>Activated</cod
 
 ### Viewing services
 			
-Once sample jobs have been loaded, new Services has been discovered and added to your repository. You can now visit the <b>API | Services</b> entry point from top navigation bar or home screen. You should see 3 new services with basic informations on version and operations/resources handled by this services.
+Once sample jobs have been loaded, new Services has been discovered and added to your repository. You can now visit the <b>API | Services</b> entry point from top navigation bar or home screen. You should see 5 new services with basic informations on version and operations/resources handled by this services.
 			
 ![sample-services](/images/sample-services.png)
 
@@ -85,7 +75,7 @@ Once sample jobs have been loaded, new Services has been discovered and added to
 			
 Now choosing the <b>Petstore API</b> REST API, you'll be able to access details, documentation and request/response samples for each operation/resource in the screen below. One important information here is the <b>Mocks URL</b> field: this is the endpoint where Microcks automatically deploy a mock for this operation. The table just below show request/response couples and a detailed URL with the HTTP verb showing how to invoke this mock.
 
-![sample-details](/images/sample-details.png")
+![sample-details](/images/sample-details.png)
 			
 Using this URL, you can call the exposed mock for <b>Petstore API</b> using the following curl command:
 
@@ -105,6 +95,7 @@ Ta Dam !
 
 Now that you have basic information on how to setup and use Microcks, you can go further with:
 
+* Pursuing your tour with the [Getting started with Tests](/documentation/getting-started-tests),
 * Understanding how Microcks [compare to alternatives](/documentation/using/alternatives),
 * Creating your definition files using [OpenAPI](/documentation/using/openapi), [AsyncAPI](/documentation/using/asyncapi), [SoapUI](/documentation/using/soapui) or [Postman](/documentation/using/postman),
 * Using [exposed mocks](/documentation/using/mocks) and using variables,

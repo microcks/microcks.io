@@ -91,4 +91,25 @@ Upon invocation, the mock engine will use this template and interpret the expres
 
 > See full details documented here: https://microcks.io/documentation/using/advanced/templates/
 
-We also added some nice documentation enhancements like Content-type negociation, Parameters constraints and Custom dispatching rules.
+We also added some nice documentation enhancements like [Content-type negociation](https://microcks.io/documentation/using/advanced/#content-negocation-in-rest-mocks), [Parameters constraints](https://microcks.io/documentation/using/advanced/#operation-parameters-constraints) and [Custom dispatching rules](https://microcks.io/documentation/using/advanced/dispatching/).
+
+## Testing enhancements
+
+We also introduce [Tekton](https://tekton.dev/) support for bringing Microcks to this great new Kubernetes-native CI/CD tooling. We do provide Tekton tasks and pipeline samples that allow you to integrate `Microcks Tests` steps with-in your pipelines.
+
+Here an OpenShift 4.x example:
+
+
+We also bring the capability of overriding headers during tests for better integration with tested endpoint environment.
+
+## What’s coming next?
+
+So you have seen there’s definitely a lot of enhancements in this `0.9.0` new release!
+
+That’s just a start as we are going to tackle some big topics for the `1.0.0` release and will love your feedback and comments on our roadmap priorization:
+
+* Support of [AsyncAPI](https://www.asyncapi.com/) standard for the mocking of event-driven API,
+* Refinement of Role Based Access Control model to allow segmentation and delegation of management of different repository parts,
+* Launch our API Mock Hub dedicated public market place to promote Microcks ecosystem, use cases, ready to use mocks and partners.
+
+So stay tuned!

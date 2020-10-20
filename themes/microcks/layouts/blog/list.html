@@ -4,8 +4,10 @@
   <div class="w-60 w-60-ns w-90-xs center tc tc-ns pv3">
     <h1 class="primary-color-dark">Microcs latest blog posts</h1>
   </div>
-    
+  
+  {{ $lasturl := .Permalink }}
   {{ range first 1 (where .Data.Pages "Layout" "post") }}
+  {{ $lasturl = .Permalink }}
   <div class="w-60 w-70-ns w-90-xs center pv3">
     <div class="flex-ns flex-wrap center mw9">
       <div class="w-50 w-50-ns w-90-xs ph3 pt5 pv1-xs">
@@ -19,11 +21,12 @@
     </div>
   </div>
   {{ end }}
-  {{ $paginator := .Paginate (where .Data.Pages "Layout" "post") 3 }}
+  {{ $paginator := .Paginate (where .Data.Pages "Layout" "post") 4 }}
   <div class="w-60 w-70-ns w-90-xs center pv5">
     <h3 class="pv2 pv0-xs">Previous posts</h3>
     <div class="flex-ns flex-wrap center mw9 pv2">
     {{ range $paginator.Pages }}
+    {{ if ne .Permalink $lasturl }}
       <div class="w-33 w-33-ns w-90-xs ph3 pv3-xs">
         <img src="{{ .Params.image}}" alt="{{.Title}}" class="img-fluid w-100 br3">
         <div class="card-body p-0">
@@ -32,6 +35,7 @@
           <a href="{{.Permalink}}" class="home-link">Read More</a>
         </div>
       </div>
+    {{ end }}
     {{ end }}
     </div>
     <div class="pv2 tc tc-ns">
