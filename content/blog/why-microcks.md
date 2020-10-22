@@ -93,9 +93,6 @@ Despite being a “platform” Microcks could not impose any deployment location
 
 Within our team we’re early adopters of containers and Kubernetes. So the choice was natural to make Microcks Kubernetes-native from day 1. But we do not just “run on Kubernetes” ; we integrate all the ecosystems like Operators, Helm, Autoscalers and so on to provide you the easiest and automated operational experience.
 
-
-We were looking for a scalable model with no risk of having out-of-sync mocks with later changes. That’s why we build Microcks using a platform approach. In an organisation, Microcks can be deployed centrally and connected to the various Git repositories. It will take care of **discovering and syncing contract definitions** for your APIs and provide always up-to-date endpoints mocking the last committed changes. It will also keep the history of all previously managed and deployed versions of your APIs and services - and thus help with their governance and natural referencing.
-
 <figure class="tc">
   <img src="/images/blog/why-microcks-deployment.png" class="img-responsive"/>
   <figcaption><i class="f5">Fig 6: Deployment options for Microcks: on-premises or on the cloud.</i></figcaption>
@@ -103,9 +100,9 @@ We were looking for a scalable model with no risk of having out-of-sync mocks wi
 
 Microcks relies on Kubernetes as the abstraction layer of infrastructure and thus gives you the choice of deployment location. Whether on public cloud providers managed services or on in-house Kubernetes distribution, you’ll be able to deploy and scale Microcks. And you’ll be able to do that easily, repeatedly, with a very low resources footprint and in a fully automated way. 
 
-## Microcks does mocks differently ! 
+## Microcks does mocks differently! 
 
-As a wrap-up of this “Why Microcks ?” manifesto, we’d like you to remember this definition: *Microcks is an Open Source Kubernetes-native tool for API Mocking and Testing. It provides an enterprise-grade solution to speed up, secure and scale your API strategy for the digital era.*
+As a wrap-up of this “Why Microcks?” manifesto, we’d like you to remember this definition: *Microcks is an Open Source Kubernetes-native tool for API Mocking and Testing. It provides an enterprise-grade solution to speed up, secure and scale your API strategy for the digital era.*
 
 It is “simply” doing API mocking and testing but differently: 
 
