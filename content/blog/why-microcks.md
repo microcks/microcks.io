@@ -2,9 +2,9 @@
 draft: false
 title: Why Microcks?
 layout: post
-date: 2020-10-12
-publishdate: 2020-10-12
-lastmod: 2020-10-12
+date: 2020-10-20
+publishdate: 2020-10-20
+lastmod: 2020-10-20
 image: "/images/blog/why-microcks.png"
 categories: [blog]
 author: "Laurent Broudoux"
@@ -13,9 +13,9 @@ author_image: "/images/blog/bio/lbroudoux.jpeg"
 author_twitter: "lbroudoux"
 ---
 
-Microcks recently reached a key milestone as we officially announced on Aug 11th 2020 the release of [Microcks 1.0.0](https://medium.com/microcksio/microcks-1-0-0-release-5a5d0dbaf212), being our first General Availability (GA) version. With it we deliver the promise of providing *an enterprise-grade solution to speed up, secure and scale your API stratgey for the digital era* — whatever the type of services or API.
+Microcks recently reached a key milestone as we officially announced on Aug 11th 2020 the release of [Microcks 1.0.0](https://medium.com/microcksio/microcks-1-0-0-release-5a5d0dbaf212), being our first General Availability (GA) version. With it we deliver the promise of providing *an enterprise-grade solution to speed up, secure and scale your API strategy for the digital era* — whatever the type of services or API.
 
-As we received a lot of supportive feedback since August, we think it is a great opportunity to take some time to come back to the reasons why we started Microcks, especially for the newcomers. Surprisingly enough, we explain a lot why mocking and testing are necessary in today’s cloud-native area - see [Mocking made easy with Microcks](https://www.openshift.com/blog/mocking-microservices-made-easy-microcks) - but not spend that much time on why we were not satisfied with existing solutions.
+As we have received massive supportive feedback since August, we consider it a great opportunity to take some time to come back to the reasons why we started Microcks, especially for the newcomers. Surprisingly enough, we explain a lot why mocking and testing are necessary in today’s cloud-native area - see [Mocking made easy with Microcks](https://www.openshift.com/blog/mocking-microservices-made-easy-microcks) - but do not spend that much time on why we were not satisfied with existing solutions.
 
 So here’s a little refresher that will give you insights on why we started Microcks ? We’ll develop this through three main concerns.
 
@@ -30,7 +30,6 @@ One huge problem in software development is the translation mismatch we usually 
   <figcaption><i class="f5">Fig 1: Specifications produced as documents are “translated” into software packages <br/> and API contracts. Translation leads to drifts from initial expectations.</i></figcaption>
 </figure>
 
-
 As agile and DevOps practices - like [CI/CD](https://en.wikipedia.org/wiki/CI/CD), [mocking](https://en.wikipedia.org/wiki/Mock_object) and [continuous testing](https://en.wikipedia.org/wiki/Continuous_testing) - tend to become mainstream, the feedback loop is getting shorter. However even the mocks and the tests are suffering from this translation mismatch !
 
 Existing tools that propose writing code for mocks are contributing to this mismatch. Sure, they are helpful because they are lightweight and easy to start with. But at the end of the day, you have no guarantee that what was written is actually the perfect translation of the business expert knowledge.
@@ -44,7 +43,7 @@ At Microcks we were thinking of using the concepts of example-driven design and 
 
 Sure software code still has to be written for implementing the behaviour but provided examples will allow to provide fully accurate mocks faster so that dependant consumers may start playing with the API immediately. From these examples, we are also able to deduce a comprehensive test suite that will validate the implementation when ready. 
 
-At the time we investigate first Microcks prototypes in early 2015, arise a bunch of standards and toolings that will be of great help making these ideas real. Supporting standards was a no-brainer for us and luckily enough the [OpenAPI](https://www.openapis.org/) and [AsyncAPI](https://www.asyncapi.com/) specifications were handling examples ! We saw it as the confirmation of the crucial role of examples as we foresaw it. We were also truly convinced that toolings had a great role to play to foster collaboration between personas. So we extend the range of possibilities and now Microcks supports all these formats as contract definition.
+At the time we investigated first Microcks prototypes in early 2015, a bunch of standards and toolings arose that would be of great help making these ideas real. Supporting standards was a no-brainer for us and luckily enough the [OpenAPI](https://www.openapis.org/) and [AsyncAPI](https://www.asyncapi.com/) specifications were handling examples ! We saw it as the confirmation of the crucial role of examples as we foresaw it. We were also truly convinced that toolings had a great role to play to foster collaboration between personas. So we extended the range of possibilities and now Microcks supports all these formats as contract definition.
 
 <figure class="tc">
   <img src="/images/blog/why-microcks-standards.png" class="img-responsive"/>
@@ -57,9 +56,9 @@ So at first sight, Microcks is a tool that follows example-driven designs to bui
 
 Our second concern - and thus the reason for starting Microcks - was about scaling the practice of mocking and contract testing. When things are growing up and you want to apply those practices in many applications or at a large organization level, you start encountering many new issues ! Since we have entered a cloud-native era where APIs, microservices and event-driven architecture are all the rage, the growth and troubles are now a reality.
 
-From our experience, the following questions arise very rapidly :
+From our experience, the following questions arose very rapidly :
 
-* How to share the contract and mock definitions so that everyone uses the same set of definitions for the same APIs ?
+* How to share contracts and mock definitions so that everyone uses the same set of definitions for the same APIs ?
 * How to limit the resources dedicated to mocking ? If everybody is popping dedicated services for mocking, you could have **a lot of resources used just** for mocking,
 * How to keep everything up-to-date and in sync, avoiding spending time refreshing definitions in different places ?
 * How to embrace the diversity of technologies ? Conciliating green-field APIs and the legacy WebServices we usually build our new API on top ...
@@ -74,7 +73,7 @@ Most of the existing tools propose running the mock services on the developer la
 </i></figcaption>
 </figure>
 
-We were looking for a scalable model with no risk of having out-of-sync mocks with later changes. That’s why we build Microcks using a platform approach. In an organisation, Microcks can be deployed centrally and connected to the various Git repositories. It will take care of **discovering and syncing contract definitions** for your APIs and provide always up-to-date endpoints mocking the last committed changes. It will also keep the history of all previously managed and deployed versions of your APIs and services - and thus help with their governance and natural referencing.
+We were looking for a scalable model with no risk of having out-of-sync mocks with later changes. That’s why we built Microcks using a platform approach. In an organisation, Microcks can be deployed centrally and connected to the various Git repositories. It will take care of **discovering and syncing contract definitions** for your APIs and provide always up-to-date endpoints mocking the last committed changes. It will also keep the history of all previously managed and deployed versions of your APIs and services - and thus help with their governance and natural referencing.
 
 <figure class="tc">
   <img src="/images/blog/why-microcks-platform.png" class="img-responsive"/>
@@ -88,7 +87,7 @@ The platform approach of Microcks solves many of the issues that come with matur
 
 ## #3 Everywhere & automated
 
-One of our strong beliefs - whilst we entered the cloud-native era - was that the advent of API would be global to all industries. However all of them will have different cloud adoption strategies. As such, organisations will need API and services mocking and testing capabilities on public cloud as well as on-premises infrastructures for legacy / regulatory / security concerns.
+One of our strong belief - whilst we entered the cloud-native era - was that the advent of API would be global to all industries. However all of them will have different cloud adoption strategies. As such, organisations will need API and services mocking and testing capabilities on public cloud as well as on-premises infrastructures for legacy / regulatory / security concerns.
 
 Despite being a “platform” Microcks could not impose any deployment location. Also the hybrid nature of cloud adoption will certainly drive multiple Microcks instances to **segregate contract definitions** per Business Unit / visibility scope / security zones or other criteria. We surely need a deployment model providing flexibility as well as ease of operations. 
 
@@ -106,7 +105,7 @@ Microcks relies on Kubernetes as the abstraction layer of infrastructure and thu
 
 ## Microcks does mocks differently ! 
 
-As a wrap-up of this “Why Microcks ?” manifesto, we’d like you to remember this definition: *Microcks is an Open source Kubernetes-native tool for API Mocking and Testing. It provides an enterprise-grade solution to speed up, secure and scale your API strategy for the digital era.*
+As a wrap-up of this “Why Microcks ?” manifesto, we’d like you to remember this definition: *Microcks is an Open Source Kubernetes-native tool for API Mocking and Testing. It provides an enterprise-grade solution to speed up, secure and scale your API strategy for the digital era.*
 
 It is “simply” doing API mocking and testing but differently: 
 

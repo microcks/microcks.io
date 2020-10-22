@@ -39,6 +39,8 @@ $ helm install microcks microcks/microcks —-version 0.9.0 --set microcks.url=m
 
 Microcks Operator is available on [OperatorHub.io](https://operatorhub.io/operator/microcks) and has been upgraded to version `0.3.0` and now managed the **Seamless Upgrade** as defined by the capability model:
 
+![microcks-operators](/images/blog/microcks-0.9.0-operators.png)
+
 While this version is still tagged as Alpha (till we reach the Full Lifecycle capability level at least), it is already in production on many Kubernetes clusters and has been reported as rock solid by community users.
 
 > More details here : https://operatorhub.io/operator/microcks
@@ -66,6 +68,8 @@ Most of the features were already existing but not documented nor easily accessi
 * How to [snapshot and restore your repository](https://microcks.io/documentation/administrating/snapshots/) content.
 
 As a repository content manager, we add new features regarding repository organization. With this new release, you’ll now be able to assign `labels` to your API or services. This offer you a lot of flexibility to categorize and organize your repository the way you would like.
+
+![microcks-labels](/images/blog/microcks-0.9.0-labels.jpeg)
 
 Labels can also be used on the main repository page allowing you to filter and display the most important labels when browsing repository content.
 
@@ -99,6 +103,7 @@ We also introduce [Tekton](https://tekton.dev/) support for bringing Microcks to
 
 Here an OpenShift 4.x example:
 
+![microcks-pipeline](/images/blog/microcks-0.9.0-pipeline.png)
 
 We also bring the capability of overriding headers during tests for better integration with tested endpoint environment.
 
