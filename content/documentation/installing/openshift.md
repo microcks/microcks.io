@@ -13,6 +13,9 @@ toc: true
 weight: 20 #rem
 ---
 
+> **Warning** OpenShift Templates support has been removed since Microcks 1.1.0 release. Whilst being convenient, teamplates are a burden to maintain and we now have more robusts, easy-to-use installation process using [Helm Charts](./kubernetes) or Microcks [Operator](./operator).
+Though we recommend swithing to these methods. OpenShift Templates can still be found under `1.0.0` tag in the GitHub repository. We'll keep this page here intentionally for a few months.
+
 ## Instructions
 
 The easiest way of installing Microcks for production use in most secured conditions is to do it on OpenShift. OpenShift in version 3.6 or greater is required. It is assumed that you have some kind of OpenShift cluster instance running and available. This instance can take several forms depending on your environment and needs:
@@ -32,10 +35,10 @@ In OpenShift 4.x we reduced the number of flavours as HTTPS is now considered as
 Add the templates, by using these commands :
 
 ```sh
-oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-ephemeral-full-template-https-ocp4.yml 
-oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-ephemeral-no-keycloak-template-https-ocp4.yml 
-oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-persistent-full-template-https-ocp4.yml 
-oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-persistent-no-keycloak-template-https-ocp4.yml 
+oc create -f https://raw.githubusercontent.com/microcks/microcks/1.0.0/install/openshift/openshift-ephemeral-full-template-https-ocp4.yml 
+oc create -f https://raw.githubusercontent.com/microcks/microcks/1.0.0/install/openshift/openshift-ephemeral-no-keycloak-template-https-ocp4.yml 
+oc create -f https://raw.githubusercontent.com/microcks/microcks/1.0.0/install/openshift/openshift-persistent-full-template-https-ocp4.yml 
+oc create -f https://raw.githubusercontent.com/microcks/microcks/1.0.0/install/openshift/openshift-persistent-no-keycloak-template-https-ocp4.yml 
 ```
 
 Once this is done can now create a new project and instanciate the template of your choice ; either using the OpenShift web console or the command line. You will need to fill up some parameters during creation such as:
@@ -64,14 +67,14 @@ Templates for OpenShift 3.x come in many flavors: ephemeral or persistent, with 
 Add the templates, by using these commands :
 
 ```sh
-$ oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-ephemeral-full-template.yml -n openshift
-$ oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-ephemeral-full-template-https.yml -n openshift
-$ oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-ephemeral-no-keycloak-template.yml -n openshift
-$ oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-ephemeral-no-keycloak-template-https.yml -n openshift
-$ oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-persistent-full-template.yml -n openshift
-$ oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-persistent-full-template-https.yml -n openshift
-$ oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-persistent-no-keycloak-template.yml -n openshift
-$ oc create -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-persistent-no-keycloak-template-https.yml -n openshift
+$ oc create -f https://raw.githubusercontent.com/microcks/microcks/1.0.0/install/openshift/openshift-ephemeral-full-template.yml -n openshift
+$ oc create -f https://raw.githubusercontent.com/microcks/microcks/1.0.0/install/openshift/openshift-ephemeral-full-template-https.yml -n openshift
+$ oc create -f https://raw.githubusercontent.com/microcks/microcks/1.0.0/install/openshift/openshift-ephemeral-no-keycloak-template.yml -n openshift
+$ oc create -f https://raw.githubusercontent.com/microcks/microcks/1.0.0/install/openshift/openshift-ephemeral-no-keycloak-template-https.yml -n openshift
+$ oc create -f https://raw.githubusercontent.com/microcks/microcks/1.0.0/install/openshift/openshift-persistent-full-template.yml -n openshift
+$ oc create -f https://raw.githubusercontent.com/microcks/microcks/1.0.0/install/openshift/openshift-persistent-full-template-https.yml -n openshift
+$ oc create -f https://raw.githubusercontent.com/microcks/microcks/1.0.0/install/openshift/openshift-persistent-no-keycloak-template.yml -n openshift
+$ oc create -f https://raw.githubusercontent.com/microcks/microcks/1.0.0/install/openshift/openshift-persistent-no-keycloak-template-https.yml -n openshift
 ```
 
 Once this is done can now create a new project and instanciate the template of your choice ; either using the OpenShift web console or the command line. You will need to fill up some parameters during creation such as:
