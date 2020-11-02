@@ -11,7 +11,7 @@
   <div class="w-60 w-70-ns w-90-xs center pv3">
     <div class="flex-ns flex-wrap center mw9">
       <div class="w-50 w-50-ns w-90-xs ph3 pt5 pv1-xs">
-        <img src="{{ .Params.image }}" alt="{{.Title}}" class="img-fluid w-100 br3">
+        <img src="{{ .Params.image }}" alt="{{.Title}}" class="img-fluid w-100 br3" style="object-fit: cover; border: 1px solid #ffffff;">
       </div>
       <div class="w-50 w-50-ns w-90-xs ph3">
         <h2><a href="{{ .Permalink }}" class="post-link">{{ .Title }}</a></h2>
@@ -28,7 +28,9 @@
     {{ range $paginator.Pages }}
     {{ if ne .Permalink $lasturl }}
       <div class="w-33 w-33-ns w-90-xs ph3 pv3-xs">
-        <img src="{{ .Params.image}}" alt="{{.Title}}" class="img-fluid w-100 br3">
+        <!-- <img src="{{ .Params.image}}" alt="{{.Title}}" class="img-fluid w-100 br3"> -->
+        <img src="{{ .Params.image}}" alt="{{.Title}}" class="br3" style="object-fit: cover; height: 140px; border: 1px solid #ffffff;">
+        
         <div class="card-body p-0">
           <h4><a href="{{ .Permalink }}" class="post-link">{{ .Title }}</a></h4>
           <p class="f6" style="height: 6em; line-height: 1.45em; overflow:hidden; text-overflow:ellipsis;">{{ .Summary }}</p>
