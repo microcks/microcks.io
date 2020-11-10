@@ -2,21 +2,34 @@
 title: "News about Microcks"
 layout: tweets-columns
 categories: [releases]
-lastmod: 2020-10-01
+lastmod: 2020-11-09
 ---
 
 ## Fresh Releases
 
 ### Microcks core
 
+#### 1.1.0 on 10 Nov 2020
+
+We are thrilled to announce the Microcks release **1.1.0**! Here are below the major points of this release:
+
+* The support of [Apache Kafka](https://kafka.apache.org) for testing Event-driven APIs through [AsyncAPI](https://asyncapi.com) schema validation,
+* Some OpenAPI and SOAP mocking enhancements regarding tricky edge cases,
+* A [Getting Started with Tests](https://microcks.io/documentation/getting-started-tests/) quick start guide,
+* The move from [Gitter](https://gitter.im/microcks/microcks) chat rooms in favor of [Zulip](https://microcksio.zulipchat.com/) for community discussions and support.
+
+Check out our [release notes](https://microcks.io/blog/microcks-1.1.0-release/)!
+
+You can also check [GitHub milestone](https://github.com/microcks/microcks/milestone/11?closed=1) for the full list of closed issues.
+
 #### 1.0.0 on 11 Aug 2020
 
 We are very pleased to announce the Microcks release **1.0.0**!
 
 * The major announcement is the support of [AsyncAPI](https://asyncapi.com) for Event-driven APIs,
-* A lot of security enhancements including major components versions bump, better Keycloak reuse and container images systematic scanning. 
+* A lot of security enhancements including major components versions bump, better Keycloak reuse and container images systematic scanning.
 
-Check out our [Medium release notes](https://medium.com/microcksio/microcks-1-0-0-release-5a5d0dbaf212)!
+Check out our [release notes](https://microcks.io/blog/microcks-1.0.0-release/)!
 
 You can also check [GitHub milestone](https://github.com/microcks/microcks/milestone/10?closed=1) for the full list of closed issues.
 
@@ -50,7 +63,7 @@ Among the many novelties, it embeds:
 * Dynamic mocking support,
 * Testing integration using #tekton pipelines.
 
-Check out our [Medium release notes](https://medium.com/microcksio/microcks-0-9-0-release-ae43c9a0061) and stay tuned for more to come around!
+Check out our [release notes](https://microcks.io/blog/microcks-0.9.0-release/) and stay tuned for more to come around!
 
 [Look at the History for older release notes](./history)
 

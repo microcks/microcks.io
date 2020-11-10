@@ -8,11 +8,11 @@ Here are some important links:
 
 * **Source code:** [GitHub organization](https://github.com/microcks)
 * **Twitter:** [MicrocksIO on Twitter](https://twitter.com/microcksIO)
-* **Chat:** [microcks/microcks on Gitter IM](https://gitter.im/microcks/microcks?source=orgpage)
+* **Chat:** [MicrocksIO chat on Zulip](https://microcksio.zulipchat.com/)
 
-### Gitter
+### Zulip
 
-You can chat with the Microcks team and other users on The [microcks/microcks chat](https://gitter.im/microcks/microcks?source=orgpage) on Gitter IM. Use this channel to ask questions, request help from core team or experienced users.
+You can chat with the Microcks team and other users on The [MicrocksIO chat](https://microcksio.zulipchat.com/) on Zulip IM. Use this channel to ask questions, request help from core team or experienced users.
 
 ### GitHub
 
