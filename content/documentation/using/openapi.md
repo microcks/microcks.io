@@ -27,7 +27,7 @@ With OpenAPI [Example Objects](https://github.com/OAI/OpenAPI-Specification/blob
       
 ## Illustration
       
-We will illustrate how Microcks is using OpenAPI specification through a `Car API` sample. The specification file in YAML format can be found [here](https://github.com/microcks/microcks/blob/master/src/test/resources/io/github/microcks/util/openapi/cars-openapi.yaml). This API specification was designed using [Apicurio](https://apicur.io), a design studio that supports OpenAPI standards. It is a really simple API that allows registering cars to an owner, listing cars for this owner and adding passenger to a car.
+We will illustrate how Microcks is using OpenAPI specification through a `Car API` sample. The specification file in YAML format can be found [here](https://github.com/microcks/microcks/blob/master/webapp/src/test/resources/io/github/microcks/util/openapi/cars-openapi.yaml). This API specification was designed using [Apicurio](https://apicur.io), a design studio that supports OpenAPI standards. It is a really simple API that allows registering cars to an owner, listing cars for this owner and adding passenger to a car.
             
 Within this sample specification, we have defined 2 mocks - one for the registering operation and another for the listing cars operation:
 
@@ -40,7 +40,7 @@ Specifying request params encompasses path params, query params and header param
       
 #### Path parameters
       
-This is done within the `parameters` part of corresponding API `path`, on [line 83](https://github.com/microcks/microcks/blob/d183533c4129b2ecc1f5641107e7f6c0d43760f7/src/test/resources/io/github/microcks/util/openapi/cars-openapi.yaml#L83) of our file. Snippet is represented below:
+This is done within the `parameters` part of corresponding API `path`, on [line 83](https://github.com/microcks/microcks/blob/master/webapp/src/test/resources/io/github/microcks/util/openapi/cars-openapi.yaml#L83) of our file. Snippet is represented below:
 
 ```yaml
 parameters:
@@ -63,7 +63,7 @@ One thing to notice here is that Microcks importer supports the use of reference
       
 #### Query parameters
       
-Query parameters are specified using parameters defined under the `verb` of the specification as you may find on [line 20](https://github.com/microcks/microcks/blob/d183533c4129b2ecc1f5641107e7f6c0d43760f7/src/test/resources/io/github/microcks/util/openapi/cars-openapi.yaml#L20). Snippet is represented below for the `laurent_cars` mock:
+Query parameters are specified using parameters defined under the `verb` of the specification as you may find on [line 20](https://github.com/microcks/microcks/blob/master/webapp/src/test/resources/io/github/microcks/util/openapi/cars-openapi.yaml#L20). Snippet is represented below for the `laurent_cars` mock:
 
 ```yaml
 - name: limit
@@ -79,7 +79,7 @@ Query parameters are specified using parameters defined under the `verb` of the 
       
 ### Specifying request payload
       
-Request payload is used within our `laurent_307` sample. It is specified under the `requestBody` of the specification as you may find starting on [line 55](https://github.com/microcks/microcks/blob/d183533c4129b2ecc1f5641107e7f6c0d43760f7/src/test/resources/io/github/microcks/util/openapi/cars-openapi.yaml#L55). Request payload may refer to OpenAPI schema definitions like in the snippet below:
+Request payload is used within our `laurent_307` sample. It is specified under the `requestBody` of the specification as you may find starting on [line 55](https://github.com/microcks/microcks/blob/master/webapp/src/test/resources/io/github/microcks/util/openapi/cars-openapi.yaml#L55). Request payload may refer to OpenAPI schema definitions like in the snippet below:
 
 ```yaml
 requestBody:
@@ -98,7 +98,7 @@ requestBody:
       
 ### Specifying response payload
       
-  Response payload is used within our `laurent_cars` sample. It is defined under the `Http status` of the specification as you may find starting on [line 40](https://github.com/microcks/microcks/blob/d183533c4129b2ecc1f5641107e7f6c0d43760f7/src/test/resources/io/github/microcks/util/openapi/cars-openapi.yaml#L40). Response payload may refer to OpenAPI schema definitions like in the snippet below:
+  Response payload is used within our `laurent_cars` sample. It is defined under the `Http status` of the specification as you may find starting on [line 40](https://github.com/microcks/microcks/blob/master/webapp/src/test/resources/io/github/microcks/util/openapi/cars-openapi.yaml#L40). Response payload may refer to OpenAPI schema definitions like in the snippet below:
 
 ```yaml
 responses:
