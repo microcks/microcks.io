@@ -13,7 +13,7 @@ author_image: "/images/blog/bio/lbroudoux.jpeg"
 author_twitter: "lbroudoux"
 ---
 
-Microcks recently reached a key milestone as we officially announced on Aug 11th 2020 the release of [Microcks 1.0.0](https://medium.com/microcksio/microcks-1-0-0-release-5a5d0dbaf212), being our first General Availability (GA) version. With it we deliver the promise of providing *an enterprise-grade solution to speed up, secure and scale your API strategy for the digital era* — whatever the type of services or API.
+Microcks recently reached a key milestone as we officially announced on Aug 11th 2020 the release of [Microcks 1.0.0](https://microcks.io/blog/microcks-1.0.0-release/), being our first General Availability (GA) version. With it we deliver the promise of providing *an enterprise-grade solution to speed up, secure and scale your API strategy for the digital era* — whatever the type of services or API.
 
 As we have received massive supportive feedback since August, we consider it a great opportunity to take some time to come back to the reasons why we started Microcks, especially for the newcomers. Surprisingly enough, we explain a lot why mocking and testing are necessary in today’s cloud-native area - see [Mocking made easy with Microcks](https://www.openshift.com/blog/mocking-microservices-made-easy-microcks) - but do not spend that much time on why we were not satisfied with existing solutions.
 

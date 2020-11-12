@@ -17,11 +17,11 @@ We are very thrilled to announce today Microcks 1.1.0 release — the Open sourc
 
 We received a huge amount of positive feedback from our community including many newcomers. So we took the time to come back and explain where we are coming from and what is our project purpose: see the ["Why Microcks ?"](https://microcks.io/blog/why-microcks/) post. But above all, we wanted to go further and complete what had been started in the previous version by adding [Apache Kafka](https://kafka.apache.org/) event-based API testing support. 
 
-Today, Microcks is the only Open source Kubernetes native tool that offers a consistent approach for mocking and testing your REST APIs, SOAP WebServices and now [asynchronous / event-driven](https://www.asyncapi.com/docs/community/tooling#mocking) Kafka APIs !
+Today, Microcks is the only Open source Kubernetes-native tool that offers a consistent approach for mocking and testing your REST APIs, SOAP WebServices and now [asynchronous / event-driven](https://www.asyncapi.com/docs/community/tooling#mocking) Kafka APIs !
 
 ![microcks-kafka](/images/blog/microcks-1.1.0-kafka.png)
 
-So you may be wondering *"Why is this new release so fantastic and important ?"* Well that `1.1.0` release means that you may now use the same tool for speeding-up the delivery and governing the lifecycle of your APIs - whether synchronous or asynchronous. Microcks will open up avenues for your team to test and create robust asynchronous workflows the easy way. 
+So you may be wondering *"Why is this new release so fantastic and important ?"*. Well that `1.1.0` release means that you may now use the same tool for speeding-up the delivery and governing the lifecycle of your APIs - whether synchronous or asynchronous. Microcks will open up avenues for your team to test and create robust asynchronous workflows the easy way. 
 
 > For those of you who needed to see some samples in action, please stay tuned! We’ll release a blog post series with some real-life examples very soon 😉
 
