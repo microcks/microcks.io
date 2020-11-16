@@ -1,12 +1,27 @@
 ## Microcks Keycloak Realm fixes for APICurio Studio integration
 
-
+```
+---
+draft: false
+title: Microcks Keycloak Realm fixes for APICurio Studio integration
+layout: post
+date: 2020-11-16
+publishdate: 2020-11-16
+lastmod: 2020-11-16
+image: "/images/blog/microcks-realm-fix-for-apicurio.png"
+categories: [blog]
+author: "Naresh Krish"
+author_title: "Community member"
+author_image: "/images/blog/bio/nareshkrish.png"
+author_twitter: "narioinc"
+---
+```
 
 ![microcks-realm-fix-for-apicurio](/images/blog/microcks-realm-fix-for-apicurio.png)
 
-Microcks is an amazing tool that helps developers mock their APIs seamlessly using OpenAPI specs. This makes it easy for distributed teams to develop complex micro-services without having to wait for full development cycles to complete, thus maximising team efficiencies.
+Microcks is an amazing tool that helps developers mock their APIs seamlessly using [OpenAPI](https://www.openapis.org/) specs. This makes it easy for distributed teams to develop complex micro-services without having to wait for full development cycles to complete, thus maximising team efficiencies.
 
-APICurio studio is another great tool to start creating your API documentations via a fully integrated OpenAPI spec editor and adds features like ability to view your documentation live as teams collaborate and edit specs on the editor in real-time.
+[APICurio Studio](https://www.apicur.io/studio/) is another great tool to start creating your API documentations via a fully integrated OpenAPI spec editor and adds features like ability to view your documentation live as teams collaborate and edit specs on the editor in real-time.
 
 A cool feature in APICurio is the ability to integrate seamlessly with Microcks to mock the API definition with just a single press of a button. This yields to a great developer experience overall as clients can start consuming mock endpoints with sample responses even if the actual API is going through the CI pipeline and yet to reach staging or production environments
 
@@ -105,7 +120,7 @@ Now login to Microcks app and mock away !!! You should see any APIs that you pos
 
 **Dragons ahead !! BEWARE**, at no point should this be done for production environment. TLS is one of the first steps to ensuring a strong and secure environment for the tools we are working with and at no point should you disable SSL-required configuration in Keycloak. This is ONLY for development purposes. Also this change is ONLY required when you make external calls to these services. If you provide your APICurio IP in the range of *192.168.\*.\** or *127.0.0.1* or *localhost* you can just set the SSL-requireed setting in your Keycloak realm's 'Login' setting to false (or OFF as in the UI console). 
 
-For those independent developers and coders/hobbyist, use services like Let's Encrypt to get your free TLS certs to use with these services.  
+For those independent developers and coders/hobbyist, use services like [Let's Encrypt](https://letsencrypt.org/) to get your free TLS certs to use with these services.  
 
 Now for the steps:
 
@@ -139,4 +154,5 @@ Now for the steps:
 
 
 
-I hope this blog post provides an interim solution to the APICurio-Microcks installation woes. I will be sending out a PR for the permanent fix for this to the APICurio team. Until then, Happy Mocking !!
+I hope this blog post provides an interim solution to the APICurio-Microcks installation woes. I have raised a [bug](https://github.com/Apicurio/apicurio-studio/issues/1319#issuecomment-726690052) for the permanent fix for this to the APICurio team. Until then, Happy Mocking !!
+
