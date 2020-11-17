@@ -23,7 +23,7 @@ Today, Microcks is the only Open source Kubernetes-native tool that offers a con
 
 So you may be wondering *"Why is this new release so fantastic and important ?"*. Well that `1.1.0` release means that you may now use the same tool for speeding-up the delivery and governing the lifecycle of your APIs - whether synchronous or asynchronous. Microcks will open up avenues for your team to test and create robust asynchronous workflows the easy way. 
 
-> For those of you who needed to see some samples in action, please stay tuned! We’ll release a blog post series with some real-life examples very soon 😉
+> For those of you who needed to see some samples in action, please stay tuned! Here's the [follow-up post](../apache-kafka-mocking-testing) with details on how we're doing stuffs here 😉
 
 ## Mocking enhancements
 
