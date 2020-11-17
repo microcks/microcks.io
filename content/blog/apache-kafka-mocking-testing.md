@@ -33,7 +33,7 @@ When using the Kafka capabilities of Microcks for the protocol binding of this A
 
 > Just import your AsyncAPI specification and you’ll have incoming sample messages on the specified topic for the configured Kafka broker! Without writing a single line of code! You can then immediately start developing an app that will consume these messages.
 
-Imagine you have now developed a simple consumer that listens to this `UsersignedupAPI_0.1.1_user-signedup` topic and just displays the messages on the console. You will ended up with following results :
+Imagine you have now developed a simple consumer that listens to this `UsersignedupAPI_0.1.1_user-signedup` topic and just displays the messages on the console. You will ended up with following results:
 
 ```json
 // At startup time...
