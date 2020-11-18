@@ -1,6 +1,3 @@
-## Microcks Keycloak Realm fixes for APICurio Studio integration
-
-```
 ---
 draft: false
 title: Microcks Keycloak Realm fixes for APICurio Studio integration
@@ -15,7 +12,6 @@ author_title: "Community member"
 author_image: "/images/blog/bio/nareshkrish.png"
 author_twitter: "narioinc"
 ---
-```
 
 ![microcks-realm-fix-for-apicurio](/images/blog/microcks-realm-fix-for-apicurio.png)
 
@@ -93,7 +89,7 @@ Once your installation is up and running, login to Keycloak with your admin cred
 
 * Here click on "Scope" and ensure *Full Scope allowed* is "ON"
 
-![keycloak-microcks-app-js-scope](images/blog/keycloak-microcks-app-js-scope.png)
+![keycloak-microcks-app-js-scope](/images/blog/keycloak-microcks-app-js-scope.png)
 
 
 ## Creating users in Microcks Keycloak realm
@@ -106,7 +102,7 @@ Now go ahead and create a user in Microcks realm. Once a user is created, Follow
 * Here, click on the Client scopes and then Evaluate
 * In the user input, enter the name of the user whom you want to check and then click "Evaluate"
 
-![keycloak-client-scope-evaluation.png](/home/narioinc89/Downloads/images/blog/keycloak-client-scope-evaluation.png.png)
+![keycloak-client-scope-evaluation.png](/images/blog/keycloak-client-scope-evaluation.png)
 
 * In the form that pops up up below, click on "Effective Role Scope Mapping"
 * Here, under Client roles drop down, select *microcks-app*.
@@ -118,7 +114,7 @@ Now login to Microcks app and mock away !!! You should see any APIs that you pos
 
 ## Skipping TLS !!!!
 
-**Dragons ahead !! BEWARE**, at no point should this be done for production environment. TLS is one of the first steps to ensuring a strong and secure environment for the tools we are working with and at no point should you disable SSL-required configuration in Keycloak. This is ONLY for development purposes. Also this change is ONLY required when you make external calls to these services. If you provide your APICurio IP in the range of *192.168.\*.\** or *127.0.0.1* or *localhost* you can just set the SSL-requireed setting in your Keycloak realm's 'Login' setting to false (or OFF as in the UI console). 
+**Dragons ahead !! BEWARE**, at no point should this be done for production environment. TLS is one of the first steps to ensuring a strong and secure environment for the tools we are working with and at no point should you disable SSL-required configuration in Keycloak. This is ONLY for development purposes. Also this change is ONLY required when you make external calls to these services. If you provide your APICurio IP in the range of *192.168.\*.\** or *127.0.0.1* or *localhost* you can just set the SSL-required setting in your Keycloak realm's 'Login' setting to false (or OFF as in the UI console). 
 
 For those independent developers and coders/hobbyist, use services like [Let's Encrypt](https://letsencrypt.org/) to get your free TLS certs to use with these services.  
 
