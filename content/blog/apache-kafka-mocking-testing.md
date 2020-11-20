@@ -84,7 +84,7 @@ Imagine you have now developed a simple consumer that listens to this `Usersigne
 // ...until you kill your consumer...
 ```
 
-Thanks to Microcks [message templating](https://microcks.io/documentation/using/advanced/templates/), you see that you receive different message ids each and every time/
+Thanks to Microcks [message templating](https://microcks.io/documentation/using/advanced/templates/), you see that you receive different message ids each and every time.
 
 The new thing in the Microcks release `1.1.0` is the little green-and-red bar chart in the upper right corner of the screen capture. That’s where you can launch tests of your Kafka event-based API. Let’s see what it means.
 
