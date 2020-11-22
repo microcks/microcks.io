@@ -13,35 +13,36 @@ toc: true
 weight: 30 #rem
 ---
 
-## Getting started
+## Quickstart
 
-On this page, you will go through :
+The easiest way to get started is using [Docker Compose](https://docs.docker.com/compose/) to start the minimal requirements. Make sure you have [Docker installed](https://docs.docker.com/get-docker/) on your system.
 
-* [Installing Microcks](#installing-microcks),
-* [Using Microcks](#using-microcks),
-* [Going further...](#what-s-next)
+In your terminal issue the following commands:
 
-## Installing Microcks
+1. Clone this repository.
 
-Microcks may be installed in many ways depending your preferred environment. Basically, it can be installed on Kubernetes, on OpenShift, using Docker-Compose or directly using binary and source of Microcks.
-	
-### Installing with Kubernetes Operator
+   ```sh
+   git clone https://github.com/microcks/microcks.git
+   ```
 
-We provide an Operator that is distributed through [OperatorHub.io](https://operatorhub.io/operator/microcks) for easy install and management of Microcks as a Kubernetes-native application.
+2. Change to the install folder
 
-Have a look on this [page](/documentation/installing/operator) for more informations.
+   ```sh
+   cd microcks/install/docker-compose
+   ```
 
-### Installing on Kubernetes with Helm
+3. Spin up the containers
 
-We provide a Helm 3 `Chart` for using with [Helm](https://helm.sh/) Packet Manager. This is definitely the preferred way of installing apps on Kubernetes.
+   ```sh
+   docker-compose up -d
+   ```
 
-Have a look on this [page](/documentation/installing/kubernetes) for more informations.
-			
-### Installing using Docker Compose
-			
-Docker Compose is really easy for a laptop or single demonstration server. You'll find instructions on how to use Docker Compose for installation [here](/documentation/installing/docker-compose).
+This will start the required containers and setup an simple environment for your usage.
 
-Using this deployment solution, we also provide one-click deployment to Microsoft Azure Cloud with this [sub-project](https://github.com/microcks/microcks-azure).
+Open a new browser tab and point to the `http://localhost:8080` endpoint. This will redirect you to the [Keycloak](https://www.keycloak.org/) Single Sign On page for login. Use the following default credentials to login into the application:
+
+* **Username:** admin
+* **Password:** 123
 
 ## Using Microcks
 
@@ -90,6 +91,30 @@ And you should receive the following response:
 ```
 
 Ta Dam !
+
+## Installing Microcks
+
+If you require a more complex installation, Microcks may be installed in many ways depending your preferred environment. Basically, it can be installed on Kubernetes, on OpenShift, using Docker-Compose or directly using binary and source of Microcks.
+	
+### Installing with Kubernetes Operator
+
+We provide an Operator that is distributed through [OperatorHub.io](https://operatorhub.io/operator/microcks) for easy install and management of Microcks as a Kubernetes-native application.
+
+Have a look on this [page](/documentation/installing/operator) for more informations.
+
+### Installing on Kubernetes with Helm
+
+We provide a Helm 3 `Chart` for using with [Helm](https://helm.sh/) Packet Manager. This is definitely the preferred way of installing apps on Kubernetes.
+
+Have a look on this [page](/documentation/installing/kubernetes) for more informations.
+			
+### Installing using Docker Compose
+			
+Docker Compose is really easy for a laptop or single demonstration server. You'll find instructions on how to use Docker Compose for installation [here](/documentation/installing/docker-compose).
+
+### Quick installation in Azure
+
+We provide this sub project [microcks/microcks-azure](https://github.com/microcks/microcks-azure) for easily setting up a  one-click deployment to Microsoft Azure Cloud.
 
 ## What's next?
 
