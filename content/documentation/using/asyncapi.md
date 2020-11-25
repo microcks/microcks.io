@@ -85,7 +85,7 @@ examples:
         age: 36
 ```
 
-> You can see here that we're using specific `{{ }}` notation that involves the generation of dynamic content. You can find description of the `now()` and `randomString()` functions into [Function Expressions](./advanced/templates/#function-expressions) documentation.
+> You can see here that we're using specific `{{ }}` notation that involves the generation of dynamic content. You can find description of the `now()` and `randomString()` functions into [Function Expressions](../advanced/templates/#function-expressions) documentation.
 
 #### Headers
 
