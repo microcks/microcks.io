@@ -108,6 +108,6 @@ And here’s below the YAML for launching a test on the Async API, they’re pre
 
 Excited about the possibilities that it will offer you? Thinking about your next pipeline that will test both types of APIs and validate all your events triggering rules? Wondering about chaining Dev to QA to Production promotion including tests on different brokers and endpoints?
 
-The opportunities are endless and we provide real code allowing you to try them. This whole **User Registration demo** can be found on our [GitHub repository](https://github.com/microcks/api-lifecycle/tree/master/user-registration-demo) with all the instructions to deploy it and run it on your Kubernetes cluster. Do not hesitate trying it out and sending us feedback or ideas on what you want to see next via our [Zulip chat](https://microcksio.zulipchat.com).
+The opportunities are endless and we provide real code allowing you to try them. This whole **User Registration demo** can be found on our [GitHub repository](https://github.com/microcks/api-lifecycle/tree/master/user-registration-demo) with all the instructions to deploy it and run it on your Kubernetes cluster. Do not hesitate trying it out and sending us feedback or ideas on what you want to see next via our [Zulip chat](https://microcksio.zulipchat.com) 🐙
 
 Thanks for reading and take care.
