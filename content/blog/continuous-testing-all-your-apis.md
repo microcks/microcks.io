@@ -14,19 +14,21 @@ author_twitter: "lbroudoux"
 
 We talk a lot about asynchronous API lately at Microcks! We added a lot of new innovative features taking advantage of the [AsyncAPI](https://www.asyncapi.com/) specification. These are nice additions but we do not want them to hide the foundational essence of Microcks: **offering you a consistent approach whatever the type of API**. See our [Why Microcks ?](https://microcks.io/blog/why-microcks/) post for a refresher. 
 
-With this post we want to demonstrate how traditional REST API and event-based API can be used together and how Microcks can leverage your [OpenAPI](https://www.openapis.org/) and [AsyncAPI](https://www.asyncapi.com/) assets to ease the testing of scenarios involving both of them. It is a follow-up of our [Microcks 1.1.0 release notes](https://microcks.io/blog/microcks-1.1.0-release/) and our [Apache Kafka Mocking and Testing](https://microcks.io/blog/apache-kafka-mocking-testing/) previous posts when we detailed usages of Microcks for asynchronous APIs.
+With this post we want to demonstrate how traditional REST API and event-based API can be used together and how Microcks can leverage your [OpenAPI](https://www.openapis.org/) and [AsyncAPI](https://www.asyncapi.com/) assets to ease the testing of scenarios involving both of them. It is a follow-up of our [Microcks 1.1.0 release notes](https://microcks.io/blog/microcks-1.1.0-release/) and our [Apache Kafka Mocking and Testing](https://microcks.io/blog/apache-kafka-mocking-testing/) previous posts where we detailed usages of Microcks for asynchronous APIs.
 
 ## OpenAPI & AsyncAPI scopes
 
 Let’s imagine this simple use-case: you are designing a new application for registering users in your system. We always need to register and welcome new users 😉 Obviously, some other parts of your information systems will also need to know when a new user registered so that they can - for example - send her a welcome email, initialize her fidelity account, fill the CRM with basic information and so on.
 
 The best practices in system design are clearly promoting separation of concerns and loose coupling. Thus you may build the high-level design below mixing :
+
 * Service Oriented Architecture (SOA) for blocking interaction with the user performing its registration,
 * Event Driven Architecture (EDA) for asynchronous and non-blocking interaction made by systems reacting on user registration.
 
 ![continuous-testing-all-your-apis-design](/images/blog/continuous-testing-all-your-apis-design.png)
 
 To specify the contract of these interaction you ended up designing two APIs :
+
 * 1 synchronous REST API that will allow to do the actual registration, 
 * 1 asynchronous event-based API that will publish a `User Signed Up` message each and every time a registration succeeds. This message will be consumed by the Email, CRM, Marketing systems and any other future usages.
 
@@ -81,7 +83,7 @@ For this demonstration, we have used Microcks [Tekton task](https://microcks.io/
 
 And here’s below the YAML for launching a test on the Async API, they’re pretty similar exception the `testEndpoint` and the `runner` used:
 
-```yaml
+```yml
 - name: test-asyncapi
   taskRef:
     name: microcks-test
