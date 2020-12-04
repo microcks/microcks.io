@@ -49,6 +49,7 @@ Using Microcks for mocking both APIs will tremendously accelerate things! Allowi
 But using Microcks for testing will also ensure you will be able to reconnect the dots and validate everything - automatically! The better being that Microcks allows testing of REST API using the same tooling and the same code it allows testing event-driven ones.
 
 That is what we have done using the following CI/CD pipeline. For each and every code change in the Git repository, this pipeline is:
+
 * Building and deploying the application - pretty classic 😉
 * Starting a first parallel branch where it will ask Microcks to listen to the Kafka topic used by the application to publish messages. This is the `test-asyncapi` step,
 * Starting a second parallel branch where it will ask Microcks to test the REST API endpoints - and do this 2 times on 2 different API versions. Theses are the `test-openapi-v1` and `test-openapi-v2` steps,
@@ -83,7 +84,7 @@ For this demonstration, we have used Microcks [Tekton task](https://microcks.io/
 
 And here’s below the YAML for launching a test on the Async API, they’re pretty similar exception the `testEndpoint` and the `runner` used:
 
-```yml
+```yaml
 - name: test-asyncapi
   taskRef:
     name: microcks-test
@@ -112,4 +113,4 @@ Excited about the possibilities that it will offer you? Thinking about your next
 
 The opportunities are endless and we provide real code allowing you to try them. This whole **User Registration demo** can be found on our [GitHub repository](https://github.com/microcks/api-lifecycle/tree/master/user-registration-demo) with all the instructions to deploy it and run it on your Kubernetes cluster. Do not hesitate trying it out and sending us feedback or ideas on what you want to see next via our [Zulip chat](https://microcksio.zulipchat.com) 🐙
 
-Thanks for reading and take care.
+Thanks for reading and take care. ❤️
