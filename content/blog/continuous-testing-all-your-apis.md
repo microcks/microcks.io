@@ -29,8 +29,8 @@ The best practices in system design are clearly promoting separation of concerns
 
 To specify the contract of these interaction you ended up designing two APIs :
 
-* 1 synchronous REST API that will allow to do the actual registration, 
-* 1 asynchronous event-based API that will publish a `User Signed Up` message each and every time a registration succeeds. This message will be consumed by the Email, CRM, Marketing systems and any other future usages.
+* **1 synchronous REST API** that will allow to do the actual registration, 
+* **1 asynchronous event-based API** that will publish a `User Signed Up` message each and every time a registration succeeds. This message will be consumed by the Email, CRM, Marketing systems and any other future usages.
 
 And that’s the time where [OpenAPI](https://www.openapis.org/) and [AsyncAPI](https://www.asyncapi.com/) enter the game! You will use them to describe the protocol semantics you plan to use (HTTP verbs, message broker topics, security schemes, ...) and the syntactic definitions of exchanged data.
 
