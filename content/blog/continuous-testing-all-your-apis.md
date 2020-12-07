@@ -36,7 +36,7 @@ And that’s the time where [OpenAPI](https://www.openapis.org/) and [AsyncAPI](
 
 ![continuous-testing-all-your-apis-apis](/images/blog/continuous-testing-all-your-apis-apis.png)
 
-We can see that OpenAPI and AsyncAPI are addressing different and complementary scopes of API contract definition. Even if different, you will surely benefit from having a consistent approach while governing them and feature parity when it comes to accelerating features.
+We can see that OpenAPI and AsyncAPI are addressing different and complementary scopes of API contract definition. Even if different, you will surely benefit from having a consistent approach while governing them and feature parity when it comes to accelerating delivery.
 
 ## OpenAPI & AsyncAPI testing altogether
 
@@ -48,7 +48,7 @@ Using Microcks for mocking both APIs will tremendously accelerate things! Allowi
 
 But using Microcks for testing will also ensure you will be able to reconnect the dots and validate everything - automatically! The better being that Microcks allows testing of REST API using the same tooling and the same code as the ones used for event-driven API.
 
-That is what we have done using the following CI/CD pipeline. For each and every code change in the Git repository, this pipeline is:
+That is what we have demonstrated using the following CI/CD pipeline. For each and every code change in the Git repository, this pipeline is:
 
 * Building and deploying the application - pretty classic 😉
 * Starting a first parallel branch where it will ask Microcks to listen to the Kafka topic used by the application to publish messages. This is the `test-asyncapi` step,
