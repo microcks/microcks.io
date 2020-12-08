@@ -1,9 +1,9 @@
 ---
 draft: false
-title: "Getting started with Docker Compose"
+title: "Installing with docker-compose"
 date: 2019-09-01
 publishdate: 2019-09-01
-lastmod: 2020-03-26
+lastmod: 2020-12-08
 menu:
   docs:
     parent: installing
