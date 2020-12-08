@@ -3,7 +3,7 @@ draft: false
 title: "Installing with Kubernetes Operator"
 date: 2020-02-11
 publishdate: 2020-02-11
-lastmod: 2020-02-11
+lastmod: 2020-12-08
 menu:
   docs:
     parent: installing
@@ -69,38 +69,6 @@ spec:
 
 We recommend having a look at [operator documentation](https://github.com/microcks/microcks-ansible-operator) for full understanding of CR.
 
-
-## On OpenShift 4 with OLM
-
-As OpenShift 4.x is embedding OLM by default, it is fairly easy to realize a new Microcks installation. The video below shows an install from scratch on OpenShift but also expose the post-installation steps required for creating user and connecting to the app.
-
-{{< youtube id="P2RFDxL0xsA" autoplay="false" >}}
-
-
-## On Kubernetes with OLM
-
-Install Operator Lifecycle Manager (OLM), a tool to help manage the Operators running on your cluster.
-
-```sh
-$ curl -sL https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.14.1/install.sh | bash -s 0.13.0
-```
-
-Install the operator by running the following command:
-
-```sh
-$ kubectl create -f https://operatorhub.io/install/microcks.yaml
-```
-
-For more details on what's going on with this command, check [this page](https://operatorhub.io/how-to-install-an-operator#What-happens-when-I-execute-the-'Install'-command-presented-in-the-pop-up?).
-This Operator will be installed in the `my-microcks` namespace and will be usable from this namespace only. After install, watch your operator come up using next command.
-
-```sh
-$ kubectl get csv -n my-microcks
-```
-
-To use it, checkout the custom resource definitions (CRDs) introduced by this operator to start using it.
-
-
 ## On any Kube distribution without OLM
 
 For development or on bare OpenShift and Kubernetes clusters, without Operator Lifecycle Management (OLM).
@@ -137,3 +105,34 @@ microcks-ansible-operator-f58b97548-qj26l   1/1       Running   0          3m
 ```
 
 Now just create a `MicrocksInstall` CR!
+
+
+## On OpenShift 4 with OLM
+
+As OpenShift 4.x is embedding OLM by default, it is fairly easy to realize a new Microcks installation. The video below shows an install from scratch on OpenShift but also expose the post-installation steps required for creating user and connecting to the app.
+
+{{< youtube id="P2RFDxL0xsA" autoplay="false" >}}
+
+
+## On Kubernetes with OLM
+
+Install Operator Lifecycle Manager (OLM), a tool to help manage the Operators running on your cluster.
+
+```sh
+$ curl -sL https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.14.1/install.sh | bash -s 0.13.0
+```
+
+Install the operator by running the following command:
+
+```sh
+$ kubectl create -f https://operatorhub.io/install/microcks.yaml
+```
+
+For more details on what's going on with this command, check [this page](https://operatorhub.io/how-to-install-an-operator#What-happens-when-I-execute-the-'Install'-command-presented-in-the-pop-up?).
+This Operator will be installed in the `my-microcks` namespace and will be usable from this namespace only. After install, watch your operator come up using next command.
+
+```sh
+$ kubectl get csv -n my-microcks
+```
+
+To use it, checkout the custom resource definitions (CRDs) introduced by this operator to start using it.
