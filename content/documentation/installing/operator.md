@@ -78,28 +78,34 @@ Start cloning this repos and then, optionnally, create a new project:
 ```sh
 $ git clone https://github.com/microcks/microcks-ansible-operator.git
 $ cd microcks-ansible-operator/
-$ oc new-project microcks-operator
+$ kubectl create namespace microcks
 ```
 
 Then, from this repository root directory, create the specific CRDS and resources needed for Operator:
 
 ```sh
-$ oc create -f deploy/crds/microcks_v1alpha1_microcksinstall_crd.yaml
-$ oc create -f deploy/service_account.yaml 
-$ oc create -f deploy/role.yaml
-$ oc create -f deploy/role_binding.yaml 
+$ kubectl create -f deploy/crds/microcks_v1alpha1_microcksinstall_crd.yaml
+$ kubectl create -f deploy/service_account.yaml -n microcks
+$ kubectl create -f deploy/role.yaml -n microcks
+$ kubectl create -f deploy/role_binding.yaml -n microcks 
 ```
 
 Finally, deploy the operator:
 
 ```sh
-$ oc create -f deploy/operator.yaml
+$ kubectl create -f deploy/operator.yaml -n microcks
 ```
 
-Wait a minute or two and check everything is running:
+Wait a minute or two for the deployment to be ready:
 
 ```sh
-$ oc get pods                                                                                                                                 
+kubectl wait --for=condition=available --timeout=600s deployment/microcks-ansible-operator -n microcks
+```
+
+Finally, check everything is running:
+
+```sh
+$ kubectl get pods -n microcks                               
 NAME                                        READY     STATUS    RESTARTS   AGE
 microcks-ansible-operator-f58b97548-qj26l   1/1       Running   0          3m
 ```
