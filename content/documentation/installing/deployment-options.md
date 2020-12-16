@@ -34,9 +34,9 @@ The schema below illustrates this architecture and the relations between compone
 
 Your can deploy this simple architecture whatever the installation method you pick: from [Docker Compose](../docker-compose) to fully featured [Operator](../operator).
 
-### Complete architecture
+### Architecture for Async API
 
-Since the [1.0.0 release](../../../blog/microcks-1.0.0-release) when we introduced asyncchronous API support, there's a much complete form of architecture that takes place when you enabled the asynchronous API feature.
+Since the [1.0.0 release](../../../blog/microcks-1.0.0-release) when we introduced asynchronous API support, there's a much complete form of architecture that takes place when you enabled the asynchronous API feature.
 
 To support this, we rely on 2 additional components:
 
@@ -45,13 +45,13 @@ To support this, we rely on 2 additional components:
 
 Because since the [1.1.0 release](../../../blog/microcks-1.1.0-release) we are now also able to test AsyncAPI events, the `microcks-async-minion` will also be likely to connect to outer message broker topics or queues in order to listen to incoming events and validate them.
 
-The schema below represents this full-featured architecture with connection to outer brokers. We represented Kafka ones (`X` broker) as well as broker from other protocols with respect to our roadmap. 😉
+The schema below represents this full-featured architecture with connection to outer brokers. We represented Kafka ones (`X` broker) as well as brokers (`Y` and `Z`) from other protocols with respect to our roadmap. 😉
 
 <img src="/images/architecture-full.png" class="img-responsive"/>
 
-> For sake of simplicity we do not represent here the Zookeeper ensemble thay may be associated with Kafka.
+> For sake of simplicity we do not represent here the Zookeeper ensemble that may be associated with Kafka.
 
-This complete architecture cannot be deployed using Docker Compose that only brings a subset of features. We rely on Kubernetes for deploying it and you will have to use our [Helm Chart](../kubernetes) or [Operator](../operator) installation methods for that.
+This architecture cannot be deployed using Docker Compose that only brings a subset of features. We rely on Kubernetes for deploying it and you will have to use our [Helm Chart](../kubernetes) or [Operator](../operator) installation methods for that.
 
 ## Deployment Options
 
@@ -77,13 +77,13 @@ Aside this all-in-one approache, you may also use boths installation method to p
 
 <img src="/images/deployment-partially-managed.png" class="img-responsive"/>
 
-> Reusing already deployed components may allow you to lower operational costs if you're using shared instances. It can also allow you to reuse managed services that may be provided by your favorite cloud vendor.
+> Reusing already deployed components may allow you to lower operational costs if you're using shared instances. It can also allow you to use managed services that may be provided by your favorite cloud vendor.
 
 ### The Kafka broker of your choice 
 
 Whilst it may seem obvious to certain people, it can be useful to recall that Microcks-Kafka interactions are not tied to a particular Kafka vendor.
 
-Whatever your Kafka vendor or your different Kafka vendors - be it vanilla Kafka, Confluent platform, Amazon MSK or Red Hat AMQ - Microcks will be able to connect and use them as source for testing your event-driven API. We will just need 2 test parameters for that:
+Whatever your Kafka vendor or your different Kafka vendors - be it vanilla Kafka, Confluent platform, Amazon MSK or Red Hat AMQ - Microcks will be able to connect and use them as source for testing your event-driven API. We will just need 2 parameters specified at test launch-time for that:
 
 * `testEndpointUrl`: a connection string to a remote broker including destination and authentication options,
 * `testSecret`: a Secret provided by Microcks administrator that will provide authentication credentials such as user, password and certificates.
