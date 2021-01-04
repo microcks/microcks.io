@@ -23,7 +23,7 @@ Those use-case encompass:
 * today's date or today's + an amount of time (for validity date for example),
 * response part expressed from request part (body part, header, query param)
 
-Thus, we introduce in Microcks 0.9.0 version (use the `nightly` tag until it's released) some templating features allowing to specify dynamic parts in response content.
+Thus, we introduced in Microcks `0.9.0` version some templating features allowing to specify dynamic parts in response content.
 
 ### Tell me more!
 
@@ -33,7 +33,7 @@ You can find the OpenAPI v3 contract of this API [here](https://github.com/micro
 
 ![template-intro](/images/template-intro.png)
 
-You'll notice that response payload is expressed using some templating mustaches (`{{` and `}}`) that indicates here that Microcks should recognized the delimited expression and replace it with new values.
+You'll notice that response payload is expressed using some templating mustaches (`{{` and `}}`) that indicates here that Microcks should recognize the delimited expression and replace it with new values.
 
 When invoked twice with different params at different dates, here are the results:
 
@@ -162,9 +162,14 @@ We can adapt the XPath expression to ignore namespaces prefix:
 
 ## Function Expressions
 
-### Date generator
+From the Microcks `1.2.0` version, we introduced notation compatibility with [Postman Dynamic variables](https://learning.postman.com/docs/writing-scripts/script-references/variables-list/). So that you can reuse your existing response expressed within Postman Collection. The only limitation being that Postman dynamic variables cannot handle arguments passing so functions will always be invoked without arguments.
 
-The `now()` function allows to generate current date.
+So basically, a function expression can be materialized with the Microcks notation `function(arg1, arg2)` **OR** the Postman notation `$function`.
+
+### Common functions
+#### Date generator
+
+The `now()` function allows to generate current date. It can also be invoked using the `timestamp()` alias.
 
 Invoked with no argument, it's a simple mong timestamp since EPOCH beginning. This function can also be invoked with one argument being the pattern to use for rendering current's date as string. The Java [date and time patterns](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) are use as referenced.
 
@@ -174,17 +179,21 @@ It can also be called with a second argument representing an amount of time to a
 now() // 1581425292309
 now(dd/MM/yyyy HH:mm:ss) // 11/02/2020 13:48:12
 now(dd/MM/yyyy, 1M) // 11/03/2020
+$now  // 1581425292309
+$timestamp  // 1581425292309
 ```
 
-### UUID generator
+#### UUID generator
 
-The `uuid()`function allows to simply generate a UUID compliant with RFC 4122 (see https://www.cryptosys.net/pki/uuid-rfc4122.html).
+The `uuid()` function allows to simply generate a UUID compliant with RFC 4122 (see https://www.cryptosys.net/pki/uuid-rfc4122.html). It can also be invoked using the `guid()` or `randomUUID()`. 
 
 ```js
 uuid() // 3F897E85-62CE-4B2C-A957-FCF0CCE649FD
+guid() // 3a721b7f-7dc9-4c45-9777-516942b98e0d
+$randomUUID // 6929bb52-3ab2-448a-9796-d6480ecad36b
 ```
 
-### Random Integer generator
+#### Random Integer generator
 
 The `randomInt()` function allows to generate a random integer.
 
@@ -198,11 +207,157 @@ randomInt(32) // 27
 randomInt(25, 50) // 43
 ```
 
-### Random String generator
+#### Random String generator
 
-The `randomString()` function simply generates a random alphanumeric string. The default lentgh when called by no argument is 32 charracters. One can specify a integer argument to force string length to desired lentgh. Here's some examples below:
+The `randomString()` function simply generates a random alphanumeric string. The default length when called by no argument is 32 charracters. One can specify a integer argument to force string length to desired lentgh. Here's some examples below:
 
 ```js
 randomString() // kYM8nSjEdLfgKOGG1dfacro2IUmuuan
 randomString(64) // VclBAQiNAybe0B5IrXjGqOChQNDFdoTguf5jWn2tqRNfptWSYFy7yxdpxoNIGOpC
+```
+
+#### Random Boolean generator
+
+The `randomBoolean()` function simply generates a random boolean. Here's some examples below:
+
+```js
+randomBoolean() // true
+$randomBoolean  // false
+```
+
+### Names related functions
+
+The names related functions are using the [Faker library](https://github.com/DiUS/java-faker) to generate fake data from a library of common names and related.
+
+#### First name generator
+
+The `randomFirstName()` function allows to generate random person first name.
+
+```js
+randomFirstName() // Samantha
+$randomFirstName  // Chandler
+```
+
+#### Last name generator
+
+The `randomLastName()` function allows to generate random person last name.
+
+```js
+randomLastName() // Schneider
+$randomLastName  // Williams
+```
+
+#### Full name generator
+
+The `randomFullName()` function allows to generate random person full name.
+
+```js
+randomFullName() // Sylvan Fay
+$randomFullName  // Jonathon Kunze
+```
+
+#### Name prefix generator
+
+The `randomNamePrefix()` function allows to generate random person name prefix.
+
+```js
+randomNamePrefix() // Ms.
+$randomNamePrefix  // Dr.
+```
+#### Name suffix generator
+
+The `randomNameSuffix()` function allows to generate random person name prefix.
+
+```js
+randomNameSuffix() // MD
+$randomNameSuffix  // DDS
+```
+
+### Phone, Address and Location related functions
+
+The address related functions are using the [Faker library](https://github.com/DiUS/java-faker) to generate fake data from a library of common address and related.
+
+#### Phone number generator
+
+The `randomPhoneNumber()` function allows to generate random 10-digit phone numbers.
+
+```js
+randomPhoneNumber() // 494-261-3424
+$randomPhoneNumber  // 662-302-7817
+```
+
+#### City generator
+
+The `randomCity()` function allows to generate random city name.
+
+```js
+randomCity() // Paris
+$randomCity  // Boston
+```
+
+#### Street Name generator
+
+The `randomStreetName()` function allows to generate random street name.
+
+```js
+randomStreetName() // General Street
+$randomStreetName  // Kendrick Springs
+```
+
+#### Street Address generator
+
+The `randomStreetAddress()` function allows to generate random street address.
+
+```js
+randomStreetAddress() // 5742 Harvey Streets
+$randomStreetAddress  // 47906 Wilmer Orchard
+```
+
+#### Country generator
+
+The `randomCountry()` function allows to generate random country name.
+
+```js
+randomCountry() // Kazakhstan
+$randomCountry  // Austria
+```
+
+#### Country code generator
+
+The `randomCountryCode()` function allows to generate random 2-letter country code (ISO 3166-1 alpha-2).
+
+```js
+randomCountryCode() // CV
+$randomCountryCode  // MD
+```
+
+#### Latitude generator
+
+The `randomLatitude()` function allows to generate random latitude coordinate.
+
+```js
+randomLatitude() // 27.3644
+$randomLatitude  // 55.2099
+```
+
+#### Longitude generator
+
+The `randomLongitude()` function allows to generate random longitude coordinate.
+
+```js
+randomLongitude() // 40.6609
+$randomLongitude  // 171.7139
+```
+
+### Domains, Emails and Usernames related functions
+
+The address related functions are using the [Faker library](https://github.com/DiUS/java-faker) to generate fake data from a library of common domains, emails and related.
+
+#### Email generator
+
+The `randomEmail()` function allows to generate random email address.
+
+```js
+randomEmail() // ruthe42@hotmail.com
+$randomEmail  // iva.kovacek61@hotmail.com
 ```
