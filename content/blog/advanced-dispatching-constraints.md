@@ -14,7 +14,7 @@ author_twitter: "lbroudoux"
 
 The purpose of this post is to explain the advanced dispatching and constraint features available when mocking a REST API using Microcks. As I recently go again through the documentation answering questions on our [Zulip chat](https://microcksio.zulipchat.com), I realized that all the pieces were present but we did not have complete examples on how to use them!
 
-So I setup this new example based on a real life use-case our community users have submitted. It is base on a very simple `WeatherForecast API` that just present one `GET` endpoint for fetching the forecast. This endpoint has two query parameters:
+So I setup this new example based on a real life use-case our community users have submitted. It is based on a very simple `WeatherForecast API` that has just one `GET` endpoint for fetching the forecast. This endpoint has two query parameters:
 * `region` (one of the four cardinal points) allows to specify the zone to fetch,
 * `apiKey` is a parameter allowing to identify API caller and apply tracing, rate limits and so on...
 
