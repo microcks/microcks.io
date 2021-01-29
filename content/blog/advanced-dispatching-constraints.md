@@ -38,7 +38,7 @@ Let's start by importing the below OpenAPI contract into your running Microcks i
 Some important things to notice in this OpenAPI specification:
 * There's a single `GET` operation definition starting at line 16,
 * We defined `north`, `east`, `west` and `south` examples for `200` response - see lines 50 to 74 - as well as examples with the same names for `region` query parameter - see lines 23 to 29,
-* We defined an `unknown' example for the `404` response - see lines 82 and 83 - as well as an example with same name for query parameter - see line 21,
+* We defined an `unknown` example for the `404` response - see lines 82 and 83 - as well as an example with same name for query parameter - see line 21,
 * We defined an `apiKey` query parameter starting at line 37 but did not specify any example as it makes no sense for random values.
 
 Once imported into Microcks, you should have the same result as below screenshot:
