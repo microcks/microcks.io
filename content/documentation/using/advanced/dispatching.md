@@ -3,7 +3,7 @@ draft: false
 title: "Custom dispatching rules"
 date: 2020-03-03
 publishdate: 2020-03-03
-lastmod: 2020-03-03
+lastmod: 2021-02-09
 menu:
   docs:
     parent: using
@@ -91,7 +91,7 @@ $ curl -X POST http://microcks.example.com/rest/Beer+Catalog+API/1.0/beer \
 
 It is a success as the `country` has the `Belgium` value and the `Accepted` response is returned. Templates in this response are evaluated regarding request content.
 
-Now let's try with a German beer... You'll see that the `Not accepted` response is matched (look also at the return code) and adpated regarding incoming request:
+Now let's try with a German beer... You'll see that the `Not accepted` response is matched (look also at the return code) and adapted regarding incoming request:
 
 ```sh
 $ curl -X POST http://microcks.example.com/rest/Beer+Catalog+API/1.0/beer \
@@ -102,4 +102,27 @@ $ curl -X POST http://microcks.example.com/rest/Beer+Catalog+API/1.0/beer \
   "error": "Not accepted",
   "message": "Germany origin country is forbiden"
 }
+```
+
+### FALLBACK dispatcher
+
+Another useful advanced dispatching strategy introduced in the [Advanced Dispatching and Constraints for mocks](../../../../blog/advanced-dispatching-constraints/) blog post, is the `FALLBACK` strategy. As you may have guessed by its name, it behaves like a `try-catch` wrapping block in programming: it will try applying a first dispatcher with its own rule and if it find nothings it will default to a `fallback` response. This will allow you to define a default response event of the incoming requests does not match any dispatching criteria.
+
+The dispatching rules of `FALLBACK` dispatcher are expressed using a JSON payload with 3 properties:
+
+* `dispatcher` is the original dispatching strategy you want to be applied at first. Valid values are all the other dispatching strategies,
+* `dispatcherRules` are the rules you want the original dispatcher to apply when looking for a response,
+* `fallback` is simply the name of the response to use as the fallback if nothing is found on first try.
+
+Here's below the sample that was introduced in afore mentioned blog post. In case of unknown region requested as a query parameters on a Weather Forecast API, we'll fallback to an `unknown` response providing meaningful error message:
+
+![fallback-dispatcher](/images/blog/advanced-dispatching-constraints-final.png)
+
+#### Test our new rule!
+
+Just issue a Http request with an unmanaged region like below:
+
+```sh
+$ curl 'https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast?region=center&apiKey=qwertyuiop' -k
+Region is unknown. Choose in north, west, east or south.%
 ```
