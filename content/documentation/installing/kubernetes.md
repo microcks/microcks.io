@@ -1,13 +1,13 @@
 ---
 draft: false
-title: "Installing on Kubernetes"
+title: "Installing on Kube using Helm"
 date: 2019-09-01
 publishdate: 2019-09-01
-lastmod: 2020-10-12
+lastmod: 2021-02-09
 menu:
   docs:
     parent: installing
-    name: Installing on Kubernetes
+    name: Installing on Kube using Helm
     weight: 10
 toc: true
 weight: 10 #rem
@@ -15,13 +15,12 @@ weight: 10 #rem
 
 ## Instructions
 
-One easy way if installing Microcks is to do it on Kubernetes. Kubernetes in version 1.6 or greater is required. It is assumed that you have some kind of Kubernetes cluster up and running available. This can take several forms depending on your environment and needs:
+One easy way if installing Microcks is to do it via a [Helm Chart](https://helm.sh/). Kubernetes in version 1.17 or greater is required. It is assumed that you have some kind of Kubernetes cluster up and running available. This can take several forms depending on your environment and needs:
 
 * Lightweight Minikube on your laptop, see [Minikube project page](https://github.com/kubernetes/minikube),
 * Google Cloud Engine account in the cloud, see how to start a [Free trial](https://console.cloud.google.com/freetrial),
 * Any other Kubernetes distribution provider.
 
-We provide a <code>Chart</code> for using with [Helm](https://helm.sh/) Packet Manager.
 
 ## Helm 3
 
@@ -32,24 +31,39 @@ $ helm repo add microcks https://microcks.io/helm
 
 $ kubectl create namespace microcks
 
-$ helm install microcks microcks/microcks —-version 1.0.0 --namespace microcks --set microcks.url=microcks.$(minikube ip).nip.io --set keycloak.url=keycloak.$(minikube ip).nip.io
+$ helm install microcks microcks/microcks —-version 1.1.0 --namespace microcks --set microcks.url=microcks.$(minikube ip).nip.io --set keycloak.url=keycloak.$(minikube ip).nip.io
 ```
 
 After some minutes and components have been deployed, you should end up with a Spring-boot Pod, a MongoDB Pod, a Postman-runtime Pod, a Keycloak Pod and a PostgreSQL Pod like in the screenshot below.
 
 <img src="/images/running-pods-k8s.png" class="img-responsive"/>
 
-Now you can retrieve the URL of the created ingress using <code>kubectl get ingress -n microcks</code>. Before starting playing with Microcks, you'll have to connect to Keycloak component in order to configure an identity provider or define some users for the Microcks realm (see [Keycloak documentation](http://www.keycloak.org/docs/latest/server_admin/index.html#user-management)). Connection to Keycloak can be done using username and password stored into a <code>microcks-keycloak-config</code> secret created during setup.
+Now you can retrieve the URL of the created ingress using `kubectl get ingress -n microcks`.
 
-For full instructions and deployment optinos, we recommand reading the [README](https://github.com/microcks/microcks/blob/master/install/kubernetes/README.md) on GitHub repository.
+Before starting playing with Microcks, you'll have to connect to Keycloak component in order to configure an identity provider or define some users for the Microcks realm (see [Keycloak documentation](http://www.keycloak.org/docs/latest/server_admin/index.html#user-management)). Connection to Keycloak can be done using username and password stored into a `microcks-keycloak-config` secret created during setup.
 
-## Minikube configuration
+> Starting with Microcks `1.2.0` release, the installation process now creates default users with the different roles available. So you can directly login using `user`, `manager` or `admin` username with `microcks123` password.
 
-When using Minikube, depending on what you've already deployed, default configuration may be little bit slow and induce timeout on readiness probes. We usually setup the following configuration for successfull deployments:
+For full instructions and deployment options, we recommend reading the [README](https://github.com/microcks/microcks/blob/master/install/kubernetes/README.md) on GitHub repository.
+
+## Minikube setup
+
+The video below shows an install using the Helm chart on Minikube and also expose the post-installation steps required for creating user and connecting to the app (required before the `1.2.0` release):
+
+{{< youtube id="u7SP1bQ8_FE" autoplay="false" >}}
+
+When using Minikube, depending on what you've already deployed, default configuration may be little bit slow and induce timeout on readiness probes. We usually setup the following configuration for successful deployments:
 
 ```sh
 minikube config set cpus 4
 minikube config set memory 6144
 minikube delete
 minikube start
+```
+
+Also, if you need typically need to access the Kafka broker from the outside of Kube, you'll need to enable the `SSL Passthrough` on Nginx ingress controller. Here's below the command that is used in above video:
+
+```sh
+$ kubectl patch -n kube-system deployment/ingress-nginx-controller --type='json' \
+    -p '[{"op":"add","path":"/spec/template/spec/containers/0/args/-","value":"--enable-ssl-passthrough"}]'
 ```
