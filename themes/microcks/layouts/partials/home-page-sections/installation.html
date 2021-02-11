@@ -26,9 +26,9 @@
       <div class="code f6 bg-black light-green lh-copy pv3 ph3 br2 w-100 w-70-ns center mb2 tl">
         $ helm install ./microcks --name microcks <br />
       </div>
-      <p class="f6 mid-gray">OpenShift using Template</p>
+      <p class="f6 mid-gray">Kubernetes using Operator</p>
       <div class="code f6 bg-black light-green lh-copy pv3 ph3 br2 w-100 w-70-ns center tl">
-        $ oc new-app --template=microcks-persistent<br />
+        $ kubectl apply -f https://microcks.io/operator/operator-latest.yaml <br />
       </div>
       <p class="f6 mid-gray">Docker Compose</p>
       <div class="code f6 bg-black light-green lh-copy pv3 ph3 br2 w-100 w-70-ns center tl">

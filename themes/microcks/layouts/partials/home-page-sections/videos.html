@@ -1,0 +1,46 @@
+<h3 class="black f2 fw4 white lh-title ma0 pb4 pt0-l pt4">See Microcks in action!</h3>
+<div class="w-100">
+	<div class="w-100 overflow-x-scroll">
+		<div class="row nowrap mv2 pb1">
+			<div onclick="launchVideo(event)" class="tile cover dib f4 ml1 mr4 bg-black relative mw-100 shadow-5 lazyloaded">
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/Fu1UE6nboek" frameborder="0"
+					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<div class="details absolute bottom-0 f3-ns f4 left-0 o-0 right-0 top-0">
+					<div class="absolute bottom-0 pa2 tc white">Getting Started on your laptop →</div>
+				</div>
+			</div>
+			<div onclick="launchVideo(event)" class="tile cover dib f4 ml1 mr4 bg-black relative mw-100 shadow-5 lazyloaded">
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/ise7ljoGdEY" frameborder="0"
+					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<div class="details absolute bottom-0 f3-ns f4 left-0 o-0 right-0 top-0">
+					<div class="absolute bottom-0 pa2 tc white">Getting Started with AsyncAPI on Minikube →</div>
+				</div>
+			</div>
+			<div onclick="launchVideo(event)" class="tile cover dib f4 ml1 mr4 bg-black relative mw-100 shadow-5 lazyloaded">
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/69rZn9Q-qAE" frameborder="0"
+					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<div class="details absolute bottom-0 f3-ns f4 left-0 o-0 right-0 top-0">
+					<div class="absolute bottom-0 pa2 tc white">Design and mock REST API in seconds →</div>
+				</div>
+			</div>
+			<div onclick="launchVideo(event)" class="tile cover dib f4 ml1 mr4 bg-black relative mw-100 shadow-5 lazyloaded">
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/xuU7yxXJwAw" frameborder="0"
+					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<div class="details absolute bottom-0 f3-ns f4 left-0 o-0 right-0 top-0">
+					<div class="absolute bottom-0 pa2 tc white">Design and mock Async API in seconds →</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="flex w-100 mt4 justify-end">
+	<a href="https://www.youtube.com/channel/UCKlmXpav-DnliniEJ5FM52Q/featured" target="new" class="br2 f6 bg-primary-color-dark hover-bg-primary-color link ph3 pv2 ttu white">See All our videos</a>
+</div>
+
+<script type="text/javascript">
+	function launchVideo(event) {
+		event.currentTarget.children[0].src = event.currentTarget.children[0].src + "?autoplay=1";
+		event.currentTarget.removeChild(event.currentTarget.children[1]);
+	}
+</script>
