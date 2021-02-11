@@ -31,23 +31,46 @@ From the page displaying basic information on your [microservice mocks](../mocks
 
 ### Test Endpoint
 
-The **Test Endpoint** is simply a URI where a deployed component is providing API specification endpoint. In the testing litterature, this is usually defined as the URI of the [System Under Test](https://en.wikipedia.org/wiki/System_under_test).
+The **Test Endpoint** is simply a URI where a deployed component is providing API specification endpoint. In the testing literature, this is usually defined as the URI of the [System Under Test](https://en.wikipedia.org/wiki/System_under_test).
+
+#### HTTP based APIs
 
 For HTTP based APIs (REST or SOAP), this is a simple URL that should respect following pattern:
 
 ```sh
 http[s]://{service.endpoint.url:port}/{service.path}
 ```
+#### Event based APIs
 
-For Event based API through [Async API](../asyncapi) testing, here is below the list of supported patterns depending on the protocole binding you'd like to test:
+For Event based API through [Async API](../asyncapi) testing, pattern is depending on the protocole binding you'd like to test.
+
+##### Kafka 
+
+Kafka Test Endpoint have the following form with optional parameters placed just after a `?` and separated using `&` character:
 
 ```sh
-kafka://{kafka.broker.url:port}/{kafka.topic.name}
+kafka://{kafka.broker.url:port}/{kafka.topic.name}[?param1=value1&param2=value2]
+```
+
+| Optional Params | Description |
+| --------------- | ----------- |
+| `registryUrl` | The URL of schema registry that is associated to the tested topic. This parameter is required when using and testing [Avro](https://avro.apache.org) encoded messages. |
+| `registryUsername` | The username used if access to the registry is secured. |
+| `registryAuthCredSource` | The source for authentication credentials if any. Valid values are just `USER_INFO`. |
+
+As an example, you may have this kind of Test Endpoint value: `kafka://mybroker.example.com:443/test-topic?registryUrl=https://schema-registry.example.com&registryUsername=fred:letmein&registryAuthCredSource=USER_INFO`
+
+##### MQTT
+
+MQTT Test Endpoint have the following form with no optional parameters:
+
+```sh
+mqtt://{mqtt.broker.url:port}/{mqtt.topic.name}
 ```
 
 ### Test Runner
 
-As stated above, Microcks offers different strategies for running tests on endpoints where our microservice being developed are deployed. Such strategies are implemented as <b>Test Runners</b>. Here are the default Test Runners available within Microcks:
+As stated above, Microcks offers different strategies for running tests on endpoints where our microservice being developed are deployed. Such strategies are implemented as **Test Runners**. Here are the default Test Runners available within Microcks:
 			
 | Test Runner | API/Service Types | Description |
 | ----------- | ----------------- | ----------- |
@@ -56,15 +79,15 @@ As stated above, Microcks offers different strategies for running tests on endpo
 | `SOAP_UI` | REST and SOAP | When the microservice mock repository is defined using [SoapUI](../soapui): ensures that assertions put into Test cases are checked valid. Report failures.| 
 | `POSTMAN` | REST | When the microservice mock repository is defined using [Postman](../postman): executes test scripts as specified within Postman. Report failures.| 
 | `OPEN_API_SCHEMA`|  REST | When the microservice mock repository is defined using [Open API](../openapi): it executes example requests and check that results have the expected Http status and that payload is compliant with JSON / OpenAPI schema specified into OpenAPI specification.| 
-| `ASYNC_API_SCHEMA`|  EVENT | When the microservice mock repository is defined using [Async API](../asyncapi): it connects to specified broker endpoints, consume messages and check that payload is compliant with JSON / AsyncAPI schema specified into AsyncAPI specification.| 
+| `ASYNC_API_SCHEMA`|  EVENT | When the microservice mock repository is defined using [Async API](../asyncapi): it connects to specified broker endpoints, consume messages and check that payload is compliant with JSON / Avro / AsyncAPI schema specified into AsyncAPI specification.| 
 
 ### Timeout
 
-Depending on the type of Service or Tests you are running, the specification of a **Timeout** maybe mandatory. This is a numerical value expressed in millieseconds.
+Depending on the type of Service or Tests you are running, the specification of a **Timeout** maybe mandatory. This is a numerical value expressed in milliseconds.
 
 ### Secret
 
-Depending on the Test Endpoint you are connecting to, you may need additional authenticatoin information - like credentials or custom X509 Certificates. You may reuse [External Secrets](../administrating/secrets) that has been made available in the Microcks installation by the admnistrator.
+Depending on the Test Endpoint you are connecting to, you may need additional authentication information - like credentials or custom X509 Certificates. You may reuse [External Secrets](../administrating/secrets) that has been made available in the Microcks installation by the administrator.
 
 ## Getting tests history and details
 

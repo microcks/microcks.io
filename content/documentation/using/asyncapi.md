@@ -3,7 +3,7 @@ draft: false
 title: "AsyncAPI usage for Microcks"
 date: 2020-08-01
 publishdate: 2020-08-05
-lastmod: 2020-08-05
+lastmod: 2021-02-09
 menu:
   docs:
     parent: using
@@ -23,17 +23,18 @@ Starting with Microcks version `1.0.0`, Microcks is now able to import AsyncAPI 
 
 ### Bindings
 
-AsyncAPI specification decorellates the concern of message description (through payload and headers schemas) from the concern of servers and protocol bindings. A same API may have different bindings allowing to specify protocol specific issues like queue or topic naming, serialization format and so on.
+AsyncAPI specification dissociates the concern of message description (through payload and headers schemas) from the concern of servers and protocol bindings. A same API may have different bindings allowing to specify protocol specific issues like queue or topic naming, serialization format and so on.
 
-> At the time of `1.0.0` release, Microcks only supports the `KAFKA` binding. When setting up Microcks, you may have the choice deploying a new Kafka broker as part of the Microcks installation or reusing an existing broker.
+> At the time of `1.2.0` release, Microcks supports the `KAFKA` and the `MQTT` bindings. When setting up Microcks, you may have the choice deploying a new Kafka broker as part of the Microcks installation or reusing an existing broker.
 
-For each version of an API managed by Microcks, it will create appropriate destination for **operations** in mixing specification elements, protocol binding specifics and versionning issues. Destination managed by Microcks are then referenced within the API details page.
+For each version of an API managed by Microcks, it will create appropriate destination for **operations** in mixing specification elements, protocol binding specifics and versioning issues. Destination managed by Microcks are then referenced within the API details page.
 
 ### Conventions
 
 With AsyncAPI [Messages Objects](https://github.com/asyncapi/asyncapi/blob/master/versions/2.0.0/asyncapi.md#messageObject) you have the ability to define `examples` with your AsyncAPI specification document. For now (in the `2.0.0` release of the specification), `examples` is simply a `[Map[ string , any]]` but we ought to propose the here-after conventions as the formal specification (see this [Feature request](https://github.com/asyncapi/asyncapi/issues/329) if you want to contribute to conversation).
 
 So basically, we propose to describe `examples` using the following guidelines. An `example` may have:
+
 * A short name that will be used as the key within the `examples` array,
 * An optional `summary` to provide more informations on the use-case mapping of the sample,
 * A mandatory `payload` that should be compliant with the defined schema for Message payload and may be expressed directly in YAML or by embedding JSON representation,
@@ -104,7 +105,6 @@ examples:
 ```
 
 ## Importing AsyncAPI specification
-
 
 When you're happy with your API design and example definitions just put the result YAML or JSON file into your favorite Source Configuration Management tool, grab the URL of the file corresponding to the branch you want to use and add it as a regular Job import into Microcks. On import, Microcks should detect that it's an AsyncAPI specification file and choose the correct importer.
 
