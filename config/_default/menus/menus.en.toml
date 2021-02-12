@@ -61,8 +61,14 @@
   name = "Administrating"
   weight = 21
   identifier = "administrating"
-  post = "break"
   url = "/administrating/"
+
+[[docs]]
+  name = "Guides"
+  weight = 22
+  identifier = "guides"
+  post = "break"
+  url = "/guides/"
 
 [[docs]]
   name = "Resources"
