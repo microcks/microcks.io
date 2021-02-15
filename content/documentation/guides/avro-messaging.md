@@ -22,13 +22,13 @@ Starting with the `1.2.0` release of Microcks, we support Avro as an encoding fo
 * The *"old-fashioned one"* that is about putting raw Avro binary representation of the message payload,
 * The *"modern one"* that is about putting the Schema ID + the Avro binary representation of the message payload (see [Schema Registry: A quick introduction](https://www.confluent.io/blog/kafka-connect-tutorial-transfer-avro-schemas-across-schema-registry-clusters/)).
 
-This guide presents the 2 options that we will call `RAW` or `REGISTRY`. Microcks is by default configured to manage the `RAW` options so that it does not depend on any external dependency to get you starting. If you want to stick with this option, we first step below is obviously optional.
+This guide presents the 2 options that we will call `RAW` or `REGISTRY`. Microcks is by default configured to manage the `RAW` options so that it does not require any external dependency to get you starting. If you want to stick with this option, we first step below is obviously optional.
 
 ## 1. Setup Schema Registry
 
 Microcks has been successfully tested with both [Confluent Schema Registry](https://github.com/confluentinc/schema-registry) and [Apicurio Registry](https://www.apicur.io/registry/). Both can be deployed as containerized workload on your Kubernetes cluster. Microcks does not provide any installation scripts or procedures ; please refer to projects or related products documentations.
 
-When connected to a Schema Registry, Microcks is pushing the Avro Schema to the registry at the same time it is pushing Avro encoded mock messages to the Kafka topic. That way, Event consumers may retrieve Avro Schema from the registry to ne able to deserialize messages.
+When connected to a Schema Registry, Microcks is pushing the Avro Schema to the registry at the same time it is pushing Avro encoded mock messages to the Kafka topic. That way, Event consumers may retrieve Avro Schema from the registry to be able to deserialize messages.
 
 ![Avro Kafka Mocking](/images/avro-kafka-mocking.png)
 
@@ -216,7 +216,7 @@ Connecting to microcks-kafka-bootstrap-microcks.apps.example.com:9092 on topic U
 }
 ```
 
-> Note: this simple `avro-consumer.js` script is also able to handle TLS connections to your Kafka broker. It was omitted here for seek of simplicity but you can put the name of the CRT file as the 3rd argument of the command.
+> Note: this simple `avro-consumer.js` script is also able to handle TLS connections to your Kafka broker. It was omitted here for sake of simplicity but you can put the name of the CRT file as the 3rd argument of the command.
 
 ## 4. Run AsyncAPI tests
 
@@ -236,7 +236,7 @@ When using a Schema Registry with the `REGISTRY` encoding configured into Microc
 
 ![Avro Kafka Testing](/images/avro-kafka-testing.png)
 
-That said, imagine that you want to validate messages from a **QA** environment with dedicated broker and registry. Start by using our utility script to produce some messages on an `user-registration` arbitrary topic. This script is using a local Avro schema to do the binary encoding and it is also publishing this schema into the connected QA Schema Regsitry:
+That said, imagine that you want to validate messages from a **QA** environment with dedicated broker and registry. Start by using our utility script to produce some messages on an `user-registration` arbitrary topic. This script is using a local Avro schema to do the binary encoding and it is also publishing this schema into the connected QA Schema Registry:
 
 ```sh
 $ node avro-with-registry-producer.js kafka-broker-qa.apps.example.com:9092 user-registration https://schema-registry-qa.apps.example.com
@@ -257,7 +257,7 @@ Connecting to kafka-broker-qa.apps.example.com:9092 on topic user-registration, 
 
 Do not interrupt the execution of the script and go create a **New Test** within Microcks web console. Use the following elements in the Test form:
 
-* **Test Endpoint**: `kafka://kafka-broker-qa.apps.example.com:9092/user-registration?registryUrl=https://schema-registry-qa.apps.example.com` and note this new `registryUrl` parameter to tell Microcks where to get the Avro schema used for writing ;-),
+* **Test Endpoint**: `kafka://kafka-broker-qa.apps.example.com:9092/user-registration?registryUrl=https://schema-registry-qa.apps.example.com` and note this new `registryUrl` parameter to tell Microcks where to get the Avro schema used for writing 😉,
 * **Runner**: `ASYNC API SCHEMA` for validating against the AsyncAPI specification of the API.
 
 > Whilst Test Endpoint and Schema Registry may be secured with custom TLS certificates or username/password, we skipped this from this guide for seek of simplicity but Microcks is handling this through [Secrets](../../administrating/secrets) or additional `registryUsername` and `registryCredentialsSource` [parameters](../../using/tests/#event-based-apis).
@@ -275,7 +275,7 @@ Well let see now if we tweak a little bit the `avro-with-registry-producer.js` s
 
 ![Avro Kafka Test Failure](/images/avro-kafka-test-failure.png)
 
-🎉 We can see that there's now a failure and that's perfect! What does that mean? It means that when a schema that when your application is using a different and incompatible schemas from those in the AsyncAPI contract, Microcks raises an error and spot the breaking change! The `fullName` required property was expected as stated in the AsyncAPI file but cannot be found in incoming message... thus your tested application producing message is sending garbage indeed ;-)  
+🎉 We can see that there's now a failure and that's perfect! What does that mean? It means that when your application is using a different and incompatible schema from the one in the AsyncAPI contract, Microcks raises an error and spot the breaking change! The `fullName` required property was expected as stated in the AsyncAPI file but cannot be found in incoming message... thus your tested application producing message is sending garbage indeed 😉 
 
 ### Without Schema Registry
 
@@ -311,7 +311,7 @@ You can see here that we just have the string representation of the binary messa
 
 If you want to play with this idea, start making change to the Avro schema used by the producer and add more properties of different types. As the schema referenced with the AsyncAPI contract is very basic we'll always be able to read.
 
-But start removing properties and just send single bytes, you'll see validation failure happened. In `RAW` mode, validation is very shallow: we cannot detect schema incompatibilities as we do not have the schema used for writing. So Microcks can just check, the binary Avro we can read with given schema and as long as you send more bytes than expected: it works :-(
+But start removing properties and just send single bytes, you'll see validation failure happened. In `RAW` mode, validation is very shallow: we cannot detect schema incompatibilities as we do not have the schema used for writing. So Microcks can just check, the binary Avro we can read with given schema and as long as you send more bytes than expected: it works ;-(
 
 ## Wrap-Up
 
