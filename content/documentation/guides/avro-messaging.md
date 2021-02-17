@@ -311,10 +311,10 @@ You can see here that we just have the string representation of the binary messa
 
 If you want to play with this idea, start making change to the Avro schema used by the producer and add more properties of different types. As the schema referenced with the AsyncAPI contract is very basic we'll always be able to read.
 
-But start removing properties and just send single bytes, you'll see validation failure happened. In `RAW` mode, validation is very shallow: we cannot detect schema incompatibilities as we do not have the schema used for writing. So Microcks can just check, the binary Avro we can read with given schema and as long as you send more bytes than expected: it works ;-(
+But start removing properties and just send single bytes, you'll see validation failure happened. In `RAW` mode, validation is very shallow: we cannot detect schema incompatibilities as we do not have the schema used for writing. So Microcks can just check, the binary Avro we can read with given schema and as long as you send more bytes than expected: it works 😞
 
 ## Wrap-Up
 
 In this guide we have seen how Microcks can also be used to simulate Avro messages on top of Kafka. We have also checked how it can connect to Schema Registry such as the one from Confluent in order to speed-up and make reliable the process of propagating Avro schema updates to API events consumers. We finally ended up demonstrating how Microcks can be used to detect any drifting issues between expected Avro schema and the one effectively used by real-life producers. 
 
-Take care: Microcks will detect if they send garbage! 
+Take care: Microcks will detect if they send garbage! 🗑
