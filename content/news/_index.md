@@ -9,6 +9,19 @@ lastmod: 2020-11-09
 
 ### Microcks core
 
+#### 1.2.0 on 21 Feb 2021
+
+We are delighted to announce the **1.2.0** release of Microcks! Here are below the main highlight of this release:
+
+* The support of [Apache Avro](https://avro.apache.org) as Event-driven APIs message encoding, as well as various schema registries. See our [Kafka, Avro and Schema Registry guide](https://microcks.io/documentation/guides/avro-messaging/)
+* The support of [MQTT](https://mqtt.org/) protocol for mocking and testing Event-driven APIs that may be related to the Internet of Things (IoT),
+* New [template functions](https://microcks.io/documentation/using/advanced/templates/#function-expressions) for bringing rich dynamic mocking responses,
+* New `FALLBACK` dispatcher for smarter routing. See the [Fallback and advanced dispatching](https://microcks.io/blog/advanced-dispatching-constraints/) blog post.
+
+Check out our [release notes](https://microcks.io/blog/microcks-1.2.0-release/)!
+
+You can also check [GitHub milestone](https://github.com/microcks/microcks/milestone/12?closed=1) for the full list of closed issues.
+
 #### 1.1.0 on 10 Nov 2020
 
 We are thrilled to announce the Microcks release **1.1.0**! Here are below the major points of this release:
