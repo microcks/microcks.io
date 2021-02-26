@@ -4,7 +4,7 @@ title: Microcks 1.2.0 release 🚀
 layout: post
 date: 2021-02-21
 publishdate: 2021-02-21
-lastmod: 2021-11-21
+lastmod: 2021-02-21
 image: "/images/blog/microcks-1.2.0-avro-mqtt.png"
 categories: [blog]
 author: "Laurent Broudoux"
