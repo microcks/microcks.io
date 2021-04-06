@@ -10,7 +10,7 @@
   tagline: "One tool for all your APIs, events and WS"
   copy: "Sure we do love REST APIs but event-driven APIs are araising and we also have a bunch of legacy Web-Services. Why not applyging same practices? We support all of them!"
   image_path: /images/noun_exchanges.svg
-- heading: "Continuous Integeration"
+- heading: "Continuous Integration"
   tagline: "Mock and test continuously"
   copy: "Integrate seemlessly in your continuous build or pipelines. We provide plugins, CLI or containers for you to choose the best option."
   image_path: /images/noun_recycle.svg
