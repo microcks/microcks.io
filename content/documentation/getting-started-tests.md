@@ -88,15 +88,15 @@ Our component implementing the API now running, it's time to launch some tests t
 
 ### From the UI
 
-You may already have see it but there's a <b>NEW TEST...</b> button on the right hand size of the page detailing the **API Pastry** service. Hitting it leads you to the following form where you will be able to specify an target URL for test, as well as a Runner - a testing strategy for your new launch:
+You may already have see it but there's a <b>NEW TEST...</b> button on the right hand size of the page detailing the **API Pastry** service. Hitting it leads you to the following form where you will be able to specify a target URL for the test, as well as a Runner—a testing strategy for your new launch:
 
 ![sample-test-form](/images/sample-test-form.png)
 
-Just copy/paste here the endpoint URL where your `quarkus-api-pastry` deployment can be reached - either the Kubernetes Ingress URL or the local docker-compose one. Then select the `OPEN_API_SCHEMA` test strategy (read here for more on [tests runners](./using/tests/#test-runner)). And finally, hit the **Launch test !** button. This lead you to the following screen when you will wait for tests to run and finalize (green check marks should appear after some seconds).
+Just copy/paste the endpoint URL where your `quarkus-api-pastry` deployment can be reached here - either the Kubernetes Ingress URL or the local docker-compose one. Then select the `OPEN_API_SCHEMA` test strategy (read here for more on [tests runners](../using/tests/#test-runner)). And finally, hit the **Launch test !** button. This lead you to the following screen when you will wait for tests to run and finalize (green check marks should appear after some seconds).
 
 ![sample-test-launch](/images/sample-test-launch.png)
 
-Following the **Full results** link in the above sreen will lead you to a screen where you'll have access to all the test details and request/responses content exchnaged with the endpoint during the tests. Very handy for troubleshooting or comparing results on different environments !
+Following the **Full results** link in the above sreen will lead you to a screen where you'll have access to all the test details and request/responses content exchanged with the endpoint during the tests. Very handy for troubleshooting or comparing results on different environments !
 
 ![sample-test-result](/images/sample-test-result.png)
 
