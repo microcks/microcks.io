@@ -42,7 +42,7 @@ This will start the required containers and setup an simple environment for your
 Open a new browser tab and point to the `http://localhost:8080` endpoint. This will redirect you to the [Keycloak](https://www.keycloak.org/) Single Sign On page for login. Use the following default credentials to login into the application:
 
 * **Username:** admin
-* **Password:** 123
+* **Password:** microcks123
 
 ## Using Microcks
 
