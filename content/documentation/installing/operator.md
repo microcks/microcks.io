@@ -3,7 +3,7 @@ draft: false
 title: "Installing on Kube using Operator"
 date: 2020-02-11
 publishdate: 2020-02-11
-lastmod: 2021-02-09
+lastmod: 2021-04-28
 menu:
   docs:
     parent: installing
@@ -119,7 +119,7 @@ metadata:
   name: microcks
 spec:
   name: microcks
-  version: "1.1.0"
+  version: "1.2.1"
   microcks:
     replicas: 1
   postman:
@@ -135,7 +135,7 @@ metadata:
   name: microcks-minikube
 spec:
   name: microcks-minikube
-  version: "1.1.0"
+  version: "1.2.1"
   microcks: 
     replicas: 1
     url: microcks.192.168.99.100.nip.io
