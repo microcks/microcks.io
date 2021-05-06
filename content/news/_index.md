@@ -9,6 +9,21 @@ lastmod: 2020-11-09
 
 ### Microcks core
 
+#### 1.2.1 on 06 May 2021
+
+We are very glad to announce today the **1.2.1** release of Microcks! This is mainly an “Enhancement release” pushing further the features we introduced within the previous `1.2.0`. Here are the main changes and enhancements of this release:
+
+* The support of [OpenAPI v3.1](https://www.openapis.org/blog/2021/02/18/openapi-specification-3-1-released) specification,
+* The support of [Apache Kafka](https://kafka.apache.org) headers through AsyncAPI mocking,
+* The support of [MQTT](https://mqtt.org) parametrized channels  through AsyncAPI mocking,
+* Enhancement of testing experience through [Secrets for authentication](https://github.com/microcks/microcks/issues/366), [tests timeouts](https://github.com/microcks/microcks/issues/365), [tests replays](https://github.com/microcks/microcks/issues/368) and [expression languages in request](https://github.com/microcks/microcks/issues/375),
+* SOAP 1.2 full support in Microcks, fixing the [incoming version detection](https://github.com/microcks/microcks/pull/358) and the [response content-type](https://github.com/microcks/microcks/issues/356).
+* Podman Compose support for running Microcks on your laptop. See the [Podman installation guide](https://microcks.io/documentation/installing/podman-compose/)
+
+Check out our [release notes](https://microcks.io/blog/microcks-1.2.1-release/)!
+
+You can also check [GitHub milestone](https://github.com/microcks/microcks/milestone/13?closed=1) for the full list of closed issues.
+
 #### 1.2.0 on 21 Feb 2021
 
 We are delighted to announce the **1.2.0** release of Microcks! Here are below the main highlights of this release:
