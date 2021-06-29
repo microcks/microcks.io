@@ -17,7 +17,7 @@ weight: 30 #rem
     
 ### Getting infos on microservices mocks
 			
-Well, now that you have [installed](/documentation/getting-staretd) Microcks, created your own API/Service repository using [SoapUI](../soapui/) or [Postman](../postman/) and discover how to [import and browse content](/documentation/getting-started), you are ready to learn more about how to use mocks managed by Microcks.
+Well, now that you have [installed](/documentation/getting-staretd) Microcks, created your own API/Service repository using [OpenAPI](../openapi/), [AsyncAPI](../asyncapi/), [SoapUI](../soapui/) or [Postman](../postman/) and discover how to [import and browse content](/documentation/getting-started), you are ready to learn more about how to use mocks managed by Microcks.
 
 First, let's have a look at the summary page presenting an API or Service managed by Microcks. This summary page contains three sections related to different part of the API/Service :
 
@@ -45,16 +45,15 @@ In the REST API mock example above, you can guess that the `:id` part of the Moc
 		
 ### Invoking microservices mocks
 			
-Invoking Mocks is now pretty easy if you have read the upper section! Just use Microcks for searching the API/Service you want to use and explore the operations of the API/Service. Find the Mock URL and the Http method of the corresponding operation, look at the instanciated URI fragement for different request/response pairs, append the fragment to the Microcks server url and that's it!
-			
-			
+Invoking Mocks is now pretty easy if you have read the upper section! Just use Microcks for searching the API/Service you want to use and explore the operations of the API/Service. Find the Mock URL and the Http method of the corresponding operation, look at the instanciated URI fragment for different request/response pairs, append the fragment to the Microcks server url and that's it!
+
 As a rule of thumb, here is how the URL fragment for mocks are built and exposed within Microcks :
 
 * Mocks for REST API mocks are exposed on `/rest` sub-context. Mock for SOAP API mocks are exposed on `/soap` sub-context,
 * Name of API/Service is then added as path element of URL. Special characters of name are encoded within URL part,
 * Version of API/Service is then added as path element of URL,
-* For REST API, name of resource managed by operation and URL parts may be added.			
-			
+* For REST API, name of resource managed by operation and URL parts may be added.
+
 Some examples in the table below for a Microcks server reachable at `http://microcks.example.com` :
 
 | Type | Name | Version | Operation / Parts / Params | Full Mock URL |
@@ -64,16 +63,12 @@ Some examples in the table below for a Microcks server reachable at `http://micr
 | REST | Test API | 0.0.1 | "List by status" operation, order resource, example with status=approved | `http://microcks.example.com/rest/Test+API/0.0.1/order?status=approved` |
 
 Easy !?
-			
+
 ### Common invocation params
 
 | Param | Type | Description | Default / Examples |
 | ----- | ---- | ----------- | ------------------ |
 | **validate** | boolean | In case of a SOAP microservice with defined WSDL/XSD contract, the mock may realize a validation of XML payload send by consumer if this parameter is set to true. | Default is **false** |
 | **delay** | positive integer | Set a response delay to simulate slow responding systems and check behavior of the service consumer being under tests. Note: this is an execution simulation response time: validation time and network latency are not taken into account | Default is **0**. Use for example 1000, to have a 1 second delay on mock invocation |
-			
-This parameters may be used in addition of the Mock URL displayed on microservice informations page and should be append to the query URL. You may end up with URLs such as : `http://microcks.example.com/soap/HelloService/1.0/sayHello/?delay=250&validate=true`
-			
-		
-	
 
+This parameters may be used in addition of the Mock URL displayed on microservice informations page and should be append to the query URL. You may end up with URLs such as : `http://microcks.example.com/soap/HelloService/1.0/sayHello/?delay=250&validate=true`

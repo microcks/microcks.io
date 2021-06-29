@@ -15,7 +15,7 @@ weight: 30 #rem
 
 ## Introduction
 
-As explained into [Using exposed mocks](../mocks), Microcks is using `Dispatcher` and `Dispatching Rules` for finding an appropriate response to return when receiving a mock request. When importing a new Service or API, Microcks is indeed looking at the variable parts between the different samples of a same operation to infer those two elements.
+As explained into [Using exposed mocks](../../mocks), Microcks is using `Dispatcher` and `Dispatching Rules` for finding an appropriate response to return when receiving a mock request. When importing a new Service or API, Microcks is indeed looking at the variable parts between the different samples of a same operation to infer those two elements.
 
 However in some cases, this could not be enough and it will be useful to override these deduced values. Think about the case that you are dealing with an API operation that creates resources and that depending on the payload content you want specific different responses. The default dispatching rules would not allow to do that as Microcks does not analyse imported requests body content, nor is able to infer your business rules ;-) But you can realize that by overriding the `Dispatching Rules` after the first import of the API into the repository.
 
