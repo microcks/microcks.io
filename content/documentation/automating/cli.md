@@ -3,7 +3,7 @@ draft: false
 title: "CLI for Microcks"
 date: 2019-09-01
 publishdate: 2019-09-01
-lastmod: 2020-10-01
+lastmod: 2021-06-30
 menu:
   docs:
     parent: automating
@@ -15,9 +15,9 @@ weight: 30 #rem
 
 ## Microcks CLI 
 
-`microcks-cli` is a command-line tool for interacting with Microcks server APIs. It allows to launch tests with minimal dependencies. It is managed and released independently of the core Microcks server components within its [own GitHub repository](https://github.com/microcks/microcks-cli).
+`microcks-cli` is a command-line tool for interacting with Microcks server APIs. It allows to launch tests or import API artifacts with minimal dependencies. It is managed and released independently of the core Microcks server components within its [own GitHub repository](https://github.com/microcks/microcks-cli).
 
-The CLI makes usage of Microcks [Service Account](../service-account) so it's defintely worth the read ;-)
+The CLI makes usage of Microcks [Service Account](../service-account) so it's defintely worth the read 😉
 
 ## Usage instructions
 
@@ -27,12 +27,26 @@ where `[command]` can be one of the following:
 
 * `version` to check this CLI version,
 * `help` to display usage informations,
-* `test` to launch new test on Microcks server.
+* `test` to launch new test on Microcks server,
+* `import` to import API artifacts on Microcks server.
 
-The main `test` command has a bunch of arguments and flags so that you can use it that way:
-```
+### Test command
+
+The `test` command has a bunch of arguments and flags so that you can use it that way:
+```sh
 $ microcks-cli test <apiName:apiVersion> <testEndpoint> <runner> \
 	--microcksURL=<> --waitFor=5sec \
+	--keycloakClientId=<> --keycloakClientSecret=<>
+```
+
+Check [README.md](https://github.com/microcks/microcks-cli/blob/master/README.md) for full instructions on arguments and flags.
+
+### Import command
+
+The `import` command has one argument and common flags with `test` command. You can use it that way:
+```sh
+$ microcks-cli import <specificationFile1[:primary],specificationFile2[:primary]> \
+	--microcksURL=<> \
 	--keycloakClientId=<> --keycloakClientSecret=<>
 ```
 
@@ -46,11 +60,11 @@ Binary releases for Linux, MacOS or Windows platform are available on the GitHub
 
 ### Container image
 
-The `microcks-cli` is now available as a container image as version `0.3.0`. So that you'd be able to easily use it from a GitLab CI or a [Tekton pipeline](../tekton). The hosting repository is now on Quay.io [here](https://quay.io/repository/microcks/microcks-cli?tab=info).
+The `microcks-cli` is now available as a container image. So that you'd be able to easily use it from a GitLab CI or a [Tekton pipeline](../tekton). The hosting repository is now on Quay.io [here](https://quay.io/repository/microcks/microcks-cli?tab=info).
 
 Below a sample on how using the image without getting the CLI binary:
 
-```
+```sh
 $ docker run -it quay.io/microcks/microcks-cli:latest microcks-cli test 'Beer Catalog API:0.9' \
     http://beer-catalog-impl-beer-catalog-dev.apps.144.76.24.92.nip.io/api/ POSTMAN \
     --microcksURL=http://microcks.apps.144.76.24.92.nip.io/api/ \

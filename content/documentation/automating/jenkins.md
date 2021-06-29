@@ -3,7 +3,7 @@ draft: false
 title: "Integrating Microcks from Jenkins"
 date: 2019-09-01
 publishdate: 2019-09-01
-lastmod: 2020-10-01
+lastmod: 2021-06-30
 menu:
   docs:
     parent: automating
@@ -15,9 +15,9 @@ weight: 20 #rem
 
 ## Microcks Jenkins plugin
       
-Microcks provides a Jenkins plugin that you may find here: <a href="https://github.com/microcks/microcks-jenkins-plugin">microcks-jenkins-plugin</a>. This plugin allows your Jenkins builds and jobs to delegate the tests of microservices or API you just deployed to Microcks server. See <a href="../../using/tests/">this page on Tests</a> for more informations on running tests with Microcks.
+Microcks provides a Jenkins plugin that you may find in its [own GitHub repository](https://github.com/microcks/microcks-jenkins-plugin). This plugin allows your Jenkins builds and jobs to import API specifications into Microcks and to launch tests runner for validating the Service or API you just deployed. See [this page on Tests](../../using/tests/) for more informations on running tests with Microcks. 
       
-Using this plugin, it is really easy to integrate tests stages within your Continuous Integration / Deployment / Delivery pipeline. Microcks Jenkins plugin delegates tests realization and assertions checking to Microcks, wait for the end of tests or a configured timeout and just pursue or fail the current job depending on tests results.
+Using this plugin, it is really easy to keep Microcks in-sync withe your API specifications and integrate tests stages within your Continuous Integration / Deployment / Delivery pipeline. Microcks Jenkins plugin delegates tests realization and assertions checking to Microcks, wait for the end of tests or a configured timeout and just pursue or fail the current job depending on tests results.
 			
 ### Getting raw plugin
       
@@ -60,12 +60,58 @@ You should then be able to test the connection to endpoints and save your config
 			
 ## Using Microcks Jenkins plugin
 			
-Jenkins plugins may be used in 2 ways:
+Jenkins plugin may be used in 2 ways:
 
 * As a simple `Build Step` using a form to define what service to test,
 * As an action defined using Domain Specific Language within a `Pipeline stage`
-        
-### Simple build step usage
+
+It provides two different actions or build steps: the `Import API specification files in Microcks` step and the `Launch Microcks Test Runner` step.
+
+### Import API Specification
+
+#### Build step usage
+
+When defining a new project into Jenkins GUI, you may want to add a new `Import API specification files in Microcks` step as shown in the capture below.
+
+![jenkins-import-step](/images/jenkins-import-step.png)
+
+The parameters that can be set here are:
+
+* The `Server`: this is your running installation of Microcks that is registered into Jenkins (see previous setup step),
+* The `Comma separated list of API specification` to import: this is simply a `/my/file/path[:is_primary],/my/file/path2[:is_primary]` expression. You should point to local files in your job workspace (typically those coming from a checkout or clone from source repository) and optionally specify if they should be considered as `main` or `primary` artifact (`true` value) or `secondary` artifact (`false` value).
+
+#### DSL plugin usage
+
+When defining a new CI/CD pipeline - even through the Jenkins or OpenShift GUI or through a `Jenkinsfile` within your source repository - you may want to add a specific `microcksImport` within your pipeline script as the example below:
+			
+```groovy
+node('master') {
+  stage ('build') {
+    // Clone sources from repo.
+    git 'https://github.com/microcks/microcks-cli'
+  }
+  stage ('importAPISpecs') {
+    // Add Microcks import here.
+    microcksImport(server: 'microcks-localhost',
+      specificationFiles: 'samples/weather-forecast-openapi.yml:true,samples/weather-forecast-postman.json:false')
+  }
+  stage ('promoteToProd') {
+    // ...
+  }
+  stage ('deployToProd') {
+    // ...
+  }
+}
+```
+
+The parameters that can be set here are the same that in `Build Step` usage but take care to cases and typos:
+
+* The `server`: this is your running installation of Microcks that is registered into Jenkins (see previous setup step),
+* The `specificationFiles`: this is simply a `/my/file/path[:is_primary],/my/file/path2[:is_primary]` expression.
+
+### Launch Test
+
+#### Build step usage
 			
 When defining a new project into Jenkins GUI, you may want to add a new `Launch Microcks Test Runner` step as shown in the capture below.
 			
@@ -80,7 +126,7 @@ The parameters that can be set here are:
 * The `Verbose` flag: allows to collect detailed logs on Microcks plugin execution,
 * The `Timeout` configuration: allows you to override default timeout for this tests.
 			
-### DSL plugin usage
+#### DSL plugin usage
 			
 When defining a new CI/CD pipeline - even through the Jenkins or OpenShift GUI or through a `Jenkinsfile` within your source repository - you may want to add a specific `microcksTest` within your pipeline script as the example below:
 			
@@ -94,7 +140,7 @@ node('maven') {
   }
   stage ('testInDev') {
     // Add Microcks test here.
-    microcksTest(server: 'microcks-mlinishift',
+    microcksTest(server: 'microcks-minishift',
       serviceId: 'Beer Catalog API:0.9',
       testEndpoint: 'http://beer-catalog-impl-beer-catalog-dev.52.174.149.59.nip.io/api/',
       runnerType: 'POSTMAN', verbose: 'true')
@@ -107,7 +153,7 @@ node('maven') {
   }
 }
 ```
-			
+
 The parameters that can be set here are the same that in `Build Step` usage but take care to cases and typos:
 
 * The `server`: this is your running installation of Microcks that is registered into Jenkins (see previous setup step),
@@ -117,7 +163,7 @@ The parameters that can be set here are the same that in `Build Step` usage but 
 * The `verbose` flag: allows to collect detailed logs on Microcks plugin execution,
 * The `waitTime` configuration: allows you to override the default time quantity for this tests.
 * The `waitUnit` configuration: allows you to override the default time unit for this tests (values in milli, sec or min).
-			
+
 Using Microcks and its Jenkins plugin, you may achieve some clean CI/CD pipelines that ensures your developed API implementation is fully aligned to expectations. See below a visualization of such a pipeline for our `Beer Catalog API` (full project to come soon).
-			
+
 ![jenkins-pipeline-openshift](/images/jenkins-pipeline-openshift.png)
