@@ -3,7 +3,7 @@ draft: false
 title: "Importing Services & APIs"
 date: 2020-02-26
 publishdate: 2020-02-26
-lastmod: 2020-08-04
+lastmod: 2021-06-30
 menu:
   docs:
     parent: using
@@ -31,7 +31,8 @@ We provide built-in parsers and importers for the following formats:
 * [Postman collections](https://learning.postman.com/docs/postman/collections/data-formats/) files with v1.0 or v2.x file format. See our [documentation](../postman/) on some conventions you should follow for this collection structure,
 * [Apicurio Studio](https://apicurio-studio.readme.io/docs/integrate-microcks-for-mocking-your-api) direct integration when working on OpenAPI 3.x API specifications,
 * [OpenAPI v3.x](http://spec.openapis.org/oas/v3.0.3) files whether using the YAML of JSON format. See our [documentation](../openapi/) on some conventions you should follow for this specification,
-* [AsyncAPI v2.x](https://www.asyncapi.com/docs/specifications/2.0.0) files whether using the YAML or JSON format. See our [documentation](../asyncapi/) on some conventions you should follow for this specification, 
+* [AsyncAPI v2.x](https://www.asyncapi.com/docs/specifications/2.0.0) files whether using the YAML or JSON format. See our [documentation](../asyncapi/) on some conventions you should follow for this specification,
+* [gRPC / Protocol buffers v3](https://grpc.io/docs/what-is-grpc/introduction/) `.proto`files. See our [documentation](../grpc/) on some conventions you should follow for this specification,
 
 
 > People very often ask *"Why the Swagger format - aka OpenApi 2.0 - isn't supported by Microcks?"*. This is because Swagger is incomplete for specifying mocks as it does not allow full specifications of examples. Sure, the Swagger spec allows you to illustrate responses with samples but it does not allow you to do so with request or request parameters (whether in path, query or headers). And if some tools - like Swagger UI - seems to compose sample requests, they're only doing this using schema information with random generated values...
@@ -42,9 +43,29 @@ If you own a bunch of Swagger specifications, you won't be able to directly impo
 
 > Please notice that the same issue and workaround may apply to some others API specification formats like [WADL](https://www.w3.org/Submission/wadl/) or [RAML](https://raml.org/). They've got really good importers for Postman or SoapUI that offers you a very easy way to complete your syntactic specification with some real life samples that can make the genesis for useful mocks ;-)
 
+## Multi-artifacts support
+
+> From Microcks release 1.3.0, we introduced a new feature called **multi-artifacts support**.
+
+Since origin, Microcks was following the *1 artifact == 1 API mock definition* principle. However we did get feedback from the community and now are convinced that this approach can be too restrictive sometimes. A use-case that is emerging is that some people may have a single OpenAPI file containing only base/simple examples but are managing complementary/advanced examples using for example a Postman Collection.
+
+This base use-case is extended to implement some variations:
+
+* Different Postman Collections for different lifecycle environments, maintained in coordination with reference datasets,
+* Different Postman Collections for different API providers implementing a shared industrial standard (think of IoT Fiware implementation but for different industry vertical),
+* Different Postman Collections for different API consumers that will allow realizing consumer-driven contract testing.
+
+So from `1.3.0`, Microcks is now able to have multiple artifacts (1 `primary` and some `secondary`) mapping to 1 API mock definition. The `primary` one will bring Service and operation metadata as well as examples. The `secondary` ones will only enrich existing operations with new non-conflicting request/responses and event samples.
+
+![artifacts-merging](/images/artifacts-merging.png)
+
+If not explicitly identified as `primary` or `secondary`, the default is to consider an imported artifact as the primary one.
+
 ## Direct upload
 
 The first way of adding new Services or APIs mocks to your Microcks instance is by realizing a direct upload of the artifact. From the left vertical navigation bar, just select the **Importers** menu entry and then choose `Upload`. You'll then see a dialog window allowing you to browse your filesystem and pick a new file to upload.
+
+> From Microcks release 1.3.0, you can also specify if this artifact should be considered as `primary` or `secondary` per the [multi-artifacts support](#multi-artifacts-support).
 
 ![artifacts-upload](/images/artifacts-upload.png)
 
@@ -77,6 +98,8 @@ Using the 3-dotted menu, you can easily enable/disable of force the job.
 You may declare a new Importer job hitting the `Create` button.
 
 A wizard modal then appears as creating an Importer is a 2-steps process. First step is about mandatory basic properties such as the name of your Importer and the repository URL it will use to check for discovering API mocks.
+
+> From Microcks release 1.3.0, you can also specify if this artifact should be considered as `primary` or `secondary` per the [multi-artifacts support](#multi-artifacts-support).
 
 ![importer-step1](/images/importer-step1.png)
 
