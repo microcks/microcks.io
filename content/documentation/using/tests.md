@@ -68,6 +68,14 @@ MQTT Test Endpoint have the following form with no optional parameters:
 mqtt://{mqtt.broker.url:port}/{mqtt.topic.name}
 ```
 
+##### WebSocket
+
+WebSocket Test Endpoint have the following form with no optional parameters:
+
+```sh
+ws://{ws.endpoint.url:port}/{channel.name}
+```
+
 ### Test Runner
 
 As stated above, Microcks offers different strategies for running tests on endpoints where our microservice being developed are deployed. Such strategies are implemented as **Test Runners**. Here are the default Test Runners available within Microcks:
@@ -79,7 +87,8 @@ As stated above, Microcks offers different strategies for running tests on endpo
 | `SOAP_UI` | REST and SOAP | When the microservice mock repository is defined using [SoapUI](../soapui): ensures that assertions put into Test cases are checked valid. Report failures.| 
 | `POSTMAN` | REST | When the microservice mock repository is defined using [Postman](../postman): executes test scripts as specified within Postman. Report failures.| 
 | `OPEN_API_SCHEMA`|  REST | When the microservice mock repository is defined using [Open API](../openapi): it executes example requests and check that results have the expected Http status and that payload is compliant with JSON / OpenAPI schema specified into OpenAPI specification.| 
-| `ASYNC_API_SCHEMA`|  EVENT | When the microservice mock repository is defined using [Async API](../asyncapi): it connects to specified broker endpoints, consume messages and check that payload is compliant with JSON / Avro / AsyncAPI schema specified into AsyncAPI specification.| 
+| `ASYNC_API_SCHEMA`|  EVENT | When the microservice mock repository is defined using [Async API](../asyncapi): it connects to specified broker endpoints, consume messages and check that payload is compliant with JSON / Avro / AsyncAPI schema specified into AsyncAPI specification.|
+| `GRPC_PROTOBUF`|  GRPC | When the microservice mock repository is defined using [gRPC](../grpc): it executes example requests and check that results payload is compliant with Protocol Buffer schema specified into gRPC proto file.| 
 
 ### Timeout
 
