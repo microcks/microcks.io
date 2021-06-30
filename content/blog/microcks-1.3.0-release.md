@@ -13,7 +13,6 @@ author_image: "/images/blog/bio/lbroudoux.jpeg"
 author_twitter: "lbroudoux"
 ---
 
-
 We are so proud and happy to share this new major and important Microcks release two months in advance based on our initial roadmap! Yes, this was yet another big challenge 🎉 Kudos to our community users and partners for supporting and pushing us to this momentum. 
 
 Nothing could have been done without all your feedback and contributions 👏
