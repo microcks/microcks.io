@@ -15,7 +15,7 @@ weight: 30 #rem
 
 ## Quickstart
 
-The easiest way to get started is using [Docker Compose](https://docs.docker.com/compose/) to start the minimal requirements. Make sure you have [Docker installed](https://docs.docker.com/get-docker/) on your system.
+The easiest way to get started is using [Docker Compose](https://docs.docker.com/compose/) to start with minimal requirements. Make sure you have [Docker installed](https://docs.docker.com/get-docker/) on your system.
 
 In your terminal issue the following commands:
 
@@ -37,7 +37,7 @@ In your terminal issue the following commands:
    docker-compose up -d
    ```
 
-This will start the required containers and setup an simple environment for your usage.
+This will start the necessary containers and setup a simple environment for you to use.
 
 Open a new browser tab and point to the `http://localhost:8080` endpoint. This will redirect you to the [Keycloak](https://www.keycloak.org/) Single Sign On page for login. Use the following default credentials to login into the application:
 
@@ -46,15 +46,15 @@ Open a new browser tab and point to the `http://localhost:8080` endpoint. This w
 
 ## Using Microcks
 
-Now you are ready to use Microcks for deploying your own services and API mocks! Before that let's have the look at the application home screen and introduce the main concepts. Using the application URL after installation, we should land on this page with 2 main entry points : <b>Services</b> and <b>Jobs</b>.
+Now you are ready to use Microcks for deploying your own services and API mocks! Before that let's have the look at the application home screen and introduce the main concepts. Using the application URL after installation, we should land on this page with two main entry points : <b>APIs | Services</b> and <b>Importers</b>.
 			
 <img src="/images/home-screen.png" class="img-responsive"/>
 			
-As you may have guessed, <b>API | Services</b> is about browsing your [micro]-services and API repository, discovering and accessing documentation, mocks and tests. <b>Importers</b> is another concept dedicated on how to fill this repository: it allows to define Jobs periodically scan your Git or Subversion repository for checking new definition files that will be parsed and integrated as part of your [micro]-services and API repository. Indeed <b>Importers</b> help discover new or modified <b>Services</b>. Before creating your own service definition files, let load some samples into Microcks for a test ride.
+As you may have guessed, <b>APIs | Services</b> is for browsing your [micro]-services and API repository, discovering and accessing documentation, mocks, and tests. <b>Importers</b> will help you to populate your repository, allowing you to define Jobs that periodically scan your Git or Subversion repositories for new definition files, parse them and integrate them into your [micro]-services and API repository. Indeed <b>Importers</b> help you discover both new and modified <b>Services</b>. Before using your own service definition files, let's load some samples into Microcks for a test ride!
 
 ### Loading samples
 
-We provide different samples that illustrate different ways of creating service definitions. The 2 firsts are definition files realized using SoapUI and demonstrating SOAP and REST services. The third one is a definition file built using Postman and demonstrating the famous Petstore API. The fourth one is an OpenAPI v3 specification file and present the advantages of holding both the contract specification and the examples. The Last one is an AsyncAPI v2 specification file - [AsyncAPI](https://www.asyncapi.com/) being a new specification format dedicated to asychronous and event-oriented APIs. Using the <b>Importers</b> entry point from home screen or left navigation bar, use the Importers management page to add 5 new jobs. For each, you will be asked a name and a repository URL. Use the informations below:
+We provide different samples that illustrate different ways of creating service definitions. The first two are definition files created using SoapUI and demonstrating SOAP and REST services. The third one is a definition file built using Postman and demonstrating the famous Petstore API. The fourth one is an OpenAPI v3 specification file and presents the advantages of holding both the contract specification and request/response examples. The last one is an AsyncAPI v2 specification file - [AsyncAPI](https://www.asyncapi.com/) being a new specification format dedicated to asychronous and event-oriented APIs. Using the <b>Importers</b> entry point from home screen or left navigation bar, use the Importers management page to add 5 new jobs. For each, you will be asked a name and a repository URL. Use the information below:
 
 * Hello SOAP Service : `https://raw.githubusercontent.com/microcks/microcks/master/samples/HelloService-soapui-project.xml`
 * Hello REST API : `https://raw.githubusercontent.com/microcks/microcks/master/samples/HelloAPI-soapui-project.xml`
@@ -62,19 +62,20 @@ We provide different samples that illustrate different ways of creating service 
 * Pastry API : `https://raw.githubusercontent.com/microcks/microcks/master/samples/APIPastry-openapi.yaml`
 * User signed-up API : `https://raw.githubusercontent.com/microcks/microcks/master/samples/UserSignedUpAPI-asyncapi.yml`
 				
-Now that you have created your Jobs, they are automatically <code>Activated</code> (this make them eligible to a periodically check) and to <code>Imported</code> (this make a forced refresh right now). After some moments and a page refresh, you should see the status of Jobs changed like in screenshot below:
+
+Now that you have created your Jobs, they are automatically <code>Activated</code> (this make them eligible to a periodically check) and <code>Imported</code> (this causes an immediate forced refresh).  After some moments and a page refresh, you should see the status of Jobs changed as in screenshot below:
 			
 <img src="/images/sample-jobs.png" class="img-responsive"/>
 
 ### Viewing services
-			
-Once sample jobs have been loaded, new Services has been discovered and added to your repository. You can now visit the <b>API | Services</b> entry point from top navigation bar or home screen. You should see 5 new services with basic informations on version and operations/resources handled by this services.
+
+Once sample jobs have been loaded, new services have been discovered and added to your repository, you can now visit the <b>API | Services</b> entry point from top navigation bar or home screen. You should see 5 new services with basic information on version and operations/resources handled by these services.
 			
 ![sample-services](/images/sample-services.png)
 
 ### Viewing details
-			
-Now choosing the <b>Petstore API</b> REST API, you'll be able to access details, documentation and request/response samples for each operation/resource in the screen below. One important information here is the <b>Mocks URL</b> field: this is the endpoint where Microcks automatically deploy a mock for this operation. The table just below show request/response couples and a detailed URL with the HTTP verb showing how to invoke this mock.
+
+Now choosing the <b>Petstore API</b> REST API, you'll be able to access the details, documentation and request/response samples for each operation/resource in the screen below. One important bit of information here is the <b>Mocks URL</b> field: this is the endpoint where Microcks automatically deploy a mock for this operation. The table just below shows request/response pairs and a detailed URL with the HTTP verb showing how to invoke this mock.
 
 ![sample-details](/images/sample-details.png)
 			
@@ -100,16 +101,16 @@ If you require a more complex installation, Microcks may be installed in many wa
 
 We provide an Operator that is distributed through [OperatorHub.io](https://operatorhub.io/operator/microcks) for easy install and management of Microcks as a Kubernetes-native application.
 
-Have a look on this [page](/documentation/installing/operator) for more informations.
+Have a look on this [page](/documentation/installing/operator) for more information.
 
 ### Installing on Kubernetes with Helm
 
 We provide a Helm 3 `Chart` for using with [Helm](https://helm.sh/) Packet Manager. This is definitely the preferred way of installing apps on Kubernetes.
 
-Have a look on this [page](/documentation/installing/kubernetes) for more informations.
+Have a look on this [page](/documentation/installing/kubernetes) for more information.
 			
 ### Installing using Docker Compose
-			
+
 Docker Compose is really easy for a laptop or single demonstration server. You'll find instructions on how to use Docker Compose for installation [here](/documentation/installing/docker-compose).
 
 ### Quick installation in Azure
@@ -120,9 +121,9 @@ We provide this sub project [microcks/microcks-azure](https://github.com/microck
 
 Now that you have basic information on how to setup and use Microcks, you can go further with:
 
-* Pursuing your tour with the [Getting started with Tests](/documentation/getting-started-tests),
-* Understanding how Microcks [compare to alternatives](/documentation/using/alternatives),
+* Continuing your tour with [Getting started with Tests](/documentation/getting-started-tests),
+* Understanding how Microcks [compares with alternatives](/documentation/using/alternatives),
 * Creating your definition files using [OpenAPI](/documentation/using/openapi), [AsyncAPI](/documentation/using/asyncapi), [SoapUI](/documentation/using/soapui) or [Postman](/documentation/using/postman),
 * Using [exposed mocks](/documentation/using/mocks) and using variables,
 * Executing your [tests on endpoints](/documentation/using/tests) where your services and API are deployed,
-* Using [advanced features]((/documentation/using/advanced)) of Microcks and admin stuffs.
+* Using [advanced features]((/documentation/using/advanced)) of Microcks and admin stuff.
