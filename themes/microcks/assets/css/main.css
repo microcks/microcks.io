@@ -146,6 +146,16 @@ code:not([class]) {
   display: none;
 }
 
+article.nested-links a {
+  color: #ff1745;
+  text-decoration: none;
+}
+
+article.nested-links a:hover {
+  color: #ff1745;
+  text-decoration: underline;
+}
+
 /* CSS styles for sharing buttons partial - from https://sharingbuttons.io/ */
 .resp-sharing-button__link,
 .resp-sharing-button__icon {

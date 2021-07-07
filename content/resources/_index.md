@@ -11,6 +11,36 @@ toc: true
 
 - [Logos and assets](/resources/media/media-resources)
 
+### Events
+
+Review recorded events where we presented and discussed Microcks:
+
+<table>
+  <tr style="padding: 10px">
+    <td style="padding: 10px; text-align: center;">
+      <iframe width="373" height="210" src="https://www.youtube.com/embed/p5gdmrPFTw8?start=2205" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <br/><small>Barcelona JUG April 2021: Web API Contract First : design, mock and test <br/>By C. Anal & L. Broudoux</small>
+    </td>
+    <td style="padding: 10px; text-align: center;">
+      <iframe width="373" height="210" src="https://www.youtube.com/embed/wvsHne46qIs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <br/><small>Apidays Paris 2020: Speed-Up Kafka delivery with AsyncAPI & Microcks <br/>By Laurent Broudoux</small>
+    </td>
+  </tr>
+  <tr style="padding: 10px">
+    <td style="padding: 10px; text-align: center;">
+      <iframe width="373" height="210" src="https://www.youtube.com/embed/7xXKWnDjbIQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <br/><small>(FR) OpenShift Meetup Février 2020: Accélérer votre initiative OpenBanking APIs avec Microcks<br/>par Laurent Broudoux</small>
+    </td>
+    <td style="padding: 10px; text-align: center;">
+      <iframe width="373" height="210" src="https://www.youtube.com/embed/7gbaM73CMFY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <br/><small>(FR) Devoxx France 2019: Une API, de l'idée à la production, en mode agile avec Red Hat ! <br/>par By N. Masse & L. Broudoux</small>
+    </td>
+  </tr>
+</table>
+
+### Podcasts
+
+- [(FR) Electro Monkeys #81 – Testez et mockez vos API grâce à Microcks](https://electro-monkeys.fr/81-testez-et-mockez-vos-api-grace-a-microcks-avec-laurent-broudoux/)
 ### Articles
 
 - [Mocking Microservices Made Easy with Microcks](https://blog.openshift.com/mocking-microservices-made-easy-microcks/)
