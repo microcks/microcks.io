@@ -15,24 +15,24 @@ weight: 40 #rem
 
 ## Introduction
 
-Now that you have probably gone thorugh the different installation methods of Microcks, you would may want to have a high-level view of its architecture and deployment options. This page will go through these topics, exposeing the different choices and options you may have depending on your target environment.
+Now that you have looked at the different installation methods of Microcks, you may want to have a high-level view of its architecture and deployment options. This page will go through these topics, showing the different choices and options you may have depending on your target environment.
 
 ## High-level Architecture
 
-As its simplest form, Microcks architecture is made of 4 components that are:
+In its simplest form, Microcks architecture is made of 4 components which are:
 
 * The Microcks main web application (also called `webapp`) that holds the UI resources as well as API endpoints,
-* Its associated MongoDB database for holding your data such as repository of **API | Services** and **Tests**,
-* A Microcks Postman runtime (`microcks-postman-runtime`) that allow the execution of Postman Collection tests and calls back Microcks for storing results,
+* Its associated MongoDB database for holding your data such as the repository of **APIs | Services** and **Tests**,
+* A Microcks Postman runtime (`microcks-postman-runtime`) that allows the execution of Postman Collection tests and calls back Microcks for storing results,
 * A [Keycloak](https://keycloak.org) instance that holds the authentication mechanisms and identity provider integration.
 
-The schema below illustrates this architecture and the relations between components. You'll see that users are accessing the main `webapp` either from their browser to see the console or from the [CLI](../../automating/cli) or any other application using the API endpoints.
+The schema below illustrates this architecture and the relations between components. You'll see that users access the main `webapp` either from their browser to see the console or from the [CLI](../../automating/cli) or any other application using the API endpoints.
 
 <img src="/images/architecture-simple.png" class="img-responsive"/>
 
 > For sake of simplicity we do not represent here the PostgreSQL (or other database) thay may be associated with Keycloak.
 
-Your can deploy this simple architecture whatever the installation method you pick: from [Docker Compose](../docker-compose) to fully featured [Operator](../operator).
+You can deploy this simple architecture whatever installation method you pick: from [Docker Compose](../docker-compose) to fully featured [Operator](../operator).
 
 ### Architecture for Async API
 
@@ -69,15 +69,15 @@ This setup makes things easy to start and easy to drop: everything is placed und
 
 ### Partially managed by Microcks
 
-Aside this all-in-one approache, you may also use boths installation method to pick the components you want Microcks to install and the other existing one you may want Microcks to connect to. You will have the following options:
+Besides this all-in-one approach, you may also use both installation methods to pick the components you want Microcks to install and the other existing ones you may want Microcks to connect to. You will have the following options:
 
 * Do not deploy a MongoDB database and reuse an existing one. For that, put the `mongodb.install` flag to `false` and specify a `mongodb.url`, a `mongodb.database` as well as credentials and that's it!
-* Do not deploy a Keycloak instance and reuse an existing one. For that, put the `keycloak.install` flag to `false` and specify a `keycloak.url` and a `keycloak.realm` and that's it! Optionally you may want to specify a `keycloak.privateUrl` so that security token trusintg will be done without hopping through a publicly reachable URL.
-* Do not deploy a Kafka nstance and reuse an existing one. For that, put the `kafka.install` flag to `false` and specify a `kafka.url` and that's it!
+* Do not deploy a Keycloak instance and reuse an existing one. For that, put the `keycloak.install` flag to `false` and specify a `keycloak.url` and a `keycloak.realm` and that's it! Optionally, you may want to specify a `keycloak.privateUrl` so that security token trusting will be done without hopping through a publicly reachable URL.
+* Do not deploy a Kafka instance and reuse an existing one. For that, put the `kafka.install` flag to `false` and specify a `kafka.url` and that's it!
 
 <img src="/images/deployment-partially-managed.png" class="img-responsive"/>
 
-> Reusing already deployed components may allow you to lower operational costs if you're using shared instances. It can also allow you to use managed services that may be provided by your favorite cloud vendor.
+> Reusing already deployed components may allow you to lower operational costs if you're using shared instances. It can also allow you to use managed services that may be provided by your favourite cloud vendor.
 
 ### The Kafka broker of your choice 
 

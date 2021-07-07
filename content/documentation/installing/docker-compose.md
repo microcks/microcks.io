@@ -15,7 +15,7 @@ weight: 30 #rem
 
 # 
 
-[Docker Compose](https://docs.docker.com/compose/) is a tool for easily test and run multi-container applications. [Microcks](https://microcks.io/) offers a simple way to set up the minimal required containers to have a functional environment in your local computer.
+[Docker Compose](https://docs.docker.com/compose/) is a tool for easily testing and running multi-container applications. [Microcks](https://microcks.io/) offers a simple way to set up the minimal required containers to have a functional environment on your local computer.
 
 ## Usage
 
@@ -41,11 +41,11 @@ In your terminal issue the following commands:
    docker-compose up -d
    ```
 
-This will start the required containers and setup an simple environment for your usage.
+This will start the required containers and setup a simple environment for you to use.
 
 Open a new browser tab and point to the `http://localhost:8080` endpoint. This will redirect you to the [Keycloak](https://www.keycloak.org/) Single Sign On page for login. Use the following default credentials to login into the application:
 
 * **Username:** admin
 * **Password:** microcks123
 
-You will be redirected to the main dashboard page. You can now start [using Microcks](https://microcks.io/documentation/getting-started/#using-microcks).
+You will be redirected to the main dashboard page. You can now start [using Microcks](https://microcks.io/documentation/getting-started/#using-microcks)!

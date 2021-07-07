@@ -15,9 +15,9 @@ weight: 20 #rem
 
 ## Overview 
 
-Operators are next-gen installer, maintainer and life-cycle manager for Kubernetes native applications. Operators are Kubernetes native piece of software (aka Kube controller) that manage specific `Custom Resources` defining their domain of expertise. Microcks provide an Operator that was developed using the [Operator Framework SDK](https://github.com/operator-framework/operator-sdk) and that is distributed through [OperatorHub.io](https://operatorhub.io/operator/microcks).
+Operators are next-gen installer, maintainer and life-cycle manager for Kubernetes native applications. Operators are a Kubernetes native piece of software (aka Kube controller) that manages specific `Custom Resources` defining their domain of expertise. Microcks provide an Operator that was developed using the [Operator Framework SDK](https://github.com/operator-framework/operator-sdk) and that is distributed through [OperatorHub.io](https://operatorhub.io/operator/microcks).
 
-At time of writing, Microcks only define one customer resource that is called the `MicrocksInstall`: a description of the instance configuration you want to deploy. The properties of this custom resource are briefly described below.
+At the time of writing, Microcks only defines one customer resource that is called the `MicrocksInstall`: a description of the instance configuration you want to deploy. The properties of this custom resource are briefly described below.
 
 Depending on your needs and usage of Operators, they can be easily deployed and managed using the [Operator Lifecycle Manager](https://github.com/operator-framework/operator-lifecycle-manager), an add-on that you may install into your Kubernetes cluster to track subscription and upgrades of operators. We describe both installation methods below: with or without Operator Lifecycle Manager (OLM).
 
@@ -104,7 +104,7 @@ This installation process is demonstrated in following video that also demonstra
 
 Now you can retrieve the URL of the created ingress using `kubectl get ingress -n microcks`.
 
-Before starting playing with Microcks, you'll have to connect to Keycloak component in order to configure an identity provider or define some users for the Microcks realm (see [Keycloak documentation](http://www.keycloak.org/docs/latest/server_admin/index.html#user-management)). Connection to Keycloak can be done using username and password stored into a `microcks-keycloak-config` secret created during setup.
+Before starting playing with Microcks, you'll have to connect to the Keycloak component in order to configure an identity provider or define some users for the Microcks realm (see [Keycloak documentation](http://www.keycloak.org/docs/latest/server_admin/index.html#user-management)). Connection to Keycloak can be done using username and password stored into a `microcks-keycloak-config` secret created during setup.
 
 > Starting with Microcks `1.2.0` release, the installation process now creates default users with the different roles available. So you can directly login using `user`, `manager` or `admin` username with `microcks123` password.
 
@@ -154,7 +154,7 @@ spec:
     replicas: 1
 ```
 
-We recommend having a look at [operator documentation](https://github.com/microcks/microcks-ansible-operator) for full understanding of CR.
+We recommend having a look at the [operator documentation](https://github.com/microcks/microcks-ansible-operator) for full understanding of CR.
 
 ## On any Kube distribution without OLM
 
@@ -202,7 +202,7 @@ Now just create a `MicrocksInstall` CR!
 
 ## On OpenShift 4 with OLM
 
-As OpenShift 4.x is embedding OLM by default, it is fairly easy to realize a new Microcks installation. The video below shows an install from scratch on OpenShift but also expose the post-installation steps required for creating user and connecting to the app.
+As OpenShift 4.x is embedding OLM by default, it is fairly easy to realize a new Microcks installation. The video below shows an install from scratch on OpenShift but also exposes the post-installation steps required for creating user and connecting to the app.
 
 {{< youtube id="P2RFDxL0xsA" autoplay="false" >}}
 
