@@ -15,11 +15,11 @@ weight: 30 #rem
 
 # 
 
-[Podman Compose](https://github.com/containers/podman-compose) is a tool for easily test and run multi-container applications. [Microcks](https://microcks.io/) offers a simple way to set up the minimal required containers to have a functional environment in your local computer. This procedure has been successfully tested with Podman `2.1.1` onto [Fedora 33+](https://getfedora.org/) and should be OK on [CentOS Stream 8+](https://www.centos.org/centos-stream/) and [RHEL 8+](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux) distributions too.
+[Podman Compose](https://github.com/containers/podman-compose) is a tool for easily testing and running multi-container applications. [Microcks](https://microcks.io/) offers a simple way to set up the minimal required containers to have a functional environment on your local computer. This procedure has been successfully tested with Podman `2.1.1` onto [Fedora 33+](https://getfedora.org/) and should be OK on [CentOS Stream 8+](https://www.centos.org/centos-stream/) and [RHEL 8+](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux) distributions too.
 
 ## Usage
 
-To get started, make sure you have first the [Podman](https://podman.io/getting-started/installation) and the [Podman Compose](https://github.com/containers/podman-compose) packages installed on your system.
+To get started, make sure you first have the [Podman](https://podman.io/getting-started/installation) and the [Podman Compose](https://github.com/containers/podman-compose) packages installed on your system.
 
 Then, in your terminal issue the following commands:
 
@@ -41,7 +41,7 @@ Then, in your terminal issue the following commands:
    $ ./run-microcks.sh
    Running rootless containers...
    Discovered host IP address: 192.168.3.102
-
+   
    Starting Microcks using podman-compose ...
    ------------------------------------------
    Stop it with:  podman-compose -f microcks.yml --transform_policy=identity stop
@@ -50,7 +50,7 @@ Then, in your terminal issue the following commands:
    ------------------------------------------
    Go to https://localhost:8080 - first login with admin/123
    Having issues? Check you have changed microcks.yml to your platform
-
+   
    using podman version: podman version 2.1.1
    podman run [...]
    ```
@@ -76,7 +76,7 @@ In particular, in the **rootless** mode:
 
 So, unless you need high performances or a specific network setup, you can use the **rootless** mode.
 
-For the Podman support in Microcks, we aimed to support both **rootless** and **rootfull** mode.
+For the Podman support in Microcks, we aim to support both **rootless** and **rootfull** mode.
 
 If you'd like to give a try to the **rootfull** mode, you'll have to enable the `dnsalias` plugin in the default `podman` network:
 
