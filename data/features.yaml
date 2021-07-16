@@ -4,21 +4,21 @@
   image_path: /images/noun_users.svg
 - heading: "Experiment"
   tagline: "Prototype fast, succeed or fail fast"
-  copy: "Experiment new APIs using the Backend as a Service feature, play and iterate before creating your API contract."
+  copy: "Experiment with new APIs using the Backend as a Service feature, play and iterate before creating your API contract."
   image_path: /images/noun_science_experiment.svg
 - heading: "REST, SOAP and Events"
   tagline: "One tool for all your APIs, events and WS"
-  copy: "Sure we do love REST APIs but event-driven APIs are araising and we also have a bunch of legacy Web-Services. Why not applyging same practices? We support all of them!"
+  copy: "Sure we do love REST APIs but event-driven APIs are up and coming and we also have a bunch of legacy Web-Services. Why not apply the same practices? We support all of them!"
   image_path: /images/noun_exchanges.svg
 - heading: "Continuous Integration"
   tagline: "Mock and test continuously"
-  copy: "Integrate seemlessly in your continuous build or pipelines. We provide plugins, CLI or containers for you to choose the best option."
+  copy: "Integrate seemlessly in your continuous build or pipelines. We provide plugins, CLIs or containers for you to choose the best option."
   image_path: /images/noun_recycle.svg
 - heading: "Kubernetes native"
   tagline: "Want the choice on deployment?"
-  copy: "Microcks can be deployed on any cloud provider on in-house infrastructure using Kube. It is using Operator for full-automated maintenance and cruise control."
+  copy: "Microcks can be deployed on any cloud provider on in-house infrastructure using Kube. You can also deploy with an Operator for full-automated maintenance and cruise control."
   image_path: /images/noun_kubernetes.svg
 - heading: "Scalable"
   tagline: "Mocks do not have to be expensive!"
-  copy: "Scale to hundreds of mocks, billions of hits on a single instance. Microcks is totally elastic thanks to cloud-native design. "
+  copy: "Scale to hundreds of mocks, billions of hits on a single instance. Microcks is totally elastic thanks to its cloud-native design. "
   image_path: /images/noun_rocket.svg
