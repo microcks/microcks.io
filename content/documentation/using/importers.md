@@ -52,7 +52,7 @@ When we set out, Microcks followed the *1 artifact == 1 API mock definition* pri
 This base use-case is extended to implement some variations:
 
 * Different Postman Collections for different lifecycle environments, maintained in coordination with reference datasets,
-* Different Postman Collections for different API providers implementing a shared industrial standard (think of IoT Firmware implementation but for different industry vertical),
+* Different Postman Collections for different API providers implementing a shared industrial standard (think of IoT [Fiware](https://www.fiware.org/) implementation but for different industry vertical),
 * Different Postman Collections for different API consumers that will allow consumer-driven contract testing.
 
 So from `1.3.0`, Microcks is now able to have multiple artifacts (one `primary` and some `secondary`) mapping to one API mock definition. The `primary` one will bring Service and operation metadata as well as examples. The `secondary` ones will only enrich existing operations with new non-conflicting request/responses and event samples.
