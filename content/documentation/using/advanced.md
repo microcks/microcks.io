@@ -15,9 +15,9 @@ weight: 30 #rem
 
 ## Content negocation in REST mocks
 
-Microcks mocks engine supports [Content Negociation](https://restfulapi.net/content-negotiation/) for REST APIs based on `Accept` HTTP header.
+Microcks mocks engine supports [Content Negotiation](https://restfulapi.net/content-negotiation/) for REST APIs based on `Accept` HTTP header.
 
-So supposed you have defined 2 representations for the same example of a `GET /pastry/{name}` operation into your API contract:
+So suppose you have defined 2 representations for the same example of a `GET /pastry/{name}` operation into your API contract:
 
 * One describing a JSON response like below
 
@@ -27,7 +27,7 @@ So supposed you have defined 2 representations for the same example of a `GET /p
 
 ![content-negociation-xml](/images/content-negociation-xml.png)
 
-Both samples are matching the same dispatch criterion that is the `name` part of the URI. However depending on the `Accept` header of your request, Microcks will return different responses:
+Both samples match the same dispatch criterion that is the `name` part of the URI. However, Microcks will return different responses depending on the `Accept` header of your request:
 
 ```sh
 $ curl http://localhost:8080/rest/API+Pastry+-+2.0/2.0.0/pastry/Eclair+Cafe
@@ -53,9 +53,9 @@ Sometimes it may be important to specify additional constraints onto a Mock oper
 
 Constraints can be put onto `Query` or `Header` parameters and are of 3 types:
 
-* `required` constraints are forcing the presence of parameter in incoming request,
-* `recopy` constraints are just sending back the same parameter name and value into mock response,
-* `match` constraints are checking the value of a parameter against a specified regular expression.
+* `required` constraints force the presence of parameter in incoming request,
+* `recopy` constraints just send back the same parameter name and value into mock response,
+* `match` constraints check the value of a parameter against a specified regular expression.
 
 Now imagine you put such constraints onto the `GET /pastry` operation of your REST API that is secured using a JWT Bearer and should managed tracabelity using a correlation id:
 
@@ -125,7 +125,7 @@ x-request-id: 123
 ]
 ```
 
-> Operation parameters constraints are saved into Microcks database and not replaced by a new importation of your Service or API definition. They can be independently set and updated using the [Microcks APIs](../automating/api/).
+> Operation parameter constraints are saved into Microcks database and not replaced by a new import of your Service or API definition. They can be independently set and updated using the [Microcks APIs](../automating/api/).
 
 ## Override default headers during tests
 
