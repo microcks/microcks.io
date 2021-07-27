@@ -34,7 +34,7 @@ Here's an example of summary page for a SOAP Service mock :
 			
 Let's now focus on the `Operations` section of this page. A click on the operation name unveils its details. Within an Operation panel, you will get generic information on this operation as well as visualization of typical request/response pair examples (payload content and headers). Two major highlights should be pointed out here :
 
-* The `Mocks URL`: this is the URL fragment to which are exposed the mocks for this Operation of the API/Service. This fragment should be appended to your Microcks server URL to form an invokable URL. For example: `http://microcks-microcks.192.168.99.100.nip.io/rest/Test+API/0.0.1/order/:id`. When this URL contains variables part, this part is instantiated within each example panel,
+* The `Mocks URL`: this is the URL that exposes the mocks for this Operation of the API/Service. For example: `http://microcks-microcks.192.168.99.100.nip.io/rest/Test+API/0.0.1/order/:id`. When this URL contains variables part, this part is instantiated within each example panel,
 * The `Dispatcher` and `Dispatching Rules` used by this operation. These elements are used by Microcks for finding an appropriate response to return when receiving a mock request. It tells the user of the mocks what should be the immutable elements of their request whether they may be located in the URL, the query string or the body payload. Microcks supports many dispatcher implementations whose names are rather self-explanatory. You may find: `URI_PARTS`, `URI_PARAMS`, `URI_ELEMENTS`, `QUERY_MATCH` or `SCRIPT`
 			
 ![mock-details](/images/mock-details.png)
@@ -45,7 +45,7 @@ In the REST API mock example above, you will guess that the `:id` part of the Mo
 		
 ### Invoking microservices mocks
 			
-Invoking Mocks is now pretty easy if you have read the section above! Just use Microcks for searching the API/Service you want to use and explore the operations of the API/Service. Find the Mock URL and the Http method of the corresponding operation, look at the instanciated URI fragment for different request/response pairs, append the fragment to the Microcks server url and that's it!
+Invoking Mocks is now pretty easy if you have read the section above! Just use Microcks for searching the API/Service you want to use and then explore the operations of the API/Service. Find the Mock URL and the Http method of the corresponding operation, look at the instantiated URI for each example request/response pair, copy the URI to your favorite http client and you're ready to go!
 
 As a rule of thumb, here is how the URL fragments for mocks are built and exposed within Microcks :
 
