@@ -113,17 +113,13 @@ Have a look on this [page](/documentation/installing/kubernetes) for more inform
 
 Docker Compose is really easy for a laptop or single demonstration server. You'll find instructions on how to use Docker Compose for installation [here](/documentation/installing/docker-compose).
 
-### Quick installation in Azure
-
-We provide this sub project [microcks/microcks-azure](https://github.com/microcks/microcks-azure) for easily setting up a  one-click deployment to Microsoft Azure Cloud.
-
 ## What's next?
 
 Now that you have basic information on how to setup and use Microcks, you can go further with:
 
 * Continuing your tour with [Getting started with Tests](/documentation/getting-started-tests),
 * Understanding how Microcks [compares with alternatives](/documentation/using/alternatives),
-* Creating your definition files using [OpenAPI](/documentation/using/openapi), [AsyncAPI](/documentation/using/asyncapi), [SoapUI](/documentation/using/soapui) or [Postman](/documentation/using/postman),
+* Creating your definition files using [OpenAPI](/documentation/using/openapi), [AsyncAPI](/documentation/using/asyncapi), [SoapUI](/documentation/using/soapui), [Postman](/documentation/using/postman) or [GRPC](/documentation/using/grpc), 
 * Using [exposed mocks](/documentation/using/mocks) and using variables,
 * Executing your [tests on endpoints](/documentation/using/tests) where your services and API are deployed,
 * Using [advanced features]((/documentation/using/advanced)) of Microcks and admin stuff.

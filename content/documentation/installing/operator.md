@@ -36,7 +36,7 @@ Next we create a Kubernetes namespace and deploy the latest version of the Micro
 
 ```sh
 $ kubectl create namespace microcks
-kubectl apply -f https://microcks.io/operator/operator-latest.yaml -n microcks
+$ kubectl apply -f https://microcks.io/operator/operator-latest.yaml -n microcks
 ```
 
 From this point, you have the choice of deploying:
