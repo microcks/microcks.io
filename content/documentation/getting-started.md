@@ -118,6 +118,7 @@ Docker Compose is really easy for a laptop or single demonstration server. You'l
 Now that you have basic information on how to setup and use Microcks, you can go further with:
 
 * Continuing your tour with [Getting started with Tests](/documentation/getting-started-tests),
+* Enabling the [Asynchronous related features on Docker-Compose](/documentation/installing/docker-compose#enabling-asynchronous-api-features),
 * Understanding how Microcks [compares with alternatives](/documentation/using/alternatives),
 * Creating your definition files using [OpenAPI](/documentation/using/openapi), [AsyncAPI](/documentation/using/asyncapi), [SoapUI](/documentation/using/soapui), [Postman](/documentation/using/postman) or [GRPC](/documentation/using/grpc), 
 * Using [exposed mocks](/documentation/using/mocks) and using variables,
