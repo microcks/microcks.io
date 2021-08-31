@@ -3,7 +3,7 @@ draft: false
 title: "Managing Users"
 date: 2019-11-18
 publishdate: 2019-11-18
-lastmod: 2020-10-09
+lastmod: 2021-08-31
 menu:
   docs:
     parent: administrating
@@ -74,16 +74,26 @@ keycloak.security-constraints[0].authRoles[1]=manager
 keycloak.security-constraints[0].authRoles[2]=user
 keycloak.security-constraints[0].securityCollections[0].name=Insecure stuffs
 keycloak.security-constraints[0].securityCollections[0].patterns[0]=/api/services
-keycloak.security-constraints[0].securityCollections[0].patterns[1]=/api/services/count
+keycloak.security-constraints[0].securityCollections[0].patterns[1]=/api/services/*
 keycloak.security-constraints[0].securityCollections[0].patterns[2]=/api/jobs
-keycloak.security-constraints[0].securityCollections[0].patterns[3]=/api/jobs/count
+keycloak.security-constraints[0].securityCollections[0].patterns[3]=/api/jobs/*
 keycloak.security-constraints[0].securityCollections[0].patterns[4]=/api/tests
 ``` 
 
 ## Users management
 
-Starting with Microcks version `0.8.0`, we add the ability to partially manage users directly from the Microcks GUI. "Partially" means that you are able to manage a user's roles within Microcks application but not able to create a new user. This action is reserved to your Identity Provider used through Keycloak configuration or to Keycloak itself if you choose to use it as a provider.
+Your can partially manage users directly from the Microcks GUI. "Partially" means that you are able to manage a user's roles within Microcks application but not able to create a new user. This action is reserved to your Identity Provider used through Keycloak configuration or to Keycloak itself if you choose to use it as a provider.
 
 Users can only be managed by Microcks `admin` - we mean people having the `admin` role assigned. Users management is simply a thumbnail with the `Administration` page that is available from the vertical menu on the left once logged in as administrator. In order to be able to retrieve the list of users and operate changes, the user should also have **manage-users** and **manage-clients** role from **realm-management** Keycloak internal client. See [Keycloak documentation](https://www.keycloak.org/docs/latest/server_admin/index.html#_per_realm_admin_permissions) for more on this point.
 
 ![users](/images/users.png)
+
+### Group membership
+
+From Microcks 1.4.0, you have the ability to segment the role attribution depending on the `master` label you have chosen for organizing your repository. See [Organizing repository](https://microcks.io/documentation/using/advanced/organizing/#rbac-security-segmentation) for details on this feature.
+
+When this feature is enabled, Microcks will create as many groups in Keycloak as we have different values for this `master` label. These groups are organized in a hierarchy so that you'll have groups with such names `/microcks/manager/<label>` those members represents the `manager` of the resources labeled with `<label>` value.
+
+Also, a new **Manage Groups** options appears in the option menu for each user. From this new modal window, you can easily manage group membership for a specified user as shown below: 
+
+{{< fitimg "/images/users-group-management.png" >}}
