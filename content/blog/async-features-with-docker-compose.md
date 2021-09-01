@@ -18,7 +18,7 @@ For some weeks now, many users from the Microcks community were asking for playi
 
 This blog post is a detailed walkthrough on how to use Asynchronous related features with Docker-Compose using the new set of compose files shipped in Microcks `master` branch. This configuration has also entered our [Installation documentation](https://microcks.io/documentation/installing/docker-compose/#enabling-asynchronous-api-features).
 
-So all you need from now it `docker` and `docker-compose` on your machine. Ready? Let's go!
+So all you need from now is `docker` and `docker-compose` on your machine. Ready? Let's go!
 
 ## Start-up Microcks with Async features
 
