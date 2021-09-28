@@ -89,7 +89,9 @@ Here's below the portion of `features.properties` configuration used for enablin
 
 ```properties
 features.feature.repository-tenancy.enabled=true
-features.feature.repository-tenancy.artifact-import-allowed-roles=admin,manager
+features.feature.repository-tenancy.artifact-import-allowed-roles=admin,manager,manager-any
 ```
 
 > Note: when configured through `MicrocksInstall` Kubernetes CRD or Helm Chart values, we use a Camel Case notation for this properties. They are named: `repositoryTenancy` with sub-key `artifactImportAllowedRoles`.
+
+> Note 2: the `manager-any` is not actually a role, it's a notation meaning 'a people that belong to any management group even if not endorsing the global manager role'.

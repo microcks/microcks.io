@@ -54,7 +54,7 @@ These roles are:
 
 * `user`: a regular authenticated user of the Microcks application. This is the default role that is automatically attached the first time a user succeed authenticating into the Microcks app,
 * `manager`: a user identified as having management roles on the Microcks repository content. Managers should be allowed of adding and removing Services mocks into the repository as well as configuring mocks operation properties. In a near future, this role should be scoped by a classifier allowing to organize services into coherent groups,
-* `admin`: a user identified as having administration role on the Microcks instance. Admin shoulb be able to manage users, configure external repositories secrets or realize backup/restore operations.
+* `admin`: a user identified as having administration role on the Microcks instance. Admin should be able to manage users, configure external repositories secrets or realize backup/restore operations.
 
 Whether a connected user has these roles is checked both on the client and the server sides using [Keycloak adapters](https://www.keycloak.org/docs/latest/securing_apps/index.html).
 

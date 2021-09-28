@@ -100,6 +100,8 @@ Both artifacts should be imported into Microcks either through [direct upload](.
 
 The final step for assembling data coming from gRPC Protofile and Postman Collection is to define how to dispatch requests. As explained into [Using exposed mocks](../mocks), Microcks is using `Dispatcher` and `Dispatching Rules` for finding an appropriate response to return when receiving a mock request. For gRPC, we can typically use a `JSON_BODY` dispatcher as explained into [Custom dispatching rules](../advanced/dispatching/#json-body-dispatcher).
 
-As of today you should use the Microcks web console to edit the `greeting` operation properties and change the dispatcher and its rules as shown below. Here-after we have defined a simple rule that is routing incoming requests depending on the value of the `firstname` property of the incoming message.
+> Starting with Microcks `1.4.0`, you'll be able to directly import these dispatching rules from your Git repository as well, thanks to [API Metadata](../advanced/metadata) documents!
+
+Before Microcks `1.4.0` you should use the Microcks web console to edit the `greeting` operation properties and change the dispatcher and its rules as shown below. Here-after we have defined a simple rule that is routing incoming requests depending on the value of the `firstname` property of the incoming message.
 
 ![grpc-dispatch-rule](/images/grpc-dispatch-rule.png)

@@ -17,7 +17,7 @@ weight: 30 #rem
 
 `microcks-cli` is a command-line tool for interacting with Microcks server APIs. It allows to launch tests or import API artifacts with minimal dependencies. It is managed and released independently of the core Microcks server components within its [own GitHub repository](https://github.com/microcks/microcks-cli).
 
-The CLI makes usage of Microcks [Service Account](../service-account) so it's defintely worth the read 😉
+The CLI makes usage of Microcks [Service Account](../service-account) so it's definitely worth the read 😉
 
 ## Usage instructions
 

@@ -150,3 +150,39 @@ When you're happy with your API design and example definitions just put the resu
 Using the above `User signed-up API` example, you should get the following results:
 
 ![asyncapi-mocks](/images/asyncapi-mocks.png)
+
+## Using AsyncAPI extensions
+
+Starting with version `1.4.0`, Microcks proposes custom AsyncAPI extensions to specify mocks organizational or behavioral elements that cannot be deduced directly from AsyncAPI document.
+
+At the `info` level of your AsyncAPI document, you can add labels specifications that will be used in [organizing the Microcks repository](../advanced/organizing). See below illustration and the use of `x-microcks` extension:
+
+```yaml
+asyncapi: '2.1.0'
+info:
+  title: Account Service
+  version: 1.0.0
+  description: This service is in charge of processing user signups
+  x-microcks:
+    labels:
+      domain: authentication
+      status: GA
+      team: Team B
+[...]
+```
+
+At the `operation` level of your AsyncAPI document, we could add frequency that is the interval of time in seconds between 2 publications of mock messages.. Let's give an example for OpenAPI using the `x-microcks-operation` extension:
+
+```yaml
+[...]
+channels:
+  user/signedup:
+    subscribe:
+      x-microcks-operation:
+        frequency: 30
+      message:
+        $ref: '#/components/messages/UserSignedUp'
+[...]
+```
+
+Once `labels` and `frequency` are defined that way, they will overwrite the different customizations you may have done through UI or API during the next import of the AsyncAPI document.

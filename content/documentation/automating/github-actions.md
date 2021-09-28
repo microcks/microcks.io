@@ -3,7 +3,7 @@ draft: false
 title: "Using Microcks from GitHub Actions"
 date: 2021-02-19
 publishdate: 2021-02-19
-lastmod: 2021-02-19
+lastmod: 2021-06-30
 menu:
   docs:
     parent: automating

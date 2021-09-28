@@ -3,7 +3,7 @@ draft: false
 title: "Using Microcks from Tekton"
 date: 2019-11-11
 publishdate: 2019-11-11
-lastmod: 2020-10-01
+lastmod: 2021-06-30
 menu:
   docs:
     parent: automating
@@ -82,7 +82,7 @@ In case you have your Microcks installation between behind a TLS Ingress with cu
 
 You should have previously created your secret using something like this:
 
-```
+```sh
 $ kubectl create secret generic microcks-test-customcerts-secret --from-file=ca.crt=ca.crt
 ```
 
