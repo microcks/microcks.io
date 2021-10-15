@@ -7,6 +7,8 @@
 @import '_documentation-styles';
 
 @import 'docsearch.js/dist/cdn/docsearch.min';
+@import 'instantsearch.js/dist/instantsearch.min';
+@import 'instantsearch.js/dist/instantsearch-theme-algolia.min';
 @import '_carousel';
 @import '_code';
 @import '_tabs';
