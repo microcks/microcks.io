@@ -3,7 +3,7 @@ draft: false
 title: "CLI for Microcks"
 date: 2019-09-01
 publishdate: 2019-09-01
-lastmod: 2021-06-30
+lastmod: 2021-11-22
 menu:
   docs:
     parent: automating
@@ -13,7 +13,7 @@ toc: true
 weight: 30 #rem
 ---
 
-## Microcks CLI 
+## Microcks CLI
 
 `microcks-cli` is a command-line tool for interacting with Microcks server APIs. It allows to launch tests or import API artifacts with minimal dependencies. It is managed and released independently of the core Microcks server components within its [own GitHub repository](https://github.com/microcks/microcks-cli).
 
@@ -33,10 +33,11 @@ where `[command]` can be one of the following:
 ### Test command
 
 The `test` command has a bunch of arguments and flags so that you can use it that way:
+
 ```sh
 $ microcks-cli test <apiName:apiVersion> <testEndpoint> <runner> \
-	--microcksURL=<> --waitFor=5sec \
-	--keycloakClientId=<> --keycloakClientSecret=<>
+  --microcksURL=<> --waitFor=5sec \
+  --keycloakClientId=<> --keycloakClientSecret=<>
 ```
 
 Check [README.md](https://github.com/microcks/microcks-cli/blob/master/README.md) for full instructions on arguments and flags.
@@ -44,10 +45,11 @@ Check [README.md](https://github.com/microcks/microcks-cli/blob/master/README.md
 ### Import command
 
 The `import` command has one argument and common flags with `test` command. You can use it that way:
+
 ```sh
 $ microcks-cli import <specificationFile1[:primary],specificationFile2[:primary]> \
-	--microcksURL=<> \
-	--keycloakClientId=<> --keycloakClientSecret=<>
+  --microcksURL=<> \
+  --keycloakClientId=<> --keycloakClientSecret=<>
 ```
 
 Check [README.md](https://github.com/microcks/microcks-cli/blob/master/README.md) for full instructions on arguments and flags.
