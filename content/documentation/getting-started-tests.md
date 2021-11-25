@@ -3,7 +3,7 @@ draft: false
 title: "Getting started with Tests"
 date: 2020-10-19
 publishdate: 2020-10-19
-lastmod: 2020-10-19
+lastmod: 2021-11-25
 menu:
   docs:
     parent: using
@@ -27,7 +27,7 @@ You'll see that this sample contains a number of different features. It will ill
 
 * Simple `GET` operation mocking and testing, 
 * `Path parameters` matching and testing,
-* [Content negociation](./using/advanced/#content-negocation-in-rest-mocks) matching and testing.
+* [Content negotiation](./using/advanced/#content-negocation-in-rest-mocks) matching and testing.
 
 Now that we have the sample API registered in Microcks, we can deploy an implementation of this API contract. This will be our [System Under Test](https://en.wikipedia.org/wiki/System_under_test).
 
@@ -79,8 +79,9 @@ __  ____  __  _____   ___  __ ____  ______
 2020-10-19 14:49:37,135 INFO  [io.quarkus] (main) Installed features: [cdi, resteasy, resteasy-jaxb, resteasy-jsonb]
 ```
 
-Depending on you system, the application endpoint will be reachable at `http://docker.for.mac.localhost:8282` or `http://docker.for.win.localhost:8282` or `http://localhost:8282`.
+Depending on you system and docker version, the application endpoint will be reachable at `http://docker.for.mac.localhost:8282` or `http://docker.for.win.localhost:8282` or `http://localhost:8282` from you host network. However you'll have to use `http://host.docker.internal:8282` as the test endpoint when launching a step in next step.
 
+> If you still encounter issues joining this container from Microcks main one, you may use the command `docker run -i --name pastry --network=docker-compose_default --rm -p 8282:8282 quay.io/microcks/quarkus-api-pastry:latest` to force the implementation to join the network that was created by the Microcks docker-compose. After that, you'll have to use `http://pastry:8282` as the test endpoint.
 
 ## Launching a test
 
@@ -88,7 +89,7 @@ Now that our component implementing the API is running, it's time to launch some
 
 ### From the UI
 
-You may already have seen it but there's a <b>NEW TEST...</b> button on the right hand side of the page detailing the **API Pastry** service. Hitting it leads you to the following form where you will be able to specify a target URL for the test, as well as a Runner — a testing strategy for your new launch:
+You may already have seen it but there's a **NEW TEST...** button on the right hand side of the page detailing the **API Pastry** service. Hitting it leads you to the following form where you will be able to specify a target URL for the test, as well as a Runner — a testing strategy for your new launch:
 
 ![sample-test-form](/images/sample-test-form.png)
 
@@ -96,7 +97,7 @@ Just copy/paste the endpoint URL where your `quarkus-api-pastry` deployment can 
 
 ![sample-test-launch](/images/sample-test-launch.png)
 
-Following the **Full results** link in the above sreen will lead you to a screen where you'll have access to all the test details and request/responses content exchanged with the endpoint during the tests. Very handy for troubleshooting or comparing results on different environments!
+Following the **Full results** link in the above screen will lead you to a screen where you'll have access to all the test details and request/responses content exchanged with the endpoint during the tests. Very handy for troubleshooting or comparing results on different environments!
 
 ![sample-test-result](/images/sample-test-result.png)
 
