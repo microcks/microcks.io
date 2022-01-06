@@ -39,15 +39,15 @@ Now just select `Edit Properties` of the operation from the 3-dots menu on the r
 
 ### Inferred dispatchers
 
-A reminder on default, inferred dispatchers: you may find `URI_PARTS`, `URI_PARAMS`, `URI_ELEMENTS`, `QUERY_MATCH` or `SCRIPT`. The first three are usually found when using Postman or OpenAPI as a contract artifact ; they are deduced from the paths and contract elements. The last two are usually found when using SoapUI as a contraxct artifact.
+A reminder on default, inferred dispatchers: you may find `URI_PARTS`, `URI_PARAMS`, `URI_ELEMENTS`, `QUERY_MATCH`, `QUERY_ARGS` or `SCRIPT`. The first three are usually found when using Postman or OpenAPI as a contract artifact ; they are deduced from the paths and contract elements. The last two are usually found when using SoapUI as a contract artifact.
 
 ### JSON BODY dispatcher
 
-The `JSON_BODY` dispatching strategy allows specifying a dispatching rule that will analyse the request payload in order to find a matching response. In order to specify such an expression you can use the help vertical right secion of the page that will provide examples and copy/paste shortcuts.
+The `JSON_BODY` dispatching strategy allows specifying a dispatching rule that will analyse the request payload in order to find a matching response. In order to specify such an expression you can use the help vertical right section of the page that will provide examples and copy/paste shortcuts.
 
 The dispatching rules of `JSON_BODY` dispatcher are always expressed using a JSON payload with 3 properties:
 
-* `exp` is the expression to evaluate against the request body. It is indeed a [JSON Pointer](https://tools.ietf.org/html/rfc6901) expression. We already use this expressiong language in [Templating features](../templates/#json-body-pointer-expression). From the evaluation of this expression, we'll get a value. Here `/country` denotes the `country` field of incoming request.
+* `exp` is the expression to evaluate against the request body. It is indeed a [JSON Pointer](https://tools.ietf.org/html/rfc6901) expression. We already use this expression language in [Templating features](../templates/#json-body-pointer-expression). From the evaluation of this expression, we'll get a value. Here `/country` denotes the `country` field of incoming request.
 * `op` is the operator to apply. Different operators are available like `equals`, `range`, `regexp`, `size` and `presence`,
 * `cases` are a number of cases where keys are values to compare to extracted value from incoming request.
 

@@ -3,7 +3,7 @@ draft: false
 title: "Executing tests"
 date: 2019-09-01
 publishdate: 2019-09-01
-lastmod: 2019-09-02
+lastmod: 2022-01-06
 menu:
   docs:
     parent: using
@@ -17,7 +17,7 @@ weight: 30 #rem
 			
 Microcks offers mocks but can also be used for **Contract testing** of API or services being under development. You spend a lot of time describing request/response pairs and matching rules: it would be a shame not to use this sample as test cases once the development is on its way!
 			
-From the page displaying basic information on your [microservice mocks](../mocks/#mocks-info), you have the ability to launch new tests against different endpoints that may be representing different environment into your development process. Hitting the <b>NEW TEST...</b> button, leads you to the following form where you will be able to specify a target URL for the test, as well as a Runner—a testing strategy for your new launch:
+From the page displaying basic information on your [API or Service mocks](../mocks/#mocks-info), you have the ability to launch new tests against different endpoints that may be representing different environment into your development process. Hitting the **NEW TEST...** button, leads you to the following form where you will be able to specify a target URL for the test, as well as a Runner—a testing strategy for your new launch:
 			
 ![test-form](/images/test-form.png)
 			
@@ -84,11 +84,12 @@ As stated above, Microcks offers different strategies for running tests on endpo
 | ----------- | ----------------- | ----------- |
 | `HTTP` | REST and SOAP | Simplest test runner that only checks that valid target endpoints are deployed and available: returns a `20x` or `404` Http status code when appropriated. This can be called a simple "smock test". |
 | `SOAP` | SOAP | Extension of HTTP Runner that also checks that the response is syntactically valid regarding SOAP WebService contract. It realizes a validation of the response payload using XSD schemas associated to service. |
-| `SOAP_UI` | REST and SOAP | When the microservice mock repository is defined using [SoapUI](../soapui): ensures that assertions put into Test cases are checked valid. Report failures.| 
-| `POSTMAN` | REST | When the microservice mock repository is defined using [Postman](../postman): executes test scripts as specified within Postman. Report failures.| 
-| `OPEN_API_SCHEMA`|  REST | When the microservice mock repository is defined using [Open API](../openapi): it executes example requests and check that results have the expected Http status and that payload is compliant with JSON / OpenAPI schema specified into OpenAPI specification.| 
-| `ASYNC_API_SCHEMA`|  EVENT | When the microservice mock repository is defined using [Async API](../asyncapi): it connects to specified broker endpoints, consume messages and check that payload is compliant with JSON / Avro / AsyncAPI schema specified into AsyncAPI specification.|
-| `GRPC_PROTOBUF`|  GRPC | When the microservice mock repository is defined using [gRPC](../grpc): it executes example requests and check that results payload is compliant with Protocol Buffer schema specified into gRPC proto file.| 
+| `SOAP_UI` | REST and SOAP | When the API artifact is defined using [SoapUI](../soapui): ensures that assertions put into Test cases are checked valid. Report failures.|
+| `POSTMAN` | REST | When the API artifact is defined using [Postman](../postman): executes test scripts as specified within Postman. Report failures.| 
+| `OPEN_API_SCHEMA`|  REST | When the API artifact is defined using [Open API](../openapi): it executes example requests and check that results have the expected Http status and that payload is compliant with JSON / OpenAPI schema specified into OpenAPI specification.| 
+| `ASYNC_API_SCHEMA`|  EVENT | When the API artifact is defined using [Async API](../asyncapi): it connects to specified broker endpoints, consume messages and check that payload is compliant with JSON / Avro / AsyncAPI schema specified into AsyncAPI specification.|
+| `GRPC_PROTOBUF`|  GRPC | When the API artifact is defined using [gRPC](../grpc): it executes example requests and check that results payload is compliant with Protocol Buffer schema specified into gRPC proto file.|
+| `GRAPHQL_SCHEMA`|  GRAPHQL | When the API is of type [GraphQL](../graphql): it executes example requests and check that results payload is compliant with the GraphQL Schema of the API.|
 
 ### Timeout
 
@@ -100,10 +101,10 @@ Depending on the Test Endpoint you are connecting to, you may need additional au
 
 ## Getting tests history and details
 
-Tests history for an API/Service is easily accessible from the microservice [summary page](../mocks/#mocks-info). Microcks keep history of all the launched tests on an API/Service version. Success and failures are kept in database with unique identifier and test number to allow you to compare cases of success and failures.
-			
+Tests history for an API/Service is easily accessible from the API | Service [summary page](../mocks/#mocks-info). Microcks keep history of all the launched tests on an API/Service version. Success and failures are kept in database with unique identifier and test number to allow you to compare cases of success and failures.
+
 ![test-history](/images/test-history.png)
-			
+
 Specific test details can be visualized : Microcks also records the request and response pairs exchanged with the tested endpoint so that you'll be able to access payload content as well as header. Failures are tracked and violated assertions messages displayed as shown in the screenshot below :
-			
+
 ![test-details](/images/test-details.png)

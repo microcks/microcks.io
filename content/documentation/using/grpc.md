@@ -29,7 +29,7 @@ Starting with version `1.3.0`, Microcks is supporting gRPC mocking and testing t
 In order to be correctly imported and understood by Microcks, your gRPC and Postman files should follow a little set of reasonable conventions and best practices.
 
 * As of today Microcks only supports `proto3` syntax as it is now the default and encouraged version from gRPC community,
-* gRPC does not has the notion of Service version. In Microcks, this notion is critical and we will use the package information in `Protofile` to compute a version.
+* gRPC doesn't have the notion of Service version. In Microcks, this notion is critical and we will use the package information in `Protofile` to compute a version.
 
     * For package name containing containing more than 2 paths levels, we'll extract the last one as being the version. So `package io.github.microcks.grpc.hello.v1;` will produce version `v1`
     * We'll keep unchanged simplest package named, so `package com.acme;` will produce version `com.acme` that is not very unique 😞.
@@ -84,7 +84,7 @@ You can now start organizing and creating requests that are matching with the gR
 
 ![grpc-postman-operations](/images/grpc-postman-operations.png)
 
-The next step is now to create a bunch of examples for each of the requests/operations of your Collection as explained by the [Postman documentation](https://www.getpostman.com/docs/postman/collections/examples). You'll give each example a meaningful name regarding the use-case it supposed to represent. Example url should also match with the name of the gRPC method; here we have a simple `http:///greeting`.
+The next step is now to create a bunch of examples for each of the requests/operations of your Collection as explained by the [Postman documentation](https://www.getpostman.com/docs/postman/collections/examples). You'll give each example a meaningful name regarding the use-case it is supposed to represent. Example url should also match with the name of the gRPC method; here we have a simple `http:///greeting`.
 
 As JSON / Protobuf translation is bi-directional, you'll define examples using simple JSON for request body and for response body as well. Below is a basic example but [Templating expressions and functions](../advanced/templates/) are obviously supported:
 
