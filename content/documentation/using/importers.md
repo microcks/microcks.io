@@ -32,7 +32,8 @@ We provide built-in parsers and importers for the following formats:
 * [Apicurio Studio](https://apicurio-studio.readme.io/docs/integrate-microcks-for-mocking-your-api) direct integration when working on OpenAPI 3.x API specifications,
 * [OpenAPI v3.x](http://spec.openapis.org/oas/v3.0.3) files in either YAML or JSON format. See our [documentation](../openapi/) on some conventions you should follow for this specification,
 * [AsyncAPI v2.x](https://www.asyncapi.com/docs/specifications/2.0.0) files in either YAML or JSON format. See our [documentation](../asyncapi/) on some conventions you should follow for this specification,
-* [gRPC / Protocol buffers v3](https://grpc.io/docs/what-is-grpc/introduction/) `.proto`files. See our [documentation](../grpc/) on some conventions you should follow for this specification.
+* [gRPC / Protocol buffers v3](https://grpc.io/docs/what-is-grpc/introduction/) `.proto` files. See our [documentation](../grpc/) on some conventions you should follow for this specification,
+* [GraphQL Schema](https://www.apollographql.com/docs/apollo-server/schema/schema/) `.graphql` files. See our [documentation](../graphql/) on some conventions you should follow for this specification.
 
 
 > People very often ask *"Why isn't the Swagger format - aka OpenApi 2.0 - supported by Microcks?"*. This is because Swagger is incomplete for specifying mocks as it does not allow full specification of examples. Sure, the Swagger spec allows you to illustrate responses with samples but it does not allow you to do so with request or request parameters (whether in path, query or headers). And if some tools - like Swagger UI - seem to compose sample requests, they're only doing this using schema information with random generated values...
