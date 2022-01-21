@@ -108,9 +108,9 @@ This release also brings a lot of enhancements:
 
 ### Performance tweaks
 
-As part of our investigations on Kubernetes startup time and frameworks upgrades, we also had an extensive work session checking the performance of Microcks. Moreover, community users report using Microcks to mock dependencies in performance testing scenarios. So they don’t want to point it out as a bottleneck! 
+As part of our investigations on Kubernetes startup time and frameworks upgrades, we also had an extensive work session checking the performance of Microcks. Moreover, community users report using Microcks to mock dependencies in performance testing scenarios. So they don’t want to point it out as a bottleneck!
 
-> Thanks to [Miguel Chico Espin](https://github.com/miguelchicoespin) 🙏 for helping us with performance figures. You can follow our discussion on issue [#540](https://github.com/microcks/microcks/issues/540). Miguel also suggested he was able to disable some analytics for better throughput. That’s what we did in [#541](https://github.com/microcks/microcks/issues/541). Finally, as performance tweaking without observability is like going blind, we added [Prometheus](https://prometheus.io) metrics export to our components. See issue [#411](https://github.com/microcks/microcks/issues/411).
+> Thanks to [Miguel Chico Espin](https://www.linkedin.com/in/miguel-%C3%A1ngel-chico-esp%C3%ADn-aab31b57/) 🙏 for helping us with performance figures. You can follow our discussion on issue [#540](https://github.com/microcks/microcks/issues/540). Miguel also suggested he was able to disable some analytics for better throughput. That’s what we did in [#541](https://github.com/microcks/microcks/issues/541). Finally, as performance tweaking without observability is like going blind, we added [Prometheus](https://prometheus.io) metrics export to our components. See issue [#411](https://github.com/microcks/microcks/issues/411).
 
 ## Community
 
