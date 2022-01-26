@@ -10,7 +10,7 @@ Here are some important links:
 * **Twitter:** [MicrocksIO on Twitter](https://twitter.com/microcksIO)
 * **Chat:** [MicrocksIO chat on Zulip](https://microcksio.zulipchat.com/)
 
-### Zulip
+### Community chat
 
 You can chat with the Microcks team and other users on The [MicrocksIO chat](https://microcksio.zulipchat.com/) on Zulip IM. Use this channel to ask questions, request help from core team or experienced users.
 
