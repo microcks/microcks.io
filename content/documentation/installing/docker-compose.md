@@ -36,7 +36,7 @@ In your terminal issue the following commands:
 3. Spin up the containers
 
    ```sh
-   docker-compose up -d
+   docker compose up -d
    ```
 
 This will start the required containers and setup a simple environment for you to use.
@@ -48,6 +48,12 @@ Open a new browser tab and point to the `http://localhost:8080` endpoint. This w
 
 You will be redirected to the main dashboard page. You can now start [using Microcks](https://microcks.io/documentation/getting-started/#using-microcks)!
 
+A "keycloakless" version of docker compose is available thanks to: 
+
+   ```sh
+   docker compose -f docker-compose-devmode.yml up -d
+   ```
+
 ### Enabling Asynchronous API features
 
 Support for Asynchronous API features of Microcks are not enabled by default into the `docker-compose.yml` file. If you feel your local machine has enough resources to afford it, you can enable them using a slightly different command line.
@@ -55,7 +61,7 @@ Support for Asynchronous API features of Microcks are not enabled by default int
 In your terminal use the following command instead:
 
    ```sh
-   docker-compose -f docker-compose.yml -f docker-compose-async-addon.yml up -d
+   docker compose -f docker-compose.yml -f docker-compose-async-addon.yml up -d
    ```
 
 Docker compose is now launching additional containers, namely `zookeeper`, `kafka` and the `microcks-async-minion`. The above command should produce the following output:
@@ -76,5 +82,5 @@ You may want to check our [blog post](../../../blog/async-features-with-docker-c
 If you're feeling lucky regarding your machine, you can even add the [Kafdrop](https://github.com/obsidiandynamics/kafdrop) utility to visualize and troubleshoot Kafka messages with this command:
 
    ```sh
-   docker-compose -f docker-compose.yml -f docker-compose-async-addon.yml -f kafdrop-addon.yml up -d
+   docker compose -f docker-compose.yml -f docker-compose-async-addon.yml -f kafdrop-addon.yml up -d
    ```
