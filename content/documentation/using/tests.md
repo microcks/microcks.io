@@ -68,6 +68,26 @@ MQTT Test Endpoint have the following form with no optional parameters:
 mqtt://{mqtt.broker.url:port}/{mqtt.topic.name}
 ```
 
+##### AMQP
+
+AMQP 0.9.1 Test Endpoint have the following form with optional parameters placed just after a `?` and separated using `&` character:
+
+```sh
+amqp://{amqp.broker.url:port}/[{amqp.vhost}/]{amqp.destination.type}/{amqp.destination.name}[?param1=value1&param2=value2]
+```
+
+`amqp.destination.type` is used to specify if we shoulf connect to either a queue (use the `q` value) or an exchange speciyfing its type: `d` dor direct, `f` for fanout, `t` for topic, `h` for headers. Then you have to specify either the queue or exchange name in `amqp.detaintion.name`.
+
+Depending on the type of destination, you will need additional optional parameters as specified below:
+
+| Optional Params | Description |
+| --------------- | ----------- |
+| `routingKey` | Used to specify a routing key for direct or topic exchanges. If not specified the `*` wildcard is used. |
+| `durable` | Flag telling if exchange to connect to is durable or not. Default is `false`. |
+| `h.{header}` | A bunch of headers where name starts with `h.` in order to deal with headers exchange. The `x-match` property is set to `any`to ghather the most message as possible. |
+
+As an example, you may have this kind of Test Endpoint values: `amqp://rabbitmq.example.com:5672/h/my-exchange-headers?h.h1=h1&h.h2=h2` or `amqp://rabbitmq.example.com:5672/my-vhost/t/my-exchange-topic?routingKey=foo`
+
 ##### WebSocket
 
 WebSocket Test Endpoint have the following form with no optional parameters:
