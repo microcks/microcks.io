@@ -1,9 +1,9 @@
 ---
 draft: false
-title: "GraphQL usage for Microcks"
+title: "GraphQL Mocking and Testing"
 date: 2022-01-05
 publishdate: 2022-01-05
-lastmod: 2022-01-05
+lastmod: 2022-02-23
 menu:
   docs:
     parent: using

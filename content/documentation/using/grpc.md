@@ -1,9 +1,9 @@
 ---
 draft: false
-title: "gRPC usage for Microcks"
+title: "gRPC Mocking and Testing"
 date: 2021-06-29
 publishdate: 2021-06-29
-lastmod: 2021-06-29
+lastmod: 2022-02-23
 menu:
   docs:
     parent: using

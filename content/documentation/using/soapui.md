@@ -1,9 +1,9 @@
 ---
 draft: false
-title: "SoapUI usage for Microcks"
+title: "SoapUI Mocking and Testing"
 date: 2019-09-01
 publishdate: 2019-09-01
-lastmod: 2019-09-02
+lastmod: 2022-02-23
 menu:
   docs:
     parent: using
@@ -17,7 +17,7 @@ weight: 30 #rem
 
 ### Pre-requisites
 
-Microcks has been developped and tested with SoapUI version 5.x. It is recommend that you use a compatible version of this tool for editing your tests and mocks repository.
+Microcks has been developed and tested with SoapUI version 5.x. It is recommend that you use a compatible version of this tool for editing your tests and mocks repository.
 
 ### Steps for creating a repository
 

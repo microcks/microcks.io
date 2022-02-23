@@ -1,9 +1,9 @@
 ---
 draft: false
-title: "OpenAPI usage for Microcks"
+title: "OpenAPI Mocking and Testing"
 date: 2019-09-01
 publishdate: 2019-09-01
-lastmod: 2020-08-04
+lastmod: 2022-02-23
 menu:
   docs:
     parent: using
