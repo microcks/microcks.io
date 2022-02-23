@@ -3,7 +3,7 @@ draft: false
 title: "Custom dispatching rules"
 date: 2020-03-03
 publishdate: 2020-03-03
-lastmod: 2021-02-09
+lastmod: 2022-02-23
 menu:
   docs:
     parent: using
@@ -31,7 +31,7 @@ Let's illustrate this with an example! Say we've got this API allowing to record
 
 ## Dispatching rules override
 
-Now just select `Edit Properties` of the operation from the 3-dots menu on the right of the opration name. You should be logged as a repository `manager` to have this option (see [Users management](../administrating/users/) section of documentation if needed). The next screen allows you to override default operation properties, one of them being the `Dispatching Rules` like shown in the screen below.
+Now just select `Edit Properties` of the operation from the 3-dots menu on the right of the operation name. You should be logged as a repository `manager` to have this option (see [Users management](../administrating/users/) section of documentation if needed). The next screen allows you to override default operation properties, one of them being the `Dispatching Rules` like shown in the screen below.
 
 ![dispatcher-edit](/images/dispatcher-edit.png)
 
@@ -59,9 +59,9 @@ Depending on the operator applied, the `cases` may have different specification 
 | `range` | `[<min>;<max>]: "<response>"` | Bracket side matter: `[` means incluse, `]` means exclusive for a left bracket. A case named `default` is used as default option | 
 | `size` | `"[<min>;<max>]": "<response>"` | Size of an array property. Brackets must be inclusive. A case named `default` is used as default option |
 | `regexp` | `"<posix regexp>": "<response>"` | Regular expression applied to value. A case named `default` is used as default option |
-| `regexp` | `"found": "<response>"` | Check the presence/absence of a property. 2 mandatory cases: `found` and `default` |
+| `presence` | `"found": "<response>"` | Check the presence/absence of a property. 2 mandatory cases: `found` and `default` |
 
-Now that we have edited or dipsatching rule and save, we can check this rule is applied to our operation. This override of rule will be persisted into Microcks and will survive future discoveries and refreshed of this API version.
+Now that we have edited our dispatching rule and save, we can check this rule is applied to our operation. This override of rule will be persisted into Microcks and will survive future discoveries and refreshed of this API version.
 
 ![dispatcher-updated](/images/dispatcher-updated.png)
 
@@ -69,7 +69,7 @@ Now that we have edited or dipsatching rule and save, we can check this rule is 
 
 #### Test our new rule!
 
-Given the templated responses and the above dispatching rule evaluting the body of incoming requests, we can now test our mock.
+Given the templated responses and the above dispatching rule evaluating the body of incoming requests, we can now test our mock.
 
 Let start by creating a new beer coming from Belgium:
 
