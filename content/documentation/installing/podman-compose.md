@@ -44,9 +44,9 @@ Then, in your terminal issue the following commands:
    
    Starting Microcks using podman-compose ...
    ------------------------------------------
-   Stop it with:  podman-compose -f microcks.yml --transform_policy=identity stop
-   Re-launch it with:  podman-compose -f microcks.yml --transform_policy=identity start
-   Clean everything with:  podman-compose -f microcks.yml --transform_policy=identity down
+   Stop it with:  podman-compose -f microcks.yml stop
+   Re-launch it with:  podman-compose -f microcks.yml start
+   Clean everything with:  podman-compose -f microcks.yml down
    ------------------------------------------
    Go to https://localhost:8080 - first login with admin/123
    Having issues? Check you have changed microcks.yml to your platform
