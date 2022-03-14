@@ -30,20 +30,16 @@ The schema below illustrates this architecture and the relations between compone
 
 <img src="/images/architecture-simple.png" class="img-responsive"/>
 
-> For sake of simplicity we do not represent here the PostgreSQL (or other database) thay may be associated with Keycloak.
+> For sake of simplicity we do not represent here the PostgreSQL (or other database) that may be associated with Keycloak.
 
 You can deploy this simple architecture whatever installation method you pick: from [Docker Compose](../docker-compose) to fully featured [Operator](../operator).
 
 ### Architecture for Async API
 
-Since the [1.0.0 release](../../../blog/microcks-1.0.0-release) when we introduced asynchronous API support, there's a much complete form of architecture that takes place when you enabled the asynchronous API feature.
+If you want to enable asynchronous API features, 2 additional components will be required:
 
-To support this, we rely on 2 additional components:
-
-* The Microcks Async Minion (`microcks-async-minion`) is a component responsible for publishing mock messages corresponding to [AsyncAPI](../../using/asyncapi) definitions. It retrieved theses definitions from Microcks `webapp` at startup and then listens to a Kafka topic for changes on theses definitions,
+* The Microcks Async Minion (`microcks-async-minion`) is a component responsible for publishing mock messages corresponding to [AsyncAPI](../../using/asyncapi) definitions as well as testing asynchronous endpoints. It retrieves these definitions from Microcks `webapp` at startup and then listens to a Kafka topic for changes on these definitions,
 * An [Apache Kafka](https://kafka.apache.org) broker that holds our private topic for changes and the public topics that will be used to publish mock messages by the `microcks-async-minion`.
-
-Because since the [1.1.0 release](../../../blog/microcks-1.1.0-release) we are now also able to test AsyncAPI events, the `microcks-async-minion` will also be likely to connect to outer message broker topics or queues in order to listen to incoming events and validate them.
 
 The schema below represents this full-featured architecture with connection to outer brokers. We represented Kafka ones (`X` broker) as well as brokers (`Y` and `Z`) from other protocols with respect to our roadmap. 😉
 
@@ -51,7 +47,7 @@ The schema below represents this full-featured architecture with connection to o
 
 > For sake of simplicity we do not represent here the Zookeeper ensemble that may be associated with Kafka.
 
-This architecture cannot be deployed using Docker Compose that only brings a subset of features. We rely on Kubernetes for deploying it and you will have to use our [Helm Chart](../kubernetes) or [Operator](../operator) installation methods for that.
+When deploying on Kubernetes you will have to use our [Helm Chart](../kubernetes) or [Operator](../operator) installation methods for that. This architecture can also be deployed using Docker Compose using the `docker-compose-async-addon` file as described in [enabling asynchronous features](../docker-compose/#enabling-asynchronous-api-features). 
 
 ## Deployment Options
 
@@ -77,13 +73,99 @@ Besides this all-in-one approach, you may also use both installation methods to 
 
 <img src="/images/deployment-partially-managed.png" class="img-responsive"/>
 
-> Reusing already deployed components may allow you to lower operational costs if you're using shared instances. It can also allow you to use managed services that may be provided by your favourite cloud vendor.
+> Reusing already deployed components may allow you to lower operational costs if you're using shared instances. It can also allow you to use managed services that may be provided by your favorite cloud vendor.
 
-### The Kafka broker of your choice 
+#### Reusing existing Keycloak
 
-Whilst it may seem obvious to certain people, it can be useful to recall that Microcks-Kafka interactions are not tied to a particular Kafka vendor.
+Microcks Helm Chart and Operator can also be configured to reuse an already existing Keycloak instance for your organization.
 
-Whatever your Kafka vendor or your different Kafka vendors - be it vanilla Kafka, Confluent platform, Amazon MSK or Red Hat AMQ - Microcks will be able to connect and use them as source for testing your event-driven API. We will just need 2 parameters specified at test launch-time for that:
+First, you have to prepare your Keycloak instance to host and secure future Microcks deployment. Basically you have 2 options for this:
+
+* **Create a new realm** using [Keycloak documentation](https://www.keycloak.org/docs/latest/server_admin/#proc-creating-a-realm_server_administration_guide) and choosing [Microcks realm full configuration](https://github.com/microcks/microcks/raw/master/install/keycloak-microcks-realm-full.json) as the file to import during creation,
+* OR **Re-use an existing realm**, completing its definition with [Microcks realm addons configuration](https://github.com/microcks/microcks/blob/master/install/keycloak-microcks-realm-addons.json) by simply importing this file within realm configuration.
+
+Importing one or another of the Microcks realm configuration file will bring all the necessary clients, roles, groups and scope mappings. If you created a new realm, the Microcks configuration also brings default users you may later delete when configuring your [own identity provider in Keycloak](https://www.keycloak.org/docs/latest/server_admin/#_identity_broker).
+
+Then, you actually have to deploy the Microcks instance configured for using external Keycloak. Depending whether you've used Helm or Operator to install Microcks, you'll have to customize your `values.yml` file or the `MicrocksInstall` custom resource but the properties have the same names in both installation methods:
+
+```yaml
+keycloak:
+  install: false
+  realm: my-own-realm
+  url: keycloak.example.com:443
+  privateUrl: http://keycloak.namespace.svc.cluster.local:8080/auth  # Optional
+  serviceAccount: microcks-serviceaccount
+  serviceAccountCredentials: ab54d329-e435-41ae-a900-ec6b3fe15c54    # Change recommended
+```
+
+The `privateUrl` is optional and will allow to prevent trusting requests from `webapp` component to Keycloak to go through a public address and network. In a Kubernetes -deployment, you'll typically put there the cluster internal `Service` name.
+
+The `serviceAccountCredentials` should typically be changed as this is the default value that comes with your realm setup. For an introduction on the purpose of service accounts in Microcks, check [this page](../../automating/service-account/).
+
+#### Reusing existing Kafka
+
+Whilst it may seem obvious to certain people, it can be useful to recall that Microcks-Kafka interactions are not tied to a particular Kafka vendor. Whatever your Kafka vendor or your different Kafka vendors - be it vanilla Kafka, Confluent platform, Amazon MSK or Red Hat AMQ - Microcks will be able to connect and use them.
+
+##### For mocking purposes
+
+In that case, Kafka is used by both the `webapp` component to publish updates of API and the `microcks-async-minion` to publish mock messages.
+
+Depending whether you've used Helm or Operator to install Microcks, you'll have to customize your `values.yml` file or the `MicrocksInstall` custom resource but the properties have the same names in both installation methods.
+
+To reuse an external Kafka cluster, here are the basic properties you'll have to change:
+
+```yaml
+features:
+  async:
+    kafka:
+      install: false
+      url: my-kafka-cluster-bootstrap.example.com:443
+```
+
+As of today, Microcks supports connecting to SASL using JAAS and Mutual TLS secured Kafka brokers. For an introduction on these, please check [Authentication Methods](https://docs.confluent.io/platform/current/kafka/overview-authentication-methods.html).
+
+For SASL using JAAS, you'll have to configure additional properties for accessing cluster CA cert and depending on SASL mechanism. The `truststoreSecrefRef` is actually a reference to a Kubernetes `Secret` that should be created first and reachable from Microcks instance:
+
+```yaml
+features:
+  async:
+    kafka:
+      authentication:
+        type: SASL_SSL            # SASL using JAAS authentication
+        truststoreType: PKCS12    # JKS also possible.
+        truststoreSecretRef:
+          secret: my-kafka-cluster-ca-cert   # Name of Kubernetes secret holding cluster ca cert.
+          storeKey: ca.p12                   # Truststore ca cert entry in Secret.
+          passwordKey: ca.password           # Truststore password entry in Secret.
+        saslMechanism: SCRAM-SHA-512
+        saslJaasConfig: org.apache.kafka.common.security.scram.ScramLoginModule required username="scram-user" password="tDtDCT3pYKE5";
+```
+
+For mutual TLS, you'll have to configuration additional properties for accessing the client certificate. The `keystoreSecretRef` is actually a reference to a Kubernetes `Secret` that should be created first and reachable from Microcks instance:
+
+```yaml
+features:
+  async:
+    kafka:
+      authentication:
+        type: SSL                 # Mutual TLS authentication
+        truststoreType: PKCS12    # JKS also possible.
+        truststoreSecretRef:
+          secret: my-kafka-cluster-ca-cert   # Name of Kubernetes secret holding cluster ca cert.
+          storeKey: ca.p12                   # Truststore ca cert entry in Secret.
+          passwordKey: ca.password           # Truststore password entry in Secret.
+        keystoreType: PKCS12      # JKS also possible.
+        keystoreSecretRef:
+          secret: my-mtls-user        # Name of Kubernetes secret holding user client cert.
+          storeKey: user.p12          # Keystore client cert entry in Secret.
+          passwordKey: user.password  # Keystore password entry in Secret.
+```
+
+> We recommend having a in-depth look at the [Helm Chart README](https://github.com/microcks/microcks/tree/master/install/kubernetes) and the [Operator README](https://github.com/microcks/microcks-ansible-operator) to get the most up-to-date informations on detailed configuration.
+
+##### For testing purposes
+
+In that case, Kafka is considered as source for testing your event-driven API. We will just need 2 parameters specified at test launch-time for that:
 
 * `testEndpointUrl`: a connection string to a remote broker including destination and authentication options,
 * `testSecret`: a Secret provided by Microcks administrator that will provide authentication credentials such as user, password and certificates.
@@ -91,3 +173,4 @@ Whatever your Kafka vendor or your different Kafka vendors - be it vanilla Kafka
 The schema below illustrates non exhaustive options:
 
 <img src="/images/deployment-brokers.png" class="img-responsive"/>
+
