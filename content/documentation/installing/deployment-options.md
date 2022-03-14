@@ -3,7 +3,7 @@ draft: false
 title: "Architecture and deployment options"
 date: 2020-12-15
 publishdate: 2020-12-15
-lastmod: 2020-12-15
+lastmod: 2022-03-14
 menu:
   docs:
     parent: installing
