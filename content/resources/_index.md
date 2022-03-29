@@ -18,6 +18,26 @@ Review recorded events where we presented and discussed Microcks:
 <table>
   <tr style="padding: 10px">
     <td style="padding: 10px; text-align: center;">
+      <iframe width="373" height="210" src="https://www.youtube.com/embed/QrMIY4E36dg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <br/><small>(FR) Hashicorp Radio Interview Fevrier 2022 <br/>By Laurent Broudoux</small>
+    </td>
+    <td style="padding: 10px; text-align: center;">
+      <iframe width="373" height="210" src="https://www.youtube.com/embed/j1vRuXNSsHo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <br/><small>OpenShift Coffee Break - Microcks: API testing into a microservices world <br/>By Laurent Broudoux</small>
+    </td>
+  </tr>
+  <tr style="padding: 10px">
+    <td style="padding: 10px; text-align: center;">
+      <iframe width="373" height="210" src="https://www.youtube.com/embed/3EeMHhbwyOQ?start=19925" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <br/><small>AsyncAPI Conf October 2021: AsyncAPI or CloudEvents? Both my Captain! <br/>By Laurent Broudoux</small>
+    </td>
+    <td style="padding: 10px; text-align: center;">
+      <iframe width="373" height="210" src="https://www.youtube.com/embed/KlnJrO29B0M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <br/><small>(FR) CloudNord Octobre 2021: Accélérer votre adoption EDA avec AsyncAPI & Microcks <br/>By Laurent Broudoux</small>
+    </td>
+  </tr>
+  <tr style="padding: 10px">
+    <td style="padding: 10px; text-align: center;">
       <iframe width="373" height="210" src="https://www.youtube.com/embed/p5gdmrPFTw8?start=2205" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       <br/><small>Barcelona JUG April 2021: Web API Contract First : design, mock and test <br/>By C. Anal & L. Broudoux</small>
     </td>
@@ -40,6 +60,7 @@ Review recorded events where we presented and discussed Microcks:
 
 ### Podcasts
 
+- [(FR) Artisan Développeur #7.x – Tester son API avec Microcks](https://podcastaddict.com/episode/135165602)
 - [(FR) Electro Monkeys #81 – Testez et mockez vos API grâce à Microcks](https://electro-monkeys.fr/81-testez-et-mockez-vos-api-grace-a-microcks-avec-laurent-broudoux/)
 ### Articles
 
