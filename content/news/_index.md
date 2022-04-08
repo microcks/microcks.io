@@ -2,12 +2,22 @@
 title: "News about Microcks"
 layout: tweets-columns
 categories: [releases]
-lastmod: 2022-01-18
+lastmod: 2022-04-08
 ---
 
 ## Fresh Releases
 
 ### Microcks core
+
+#### 1.5.1 on 08 Apr 2022
+
+We are proud to announce the `1.5.1` release of Microcks ♻️ We considered it a minor release this time as it “just” brought a new protocol binding and a lot of enhancements!
+
+Once again this release is an illustration of how community-driven the roadmap is: **AMQP** and **Swagger v2** support as well as **more** **enhancements** came directly from user requests. So thanks a lot to those who helped push up a new release with significant features once again. Kudos to all of them 👏
+
+Check out our [release notes](https://microcks.io/blog/microcks-1.5.1-release/)!
+
+You can also check [GitHub milestone](https://github.com/microcks/microcks/milestone/20?closed=1) for the full list of closed issues.
 
 #### 1.5.0 on 18 Jan 2022
 
@@ -39,6 +49,14 @@ You can also check GitHub milestones - [1.4.0](https://github.com/microcks/micro
 [Look at the History for older release notes](./history)
 
 ### Microcks extensions
+
+#### microcks github actions 1.2 on 7 Apr 2022
+
+[Test Action](https://github.com/microcks/test-github-action) and [Import Action](https://github.com/microcks/import-github-action) have been upgraded to `microcks-cli v0.5.1`.
+
+#### microcks-cli 0.5.1 on 6 Apr 2022
+
+Have a look at [GitHub milestone](https://github.com/microcks/microcks-cli/milestone/5?closed=1) for the list of enhancement and issues.
 
 #### microcks github actions 1.1 on 3 Jan 2022
 
