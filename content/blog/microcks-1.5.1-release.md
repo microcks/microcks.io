@@ -25,7 +25,7 @@ Let’s do a review of what’s new on each one of our highlights without delay.
 
 ## AMQP/RabbitMQ, you asked for it: here it is!
 
-With tens of thousands of users, [RabbitMQ](https://www.rabbitmq.com/) 🐇 is one of the most popular open source message brokers. It uses the AMQP - the Advanced Message Queuing Protocol - in version 0.9 (not to be confused with [AMQP 1.0 protocol that is quite different](https://www.rabbitmq.com/specification.html)). 
+With tens of thousands of users, [RabbitMQ](https://www.rabbitmq.com/) 🐇 is one of the most popular open source message brokers. It uses AMQP - the Advanced Message Queuing Protocol - in version 0.9 (not to be confused with [AMQP 1.0 protocol that is quite different](https://www.rabbitmq.com/specification.html)).
 
 At Microcks, we identified the importance of RabbitMQ as it appears in high priorities in previous community polls and is one choice technology in [NodeJS](https://levelup.gitconnected.com/introduction-to-rabbitmq-with-nodejs-61e2aec0c52c) or [Java Spring communities](https://spring.io/guides/gs/messaging-rabbitmq/) ☕
 
@@ -75,7 +75,7 @@ We fixed this and got this little drawing below to summarize use-cases:
 
 ![microcks-asyncapi](/images/blog/microcks-1.5.1-asyncapi.png)
 
-> We now made everything consistent whatever the protocol you’re using. Mocking can be used by API consumers for `SUBSCRIBE` as well as providers for `PUBLISH`. Testing can be used to validate API providers for `SUBSCRIBE` as well as consumers for `PUBLISH`. Thanks to [Hassen Bennour](https://github.com/Hassen-BENNOUR) 🙏and tom (Zulip user) 🙏for testing it 🧪
+> We now made everything consistent whatever the protocol you’re using. Mocking can be used by API consumers for `SUBSCRIBE` as well as providers for `PUBLISH`. Testing can be used to validate API providers for `SUBSCRIBE` as well as consumers for `PUBLISH`. Thanks to [Hassen Bennour](https://github.com/Hassen-BENNOUR) 🙏 and tom (Zulip user) 🙏 for testing it 🧪
 
 ### Resolution of OpenAPI external dependencies
 
