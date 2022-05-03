@@ -66,7 +66,7 @@ A typical setup with secondray artifact could allow you to test your own mocks t
 
 1. Import an OpenAPI Secification (OAS) as main the artifact
 2. Import a Postman Collection as a secondary artifact (this artifact will only contribute mocks/examples to the main artifact/spec - *Note: API name and version are the two attributes used as keys to merge primary and secondary artifacts*)
-3. Launch an `OPENAPI_SCHEMA` test on Microcks own endpoints. This allows to check that the request/responses are conformant to the OpenAPI schema of the OAS artifact.
+3. Launch an `OPENAPI_SCHEMA` test on Microcks own endpoints. This allows to check that the request/responses  comply to the OpenAPI schema of the OAS artifact.
 
 ## Direct upload
 
