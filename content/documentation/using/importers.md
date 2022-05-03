@@ -62,11 +62,11 @@ So from `1.3.0`, Microcks is now able to have multiple artifacts (one `primary` 
 
 If not explicitly identified as `primary` or `secondary`, the default is to consider an imported artifact as the primary one.
 
-A typical setup with secondray artifact could allow you to test your own mocks to comply to your OAS:
+A typical setup with secondary artifact could allow you to test your own mocks to comply to your OAS:
 
-1. Import an OpenAPI Secification (OAS) as main the artifact
+1. Import an OpenAPI Secification (OAS) as the main artifact
 2. Import a Postman Collection as a secondary artifact (this artifact will only contribute mocks/examples to the main artifact/spec - *Note: API name and version are the two attributes used as keys to merge primary and secondary artifacts*)
-3. Launch an `OPENAPI_SCHEMA` test on Microcks own endpoints. This allows to check that the request/responses  comply to the OpenAPI schema of the OAS artifact.
+3. Launch an `OPENAPI_SCHEMA` test on Microcks own endpoints. This allows to check that the request/responses comply to the OpenAPI schema of the OAS artifact.
 
 ## Direct upload
 
