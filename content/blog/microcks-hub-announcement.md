@@ -60,12 +60,9 @@ For Microcks users, it just involves 3 single steps:
 1. [Setup](https://microcks.io/documentation/installing/) (if not done already 🥇) a private internal Microcks instance,
 2. Browse hub.microcks.io to discover the API you’re interested in and import the corresponding assets that creates mocks and test suite into your instance,
 
-
 ![OpenBanking API in the Hub](/images/blog/microcks-hub-announcement-oba.png)
 
-
-![Install OpenBanking API from the Hub](/images/microcks-hub-announcement-oba-install.png)
-
+![Install OpenBanking API from the Hub](/images/blog/microcks-hub-announcement-oba-install.png)
 
 3. From Microcks, launch tests on your implementation to check conformance. As the hub wraps different kinds of artifacts, you can validate: contract syntactic rules checking OpenAPI schema conformance,
 **OR**
@@ -111,7 +108,7 @@ The [community-mocks repository](https://github.com/microcks/community-mocks) ho
 
 All the up to date information to contribute and publish your API on the Microcks hub is available here: [https://hub.microcks.io/doc/how-to-contribute](https://hub.microcks.io/doc/how-to-contribute)
 
-> BTW, in case you ask ⁉️[hub.microcks.io](https://hub.microcks.io/) is not an alternative or competitor of [Postman Public Workspace. W](https://www.postman.com/postman/workspace/postman-public-workspace/overview)e really like the fact you can discover and play with APIs using Postman Workspaces and many Microcks users are using [Postman Collections](https://microcks.io/documentation/using/postman/). But Enterprises need to develop effective production APIs and this is where Microcks and Postman make perfect sense together 🤝 
+> BTW, in case you ask ⁉️ [hub.microcks.io](https://hub.microcks.io/) is not an alternative or competitor of [Postman Public Workspace. W](https://www.postman.com/postman/workspace/postman-public-workspace/overview)e really like the fact you can discover and play with APIs using Postman Workspaces and many Microcks users are using [Postman Collections](https://microcks.io/documentation/using/postman/). But Enterprises need to develop effective production APIs and this is where Microcks and Postman make perfect sense together 🤝 
 
 The Microcks Hub contribution can be seen as a complementary step that will allow to scale your API usage. It will allow to integrate your API adoption into every possible usage scenario required by your user (on-premises or cloud-based or off-line, on-demand mocking, conformance testing, etc)
 
