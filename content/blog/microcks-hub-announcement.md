@@ -19,7 +19,7 @@ The goal of this new community website is to **collect, curate and share API Moc
 
 ![microcks-feature](/images/blog/microcks-hub-announcement-feature.png)
 
-> If like us you like craft beers, let’s do the analogy between this announcement 👉 freely sharing API Mocks and Test suites and a brew bar!!! Close to where you live with daily free fresh, juicy, and hoppy craft beers on tap 🤩This is exactly what Microcks Hub is providing for API development and you can enjoy it without moderation 🎉
+> If like us you like craft beers, let’s do the analogy between this announcement 👉 freely sharing API Mocks and Test suites and a brew bar!!! Close to where you live with daily free fresh, juicy, and hoppy craft beers on tap 🤩 This is exactly what Microcks Hub is providing for API development and you can enjoy it without moderation 🎉
 
 Let’s do a review of how it works without delay.
 
@@ -58,7 +58,7 @@ This is where Microcks and our new [hub.microcks.io](https://hub.microcks.io) co
 For Microcks users, it just involves 3 single steps:
 
 1. [Setup](https://microcks.io/documentation/installing/) (if not done already 🥇) a private internal Microcks instance,
-2. Browse hub.microcks.io to discover the API you’re interested in and import the corresponding assets that creates mocks and test suite into your instance,
+2. Browse [hub.microcks.io](https://hub.microcks.io) to discover the API you’re interested in and import the corresponding assets that creates mocks and test suite into your instance,
 
 ![OpenBanking API in the Hub](/images/blog/microcks-hub-announcement-oba.png)
 
@@ -68,8 +68,7 @@ For Microcks users, it just involves 3 single steps:
 **OR**
 business behavior rules using [Postman Collection](https://microcks.io/documentation/using/postman/) test scripts.
 
-
-It has neither been as easy to do Open Banking nor to follow the standard and regulator's requirements as using Microcks and the community API Mocks and Test suites 🚀 We love and are happy to support #fintech #startups 😘
+It has neither been as easy to do Open Banking nor to follow the standard and regulatory requirements as using Microcks and the community API Mocks and Test suites 🚀 We love and are happy to support #fintech #startups 😘
 
 ## Another use case from HashiCorp
 
@@ -108,7 +107,7 @@ The [community-mocks repository](https://github.com/microcks/community-mocks) ho
 
 All the up to date information to contribute and publish your API on the Microcks hub is available here: [https://hub.microcks.io/doc/how-to-contribute](https://hub.microcks.io/doc/how-to-contribute)
 
-> BTW, in case you ask ⁉️ [hub.microcks.io](https://hub.microcks.io/) is not an alternative or competitor of [Postman Public Workspace. W](https://www.postman.com/postman/workspace/postman-public-workspace/overview)e really like the fact you can discover and play with APIs using Postman Workspaces and many Microcks users are using [Postman Collections](https://microcks.io/documentation/using/postman/). But Enterprises need to develop effective production APIs and this is where Microcks and Postman make perfect sense together 🤝 
+> BTW, in case you ask ⁉️ [hub.microcks.io](https://hub.microcks.io/) is not an alternative or competitor of [Postman Public Workspace](https://www.postman.com/postman/workspace/postman-public-workspace/overview). We really like the fact you can discover and play with APIs using Postman Workspaces and many Microcks users are using [Postman Collections](https://microcks.io/documentation/using/postman/). But Enterprises need to develop effective production APIs and this is where Microcks and Postman make perfect sense together 🤝 
 
 The Microcks Hub contribution can be seen as a complementary step that will allow to scale your API usage. It will allow to integrate your API adoption into every possible usage scenario required by your user (on-premises or cloud-based or off-line, on-demand mocking, conformance testing, etc)
 
