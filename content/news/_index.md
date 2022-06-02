@@ -9,6 +9,16 @@ lastmod: 2022-04-08
 
 ### Microcks core
 
+#### 1.5.2 on 02 Jun 2022
+
+We are delighted to announce the `1.5.2` release of Microcks ♻️ This is mainly an “Enhancement release” pushing further the [Microcks’ Hub and Marketplace](https://microcks.io/blog/microcks-hub-announcement/) we introduced a few weeks ago.
+
+In our vision, the Hub will hold a central place that will allow Microcks users to easily reuse **curated API Mocks & Test suites in a single click** - but also to share and publish their own. That’s why we absolutely wanted to have a nice **integration between the Hub and Microcks** - and that’s the purpose of this release.
+
+Check out our [release notes](https://microcks.io/blog/microcks-1.5.2-release/)!
+
+You can also check [GitHub milestone](https://github.com/microcks/microcks/milestone/23?closed=1) for the full list of closed issues.
+
 #### 1.5.1 on 08 Apr 2022
 
 We are proud to announce the `1.5.1` release of Microcks ♻️ We considered it a minor release this time as it “just” brought a new protocol binding and a lot of enhancements!
