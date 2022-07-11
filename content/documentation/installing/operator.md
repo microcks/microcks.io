@@ -75,7 +75,7 @@ $ curl https://microcks.io/operator/minikube-features.yaml -s | sed 's/KUBE_APPS
 If you need to access the Kafka cluster from the outside, you'll also have to enable the `SSL Passthrough` within the Nginx Ingress controller:
 
 ```sh
-$ kubectl patch -n kube-system deployment/ingress-nginx-controller --type='json' \
+$ kubectl patch -n ingress-nginx deployment/ingress-nginx-controller --type='json' \
     -p '[{"op":"add","path":"/spec/template/spec/containers/0/args/-","value":"--enable-ssl-passthrough"}]'
 ```
 
