@@ -3,7 +3,7 @@ draft: false
 title: "Using exposed mocks"
 date: 2019-09-01
 publishdate: 2019-09-01
-lastmod: 2022-01-05
+lastmod: 2022-09-07
 menu:
   docs:
     parent: using
@@ -21,9 +21,9 @@ Well, now that you have [installed](/documentation/getting-started) Microcks, cr
 
 First, let's have a look at the summary page presenting an API or Service managed by Microcks. This summary page contains three sections related to different parts of the API/Service :
 
-* `Properties` section shows basic information on the API/Service : its name, its version, its style (REST or SOAP) and you'll also get access to statistics such as the utilization of this API's mocks. SOAP style Services also contain extra information like the global `XML Namespace` used by the Service and the embedded `WSDL contract` if any was provided,
-* `Tests trend` section shows a little histogram representing the latest tests trend on this API/Service. It provides access to the test history and allows a new test on an API/Service implementation to be launched. More on this topic in the [Tests documentation](/documentation/using/tests),
-* `Operations` section concentrates on the different operations managed by this API or Service. More on that topic below.
+* `Properties` section shows basic information on the API/Service : its name, its version, its style (REST, SOAP, EVENT, GRAPH or GRPC) and you'll also get access to statistics such as the utilization of this API's mocks. SOAP style Services also contain extra information like the global `XML Namespace` used by the Service and the embedded `WSDL contract` if any was provided,
+* `Tests` section shows a little histogram representing the conformance index and tests trend on this API/Service. It provides access to the test history and allows a new test on an API/Service implementation to be launched. More on this topic in the [Tests documentation](/documentation/using/tests),
+* `Operations` section focuses on the different operations managed by this API or Service. More on that topic below.
 
 			
 ![mock-rest-summary](/images/mock-rest-summary.png)
@@ -62,7 +62,7 @@ Some examples in the table below for a Microcks server reachable at `http://micr
 | REST | Test API | 0.0.1 | "Find by id" operation, order resource, example with id=123456 | `http://microcks.example.com/rest/Test+API/0.0.1/order/123456`|
 | REST | Test API | 0.0.1 | "List by status" operation, order resource, example with status=approved | `http://microcks.example.com/rest/Test+API/0.0.1/order?status=approved` |
 
-Easy !?
+Easy!?
 
 ### Common invocation params
 
