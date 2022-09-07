@@ -3,7 +3,7 @@ draft: false
 title: "CLI for Microcks"
 date: 2019-09-01
 publishdate: 2019-09-01
-lastmod: 2021-11-22
+lastmod: 2022-09-06
 menu:
   docs:
     parent: automating
@@ -18,6 +18,8 @@ weight: 30 #rem
 `microcks-cli` is a command-line tool for interacting with Microcks server APIs. It allows to launch tests or import API artifacts with minimal dependencies. It is managed and released independently of the core Microcks server components within its [own GitHub repository](https://github.com/microcks/microcks-cli).
 
 The CLI makes usage of Microcks [Service Account](../service-account) so it's definitely worth the read 😉
+
+> Starting with release `0.5.2`, the CLI also supports non-authenticated mode when Microcks is deployed in dev mode without Keycloak. You'll still have to provide client id and secret to commands but they will be ignored. See [issue #23](https://github.com/microcks/microcks-cli/issues/23) for more details.
 
 ## Usage instructions
 

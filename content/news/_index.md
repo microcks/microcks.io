@@ -2,7 +2,7 @@
 title: "News about Microcks"
 layout: tweets-columns
 categories: [releases]
-lastmod: 2022-04-08
+lastmod: 2022-09-07
 ---
 
 ## Fresh Releases
@@ -59,6 +59,10 @@ You can also check GitHub milestones - [1.4.0](https://github.com/microcks/micro
 [Look at the History for older release notes](./history)
 
 ### Microcks extensions
+
+#### microcks-cli 0.5.2 on 7 Sept 2022
+
+Have a look at [GitHub milestone](https://github.com/microcks/microcks-cli/milestone/6?closed=1) for the list of enhancement and issues.
 
 #### microcks github actions 1.2 on 7 Apr 2022
 
