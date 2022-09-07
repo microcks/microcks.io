@@ -216,6 +216,15 @@ randomString() // kYM8nSjEdLfgKOGG1dfacro2IUmuuan
 randomString(64) // VclBAQiNAybe0B5IrXjGqOChQNDFdoTguf5jWn2tqRNfptWSYFy7yxdpxoNIGOpC
 ```
 
+#### Random Value generator
+
+The `randomValue()` function simply generates a random string among provided values specified as arguments. Here's some examples below:
+
+```js
+randomValue(foo, bar) // foo OR bar
+randomValue(apple, orange, grape, pear) // apple, orange, grape OR pear
+```
+
 #### Random Boolean generator
 
 The `randomBoolean()` function simply generates a random boolean. Here's some examples below:

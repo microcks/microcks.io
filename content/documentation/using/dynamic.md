@@ -1,56 +1,71 @@
 ---
 draft: false
-title: "Getting dynamic mocks"
+title: "Getting direct API"
 date: 2019-09-01
 publishdate: 2019-09-01
 lastmod: 2019-09-02
 menu:
   docs:
     parent: using
-    name: Getting dynamic mocks
+    name: Getting direct API
     weight: 90
 toc: true
 weight: 30 #rem
 ---
 
-## Creating dynamic mocks
+## Creating direct API mocks
       
-Eventhough Microcks promotes a contract first approach for defining mocks, we are well aware that in real-life it may be difficult starting that way without a great maturity on API and Service contracts. We often meet situations where design and development teams need to play a bit with a fake API to really figure out their needs and how they should then design API contract. In order to help with those situation, Microcks offers the ability to dynamically generate a generic API that you may use as a sandbox.
-      
-      
-In a few clicks, Microcks will easily generate for you a basic API with CRUD operations (CRUD for *Create-Retrieve-Update-Delete*) and associated mocks that you'll be able to use for recording, retrieving and deleting any type of JSON document. In order to use this "Backend As A Service" like feature, just go to the **API | Services** repository and hit the `Add Dynamic API...` button:
-      
-![dynamic-link](/images/dynamic-link.png)
-  
-A simple form is now display, asking you to give the following Service Properties:
+Eventhough Microcks promotes a contract first approach for defining mocks, in real-life it may be difficult starting that way without a great maturity on API and Service contracts. You often need to play a bit with a fake API to really figure out their needs and how you should then design API contract. In order to help with this situation, Microcks offers the ability to **dynamically generate an API** that you may use as a sandbox.
 
-* `Service Name and Version` will be the unique identifiers of the new dynamic service you want to create,
-* `Resource` will the kind of resource (as REST protocol understands *resource*) that will be manage by dynamic service.
+In a few clicks, Microcks is able to easily generate for you:
+* **REST API** with CRUD operations (CRUD for *Create-Retrieve-Update-Delete*) and associated mocks that you'll be able to use for recording, retrieving and deleting any type of JSON document,
+* **Event-Driven API** with a single *Publish* operation with associated reference payload that will be used to simulate event emition whether on Kafka or WebSocket protocols?
+
+![direct-wizard](/images/direct-wizard.png)
+
+In order to access this "Direct API" wizard, just go to the **API | Services** repository and hit the `Add Direct API...` button:
+      
+![direct-link](/images/direct-link.png)
+
+### Common Properties
+
+Each kind of API as the same common properties. After having chosen a type, the wizrd asking you to give the following API | Service properties:
+
+* `Service Name and Version` will be the unique identifiers of the new Direct API you want to create,
+* `Resource` will the kind of resource that will be manage by this Direct API.
   
-![dynamic-form](/images/dynamic-form.png)
-  
-Just hit the `Add` button and you are few seconds away of having a ready-to-use REST Service/API that proposes different operations as shown in capture below. This Service/API is immediately exposing mocks endpoints for the different operations. It Swagger contract is also directly available for download.
-  
+![direct-rest-form](/images/direct-rest-form.png)
+
+In the next step of this wiazrd, you'll have the ability to assign a **reference JSON payload** for your Direct API. When provided, this payload is used to infer a schema for the data exposed by this API. Schema information is then integrated into the generated API specifications.
+
+> Reference JSON payload is optional for Direct REST API but mandatory for Direct Event driven API.
+
+![direct-rest-payload](/images/direct-rest-payload.png)
+
+Now, just hit the `Next` button, confirm on next screen and you'll have a ready-to-use API that proposes different operations as shown in capture below. 
+
+
+## REST API
+
+This Direct REST API is immediately exposing mocks endpoints for the different operations. It Swagger and OpenAPI contracts are also directly available for download.
+
 ![dynamic-operations](/images/dynamic-operations.png)
-  
-Given the previously created dynamic Service, it is now possible to use the `/dynarest/Foo+API/0.1/foo` endpoint (append after your Microcks base URL) to interact with it. This dynamic Service/API is indeed agnostic to a payload you send to it as long as it is formatted as JSON. For example, you can easily record a new `foo` resource having a `name` and a `bar` attributes like this: 
 
-{{< highlight bash >}}
-$ curl -X POST http://localhost:8080/dynarest/Foo%20API/0.1/foo -H 'Content-type: application/json' -d '{"name":"andrew", "bar": 223}'
-{{< / highlight >}}
+Given the previously created Direct API, it is now possible to use the `/dynarest/Foo+API/0.1/foo` endpoint (append after your Microcks base URL) to interact with it. This Direct API is in fact agnostic to a payload you send to it as long as it is formatted as JSON. For example, you can easily record a new `foo` resource having a `name` and a `bar` attributes like this: 
 
 ```sh
-$ curl -X POST http://localhost:8080/dynarest/Foo%20API/0.1/foo -H 'Content-type: application/json' -d '{"name":"andrew", "bar": 223}'
+curl -X POST http://localhost:8080/dynarest/Foo%20API/0.1/foo -H 'Content-type: application/json' -d '{"name":"andrew", "bar": 223}'
 ```
 
-And you should receive the following response :
+And you should receive the following response:
+
 ```json
 { "name" : "andrew", "bar" : 223, "id" : "5a1eb52a710ffa9f0b7c6de8" }
 ```
 
 What has simply done Microcks is recorded your JSON payload and assigned it an `id` attribute.
   
-## Checking created resources
+### Checking created resources
   
 Creating resource is useful but how to check what are the already existing resources ? Let create another bunch of `foo` resources like this: 
 
@@ -64,10 +79,10 @@ Now, just hitting the `Resources` button just next to `Operations` section, you 
       
 ![dynamic-resources](/images/dynamic-resources.png)
       
-Using dynamic Service/API in Microcks is thus a simple and super-fast mean of recording sample resources to illustrate what should be the future contract design!
+Using Direct API in Microcks is thus a simple and super-fast mean of recording sample resources to illustrate what should be the future contract design!
       
     
-## Querying dynamic mock resources
+### Querying dynamic mock resources
       
 Beyond the simple checking of created resources, those resources are also directly available through the endpoints corresponding to retrieval operations. As every resource recorded is identified using an `id` attribute, it s really easy to invoke the GET endpoint using this id like this: 
 
@@ -115,4 +130,46 @@ With results:
 
 ```json
 [{ "name" : "marina", "bar" : 225, "id" : "5a1eb608710ffa9f0b7c6deb" }]
+```
+
+### Event Driven API
+
+As of the `1.6.0` release, we rebooted the Direct API concept to be more generic and being able to also manage Event Driven API that are described using AsyncAPI specifications. Imagine a `MyQuote API` that notifies quotes updates on an asynchronous channel. You can define this API that way:
+
+![direct-event-form](/images/direct-event-form.png)
+
+Then adding a reference JSON payload - such a payload can also include some [templating expressions](./advanced/templates) to get some more dynamic data. Here we define producing random staock sybols and ranged price values:
+
+![direct-event-payload](/images/direct-event-payload.png)
+
+Clicking `Next` some more time, you now have a Direct Async API that is immediately exposed on WebSocket endpoint and on the Kafka broker Microcks is attached to. It AsyncAPI specification is also directly available for download.
+
+![direct-event-api](/images/direct-event-api.png)
+
+Looking at the operation details, you can retrieve the information of the endpoints used by different protocols and issue commands to receive the different messages published by the mock engine:
+
+```sh
+$ kcat -b my-cluster-kafka-bootstrap.apps.try.microcks.io:443 -t MyQuoteAPI-1.0-quotes -o end
+% Auto-selecting Consumer mode (use -P or -C to override)
+% Reached end of topic MyQuoteAPI-1.0-quotes [0] at offset 87
+{
+  "symbol": "GOOG",
+  "price": "124"
+}
+% Reached end of topic MyQuoteAPI-1.0-quotes [0] at offset 88
+{
+  "symbol": "GOOG",
+  "price": "121"
+}
+% Reached end of topic MyQuoteAPI-1.0-quotes [0] at offset 89
+{
+  "symbol": "IBM",
+  "price": "127"
+}
+% Reached end of topic MyQuoteAPI-1.0-quotes [0] at offset 90
+{
+  "symbol": "GOOG",
+  "price": "134"
+}
+[...]
 ```
