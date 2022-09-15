@@ -9,6 +9,18 @@ lastmod: 2022-09-07
 
 ### Microcks core
 
+#### 1.6.0 on 15 Sep 2022
+
+We are excited to announce the `1.6.0` release of Microcks 🚀  We’re now “back to work” and happy to release many features that were requested by our community! Here are the main highlights of this new release:
+
+* The addition of significant insights on **Governance** via Tests Conformance metrics and risks evaluation,
+* Functional and technical **Observability** enhanced and updated for ALL kind of APIs,
+* **Direct API** concepts enhancements and a coming **Docker Desktop extension** among many others!
+
+Check out our [release notes](https://microcks.io/blog/microcks-1.6.0-release/)!
+
+You can also check [GitHub milestone](https://github.com/microcks/microcks/milestone/21?closed=1) for the full list of closed issues.
+
 #### 1.5.2 on 02 Jun 2022
 
 We are delighted to announce the `1.5.2` release of Microcks ♻️ This is mainly an “Enhancement release” pushing further the [Microcks’ Hub and Marketplace](https://microcks.io/blog/microcks-hub-announcement/) we introduced a few weeks ago.
@@ -42,21 +54,6 @@ The major addition if the support of [GraphQL](https://graphql.io/) thats makes 
 Check out our [release notes](https://microcks.io/blog/microcks-1.5.0-release/)!
 
 You can also check [GitHub milestone](https://github.com/microcks/microcks/milestone/17?closed=1) for the full list of closed issues.
-
-#### 1.4.1 on 15 Oct 2021
-
-We are thrilled to announce the `1.4.1` release that is another demonstration of the ability of Microcks to play on both sides with new Enterprise related features but also enhancement towards the Developer eXperience. Here are the highlighted changes of this release:
-
-* The ability to have [Repository multi-tenancy](../documentation/using/advanced/organizing/#rbac-security-segmentation) for better management of large-scaled repositories,
-* The introduction of [APIMetadata](../documentation/using/advanced/metadata/) artifact for scaling labeling in Microcks,
-* The support of all Async features on developer's laptop through [Docker-Compose](../blog/async-features-with-docker-compose/),
-* The introduction of Microcks extensions for [OpenAPI](../documentation/using/openapi/#using-openapi-extensions) and [AsyncAPI](../documentation/using/asyncapi/#using-asyncapi-extensions) specifications,
-
-Check out our [release notes](https://microcks.io/blog/microcks-1.4.1-release/)!
-
-You can also check GitHub milestones - [1.4.0](https://github.com/microcks/microcks/milestone/15?closed=1) and [1.4.1](https://github.com/microcks/microcks/milestone/16?closed=1) - for the full list of closed issues.
-
-[Look at the History for older release notes](./history)
 
 ### Microcks extensions
 
@@ -92,4 +89,7 @@ Please check [GitHub milestone](https://github.com/microcks/microcks-jenkins-plu
 
 Have a look at [GitHub milestone](https://github.com/microcks/microcks-cli/milestone/3?closed=1) for the list of enhancement and issues.
 
-[Look at the History for older release notes](./history)
+
+## Looking for older releases?
+
+[Check the History for older release notes](./history)

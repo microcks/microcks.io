@@ -9,6 +9,21 @@ lastmod: 2022-01-18
 
 ### Microcks core
 
+#### 1.4.1 on 15 Oct 2021
+
+We are thrilled to announce the `1.4.1` release that is another demonstration of the ability of Microcks to play on both sides with new Enterprise related features but also enhancement towards the Developer eXperience. Here are the highlighted changes of this release:
+
+* The ability to have [Repository multi-tenancy](../documentation/using/advanced/organizing/#rbac-security-segmentation) for better management of large-scaled repositories,
+* The introduction of [APIMetadata](../documentation/using/advanced/metadata/) artifact for scaling labeling in Microcks,
+* The support of all Async features on developer's laptop through [Docker-Compose](../blog/async-features-with-docker-compose/),
+* The introduction of Microcks extensions for [OpenAPI](../documentation/using/openapi/#using-openapi-extensions) and [AsyncAPI](../documentation/using/asyncapi/#using-asyncapi-extensions) specifications,
+
+Check out our [release notes](https://microcks.io/blog/microcks-1.4.1-release/)!
+
+You can also check GitHub milestones - [1.4.0](https://github.com/microcks/microcks/milestone/15?closed=1) and [1.4.1](https://github.com/microcks/microcks/milestone/16?closed=1) - for the full list of closed issues.
+
+[Look at the History for older release notes](./history)
+
 #### 1.3.0 on 30 Jun 2021
 
 We are so proud and happy to share this new `1.3.0` and important Microcks release two months in advance based on our initial roadmap! Yes, this was yet another big challenge 🎉 Kudos to our community users and partners for supporting and pushing us to this momentum. Here are the main changes and enhancements of this release:
