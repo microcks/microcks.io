@@ -174,3 +174,21 @@ The schema below illustrates non exhaustive options:
 
 <img src="/images/deployment-brokers.png" class="img-responsive"/>
 
+
+### Advanced deployment options
+
+#### Handling proxies for Keycloak access
+
+Depending on your network configuration, authentication of request with Keycloak can be a bit tricky as Keycloak requires some [specific load-balancer or proxy settings](https://www.keycloak.org/docs/latest/server_installation/index.html#_setting-up-a-load-balancer-or-proxy). Typically, you way need to configure specific address ranges for proxies if you're not using the usual private IPv4 blocks.
+
+This can be done specifying additional `extraProperties` into the `microcks` part of your configuration - either within `spec.microcks` path if you're using the Operator `MicrocksInstall` custom resource or from direct `microcks` path in `values.yml` when using the Helm chart. The configuration below typically declare a new IP range to treat as proxy in order to propertly forward proxy headers to the application code:
+
+```yml
+extraProperties:
+  server:
+    tomcat:
+      remoteip:
+        internal-proxies: 172.16.0.0/12
+```
+
+> This feature is not yet released and available only for `nightly` tagged Operator and Helm Chart that is located on the `1.6.x` git branch of the source repository.
