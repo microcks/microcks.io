@@ -15,9 +15,9 @@ weight: 30 #rem
 
 ## Overview
 
-This guide is a walkthrough on how to use the [Message Queuing Telemetry Transport (MQTT)](https://mqtt.org/) protocole with Microcks. MQTT is a standard messaging protocol for the Internet of Things (IoT). It is used today in a wide variety of industries, such as automotive, manufacturing, telecommunications, oil and gas, etc.
+This guide is a walkthrough on how to use the [Message Queuing Telemetry Transport (MQTT)](https://mqtt.org/) protocol with Microcks. MQTT is a standard messaging protocol for the Internet of Things (IoT). It is used today in a wide variety of industries, such as automotive, manufacturing, telecommunications, oil and gas, etc.
 
-Starting with the `1.2.0` release of Microcks, we support MQTT as a protocole binding for [AsyncAPI](../../using/asyncapi). That means that Microcks is able to connect to a MQTT broker for publishing mock messages as soon as it receives a valid [AsyncAPI](https://asyncapi.com) Specification and to connect to any MQTT broker in your organization to check that flowing messages are compliant to the schema described within your specification.
+Starting with the `1.2.0` release of Microcks, we support MQTT as a protocol binding for [AsyncAPI](../../using/asyncapi). That means that Microcks is able to connect to a MQTT broker for publishing mock messages as soon as it receives a valid [AsyncAPI](https://asyncapi.com) Specification and to connect to any MQTT broker in your organization to check that flowing messages are compliant to the schema described within your specification.
 
 Let's start!
 
@@ -63,7 +63,7 @@ features:
     mqtt:
       url: mqtt-broker.app.example.com:1883
       username: microcks
-      credentialsSource: microcks
+      password: microcks
 ```
 
 Actual connection to the MQTT broker will only be made once Microcks will send mock messages to it. Let see below how to use MQTT binding with AsyncAPI. 
@@ -144,7 +144,7 @@ components:
 
 If you're now yet accustomed to it, you may wonder what it this `{{now(yyyy-MM-dd'T'HH:mm:SS'Z')}}` notation? These are just [Templating functions](../../using/advanced/templates) that allow generation of dynamic content! 😉
 
-Now simply import your AsyncAPI file into Microcks either using a **Direct upload** import or by defining a **Importer Job**. Both methods are described in [this page](http://localhost:1313/documentation/documentation/using/importers).
+Now simply import your AsyncAPI file into Microcks either using a **Direct upload** import or by defining a **Importer Job**. Both methods are described in [this page](../../using/importers).
 
 ## 3. Validate your mocks
 
@@ -160,7 +160,7 @@ $ cd api-tooling/async-clients/mqttjs-client
 $ npm install
 
 $ node consumer.js mqtt://mqtt-broker.app.example.com:1883 StreetlightsAPI_1.0.0_smartylighting-streetlights-event-lighting-measured microcks microcks
-Connecting to mqtt://localhost:1883 on topic StreetlightsAPI_1.0.0_smartylighting-streetlights-event-lighting-measured
+Connecting to mqtt://mqtt-broker.app.example.com:1883 on topic StreetlightsAPI_1.0.0_smartylighting-streetlights-event-lighting-measured
 {
   "streetlightId": "dev0",
   "lumens": 1000,
@@ -187,7 +187,7 @@ Connecting to mqtt://localhost:1883 on topic StreetlightsAPI_1.0.0_smartylightin
 
 Now the final step is to perform some test of the validation features in Microcks. As we will need API implementation for that it’s not as easy as writing HTTP based API implementation, we have some helpful scripts in our `api-tooling` GitHub repository. This scripts are made for working with the `Streetlights API` sample we used so far but feel free to adapt them for your own use.
 
-Imaging that you cant to validate messages from a `QA` environment with dedicated MQTT broker. Still being in the `mqttjs-client` folder, now use the `producer.js` utility script to publish messages on a `streetlights-event-lighting-measured` topic:
+Imaging that you want to validate messages from a `QA` environment with dedicated MQTT broker. Still being in the `mqttjs-client` folder, now use the `producer.js` utility script to publish messages on a `streetlights-event-lighting-measured` topic:
 
 ```sh
 $ node producer.js mqtts://mqtt-broker-qa.app.example.com:443 streetlights-event-lighting-measured qa-user qa-password broker-qa.crt       
