@@ -1,13 +1,13 @@
 ---
 draft: false
-title: "Custom dispatching rules"
+title: "Dispatcher & dispatching rules"
 date: 2020-03-03
 publishdate: 2020-03-03
-lastmod: 2022-02-23
+lastmod: 2022-12-26
 menu:
   docs:
     parent: using
-    name: Custom dispatching rules
+    name: Dispatcher & dispatching rules
     weight: 130
 toc: true
 weight: 30 #rem
@@ -17,8 +17,22 @@ weight: 30 #rem
 
 As explained into [Using exposed mocks](../../mocks), Microcks is using `Dispatcher` and `Dispatching Rules` for finding an appropriate response to return when receiving a mock request. When importing a new Service or API, Microcks is indeed looking at the variable parts between the different samples of a same operation to infer those two elements.
 
-However in some cases, this could not be enough and it will be useful to override these deduced values. Think about the case that you are dealing with an API operation that creates resources and that depending on the payload content you want specific different responses. The default dispatching rules would not allow to do that as Microcks does not analyse imported requests body content, nor is able to infer your business rules ;-) But you can realize that by overriding the `Dispatching Rules` after the first import of the API into the repository.
+However in some cases, this could not be enough and it will be useful to override these deduced values. Think about the case that you are dealing with an API operation that creates resources and that depending on the payload content you want specific different responses. The default dispatching rules would not allow to do that as Microcks does not analyse imported requests body content, nor is able to infer your business rules 😉 But you can realize that by overriding the `Dispatcher ` and its `Dispatching Rules` after the first import of the API into the repository.
 
+## Inferred dispatchers
+
+As a reminder on default, inferred dispatchers: you may find `URI_PARTS`, `URI_PARAMS`, `URI_ELEMENTS`, `QUERY_ARGS`, `QUERY_MATCH` or `SCRIPT`. The first three are usually found when using Postman or OpenAPI as a contract artifact ; they are deduced from the paths and contract elements. The last two are usually found when using SoapUI as a contract artifact.
+
+Here are below some explanations on these dispatchers and associated dispatching rules syntax:
+
+| Dispatcher | Explanations | Rules syntax |
+| ---------- | ------------ | ------------ |
+| `URI_PARTS` | Inferred when a Service or API operation has only `path` parameters | Path variables name separated by a `&&`. Example: for a `/blog/post/{year}/{month}` operation path, rule is `year && month` |
+| `URI_PARAMS`| Inferred when a Service or API operation has only `query` parameters | Query variables name separated by a `&&`. Example: for a `/search?status={s}&query={q}` operation, rule is `status && query` |
+| `URI_ELEMENTS` | Inferred when a Service or API operation has both `path` and `query` parameters | Path variables name separated by a `&&` then `??` followed by query variables name separated by a `&&`. Example: for a `/v2/pet/{petId}?user_key={k}`, rule is `petId ?? user_key` |
+| `QUERY_ARGS` | Infered when a GraphQL API operation as only primitive types arguments | Variables name separated by a `&&`. Example: for a GraphQL mutation `mutation AddStars($filmId: String, $number: Int) {...}`, rule is `filmId && number` |
+| `QUERY_MATCH` | Extracted from SoapUI project. Defines a XPath matching evaluation: extracted result from input query should match a response name | Example: for a `Hello` SOAP Service that extracts the `sayHello` element value for find a greeting: `declare namespace ser='http://www.example.com/hello'; //ser:sayHelloResponse/sayHello`. XPath functions can also be used here for evaluation - eg. something like: `concat(//ser:sayHello/title/text(),' ',//ser:sayHello/name/text())` |
+| `SCRIPT` | Extracted from SoapUI project. Defines a Groovy script evaluation: result of type Sring should match a response name | See [below section on script dispatcher](./#script-dispatcher). |
 
 ## The need for custom dispatching rules
 
@@ -36,10 +50,6 @@ Now just select `Edit Properties` of the operation from the 3-dots menu on the r
 ![dispatcher-edit](/images/dispatcher-edit.png)
 
 > The above rule can be simply read like this *"From the incoming request, look for the value of the country field. If this field has the value 'Belgium' then return the response called 'Accepted' otherwise return the response called 'Not accepted'."*
-
-### Inferred dispatchers
-
-A reminder on default, inferred dispatchers: you may find `URI_PARTS`, `URI_PARAMS`, `URI_ELEMENTS`, `QUERY_MATCH`, `QUERY_ARGS` or `SCRIPT`. The first three are usually found when using Postman or OpenAPI as a contract artifact ; they are deduced from the paths and contract elements. The last two are usually found when using SoapUI as a contract artifact.
 
 ### JSON BODY dispatcher
 
@@ -125,4 +135,80 @@ Just issue a Http request with an unmanaged region like below:
 ```sh
 $ curl 'https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast?region=center&apiKey=qwertyuiop' -k
 Region is unknown. Choose in north, west, east or south.%
+```
+
+### SCRIPT dispatcher
+
+`SCRIPT` dispatchers are the most versatile and powerful to integrate custom dispatching logic in Microcks. When using such a `Dispatcher`, `Dispatching Rule` is simply a Groovy script that is evaluated and has to return the name of mock response. 
+
+Before actualy evaluating the script, Microcks builds a runtime context where elements from incoming requests are made available. Therefore, you may have access to different objects from the script.
+
+| Object | Description |
+| ------ | ----------- |
+| `mockRequest` | Wrapper around incoming request that fullfill the contract of [Soap UI mockRequest](https://www.soapui.org/docs/soap-mocking/creating-dynamic-mockservices/#2-Mock-Handler-Objects). Allows you to access body payload with `requestContent`, request headers with `getRequestHeaders()` or all others request elements with `getRequest()` that accesses underlying Java HttpServletRequest object |
+| `requestContext` | **New in 1.7:** Allow you to access mock-request wide context for storing any kind of objects. Such context elements can ba later reused whne producing response content from [templates](../templates) |
+| `log` | Access to a logger with commons methods like `debug()`, `info()`, `warn()` or `error()`. Useful for troubleshooting. |
+
+#### Common use-cases
+
+Dispatch according a header value:
+
+```groovy
+def headers = mockRequest.getRequestHeaders()
+log.info("headers: " + headers)
+if (headers.hasValues("testcase")) {
+   def testCase = headers.get("testcase", "null")
+   switch(testCase) {
+      case "1":
+         return "amount negativo";
+      case "2":
+         return "amount nullo";
+      case "3":
+         return "amount positivo";
+      case "4":
+         return "amount standard";
+   }
+}
+return "amount standard"
+```
+
+Analyse XML body payload content:
+
+```groovy
+import com.eviware.soapui.support.XmlHolder
+def holder = new XmlHolder( mockRequest.requestContent )
+def name = holder["//name"]
+
+if (name == "Andrew"){
+    return "Andrew Response"
+} else if (name == "Karla"){
+    return "Karla Response"
+} else {
+    return "World Response"
+}
+```
+
+Analyse JSON body payload content and setting context:
+
+```groovy
+log.info("request content: " + mockRequest.requestContent);
+def json = new groovy.json.JsonSlurper().parseText(mockRequest.requestContent);
+if (json.cars.Peugeot != null) {
+   requestContext.brand = "Peugeot";
+   log.info("Got Peugeot");
+}
+if (json.cars.Volvo != null) {
+   requestContext.brand = "Volvo";
+   log.info("Got Volvo");
+}
+return "Default"
+```
+
+Calling an external API (here the invocations metrics from Microcks in fact 😉) to use external information in dispatching logic:
+
+```groovy
+def invJson = new URL("http://127.0.0.1:8080/api/metrics/invocations/OneApp%20Home/1.0.0").getText();
+def inv = new groovy.json.JsonSlurper().parseText(invJson).dailyCount
+log.info("daily invocation: " + inv)
+[...]
 ```
