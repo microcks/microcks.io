@@ -1,6 +1,6 @@
 ---
 draft: false
-title: Microcks 1.6.2 release 🚀
+title: Microcks 1.6.0 release 🚀
 layout: post
 date: 2022-09-15
 publishdate: 2022-09-15
