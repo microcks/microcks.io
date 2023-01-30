@@ -193,9 +193,9 @@ Launch the test and wait for some seconds and you should get access to the test 
 
 ![NATS Test success](/images/guides/nats-test-success.png)
 
-This is fine and we can see that Microcks captured messages and validate them against the payload schema that is embedded into the AsyncAPI specification. In our sample, every property is `required` and message does not allow `additionalProperties` to be defined.
+This is fine and we can see that Microcks captured messages and validate them against the payload schema that is embedded into the AsyncAPI specification. In our sample, every property is `required` and message does not allow `additionalProperties` to be define, `sendAt` is of string type.
 
-So now let see what happened if we tweak that a bit... Open the `producer.js` script in your favorite editor to put comments on lines 28 and 29 and to remove comments on lines 30 and 31. It's removing the `fullName` measure and adding an unexpected `displayName` property and it's also changing the type of the `sendDate` property as shown below after having restarted the producer:
+So now let see what happened if we tweak that a bit... Open the `producer.js` script in your favorite editor to put comments on lines 28 and 29 and to remove comments on lines 30 and 31. It's removing the `fullName` measure and adding an unexpected `displayName` property and it's also changing the type of the `sendAt` property as shown below after having restarted the producer:
 
 ```sh
 $ node producer.js nats-broker-qa.app.example.com:4222 user-signedups qa-user qa-password
