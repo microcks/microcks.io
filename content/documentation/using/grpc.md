@@ -39,7 +39,7 @@ In order to be correctly imported and understood by Microcks, your gRPC and Post
 * Your Postman collection will need to organize examples into requests having the same name and url as the gRPC methods,
 * Your Postman collection will hold examples defined in JSON as JSON is a textual format easier to use than binary Protobuf 😅
 
-We recommend having a look at our sample gRPC for [HelloService](https://raw.githubusercontent.com/microcks/microcks/master/samples/hello-v1.proto) as well as the [companion Postman collection](https://raw.githubusercontent.com/microcks/microcks/master/samples/HelloService.collection.json) to fully understand and see those conventions in action.
+We recommend having a look at our sample gRPC for [HelloService](https://raw.githubusercontent.com/microcks/microcks/master/samples/hello-v1.proto) as well as the [companion Postman collection](https://raw.githubusercontent.com/microcks/microcks/master/samples/HelloService.postman.json) to fully understand and see those conventions in action.
 
 ## Illustration
 
