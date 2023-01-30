@@ -19,7 +19,7 @@ This guide is a walkthrough on how to use the [Message Queuing Telemetry Transpo
 
 Starting with the `1.2.0` release of Microcks, we support MQTT as a protocol binding for [AsyncAPI](../../using/asyncapi). That means that Microcks is able to connect to a MQTT broker for publishing mock messages as soon as it receives a valid [AsyncAPI](https://asyncapi.com) Specification and to connect to any MQTT broker in your organization to check that flowing messages are compliant to the schema described within your specification.
 
-Let's start!
+Let's start! 🚀
 
 ## 1. Setup MQTT broker connection
 
@@ -187,7 +187,7 @@ Connecting to mqtt://mqtt-broker.app.example.com:1883 on topic StreetlightsAPI_1
 
 Now the final step is to perform some test of the validation features in Microcks. As we will need API implementation for that it’s not as easy as writing HTTP based API implementation, we have some helpful scripts in our `api-tooling` GitHub repository. This scripts are made for working with the `Streetlights API` sample we used so far but feel free to adapt them for your own use.
 
-Imaging that you want to validate messages from a `QA` environment with dedicated MQTT broker. Still being in the `mqttjs-client` folder, now use the `producer.js` utility script to publish messages on a `streetlights-event-lighting-measured` topic:
+Imagine that you want to validate messages from a `QA` environment with dedicated MQTT broker. Still being in the `mqttjs-client` folder, now use the `producer.js` utility script to publish messages on a `streetlights-event-lighting-measured` topic:
 
 ```sh
 $ node producer.js mqtts://mqtt-broker-qa.app.example.com:443 streetlights-event-lighting-measured qa-user qa-password broker-qa.crt       
@@ -213,7 +213,7 @@ If the **QA** broker access is secured - let's say with credentials and custom c
 
 The screenshot below illustrates the creation of such a secret for your `QA MQTT Broker` with username, credentials and custom certificates using the [PEM format](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail).
 
-![MQTT Broker secret](/images/mqtt-broker-secret.png)
+![MQTT Broker secret](/images/guides/mqtt-broker-secret.png)
 
 Once saved we can go create a **New Test** within Microcks web console. Use the following elements in the Test form:
 
@@ -224,7 +224,7 @@ Once saved we can go create a **New Test** within Microcks web console. Use the 
 
 Launch the test and wait for some seconds and you should get access to the test results as illustrated below:
 
-![MQTT Test success](/images/mqtt-test-success.png)
+![MQTT Test success](/images/guides/mqtt-test-success.png)
 
 This is fine and we can see that Microcks captured messages and validate them against the payload schema that is embedded into the AsyncAPI specification. In our sample, every property is `required` and message does not allow `additionalProperties` to be defined.
 
@@ -248,7 +248,7 @@ Connecting to mqtts://mqtt-broker-qa.app.example.com:443 on topic streetlights-e
 
 Relaunch a new test and you should get results similar to those below:
 
-![MQTT Test failure](/images/mqtt-test-failure.png)
+![MQTT Test failure](/images/guides/mqtt-test-failure.png)
 
 🥳 We can see that there's now a failure and that's perfect! What does that mean? It means that when your application or devices are sending garbage, Microcks will be able to spot this and inform you that the expected message format is not respected.
 

@@ -128,6 +128,14 @@ WebSocket Test Endpoint have the following form with no optional parameters:
 ws://{ws.endpoint.url:port}/{channel.name}
 ```
 
+##### NATS
+
+NATS Test Endpoint have the following form with no optional parameters:
+
+```sh
+nats://{nats.endpoint.url:port}/{queue-or-subject.name}
+```
+
 ### Test Runner
 
 As stated above, Microcks offers different strategies for running tests on endpoints where our microservice being developed are deployed. Such strategies are implemented as **Test Runners**. Here are the default Test Runners available within Microcks:

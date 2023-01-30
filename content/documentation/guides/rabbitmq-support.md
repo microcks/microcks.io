@@ -19,7 +19,7 @@ This guide is a walkthrough on how to use the [RabbitMQ](https://www.rabbitmq.co
 
 Starting with the `1.5.1` release of Microcks, we support RabbitMQ/AMQP as a protocol binding for [AsyncAPI](../../using/asyncapi). That means that Microcks is able to connect to a RabbitMQ broker for publishing mock messages as soon as it receives a valid [AsyncAPI](https://asyncapi.com) Specification and to connect to any RabbitMQ broker in your organization to check that flowing messages are compliant to the schema described within your specification.
 
-Let's start!
+Let's start! 🚀
 
 ## 1. Setup RabbitMQ broker connection
 
@@ -66,7 +66,7 @@ Actual connection to the RabbitMQ broker will only be made once Microcks will se
 
 ## 2. Use RabbitMQ in AsyncAPI
 
-As AMQP is not the default binding into Microcks, you should explicitly add it as a valid binding within your AsyncAPI contract. Here is below a fragment of AsyncAPI specification file that shows the important things to notice when planning to use Avro and Microcks with AsyncAPI. It comes for one sample you can find on our [GitHub repository](https://github.com/microcks/api-lifecycle/blob/master/account-service-demo-amqp/account-service-asyncapi-1.1.0.yml).
+As AMQP is not the default binding into Microcks, you should explicitly add it as a valid binding within your AsyncAPI contract. Here is below a fragment of AsyncAPI specification file that shows the important things to notice when planning to use AMQP and Microcks with AsyncAPI. It comes for one sample you can find on our [GitHub repository](https://github.com/microcks/api-lifecycle/blob/master/account-service-demo-amqp/account-service-asyncapi-1.1.0.yml).
 
 ```yaml
 asyncapi: '2.1.0'
@@ -168,7 +168,7 @@ Connecting to amqp://<user>:<password>@rabbitmq-broker.app.example.com:5672 on t
 
 Now the final step is to perform some test of the validation features in Microcks. As we will need API implementation for that it’s not as easy as writing HTTP based API implementation, we have some helpful scripts in our `api-tooling` GitHub repository. This scripts are made for working with the `Account Service` sample we used so far but feel free to adapt them for your own use.
 
-Imaging that you want to validate messages from a `QA` environment with dedicated MQTT broker. Still being in the `amqpjs-client` folder, now use the `producer.js` utility script to publish messages on a `signedup-exchange` topic. Our producer takes care of creating a non-durable exchange of type topic on RabbitMQ broker:
+Imagine that you want to validate messages from a `QA` environment with dedicated MQTT broker. Still being in the `amqpjs-client` folder, now use the `producer.js` utility script to publish messages on a `signedup-exchange` topic. Our producer takes care of creating a non-durable exchange of type topic on RabbitMQ broker:
 
 ```sh
 $ node producer.js amqp://<user>:<password>@rabbitmq-qa-broker.app.example.com:5672 signedup-exchange topic
