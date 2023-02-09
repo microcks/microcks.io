@@ -15,7 +15,7 @@ weight: 40 #rem
 
 ## Overview
 
-This guide is a walkthrough on how to use a [NATS](https://nats.io/) protocol with Microcks. NATS is a CLoud Native, Open Source and High-performance Messaging technology.  It is a single technology that enables applications to securely communicate across any combination of cloud vendors, on-premise, edge, web and mobile, and devices. Client APIs are provided in over 40 languages and frameworks and you can check out the [full list of clients](https://nats.io/download/).
+This guide is a walkthrough on how to use a [NATS](https://nats.io/) protocol with Microcks. NATS is a Cloud Native, Open Source and High-performance Messaging technology.  It is a single technology that enables applications to securely communicate across any combination of cloud vendors, on-premise, edge, web and mobile, and devices. Client APIs are provided in over 40 languages and frameworks and you can check out the [full list of clients](https://nats.io/download/).
 
 Starting with the `1.7.0` release of Microcks, we support NATS as a protocol binding for [AsyncAPI](../../using/asyncapi). That means that Microcks is able to connect to a NATS broker for publishing mock messages as soon as it receives a valid [AsyncAPI](https://asyncapi.com) Specification and to connect to any NATS broker in your organization to check that flowing messages are compliant to the schema described within your specification.
 
@@ -24,6 +24,8 @@ Let's go! 🚀
 ## 1. Setup NATS broker connection
 
 First mandatory step here is to setup Microcks so that it will be able to connect to a NATS broker for sending mock messages. Microcks has been tested successfully with NATS version `2.9.8`. It can be deployed as containerized workload on your Kubernetes cluster. Microcks does not provide any installation scripts or procedures ; please refer to projects or related products documentations.
+
+If you have used the [Operator based installation](../../installing/operator) of Microcks, you'll need to add some extra properties to your `MicrocksInstall` custom resource. The fragment below shows the important ones:
 
 ```yaml
 apiVersion: microcks.github.io/v1alpha1
@@ -137,7 +139,7 @@ $ git clone https://github.com/microcks/api-tooling.git
 $ cd api-tooling/async-clients/natsjs-client
 $ npm install
 
-$ node consumer nats-broker.app.example.com:4222 UsersignedupAPI-0.1.30-user/signedup microcks microcks
+$ node consumer.js nats-broker.app.example.com:4222 UsersignedupAPI-0.1.30-user/signedup microcks microcks
 Connecting to nats-broker.app.example.com:4222 on topic UsersignedupAPI-0.1.30-user/signedup
 {
   "id": "eyN7TbotUwN6RTPD4mRwwStS8gBA7tI6",
@@ -156,7 +158,7 @@ Connecting to nats-broker.app.example.com:4222 on topic UsersignedupAPI-0.1.30-u
 [...]
 ```
 
-🎉 Fantastic! We are receiving the three different messages corresponding to the three defined devices each and every 3 seconds that is the default publication frequency. You'll notice that each `id` property has a different value thanks to the templating notation.
+🎉 Fantastic! We are receiving the two different messages corresponding to the two defined examples each and every 3 seconds that is the default publication frequency. You'll notice that each `id` and `sendAt` properties have different value sthanks to the templating notation.
 
 ## 4. Run AsyncAPI tests
 
@@ -193,7 +195,7 @@ Launch the test and wait for some seconds and you should get access to the test 
 
 ![NATS Test success](/images/guides/nats-test-success.png)
 
-This is fine and we can see that Microcks captured messages and validate them against the payload schema that is embedded into the AsyncAPI specification. In our sample, every property is `required` and message does not allow `additionalProperties` to be define, `sendAt` is of string type.
+This is fine and we can see that Microcks captured messages and validated them against the payload schema that is embedded into the AsyncAPI specification. In our sample, every property is `required` and message does not allow `additionalProperties` to be present, `sendAt` is of string type.
 
 So now let see what happened if we tweak that a bit... Open the `producer.js` script in your favorite editor to put comments on lines 28 and 29 and to remove comments on lines 30 and 31. It's removing the `fullName` measure and adding an unexpected `displayName` property and it's also changing the type of the `sendAt` property as shown below after having restarted the producer:
 
@@ -214,6 +216,6 @@ Relaunch a new test and you should get results similar to those below:
 
 ## Wrap-Up
 
-In this guide we have seen how Microcks can also be used to send mock messages on a NATS Broker connected to the Microcks instance. This helps speeding-up the development of application consuming these messages. We finally ended up demonstrating how Microcks can be used to detect any drifting issues between expected message format and the one effectively used by real-life producers.
+In this guide we have seen how Microcks can also be used to send mock messages on a Google PubSub service connected to the Microcks instance. This helps speeding-up the development of application consuming these messages. We finally ended up demonstrating how Microcks can be used to detect any drifting issues between expected message format and the one effectively used by real-life producers.
 
 Thanks for reading and let you know what you think on our [Zulip Chat](https://microcksio.zulipchat.com) 🐙

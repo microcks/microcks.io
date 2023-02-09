@@ -25,6 +25,8 @@ Let's start! 🚀
 
 First mandatory step here is to setup Microcks so that it will be able to connect to a RabbitMQ broker for sending mock messages. Microcks has been tested successfully with RabbitMQ version `3.9.13`. It can be deployed as containerized workload on your Kubernetes cluster. Microcks does not provide any installation scripts or procedures ; please refer to projects or related products documentations.
 
+If you have used the [Operator based installation](../../installing/operator) of Microcks, you'll need to add some extra properties to your `MicrocksInstall` custom resource. The fragment below shows the important ones:
+
 ```yaml
 apiVersion: microcks.github.io/v1alpha1
 kind: MicrocksInstall
@@ -161,14 +163,14 @@ Connecting to amqp://<user>:<password>@rabbitmq-broker.app.example.com:5672 on t
 [...]
 ```
 
-🎉 Fantastic! We are receiving the two different messages corresponding to the two defined devices each and every 3 seconds that is the default publication frequency. You'll notice that each `displayName` and `email` properties have a different value thanks to the templating notation.
+🎉 Fantastic! We are receiving the two different messages corresponding to the two defined examples each and every 3 seconds that is the default publication frequency. You'll notice that each `displayName` and `email` properties have a different value thanks to the templating notation.
 
 
 ## 4. Run AsyncAPI tests
 
 Now the final step is to perform some test of the validation features in Microcks. As we will need API implementation for that it’s not as easy as writing HTTP based API implementation, we have some helpful scripts in our `api-tooling` GitHub repository. This scripts are made for working with the `Account Service` sample we used so far but feel free to adapt them for your own use.
 
-Imagine that you want to validate messages from a `QA` environment with dedicated MQTT broker. Still being in the `amqpjs-client` folder, now use the `producer.js` utility script to publish messages on a `signedup-exchange` topic. Our producer takes care of creating a non-durable exchange of type topic on RabbitMQ broker:
+Imagine that you want to validate messages from a `QA` environment with dedicated RabbitMQ broker. Still being in the `amqpjs-client` folder, now use the `producer.js` utility script to publish messages on a `signedup-exchange` topic. Our producer takes care of creating a non-durable exchange of type topic on RabbitMQ broker:
 
 ```sh
 $ node producer.js amqp://<user>:<password>@rabbitmq-qa-broker.app.example.com:5672 signedup-exchange topic
@@ -203,7 +205,7 @@ Launch the test and wait for some seconds and you should get access to the test 
 
 > You may have noticed the `/t/` path element in Test endpoint used above. You may be aware that RabbitMQ is supporting different kinds of Exchnages and `/t/` is here to tell Microcks it should consider a topic. As an exercice, you can reuse our `producer.js` script above and replace with `fanout`, `direct` or `headers`. Respectively, you'll have to replace `/t/` with `/f/`, `/d/` and `/h/` to tell Microcks the expected type of Exchange.
 
-This is fine and we can see that Microcks captured messages and validate them against the payload schema that is embedded into the AsyncAPI specification. In our sample, every property is `required` and message does not allow `additionalProperties` to be defined.
+This is fine and we can see that Microcks captured messages and validated them against the payload schema that is embedded into the AsyncAPI specification. In our sample, every property is `required` and message does not allow `additionalProperties` to be defined.
 
 So now let see what happened if we tweak that a bit... Open the `producer.js` script in your favorite editor to put comments on line 21 and to remove comments from line 22. It's removing the `displayName` property and adding an unexpected `name` property as shown below after having restarted the producer:
 
