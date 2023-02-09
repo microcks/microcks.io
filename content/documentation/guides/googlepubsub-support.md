@@ -215,7 +215,7 @@ On this tab, you'll have to create a `Token Authentication` secret with the valu
 $ cat googlecloud-service-account.json | base64 
 ```
 
-The screenshot below illustrates the creation of such a secret for your `QA Pub/Sub Service` with username, and credentials.
+The screenshot below illustrates the creation of such a secret for your `QA PubSub Service Account` with username, and credentials.
 
 ![Pub/Sub Broker secret](/images/guides/pubsub-broker-secret.png)
 
@@ -224,7 +224,7 @@ Once saved we can go create a **New Test** within Microcks web console. Use the 
 * **Test Endpoint**: `googlepubsub://my-qa-gcp-project-347223/user-signups` that is referencing the Google Pub/Sub service and topic endpoint,
 * **Runner**: `ASYNC API SCHEMA` for validating against the AsyncAPI specification of the API,
 * **Timeout**: Keep the default of 10 seconds,
-* **Secret**: This is where you'll select the **QA Pub/Sub Service** you previously created.
+* **Secret**: This is where you'll select the **QA PubSub Service Account** you previously created.
 
 Launch the test and wait for some seconds and you should get access to the test results as illustrated below:
 
