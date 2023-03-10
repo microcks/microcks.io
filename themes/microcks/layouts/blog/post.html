@@ -11,7 +11,9 @@
       </div>
       <div class="w-40 w-70-xs">
         <div class="f6 pv2" style="vertical-align: super;">
-          <b>{{ .Params.author }}</b> (<a href="https://twitter.com/{{ .Params.author_twitter }}" class="home-link">@{{ .Params.author_twitter }}</a>)
+          <b>{{ .Params.author }}</b> 
+          (<a href="https://twitter.com/{{ .Params.author_twitter }}" class="home-link">@{{ .Params.author_twitter }}</a>
+            {{ if .Params.author_linkedin }} | <a href="https://linkedin.com/in/{{ .Params.author_linkedin }}" class="home-link">LinkedIn</a>{{ end }})
           <br/> {{ .Params.author_title }} - on {{ .PublishDate.Format "Jan 2, 2006" }}
         </div>
       </div>
