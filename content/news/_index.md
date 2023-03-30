@@ -9,6 +9,19 @@ lastmod: 2022-09-07
 
 ### Microcks core
 
+#### 1.7.0 on 30 Mar 2023
+
+The end of the winter season ☃️ is coming. But unlike our fellow hibernators 🐻, instead of living off stores of fat, our amazing community has worked hard on yet another Microcks release - yes, version `1.7.0` is out 👏 In a few words, here are the highlights of this new release:
+
+* **Some new protocols & connectors**, you asked for it so: [NATS](https://nats.io/), [Google PubSub](https://cloud.google.com/pubsub/docs/overview?hl=en), and [Postman Workspace](https://www.postman.com/product/workspaces/) are now available, 
+* **Feature enhancements** see below for further details on issues (Script dispatcher and request context, Enhanced templating,...) integrated into this release,
+* **Technical upgrades** to keep main components secure and up-to-date, yes we care about security 🔐 but also green 🍃
+* And of course, some bug fixes based on **community feedback** 🙌
+
+Check out our [release notes](https://microcks.io/blog/microcks-1.7.0-release/)!
+
+You can also check [GitHub milestone](https://github.com/microcks/microcks/milestone/24?closed=1) for the full list of closed issues.
+
 #### 1.6.0 on 15 Sep 2022
 
 We are excited to announce the `1.6.0` release of Microcks 🚀  We’re now “back to work” and happy to release many features that were requested by our community! Here are the main highlights of this new release:
