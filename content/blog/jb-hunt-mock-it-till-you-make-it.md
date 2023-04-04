@@ -2,9 +2,9 @@
 draft: false
 title: "J.B. Hunt: Mock It till You Make It with Microcks"
 layout: post
-date: 2023-03-31
-publishdate: 2023-03-31
-lastmod: 2023-03-31
+date: 2023-04-04
+publishdate: 2023-04-04
+lastmod: 2023-04-04
 image: "/images/blog/jb-hunt-mock-it-till-you-make-it-feature.png"
 categories: [blog]
 author: "Carol Gschwend"
