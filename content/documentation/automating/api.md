@@ -21,5 +21,5 @@ The Swagger-UI below allows you to browse and discover the various API endpoints
 
 Previous releases of the API definitions can be found in the [GitHub repository](https://github.com/microcks/microcks/tree/master/api).
 
-{{< oai-spec url="https://raw.githubusercontent.com/microcks/microcks/api/microcks-openapi-v1.7.yaml" >}}
+{{< oai-spec url="https://raw.githubusercontent.com/microcks/microcks/master/api/microcks-openapi-v1.7.yaml" >}}
 
