@@ -84,6 +84,8 @@ First, you have to prepare your Keycloak instance to host and secure future Micr
 * **Create a new realm** using [Keycloak documentation](https://www.keycloak.org/docs/latest/server_admin/#proc-creating-a-realm_server_administration_guide) and choosing [Microcks realm full configuration](https://github.com/microcks/microcks/raw/master/install/keycloak-microcks-realm-full.json) as the file to import during creation,
 * OR **Re-use an existing realm**, completing its definition with [Microcks realm addons configuration](https://github.com/microcks/microcks/blob/master/install/keycloak-microcks-realm-addons.json) by simply importing this file within realm configuration.
 
+> You might want to change the `redirectUris` in the Microcks realm configuration file to the corresponding URI of the Microcks application, by default it is pointing to localhost.
+
 Importing one or another of the Microcks realm configuration file will bring all the necessary clients, roles, groups and scope mappings. If you created a new realm, the Microcks configuration also brings default users you may later delete when configuring your [own identity provider in Keycloak](https://www.keycloak.org/docs/latest/server_admin/#_identity_broker).
 
 Then, you actually have to deploy the Microcks instance configured for using external Keycloak. Depending whether you've used Helm or Operator to install Microcks, you'll have to customize your `values.yml` file or the `MicrocksInstall` custom resource but the properties have the same names in both installation methods:
