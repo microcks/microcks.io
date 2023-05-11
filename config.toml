@@ -4,7 +4,7 @@ title = "Microcks.io"
 theme = "microcks"
 pygmentsUseClasses = true
 pygmentsCodefences = true
-googleAnalytics = "UA-152524664-1"
+googleAnalytics = "G-9TK2NJ5V4J"
 disqusShortname = "microcks-io"
 
 [outputFormats.Algolia]
