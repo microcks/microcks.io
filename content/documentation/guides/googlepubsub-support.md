@@ -89,7 +89,7 @@ Actual connection to the Google Pub/Sub service will only be made once Microcks 
 
 ## 2. Use Pub/Sub in AsyncAPI
 
-As Google Pub/Sub is not the default binding into Microcks, you should explicitly add it as a valid binding within your AsyncAPI contract. Here is below a fragment of AsyncAPI specification file that shows the important things to notice when planning to use NATS and Microcks with AsyncAPI. It comes for one sample you can find on our [GitHub repository](https://github.com/microcks/microcks/blob/1.7.x/samples/UserSignedUpAPI-asyncapi-googlepubsub.yml).
+As Google Pub/Sub is not the default binding into Microcks, you should explicitly add it as a valid binding within your AsyncAPI contract. Here is below a fragment of AsyncAPI specification file that shows the important things to notice when planning to use Google Pub/Sub and Microcks with AsyncAPI. It comes for one sample you can find on our [GitHub repository](https://github.com/microcks/microcks/blob/1.7.x/samples/UserSignedUpAPI-asyncapi-googlepubsub.yml).
 
 ```yaml
 asyncapi: '2.0.0'
@@ -109,7 +109,7 @@ channels:
           [...]
 ```
 
-You'll notice that we just have to add a `googlepubsub` non empty block within the operation `bindings`. Just define one  property (like `topic` for example) and Microcks will detect this binding has been specified. See the full [binding spec](https://github.com/asyncapi/bindings/tree/master/googlepubsub) for details.
+You'll notice that we just have to add a `googlepubsub` non empty block within the operation `bindings`. Just define one property (like `topic` for example) and Microcks will detect this binding has been specified. See the full [binding spec](https://github.com/asyncapi/bindings/tree/master/googlepubsub) for details.
 
 As usual, as Microcks internal mechanics are based on examples, you will also have to attach examples to your AsyncAPI specification.
 
@@ -127,9 +127,9 @@ channels:
         examples:
           - laurent:
               summary: Example for Laurent user
-              headers: |-
+              headers: |>
                 {"my-app-header": 23}
-              payload: |-
+              payload: |>
                 {"id": "{{randomString(32)}}", "sendAt": "{{now()}}", "fullName": "Laurent Broudoux", "email": "laurent@microcks.io", "age": 41}
           - john:
               summary: Example for John Doe user

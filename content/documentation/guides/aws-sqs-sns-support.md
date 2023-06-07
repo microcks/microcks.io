@@ -109,7 +109,7 @@ features:
 
 Actual connection to the Google Pub/Sub service will only be made once Microcks will send mock messages to it. Let see below how to use Pub/Sub binding with AsyncAPI. 
 
-> Running AWS on [LocalStack](https://localstack.cloud)? Microcks support that too! Each configuration section (for SQS and SNS) allows to provide an optional `endpointOverride` property that will allow you to target your LocalStack instance.
+> Running AWS on [LocalStack](https://localstack.cloud)? Microcks supports that too! Each configuration section (for SQS and SNS) allows to provide an optional `endpointOverride` property that will allow you to target your LocalStack instance.
 >
 > You'll end up with something like `features.async.sqs.endpointOverride=http://localhost:4566` for example.
 
@@ -225,6 +225,8 @@ We're now going to launch a **New Test** within Microcks web console. Use the fo
 * **Timeout**: Keep the default of 10 seconds,
 * **Secret**: This is where you'll select the **aws-qa-sqsreader** you previously created.
 
+> And for SNS? Well it's basically exactly the same thing with a slight variation in test endpoint syntax. You will have to put there something like `sns://eu-west-3/user-signups` where `user-signups` is the name of the SNS Topic your application is using.
+
 Launch the test and quickly switch to the AWS console to send a bunch of messages. Wait for some seconds and you should get access to the test results as illustrated below:
 
 ![AWS SQS/SNS Test success](/images/guides/aws-sqs-sns-test-success.png)
@@ -239,7 +241,13 @@ So now let see what happened if we tweak that a bit... We're going to re-launch 
 
 Relaunch a new test and you should get results similar to those below:
 
+![AWS SQS/SNS Test failure](/images/guides/aws-sqs-sns-test-failure.png)
+
 🥳 We can see that there's now a failure and that's perfect! What does that mean? It means that when your application or devices are sending garbage, Microcks will be able to spot this and inform you that the expected message format is not respected.
+
+> Running AWS on [LocalStack](https://localstack.cloud)? Microcks supports that too! You'll just have to add an extra `overrideUrl` option to your test endpoint URL so that Microcks will target your LocalStack instance.
+>
+> You'll end up with something like `sqs://eu-west-3/user-signups?overrideUrl=http://localhost:4566` for example.
 
 ## Wrap-Up
 
