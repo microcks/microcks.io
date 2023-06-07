@@ -3,7 +3,7 @@ draft: false
 title: "Testing with Microcks"
 date: 2019-09-01
 publishdate: 2019-09-01
-lastmod: 2022-09-06
+lastmod: 2023-06-07
 menu:
   docs:
     parent: using
@@ -122,7 +122,7 @@ As an example, you may have this kind of Test Endpoint values: `amqp://rabbitmq.
 
 ##### WebSocket
 
-WebSocket Test Endpoint have the following form with no optional parameters:
+WebSocket Test Endpoint have the following form with no optional parameters
 
 ```sh
 ws://{ws.endpoint.url:port}/{channel.name}
@@ -143,6 +143,31 @@ Google PubSub Test Endpoint have the following form with no optional parameters:
 ```sh
 googlepubsub://{google-platform-project.name}/{topic.name}
 ```
+
+##### Amazon SQS
+
+Amazon Simple Queue Service Test Endpoint have the following form with optional parameters placed just after a `?` and separated using `&` character:
+
+```sh
+sqs://{aws.region}/{sqs.queue.name}[?param1=value1]
+```
+
+| Optional Params | Description |
+| --------------- | ----------- |
+| `overrideUrl`   | The AWS endpoint override URI used for API calls. Handy for using SQS via [LocalStack](https://localstack.cloud) |
+
+##### Amazon SNS
+
+Amazon Simple Notification Service Test Endpoint have the following form with optional parameters placed just after a `?` and separated using `&` character:
+
+```sh
+sns://{aws.region}/{sns.topic.name}[?param1=value1]
+```
+
+| Optional Params | Description |
+| --------------- | ----------- |
+| `overrideUrl`   | The AWS endpoint override URI used for API calls. Handy for using SNS via [LocalStack](https://localstack.cloud) |
+
 
 ### Test Runner
 
