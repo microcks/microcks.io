@@ -48,8 +48,6 @@ Open a new browser tab and point to the `http://localhost:8080` endpoint. This w
 
 You will be redirected to the main dashboard page. You can now start [using Microcks](https://microcks.io/documentation/getting-started/#using-microcks)!
 
-> **Mac M1 users**: running Microcks on M1 requires a special setting and we provide a dedicated `docker-compose-osx-m1.yml` file for that. So you'll have to use the `docker compose -f docker-compose-osx-m1.yml up -d` command to launch Microcks.
-
 
 ### Enabling Asynchronous API features
 
@@ -82,8 +80,6 @@ If you're feeling lucky regarding your machine, you can even add the [Kafdrop](h
    docker compose -f docker-compose.yml -f docker-compose-async-addon.yml -f kafdrop-addon.yml up -d
    ```
 
-> **Mac M1 users**: running Microcks on M1 requires a special setting and we provide a dedicated `docker-compose-async-addon-osx-m1.yml` file for that. So you'll have to use the `docker compose -f docker-compose-osx-m1.yml -f docker-compose-async-addon-osx-m1.yml up -d` command to launch Microcks.
-
 ### Un-authenticated mode
 
 A "keycloakless" version of docker compose is available thanks to: 
@@ -93,5 +89,3 @@ A "keycloakless" version of docker compose is available thanks to:
    ```
 
 This configuration enabled Asynchronous API features in a very lightweight mode using [Red Panda broker](https://redpanda.com/) instead of full-blown Apache Kafka distribution.
-
-> **Mac M1 users**: running Microcks on M1 requires a special setting and we provide a dedicated `docker-compose-devmode-osx-m1.yml` file for that. So you'll have to use the `docker compose -f docker-compose-devmode-osx-m1.yml up -d` command to launch Microcks.
