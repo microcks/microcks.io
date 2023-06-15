@@ -189,7 +189,7 @@ Connecting to my-gcp-project-347219 on topic UsersignedupAPI-0.1.20-user-signedu
 
 ## 4. Run AsyncAPI tests
 
-Now the final step is to perform some test of the validation features in Microcks. As we will need API implementation for that it’s not as easy as writing HTTP based API implementation, we have some helpful scripts in our `api-tooling` GitHub repository. This scripts are made for working with the `User signed-up API` sample we used so far but feel free to adapt them for your own use.
+Now the final step is to perform some tests of the validation features in Microcks. As we will need API implementation for that it’s not as easy as writing HTTP based API implementation, we have some helpful scripts in our `api-tooling` GitHub repository. This scripts are made for working with the `User signed-up API` sample we used so far but feel free to adapt them for your own use.
 
 Imagine that you want to validate messages from a `QA` environment on a dedicated Google Cloud project. As the **QA** project access is secured, you'll need - like described above in Step 1 - to retrieve a Service Account key file with this Service Account having the `roles/pubsub.subscriber` role like described in Step 3.
 
