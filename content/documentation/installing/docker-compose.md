@@ -3,7 +3,7 @@ draft: false
 title: "Installing with docker-compose"
 date: 2019-09-01
 publishdate: 2019-09-01
-lastmod: 2022-11-22
+lastmod: 2023-06-21
 menu:
   docs:
     parent: installing
@@ -24,7 +24,7 @@ In your terminal issue the following commands:
 1. Clone this repository.
 
    ```sh
-   git clone https://github.com/microcks/microcks.git
+   git clone https://github.com/microcks/microcks.git --depth 10
    ```
 
 2. Change to the install folder

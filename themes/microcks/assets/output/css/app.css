@@ -5337,12 +5337,12 @@ a.header-link {
   -webkit-text-decoration-line: none !important;
           text-decoration-line: none !important
 }
-.prose > * > a, .prose > * > * > a {
+.prose > * > a, .prose > * > * > a, .prose > * > * > * > a {
   color: #ff1745;
   -webkit-text-decoration-line: none;
           text-decoration-line: none;
 }
-.prose > * > a:hover, .prose > * > * > a:hover {
+.prose > * > a:hover, .prose > * > * > a:hover, .prose > * > * > * > a:hover {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
 }
