@@ -44,8 +44,6 @@ Open a new browser tab and point to the `http://localhost:8080` endpoint. This w
 * **Username:** `admin`
 * **Password:** `microcks123`
 
-> **Mac M1 users**: running Microcks on M1 requires a special setting and we provide a dedicated `docker-compose-osx-m1.yml` file for that. So you'll have to use the `docker compose -f docker-compose-osx-m1.yml up -d` command to launch Microcks.
-
 ## Using Microcks
 
 Now you are ready to use Microcks for deploying your own services and API mocks! Before that let's have the look at the application home screen and introduce the main concepts. Using the application URL after installation, we should land on this page with two main entry points : <b>APIs | Services</b> and <b>Importers</b>.

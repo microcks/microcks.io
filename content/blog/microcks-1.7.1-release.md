@@ -44,22 +44,22 @@ And of course, you’re not limited to a single protocol binding! Microcks now s
 
 ![microcks-protocols](/images/blog/microcks-1.7.1-protocols.png)
 
-> Check out our updated [Event-based API test endpoints](https://microcks.io/documentation/using/tests/#event-based-apis) documentation and the complete guide for both protocols have also been published. See the [Amazon SQS/SNS Guide](https://microcks.io/documentation/guides/aws-sqs-sns-support/). For easier testing purposes, we also enabled the support of [LocalStack](https://localstack.cloud/). Thanks to [Xavier Escudero Sabadell](http://github.com/xescuder) 🙏 for the help in designing and testing this.
+> Check out our updated [Event-based API test endpoints](https://microcks.io/documentation/using/tests/#event-based-apis) documentation and the complete guide for both protocols has also been published. See the [Amazon SQS/SNS Guide](https://microcks.io/documentation/guides/aws-sqs-sns-support/). For easier testing purposes, we also enabled the support of [LocalStack](https://localstack.cloud/). Thanks to [Xavier Escudero Sabadell](http://github.com/xescuder) 🙏 for the help in designing and testing this.
 
 
 ## API Specs goodies
 
-Multi-protocol and multi-styles of API is a reality and we see it everyday in the community. This new revision is also the opportunity to embed enhancements related to three different specifications we support in Microcks.
+Multi-protocol and multi-styles of API is a reality and we see it every day in the community. This new revision is also the opportunity to embed enhancements related to three different specifications we support in Microcks.
 
 Microcks now supports the resolution of external references on [AsyncAPI specification](https://www.asyncapi.com/) documents. May you embed a reference like ``$ref: "./user-signedup.json"`` into your AsyncAPI file, Microcks will follow the reference, retrieve it to add this JSON Schema to the list of your API contracts and re-reference it to be later able to use it at validation time.
 
-> The actual behavior has been detailed into the issue [#782](https://github.com/microcks/microcks/issues/782)
+> The actual behavior has been detailed in issue [#782](https://github.com/microcks/microcks/issues/782)
 
 [GraphQL](https://graphql.org/) support has also been enhanced with now the support of multi-queries on different API operations. Supporting such construction allows - for example - a mobile application to perform multiple different queries in a single server roundtrip.
 
-> Thanks to [Stéffano Bonaiva Batista](https://github.com/sbonaiva) 🙏 who shared with us its use-case but also the [Pull Request](https://github.com/microcks/microcks/pull/805) for implementing this in Microcks. You rock!
+> Thanks to [Stéffano Bonaiva Batista](https://github.com/sbonaiva) 🙏 who shared with us his use case but also the [Pull Request](https://github.com/microcks/microcks/pull/805) for implementing this in Microcks. You rock!
 
-Finally [gRPC](https://grpc.io/) protocol is not left out as we added automatic import of internal ``google/protobuf/*.proto`` libraries when not provided in your code repository. This eases the pain of repository maintainers by lowering the number of dependencies in their repo. As these libs are provided within ``protoc`` compiler, it’s safe to assume they’ll be there during the compilation of their protobuffer resources by Microcks.
+Finally, [gRPC](https://grpc.io/) protocol is not left out as we added automatic import of internal ``google/protobuf/*.proto`` libraries when not provided in your code repository. This eases the pain of repository maintainers by lowering the number of dependencies in their repo. As these libs are provided within ``protoc`` compiler, it’s safe to assume they’ll be there during the compilation of their protobuffer resources by Microcks.
 
 > Thanks to [lennakai](https://github.com/lennakai) 🙏 for raising the issue and for the discussion [#830](https://github.com/orgs/microcks/discussions/830) that leads to a solution
 
@@ -84,20 +84,20 @@ You may have seen it some days ago as announced by our fellow [Hugo Guerrero](ht
 
 ### Helm Chart enhancements
 
-The Kubernetes installation via Helm Chart has also benefited from two enhancements: the number of desired replicas is now configurable via the `values.yaml` file and re-deployments are automatically triggered when configuration change occurs.
+The Kubernetes installation via Helm Chart has also benefited from two enhancements: the number of desired replicas is now configurable via the `values.yaml` file and re-deployments are automatically triggered when a configuration change occurs.
 
 > As scalability and automatic redeployment was only available through the Operator, these two enhancements suggested by [Sara Jarjoura](https://github.com/sarasensible) 🙏 and [sbr82](https://github.com/sbr82) 🙏 now allow to have a very scalable and dynamic setup of Microcks via Helm for better GitOps implementation.
 
 
 ## More enhancements 
 
-Some other minor enhancements that worth be noticed:
+Some other minor enhancements that are worth be noticed:
 
 ### JSON_BODY dispatcher presence
 
-A fix has been made to allow a dispatch decision based on the presence or absence of a JSON node in request payload (not only the presence of a value as it was before).
+A fix has been made to allow a dispatch decision based on the presence or absence of a JSON node in the request payload (not only the presence of a value as it was before).
 
-> Thanks to [Chris Belanger](https://github.com/Feasoron) 🙏 for raising this issue and the detailed analysis.
+> Thanks to [Chris Belanger](https://github.com/Feasoron) 🙏 for raising this issue and for the detailed analysis.
 
 
 ### OpenAPI specification detection
@@ -107,7 +107,7 @@ We reviewed how OpenAPI is detected when importing a new artifact, leading to a 
 > Thanks to [Mathis Goichon](https://github.com/MathisGoichon) 🙏 for raising this one and helping validate the fix. 
 
 
-### Response templating with a parameter containing dot
+### Response templating with a parameter containing a dot
 
 This is again an issue that leads to more robust behavior of [Microcks templating engine](https://microcks.io/documentation/using/advanced/templates/) when sending parameters that may contain dots or other non-alphanumeric characters.
 
@@ -124,7 +124,7 @@ We’d like to thank the following awesome people:
 
 * Great blog post from [Piotr Mińkowski](https://www.linkedin.com/in/piotrminkowski/) 🙏 on API contract testing with Microcks & Quarkusio. See: [Contract Testing on Kubernetes with Microcks](https://piotrminkowski.com/2023/05/20/contract-testing-on-kubernetes-with-microcks/),
 
-* [Holly Cummins](https://www.linkedin.com/in/holly-k-cummins/) 🙏 for her great talk on [Contract testing with Pact and Quarkus](https://speakerdeck.com/hollycummins/contract-testing-with-pact-and-quarkus), mentioning Microcks in the [contract testing landscape](https://speakerdeck.com/hollycummins/contract-testing-with-pact-and-quarkus?slide=86),
+* [Holly Cummins](https://www.linkedin.com/in/holly-k-cummins/) 🙏 for her excellent talk on [Contract testing with Pact and Quarkus](https://speakerdeck.com/hollycummins/contract-testing-with-pact-and-quarkus), mentioning Microcks in the [contract testing landscape](https://speakerdeck.com/hollycummins/contract-testing-with-pact-and-quarkus?slide=86),
 
 * [Hugo Guerrero](https://github.com/hguerrero ) 🙏 from [Red Hat](https://redhat.com) for having contributed the [Docker Desktop Extension v0.2](https://microcks.io/blog/docker-desktop-extension-0.2/) code and blog post. Well done mate! 💪
 
