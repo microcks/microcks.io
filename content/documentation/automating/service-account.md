@@ -3,7 +3,7 @@ draft: false
 title: "Microcks Service Accounts"
 date: 2019-09-01
 publishdate: 2019-09-01
-lastmod: 2020-09-14
+lastmod: 2023-07-17
 menu:
   docs:
     parent: automating
@@ -32,7 +32,7 @@ $ curl https://microcks.example.com/api/keycloak/config -s -k | jq .
 {
   "realm": "microcks",
   "resource": "microcks-app-js",
-  "auth-server-url": "https://keycloak.microcks.example.com/auth",
+  "auth-server-url": "https://keycloak.microcks.example.com",
   "ssl-required": "external",
   "public-client": true
 }
@@ -70,7 +70,7 @@ bWljcm9ja3Mtc2VydmljZWFjY291bnQ6YWI1NGQzMjktZTQzNS00MWFlLWE5MDAtZWM2YjNmZTE1YzU0
 
 # then you issue a POST command to authenticate and retrieve an access_token from Keycloak
 # the grant_type used is client_credentials
-$ curl -X POST https://keycloak.microcks.example.com/auth/realms/microcks/protocol/openid-connect/token -H 'Content-Type: application/x-www-form-urlencoded' -H 'Accept: application/json' -H 'Authorization: Basic bWljcm9ja3Mtc2VydmljZWFjY291bnQ6YWI1NGQzMjktZTQzNS00MWFlLWE5MDAtZWM2YjNmZTE1YzU0Cg=' -d 'grant_type=client_credentials' -k -s | jq . 
+$ curl -X POST https://keycloak.microcks.example.com/realms/microcks/protocol/openid-connect/token -H 'Content-Type: application/x-www-form-urlencoded' -H 'Accept: application/json' -H 'Authorization: Basic bWljcm9ja3Mtc2VydmljZWFjY291bnQ6YWI1NGQzMjktZTQzNS00MWFlLWE5MDAtZWM2YjNmZTE1YzU0Cg=' -d 'grant_type=client_credentials' -k -s | jq . 
 {
   "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJFdlRzbVZhQ3dya3p6LTBlYTJhVDBmTHV1dzJfal9zNnNjOW9zVUN3Q1JnIn0.eyJleHAiOjE2MDAwNzc5NDYsImlhdCI6MTYwMDA3NzY0NiwianRpIjoiNjNjZGRjM2YtODBmMi00NmM0LThlOTQtM2RjNjg5MjU1NmE3IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL2F1dGgvcmVhbG1zL21pY3JvY2tzIiwiYXVkIjpbIm1pY3JvY2tzLWFwcCIsImFjY291bnQiXSwic3ViIjoiYzNhMzYyNjctMjQxOC00MTg1LWJiMTktODI4MjFiNDZkOWQzIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoibWljcm9ja3Mtc2VydmljZWFjY291bnQiLCJzZXNzaW9uX3N0YXRlIjoiMWFmNGI2MjEtNGM2OS00OWQwLWExOTktYmIzMTRkY2RmY2NkIiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyJdfSwicmVzb3VyY2VfYWNjZXNzIjp7Im1pY3JvY2tzLWFwcCI6eyJyb2xlcyI6WyJ1c2VyIl19LCJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJjbGllbnRJZCI6Im1pY3JvY2tzLXNlcnZpY2VhY2NvdW50IiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJjbGllbnRIb3N0IjoiMTI3LjAuMC4xIiwicHJlZmVycmVkX3VzZXJuYW1lIjoic2VydmljZS1hY2NvdW50LW1pY3JvY2tzLXNlcnZpY2VhY2NvdW50IiwiY2xpZW50QWRkcmVzcyI6IjEyNy4wLjAuMSJ9.T6dSjW_tFdIFaQPECXaui_iBO_pemf7n7kLaG6D30gyq6TOPe0D3kzyXXVl2_MXGtAjxD1Yc_CCtbHZKJOS-NHG_qmdiuOdMgLJnqot2zRirvpcsAvX1kDVugAlx1r5RDfLKuokDvN3paVFvO00HTKGzm5P59rIQRCx6neEzq_eAeU-0-l962OidjVsq8r77q0sVpusHQuFiaYPrcNGiVbyL08--fYyxq97yovRInj2WOsFjhyrVPjpYJBCgbC5eLUNFh2WH6T9HecegsEfqXR_7CNPN2TjMQZdo2zkuzcKGiHHVId7ntIzupPLc95N487Jwd0Y3WHSdbMdVPptTeA",
   "expires_in": 300,
