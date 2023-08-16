@@ -89,8 +89,10 @@ kafka://{kafka.broker.url:port}/{kafka.topic.name}[?param1=value1&param2=value2]
 | `registryUrl` | The URL of schema registry that is associated to the tested topic. This parameter is required when using and testing [Avro](https://avro.apache.org) encoded messages. |
 | `registryUsername` | The username used if access to the registry is secured. |
 | `registryAuthCredSource` | The source for authentication credentials if any. Valid values are just `USER_INFO`. |
+| `startOffset` | The topic offset we start consuming mesages at (since version `1.8.0`) |
+| `endOffset` | The topic offset we end consuming messages at (since version `1.8.0`) |
 
-As an example, you may have this kind of Test Endpoint value: `kafka://mybroker.example.com:443/test-topic?registryUrl=https://schema-registry.example.com&registryUsername=fred:letmein&registryAuthCredSource=USER_INFO`
+As an example, you may have this kind of Test Endpoint value: `kafka://mybroker.example.com:443/test-topic?registryUrl=https://schema-registry.example.com&registryUsername=fred:letmein&registryAuthCredSource=USER_INFO&startOffset=28&endOffset=30`
 
 ##### MQTT
 
