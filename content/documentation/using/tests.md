@@ -3,7 +3,7 @@ draft: false
 title: "Testing with Microcks"
 date: 2019-09-01
 publishdate: 2019-09-01
-lastmod: 2023-06-07
+lastmod: 2023-10-10
 menu:
   docs:
     parent: using
@@ -192,7 +192,24 @@ Depending on the type of Service or Tests you are running, the specification of 
 
 ### Secret
 
-Depending on the Test Endpoint you are connecting to, you may need additional authentication information - like credentials or custom X509 Certificates. You may reuse [External Secrets](../administrating/secrets) that has been made available in the Microcks installation by the administrator.
+Depending on the Test Endpoint you are connecting to, you may need additional authentication information - like credentials or custom X509 Certificates. You may reuse [External Secrets](../administrating/secrets) that has been made available in the Microcks installation by the administrator. Such secret are useful for presenting a long-lived token to a secured Test Endpoint.
+
+### OAuth2 authorization
+
+> Starting with version `1.8.0`, Microcks is now able to retrieve an OAuth2 access token before actually running a Test.
+
+Depending on the Test Endpoint you are connecting to, you may need to present an OAuth2 short-lived authorization token to a secured Test Endpoint. Microcks supports 3 different OAuth2 flows:
+* The [Client Credentials Flow](https://auth0.com/docs/get-started/authentication-and-authorization-flow/client-credentials-flow) in case you want to simulate a machine to machine context,
+* The [Refresh Token Rotation](https://auth0.com/docs/secure/tokens/refresh-tokens/refresh-token-rotation) in case you are using long lived token and have already acquired a refresh token previously,
+* THe [Resource Owner Password Flow](https://auth0.com/docs/get-started/authentication-and-authorization-flow/resource-owner-password-flow) in case you want to simulate real users authentication. Be careful to use only in a secured/private context as this involves the application handling the user's password (even if Microcks will not store anything). The latest [OAuth 2.0 Security Best Current Practice](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics-19#section-2.4) disallows the use of the Resource Owner Password Credentials grant but it may still be judged acceptable for internal validation purposes.
+
+Depending on the flow you select, Microcks UI will allow you to provide additional details for connecting to your Identity Provider token endpoint with your client id and credentials.
+
+![test-oauth2-params](/images/test-oauth2-params.png)
+
+**Notes:**
+* The `accessToken` resulting from this authorization is retrieved before launching the tests. That means that custom headers (globally or per operation) may override its value,
+* If additional custom CA Cert is required to access the test endpoints, you can still supply a Secret. The `accessToken` information retrieved here will be merged into that secret so that the endpoint reach is still possible.
 
 ## Getting tests history and details
 
