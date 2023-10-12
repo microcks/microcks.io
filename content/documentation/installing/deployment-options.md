@@ -3,7 +3,7 @@ draft: false
 title: "Architecture and deployment options"
 date: 2020-12-15
 publishdate: 2020-12-15
-lastmod: 2023-04-19
+lastmod: 2023-10-12
 menu:
   docs:
     parent: installing
@@ -19,7 +19,7 @@ Now that you have looked at the different installation methods of Microcks, you 
 
 ## High-level Architecture
 
-In its simplest form, Microcks architecture is made of 4 components which are:
+In its canonical form, Microcks architecture is made of 4 components which are:
 
 * The Microcks main web application (also called `webapp`) that holds the UI resources as well as API endpoints,
 * Its associated MongoDB database for holding your data such as the repository of **APIs | Services** and **Tests**,
@@ -48,6 +48,22 @@ The schema below represents this full-featured architecture with connection to o
 > For sake of simplicity we do not represent here the Zookeeper ensemble that may be associated with Kafka.
 
 When deploying on Kubernetes you will have to use our [Helm Chart](../kubernetes) or [Operator](../operator) installation methods for that. This architecture can also be deployed using Docker Compose using the `docker-compose-async-addon` file as described in [enabling asynchronous features](../docker-compose/#enabling-asynchronous-api-features). 
+
+### Architecture for the Inner Loop
+
+In order to support [Inner Loop integration or Shift-Left scenarios](https://www.linkedin.com/pulse/how-microcks-fit-unify-inner-outer-loops-cloud-native-kheddache), we've worked recently on a stripped down version of Microcks that makes embedding it in your development workflow, on a laptop, within your unit tests possible. This new distribution is called `microcks-uber` and provides the essential services in a single container as represented below:
+
+<img src="/images/deployment-uber.png" class="img-responsive"/>
+
+> As the Uber distribution of Microcks is perfectly well-adapted for a quick evaluation, we don't recommend running it in production! It doesn't embed the authroization/authentication features provided by Keycloak and the performance guarantees offered by a real external MongoDB instance.
+
+The original purpose of this Uber distribution is to be used through testing libraries like [Testcontainers](https://testcontainers.com). Though it's very easy to launch it using a simple `docker` command like below, binding the only necessary port to your local `8585`:
+
+```sh
+docker run -p 8585:8080 -it quay.io/microcks/microcks-uber:nightly
+```
+
+You can then quickly try out new features or check bug fixes 😉 
 
 ## Deployment Options
 
