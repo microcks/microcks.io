@@ -2,12 +2,22 @@
 title: "News about Microcks"
 layout: tweets-columns
 categories: [releases]
-lastmod: 2022-09-07
+lastmod: 2023-10-17
 ---
 
 ## Fresh Releases
 
 ### Microcks core
+
+#### 1.8.0 on 17 Oct 2023
+
+As the seasons transition, we are excited to unveil the `1.8.0` release of Microcks, the [CNCF](https://landscape.cncf.io/?selected=microcks)'s open-source cloud-native tool for API Mocking and Testing, right on the cusp of winter! ❄️ 🚀
+
+With **47** resolved issues and **5** external PR **(from new contributors)** - This new release brings you a wave of new features, including **AI Copilot**, support for **HAR artifacts**, **OAuth2** secured endpoint testing, Microcks super light **Uber image**, **Testcontainers** official module, two developer-friendly buttons for easy interactions (`Copy as curl command` and `Add to your CI/CD`), and an enhanced contextual help.
+
+Check out our [release notes](https://microcks.io/blog/microcks-1.8.0-release/)!
+
+You can also check [GitHub milestone](https://github.com/microcks/microcks/milestone/30?closed=1) for the full list of closed issues.
 
 #### 1.7.1 on 21 Jun 2023
 
