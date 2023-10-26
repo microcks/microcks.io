@@ -3,7 +3,7 @@ draft: false
 title: "Dispatcher & dispatching rules"
 date: 2020-03-03
 publishdate: 2020-03-03
-lastmod: 2022-12-26
+lastmod: 2023-10-26
 menu:
   docs:
     parent: using
@@ -212,3 +212,7 @@ def inv = new groovy.json.JsonSlurper().parseText(invJson).dailyCount
 log.info("daily invocation: " + inv)
 [...]
 ```
+
+#### Extended use-cases
+
+If you want to extend what your scripts can do, check out how to setup Microcks with [external dependencies](../../../administrating/externals)
