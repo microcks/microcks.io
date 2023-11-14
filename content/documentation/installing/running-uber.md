@@ -3,7 +3,7 @@ draft: false
 title: "Running with Testcontainers"
 date: 2023-10-12
 publishdate: 2023-10-12
-lastmod: 2023-10-12
+lastmod: 2023-11-14
 menu:
   docs:
     parent: installing
@@ -32,6 +32,7 @@ Microcks now provides official modules for [Testcontainers](https://testcontaine
 As of today, we provide support for following languages:
 * Java ☕️ - See our [GitHub repository](https://github.com/microcks/microcks-testcontainers-java) - See our demo application for [Spring Boot](https://github.com/microcks/api-lifecycle/blob/master/shift-left-demo/spring-boot-order-service/README.md) 🍃 and for [Quarkus](https://github.com/microcks/api-lifecycle/blob/master/shift-left-demo/quarkus-order-service/README.md).
 * NodeJS - See our [GitHub repository](https://github.com/microcks/microcks-testcontainers-node)
+* Go - See our [GitHub repository](https://github.com/microcks/microcks-testcontainers-go)
 
 Also below a set of blog posts explaining the benefist and underlying mechanisms this integrations:
 * [Mocking and contract-testing in your Inner Loop with Microcks - Part 1: Easy environment setup](https://medium.com/@lbroudoux/mocking-and-contract-testing-in-your-inner-loop-with-microcks-part-1-easy-environment-setup-dcd0f4355231)
