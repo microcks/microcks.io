@@ -123,4 +123,4 @@ Now that you have basic information on how to setup and use Microcks, you can go
 * Creating your definition files using [OpenAPI](/documentation/using/openapi), [AsyncAPI](/documentation/using/asyncapi), [SoapUI](/documentation/using/soapui), [Postman](/documentation/using/postman) or [GRPC](/documentation/using/grpc), 
 * Using [exposed mocks](/documentation/using/mocks) and using variables,
 * Executing your [tests on endpoints](/documentation/using/tests) where your services and API are deployed,
-* Using [advanced features]((/documentation/using/advanced)) of Microcks and admin stuff.
+* Using [advanced features](/documentation/using/advanced) of Microcks and admin stuff.
