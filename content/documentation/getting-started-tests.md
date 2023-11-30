@@ -3,7 +3,7 @@ draft: false
 title: "Getting started with Tests"
 date: 2020-10-19
 publishdate: 2020-10-19
-lastmod: 2021-11-25
+lastmod: 2023-11-30
 menu:
   docs:
     parent: using
@@ -17,7 +17,7 @@ weight: 30 #rem
 
 Now that you have finished the [Getting started](/documentation/getting-started) guide, you should have a Microcks installation up-and-running and filled with some samples from the Microcks repository. The goal of this page is to show you how you can use Microcks to achieve **Contract Testing** for your API, either manually from the UI or in an automated way using the CLI tooling.
 
-If you have not done it in the previous step, you will need to load one of Microcks samples: the **Pastry API**. For that, just create a new <b>Importer</b> with the **Pastry API** name and this URL : `https://raw.githubusercontent.com/microcks/microcks/master/samples/APIPastry-openapi.yaml` or you install the sample from the <b> Microcks Hub </b>
+If you have not done it in the previous step, you will need to load one of Microcks samples: the **Pastry API**. For that, just create a new <b>Importer</b> with the **Pastry API** name and this URL : `https://raw.githubusercontent.com/microcks/microcks/master/samples/APIPastry-openapi.yaml` or you can install the sample from the <b> Microcks Hub </b>
 
 Once loaded, Microcks will discover the **API Pastry - 2.0** in version **2.0.0**. You will be able to browse the operations/resources and associated request/response samples of this service.
 
@@ -93,7 +93,7 @@ You may already have seen it but there's a **NEW TEST...** button on the right h
 
 ![sample-test-form](/images/sample-test-form-new.png)
 
-Just copy/paste the endpoint URL where your `quarkus-api-pastry` deployment can be reached here - either the Kubernetes Ingress URL or the local docker-compose one(`http://host.docker.internal:8282`). Then select the `OPEN_API_SCHEMA` test strategy (read here for more on [tests runners](../using/tests/#test-runner)). And finally, hit the **Launch test !** button. This lead you to the following screen where you will wait for tests to run and finalize (green check marks should appear after some seconds).
+Just copy/paste the endpoint URL where your `quarkus-api-pastry` deployment can be reached here - either the Kubernetes Ingress URL or the local docker-compose one (`http://host.docker.internal:8282`). Then select the `OPEN_API_SCHEMA` test strategy (read here for more on [tests runners](../using/tests/#test-runner)). And finally, hit the **Launch test !** button. This lead you to the following screen where you will wait for tests to run and finalize (green check marks should appear after some seconds).
 
 ![sample-test-launch](/images/sample-test-launch-new.png)
 
@@ -120,7 +120,7 @@ MicrocksTester waiting for 2 seconds before checking again or exiting.
 MicrocksClient got status for test "5f8eb1a5c696bd71fcdcb6ad" - success: true, inProgress: false 
 ```
 
-> Of course, you will have to replace the test endpoint URL as well as the Microcks URL with the ones from your platform (e.g. `http://host.docker.internal:8282` for the API Pastry, `https://docker.for.mac.localhost:8080` or `https://docker.for.win.localhost:8080` for Microcks when using docker-compose)
+> Of course, you will have to replace the test endpoint URL as well as the Microcks URL with the ones from your platform (e.g. `http://host.docker.internal:8282` for the API Pastry when using docker-compose)
 
 ## What's next?
 
@@ -130,4 +130,4 @@ Now that you have basic information on how to use Microcks for mocking and testi
 * Creating your definition files using [OpenAPI](/documentation/using/openapi), [AsyncAPI](/documentation/using/asyncapi), [SoapUI](/documentation/using/soapui) or [Postman](/documentation/using/postman),
 * Using [exposed mocks](/documentation/using/mocks) and using variables,
 * Executing your [tests on endpoints](/documentation/using/tests) where your services and API are deployed,
-* Using [advanced features]((/documentation/using/advanced)) of Microcks and admin stuffs.
+* Using [advanced features](/documentation/using/advanced) of Microcks and admin stuffs.
