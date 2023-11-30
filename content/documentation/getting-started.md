@@ -3,7 +3,7 @@ draft: false
 title: "Getting started"
 date: 2019-09-01
 publishdate: 2019-09-01
-lastmod: 2023-06-21
+lastmod: 2023-11-30
 menu:
   docs:
     parent: using
@@ -87,7 +87,7 @@ After the sample APIs are installed successfully from the Microcks Hub, newly fo
 
 ### Viewing services
 
-Once sample jobs have been loaded,  new services will be discovered and added to your repository. To view these newly added services, navigate to the <b>API | Services</b> entry point accessible from the navigation bar or the home screen. Here, you can access basic information related to the version and operations/resources managed by these services.
+Once sample jobs have been loaded, new services will be discovered and added to your repository. To view these newly added services, navigate to the <b>API | Services</b> entry point accessible from the navigation bar or the home screen. Here, you can access basic information related to the version and operations/resources managed by these services.
 			
 ![sample-services](/images/sample-services-new.png)
 
@@ -100,7 +100,7 @@ Now choosing the <b>Petstore API</b> REST API, you'll be able to access the deta
 Using this URL, you can call the exposed mock for <b>Petstore API</b> using the following curl command:
 
 ```
-$ curl "curl http://localhost:8080/rest/Petstore+API/1.0/v2/pet/findByStatus?status=available&user_key=70f735676ec46351c6699c4bb767878a"
+$ curl "http://localhost:8080/rest/Petstore+API/1.0/v2/pet/findByStatus?status=available&user_key=70f735676ec46351c6699c4bb767878a"
 ```
 
 And you should receive the following response:
@@ -141,4 +141,4 @@ Now that you have basic information on how to setup and use Microcks, you can go
 * Creating your definition files using [OpenAPI](/documentation/using/openapi), [AsyncAPI](/documentation/using/asyncapi), [SoapUI](/documentation/using/soapui), [Postman](/documentation/using/postman) or [GRPC](/documentation/using/grpc), 
 * Using [exposed mocks](/documentation/using/mocks) and using variables,
 * Executing your [tests on endpoints](/documentation/using/tests) where your services and API are deployed,
-* Using [advanced features]((/documentation/using/advanced)) of Microcks and admin stuff.
+* Using [advanced features](/documentation/using/advanced) of Microcks and admin stuff.
