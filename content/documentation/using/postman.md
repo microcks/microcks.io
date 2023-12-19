@@ -3,7 +3,7 @@ draft: false
 title: "Postman usage for Microcks"
 date: 2019-09-01
 publishdate: 2019-09-01
-lastmod: 2023-02-23
+lastmod: 2023-12-19
 menu:
   docs:
     parent: using
@@ -59,7 +59,7 @@ As stated by Postman documentation :
 
 > *Developers can mock a request and response in Postman before sending the actual request or setting up a single endpoint to return the response. Establishing an example during the earliest phase of API development requires clear communication between team members, aligns their expectations, and means developers and testers can get started more quickly.*
 
-The next step is now to create a bunch of examples for each of the requests/operations of your Collection as explained by the [Postman documentation](https://www.getpostman.com/docs/postman/collections/examples). You'll give each example a meaningful name regarding the use-case it supposed to represent. Do not forget to save your example!
+The next step is now to create a bunch of examples for each of the requests/operations of your Collection as explained by the [Postman documentation](https://learning.postman.com/docs/sending-requests/examples/). You'll give each example a meaningful name regarding the use-case it supposed to represent. Do not forget to save your example!
 
 In contrary to [SoapUI usage](../soapui/#defining-dispatch-rules), you will not need defining mapping rules between sample requests and responses : example are perfectly suited for that.
 
