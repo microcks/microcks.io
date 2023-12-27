@@ -13,7 +13,7 @@ author_image: "/images/blog/bio/lbroudoux.jpeg"
 author_twitter: "lbroudoux"
 ---
 
-As we close the year, it's a good time for some housekeeping! On this occasion, I found some installation notes that could be worth transforming into proper blog posts or documentation. I went through my notes on **installing Microcks on Minikube** and decided to refresh them. It also needed to be completed  with detailed information that we usually take for granted and forget to mention - such as network and Ingress configuration.
+As we close the year, it's a good time for some housekeeping! On this occasion, I found some installation notes that could be worth transforming into proper blog posts or documentation. I went through my notes on **installing Microcks on Minikube** and decided to refresh them. It also needed to be completed with detailed information that we usually take for granted and forget to mention - such as network and Ingress configuration.
 
 ![microcks-minikube-feature](/images/blog/microcks-on-minikube-feature.png)
 
@@ -204,7 +204,7 @@ The default user/password is `admin/microcks123`
 
 In this section, we're doing a complete install of Microcks, enabling the asynchronous protcols features. This requires deploying additional pods and a Kafka cluster. Microcks install can install and manage its own cluster using the [Strimzi](https://strimizi.io) project.
 
-To be able to expose the Kafka cluster to the outside of Kind, you’ll need to enable SSL passthrough on nginx. This require updating the default ingress controller deployment:
+To be able to expose the Kafka cluster to the outside of Minikube, you’ll need to enable SSL passthrough on nginx. This require updating the default ingress controller deployment:
 
 ```sh
 $ kubectl patch -n ingress-nginx deployment/ingress-nginx-controller --type='json' \
@@ -227,7 +227,7 @@ $ cat /etc/hosts
 ::1 localhost
 ```
 
-Next, you have to install the latest version of Strimzi operator:
+You'll still need to have the `minikube tunnel` services up-and-running like in the previous section. Next, you have to install the latest version of Strimzi operator:
 
 ```sh
 $ kubectl apply -f 'https://strimzi.io/install/latest?namespace=microcks' -n microcks
