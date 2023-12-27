@@ -13,7 +13,7 @@ author_image: "/images/blog/bio/lbroudoux.jpeg"
 author_twitter: "lbroudoux"
 ---
 
-As we are closing the year, it's the goot time for some house keeping! On this occasion, I found some installation notes that could be worth transforming into proper blog posts or documentation. I went through my notes on **installing Microcks on Minikube** and decided to refresh them up. It also needed to be completed  with detailed information that we usually take for granted and forget to mention - such as network and Ingress configuration.
+As we close the year, it's a good time for some housekeeping! On this occasion, I found some installation notes that could be worth transforming into proper blog posts or documentation. I went through my notes on **installing Microcks on Minikube** and decided to refresh them. It also needed to be completed  with detailed information that we usually take for granted and forget to mention - such as network and Ingress configuration.
 
 ![microcks-minikube-feature](/images/blog/microcks-on-minikube-feature.png)
 
@@ -21,7 +21,7 @@ This installation notes were ran on my Apple Mac book M2 but those steps would s
 
 ## Preparation
 
-As a Mac user, I used [brew](https://brew.sh) to install `minikube`. However, it is also available from a number of different package managers out there. You can also check the [Getting Started](https://minikube.sigs.k8s.io/docs/start/) guide to access direct binary downloads. Obviously, you'll also need the [`kubectl`](https://kubernetes.io/docs/tasks/tools/#kubectl) utility to interact with your cluster. 
+As a Mac user, I used [brew](https://brew.sh) to install `minikube`. However, it is also available from several different package managers out there. You can also check the [Getting Started](https://minikube.sigs.k8s.io/docs/start/) guide to access direct binary downloads. Obviously, you'll also need the [`kubectl`](https://kubernetes.io/docs/tasks/tools/#kubectl) utility to interact with your cluster. 
 
 ```sh
 $ brew install minikube
@@ -42,7 +42,7 @@ $ minikube config view
 
 We're now going to start a Kube cluster. Start your `minikube` cluster with the defaults.
 
-> My default locale is french but you'll easily translate to your own language thanks to the nice emojis on beginning of lines 😉
+> My default locale is french, but you'll easily translate to your own language thanks to the nice emojis on the beginning of lines 😉
 
 ```sh
 $ minikube start
@@ -103,7 +103,7 @@ ingress-nginx-controller-b6894599f-pml9s   1/1     Running     0          26m
 
 We're now going to install Microcks with basic options. We'll do that using the Helm Chart so you'll also need the [`helm`](https://helm.sh) binary. You can use `brew install helm` on Mac for that.
 
-Then, we'll need to prepare the `/etc/hosts` file so that we’ll can access Microcks using an Ingress. Add the line containing `microcks.m.minikube.local` address. You need to declare 2 host name for both Microcks and Keycloak.
+Then, we'll need to prepare the `/etc/hosts` file to access Microcks using an Ingress. Add the line containing `microcks.m.minikube.local` address. You need to declare 2 host names for both Microcks and Keycloak.
 
 ```sh
 $ cat /etc/hosts
