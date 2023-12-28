@@ -212,7 +212,7 @@ It has been exposed using TLS passthrough on the Ingress controller, you should 
 Watch and check the pods you should get in the namespace:
 
 ```sh
-$ kc get pods -n microcks
+$ kubectl get pods -n microcks
 --- OUTPUT ---
 NAME                                              READY   STATUS    RESTARTS        AGE
 microcks-6ffcc7dc54-c9h4w                         1/1     Running   0               68s
@@ -235,7 +235,7 @@ Now connect to the Kafka broker pod to check a topic has been correctly created 
 
 
 ```sh
-$ kc -n microcks exec microcks-kafka-kafka-0 -it -- /bin/sh
+$ kubectl -n microcks exec microcks-kafka-kafka-0 -it -- /bin/sh
 --- INPUT ---
 sh-4.4$ cd bin
 sh-4.4$ ./kafka-topics.sh --bootstrap-server localhost:9092 --list
