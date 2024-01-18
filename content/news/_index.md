@@ -2,12 +2,22 @@
 title: "News about Microcks"
 layout: tweets-columns
 categories: [releases]
-lastmod: 2023-10-17
+lastmod: 2024-01-18
 ---
 
 ## Fresh Releases
 
 ### Microcks core
+
+#### 1.8.1 on 18 Jan 2024
+
+We are thrilled to start this New Year with a brand new Microcks release! Say hi to the `1.8.1` release of Microcks, the Open-source cloud-native tool for API Mocking and Testing 👏
+
+This release embeds **54 resolved issues** as we release an intermediary `1.8.1-M1` version to avoid some users waiting too much time.
+
+Check out our [release notes](https://microcks.io/blog/microcks-1.8.1-release/)!
+
+You can also check [GitHub milestone 1.8.1-M1](https://github.com/microcks/microcks/milestone/34?closed=1) and [GitHub milestone 1.8.1](https://github.com/microcks/microcks/milestone/32?closed=1) for the full list of closed issues.
 
 #### 1.8.0 on 17 Oct 2023
 
