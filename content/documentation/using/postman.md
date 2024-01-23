@@ -3,7 +3,7 @@ draft: false
 title: "Postman usage for Microcks"
 date: 2019-09-01
 publishdate: 2019-09-01
-lastmod: 2020-01-02
+lastmod: 2023-12-19
 menu:
   docs:
     parent: using
@@ -17,7 +17,7 @@ weight: 30 #rem
 
 ### Pre-requisites
 
-Microcks has been tested with latest version of Postman and uses the Collection v2 format as input artifacts holding all your API mocks and tests definitions. Version 1 of the Collection format is actually not supported because it is not extensible and it is simply not where the community is heading.
+Microcks has been tested with latest version of Postman and uses the [Collection v2 format](https://blog.postman.com/postman-essentials-exploring-the-collection-format/) as input artifacts holding all your API mocks and tests definitions. Version 1 of the Collection format is actually not supported because it is not extensible and it is simply not where the community is heading.
 
 ### Steps for creating a repository
 
@@ -26,8 +26,10 @@ In order to create a tests and mocks repository using Postman, you'll need to fo
 * Initialize a Postman collection that will hold the repository,
 * Create Examples and fill request parameters, headers and body,
 * Describe associated response in terms of status, headers and body,
-* Export the result as a JSON file using the Collection v2 format,
-* Save the collection file into your SCM repository.
+
+and then:
+* Either export the result as a JSON file using the [Collection v2 format](https://blog.postman.com/postman-essentials-exploring-the-collection-format/) before saving the file into your SCM repository.
+* Or, if you have used the [online workspace features](https://www.postman.com/product/workspaces/) of Postman, get the API Collection link that will allow Microcks to directly fetch your collection in worksapce.
 
 ### Conventions
 
@@ -57,7 +59,7 @@ As stated by Postman documentation :
 
 > *Developers can mock a request and response in Postman before sending the actual request or setting up a single endpoint to return the response. Establishing an example during the earliest phase of API development requires clear communication between team members, aligns their expectations, and means developers and testers can get started more quickly.*
 
-The next step is now to create a bunch of examples for each of the requests/operations of your Collection as explained by the [Postman documentation](https://www.getpostman.com/docs/postman/collections/examples). You'll give each example a meaningful name regarding the use-case it supposed to represent. Do not forget to save your example!
+The next step is now to create a bunch of examples for each of the requests/operations of your Collection as explained by the [Postman documentation](https://learning.postman.com/docs/sending-requests/examples/). You'll give each example a meaningful name regarding the use-case it supposed to represent. Do not forget to save your example!
 
 In contrary to [SoapUI usage](../soapui/#defining-dispatch-rules), you will not need defining mapping rules between sample requests and responses : example are perfectly suited for that.
 
@@ -88,6 +90,21 @@ This script validates that all the JSON `order` objects returned in response all
 
 ## Export Postman collection
 
-Finally, when you have defined all examples and optional test scripts on your requests, you should export your Collection as a JSON file using the Collection v2 format like shown below. Just put the result JSON file into your favorite Source Configuration Management tool for an easy integration with Microcks.
+Finally, when you have defined all examples and optional test scripts on your requests, you may export your Collection as a JSON file using the Collection v2 format like shown below. Just put the result JSON file into your favorite Source Configuration Management tool for an easy integration with Microcks.
 
 ![postman-export](/images/postman-export.png)
+
+## Retrieve Collection workspace API link
+
+Another option available since version `1.7.0` of Microcks is to directly access your Collection defined into a Postman Workspace through its Collection API link. For that, you have to go through the **Share** button and select the **Via API** thumbnail as illustrated in the picture below:
+
+![postman-share-api-link](/images/postman-share-api-link.png)
+
+You can then copy this URL (ending just before the `?`) and use it directly as an importer URL when [creating your scheduled import](http://localhost:1313/documentation/using/importers/#scheduled-import). Obviously you'll need an API Access Key so that Microcks will be able to authenticate while fetching your Collection. In order to do that, you'll need to generate an API Key from Postman workspace as illustrated below:
+
+![postman-api-keys](/images/postman-api-keys.png)
+
+This API Key must then be saved as an authentication [Secret in Microcks](/documentation/administrating/secrets/) so that your importer will be able to reference it and supply it to Postman API using the `X-API-Key` header. Here's below the definition of such a secret in Microcks:
+
+![postman-api-secret](/images/postman-api-secret.png)
+

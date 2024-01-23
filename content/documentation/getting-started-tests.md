@@ -3,7 +3,7 @@ draft: false
 title: "Getting started with Tests"
 date: 2020-10-19
 publishdate: 2020-10-19
-lastmod: 2020-10-19
+lastmod: 2023-11-30
 menu:
   docs:
     parent: using
@@ -17,17 +17,17 @@ weight: 30 #rem
 
 Now that you have finished the [Getting started](/documentation/getting-started) guide, you should have a Microcks installation up-and-running and filled with some samples from the Microcks repository. The goal of this page is to show you how you can use Microcks to achieve **Contract Testing** for your API, either manually from the UI or in an automated way using the CLI tooling.
 
-If you have not done it in the previous step, you will need to load one of Microcks samples: the **Pastry API**. For that, just create a new <b>Importer</b> with the **Pastry API** name and this URL : `https://raw.githubusercontent.com/microcks/microcks/master/samples/APIPastry-openapi.yaml`
+If you have not done it in the previous step, you will need to load one of Microcks samples: the **Pastry API**. For that, just create a new <b>Importer</b> with the **Pastry API** name and this URL : `https://raw.githubusercontent.com/microcks/microcks/master/samples/APIPastry-openapi.yaml` or you can install the sample from the <b> Microcks Hub </b>
 
 Once loaded, Microcks will discover the **API Pastry - 2.0** in version **2.0.0**. You will be able to browse the operations/resources and associated request/response samples of this service.
 
-![sample-pastry-details](/images/sample-pastry-details.png)
+![sample-pastry-details](/images/sample-pastry-details-new.png)
 
 You'll see that this sample contains a number of different features. It will illustrate:
 
 * Simple `GET` operation mocking and testing, 
 * `Path parameters` matching and testing,
-* [Content negociation](./using/advanced/#content-negocation-in-rest-mocks) matching and testing.
+* [Content negotiation](./using/advanced/#content-negocation-in-rest-mocks) matching and testing.
 
 Now that we have the sample API registered in Microcks, we can deploy an implementation of this API contract. This will be our [System Under Test](https://en.wikipedia.org/wiki/System_under_test).
 
@@ -79,8 +79,9 @@ __  ____  __  _____   ___  __ ____  ______
 2020-10-19 14:49:37,135 INFO  [io.quarkus] (main) Installed features: [cdi, resteasy, resteasy-jaxb, resteasy-jsonb]
 ```
 
-Depending on you system, the application endpoint will be reachable at `http://docker.for.mac.localhost:8282` or `http://docker.for.win.localhost:8282` or `http://localhost:8282`.
+Depending on you system and docker version, the application endpoint will be reachable at `http://docker.for.mac.localhost:8282` or `http://docker.for.win.localhost:8282` or `http://localhost:8282` from you host network. However you'll have to use `http://host.docker.internal:8282` as the test endpoint when launching a step in next step.
 
+> If you still encounter issues joining this container from Microcks main one, you may use the command `docker run -i --name pastry --network=docker-compose_default --rm -p 8282:8282 quay.io/microcks/quarkus-api-pastry:latest` to force the implementation to join the network that was created by the Microcks docker-compose. After that, you'll have to use `http://pastry:8282` as the test endpoint.
 
 ## Launching a test
 
@@ -88,17 +89,17 @@ Now that our component implementing the API is running, it's time to launch some
 
 ### From the UI
 
-You may already have seen it but there's a <b>NEW TEST...</b> button on the right hand side of the page detailing the **API Pastry** service. Hitting it leads you to the following form where you will be able to specify a target URL for the test, as well as a Runner — a testing strategy for your new launch:
+You may already have seen it but there's a **NEW TEST...** button on the right hand side of the page detailing the **API Pastry** service. Hitting it leads you to the following form where you will be able to specify a target URL for the test, as well as a Runner — a testing strategy for your new launch:
 
-![sample-test-form](/images/sample-test-form.png)
+![sample-test-form](/images/sample-test-form-new.png)
 
-Just copy/paste the endpoint URL where your `quarkus-api-pastry` deployment can be reached here - either the Kubernetes Ingress URL or the local docker-compose one. Then select the `OPEN_API_SCHEMA` test strategy (read here for more on [tests runners](../using/tests/#test-runner)). And finally, hit the **Launch test !** button. This lead you to the following screen where you will wait for tests to run and finalize (green check marks should appear after some seconds).
+Just copy/paste the endpoint URL where your `quarkus-api-pastry` deployment can be reached here - either the Kubernetes Ingress URL or the local docker-compose one (`http://host.docker.internal:8282`). Then select the `OPEN_API_SCHEMA` test strategy (read here for more on [tests runners](../using/tests/#test-runner)). And finally, hit the **Launch test !** button. This lead you to the following screen where you will wait for tests to run and finalize (green check marks should appear after some seconds).
 
-![sample-test-launch](/images/sample-test-launch.png)
+![sample-test-launch](/images/sample-test-launch-new.png)
 
-Following the **Full results** link in the above sreen will lead you to a screen where you'll have access to all the test details and request/responses content exchanged with the endpoint during the tests. Very handy for troubleshooting or comparing results on different environments!
+Following the **Full results** link in the above screen will lead you to a screen where you'll have access to all the test details and request/responses content exchanged with the endpoint during the tests. Very handy for troubleshooting or comparing results on different environments!
 
-![sample-test-result](/images/sample-test-result.png)
+![sample-test-result](/images/sample-test-result-new.png)
 
 
 ### From the CLI
@@ -119,7 +120,7 @@ MicrocksTester waiting for 2 seconds before checking again or exiting.
 MicrocksClient got status for test "5f8eb1a5c696bd71fcdcb6ad" - success: true, inProgress: false 
 ```
 
-> Of course, you will have to replace the test endpoint URL as well as the Microcks URL with the ones from your platform (e.g. `http://docker.for.mac.localhost:8282`, `http://docker.for.win.localhost:8282` for the API Pastry, `https://docker.for.mac.localhost:8080` or `https://docker.for.win.localhost:8080` for Microcks when using docker-compose)
+> Of course, you will have to replace the test endpoint URL as well as the Microcks URL with the ones from your platform (e.g. `http://host.docker.internal:8282` for the API Pastry when using docker-compose)
 
 ## What's next?
 
@@ -129,4 +130,4 @@ Now that you have basic information on how to use Microcks for mocking and testi
 * Creating your definition files using [OpenAPI](/documentation/using/openapi), [AsyncAPI](/documentation/using/asyncapi), [SoapUI](/documentation/using/soapui) or [Postman](/documentation/using/postman),
 * Using [exposed mocks](/documentation/using/mocks) and using variables,
 * Executing your [tests on endpoints](/documentation/using/tests) where your services and API are deployed,
-* Using [advanced features]((/documentation/using/advanced)) of Microcks and admin stuffs.
+* Using [advanced features](/documentation/using/advanced) of Microcks and admin stuffs.

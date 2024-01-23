@@ -7,6 +7,8 @@
 @import '_documentation-styles';
 
 @import 'docsearch.js/dist/cdn/docsearch.min';
+@import 'instantsearch.js/dist/instantsearch.min';
+@import 'instantsearch.js/dist/instantsearch-theme-algolia.min';
 @import '_carousel';
 @import '_code';
 @import '_tabs';
@@ -98,11 +100,11 @@ a.post-link:hover {
 a.header-link {
   text-decoration-line: none !important
 }
-.prose > * > a, .prose > * > * > a {
+.prose > * > a, .prose > * > * > a, .prose > * > * > * > a {
   color: #ff1745;
   text-decoration-line: none;
 }
-.prose > * > a:hover, .prose > * > * > a:hover {
+.prose > * > a:hover, .prose > * > * > a:hover, .prose > * > * > * > a:hover {
   text-decoration-line: underline;
 }
 

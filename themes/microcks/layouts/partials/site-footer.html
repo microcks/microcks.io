@@ -15,9 +15,7 @@
           <ul class="center f6 list ma0 mv4 pa0 tc">
             <li class="dib mr3"><a href="https://twitter.com/microcksIO" class="dim link light-gray pv2">@MicrocksIO</a></li>
             <li class="dib mr3"><a href="https://twitter.com/lbroudoux" class="dim link light-gray pv2">@lbroudoux</a></li>
-            <!--
-            <li class="dib"><a href="https://twitter.com/yadayac" class="dim link light-gray pv2">@YadaYac</a></li>
-            -->
+            <li class="dib mr3"><a href="https://twitter.com/yadayac" class="dim link light-gray pv2">@YadaYac</a></li>
           </ul>
 
           {{ with  getenv "REPOSITORY_URL" -}}
@@ -31,12 +29,20 @@
         {{ partial "home-page-sections/sponsors.html" (dict "cx" .  "gtag" "footer" "classes_section" "pb3 w-100" "classes_copy" "f7 w-90-ns") }}
       </div>
       --> 
+      
+      <div class="pb3 pt4 w-100 w-50-ns">
+        <div class="b f3 light-gray mb3 nested-links tc">
+          Join our <a href="https://microcksio.zulipchat.com" target="new" class="link">Zulip</a> or <a href="https://github.com/microcks/microcks/discussions" target="new" class="link">GitHub</a> community chats<br/>
+          <a href="https://microcksio.zulipchat.com" target="new"><img src="/images/zulip.png" class="center h3 br3 mt2"/></a>
+          <a href="https://github.com/microcks/microcks/discussions" target="new"><img src="/images/GitHub-Mark-Light-120px-plus.png" class="center h3 br2 mt2 pl4"/></a>
+        </div>
 
+      </div>
     </div>
 
-    <div class="f7 gray mb5 mb0-ns ph3 w-100"> 
+    <div class="f7 gray mb5 mb0-ns ph3 w-100">
       <p class="dib mr4">
-        The Microcks logos are copyright © Laurent Broudoux 2016–{{ now.Year }}. <br/>
+        The Linux Foundation® (TLF) has registered trademarks and uses trademarks. For a list of TLF trademarks, see <a class="gray" href="https://www.linuxfoundation.org/trademark-usage/">Trademark Usage</a>. <br/>
         Icons by Made x Made from the Noun Project.<br/>
       </p>
     </div>
@@ -47,9 +53,11 @@
       <img src="/images/gitter.png" class="absolute-l bottom-0 dn db-l h4 right-0 mr2 mb2 z-999"/>
     </a>
     -->
+    <!--
     <a href="https://microcksio.zulipchat.com" target="new">
       <img src="/images/zulip.png" class="absolute-l bottom-2 dn db-l h4 right-2 mr2 mb2 z-999 br4"/>
     </a>
+    -->
 
     <div class="bg-primary-color-dark bottom-0 left-0 right-0 dn-l fixed pb3 ph3 w-100">
       {{- partial "nav-mobile.html" . -}}

@@ -3,7 +3,7 @@ draft: false
 title: "Templating mock responses"
 date: 2020-02-11
 publishdate: 2020-02-11
-lastmod: 2020-02-11
+lastmod: 2022-12-27
 menu:
   docs:
     parent: using
@@ -61,8 +61,9 @@ Here we are: 1 sample definition but dynamic content generated on purpose!
 Let explain the few concepts behind Microcks templating features. These are really simple and straightforward: 
 
 * An expression should be delimited by mustaches like this: `{{ expression }}`. This pattern can be included in any textual representation of your response body content: plain text, JSON, XML, whatever... Microcks will just replace this pattern by its evaluated content or `null` if evaluation fail for any reason,
-* An expression can be a reference to a context variable. In this case, we use a `.` notation to tell which property of this variable we refer to. At time of writing, all contextual informations are attache to variable named `request` so we may use expression like `request.body` for example,
-* An expression can also be a function evaluation. In this case, we use a `()` notation to indicate the function name and its arguments. For example we use `randomString(64)` to evaluate the random string generation function with one arg being `64` (the length of the desired string).
+* An expression can be a reference to a context variable. In this case, we use a `.` notation to tell which property of this variable we refer to. Built-in contextual informations are attached to variable named `request` so we may use expression like `request.body` for example,
+* An expression can also be a function evaluation. In this case, we use a `()` notation to indicate the function name and its arguments. For example we use `randomString(64)` to evaluate the random string generation function with one arg being `64` (the length of the desired string),
+* Starting with Microcks `1.7.0`, an expression may also include `>` redirect character so that result from a first evaluation is injected as an extra argument on the next function. For example, you may use `uuid() > put(myId)`. So that result from `uuid()` function is printed out and also injected as second argument of the `put()` function so that this is will be stored within the `myId` context variable,
 
 Pretty easy. No? The rest of this page presents the reference of available variable and function expressions.
 
@@ -160,6 +161,12 @@ We can adapt the XPath expression to ignore namespaces prefix:
 | ---------- | ----------------- | ------- |
 | `request.body//*[local-name() = 'name']` | `My Personal Library` | Ignore namespaces and use local tag names |
 
+### Context expression
+
+Aside the `request` object that is automatically injected, you have access to mock-request wide context. You can inject custom variables into this context using the `SCRIPT` dispatcher through the `requestContext` object (see [the documentation](../dispatching/#script-dispatcher)) or by using the `put(myVarible)` function with redirect expression as detailed below.
+
+Variables from context can be simply used in templates using their name within the template mustaches markers like this `{{ myVarible }}`
+
 ## Function Expressions
 
 From the Microcks `1.2.0` version, we introduced notation compatibility with [Postman Dynamic variables](https://learning.postman.com/docs/writing-scripts/script-references/variables-list/). So that you can reuse your existing response expressed within Postman Collection. The only limitation being that Postman dynamic variables cannot handle arguments passing so functions will always be invoked without arguments.
@@ -167,13 +174,22 @@ From the Microcks `1.2.0` version, we introduced notation compatibility with [Po
 So basically, a function expression can be materialized with the Microcks notation `function(arg1, arg2)` **OR** the Postman notation `$function`.
 
 ### Common functions
+#### Put in context
+
+The `put()` function allows to store result into the mock-request wide context using a variable name. Result is acquired from a `>` redirect expression as the previous function invocation result. It has a mandatory argument that is the variable name used for storing into context.
+
+```js
+uuid() > put(myId) // 3a721b7f-7dc9-4c45-9777-516942b98e0d WITH this id stored in myId variable.
+// Can be reused later in template using {{ myId }}.
+```
+
 #### Date generator
 
 The `now()` function allows to generate current date. It can also be invoked using the `timestamp()` alias.
 
 Invoked with no argument, it's a simple mong timestamp since EPOCH beginning. This function can also be invoked with one argument being the pattern to use for rendering current's date as string. The Java [date and time patterns](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) are use as referenced.
 
-It can also be called with a second argument representing an amount of time to add to current date before rendering string representation. It does not support composite ammount for the moment. Think of it as a commodity for generating expiry or validity dates ;-) Here's some examples below:
+It can also be called with a second argument representing an amount of time to add to current date before rendering string representation. It does not support composite ammount for the moment. Think of it as a commodity for generating expiry or validity dates 😉 Here are some examples below:
 
 ```js
 now() // 1581425292309
@@ -214,6 +230,15 @@ The `randomString()` function simply generates a random alphanumeric string. The
 ```js
 randomString() // kYM8nSjEdLfgKOGG1dfacro2IUmuuan
 randomString(64) // VclBAQiNAybe0B5IrXjGqOChQNDFdoTguf5jWn2tqRNfptWSYFy7yxdpxoNIGOpC
+```
+
+#### Random Value generator
+
+The `randomValue()` function simply generates a random string among provided values specified as arguments. Here's some examples below:
+
+```js
+randomValue(foo, bar) // foo OR bar
+randomValue(apple, orange, grape, pear) // apple, orange, grape OR pear
 ```
 
 #### Random Boolean generator

@@ -32,7 +32,8 @@ We provide built-in parsers and importers for the following formats:
 * [Apicurio Studio](https://apicurio-studio.readme.io/docs/integrate-microcks-for-mocking-your-api) direct integration when working on OpenAPI 3.x API specifications,
 * [OpenAPI v3.x](http://spec.openapis.org/oas/v3.0.3) files in either YAML or JSON format. See our [documentation](../openapi/) on some conventions you should follow for this specification,
 * [AsyncAPI v2.x](https://www.asyncapi.com/docs/specifications/2.0.0) files in either YAML or JSON format. See our [documentation](../asyncapi/) on some conventions you should follow for this specification,
-* [gRPC / Protocol buffers v3](https://grpc.io/docs/what-is-grpc/introduction/) `.proto`files. See our [documentation](../grpc/) on some conventions you should follow for this specification.
+* [gRPC / Protocol buffers v3](https://grpc.io/docs/what-is-grpc/introduction/) `.proto` files. See our [documentation](../grpc/) on some conventions you should follow for this specification,
+* [GraphQL Schema](https://www.apollographql.com/docs/apollo-server/schema/schema/) `.graphql` files. See our [documentation](../graphql/) on some conventions you should follow for this specification.
 
 
 > People very often ask *"Why isn't the Swagger format - aka OpenApi 2.0 - supported by Microcks?"*. This is because Swagger is incomplete for specifying mocks as it does not allow full specification of examples. Sure, the Swagger spec allows you to illustrate responses with samples but it does not allow you to do so with request or request parameters (whether in path, query or headers). And if some tools - like Swagger UI - seem to compose sample requests, they're only doing this using schema information with random generated values...
@@ -61,6 +62,12 @@ So from `1.3.0`, Microcks is now able to have multiple artifacts (one `primary` 
 
 If not explicitly identified as `primary` or `secondary`, the default is to consider an imported artifact as the primary one.
 
+A typical setup with secondary artifact could allow you to test your own mocks to comply to your OAS:
+
+1. Import an OpenAPI Secification (OAS) as the main artifact
+2. Import a Postman Collection as a secondary artifact (this artifact will only contribute mocks/examples to the main artifact/spec - *Note: API name and version are the two attributes used as keys to merge primary and secondary artifacts*)
+3. Launch an `OPENAPI_SCHEMA` test on Microcks own endpoints. This allows to check that the request/responses comply to the OpenAPI schema of the OAS artifact.
+
 ## Direct upload
 
 The most simple way of adding new Services or APIs mocks to your Microcks instance is by directly uploading the artifact. From the left vertical navigation bar, just select the **Importers** menu entry and then choose `Upload`. You'll then see a dialog window allowing you to browse your filesystem and pick a new file to upload.
@@ -76,7 +83,7 @@ While this method is very convenient for a quick test, you'll have to re-import 
 ## Scheduled import
 
 Another way of adding new Services or APIs mocks is by scheduling an **Importer Job** into Microcks. Actually we see this as the best way to achieve continuous, iterative and incremental discovery of your Services and APIs mocks and tests. The principle is very simple: you save your artifact file into the Git repository of your choice (public or private) and Microcks will take care of periodically checking if changes have been applied and new mock or services definitions are present in your artifact.
- 
+
 ![artifacts-scheduling](/images/artifacts-scheduling.png)
 
 > Though we think that Git repositories (or other version control systems) are the best place to keep such artifacts, Microcks only requires a simple HTTP service. So you may store your artifact on a simple filesystem as long as it is reachable using HTTP.

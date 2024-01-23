@@ -3,7 +3,7 @@ draft: false
 title: "Installing with podman-compose"
 date: 2021-02-25
 publishdate: 2021-02-25
-lastmod: 2021-02-25
+lastmod: 2023-06-21
 menu:
   docs:
     parent: installing
@@ -12,8 +12,6 @@ menu:
 toc: true
 weight: 30 #rem
 ---
-
-# 
 
 [Podman Compose](https://github.com/containers/podman-compose) is a tool for easily testing and running multi-container applications. [Microcks](https://microcks.io/) offers a simple way to set up the minimal required containers to have a functional environment on your local computer. This procedure has been successfully tested with Podman `2.1.1` onto [Fedora 33+](https://getfedora.org/) and should be OK on [CentOS Stream 8+](https://www.centos.org/centos-stream/) and [RHEL 8+](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux) distributions too.
 
@@ -26,7 +24,7 @@ Then, in your terminal issue the following commands:
 1. Clone this repository.
 
    ```sh
-   git clone https://github.com/microcks/microcks.git
+   git clone https://github.com/microcks/microcks.git --depth 10
    ```
 
 2. Change to the install folder
@@ -39,20 +37,20 @@ Then, in your terminal issue the following commands:
 
    ```sh
    $ ./run-microcks.sh
-   Running rootless containers...
-   Discovered host IP address: 192.168.3.102
-   
+
+   On macos, need to get the userid and groupid from postman machine.
+   Assuming this machine is named 'podman-machine-default'. Change name in script otherwise.
+
    Starting Microcks using podman-compose ...
    ------------------------------------------
-   Stop it with:  podman-compose -f microcks.yml --transform_policy=identity stop
-   Re-launch it with:  podman-compose -f microcks.yml --transform_policy=identity start
-   Clean everything with:  podman-compose -f microcks.yml --transform_policy=identity down
+   Stop it with: podman-compose -f microcks.yml --podman-run-args='--userns=keep-id:uid=501,gid=1000' stop
+   Re-launch it with: podman-compose -f microcks.yml --podman-run-args='--userns=keep-id:uid=501,gid=1000' start
+   Clean everything with: podman-compose -f microcks.yml --podman-run-args='--userns=keep-id:uid=501,gid=1000' down
    ------------------------------------------
-   Go to https://localhost:8080 - first login with admin/123
+   Go to https://localhost:8080 - first login with admin/microcks123
    Having issues? Check you have changed microcks.yml to your platform
-   
-   using podman version: podman version 2.1.1
-   podman run [...]
+
+   podman-compose -f microcks.yml --podman-run-args='--userns=keep-id:uid=501,gid=1000' up -d
    ```
 
 This will start the required containers and setup a simple environment for your usage.
@@ -60,29 +58,45 @@ This will start the required containers and setup a simple environment for your 
 Open a new browser tab and point to the `http://localhost:8080` endpoint. This will redirect you to the [Keycloak](https://www.keycloak.org/) Single Sign On page for login. Use the following default credentials to login into the application:
 
 * **Username:** admin
-* **Password:** 123
+* **Password:** microcks123
 
 You will be redirected to the main dashboard page. You can now start [using Microcks](https://microcks.io/documentation/getting-started/#using-microcks).
 
-## Rootless or rootfull?
 
-While the **rootless** mode looks very appealing it does not come as a free lunch.
+### Enabling Asynchronous API features
 
-In particular, in the **rootless** mode:
+Support for Asynchronous API features of Microcks are not enabled by default. If you feel your local machine has enough resources to afford it, you can enable them using a slightly different command line.
 
-* containers have no IP address and no DNS aliases
-* port redirection is done in userspace (**rootfull** mode uses `iptables` which is faster)
-* the overlay storage is done in userspace with `fuse` (which is slower than the traditional `overlayfs` mount)
+In your terminal use the following command instead:
 
-So, unless you need high performances or a specific network setup, you can use the **rootless** mode.
+   ```sh
+   $ ./run-microcks.sh async
 
-For the Podman support in Microcks, we aim to support both **rootless** and **rootfull** mode.
+   On macos, need to get the userid and groupid from postman machine.
+   Assuming this machine is named 'podman-machine-default'. Change name in script otherwise.
 
-If you'd like to give a try to the **rootfull** mode, you'll have to enable the `dnsalias` plugin in the default `podman` network:
+   Starting Microcks using podman-compose ...
+   ------------------------------------------
+   Stop it with: podman-compose -f microcks.yml -f microcks-template-async-addon.yml --podman-run-args='--userns=keep-id:uid=501,gid=1000' stop
+   Re-launch it with: podman-compose -f microcks.yml -f microcks-template-async-addon.yml --podman-run-args='--userns=keep-id:uid=501,gid=1000' start
+   Clean everything with: podman-compose -f microcks.yml -f microcks-template-async-addon.yml --podman-run-args='--userns=keep-id:uid=501,gid=1000' down
+   ------------------------------------------
+   Go to https://localhost:8080 - first login with admin/microcks123
+   Having issues? Check you have changed microcks.yml to your platform
 
-```sh
-sudo podman network rm podman
-sudo podman network create --subnet 10.88.0.0/16 podman
-```
+   podman-compose -f microcks.yml -f microcks-template-async-addon.yml --podman-run-args='--userns=keep-id:uid=501,gid=1000' up -d
+   ```
 
-Once done you just need to run the same `run-microcks.sh` script with `sudo`.
+Podman compose is now launching additional containers, namely `zookeeper`, `kafka` and the `microcks-async-minion`.
+
+You may want to check our [blog post](../../../blog/async-features-with-docker-compose) for a detailed walkthrough on starting Async features on docker-compose (Podman compose is very similar).
+
+### Un-authenticated mode
+
+A "keycloakless" version of docker compose is available thanks to: 
+
+   ```sh
+   $ ./run-microcks.sh dev
+   ```
+
+This configuration enabled Asynchronous API features in a very lightweight mode using [Red Panda broker](https://redpanda.com/) instead of full-blown Apache Kafka distribution.

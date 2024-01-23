@@ -13,7 +13,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
      {{/* NOTE: the Site's title, and if there is a page title, that is set too */}}
-    <title>{{ block "title" . }}{{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}{{ end }}</title>
+    <title>{{ block "title" . }} {{ if eq .Title .Site.Title }} API Mocking and Testing {{ else }}{{ .Title }}{{ end }} | {{ .Site.Title }}{{ end }}</title>
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
      {{ hugo.Generator }}
@@ -42,12 +42,14 @@
       {{- partial "head-additions.html" . -}}
       {{- template "_internal/opengraph.html" . -}}
       {{ if .Params.image }}
-      <meta name="og:image" content="{{ .Params.image | absURL }}"></meta>
+      <meta name="og:image" content="{{ .Params.image | absURL }}"/>
+      <meta property="og:image" content="{{ .Params.image | absURL }}"/>
       {{ end }}
       {{- template "_internal/schema.html" . -}}
       {{- template "_internal/twitter_cards.html" . -}}
       {{ if .Params.image }}
-      <meta name="twitter:image" content="{{ .Params.image | absURL }}"></meta>
+      <meta name="twitter:image" content="{{ .Params.image | absURL }}"/>
+      <meta property="twitter:image" content="{{ .Params.image | absURL }}"/>
       {{ end }}
 
       {{ if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production")  }}

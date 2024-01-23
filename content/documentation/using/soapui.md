@@ -1,9 +1,9 @@
 ---
 draft: false
-title: "SoapUI usage for Microcks"
+title: "SoapUI Mocking and Testing"
 date: 2019-09-01
 publishdate: 2019-09-01
-lastmod: 2019-09-02
+lastmod: 2023-02-23
 menu:
   docs:
     parent: using
@@ -17,7 +17,7 @@ weight: 30 #rem
 
 ### Pre-requisites
 
-Microcks has been developped and tested with SoapUI version 5.x. It is recommend that you use a compatible version of this tool for editing your tests and mocks repository.
+Microcks has been developed and tested with SoapUI version 5.x. It is recommend that you use a compatible version of this tool for editing your tests and mocks repository.
 
 ### Steps for creating a repository
 
@@ -35,7 +35,7 @@ In order to be correctly imported and understood by Microcks, your SoapUI projec
 
 * Your SoapUI project may contain one or more Service definitions. However, because it's a best practice to consider each Service or API as an autonomous and isolated software asset, we'd recommend managing only one Service definition per SoapUI project,
 * Your SoapUI Mock Service should define a custom property named `version` that allows tracking of Service(s) version. It is a good practice to change this version identifier for each Service or API interface versioned changes,
-* The name of Tests Requests should be something like `"<sample_id&> Request"`. For example: `"Karla Request"`,
+* The name of Tests Requests should be something like `"<sample_id> Request"`. For example: `"Karla Request"`,
 * The name of Mock Responses should be something like `"<sample_id> Response"`. For example: `"Karla Response"`,
 * The name of matching rules should be something like `"<sample_id>"`. For example: `"Karla"`,
 
@@ -67,20 +67,25 @@ Mock Responses you will need to define later will be defined through a *SoapUI S
 
 ![soapui-create-servicemock](/images/soapui-create-servicemock.png)
 
-You will now be able to create as many *Responses* attached to *Operation* as you've got samples requests defined in previously created *TestSteps*. As introduced into the naming conventions, your responses must have the same `"&lt;sample_id&gt;` radix that the associated requests so that Microcks will be later able to associate them.
+You will now be able to create as many *Responses* attached to *Operation* as you've got samples requests defined in previously created *TestSteps*. As introduced into the naming conventions, your responses must have the same `"<sample_id>` radix that the associated requests so that Microcks will be later able to associate them.
 
 ![soapui-mockresponse](/images/soapui-mockresponse.png)
 
 The screenshot above shows a Mock response corresponding to the `Andrew Request`. It is simply code `Andrew Response`. Note that you are free to setup any HTTP Header you want for responses, Microcks will reuse them later to issue real headers in responses.
 
+> Note that you can use [templating notation](/documentation/using/advanced/templates) into your SOAP responses for better/smarter/more dynamic responses. It brings specific features for XML like [XPath expressions](/documentation/using/advanced/templates/#xml-body-xpath-expression) or [context expressions](/documentation/using/advanced/templates/#context-expression) you may have initialized using a [`SCRIPT` dispatcher](/documentation/using/advanced/dispatching/#script-dispatcher).
+
+> Note also that for compatibility purpose, Microcks supports the SoapUI expression notation: SoapUI `${ }` notation will be translated into Microcks double-mustaches notation `{{ }}` internally. You may also of course directly use our `{{ }}` notation though 😉
+
 ## Defining dispatch rules
 
-Latest step is now to define a technical mean for Microcks to analyse an incoming requests and find out the corresponding response to return. This is done in Microcks via the concept of **Dispatcher** that represent a dispatch strategy and **Dispatcher Rules** that represent the dispatching parameters. Microcks supports 2 strategies for dispatching SOAP requests:
+Latest step is now to define a technical mean for Microcks to analyse an incoming requests and find out the corresponding response to return. This is done in Microcks via the concept of **Dispatcher** that represent a dispatch strategy and **Dispatcher Rules** that represent the dispatching parameters. Microcks supports 3 strategies for dispatching SOAP requests:
 
 * Via the analysis of SOAP request payload through XPath,
-* Via the evaluation of a Groovy script.
+* Via the evaluation of a Groovy script,
+* Via the random dispatching strategy.
 
-These two strategies have equivalent in SoapUI via Dispatch configuration on each Operation of your Mock Service.
+These three strategies have equivalent in SoapUI via Dispatch configuration on each Operation of your Mock Service.
 
 ### Using XPath expression
 

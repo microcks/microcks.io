@@ -6,9 +6,9 @@
   tagline: "Prototype fast, succeed or fail fast"
   copy: "Experiment with new APIs using the Backend as a Service feature, play and iterate before creating your API contract."
   image_path: /images/noun_science_experiment.svg
-- heading: "REST, SOAP and Events"
+- heading: "REST, SOAP, gRPC, GraphQL and Events"
   tagline: "One tool for all your APIs, events and WS"
-  copy: "Sure we do love REST APIs but event-driven APIs are up and coming and we also have a bunch of legacy Web-Services. Why not apply the same practices? We support all of them!"
+  copy: "Sure we do love REST APIs but gRPC, GraphQL and event-driven APIs are up and coming and we also have a bunch of legacy Web-Services. Why not apply the same practices? We support all of them!"
   image_path: /images/noun_exchanges.svg
 - heading: "Continuous Integration"
   tagline: "Mock and test continuously"

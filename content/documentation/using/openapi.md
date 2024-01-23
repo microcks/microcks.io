@@ -1,9 +1,9 @@
 ---
 draft: false
-title: "OpenAPI usage for Microcks"
+title: "OpenAPI Mocking and Testing"
 date: 2019-09-01
 publishdate: 2019-09-01
-lastmod: 2020-08-04
+lastmod: 2022-02-23
 menu:
   docs:
     parent: using
@@ -98,7 +98,7 @@ requestBody:
 
 ### Specifying response payload
 
-  Response payload is used within our `laurent_cars` sample. It is defined under the `Http status` of the specification as you may find starting on [line 40](https://github.com/microcks/microcks/blob/master/webapp/src/test/resources/io/github/microcks/util/openapi/cars-openapi.yaml#L40). Response payload may refer to OpenAPI schema definitions like in the snippet below:
+Response payload is used within our `laurent_cars` sample. It is defined under the `Http status` of the specification as you may find starting on [line 40](https://github.com/microcks/microcks/blob/master/webapp/src/test/resources/io/github/microcks/util/openapi/cars-openapi.yaml#L40). Response payload may refer to OpenAPI schema definitions like in the snippet below:
 
 ```yaml
 responses:

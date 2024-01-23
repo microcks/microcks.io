@@ -1,9 +1,9 @@
 ---
 draft: false
-title: "AsyncAPI usage for Microcks"
+title: "AsyncAPI Mocking and Testing"
 date: 2020-08-01
 publishdate: 2020-08-05
-lastmod: 2021-06-31
+lastmod: 2023-06-07
 menu:
   docs:
     parent: using
@@ -25,7 +25,7 @@ Starting with Microcks version `1.0.0`, Microcks is now able to import AsyncAPI 
 
 AsyncAPI specification dissociates the concern of message description (through payload and headers schemas) from the concern of servers and protocol bindings. A same API may have different bindings allowing to specify protocol specific issues like queue or topic naming, serialization format and so on.
 
-> At the time of `1.3.0` release, Microcks supports the `KAFKA`, the `MQTT` and the `WS` (for WebSocket) bindings. When setting up Microcks, you may have the choice deploying a new Kafka broker as part of the Microcks installation or reusing an existing broker.
+> At the time of `1.7.1` release, Microcks supports the `KAFKA`, the `MQTT`, the `WS` (for WebSocket), the `AMQP`, the `NATS`, the `GOOGLEPUBSUB`, the `SQS` and the `SNS` bindings. When setting up Microcks, you have the choice deploying a new Kafka broker as part of the Microcks installation or reusing an existing broker. Any other broker type must be provisioned independantly.
 
 For each version of an API managed by Microcks, it will create appropriate destination for **operations** in mixing specification elements, protocol binding specifics and versioning issues. Destination managed by Microcks are then referenced within the API details page.
 
@@ -68,7 +68,7 @@ Examples will be an array of example objects, starting with a **key** that Micro
 
 #### Payload 
 
-##### Using AsyncAPI 2.1.0
+##### Using AsyncAPI 2.1.0 and more recent versions
 
 Payload is expressed into the mandatory `payload` attribute, directly in YAML or by embedding JSON. In our illustration, we will define below 2 examples with straightforward summary:
 
@@ -112,7 +112,7 @@ examples:
 
 #### Headers
 
-##### Using AsyncAPI 2.1.0
+##### Using AsyncAPI 2.1.0 and more recent versions
 
 Headers are expressed into the optional `headers` attribute, directly in YAML or by embedding JSON. In our illustration, we will define below 2 examples using both methods:
 
@@ -153,7 +153,7 @@ Using the above `User signed-up API` example, you should get the following resul
 
 ## Using AsyncAPI extensions
 
-Starting with version `1.4.0`, Microcks proposes custom AsyncAPI extensions to specify mocks organizational or behavioral elements that cannot be deduced directly from AsyncAPI document.
+Microcks proposes custom AsyncAPI extensions to specify mocks organizational or behavioral elements that cannot be deduced directly from AsyncAPI document.
 
 At the `info` level of your AsyncAPI document, you can add labels specifications that will be used in [organizing the Microcks repository](../advanced/organizing). See below illustration and the use of `x-microcks` extension:
 
