@@ -18,7 +18,11 @@ With the recent Microcks `1.8.1` version, there’s an abundance of exciting enh
 ![microcks-feature](/images/blog/cnam-extend-microcks-with-custom-libs-feature.png)
 
 
-Defining and helping to ship this feature was the first contribution [the CNAM](https://assurance-maladie.ameli.fr/qui-sommes-nous) - the French National Healthcare System - initiated with the Microcks community. **As adopters with a huge patrimony of mocks, we needed a way to customize some behaviors in a very scalable way.** Collaborating with the Microcks maintainers was an enriching experience that led to this post and a second one that will unveil more details on how we use the solution.
+Defining and helping to ship this feature was the first contribution [the CNAM](https://assurance-maladie.ameli.fr/qui-sommes-nous) - the French National Healthcare System - initiated with the Microcks community. 
+
+> As adopters with **a huge patrimony of mocks**, we needed a way to **customize some behaviors in a very scalable way.** 
+
+Collaborating with the Microcks maintainers was an enriching experience that led to this post and a second one that will unveil more details on how we use the solution.
 
 This post is written as a walkthrough, to expose Microcks extension capabilities and demonstrate them using some samples. By the end of this tour, you should be able to apply your customizations and figure out the possibilities it offers. We will also share some thoughts on whether engaging with structural customizations may be appropriate (or not). 
 
