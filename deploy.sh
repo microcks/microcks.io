@@ -24,8 +24,3 @@ git commit -m "$msg"
 
 # Push source and build repos.
 git push origin master
-
-# Update Algolio search index
-printf "\033[0;32mUpdating Algolia search index...\033[0m\n"
-
-npm install && npm run algolia  

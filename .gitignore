@@ -1,5 +1,6 @@
 algolia.env
-thmes/microcks/node_modules
+resources
+themes/microcks/node_modules
 node_modules
 .DS_Store
 *.log

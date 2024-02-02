@@ -74,8 +74,8 @@ crisp_website_id = "9aa449e1-9999-422a-938f-8567982eec6d" # replace this code wi
 
 # seo meta data for OpenGraph / Twitter Card
 [metadata]
-keywords = ["Hugo", "Themefisher", "Gethugothemes"]
-description = "This is meta description"
+keywords = ["Microcks", "open source", "API", "microservices", "OpenAPI", "AsyncAPI", "GraphQL", "gRPC", "Kafka", "mocking", "testing"]
+description = "Microcks is Open Source cloud-native tool for API Mocking and Testing"
 author = "Microcks"
 image = "images/microcks-logo-blue-name.png" # this image will be used as fallback if a page has no image of its own
 
