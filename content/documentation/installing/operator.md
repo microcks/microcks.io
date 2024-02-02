@@ -1,16 +1,10 @@
 ---
 draft: false
-title: "Installing on Kube using Operator"
+title: "On Kube using Operator"
 date: 2020-02-11
 publishdate: 2020-02-11
 lastmod: 2021-04-28
-menu:
-  docs:
-    parent: installing
-    name: Installing on Kube using Operator
-    weight: 20
-toc: true
-weight: 20 #rem
+weight: 2
 ---
 
 ## Overview 

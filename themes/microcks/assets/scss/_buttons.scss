@@ -1,0 +1,90 @@
+/* Button style */
+.btn {
+  font-size: 1em;
+  font-family: $font-secondary;
+  font-weight: 500;
+  padding: 1.1em 1.8em;
+  line-height: 1;
+  border-radius: 24px;
+  border: 2px solid;
+  transition: 0.3s ease;
+
+  &-sm {
+    padding: 15px 25px;
+    font-size: 14px;
+  }
+
+  &:hover,
+  &:active,
+  &.active,
+  &:focus,
+  &.focus {
+    outline: 0;
+    @extend .shadow;
+    background: darken($color-primary, 5) !important;
+    border-color: darken($color-primary, 5) !important;
+  }
+}
+
+.btn-primary {
+  background: $color-primary;
+  color: $white;
+  border-color: $color-primary;
+}
+
+.btn-outline-primary {
+  color: $color-primary;
+  border-color: $color-primary;
+}
+
+.btn-secondary {
+  background: $color-secondary;
+  color: $white;
+  border-color: $color-secondary;
+  &:hover,
+  &:active,
+  &.active,
+  &:focus,
+  &.focus {
+    background: darken($color-secondary, 5) !important;
+    border-color: darken($color-secondary, 5) !important;
+  }
+}
+
+.btn-outline-secondary {
+  color: $color-secondary;
+  border-color: $color-secondary;
+  &:hover,
+  &:active,
+  &.active,
+  &:focus,
+  &.focus {
+    background: $color-secondary !important;
+    border-color: $color-secondary !important;
+  }
+}
+
+.btn-link {
+  color: $color-primary;
+  text-decoration: none;
+
+  i,
+  svg {
+    font-size: 12px;
+    margin-left: 5px;
+    margin-bottom: 1px;
+    transition: 0.2s ease;
+  }
+
+  &:active,
+  &:hover,
+  &.focus,
+  &.active {
+    color: $color-primary;
+
+    i,
+    svg {
+      margin-left: 10px;
+    }
+  }
+}

@@ -1,23 +1,18 @@
 ---
-draft: false
 title: Podman Compose support in Microcks 
-layout: post
 date: 2021-02-25
-publishdate: 2021-02-26
-lastmod: 2021-02-26
-image: "/images/blog/podman-compose-support.png"
-categories: [blog]
-author: "Nicolas Massé"
-author_title: "Open Source geek"
-author_image: "/images/blog/bio/nmasse_itix.jpeg"
-author_twitter: "nmasse_itix"
+image: "images/blog/podman-compose-support.png"
+author: "Nicolas Masse"
+type: "regular"
+description: "Podman Compose support in Microcks"
+draft: false
 ---
 
 While [Docker](https://docker.io) is still the #1 option for software packaging and installation on the developer laptop, [Podman](https://podman.io) is gaining traction. Podman advertises itself as a drop-in replacement for Docker. Just put `alias podman=docker` and you would be good to go, they said 😉
 
 Whilst the reality is a bit more nuanced, we made the necessary adjustment to make it as simple. Today it is a pleasure to contribute back this adaptation to the Microcks community! It will allow Podman early and happy adopters - like me - to run Microcks on their laptop in the safest way.
 
-![microcks-avro-mqtt](/images/blog/podman-compose-support.png)
+{{< image src="images/blog/podman-compose-support.png" alt="image" zoomable="true" >}}
 
 > Starting as of version `1.2.0` of Microcks, we thus announce the Podman Compose support for quickly getting started with Microcks on your laptop. We still recommend using Kubernetes ☸️ for serious use-cases 😉
 

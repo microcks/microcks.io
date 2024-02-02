@@ -1,15 +1,11 @@
 ---
 title: Apache Kafka Mocking and Testing
-layout: post
 date: 2020-11-17
-publishdate: 2020-11-17
-lastmod: 2020-11-17
-image: "/images/blog/apache-kafka-mocking-testing-testing.png"
-categories: [blog]
+image: "images/blog/apache-kafka-mocking-testing-testing.png"
 author: "Laurent Broudoux"
-author_title: "MicrocksIO founder"
-author_image: "/images/blog/bio/lbroudoux.jpeg"
-author_twitter: "lbroudoux"
+type: "regular"
+description: "Apache Kafka Mocking and Testing"
+draft: false
 ---
 
 We see [Apache Kafka](https://kafka.apache.org/) being more and more commonly used as an event backbone in new organizations everyday. This is irrefutable. And while there are challenges adopting new frameworks and paradigms for the apps using Kafka, there is also a critical need to govern events and speed-up delivery. To improve time-to-market, organizations need to be able to develop without waiting for the whole system to be up and running ; and they will need to validate that the components talking with Kafka will send or receive correct messages.
@@ -19,7 +15,7 @@ That’s exactly what Microcks is sorting out for Kafka event-based APIs! For th
 
 ## Mocking Kafka endpoint
 
-![apache-kafka-mocking-testing-mocking](/images/blog/apache-kafka-mocking-testing-mocking.png)
+{{< image src="images/blog/apache-kafka-mocking-testing-mocking.png" alt="image" zoomable="true" >}}
 
 Let’s start with mocking on Kafka. This first mocking part was already introduced with [release 1.0.0](https://microcks.io/blog/microcks-1.0.0-release/) but that is worth mentioning so that you’ll have the full picture 😉 When importing your AsyncAPI specification into Microcks, you end up with a new API definition within your API catalogs. This is the overview of an `Event` typed API.
 
@@ -29,7 +25,7 @@ When using the Kafka capabilities of Microcks for the protocol binding of this A
 * The Kafka broker / endpoint Microcks is connected to. Microcks can have its own broker that is deployed alongside or reuse an existing one,
 * The Kafka topic that is used by Microcks for publishing sample messages.
 
-![apache-kafka-mocking-testing-api](/images/blog/apache-kafka-mocking-testing-api.png)
+{{< image src="images/blog/apache-kafka-mocking-testing-api.png" alt="image" zoomable="true" >}}
 
 > Just import your AsyncAPI specification and you’ll have incoming sample messages on the specified topic for the configured Kafka broker! Without writing a single line of code! You can then immediately start developing an app that will consume these messages.
 
@@ -90,7 +86,7 @@ The new thing in the Microcks release `1.1.0` is the little green-and-red bar ch
 
 ## Testing Kafka endpoints
 
-![apache-kafka-mocking-testing-testing](/images/blog/apache-kafka-mocking-testing-testing.png)
+{{< image src="images/blog/apache-kafka-mocking-testing-testing.png" alt="image" zoomable="true" >}}
 
 In Microcks, testing Kafka endpoints means: connecting to a remote Kafka topic on an existing broker in the organisation, listening for incoming messages for a certain amount of time and checking that received messages are valid regarding the event-based API schema.
 
@@ -98,13 +94,13 @@ For defining such a test, you will need to specify:
 * The Test Endpoint that is expressed using this simple form: `kafka://host[:port]/topic`
 * A waiting timeout and an optional `Secret` that will handle all the credentials information to connect to a remote broker (think of user/password or certificates). Such `Secrets` are managed by administrators and users just reference them at test launch.
 
-![apache-kafka-mocking-testing-test](/images/blog/apache-kafka-mocking-testing-test.png)
+{{< image src="images/blog/apache-kafka-mocking-testing-test.png" alt="image" zoomable="true" >}}
 
 > In 1.1.0 release we only deal with JSON Schema describing message payload but we plan to include [Avro Schema](http://avro.apache.org/docs/current/spec.html) support in next releases. For more details, see the [Test Runner](https://microcks.io/documentation/using/tests/#test-runner) documentation.
 
 Microcks is able to launch tests asynchronously, to collect and store results and then give a restitution of the test results as well as the received messages. See the failed test below: received message triggered a validation error because the `sendAt` property was not of the expected type.
 
-![apache-kafka-mocking-testing-result](/images/blog/apache-kafka-mocking-testing-result.png)
+{{< image src="images/blog/apache-kafka-mocking-testing-result.png" alt="image" zoomable="true" >}}
 
 > Even if it may be handy to launch tests manually for diagnostic or evaluation purposes, we recommend triggering tests automatically from your CI/CD pipeline. Microcks provides a [CLI](https://microcks.io/documentation/automating/cli/) and some other options for that.
 

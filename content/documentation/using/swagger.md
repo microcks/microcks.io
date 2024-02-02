@@ -4,13 +4,7 @@ title: "Swagger Mocking and Testing"
 date: 2022-04-06
 publishdate: 2022-04-06
 lastmod: 2022-04-06
-menu:
-  docs:
-    parent: using
-    name: Swagger usage for Microcks
-    weight: 21
-toc: true
-weight: 30 #rem
+weight: 6
 ---
 
 ## Overview
@@ -74,17 +68,17 @@ Specification of examples is done using a Postman Collection as examples cannot 
 
 Using Postman, just create a new Collection - using the same name as Swagger API and adding the custom property `version` at the beginning of description like illustrated below:
 
-![swagger-postman-collection](/images/swagger-postman-collection.png)
+{{< image src="images/swagger-postman-collection.png" alt="image" zoomable="true" >}}
 
 You can now start organizing and creating requests those verb and url are matching with the Swagger API operation path and verbs. For our example, we're specifying the three operations: `GET /beer`, `GET /beer/{name}` and `GET /beer/findByStatus/{status}`.
 
-![swagger-postman-request](/images/swagger-postman-request.png)
+{{< image src="images/swagger-postman-request.png" alt="image" zoomable="true" >}}
 
 > Note in the example above that Microcks doesn't care on Postman request name but checks the verb and the url. Here we define request and attached examples for the Swagger `GET /beer/{name}` operation. The ehcked parts are the verb (`GET` here) and the url (`/beer/:name` is equivalent to `/beer/{name}` path).
 
 You may then define different examples for each request. Below is a basic example but [Templating expressions and functions](../advanced/templates/) are obviously supported:
 
-![swagger-postman-example](/images/swagger-postman-example.png)
+{{< image src="images/swagger-postman-example.png" alt="image" zoomable="true" >}}
 
 ### Importing artifacts
 

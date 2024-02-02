@@ -1,0 +1,91 @@
+{{define "main"}}
+
+<section class="section pb-0">
+  <div class="container text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 mx-auto">
+          <h1 class="h2 mb-3">{{ .Title | markdownify }}</h1>
+          {{ with .Params.description }}
+          <p class="mb-0 fw-500">{{ . | markdownify }}</p>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="row gx-6 justify-content-center">
+      <div class="col-lg-8 col-md-10">
+        <div class="pe-0 pe-lg-5">
+          <div class="content">
+            {{.Content}}
+          </div>
+
+					<a href="javascript:document.getElementById('name').focus()" class="btn btn-primary mt-5">{{i18n `apply_now`}}</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-10 mt-5 mt-lg-0">
+				<div id="career_form" class="sidebar-widget bg-white rounded-2 shadow">
+					<form action="{{site.Params.career_form_action}}" name="career_form" method="POST" data-netlify="true" enctype="multipart/form-data">
+						<div class="form-group mb-3">
+							<label class="mb-1" for="name">{{i18n `fname`}} <span class="text-danger">*</span></label>
+							<input class="form-control rounded-sm text-dark shadow-none" id="name" type="text" placeholder="{{i18n `fname`}}" required>
+						</div>
+						<div class="form-group mb-3">
+							<label class="mb-1" for="last-name">{{i18n `lname`}} <span class="text-danger">*</span></label>
+							<input class="form-control rounded-sm text-dark shadow-none" id="last-name" type="text" placeholder="{{i18n `lname`}}" required>
+						</div>
+						<div class="form-group mb-3">
+							<label class="mb-1" for="email">{{i18n `email`}} <span class="text-danger">*</span></label>
+							<input class="form-control rounded-sm text-dark shadow-none" id="email" type="email" placeholder="{{i18n `email`}}" required>
+						</div>
+						<div class="form-group mb-3">
+							<label class="mb-1" for="cv">{{i18n `upload_cv`}} <span class="text-danger">*</span></label>
+							<input class="text-dark my-1 w-100" type="file" name="cv" id="cv" required>
+							<small class="d-block">{{i18n `cv_note`}}</small>
+						</div>
+	
+						<button class="btn btn-sm btn-primary w-100" type="submit" aria-label="{{i18n `apply_now`}}">{{i18n `apply_now`}}</button>
+					</form>
+					
+					<div class="share-this-post d-flex flex-wrap align-items-center rounded-2 mt-4">
+						<span class="m-1 me-2 mt-0 text-dark fw-500">{{i18n `share_this_job`}}</span>
+						<ul class="m-1 mt-0 list-inline d-inline-block">
+							{{ $url := printf "%s" .RelPermalink | absLangURL }}
+							<li class="list-inline-item">
+								<a class="text-dark p-1" href="https://facebook.com/sharer/sharer.php?u={{ $url }}"><i class="fab fa-facebook-f"></i></a>
+							</li>
+							<li class="list-inline-item">
+								<a class="text-dark p-1" href="https://twitter.com/intent/tweet/?text={{ .Title }}&amp;url={{ $url }}"><i class="fab fa-twitter"></i></a>
+							</li>
+							<li class="list-inline-item">
+								<a class="text-dark p-1" href="mailto:?subject={{ .Title }}&amp;body={{ $url }}"><i class="fas fa-envelope"></i></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				
+				<div class="sidebar-widget bg-white rounded-2 shadow">
+					<h4 class="mb-3 h5">{{i18n `other_jobs`}}</h4>
+					{{ range first 4 (where site.RegularPages "Section" "career") }}
+          <a href="{{.RelPermalink}}" class="p-4 rounded-2 is-hoverable border mb-3 text-reset d-block">
+            <p class="text-dark fw-bold mb-1">{{.Title | markdownify}}</p>
+            <p class="mb-0"><span>{{.Params.job_nature | markdownify}}</span> | {{.Params.category | markdownify}}</p>
+          </a>
+					{{end}}
+
+					<div class="text-center mt-4">
+            <a href="{{`career` | relLangURL}}/" class="btn btn-sm btn-outline-primary ">
+              {{i18n `view_all_positions`}}
+            </a>
+          </div>
+				</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{end}}

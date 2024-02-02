@@ -1,21 +1,16 @@
 ---
-draft: false
 title: Microcks' Backstage integration to centralize all your APIs in a software catalog 🧩
-layout: post
 date: 2023-05-12
-publishdate: 2023-05-12
-lastmod: 2023-05-12
-image: "/images/blog/backstage-integration-feature.png"
-categories: [blog]
+image: "images/blog/backstage-integration-feature.png"
 author: "Laurent Broudoux"
-author_title: "MicrocksIO founder"
-author_image: "/images/blog/bio/lbroudoux.jpeg"
-author_twitter: "lbroudoux"
+type: "regular"
+description: "Microcks' Backstage integration to centralize all your APIs in a software catalog 🧩"
+draft: false
 ---
 
 Identifying and managing software assets has always been a challenge! It became more and more difficult these years with the blast of multi-cloud deployments and practices like microservices. Fortunately, [Backstage](https://backstage.io/) comes to the rescue and tends to become a standard for developer portals. Today, we are excited to announce an **integration between Microcks and Backstage** to ease the management of API related assets.
 
-![backstage-integration-feature](/images/blog/backstage-integration-feature.png)
+{{< image src="images/blog/backstage-integration-feature.png" alt="image" zoomable="true" >}}
 
 Contributed to the [CNCF](https://www.cncf.io/) by Spotify, Backstage is, according to their website: 
 > _“an open platform for building developer portals. Powered by a centralized software catalog, Backstage restores order to your microservices and infrastructure and enables your product teams to ship high-quality code quickly — without compromising autonomy.”_
@@ -31,11 +26,11 @@ In Backstage, an `API` is somewhat very minimalistic and needs a specific metada
 
 Hence, the Microcks plugin for Backstage is in charge of connecting to one or many Microcks instances, discovering APIs and synchronizing them into the Backstage catalog. The capture below illustrates how APIs from Microcks are synchronized into Backstage.
 
-![Discovery and import of APIs](/images/blog/backstage-interation-discovery-and-import.png "Discovery and import of APIs")
+{{< image src="images/blog/backstage-interation-discovery-and-import.png" alt="Discovery and import of APIs" zoomable="true" >}}
 
 Metadata on an API is very lightweight in Backstage. As it turns out to be used as a developer portal, some additional information may be of interest! Basic information like specification contracts and organizational classifiers are obviously synchronized but we also add useful links so that developers can easily access the mock sandbox of the API as well as its conformance test results. 
 
-![API properties mapping](/images/blog/backstage-interation-api-properties-mapping.png "API properties mapping")
+{{< image src="images/blog/backstage-interation-api-properties-mapping.png" alt="API properties mapping" zoomable="true" >}}
 
 This is the first release and integration: a Discovery oriented plugin, but Backstage offers many more capabilities. [Let us know](https://github.com/microcks/microcks-backstage-provider/issues) what you’d like to see in the future!
 
@@ -44,7 +39,7 @@ This is the first release and integration: a Discovery oriented plugin, but Back
 
 Nothing is easier! Well, sort of… 😉 First, you can find the Microcks plugin in the list of [available plugins](https://backstage.io/plugins) on the Backstage website as shown below:
 
-![Backstage plugins](/images/blog/backstage-integration-plugins.png "Backstage plugins")
+{{< image src="images/blog/backstage-integration-plugins.png" alt="Backstage plugins" zoomable="true" >}}
 
 Then you can visit our [GitHub repository](https://github.com/microcks/microcks-backstage-provider) to get access to full documentation and setup instructions. For those of you who already played with Backstage plugins, you’ll see that we stick with standards.
 

@@ -1,16 +1,10 @@
 ---
 draft: false
-title: "Installing on Kube using Helm"
+title: "On Kube using Helm"
 date: 2019-09-01
 publishdate: 2019-09-01
 lastmod: 2023-06-22
-menu:
-  docs:
-    parent: installing
-    name: Installing on Kube using Helm
-    weight: 10
-toc: true
-weight: 10 #rem
+weight: 1
 ---
 
 ## Instructions
@@ -36,7 +30,7 @@ $ helm install microcks microcks/microcks --version 1.7.1 --namespace microcks -
 
 After some minutes and components have been deployed, you should end up with a Spring-boot Pod, a MongoDB Pod, a Postman-runtime Pod, a Keycloak Pod and a PostgreSQL Pod like in the screenshot below.
 
-<img src="/images/running-pods-k8s.png" class="img-responsive"/>
+{{< image src="images/running-pods-k8s.png" alt="image" zoomable="true" >}}
 
 Now you can retrieve the URL of the created ingress using `kubectl get ingress -n microcks`.
 

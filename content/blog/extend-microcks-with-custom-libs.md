@@ -1,22 +1,16 @@
 ---
-draft: false
 title: Extend Microcks with custom libs and code
-layout: post
 date: 2024-01-24
-publishdate: 2024-01-24
-lastmod: 2024-01-24
-image: "/images/blog/cnam-extend-microcks-with-custom-libs-feature.png"
-categories: [blog]
-author: "Sébastien Fraigneau"
-author_title: "Senior Software Engineer at CNAM"
-author_image: "/images/blog/bio/sfraigneau.png"
-author_linkedin: "sébastien-fraigneau-82826a2"
+image: "images/blog/cnam-extend-microcks-with-custom-libs-feature.png"
+author: "Sebastien Fraigneau"
+type: "regular"
+description: "Extend Microcks with custom libs and code"
+draft: false
 ---
 
 With the recent Microcks `1.8.1` version, there’s an abundance of exciting enhancements, from improved OpenAPI references support to optimizations for seamless usage via [Testcontainers](https://testcontainers.com/modules/microcks/). But, in my humble opinion, a standout feature demands your attention. Introduced in `1.8.0` (see [#897](https://github.com/microcks/microcks/issues/897)) and now completed with `1.8.1` (see [#966](https://github.com/microcks/microcks/issues/966)), Microcks brings forth a game-changer: extensibility. Discover how to tailor and customize behaviors with your code or library, elevating your Microcks experience to heights!
 
-![microcks-feature](/images/blog/cnam-extend-microcks-with-custom-libs-feature.png)
-
+{{< image src="images/blog/cnam-extend-microcks-with-custom-libs-feature.png" alt="image">}}
 
 Defining and helping to ship this feature was the first contribution [the CNAM](https://assurance-maladie.ameli.fr/qui-sommes-nous) - the French National Healthcare System - initiated with the Microcks community. 
 

@@ -4,13 +4,7 @@ title: "Managing Users"
 date: 2019-11-18
 publishdate: 2019-11-18
 lastmod: 2021-08-31
-menu:
-  docs:
-    parent: administrating
-    name: Managing users
-    weight: 10
-toc: true
-weight: 10 #rem
+weight: 1
 ---
 
 ## Introduction
@@ -86,7 +80,7 @@ Your can partially manage users directly from the Microcks GUI. "Partially" mean
 
 Users can only be managed by Microcks `admin` - we mean people having the `admin` role assigned. Users management is simply a thumbnail with the `Administration` page that is available from the vertical menu on the left once logged in as administrator. In order to be able to retrieve the list of users and operate changes, the user should also have **manage-users** and **manage-clients** role from **realm-management** Keycloak internal client. See [Keycloak documentation](https://www.keycloak.org/docs/latest/server_admin/index.html#_per_realm_admin_permissions) for more on this point.
 
-![users](/images/users.png)
+{{< image src="images/users.png" alt="image" zoomable="true" >}}
 
 ### Group membership
 
@@ -96,4 +90,4 @@ When this feature is enabled, Microcks will create as many groups in Keycloak as
 
 Also, a new **Manage Groups** options appears in the option menu for each user. From this new modal window, you can easily manage group membership for a specified user as shown below: 
 
-{{< fitimg "/images/users-group-management.png" >}}
+{{< image src="images/users-group-management.png" alt="image" zoomable="true" >}}

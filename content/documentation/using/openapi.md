@@ -4,13 +4,7 @@ title: "OpenAPI Mocking and Testing"
 date: 2019-09-01
 publishdate: 2019-09-01
 lastmod: 2022-02-23
-menu:
-  docs:
-    parent: using
-    name: OpenAPI usage for Microcks
-    weight: 20
-toc: true
-weight: 30 #rem
+weight: 5
 ---
 
 ## Overview
@@ -127,7 +121,7 @@ When you're happy with your API design and example definitions just put the resu
 
 Using the above `Car API` example, you should get the following results:
 
-![openapi-mocks](/images/openapi-mocks.png)
+{{< image src="images/openapi-mocks.png" alt="image" zoomable="true" >}}
 
 ## Using OpenAPI extensions
 

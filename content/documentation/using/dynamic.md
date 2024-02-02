@@ -4,13 +4,7 @@ title: "Getting direct API"
 date: 2019-09-01
 publishdate: 2019-09-01
 lastmod: 2019-09-02
-menu:
-  docs:
-    parent: using
-    name: Getting direct API
-    weight: 90
-toc: true
-weight: 30 #rem
+weight: 13
 ---
 
 ## Creating direct API mocks
@@ -21,11 +15,11 @@ In a few clicks, Microcks is able to easily generate for you:
 * **REST API** with CRUD operations (CRUD for *Create-Retrieve-Update-Delete*) and associated mocks that you'll be able to use for recording, retrieving and deleting any type of JSON document,
 * **Event-Driven API** with a single *Publish* operation with associated reference payload that will be used to simulate event emition whether on Kafka or WebSocket protocols?
 
-![direct-wizard](/images/direct-wizard.png)
+{{< image src="images/direct-wizard.png" alt="image" zoomable="true" >}}
 
 In order to access this "Direct API" wizard, just go to the **API | Services** repository and hit the `Add Direct API...` button:
       
-![direct-link](/images/direct-link.png)
+{{< image src="images/direct-link.png" alt="image" zoomable="true" >}}
 
 ### Common Properties
 
@@ -34,13 +28,13 @@ Each kind of API as the same common properties. After having chosen a type, the 
 * `Service Name and Version` will be the unique identifiers of the new Direct API you want to create,
 * `Resource` will the kind of resource that will be manage by this Direct API.
   
-![direct-rest-form](/images/direct-rest-form.png)
+{{< image src="images/direct-rest-form.png" alt="image" zoomable="true" >}}
 
 In the next step of this wiazrd, you'll have the ability to assign a **reference JSON payload** for your Direct API. When provided, this payload is used to infer a schema for the data exposed by this API. Schema information is then integrated into the generated API specifications.
 
 > Reference JSON payload is optional for Direct REST API but mandatory for Direct Event driven API.
 
-![direct-rest-payload](/images/direct-rest-payload.png)
+{{< image src="images/direct-rest-payload.png" alt="image" zoomable="true" >}}
 
 Now, just hit the `Next` button, confirm on next screen and you'll have a ready-to-use API that proposes different operations as shown in capture below. 
 
@@ -49,7 +43,7 @@ Now, just hit the `Next` button, confirm on next screen and you'll have a ready-
 
 This Direct REST API is immediately exposing mocks endpoints for the different operations. It Swagger and OpenAPI contracts are also directly available for download.
 
-![dynamic-operations](/images/dynamic-operations.png)
+{{< image src="images/dynamic-operations.png" alt="image" zoomable="true" >}}
 
 Given the previously created Direct API, it is now possible to use the `/dynarest/Foo+API/0.1/foo` endpoint (append after your Microcks base URL) to interact with it. This Direct API is in fact agnostic to a payload you send to it as long as it is formatted as JSON. For example, you can easily record a new `foo` resource having a `name` and a `bar` attributes like this: 
 
@@ -77,7 +71,7 @@ curl -X POST http://localhost:8080/dynarest/Foo+API/0.1/foo -H 'Content-type: ap
     
 Now, just hitting the `Resources` button just next to `Operations` section, you should be able to check all the resources Microcks has recorded as being viable representations of the `foo` resource. Each of them has received a unique identifier:
       
-![dynamic-resources](/images/dynamic-resources.png)
+{{< image src="images/dynamic-resources.png" alt="image" zoomable="true" >}}
       
 Using Direct API in Microcks is thus a simple and super-fast mean of recording sample resources to illustrate what should be the future contract design!
       
@@ -136,15 +130,15 @@ With results:
 
 As of the `1.6.0` release, we rebooted the Direct API concept to be more generic and being able to also manage Event Driven API that are described using AsyncAPI specifications. Imagine a `MyQuote API` that notifies quotes updates on an asynchronous channel. You can define this API that way:
 
-![direct-event-form](/images/direct-event-form.png)
+{{< image src="images/direct-event-form.png" alt="image" zoomable="true" >}}
 
 Then adding a reference JSON payload - such a payload can also include some [templating expressions](./advanced/templates) to get some more dynamic data. Here we define producing random staock sybols and ranged price values:
 
-![direct-event-payload](/images/direct-event-payload.png)
+{{< image src="images/direct-event-payload.png" alt="image" zoomable="true" >}}
 
 Clicking `Next` some more time, you now have a Direct Async API that is immediately exposed on WebSocket endpoint and on the Kafka broker Microcks is attached to. It AsyncAPI specification is also directly available for download.
 
-![direct-event-api](/images/direct-event-api.png)
+{{< image src="images/direct-event-api.png" alt="image" zoomable="true" >}}
 
 Looking at the operation details, you can retrieve the information of the endpoints used by different protocols and issue commands to receive the different messages published by the mock engine:
 

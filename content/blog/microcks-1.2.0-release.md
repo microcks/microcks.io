@@ -1,16 +1,11 @@
 ---
-draft: false
 title: Microcks 1.2.0 release 🚀
-layout: post
 date: 2021-02-21
-publishdate: 2021-02-21
-lastmod: 2021-02-21
-image: "/images/blog/microcks-1.2.0-avro-mqtt.png"
-categories: [blog]
+image: "images/blog/microcks-1.2.0-avro-mqtt.png"
 author: "Laurent Broudoux"
-author_title: "MicrocksIO founder"
-author_image: "/images/blog/bio/lbroudoux.jpeg"
-author_twitter: "lbroudoux"
+type: "regular"
+description: "Microcks 1.2.0 release 🚀"
+draft: false
 ---
 
 We are delighted to announce the 1.2.0 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing. With this new release, we are pursuing further our vision of a unique tool and consistent approach for speeding up the delivery and governing the lifecycle of ALL kinds of APIs - whether synchronous or asynchronous.
@@ -21,7 +16,7 @@ In this release, we put a lot of effort (and love ❤️) into listening and imp
 * Also, people want to use Microcks for the Internet of Things world and need another protocol binding. Hence, we have added [MQTT](https://mqtt.org/) support! 
 * Users are looking for advanced logic in their [OpenAPI](https://www.openapis.org/) mocking. So, we implemented enhancements to have the smartest engine!
 
-![microcks-avro-mqtt](/images/blog/microcks-1.2.0-avro-mqtt.png)
+{{< image src="images/blog/microcks-1.2.0-avro-mqtt.png" alt="image" zoomable="true" >}}
 
 As an Open Source project made for Enterprise usage, one major directive is ecosystem integration. You will see on this post that we take care of making Microcks working with many vendor’s products - could it be for registries, message brokers, or even Kubernetes distribution.
 
@@ -36,7 +31,7 @@ When Avro is used with Kafka, it is also common to have a registry for easily sh
 * speed-up the process of propagating Avro schema updates to API events consumers,
 * detect any drifting issues between the expected Avro schema and the one effectively used.
 
-![microcks-avro](/images/blog/microcks-1.2.0-avro.png)
+{{< image src="images/blog/microcks-1.2.0-avro.png" alt="image" zoomable="true" >}}
 
 >  Microcks have been successfully tested with both [Confluent Schema Registry](https://github.com/confluentinc/schema-registry) and [Apicurio Service Registry](https://www.apicur.io/registry/). You can find full documentation on this feature on our [Kafka, Avro and Schema Registry guide](https://microcks.io/documentation/guides/avro-messaging/).
 
@@ -46,7 +41,7 @@ The [Message Queuing Telemetry Transport protocol](https://mqtt.org/) (MQTT) is 
 
 Thanks to the excellent [AsyncAPI Specification](https://www.asyncapi.com/) and its support in Microcks, you are now able to design your API and produce mocks with multi-binding support! You define your API once, and the Microcks tooling will take care of publishing mocks and testing messages using one or both protocols.
 
-![microcks-mqtt](/images/blog/microcks-1.2.0-mqtt.png)
+{{< image src="images/blog/microcks-1.2.0-mqtt.png" alt="image" zoomable="true" >}}
 
 > Microcks have been successfully tested with [ActiveMQ Artemis](https://activemq.apache.org/components/artemis/) as well as [Eclipse Mosquitto](https://mosquitto.org/). Check out full documentation on MQTT Mocking and Testing [here](https://microcks.io/documentation/guides/mqtt-support/)
 

@@ -1,16 +1,11 @@
 ---
-draft: false
 title: Integrating Microcks into Apicurio Keycloak
-layout: post
 date: 2020-11-20
-publishdate: 2020-11-20
-lastmod: 2020-11-20
-image: "/images/blog/integrating-microcks-in-apicurio-keycloak.png"
-categories: [blog]
-author: "Naresh Krish"
-author_title: "Community member"
-author_image: "/images/blog/bio/nareshkrish.png"
-author_twitter: "narioinc"
+image: "images/blog/integrating-microcks-in-apicurio-keycloak.png"
+author: "Laurent Broudoux"
+type: "regular"
+description: "Integrating Microcks into Apicurio Keycloak"
+draft: false
 ---
 
 Microcks is an amazing tool that helps developers mock their APIs seamlessly using [OpenAPI](https://www.openapis.org/) specs. This makes it easy for distributed teams to develop complex micro-services without having to wait for full development cycles to complete, thus maximising team efficiencies.
@@ -21,7 +16,7 @@ A cool feature in Apicurio is the ability to integrate seamlessly with Microcks 
 
 However, the latest version of Microcks (version `1.1.0` as of writing this post) doesn't work if we follow the Apicurio docker-compose installation. One of the main reason being the [Keycloak](https://www.keycloak.org/) realm in the Apicurio installation is not uptodate for the changes made in Microcks, especially with the missing "user" role in the **microcks-app** client in the Keycloak realm setting. 
 
-![integrating-microcks-in-apicurio-keycloak](/images/blog/integrating-microcks-in-apicurio-keycloak.png)
+{{< image src="images/blog/integrating-microcks-in-apicurio-keycloak.png" alt="image" zoomable="true" >}}
 
 > As of publishing this article, I proposed a [Pull Request](https://github.com/Apicurio/apicurio-studio/pull/1323) to fix and ease this setup. Event if the steps described below might no longer be necessary, this post helps understand how things are supposed to work and the elements to check in case of troubles 😉
 
@@ -75,13 +70,13 @@ Once your installation is up and running, login to Keycloak with your admin cred
 
 * Click on Roles tab and check to confirm if the "*user*" role set correctly. If the role is not present, just create one using the "Add Role" button and give the name of the role as "*user*" and press "Save".
 
-![keycloak-microcks-app-user-role](/images/blog/keycloak-microcks-app-user-role.png)
+{{< image src="images/blog/keycloak-microcks-app-user-role.png" alt="image" zoomable="true" >}}
 
 * Now, click on Client again and move to `microcks-app-js`.
 
 * Here click on "Scope" and ensure *Full Scope allowed* is "ON"
 
-![keycloak-microcks-app-js-scope](/images/blog/keycloak-microcks-app-js-scope.png)
+{{< image src="images/blog/keycloak-microcks-app-js-scope.png" alt="image" zoomable="true" >}}
 
 
 ## Creating users in Microcks Keycloak realm
@@ -94,7 +89,7 @@ Now go ahead and create a user in Microcks realm. Once a user is created, Follow
 * Here, click on the Client scopes and then Evaluate
 * In the user input, enter the name of the user whom you want to check and then click "Evaluate"
 
-![keycloak-client-scope-evaluation.png](/images/blog/keycloak-client-scope-evaluation.png)
+{{< image src="images/blog/keycloak-client-scope-evaluation.png" alt="image" zoomable="true" >}}
 
 * In the form that pops up up below, click on "Effective Role Scope Mapping"
 * Here, under Client roles drop down, select `microcks-app`.

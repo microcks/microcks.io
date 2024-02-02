@@ -4,13 +4,7 @@ title: "Importing Services & APIs"
 date: 2020-02-26
 publishdate: 2020-02-26
 lastmod: 2021-07-16
-menu:
-  docs:
-    parent: using
-    name: Importing Services & APIs
-    weight: 5
-toc: true
-weight: 30 #rem
+weight: 3
 ---
 
 ## Introduction
@@ -23,7 +17,7 @@ As previously introduced, Microcks *"turns your API contract into live mocks in 
 
 Microcks supports the following editing tools and export/import formats as **artifacts** formats:
 
-![artifacts-formats](/images/artifacts-formats.png)
+{{< image src="images/artifacts-formats.png" alt="image" zoomable="true" >}}
 
 We provide built-in parsers and importers for the following formats:
 
@@ -40,7 +34,7 @@ We provide built-in parsers and importers for the following formats:
 
 If you own a bunch of Swagger specifications, you won't be able to directly import them into Microcks - see the above note on the reason why. Don't give up though! You just need an extra step involving a wrapper tool (Postman or SoapUI) for adding complete request / response pairs that will be used as the basis of your API's real-life mocks.
 
-![artifacts-swagger-adaptations](/images/artifacts-swagger-adaptations.png)
+{{< image src="images/artifacts-swagger-adaptations.png" alt="image" zoomable="true" >}}
 
 > Please notice that the same issue and workaround may apply to some others API specification formats like [WADL](https://www.w3.org/Submission/wadl/) or [RAML](https://raml.org/). They've got really good importers for Postman or SoapUI that offer you a very easy way to complete your syntactic specification with some real life samples that can make the foundation of some useful mocks ;-)
 
@@ -58,7 +52,8 @@ This base use-case is extended to implement some variations:
 
 So from `1.3.0`, Microcks is now able to have multiple artifacts (one `primary` and some `secondary`) mapping to one API mock definition. The `primary` one will bring Service and operation metadata as well as examples. The `secondary` ones will only enrich existing operations with new non-conflicting request/responses and event samples.
 
-![artifacts-merging](/images/artifacts-merging.png)
+{{< image src="images/artifacts-merging.png" alt="image" zoomable="true" >}}
+
 
 If not explicitly identified as `primary` or `secondary`, the default is to consider an imported artifact as the primary one.
 
@@ -74,7 +69,7 @@ The most simple way of adding new Services or APIs mocks to your Microcks instan
 
 > From Microcks release 1.3.0, you can also specify whether this artifact should be considered as `primary` or `secondary` per the [multi-artifacts support](#multi-artifacts-support).
 
-![artifacts-upload](/images/artifacts-upload.png)
+{{< image src="images/artifacts-upload.png" alt="image" zoomable="true" >}}
 
 Hit the `Upload` green button. An upload followed by an artifact import should occur with notification messages appearing on the top right corner. Newly discovered Services and APIs can be found into the **APIs | Services** repository.
 
@@ -84,7 +79,7 @@ While this method is very convenient for a quick test, you'll have to re-import 
 
 Another way of adding new Services or APIs mocks is by scheduling an **Importer Job** into Microcks. Actually we see this as the best way to achieve continuous, iterative and incremental discovery of your Services and APIs mocks and tests. The principle is very simple: you save your artifact file into the Git repository of your choice (public or private) and Microcks will take care of periodically checking if changes have been applied and new mock or services definitions are present in your artifact.
 
-![artifacts-scheduling](/images/artifacts-scheduling.png)
+{{< image src="images/artifacts-scheduling.png" alt="image" zoomable="true" >}}
 
 > Though we think that Git repositories (or other version control systems) are the best place to keep such artifacts, Microcks only requires a simple HTTP service. So you may store your artifact on a simple filesystem as long as it is reachable using HTTP.
 
@@ -98,7 +93,7 @@ Once created, importer jobs can be managed, activated or forced through this scr
 
 Using the 3-dotted menu, you can easily enable/disable or force the job.
 
-![importer-status](/images/importer-status.png)
+{{< image src="images/importer-status.png" alt="image" zoomable="true" >}}
 
 ### Creating a new scheduled import
 
@@ -108,15 +103,15 @@ A wizard modal then appears as creating an Importer is a 2-step process. The fir
 
 > From Microcks release 1.3.0, you can also specify if this artifact should be considered as `primary` or `secondary` per the [multi-artifacts support](#multi-artifacts-support).
 
-![importer-step1](/images/importer-step1.png)
+{{< image src="images/importer-step1.png" alt="image" zoomable="true" >}}
 
 The second step is about authentication options for accessing the repository. Depending on the type of repository (public or private) you may need to enable/disable certificate validation as well as manage an authentication process through the usage of a **Secret**. See more on Secrets [here](../../administrating/secrets).
 
-![importer-step3](/images/importer-step2.png)
+{{< image src="images/importer-step2.png" alt="image" zoomable="true" >}}
 
 Finally the review displays a summary before creating the Importer Job.
 
-![importer-step3](/images/importer-step3.png)
+{{< image src="images/importer-step3.png" alt="image" zoomable="true" >}}
 
 On first time creation the Job is automatically `Scanned` and `Imported`.
 

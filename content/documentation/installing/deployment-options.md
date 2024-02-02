@@ -1,16 +1,10 @@
 ---
 draft: false
-title: "Architecture and deployment options"
+title: "Architecture & deployment options"
 date: 2020-12-15
 publishdate: 2020-12-15
-lastmod: 2023-10-12
-menu:
-  docs:
-    parent: installing
-    name: Architecture and deployment options
-    weight: 40
-toc: true
-weight: 40 #rem
+lastmod: 2023-04-19
+weight: 6
 ---
 
 ## Introduction
@@ -19,7 +13,7 @@ Now that you have looked at the different installation methods of Microcks, you 
 
 ## High-level Architecture
 
-In its canonical form, Microcks architecture is made of 4 components which are:
+In its simplest form, Microcks architecture is made of 4 components which are:
 
 * The Microcks main web application (also called `webapp`) that holds the UI resources as well as API endpoints,
 * Its associated MongoDB database for holding your data such as the repository of **APIs | Services** and **Tests**,
@@ -28,7 +22,7 @@ In its canonical form, Microcks architecture is made of 4 components which are:
 
 The schema below illustrates this architecture and the relations between components. You'll see that users access the main `webapp` either from their browser to see the console or from the [CLI](../../automating/cli) or any other application using the API endpoints.
 
-<img src="/images/architecture-simple.png" class="img-responsive"/>
+{{< image src="images/architecture-simple.png" alt="image" zoomable="true" >}}
 
 > For sake of simplicity we do not represent here the PostgreSQL (or other database) that may be associated with Keycloak.
 
@@ -43,27 +37,11 @@ If you want to enable asynchronous API features, 2 additional components will be
 
 The schema below represents this full-featured architecture with connection to outer brokers. We represented Kafka ones (`X` broker) as well as brokers (`Y` and `Z`) from other protocols with respect to our roadmap. 😉
 
-<img src="/images/architecture-full.png" class="img-responsive"/>
+{{< image src="images/architecture-full.png" alt="image" zoomable="true" >}}
 
 > For sake of simplicity we do not represent here the Zookeeper ensemble that may be associated with Kafka.
 
 When deploying on Kubernetes you will have to use our [Helm Chart](../kubernetes) or [Operator](../operator) installation methods for that. This architecture can also be deployed using Docker Compose using the `docker-compose-async-addon` file as described in [enabling asynchronous features](../docker-compose/#enabling-asynchronous-api-features). 
-
-### Architecture for the Inner Loop
-
-In order to support [Inner Loop integration or Shift-Left scenarios](https://www.linkedin.com/pulse/how-microcks-fit-unify-inner-outer-loops-cloud-native-kheddache), we've worked recently on a stripped down version of Microcks that makes embedding it in your development workflow, on a laptop, within your unit tests possible. This new distribution is called `microcks-uber` and provides the essential services in a single container as represented below:
-
-<img src="/images/deployment-uber.png" class="img-responsive"/>
-
-> As the Uber distribution of Microcks is perfectly well-adapted for a quick evaluation, we don't recommend running it in production! It doesn't embed the authroization/authentication features provided by Keycloak and the performance guarantees offered by a real external MongoDB instance.
-
-The original purpose of this Uber distribution is to be used through testing libraries like [Testcontainers](https://testcontainers.com). Though it's very easy to launch it using a simple `docker` command like below, binding the only necessary port to your local `8585`:
-
-```sh
-docker run -p 8585:8080 -it quay.io/microcks/microcks-uber:nightly
-```
-
-You can then quickly try out new features or check bug fixes 😉 
 
 ## Deployment Options
 
@@ -75,7 +53,7 @@ Of course - when starting from scratch - the simplest way of deploying Microcks 
 
 This setup makes things easy to start and easy to drop: everything is placed under a single Kubernetes namespace as illustrated into the schema below:
 
-<img src="/images/deployment-all-managed.png" class="img-responsive"/>
+{{< image src="images/deployment-all-managed.png" alt="image" zoomable="true" >}}
 
 > Helm Chart or Operator? I would say it depends... 😉 Operator will handle more complex lifecycle and update procedures as weel as tuning operations in the future. While Helm Chart will remain easier for simple "throwable" setup.
 
@@ -87,7 +65,7 @@ Besides this all-in-one approach, you may also use both installation methods to 
 * Do not deploy a Keycloak instance and reuse an existing one. For that, put the `keycloak.install` flag to `false` and specify a `keycloak.url` and a `keycloak.realm` and that's it! Optionally, you may want to specify a `keycloak.privateUrl` so that security token trusting will be done without hopping through a publicly reachable URL.
 * Do not deploy a Kafka instance and reuse an existing one. For that, put the `kafka.install` flag to `false` and specify a `kafka.url` and that's it!
 
-<img src="/images/deployment-partially-managed.png" class="img-responsive"/>
+{{< image src="images/deployment-partially-managed.png" alt="image" zoomable="true" >}}
 
 > Reusing already deployed components may allow you to lower operational costs if you're using shared instances. It can also allow you to use managed services that may be provided by your favorite cloud vendor.
 
@@ -190,7 +168,7 @@ In that case, Kafka is considered as source for testing your event-driven API. W
 
 The schema below illustrates non exhaustive options:
 
-<img src="/images/deployment-brokers.png" class="img-responsive"/>
+{{< image src="images/deployment-brokers.png" alt="image" zoomable="true" >}}
 
 
 ### Advanced deployment options

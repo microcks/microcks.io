@@ -4,13 +4,7 @@ title: "OpenAPI Mocking 101"
 date: 2022-02-23
 publishdate: 2022-02-23
 lastmod: 2022-02-23
-menu:
-  docs:
-    parent: guides
-    name: OpenAPI Mocking 101
-    weight: 05
-toc: true
-weight: 30 #rem
+weight: 1
 ---
 
 ## Overview
@@ -100,7 +94,7 @@ As this operation is dealing with `application/json` content type, we can expres
 
 As soon as your contract contains examples, you can import it into Microcks and it will use examples to produce real life simulation of your API. Use the [Direct Upload](../../using/importers/#direct-upload) method to inject your OpenAPI file and you'll get the following result:
 
-![openapi-101-basic](/images/guides/openapi-101-basic.png)
+{{< image src="images/guides/openapi-101-basic.png" alt="image" zoomable="true" >}}
 
 > You may have noticed in above screenshot that dispatching properties are empty for now. This is normal as we're on a basic operation with no routing logic. We'll talk about dispatchers in next section.
 
@@ -168,7 +162,7 @@ paths:
 
 The important things to notice here is the logic behind example naming. In fact, OpenAPI specification allows to specify example fragments for each and every piece of a contract. To be tied together by Microcks, related parts must have the same key. Here the key is `k_pets` that allows to link `filter=k` with the associated response containing the 2 cats having a `k` in their name. When imported into Microcks, you should have following result:
 
-![openapi-101-query](/images/guides/openapi-101-query.png)
+{{< image src="images/guides/openapi-101-query.png" alt="image" zoomable="true" >}}
 
 What about dispatching properties we mentioned earlier? You can see that they now having values. Because of the presence of parameter in your operation, Microcks has inferred a routing logic named `URI_PARAMS` that will be based on matching rule on `filter` parameter. Let's try the mock URL issuing a simple command:
 
@@ -230,7 +224,7 @@ paths:
 
 You can notice in this snippet that we directly integrates two different samples using the same keys (`pet_1` and `pet_2) to tie together the example fragments in a coherent way. When imported into Microcks, you should have following result:
 
-![openapi-101-path](/images/guides/openapi-101-path.png)
+{{< image src="images/guides/openapi-101-path.png" alt="image" zoomable="true" >}}
 
 The `Dispatcher` inferred by Microcks has been adapted to `URI_PARTS` which means that routing logic is made of parts (or path elements) or the URI. The element that is considered for routing is the `id` parameter. Let's tests these new mocks with some commands:
 
@@ -294,7 +288,7 @@ Microcks has this feature called [templates](../../using/advanced/templates/) th
 
 When imported into Microcks, you should have following result:
 
-![openapi-101-template](/images/guides/openapi-101-template.png)
+{{< image src="images/guides/openapi-101-template.png" alt="image" zoomable="true" >}}
 
 You can see in the picture above that the `Dispatcher` has no value as we have no parameters in operation. But this does not prevent use to use both parameters and template functions. In fact, template also allows you to reuse response parameters to inject in response content. Let's now finally test this mock URL using some content and see what's going on:
 

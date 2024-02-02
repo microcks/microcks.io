@@ -4,12 +4,6 @@ title: "External Dependencies"
 date: 2023-10-26
 publishdate: 2023-10-26
 lastmod: 2023-10-26
-menu:
-  docs:
-    parent: administrating
-    name: External Dependencies
-    weight: 20
-toc: true
 weight: 20 #rem
 ---
 

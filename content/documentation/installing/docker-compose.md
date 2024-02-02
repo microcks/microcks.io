@@ -1,16 +1,10 @@
 ---
 draft: false
-title: "Installing with docker-compose"
+title: "Using docker-compose"
 date: 2019-09-01
 publishdate: 2019-09-01
 lastmod: 2023-06-21
-menu:
-  docs:
-    parent: installing
-    name: Installing with docker-compose
-    weight: 30
-toc: true
-weight: 30 #rem
+weight: 3
 ---
 
 [Docker Compose](https://docs.docker.com/compose/) is a tool for easily testing and running multi-container applications. [Microcks](https://microcks.io/) offers a simple way to set up the minimal required containers to have a functional environment on your local computer.

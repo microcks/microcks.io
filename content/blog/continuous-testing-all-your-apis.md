@@ -1,15 +1,11 @@
 ---
 title: Continuous Testing of ALL your APIs
-layout: post
 date: 2020-12-03
-publishdate: 2020-12-06
-lastmod: 2020-12-05
-image: "/images/blog/continuous-testing-all-your-apis-pipeline.png"
-categories: [blog]
+image: "images/blog/continuous-testing-all-your-apis-pipeline.png"
 author: "Laurent Broudoux"
-author_title: "MicrocksIO founder"
-author_image: "/images/blog/bio/lbroudoux.jpeg"
-author_twitter: "lbroudoux"
+type: "regular"
+description: "Continuous Testing of ALL your APIs"
+draft: false
 ---
 
 We talk a lot about asynchronous API lately at Microcks! We added many new innovative features taking advantage of the [AsyncAPI](https://www.asyncapi.com/) specification. These are nice additions but we do not want them to hide the foundational essence of Microcks: **offering you a consistent approach whatever the type of API**. See our [Why Microcks ?](https://microcks.io/blog/why-microcks/) post for a refresher. 
@@ -25,7 +21,7 @@ The best practices in system design are clearly promoting separation of concerns
 * [Service Oriented Architecture](https://en.wikipedia.org/wiki/Service-oriented_architecture) (SOA) for blocking interaction with the user performing registration,
 * [Event Driven Architecture](https://en.wikipedia.org/wiki/Event-driven_architecture) (EDA) for asynchronous and non-blocking interaction made by systems reacting on user registration.
 
-![continuous-testing-all-your-apis-design](/images/blog/continuous-testing-all-your-apis-design.png)
+ {{< image src="images/blog/continuous-testing-all-your-apis-design.png" alt="image" zoomable="true" >}}
 
 To specify the contract of these interaction you ended up designing two APIs :
 
@@ -34,7 +30,7 @@ To specify the contract of these interaction you ended up designing two APIs :
 
 And that’s the time where [OpenAPI](https://www.openapis.org/) and [AsyncAPI](https://www.asyncapi.com/) enter the game! You will use them to describe the protocol semantics you plan to use (HTTP verbs, message broker topics, security schemes, ...) and the syntactic definitions of exchanged data.
 
-![continuous-testing-all-your-apis-apis](/images/blog/continuous-testing-all-your-apis-apis.png)
+ {{< image src="images/blog/continuous-testing-all-your-apis-apis.png" alt="image" zoomable="true" >}}
 
 We can see that OpenAPI and AsyncAPI are addressing different and complementary scopes of API contract definition. Even if different, you will surely benefit from having a consistent approach while governing them and feature parity when it comes to accelerating delivery.
 
@@ -42,7 +38,7 @@ We can see that OpenAPI and AsyncAPI are addressing different and complementary 
 
 Having the feature parity between synchronous and asynchronous APIs in Microcks opens the door to many new ways of efficiently testing components that provide and implement both API types. Once loaded into Microcks, you will have access to both API definitions including semantic and syntactic elements.
 
-![continuous-testing-all-your-apis-repository](/images/blog/continuous-testing-all-your-apis-repository.png)
+{{< image src="images/blog/continuous-testing-all-your-apis-repository.png" alt="image" zoomable="true" >}}
 
 Using Microcks for mocking both APIs will tremendously accelerate things! Allowing the different teams to start working without waiting for each others! The mobile team will start developing the mobile frontend using REST mocks, the backend team will start working on the backend and the CRM and email system team will start receiving mock messages coming from Microcks.
 
@@ -55,7 +51,7 @@ That is what we have demonstrated using the following CI/CD pipeline. For each a
 * Starting a second parallel branch where it will ask Microcks to test the REST API endpoints - and do this 2 times on 2 different API versions. Theses are the `test-openapi-v1` and `test-openapi-v2` steps,
 * The branches finally join and the application is promoted.
 
-![continuous-testing-all-your-apis-pipeline](/images/blog/continuous-testing-all-your-apis-pipeline.png)
+{{< image src="images/blog/continuous-testing-all-your-apis-pipeline.png" alt="image" zoomable="true" >}}
 
 The beauty of it is that the promotion is done `ONLY IF` the REST API endpoints are compliant with the corresponding [OpenAPI specification](https://swagger.io/specification/) `AND` the invocation of this APIs have triggered the publication of messages on Kafka `AND` these messages are all valid regarding the event-based API [AsyncAPI specification](https://www.asyncapi.com/docs/specifications/2.0.0). Wouah! 🎉
 

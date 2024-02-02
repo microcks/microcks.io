@@ -1,16 +1,10 @@
 ---
 draft: false
-title: "NATS Mocking and Testing"
+title: "NATS Mocking & Testing"
 date: 2023-01-30
 publishdate: 2023-01-30
 lastmod: 2023-01-30
-menu:
-  docs:
-    parent: guides
-    name: NATS Mocking and Testing
-    weight: 40
-toc: true
-weight: 40 #rem
+weight: 5
 ---
 
 ## Overview
@@ -182,7 +176,7 @@ If the **QA** broker access is secured - let's say with credentials and custom c
 
 The screenshot below illustrates the creation of such a secret for your `QA NATS Broker` with username, and credentials.
 
-![NATS Broker secret](/images/guides/nats-broker-secret.png)
+{{< image src="images/guides/nats-broker-secret.png" alt="image" zoomable="true" >}}
 
 Once saved we can go create a **New Test** within Microcks web console. Use the following elements in the Test form:
 
@@ -193,7 +187,7 @@ Once saved we can go create a **New Test** within Microcks web console. Use the 
 
 Launch the test and wait for some seconds and you should get access to the test results as illustrated below:
 
-![NATS Test success](/images/guides/nats-test-success.png)
+{{< image src="images/guides/nats-test-success.png" alt="image" zoomable="true" >}}
 
 This is fine and we can see that Microcks captured messages and validated them against the payload schema that is embedded into the AsyncAPI specification. In our sample, every property is `required` and message does not allow `additionalProperties` to be present, `sendAt` is of string type.
 
@@ -210,7 +204,7 @@ Sending {"id":"kdmsl91ydtn7xf99jzy8","sendAt":1675092172660,"displayName":"Laure
 
 Relaunch a new test and you should get results similar to those below:
 
-![NATS Test failure](/images/guides/nats-test-failure.png)
+{{< image src="images/guides/nats-test-failure.png" alt="image" zoomable="true" >}}
 
 🥳 We can see that there's now a failure and that's perfect! What does that mean? It means that when your application or devices are sending garbage, Microcks will be able to spot this and inform you that the expected message format is not respected.
 

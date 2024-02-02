@@ -3,14 +3,8 @@ draft: false
 title: "Testing with Microcks"
 date: 2019-09-01
 publishdate: 2019-09-01
-lastmod: 2023-10-10
-menu:
-  docs:
-    parent: using
-    name: Testing with Microcks
-    weight: 100
-toc: true
-weight: 30 #rem
+lastmod: 2023-06-07
+weight: 14
 ---
 
 ## Introduction
@@ -31,7 +25,7 @@ The purpose of Microcks tests is precisely to check that the **Interaction Contr
 
 In order to help you getting confidence into your implementations, we developed the **Conformance index** and **Conformance score** metrics that you can see on the top right of each API | Service details page:
 
-![test-conformance](/images/test-conformance.png)
+{{< image src="images/test-conformance.png" alt="image" zoomable="true" >}}
 
 > This metrics are available from the `1.6.0` version of Microcks.
 
@@ -43,7 +37,7 @@ The **Conformance score** is the current score that has been computed during you
 
 Once you have activated [labels filtering](./advanced/organizing/#applying-labels) on your repository and have ran a few tests, Microcks is also able to give you an aggregated view of your API patrimony in termes of **Conformance Risks**. The tree map below is displayed on the *Dashboard* page and represents risks in terms of average score per group of APIs (depending on the concept you chose it could be per domain, per application, per team, ...)
 
-![test-conformance-risks](/images/test-conformance-risks.png)
+{{< image src="images/test-conformance-risks.png" alt="image" zoomable="true" >}}
 
 This visualization allows you to have a clear understanding of your conformance risks at first glance!
 
@@ -51,7 +45,7 @@ This visualization allows you to have a clear understanding of your conformance 
 						
 From the page displaying basic information on your [API or Service mocks](../mocks/#mocks-info), you have the ability to launch new tests against different endpoints that may be representing different environment into your development process. Hitting the **NEW TEST...** button, leads you to the following form where you will be able to specify a target URL for the test, as well as a Runner—a testing strategy for your new launch:
 			
-![test-form](/images/test-form.png)
+{{< image src="images/test-form.png" alt="image" zoomable="true" >}}
 			
 > While it is convenient to launch test `on demand` manually, it may be interesting to consider launching new tests automatically when a new deployment of the application occurs for example... Microcks allows you such automation by offering API for ease of integration. See [here](../../automating/api/) for more details).
 			
@@ -89,10 +83,8 @@ kafka://{kafka.broker.url:port}/{kafka.topic.name}[?param1=value1&param2=value2]
 | `registryUrl` | The URL of schema registry that is associated to the tested topic. This parameter is required when using and testing [Avro](https://avro.apache.org) encoded messages. |
 | `registryUsername` | The username used if access to the registry is secured. |
 | `registryAuthCredSource` | The source for authentication credentials if any. Valid values are just `USER_INFO`. |
-| `startOffset` | The topic offset we start consuming mesages at (since version `1.8.0`) |
-| `endOffset` | The topic offset we end consuming messages at (since version `1.8.0`) |
 
-As an example, you may have this kind of Test Endpoint value: `kafka://mybroker.example.com:443/test-topic?registryUrl=https://schema-registry.example.com&registryUsername=fred:letmein&registryAuthCredSource=USER_INFO&startOffset=28&endOffset=30`
+As an example, you may have this kind of Test Endpoint value: `kafka://mybroker.example.com:443/test-topic?registryUrl=https://schema-registry.example.com&registryUsername=fred:letmein&registryAuthCredSource=USER_INFO`
 
 ##### MQTT
 
@@ -192,31 +184,14 @@ Depending on the type of Service or Tests you are running, the specification of 
 
 ### Secret
 
-Depending on the Test Endpoint you are connecting to, you may need additional authentication information - like credentials or custom X509 Certificates. You may reuse [External Secrets](../administrating/secrets) that has been made available in the Microcks installation by the administrator. Such secret are useful for presenting a long-lived token to a secured Test Endpoint.
-
-### OAuth2 authorization
-
-> Starting with version `1.8.0`, Microcks is now able to retrieve an OAuth2 access token before actually running a Test.
-
-Depending on the Test Endpoint you are connecting to, you may need to present an OAuth2 short-lived authorization token to a secured Test Endpoint. Microcks supports 3 different OAuth2 flows:
-* The [Client Credentials Flow](https://auth0.com/docs/get-started/authentication-and-authorization-flow/client-credentials-flow) in case you want to simulate a machine to machine context,
-* The [Refresh Token Rotation](https://auth0.com/docs/secure/tokens/refresh-tokens/refresh-token-rotation) in case you are using long lived token and have already acquired a refresh token previously,
-* THe [Resource Owner Password Flow](https://auth0.com/docs/get-started/authentication-and-authorization-flow/resource-owner-password-flow) in case you want to simulate real users authentication. Be careful to use only in a secured/private context as this involves the application handling the user's password (even if Microcks will not store anything). The latest [OAuth 2.0 Security Best Current Practice](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics-19#section-2.4) disallows the use of the Resource Owner Password Credentials grant but it may still be judged acceptable for internal validation purposes.
-
-Depending on the flow you select, Microcks UI will allow you to provide additional details for connecting to your Identity Provider token endpoint with your client id and credentials.
-
-![test-oauth2-params](/images/test-oauth2-params.png)
-
-**Notes:**
-* The `accessToken` resulting from this authorization is retrieved before launching the tests. That means that custom headers (globally or per operation) may override its value,
-* If additional custom CA Cert is required to access the test endpoints, you can still supply a Secret. The `accessToken` information retrieved here will be merged into that secret so that the endpoint reach is still possible.
+Depending on the Test Endpoint you are connecting to, you may need additional authentication information - like credentials or custom X509 Certificates. You may reuse [External Secrets](../administrating/secrets) that has been made available in the Microcks installation by the administrator.
 
 ## Getting tests history and details
 
 Tests history for an API/Service is easily accessible from the API | Service [summary page](../mocks/#mocks-info). Microcks keep history of all the launched tests on an API/Service version. Success and failures are kept in database with unique identifier and test number to allow you to compare cases of success and failures.
 
-![test-history](/images/test-history.png)
+{{< image src="images/test-history.png" alt="image" zoomable="true" >}}
 
 Specific test details can be visualized : Microcks also records the request and response pairs exchanged with the tested endpoint so that you'll be able to access payload content as well as header. Failures are tracked and violated assertions messages displayed as shown in the screenshot below :
 
-![test-details](/images/test-details.png)
+{{< image src="images/test-details.png" alt="image" zoomable="true" >}}

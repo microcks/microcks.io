@@ -4,12 +4,6 @@ title: "Http Archive usage for Microcks"
 date: 2023-02-23
 publishdate: 2023-02-23
 lastmod: 2023-02-23
-menu:
-  docs:
-    parent: using
-    name: HAR usage for Microcks
-    weight: 41
-toc: true
 weight: 41 #rem
 ---
 

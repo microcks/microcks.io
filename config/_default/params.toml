@@ -1,2 +1,153 @@
-description = "Microcks.io"
-ghrepo = "https://github.com/microcks/microcks.io/"
+#################### default parameters ################################
+# favicon
+favicon = "images/favicon.png"
+
+# logo
+logo = "images/microcks-logo-blue-name.png"
+logo_darkmode = "images/microcks-logo-white-name.png"
+# use `px` or `x` with logo_width, example: "100px".
+# Note: logo_width is not work with .svg file
+logo_width = "200px"
+# if logo_webp set false, will not generate WEBP version of logo | default is true
+logo_webp = true
+# logo text will only show when logo is missing.
+logo_text = "Microcks"
+
+# theme-mode
+theme_switcher = true
+theme_default = "light" # available options [light/dark/system]
+
+# Main Sections
+mainSections = ["blog", "community", "test"]
+
+# contact form action
+#contact_form_action = "#!" # contact form works with [https://airform.io/] or [https://formspree.io]
+
+# demo form action
+#demo_form_action = "#!" # demo form works with [https://airform.io/] or [https://formspree.io]
+
+# google tag manager, see https://developers.google.com/tag-manager/
+google_tag_manager = "" # example: G-XXXXXXXXXX
+
+# custom script on header, example: custom_script= "<script>console.log(\"Hello World\")</script>" 
+custom_script = ""
+
+# table of content on document page
+table_of_content = true
+
+# copyright
+theme_copyright = false
+copyright = "The Linux Foundation® (TLF) has registered trademarks and uses trademarks. For a list of TLF trademarks, see [**Trademark Usage**.](https://www.linuxfoundation.org/legal/trademark-usage) <br> **Microcks** is a [**Cloud Native Computing Sandbox**](https://landscape.cncf.io/?selected=microcks) project 🚀"
+
+# Preloader
+[preloader]
+enable = true
+#preloader = "images/preloader.gif" # use jpg, png, svg or gif format. example - "images/preloader.gif"
+preloader = "images/preloader-02.gif"
+
+# Navigation button
+[navigation_button]
+enable = true
+label = "Get Started"
+link = "/documentation/getting-started/"
+
+# Call to action
+[call_to_action]
+enable  = true
+title  = "Still Didn't Find Your Answer?"
+#image  = "images/none.jpg"
+# image do not exists, hack to not have a missing icon on the site 
+# image source: https://medium.com/nerd-for-tech/why-should-you-get-involved-in-an-open-source-community-f5516657324
+image = "images/oss-community.jpeg"
+content = "Join our community and get the help you need. Engage with other members, ask questions, and share knowledge to resolve your queries and expand your understanding."
+
+[call_to_action.button]
+enable  = true
+label  = "Join the community"
+link  = "/community/"
+
+# Crisp Chat
+[crisp_chat]
+enable = false
+crisp_website_id = "9aa449e1-9999-422a-938f-8567982eec6d" # replace this code with yours
+# Check this video tutorial to get your crisp website ID - https://www.youtube.com/watch?v=nW5UX6iVdFc
+
+# seo meta data for OpenGraph / Twitter Card
+[metadata]
+keywords = ["Hugo", "Themefisher", "Gethugothemes"]
+description = "This is meta description"
+author = "Microcks"
+image = "images/microcks-logo-blue-name.png" # this image will be used as fallback if a page has no image of its own
+
+# matomo tracking: see https://matomo.org/
+[matomo]
+enable = false
+url = ""       # your matomo url
+id = ""        # your matomo id
+
+# baidu analytics: see https://tongji.baidu.com/
+[baidu]
+enable = false
+analytics_id = "" # Your ID
+
+# plausible analytics: see https://plausible.io/
+[plausible]
+enable = false
+domain = ""    # yourdomain.com
+
+# counter analytics: see https://counter.dev/setup.html
+[counter]
+enable = false
+username = ""  # your username
+
+# site verifications
+[site_verification]
+google = ""   # Your verification code
+bing = ""     # Your verification code
+baidu = ""    # Your verification code
+facebook = "" # Your verification code
+mastodon = "" # Your verification code
+
+# cookies
+[cookies]
+enable = true
+expire_days = 2
+content = "This site uses cookies. By continuing to use this website, you agree to their use."
+button = "I Accept"
+
+############################# social site ########################
+[[social]]
+title = "GitHub"
+icon = "fab fa-github" # themify icon : https://themify.me/themify-icons
+link = "https://github.com/microcks"
+
+[[social]]
+title = "Discord"
+icon = "fab fa-discord" # themify icon : https://themify.me/themify-icons
+link = "https://microcks.io/discord-invite"
+
+[[social]]
+title = "LinkedIn"
+icon = "fab fa-linkedin" # themify icon : https://themify.me/themify-icons
+link = "https://www.linkedin.com/company/microcks/"
+
+[[social]]
+title = "Twitter"
+icon = "fab fa-twitter" # themify icon : https://themify.me/themify-icons
+link = "https://twitter.com/microcksio"
+
+[[social]]
+title = "Mastodon"
+icon = "fab fa-mastodon" # themify icon : https://themify.me/themify-icons
+link = "https://mastodon.social/@microcksio"
+
+[[social]]
+title = "YouTube"
+icon = "fab fa-youtube" # themify icon : https://themify.me/themify-icons
+link = "https://www.youtube.com/c/Microcks"
+
+#[[social]]
+#title = "Slack"
+#icon = "fab fa-slack" # themify icon : https://themify.me/themify-icons
+#link = "https://cloud-native.slack.com/messages/microcks"
+

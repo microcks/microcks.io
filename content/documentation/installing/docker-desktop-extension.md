@@ -1,16 +1,10 @@
 ---
 draft: false
-title: "Installing as Docker Desktop Extension"
+title: "As Docker Desktop Extension"
 date: 2022-11-22
 publishdate: 2022-11-22
 lastmod: 2022-11-22
-menu:
-  docs:
-    parent: installing
-    name: Installing as Docker Desktop Extension
-    weight: 31
-toc: true
-weight: 31 #rem
+weight: 4
 ---
 
 [Docker Desktop](https://docs.docker.com/desktop/) is a simple-to-install application for [Mac](https://www.docker.com/products/docker-desktop/), [Windows](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe), or [Linux](https://docs.docker.com/desktop/linux/install/) that allows you to create and share containerized applications and microservices. Docker Desktop includes the Docker Engine, the Docker CLI client, Docker Compose, Docker Content Trust, Kubernetes, and the Credential Helper.
@@ -31,6 +25,6 @@ To get started, make sure you have [Docker Desktop installed](https://docs.docke
 
 The settings panel allows you to configure some options like whether you'd like to enable the Asynchronous APIs features (default is disabled) and if you'd need to set an offset to ports that are used to access the services.
 
-![docker-desktop-extension](/images/docker-desktop-extension-settings.png)
+{{< image src="images/docker-desktop-extension-settings.png" alt="image" zoomable="true" >}}
 
 Pretty straight forward!

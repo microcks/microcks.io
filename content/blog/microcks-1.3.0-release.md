@@ -1,16 +1,11 @@
 ---
-draft: false
 title: Microcks 1.3.0 release 🚀
-layout: post
 date: 2021-06-30
-publishdate: 2021-06-30
-lastmod: 2021-06-30
-image: "/images/blog/microcks-1.3.0-feature.png"
-categories: [blog]
+image: "images/blog/microcks-1.3.0-feature.png"
 author: "Laurent Broudoux"
-author_title: "MicrocksIO founder"
-author_image: "/images/blog/bio/lbroudoux.jpeg"
-author_twitter: "lbroudoux"
+type: "regular"
+description: "Microcks 1.3.0 release 🚀"
+draft: false
 ---
 
 We are so proud and happy to share this new major and important Microcks release two months in advance based on our initial roadmap! Yes, this was yet another big challenge 🎉 Kudos to our community users and partners for supporting and pushing us to this momentum. 
@@ -19,7 +14,7 @@ Nothing could have been done without all your feedback and contributions 👏
 
 So why is this release so special? First, We always stay on our principles and we are still applying our mantra for supporting ALL kinds of APIs and being community driven. We work hard and we strongly believe that Microcks is not only an API tooling “by developers, for developers” as it also aims to create a bridge between all the enterprise layers “à la” BizDevSecOps.
 
-![microcks-feature](/images/blog/microcks-1.3.0-feature.png)
+{{< image src="images/blog/microcks-1.3.0-feature.png" alt="image" zoomable="true" >}}
 
 And this new release is a big accomplishment as it includes in a single batch : 
 
@@ -33,7 +28,7 @@ And this new release is a big accomplishment as it includes in a single batch :
 
 [AsyncAPI Spec v2.1.0 ](https://www.asyncapi.com/blog/release-notes-2.1.0) was released on the 29th June, and it include one of our very important contribution :
 
-![asyncapi-2.1-examples](/images/blog/asyncapi-2.1-examples.png)
+{{< image src="images/blog/asyncapi-2.1-examples.png" alt="image" zoomable="true" >}}
 
 This is amazing for us as it clearly confirms our contract-first vision and strategy. It took us a year to make it happen the way it should always be done 👉 using the standards: big thanks to the AsyncAPI folks and community to support and embrace this Microcks contribution.
 
@@ -45,7 +40,7 @@ The WebSocket API is an advanced technology that makes it possible to open a two
 
 Based on the number of requests we received from Microcks community to support WebSocket mocking and testing, we have decided to launch a public poll on our [Twitter account](https://twitter.com/microcksio):
 
-![asyncapi-bindings-poll](/images/blog/asyncapi-bindings-poll.png)
+{{< image src="images/blog/asyncapi-bindings-poll.png" alt="image" zoomable="true" >}}
 
 As you can see, this was a strong confirmation of users and partners interest regarding WebSocket integration and boosted by this feedback we implemented WebSocket support in just two weeks!
 
@@ -59,7 +54,7 @@ A use-case that is emerging is that some people may have a single OpenAPI file c
 
 So from `1.3.0`, Microcks is now able to have multiple artifacts (1 `primary` and some `secondary`) mapping to 1 API mock definition. The `primary` one will bring Service and operation metadata as well as examples. The `secondary` ones will only enrich existing operations with new non-conflicting request/responses and event examples.
 
-![multi-artifacts-support](/images/blog/multi-artifacts-support.png)
+{{< image src="images/blog/multi-artifacts-support.png" alt="image" zoomable="true" >}}
 
 > You may now have multiple artifacts contributing to the same API mocks and tests definition: it opens to endless possibilities and use-case covering. Check [documentation](https://microcks.io/documentation/using/importers/#multi-artifacts-support). A first demonstration of that is the tricky gRPC support just below that was made possible only thanks to the multi-artifacts support.
 

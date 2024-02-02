@@ -1,21 +1,16 @@
 ---
-draft: false
 title: Microcks on Minikube 🧊
-layout: post
 date: 2023-12-27
-publishdate: 2023-12-27
-lastmod: 2023-12-27
 image: "/images/blog/microcks-on-minikube-feature.png"
-categories: [blog]
 author: "Laurent Broudoux"
-author_title: "MicrocksIO founder"
-author_image: "/images/blog/bio/lbroudoux.jpeg"
-author_twitter: "lbroudoux"
+type: "regular"
+description: "Microcks on Minikube 🧊"
+draft: false
 ---
 
 As we close the year, it's a good time for some housekeeping! On this occasion, I found some installation notes that could be worth transforming into proper blog posts or documentation. I went through my notes on **installing Microcks on Minikube** and decided to refresh them. It also needed to be completed with detailed information that we usually take for granted and forget to mention - such as network and Ingress configuration.
 
-![microcks-minikube-feature](/images/blog/microcks-on-minikube-feature.png)
+{{< image src="images/blog/microcks-on-minikube-feature.png" >}}
 
 This installation notes were ran on my Apple Mac book M2 but those steps would sensibly be the same on any Linux machine. Let's go 🚀
 

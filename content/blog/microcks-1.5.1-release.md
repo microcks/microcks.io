@@ -1,23 +1,18 @@
 ---
-draft: false
 title: Microcks 1.5.1 release 🚀
-layout: post
 date: 2022-04-08
-publishdate: 2022-04-08
-lastmod: 2022-04-08
-image: "/images/blog/microcks-1.5.1-feature.png"
-categories: [blog]
+image: "images/blog/microcks-1.5.1-feature.png"
 author: "Laurent Broudoux"
-author_title: "MicrocksIO founder"
-author_image: "/images/blog/bio/lbroudoux.jpeg"
-author_twitter: "lbroudoux"
+type: "regular"
+description: "Microcks 1.5.1 release 🚀"
+draft: false
 ---
 
 We are proud to announce the `1.5.1` release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing. We considered it a minor release this time as it “just” brought a new protocol binding and a lot of enhancements!
 
 Once again this release is an illustration of how community-driven the roadmap is: **AMQP** and **Swagger v2** support as well as **more** **enhancements** came directly from user requests. So thanks a lot to those who helped push up a new release with significant features once again. Kudos to all of them 👏 and see greetings below.
 
-![microcks-feature](/images/blog/microcks-1.5.1-feature.png)
+{{< image src="images/blog/microcks-1.5.1-feature.png" alt="image" zoomable="true" >}}
 
 > As we’re also entering the Easter season, we couldn’t resist insisting the rabbit side of things 😉
 
@@ -61,7 +56,7 @@ The thing we didn't think about at that time is that [Multi-artifacts support](h
 
 In a similar fashion to [gRPC support](https://microcks.io/documentation/using/grpc/) or [GraphQL support](https://microcks.io/documentation/using/graphql/) in Microcks you’ll first need a Swagger v2 file that will be considered as the primary artifact holding service and operation definitions and rely on a [Postman Collection](https://www.postman.com/collection/) that holds your mock dataset as examples:
 
-![microcks-swagger](/images/blog/microcks-1.5.1-swagger.png)
+{{< image src="images/blog/microcks-1.5.1-swagger.png" alt="image" zoomable="true" >}}
 
 > Check out our [Swagger usage for Microcks](https://microcks.io/documentation/using/swagger/) documentation that illustrates how Swagger v2 specification and Postman Collection can be combined and used together.
 
@@ -73,7 +68,7 @@ At the beginning of Microcks, we started supporting the `SUBSCRIBE` operations o
 
 We fixed this and got this little drawing below to summarize use-cases:
 
-![microcks-asyncapi](/images/blog/microcks-1.5.1-asyncapi.png)
+{{< image src="images/blog/microcks-1.5.1-asyncapi.png" alt="image" zoomable="true" >}}
 
 > We now made everything consistent whatever the protocol you’re using. Mocking can be used by API consumers for `SUBSCRIBE` as well as providers for `PUBLISH`. Testing can be used to validate API providers for `SUBSCRIBE` as well as consumers for `PUBLISH`. Thanks to [Hassen Bennour](https://github.com/Hassen-BENNOUR) 🙏 and tom (Zulip user) 🙏 for testing it 🧪
 

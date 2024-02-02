@@ -1,16 +1,11 @@
 ---
-draft: false
 title: Microcks 1.6.0 release 🚀
-layout: post
 date: 2022-09-15
-publishdate: 2022-09-15
-lastmod: 2022-09-15
-image: "/images/blog/microcks-1.6.0-feature.png"
-categories: [blog]
+image: "images/blog/microcks-1.6.0-feature.png"
 author: "Laurent Broudoux"
-author_title: "MicrocksIO founder"
-author_image: "/images/blog/bio/lbroudoux.jpeg"
-author_twitter: "lbroudoux"
+type: "regular"
+description: "Microcks 1.6.0 release 🚀"
+draft: false
 ---
 
 We are excited to announce the `1.6.0` release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing. It has been an intense summer time for us as the previous `1.5.2` is just 3 months old! 
@@ -23,7 +18,7 @@ We’re now “back to work” and happy to release many features that were requ
 
 Thanks a lot to those who helped push up these significant features once again. Kudos to our amazing vibrant community 👏.
 
-![microcks-feature](/images/blog/microcks-1.6.0-feature.png)
+{{< image src="images/blog/microcks-1.6.0-feature.png" alt="image" zoomable="true" >}}
 
 You may notice that this release focus is a bit different than the previous ones. No new protocol, nor new API specification support added… Those were the priority of previous releases where we wanted to validate the internal model of Microcks for mocking and testing - our primary goals. This is mostly done and we can now tackle a new challenge in enhancing quality control and governance features of our solution. Expect to see more of this in the releases to come!
 
@@ -36,11 +31,11 @@ You probably already know that Microcks allows you to run Contract or Conformanc
 
 But how to easily figure this out at first sight? That’s why we introduced the **Conformance index** and **Conformance score** metrics that you can now see on the top right of each API or Service details page:
 
-![test-conformance](/images/test-conformance.png)
+{{< image src="images/blog/test-conformance.png" alt="image" zoomable="true" >}}
 
 By just checking these visual indicators, you immediately grasp if your tests are comprehensive for conformance validation and what is the current score and trend. What if you start having dozens of APIs or Services in your Microcks repository? The Microcks dashboard has evolved to display aggregated information on that too. Depending on the [master level filter](https://microcks.io/documentation/using/advanced/organizing/#master-level-filter) you’ve chosen to organize your repository, aggregated Conformance score will be computed and displayed in a tree map. Here is below an example where scores are grouped by `domain`:
 
-![test-conformance-risk](/images/test-conformance-risks.png)
+{{< image src="images/blog/test-conformance-risks.png" alt="image" zoomable="true" >}}
 
 This visualization will allow you to quickly spot the main **Conformance risks** associated with your API patrimony: bigger rectangles represent bigger groups of APIs and darker rectangles represent the less conformant APIs. You’ll probably want to chase big and dark rectangles 🎯
 
@@ -73,7 +68,7 @@ In line with our approach of managing **ALL kinds of APIs**, we had numerous dis
 
 That means that through a simple wizard, you can now **ask Microcks to generate an event-driven API just providing an event sample using JSON**. In a few seconds, you’ll have everything you need to quickly on-board: published mock messages on channels and specifications for contract testing and so on 🥷
 
-![direct-wizard](/images/direct-wizard.png)
+{{< image src="images/blog/direct-wizard.png" alt="image" zoomable="true" >}}
 
 Event-driven API support for Direct API includes [Apache Kafka](https://kafka.apache.org) and [Websocket](https://websockets.spec.whatwg.org//) bindings by default; but we also generate a full-blow AsyncAPI specification file with type definition that you may refine or enrich later.
 
@@ -86,7 +81,7 @@ This is a pretty exciting new feature that will be available in a few weeks but 
 
 [Docker Extensions](https://www.docker.com/products/extensions/) power up Docker Desktop with new capabilities that can drastically simplify your provisioning and deployment workflow for development tools! We’re excited to announce that Microcks will be very soon available through Docker Extension Marketplace 🚀That means that the experience of getting started with Microcks as a standalone developer instance on your personal laptop will be simpler than ever for Docker users!
 
-![docker-desktop-extension](https://github.com/microcks/microcks-docker-desktop-extension/raw/main/resources/screenshots/1.png)
+{{< image src="https://github.com/microcks/microcks-docker-desktop-extension/raw/main/resources/screenshots/1.png" alt="image" zoomable="true" >}}
 
 > This new feature will deserve a full blog post on its own once available. In the meantime, you can check the [extension GitHub repository](https://github.com/microcks/microcks-docker-desktop-extension) if you want to have a look on what we are cooking there 🧑‍🍳
 
@@ -97,7 +92,7 @@ As a consequence of our work on Governance and Observability, we evolved the des
 
 We adopted an adaptive design where the dashboard evolves with the content of your Microcks instance. It only contains larger call-to-action buttons when you start with Microcks, then displays repository and mock usage analytics from the moment you have some APIs to finally reveal test and conformance metrics when you’re actually running tests. With that maturity, _“Getting Started” _buttons can be collapsed.
 
-![microcks-dashboards](/images/blog/microcks-1.6.0-dashboards.png)
+{{< image src="images/blog/microcks-1.6.0-dashboards.png" alt="image" zoomable="true" >}}
 
 > Thanks to [Hugo Guerrero](https://github.com/hguerrero ) 🙏 for suggesting the enhancements and helping on the color-blind adaptation of the tree map colors 💪
 

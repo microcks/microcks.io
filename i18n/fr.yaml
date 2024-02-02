@@ -1,0 +1,5 @@
+- id: search
+  translation: Chercher
+
+- id: search_placeholder
+  translation: Chercher sur Microcks ...

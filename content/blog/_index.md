@@ -1,8 +1,7 @@
 ---
-draft: false
-title: "Microcks Blog"
+title: "Latest News"
+subtitle: "Microcks 📢 latest **blog posts** and **updates** from our vibrant **community**"
 # meta description
-description: "This is meta description"
+description: "Microcks latest blog posts and news"
+draft: false
 ---
-
-dfdpoiko

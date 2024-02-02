@@ -4,13 +4,7 @@ title: "Microcks Service Accounts"
 date: 2019-09-01
 publishdate: 2019-09-01
 lastmod: 2023-07-17
-menu:
-  docs:
-    parent: automating
-    name: Microcks Service Accounts
-    weight: 10
-toc: true
-weight: 10 #rem
+weight: 1
 ---
 
 ## Microcks Service Accounts
@@ -40,23 +34,22 @@ $ curl https://microcks.example.com/api/keycloak/config -s -k | jq .
 
 Authenticate as administrator into the Keycloak administration console and browse the realm Microcks is using. You should have the list of defined `Applications` or `Clients` defined on this realm and see the default `microcks-serviceaccount` as in below screenshot:
 
-![service-account-clients](/images/service-account-clients.png)
+{{< image src="images/service-account-clients.png" alt="image" zoomable="true" >}}
 
 Getting to the details of the `Service Account`, you can check that it is `Enabled`, that it should conform to the `openid-connect` Client Protocol with a `confidential` Access Type. Finally, it should also be able to do a `Direct Access Grant` and act as a `Service Account`. See below the settings of default account: 
 
-![service-account-settings](/images/service-account-settings.png)
+{{< image src="images/service-account-settings.png" alt="image" zoomable="true" >}}
 
 So one crucial thing for `Service Account` is their associated `Credentials` because because clients will have to know it for initating the flow. Credetnials are available in the `Credentials` thumb like shown below:
 
-![service-account-credentials](/images/service-account-credentials.png)
+{{< image src="images/service-account-credentials.png" alt="image" zoomable="true" >}}
 
 Finally, in order to operate correctly, Service Account should have role assigned. The default account comes with the `user` role defined into the main `microcks-app` OpenId client that matches to the main Microcks component:
 
-![service-account-roles](/images/service-account-roles.png)
+{{< image src="images/service-account-roles.png" alt="image" zoomable="true" >}}
 
 > If you want to use the `Service Account` for DevOps pipelines, with the [Microcks Cli](./cli.md) for example, you have to give it more priviledges.  
 > On the role page in Keycloack, click on the **Assign role** button, filter roles by clients and pick the __*microcks-app* manager__ role.
-
 
 ### Using Service Account
 

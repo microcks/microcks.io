@@ -1,23 +1,18 @@
 ---
-draft: false
 title: Microcks 1.2.1 release 🚀
-layout: post
 date: 2021-05-05
-publishdate: 2021-05-05
-lastmod: 2021-05-05
-image: "/images/blog/microcks-1.2.1-feature.png"
-categories: [blog]
+image: "images/blog/microcks-1.2.1-feature.png"
 author: "Laurent Broudoux"
-author_title: "MicrocksIO founder"
-author_image: "/images/blog/bio/lbroudoux.jpeg"
-author_twitter: "lbroudoux"
+type: "regular"
+description: "Microcks 1.2.1 release 🚀"
+draft: false
 ---
 
 We are very glad to announce today the 1.2.1 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing. This is mainly an “Enhancement release” pushing further the features we introduced within the previous [1.2.0 release](https://microcks.io/blog/microcks-1.2.0-release/).
 
 With this release, we are still applying our mantra for supporting ALL kinds of APIs and being community driven. Want some keywords on what’s in this `1.2.1` release? We’ve been working on [OpenAPI v3.1](https://www.openapis.org/blog/2021/02/18/openapi-specification-3-1-released), [AsyncAPI](https://asyncapi.com) MQTT and headers support as well as user experience support around Tests and Installation through [Podman](https://podman.io) support.
 
-![microcks-feature](/images/blog/microcks-1.2.1-feature.png)
+{{< image src="images/blog/microcks-1.2.1-feature.png" alt="image" zoomable="true" >}}
 
 Let’s have a quick review on what’s new and what it brings to our users.
 
@@ -28,7 +23,7 @@ Let’s have a quick review on what’s new and what it brings to our users.
 
 > This makes Microcks one of the first tools to embrace OpenAPI v3.1 as mentioned by [@apisyouwonthate](https://twitter.com/apisyouwonthate). Whether switching your spec version or tooling, Microcks offers you a smooth transition. 
 
-![microcks-1.2.1-tweet](/images/blog/microcks-1.2.1-tweet.png)
+{{< image src="images/blog/microcks-1.2.1-tweet.png" alt="image" zoomable="true" >}}
 
 Event Driven Architecture (EDA) is all the rage today in cloud-native era, as it brings you space and time decoupling as well as better resiliency and elasticity. However people struggle with picking the right specification: [AsyncAPI](https://asyncapi.com) or [CloudEvents](https://cloudevents.io)? Why not both? We demonstrate in [Simulating CloudEvents with AsyncAPI and Microcks](https://microcks.io/blog/simulating-cloudevents-with-asyncapi/) the benefits it brings. And we add support for AsyncAPI specification headers to make it work!
 
@@ -61,6 +56,6 @@ We have many plans for the coming months but will be very happy to prioritize de
 
 Remember that we are open and it means that you can jump on board to make Microcks even greater! Come and say hi! on our [Zulip chat](https://microcksio.zulipchat.com/) 🐙 , simply send some love through [GitHub stars](https://github.com/microcks/microcks) ⭐️ or follow us on [Twitter](https://twitter.com/microcksio).
 
-![give-stars](/images/blog/give-stars.jpeg)
+{{< image src="images/blog/give-stars.jpeg" alt="image" zoomable="true" >}}
 
 Thanks for reading and supporting us! Stay safe and healthy. ❤️  

@@ -1,0 +1,21 @@
+{{define "main"}}
+
+{{ partial "page-header.html" . }}
+
+<section id="open-position" class="section">
+  <div class="container">
+    <div class="row gx-md-5 gy-5">
+      {{range where site.RegularPages "Section" "career"}}
+      <div class="col-lg-6 col-md-6">
+        <div class="p-5 border rounded-2 h-100 is-hoverable position-relative">
+          <h5 class="mb-2">{{.Title | markdownify}}</h5>
+          <p><span>{{.Params.job_nature | markdownify}}</span> | {{.Params.category | markdownify}}</p>
+          <a href="{{.RelPermalink}}" class="mb-0 text-primary fw-500 mt-2 btn-link stretched-link">{{i18n `apply_for_position`}} <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      {{end}}
+    </div>
+  </div>
+</section>
+
+{{end}}

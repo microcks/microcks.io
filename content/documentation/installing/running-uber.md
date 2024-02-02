@@ -4,12 +4,6 @@ title: "Running with Testcontainers"
 date: 2023-10-12
 publishdate: 2023-10-12
 lastmod: 2023-11-14
-menu:
-  docs:
-    parent: installing
-    name: Running with Testcontainers
-    weight: 50
-toc: true
 weight: 50 #rem
 ---
 

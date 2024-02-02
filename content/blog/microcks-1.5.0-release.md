@@ -1,16 +1,11 @@
 ---
-draft: false
 title: Microcks 1.5.0 release 🚀
-layout: post
 date: 2022-01-18
-publishdate: 2022-01-18
-lastmod: 2022-01-18
-image: "/images/blog/microcks-1.5.0-feature.png"
-categories: [blog]
+image: "images/blog/microcks-1.5.0-feature.png"
 author: "Laurent Broudoux"
-author_title: "MicrocksIO founder"
-author_image: "/images/blog/bio/lbroudoux.jpeg"
-author_twitter: "lbroudoux"
+type: "regular"
+description: "Microcks 1.5.0 release 🚀"
+draft: false
 ---
 
 We are excited to announce the 1.5.0 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing. Just three months have passed after the previous iteration, and our supporters in the community helped us push up a new release with significant features once again. Thanks a lot to all of them 👏
@@ -19,7 +14,7 @@ In line with [our mantra](https://microcks.io/blog/why-microcks/), this release 
 
 Adding GraphQL allows Microcks to complete the picture and become the only and ultimate tool that supports all the different **standards** of APIs: REST, SOAP, gRPC, Graph, and Events based on various **protocols**. Moreover, we integrate with de-facto standards for API **Dev Tooling** and **CI/CD** pipelines - offering integration whatever your delivery process or tooling! 
 
-![microcks-feature](/images/blog/microcks-1.5.0-feature.png)
+{{< image src="images/blog/microcks-1.5.0-feature.png" alt="image" zoomable="true" >}}
 
 We also love ❤️ and value the community, and we try to serve it by listening and implementing feedback and enhancement ideas. This new release carries a lot of them regarding better lightweight and faster bootstrap experience of Microcks for different use-cases.
 
@@ -33,7 +28,7 @@ At Microcks, we identified the importance of GraphQL and are sure it’s a perfe
 
 We are big supporters of the **[contract-first approach](https://microcks.io/blog/why-microcks/)** and rely on it. You will first need a GraphQL Schema - expressed using the [Schema Definition Language](https://graphql.org/learn/schema/) - to import the operations’ definition of your API into Microcks. Because the schema doesn’t support the notion of examples - contrary to [OpenAPI](https://www.openapis.org/) and [AsyncAPI](https://asyncapi.com) specifications - you will need to rely on a [Postman Collection](https://www.postman.com/collection/) that holds your mock dataset as examples.
 
-![microcks-graphql-artifacts](/images/blog/microcks-1.5.0-graphql-artifacts.png)
+{{< image src="images/blog/microcks-1.5.0-graphql-artifacts.png" alt="image" zoomable="true" >}}
 
 > Check out our [GraphQL usage for Microcks](https://microcks.io/documentation/using/graphql/) documentation that illustrates how GraphQL Schema specifications and Postman Collection can be combined and used together. You’ll see that defining mocks and tests are as easy as describing requests and responses expectations using JSON. Microcks will implement all the specificities of GraphQL fetching undercover.
 

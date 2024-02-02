@@ -1,21 +1,16 @@
 ---
-draft: false
 title: "Introducing Microcks Docker Desktop Extension 0.2: Enhanced Features and Increased Cadence 🚀"
-layout: post
 date: 2023-06-15
-publishdate: 2023-06-15
-lastmod: 2023-06-15
-image: "/images/blog/docker-desktop-extension-0.2-feature.png"
-categories: [blog]
+image: "images/blog/docker-desktop-extension-0.2-feature.png"
 author: "Hugo Guerrero"
-author_title: "APIs & Event-Driven Specialist at Red Hat, MicrocksIO contributor"
-author_image: "/images/blog/bio/hguerrero.jpeg"
-author_twitter: "hguerreroo"
+type: "regular"
+description: "Introducing Microcks Docker Desktop Extension 0.2: Enhanced Features and Increased Cadence 🚀"
+draft: false
 ---
 
 We are very excited to announce the availability of [Microcks Docker Desktop Extension](https://microcks.io/documentation/installing/docker-desktop-extension/) `0.2.0`! This new version of [our popular extension](https://dev.to/docker/9-docker-extensions-every-developer-must-try-1no2) includes exciting enhancements designed to simplify and streamline API mocking and testing processes. This release focused on improving the user experience and expanding the extension's capabilities. We are also excited to announce that we are increasing the frequency of our releases to provide our users with more frequent updates and features.
 
-![docker-desktop-extension](/images/blog/docker-desktop-extension-0.2-feature.png)
+{{< image src="images/blog/docker-desktop-extension-0.2-feature.png" alt="image">}}
 
 Our team has worked hard to make the Microcks Docker Desktop Extension more comprehensive and robust. 
 
@@ -29,11 +24,10 @@ In this release, we have introduced two major highlights:
 
 One of the most significant improvements is the inclusion of API mock URLs directly on the main extension page. This enhancement gives users quick access to mock URLs for their APIs, making sharing and integrating with other tools or team members easier. With a single glance, you can retrieve the URLs required to simulate API responses efficiently. 
 
-
-![API mocks list](/images/blog/docker-desktop-extension-0.2-list.png )
+{{< image src="images/blog/docker-desktop-extension-0.2-list.png" alt="image" zoomable="true" >}}
 <div align="center"><i>Fig. 1. API services on the extension’s main page.</i></div>
 
-![API mock URLs](/images/blog/docker-desktop-extension-0.2-urls.png)
+{{< image src="images/blog/docker-desktop-extension-0.2-urls.png" alt="image" zoomable="true" >}}
 <div align="center"><i>Fig 2. API mock URLs by method and path.</i></div>
 
 
@@ -41,7 +35,7 @@ One of the most significant improvements is the inclusion of API mock URLs direc
 
 We recognize that not all users use [Postman](https://postman.com) for API testing. In response to popular demand and to simplify your deployment, we have added Postman as an optional component that can be activated from the Microcks Docker Desktop Extension's settings page.
 
-![Postman settings](/images/blog/docker-desktop-extension-0.2-postman.png)
+{{< image src="images/blog/docker-desktop-extension-0.2-postman.png" alt="image" zoomable="true" >}}
 <div align="center"><i>Fig 3. You can enable Posman Runtime for testing from the settings.</i></div>
 
 

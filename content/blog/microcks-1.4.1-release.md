@@ -1,16 +1,11 @@
 ---
-draft: false
 title: Microcks 1.4.1 release 🚀
-layout: post
 date: 2021-10-15
-publishdate: 2021-10-15
-lastmod: 2021-10-15
-image: "/images/blog/microcks-1.4.1-feature.png"
-categories: [blog]
+image: "images/blog/microcks-1.4.1-feature.png"
 author: "Laurent Broudoux"
-author_title: "MicrocksIO founder"
-author_image: "/images/blog/bio/lbroudoux.jpeg"
-author_twitter: "lbroudoux"
+type: "regular"
+description: "Microcks 1.4.1 release 🚀"
+draft: false
 ---
 
 We are thrilled to announce today the 1.4.1 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing. This release is another demonstration of the ability of Microcks to play on both sides with new Enterprise related features but also enhancement towards the Developer eXperience.
@@ -19,13 +14,11 @@ You’ll see that we put a lot of effort (and love ❤️) into listening and im
 
 Kudos to our community users and partners for supporting and pushing us to this momentum 👏See greetings below.
 
-![microcks-feature](/images/blog/microcks-1.4.1-feature.png)
-
+{{< image src="images/blog/microcks-1.4.1-feature.png" alt="image" zoomable="true" >}}
 
 Let’s do a review of what’s new on each one of our highlights without delay.
 
 > And yes… we screwed things up on the `1.4.0` release… so we directly jump to `1.4.1` instead 😉
-
 
 ## Repository multi-tenancy
 
@@ -35,7 +28,7 @@ Repository multi-tenancy should be explicitly opted-in and will leverage the lab
 
 For each and every tenant, Microcks takes care of creating and managing dedicated groups. The Microcks administrator will then be able to assign users to groups easily like illustrated below: 
 
-![group-management](/images/users-group-management.png)
+{{< image src="images/blog/users-group-management.png" alt="image" zoomable="true" >}}
 
 
 > How to enable and manage a multi-tenant repository? It’s very easy! New options have been added into both Helm Chart and Operator. Check our updated documentation on [activation](https://microcks.io/documentation/using/advanced/organizing/#rbac-security-segmentation) and user [groups management](https://microcks.io/documentation/administrating/users/#group-membership).

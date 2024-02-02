@@ -1,20 +1,16 @@
 ---
 title: Async Features with Docker Compose
-layout: post
 date: 2021-08-30
-publishdate: 2021-08-30
-lastmod: 2021-08-30
-image: "/images/blog/async-features-with-docker-compose.png"
-categories: [blog]
+image: "images/blog/async-features-with-docker-compose.png"
 author: "Laurent Broudoux"
-author_title: "MicrocksIO founder"
-author_image: "/images/blog/bio/lbroudoux.jpeg"
-author_twitter: "lbroudoux"
+type: "regular"
+description: "Async Features with Docker Compose"
+draft: false
 ---
 
 For some weeks now, many users from the Microcks community were asking for playing with [AsyncAPI](https://asyncapi.com) related features without having to setup a Minikube or a full [Kubernetes](https://kubernetes.io) instance. And [Docker-Compose](https://docs.docker.com/compose/) is the perfect match for that! We were at first reluctant as it is an additional configuration to support... but developers experience FTW! 💪
 
-![async-features-with-docker-compose](/images/blog/async-features-with-docker-compose.png)
+{{< image src="images/blog/async-features-with-docker-compose.png" alt="image" zoomable="true" >}}
 
 This blog post is a detailed walkthrough on how to use Asynchronous related features with Docker-Compose using the new set of compose files shipped in Microcks `master` branch. This configuration has also entered our [Installation documentation](https://microcks.io/documentation/installing/docker-compose/#enabling-asynchronous-api-features).
 
@@ -114,7 +110,7 @@ Now, follow the [Getting Started](https://microcks.io/documentation/getting-star
 
 You should have following result:
 
-![async-features-with-docker-compose-importers](/images/blog/async-features-with-docker-compose-importers.png)
+{{< image src="images/blog/async-features-with-docker-compose-importers.png" alt="image" zoomable="true" >}}
 
 Check the relevant logs on `microcks` container:
 
@@ -145,7 +141,7 @@ $ docker logs c2d7f3e10215
 
 As stated in the logs, a new API **User signed-up API, 0.1.1** has been discovered and is now available within Microcks repository. You can check this browsing the **API | Services** and discover your API details:
 
-![async-features-with-docker-compose-asyncapi](/images/blog/async-features-with-docker-compose-asyncapi.png)
+{{< image src="images/blog/async-features-with-docker-compose-asyncapi.png" alt="image" zoomable="true" >}}
 
 From now, you should start having messages on the Kafka broker. Check the relevant logs on `microcks-async-minion` container:
 

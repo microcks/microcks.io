@@ -4,13 +4,7 @@ title: "Advanced topics"
 date: 2019-12-12
 publishdate: 2019-12-13
 lastmod: 2019-12-13
-menu:
-  docs:
-    parent: using
-    name: Advanced topics
-    weight: 110
-toc: true
-weight: 30 #rem
+weight: 15
 ---
 
 ## Content negocation in REST mocks
@@ -21,11 +15,11 @@ So suppose you have defined 2 representations for the same example of a `GET /pa
 
 * One describing a JSON response like below
 
-![content-negociation-json](/images/content-negociation-json.png)
+{{< image src="images/content-negociation-json.png" alt="image" zoomable="true" >}}
 
 * Another describing a XML response like below
 
-![content-negociation-xml](/images/content-negociation-xml.png)
+{{< image src="images/content-negociation-xml.png" alt="image" zoomable="true" >}}
 
 Both samples match the same dispatch criterion that is the `name` part of the URI. However, Microcks will return different responses depending on the `Accept` header of your request:
 
@@ -59,7 +53,7 @@ Constraints can be put onto `Query` or `Header` parameters and are of 3 types:
 
 Now imagine you put such constraints onto the `GET /pastry` operation of your REST API that is secured using a JWT Bearer and should managed tracabelity using a correlation id:
 
-![parameters-constraints](/images/parameters-constraints.png)
+{{< image src="images/parameters-constraints.png" alt="image" zoomable="true" >}}
 
 Now let's do some tests to check Microcks behavior:
 

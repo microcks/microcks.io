@@ -1,16 +1,10 @@
 ---
 draft: false
-title: "Google Pub/Sub Mocking and Testing"
+title: "Google Pub/Sub Mocking & Testing"
 date: 2023-02-08
 publishdate: 2023-02-08
 lastmod: 2023-02-08
-menu:
-  docs:
-    parent: guides
-    name: Google Pub/Sub Mocking and Testing
-    weight: 50
-toc: true
-weight: 50 #rem
+weight: 6
 ---
 
 ## Overview
@@ -217,7 +211,7 @@ $ cat googlecloud-service-account.json | base64
 
 The screenshot below illustrates the creation of such a secret for your `QA PubSub Service Account` with username, and credentials.
 
-![Pub/Sub Broker secret](/images/guides/pubsub-broker-secret.png)
+{{< image src="images/guides/pubsub-broker-secret.png" alt="image" zoomable="true" >}}
 
 Once saved we can go create a **New Test** within Microcks web console. Use the following elements in the Test form:
 
@@ -228,7 +222,7 @@ Once saved we can go create a **New Test** within Microcks web console. Use the 
 
 Launch the test and wait for some seconds and you should get access to the test results as illustrated below:
 
-![Pub/Sub Test success](/images/guides/pubsub-test-success.png)
+{{< image src="images/guides/pubsub-test-success.png" alt="image" zoomable="true" >}}
 
 This is fine and we can see that Microcks captured messages and validated them against the payload schema that is embedded into the AsyncAPI specification. In our sample, every property is `required` and message does not allow `additionalProperties` to be define, `sendAt` is of string type.
 
@@ -245,7 +239,7 @@ Sending {"id":"uriayo3qh5b1z0y8zd5d7x","sendAt":1675946960301,"displayName":"Lau
 
 Relaunch a new test and you should get results similar to those below:
 
-![Pub/Sub Test failure](/images/guides/pubsub-test-failure.png)
+{{< image src="images/guides/pubsub-test-failure.png" alt="image" zoomable="true" >}}
 
 🥳 We can see that there's now a failure and that's perfect! What does that mean? It means that when your application or devices are sending garbage, Microcks will be able to spot this and inform you that the expected message format is not respected.
 

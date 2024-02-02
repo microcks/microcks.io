@@ -1,24 +1,19 @@
 ---
 draft: false
 title: Microcks 1.8.0 release 🚀
-layout: post
 date: 2023-10-17
-publishdate: 2023-10-17
-lastmod: 2023-10-17
-image: "/images/blog/microcks-1.8.0-feature.png"
-categories: [blog]
+image: "images/blog/microcks-1.8.0-feature.png"
 author: "Laurent Broudoux"
-author_title: "MicrocksIO founder"
-author_image: "/images/blog/bio/lbroudoux.jpeg"
-author_twitter: "lbroudoux"
+type: "regular"
+description: "Microcks 1.8.0 release 🚀"
+draft: false
 ---
-
 
 As the seasons transition, we are excited to unveil the `1.8.0` release of Microcks, the [CNCF](https://landscape.cncf.io/?selected=microcks)'s open-source cloud-native tool for API Mocking and Testing, right on the cusp of winter! ❄️ 🚀
 
 With **47** resolved issues and **5** external PR **(from new contributors)** - This new release brings you a wave of new features, including **AI Copilot**, support for **HAR artifacts**, **OAuth2** secured endpoint testing, Microcks super light **Uber image**, **Testcontainers** official module, two developer-friendly buttons for easy interactions (`Copy as curl command` and `Add to your CI/CD`), and an enhanced contextual help.
 
-![microcks-feature](/images/blog/microcks-1.8.0-feature.png)
+{{< image src="images/blog/microcks-1.8.0-feature.png" alt="microcks-feature" zoomable="true" >}}
 
 Without further ado, let's review the latest updates for each of our key highlights.
 
@@ -89,19 +84,22 @@ A simple button can bring considerable usability improvement! We scratched our h
 
 > See those features in action in the screenshots below. Click on screenshots to access the whole image and get details.
 
-<div style="display: flex; justify-content: center;">
-  <a href="/images/blog/microcks-1.8.0-copy-curl.png" class="ph1" style="height: 200px; max-width: 22%" target="blank">
-    <img src="/images/blog/microcks-1.8.0-copy-curl.png" style="height: 200px; max-width: 100%;" />
-  </a>
-  <a href="/images/blog/microcks-1.8.0-add-to-ci.png" class="ph1" style="height: 200px; max-width: 22%;" target="blank">
-    <img src="/images/blog/microcks-1.8.0-add-to-ci.png" style="height: 200px; max-width: 100%;" />
-  </a>
-  <a href="/images/blog/microcks-1.8.0-test-help.png" class="ph1" style="height: 200px; max-width: 22%;" target="blank">
-    <img src="/images/blog/microcks-1.8.0-test-help.png" style="height: 200px; max-width: 100%;" />
-  </a>
-  <a href="/images/blog/microcks-1.8.0-help-modal.png" class="ph1" style="height: 200px; max-width: 22%;" target="blank">
-    <img src="/images/blog/microcks-1.8.0-help-modal.png" style="height: 200px; max-width: 100%;"/>
-  </a>
+<div class="swiper single-slider">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      {{< image src="images/blog/microcks-1.8.0-copy-curl.png" >}}
+    </div>
+    <div class="swiper-slide">
+      {{< image src="images/blog/microcks-1.8.0-add-to-ci.png" >}}
+    </div>
+    <div class="swiper-slide">
+      {{< image src="images/blog/microcks-1.8.0-test-help.png" >}}
+    </div>
+    <div class="swiper-slide">
+      {{< image src="images/blog/microcks-1.8.0-help-modal.png" >}}
+    </div>
+  </div>
+  <div class="swiper-pagination"></div>
 </div>
 
 ## Open to Shift-Left eXperiences!

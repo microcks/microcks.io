@@ -1,22 +1,17 @@
 ---
-draft: false
 title: Microcks 1.0.0 release 🚀
-layout: post
 date: 2020-08-11
-publishdate: 2020-08-11
-lastmod: 2020-08-11
-image: "/images/blog/microcks-1.0.0-loves-asyncapi.png"
-categories: [blog]
+image: "images/blog/microcks-1.0.0-loves-asyncapi.png"
 author: "Laurent Broudoux"
-author_title: "MicrocksIO founder"
-author_image: "/images/blog/bio/lbroudoux.jpeg"
-author_twitter: "lbroudoux"
+type: "regular"
+description: "Microcks 1.0.0 release 🚀"
+draft: false
 ---
 
 Today is a very special day as we launch Microcks 1.0.0 and as it materializes a vision we had 18 months ago when starting investing more time on what was just a fun side-project at that time. That vision was about building one simple, scalable and consolidating tool for all the Enterprise services mocking and testing needs — whatever the type of services or API: green-field or legacy.
 Today, Microcks is the only Open source Kubernetes native tool for API Mocking and Testing supporting REST APIs, SOAP WebServices and now asynchronous / event-driven APIs!
 
-![microcks-loves-asyncapi](/images/blog/microcks-1.0.0-loves-asyncapi.png)
+{{< image src="images/blog/microcks-1.0.0-loves-asyncapi.png" alt="image" zoomable="true" >}}
 
 This new 1.0.0 release is the first Microcks General Availability (GA) version to fully manage event-driven API through the support of AsyncAPI specification. This is a major step forward as we are convinced that the transition to cloud-native applications will strongly embrace event-based and reactive architecture. Thus the need to speed-up and govern event-based API like any other services mocking using Microcks will be crucial and a key success factor for any modern and agile software developments.
 
@@ -35,7 +30,7 @@ With this release we mainly focused on event-driven capabilities and finalizing 
 
 > Starting with version `1.0.0`, Microcks is now able to import AsyncAPI definitions for enriching the API catalogs with `Event` typed APIs.
 
-![microcks-1.0.0-release-asyncapi](/images/blog/microcks-1.0.0-release-asyncapi.png)
+{{< image src="images/blog/microcks-1.0.0-release-asyncapi.png" alt="image" zoomable="true" >}}
 
 AsyncAPI defines multiple protocol bindings to details protocol specific issues. In this `1.0.0`, we have decided to focus on the `KAFKA` binding. Microcks installation procedure now offers to deploy a dedicated [Apache Kafka](https://kafka.apache.org/) broker as part of your setup or to reuse an already existing broker.
 
@@ -60,7 +55,7 @@ Many users from the community also asked for enhancements when reusing an existi
 
 Finally, we did move our container images repositories from [Docker Hub](https://hub.docker.com/orgs/microcks) to [Quay.io](https://quay.io/) infrastructure. The major reason for moving to Quay.io is their excellent, built-in security vulnerabilities scan for container images. Now, for each and every commit into the Microcks repository, newly produced container images are scanned and trigger a notification if a vulnerability is found.
 
-![microcks-1.0.0-release-quay](/images/blog/microcks-1.0.0-release-quay.png)
+{{< image src="images/blog/microcks-1.0.0-release-quay.png" alt="image" zoomable="true" >}}
 
 All the latest images from Microcks now have an “All green” scan report ;-)
 

@@ -1,21 +1,17 @@
 ---
 title: Simulating CloudEvents with AsyncAPI and Microcks
-layout: post
 date: 2021-04-02
-publishdate: 2021-04-06
-lastmod: 2021-04-06
-image: "/images/blog/simulating-cloudevents-with-asyncapi.png"
-categories: [blog]
+image: "images/blog/simulating-cloudevents-with-asyncapi.png"
 author: "Laurent Broudoux"
-author_title: "MicrocksIO founder"
-author_image: "/images/blog/bio/lbroudoux.jpeg"
-author_twitter: "lbroudoux"
+type: "regular"
+description: "Simulating CloudEvents with AsyncAPI and Microcks"
+draft: false
 ---
 
 > TL;DR: [CloudEvents](https://cloudevents.io/) and [AsyncAPI](https://asyncapi.com/) are complementary specifications that help define your [Event Driven Architecture](https://en.wikipedia.org/wiki/Event-driven_architecture). [Microcks](https://microcks.io/) allows simulation of CloudEvent to speed-up and ensure autonomy of development teams.
 
 <figure class="tc center w-70">
-<img src="/images/blog/simulating-cloudevents-with-asyncapi.png" style="display: block; margin-left: auto; margin-right: auto;"/>
+{{< image src="images/blog/simulating-cloudevents-with-asyncapi.png" alt="image" zoomable="true" >}}
 </figure>
 
 The rise of Event Driven Architecture (EDA) is a necessary evolution step towards cloud-native applications. Events are the ultimate weapon to decouple your microservices within your architecture. They are bringing great benefits like space and time decoupling, better resiliency and elasticity.
@@ -124,7 +120,7 @@ Some interesting things to notice here:
 
 Once imported into Microcks, it is discovering the API definition as well as the different examples. It starts immediately producing mock events on the Kafka broker it is connected to - each and every 3 seconds here.
 
-![simulating-cloudevents-with-asyncapi-microcks](/images/blog/simulating-cloudevents-with-asyncapi-microcks.png)
+{{< image src="images/blog/simulating-cloudevents-with-asyncapi-microcks.png" alt="image" zoomable="true" >}}
 
 Since release [1.2.0](https://microcks.io/blog/microcks-1.2.0-release/), Microcks is also supporting the connection to a Schema Registry. Therefore it publishes the Avro schema used at mock message publication time. Using the [`kafkacat`](https://github.com/edenhill/kafkacat) CLI tool, it's then easy to connect to the Kafka broker and registry - we're using here the [Apicurio Service Registry](https://www.apicur.io/registry/) - to inspect the content of mock events:
 

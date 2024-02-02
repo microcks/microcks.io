@@ -1,15 +1,11 @@
 ---
 title: Advanced Dispatching and Constraints for mocks
-layout: post
 date: 2021-01-28
-publishdate: 2021-01-28
-lastmod: 2021-01-28
-image: "/images/blog/advanced-dispatching-constraints.jpg"
-categories: [blog]
+image: "images/blog/advanced-dispatching-constraints.jpg"
 author: "Laurent Broudoux"
-author_title: "MicrocksIO founder"
-author_image: "/images/blog/bio/lbroudoux.jpeg"
-author_twitter: "lbroudoux"
+type: "regular"
+description: "Advanced Dispatching and Constraints for mocks"
+draft: false
 ---
 
 The purpose of this post is to explain the advanced dispatching and constraint features available when mocking a REST API using Microcks. As I recently went again through the documentation answering questions on our [Zulip chat](https://microcksio.zulipchat.com), I realized that all the pieces were present but we did not have any overall example showing how to use them!
@@ -19,8 +15,8 @@ So I setup this new example based on a real life use-case our community users ha
 * `apiKey` is a parameter allowing to identify API caller and apply tracing, rate limits and so on...
 
 <figure class="tc">
-  <img src="/images/blog/advanced-dispatching-constraints.jpg" style="display: block; margin-left: auto; margin-right: auto;"/>
-  <figcaption><i class="f5">Photo by <a href="https://unsplash.com/@jordanmadrid?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Jordan Madrid</a> on <a href="https://unsplash.com/s/photos/compass?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></i></figcaption>
+  {{< image src="images/blog/advanced-dispatching-constraints.jpg" alt="image" zoomable="true" >}}
+<br> Photo by <a href="https://unsplash.com/@jordanmadrid?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Jordan Madrid</a> on <a href="https://unsplash.com/s/photos/compass?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></i></figcaption>
 </figure>
 
 We'll see how to configure advanced mocking rules in Microcks so that requests will be routed to correct responses based on `region` value and `apiKey` will be checked as mandatory even if we do not care of the actual value. If user specified an unknow region, the mock should return a fallback response. 
@@ -43,7 +39,7 @@ Some important things to notice in this OpenAPI specification:
 
 Once imported into Microcks, you should have the same result as below screenshot:
 
-![advanced-dispatching-constraints-init](/images/blog/advanced-dispatching-constraints-init.png)
+{{< image src="images/blog/advanced-dispatching-constraints-init.png" alt="image" zoomable="true" >}}
 
 Some important things to notice here on how Microcks has interpreted the data coming from the OpenAPI specification:
 * It has inferred that this dispatcher will be based on `URI_PARAMS` (see [Using Exposed Mocks](https://microcks.io/documentation/using/mocks/) for introduction on dispatchers),
@@ -78,7 +74,7 @@ We need to add constraint on `apiKey` query parameter so that requests that do n
 
 Once on the properties edition for the `GET /forecast` operation, add a new constraint like illustrated below: 
 
-![advanced-dispatching-constraints-add-constraint](/images/blog/advanced-dispatching-constraints-add-constraint.png)
+{{< image src="images/blog/advanced-dispatching-constraints-add-constraint.png" alt="image" zoomable="true" >}}
 
 Do not forget to hit the **Save** button and then you can re-try calling a mock endpoint:
 
@@ -89,7 +85,7 @@ Parameter apiKey is required. Check parameter constraints.%
 
 🎉 Perfect! Our constraint now applies correctly. Getting back on the API summary page and looking at the operation details, you'll see that a new **Parameter Constraints** block has appeared explaining the constraint:
 
-![advanced-dispatching-constraints-constraint-added](/images/blog/advanced-dispatching-constraints-constraint-added.png)
+{{< image src="images/blog/advanced-dispatching-constraints-constraint-added.png" alt="image" zoomable="true" >}}
 
 So far so good but now let's try adding the `apiKey` parameter to our requests:
 
@@ -123,7 +119,7 @@ From there you have two options:
 
 Obviously we choose the second option and get back to the **Edit Properties** page for this operation. Just below the parameter constraints we have used previously, we have the ability to change the dispathing properties. We'll simply tell Microcks to keep the current dispatcher but we'll adapt the rules to only let `region` as the sole dispatching criterion:
 
-![advanced-dispatching-constraints-adapt-rules](/images/blog/advanced-dispatching-constraints-adapt-rules.png)
+{{< image src="images/blog/advanced-dispatching-constraints-adapt-rules.png" alt="image" zoomable="true" >}}
 
 Once saved, you will be able to test again the different mock URLs for the four regions and you'll see that now you're getting the response associated with each requested region:
 
@@ -167,7 +163,7 @@ In order to address our final requirement - having a proper 404 response if regi
 
 The `FALLBACK` dispatcher behaves kinda like a `try-catch` wrapping block in programming: it will try applying a first dispatcher with its own rule and if it find nothings it will default to the `fallback` response. Configure this dispatcher as shown below: picking the `unknown` response as the one representing our fallback.
 
-![advanced-dispatching-constraints-adapt-dispatcher](/images/blog/advanced-dispatching-constraints-adapt-dispatcher.png)
+{{< image src="images/blog/advanced-dispatching-constraints-adapt-dispatcher.png" alt="image" zoomable="true" >}}
 
 Hit the **Save** button and test again the previous curl command, you'll see that you're now receving the `404` response called `unknown`: 
 
@@ -178,7 +174,7 @@ Region is unknown. Choose in north, west, east or south.%
 
 🎉 TADAM! Now when getting back the API summary page and checking the `GET /forecast` operation details, you'll see that dispatcher and dispatchin rules have been updated to display your new configuration:
 
-![advanced-dispatching-constraints-final](/images/blog/advanced-dispatching-constraints-final.png)
+{{< image src="images/blog/advanced-dispatching-constraints-final.png" alt="image" zoomable="true" >}}
 
 ## Wrap-up
 

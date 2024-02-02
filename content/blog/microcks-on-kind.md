@@ -1,21 +1,16 @@
 ---
-draft: false
 title: Microcks on Kind 🚢 
-layout: post
-date: 2023-12-2
-publishdate: 2023-12-28
-lastmod: 2023-12-28
+date: 2023-12-28
 image: "/images/blog/microcks-on-kind-feature.png"
-categories: [blog]
 author: "Laurent Broudoux"
-author_title: "MicrocksIO founder"
-author_image: "/images/blog/bio/lbroudoux.jpeg"
-author_twitter: "lbroudoux"
+type: "regular"
+description: "Microcks on Kind 🚢"
+draft: false
 ---
 
 I'm still on housekeeping duty! I went through my notes on **installing Microcks on Kind** and decided to refresh them. Network and Ingress configuration here is actually easier than in the [Minikube setup](https://microcks.io/blog/microcks-on-minikube/).
 
-![microcks-kind-feature](/images/blog/microcks-on-kind-feature.png)
+{{< image src="images/blog/microcks-on-kind-feature.png" >}}
 
 This installation notes were ran on my Apple Mac book M2 but those steps would sensibly be the same on any Linux machine. Let's go 🚀
 

@@ -4,13 +4,7 @@ title: "AsyncAPI Mocking and Testing"
 date: 2020-08-01
 publishdate: 2020-08-05
 lastmod: 2023-06-07
-menu:
-  docs:
-    parent: using
-    name: AsyncAPI usage for Microcks
-    weight: 25
-toc: true
-weight: 30 #rem
+weight: 7
 ---
 
 ## Overview
@@ -149,7 +143,7 @@ When you're happy with your API design and example definitions just put the resu
 
 Using the above `User signed-up API` example, you should get the following results:
 
-![asyncapi-mocks](/images/asyncapi-mocks.png)
+{{< image src="images/asyncapi-mocks.png" alt="image" zoomable="true" >}}
 
 ## Using AsyncAPI extensions
 

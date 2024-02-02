@@ -1,21 +1,16 @@
 ---
-draft: false
 title: Microcks Docker Desktop Extension 🚀
-layout: post
 date: 2022-09-26
-publishdate: 2022-09-26
-lastmod: 2022-09-26
-image: "/images/blog/docker-desktop-extension-feature.png"
-categories: [blog]
+image: "images/blog/docker-desktop-extension-feature.png"
 author: "Laurent Broudoux"
-author_title: "MicrocksIO founder"
-author_image: "/images/blog/bio/lbroudoux.jpeg"
-author_twitter: "lbroudoux"
+type: "regular"
+description: "Microcks Docker Desktop Extension 🚀"
+draft: false
 ---
 
 We are excited to announce the release of Microcks' **Docker Desktop Extension** as we always love to support and improve the lives of our community members. 🎉
 
-![docker-desktop-extension](/images/blog/docker-desktop-extension-feature.png)
+{{< image src="images/blog/docker-desktop-extension-feature.png" alt="image" zoomable="true" >}}
  
 > It has never been simpler to set up and use Microcks on a laptop or from anywhere you need or want thanks to Docker Desktop Extension. 🙌
 

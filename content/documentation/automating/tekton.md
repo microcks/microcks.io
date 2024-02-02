@@ -4,13 +4,7 @@ title: "Using Microcks from Tekton"
 date: 2019-11-11
 publishdate: 2019-11-11
 lastmod: 2021-06-30
-menu:
-  docs:
-    parent: automating
-    name: Using Microcks from Tekton
-    weight: 40
-toc: true
-weight: 40 #rem
+weight: 4
 ---
 
 ## Microcks Tekton
@@ -229,8 +223,8 @@ $ tkn pipeline logs microcks-pipeline-beer-catalog
 
 Using the **OpenShift Pipelines** implementation of Tekton, you may easily get all this information at hands within the Developer Console of your OpenShift cluster. Here's belo a capture of our pipeline execution:
 
-![tekton-pipeline-run](/images/tekton-pipeline-run.png)
+{{< image src="images/tekton-pipeline-run.png" alt="image" zoomable="true" >}}
 
 With the view to access the logs of this execution:
 
-![tekton-pipeline-logs](/images/tekton-pipeline-logs.png)
+{{< image src="images/tekton-pipeline-logs.png" alt="image" zoomable="true" >}}

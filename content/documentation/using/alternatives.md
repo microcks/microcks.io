@@ -4,13 +4,7 @@ title: "Comparison to alternatives"
 date: 2019-09-01
 publishdate: 2019-09-01
 lastmod: 2019-09-02
-menu:
-  docs:
-    parent: using
-    name: Comparison to alternatives
-    weight: 10
-toc: true
-weight: 30 #rem
+weight: 4
 ---
 
 ## Microcks vs. SoapUI

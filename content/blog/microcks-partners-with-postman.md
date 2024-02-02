@@ -1,22 +1,16 @@
 ---
-draft: false
 title: Microcks partners with Postman to shape next-gen multi-protocol API tooling ⭐️
-layout: post
 date: 2023-03-23
-publishdate: 2023-03-23
-lastmod: 2023-03-23
-image: "/images/blog/microcks-partners-with-postman-feature.png"
-categories: [blog]
+image: "images/blog/microcks-partners-with-postman-feature.png"
 author: "Laurent Broudoux"
-author_title: "MicrocksIO founder"
-author_image: "/images/blog/bio/lbroudoux.jpeg"
-author_twitter: "lbroudoux"
+type: "regular"
+description: "Microcks partners with Postman to shape next-gen multi-protocol API tooling ⭐️"
+draft: false
 ---
 
 I’m feeling proud and honored to let you know that we’re partnering with [Postman](https://postman.com), the leading platform for API development, to define the future of multi-protocol API tooling 🚀
 
-![microcks-postman-feature](/images/blog/microcks-partners-with-postman-feature.png)
-
+{{< image src="images/blog/microcks-partners-with-postman-feature.png" alt="image" zoomable="true" >}}
 
 From day one, Microcks had the vision of a multi-protocol API ecosystem due to the ubiquitous nature of API. This is especially true at the enterprise level where the technology strata are built over the years. This vision has been confirmed by our growing user base and community.
 

@@ -1,16 +1,11 @@
 ---
-draft: false
 title: Microcks 1.1.0 release 🚀
-layout: post
 date: 2020-11-09
-publishdate: 2020-11-09
-lastmod: 2020-11-09
-image: "/images/blog/microcks-1.1.0-kafka.png"
-categories: [blog]
+image: "images/blog/microcks-1.1.0-kafka.png"
 author: "Laurent Broudoux"
-author_title: "MicrocksIO founder"
-author_image: "/images/blog/bio/lbroudoux.jpeg"
-author_twitter: "lbroudoux"
+type: "regular"
+description: "Microcks 1.1.0 release 🚀"
+draft: false
 ---
 
 We are very thrilled to announce today Microcks 1.1.0 release — the Open source Kubernetes-native tool for API Mocking and Testing. What a ride it has been over the last months since [1.0.0 release](https://microcks.io/blog/microcks-1.0.0-release/) and our announcement of [AsyncAPI](https://www.asyncapi.com/) support !
@@ -19,7 +14,7 @@ We received a huge amount of positive feedback from our community including many
 
 Today, Microcks is the only Open source Kubernetes-native tool that offers a consistent approach for mocking and testing your REST APIs, SOAP WebServices and now [asynchronous / event-driven](https://www.asyncapi.com/docs/community/tooling#mocking) Kafka APIs !
 
-![microcks-kafka](/images/blog/microcks-1.1.0-kafka.png)
+{{< image src="images/blog/microcks-1.1.0-kafka.png" alt="image" zoomable="true" >}}
 
 So you may be wondering *"Why is this new release so fantastic and important ?"*. Well that `1.1.0` release means that you may now use the same tool for speeding-up the delivery and governing the lifecycle of your APIs - whether synchronous or asynchronous. Microcks will open up avenues for your team to test and create robust asynchronous workflows the easy way. 
 

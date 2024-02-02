@@ -1,21 +1,21 @@
 ---
-draft: false
-title: Microcks Joining CNCF as a Sandbox Project 🎉
-layout: post
+title: "Microcks Joining CNCF as a Sandbox Project 🎉"
 date: 2023-06-27
-publishdate: 2023-06-27
-lastmod: 2023-06-27
-image: "/images/blog/microcks-joining-cncf-sandbox-feature.png"
-categories: [blog]
+# post image
+image: "images/blog/microcks-joining-cncf-sandbox-feature.png"
+# author
 author: "Yacine Kheddache"
-author_title: "MicrocksIO co-founder"
-author_image: "/images/blog/bio/yadayac.jpg"
-author_twitter: "YadaYac"
+# post type (regular/featured)
+type: "featured"
+# meta description
+description: "This is meta description sandbox here"
+# post draft
+draft: false
 ---
 
 We are excited to announce that Microcks, the open-source API mocking and testing project, has been accepted as a Sandbox project by the Cloud Native Computing Foundation ([CNCF](https://www.cncf.io/)). 
 
-![](/images/blog/microcks-joining-cncf-sandbox-feature.png)
+{{< image src="images/blog/microcks-joining-cncf-sandbox-feature.png" alt="image" zoomable="true" >}}
 
 We thank the CNCF Technical Oversight Committee (TOC) [members](https://www.cncf.io/people/technical-oversight-committee/) for their validation and the [TAG App Delivery team](https://tag-app-delivery.cncf.io/) for their invaluable support during this process 🙏 [Josh Gavant](https://www.linkedin.com/in/joshgav/), [Abigail (Abby) Bangser](https://www.linkedin.com/in/abbybangser/), [Scott Rigby](https://www.linkedin.com/in/scottrigby/), [Colin Griffin](https://www.linkedin.com/in/colin-e-griffin/)...
 

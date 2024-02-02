@@ -4,13 +4,7 @@ title: "SoapUI Mocking and Testing"
 date: 2019-09-01
 publishdate: 2019-09-01
 lastmod: 2023-02-23
-menu:
-  docs:
-    parent: using
-    name: SoapUI usage for Microcks
-    weight: 40
-toc: true
-weight: 30 #rem
+weight: 11
 ---
 
 ## Overview
@@ -47,17 +41,17 @@ Project initialization is as simple as creating a new *Empty Project* in SoapUI.
 
 The screenshot below shows how to add a WSDL to an existing empty project :
 
-![soapui-add-wsdl](/images/soapui-add-wsdl.png)
+{{< image src="images/soapui-add-wsdl.png" alt="image" zoomable="true" >}}
 
 ## Defining Test Requests
 
 The sample requests that are used by Microcks are indeed *SoapUI TestSuite* requests. So select the newly imported Service, right-click and choose *Generate TestSuite*. You should get this following screenshot where you select these options, validate and then give your TestSuite a name like `"<Service> TestSuite"` or something:
 
-![soapui-create-testsuite](/images/soapui-create-testsuite.png)
+{{< image src="images/soapui-create-testsuite.png" alt="image" zoomable="true" >}}
 
 You are now free to create as many *TestSteps* as you want within the *TestCases*. TestCases represents the **Operation** level and TestSteps represents the request sample level. The screenshot below shows how we have created 2 sample requests (`Andrew` and `Karla`) for the `sayHello` operation of our WebService:
 
-![soapui-testrequest](/images/soapui-testrequest.png)
+{{< image src="images/soapui-testrequest.png" alt="image" zoomable="true" >}}
 
 As shown above, you are also free to add some assertions within your TestStep requests. The SoapUI documentation introduces the assertion concept on [this page](https://www.soapui.org/functional-testing/assertion-teststep.html). Assertions in TestSteps can be later reused when wanting to use Microcks for [Contract testing](../tests) of your Service.
 
@@ -65,11 +59,11 @@ As shown above, you are also free to add some assertions within your TestStep re
 
 Mock Responses you will need to define later will be defined through a *SoapUI ServiceMock*. You have to select the newly imported Service, right-click and choose *Generate MockService*. You can let the default options as shown below and give your MockService a name like `"<Service> Mock"`:
 
-![soapui-create-servicemock](/images/soapui-create-servicemock.png)
+{{< image src="images/soapui-create-servicemock.png" alt="image" zoomable="true" >}}
 
 You will now be able to create as many *Responses* attached to *Operation* as you've got samples requests defined in previously created *TestSteps*. As introduced into the naming conventions, your responses must have the same `"<sample_id>` radix that the associated requests so that Microcks will be later able to associate them.
 
-![soapui-mockresponse](/images/soapui-mockresponse.png)
+{{< image src="images/soapui-mockresponse.png" alt="image" zoomable="true" >}}
 
 The screenshot above shows a Mock response corresponding to the `Andrew Request`. It is simply code `Andrew Response`. Note that you are free to setup any HTTP Header you want for responses, Microcks will reuse them later to issue real headers in responses.
 
@@ -95,13 +89,13 @@ After double-clicking on the operation node of your Mock Service, a window as sh
 
 Below the exemple of using the name find in incoming request to find a matching response.
 
-![soapui-querymatch](/images/soapui-querymatch.png)
+{{< image src="images/soapui-querymatch.png" alt="image" zoomable="true" >}}
 
 ### Using a Groovy script
 
 Another mean of defining matching rules is using a Groovy script. Such a script allows to define much more logic for finding a response for an incoming requests. With scripts you can use request payload but also have access to query string, http headers and so on... Groovy script are very powerful when dealing with REST services in SoapUI!
 
-![soapui-script](/images/soapui-script.png)
+{{< image src="images/soapui-script.png" alt="image" zoomable="true" >}}
 
 ## Save SoapUI project
 

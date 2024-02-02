@@ -1,16 +1,12 @@
 ---
 draft: false
 title: Microcks 1.8.1 release 🚀
-layout: post
 date: 2024-01-18
-publishdate: 2024-01-18
-lastmod: 2024-01-18
-image: "/images/blog/microcks-1.8.1-feature.png"
-categories: [blog]
+image: "images/blog/microcks-1.8.1-feature.png"
 author: "Laurent Broudoux"
-author_title: "MicrocksIO founder"
-author_image: "/images/blog/bio/lbroudoux.jpeg"
-author_twitter: "lbroudoux"
+type: "regular"
+description: "Microcks 1.8.1 release 🚀"
+draft: false
 ---
 
 We are thrilled to start this New Year with a brand new Microcks release! Say hi to the `1.8.1` release of Microcks, the Open-source cloud-native tool for API Mocking and Testing 👏
@@ -21,7 +17,7 @@ This release embeds **54 resolved issues** as we release an intermediary `1.8.1-
 * **Uber/All-in-one architecture simplification** was required to allow further enhancements in our Shift-Left strategy and [Testcontainers](https://testcontainers.com/modules/microcks/) support,
 * **Kubernetes** deployments are now better managed with **Helm enhancements**, enabling greater customization for an enhanced **GitOps** approach!
 
-![microcks-feature](/images/blog/microcks-1.8.1-feature.png)
+{{< image src="images/blog/microcks-1.8.1-feature.png" alt="microcks-feature">}}
 
 Let’s do a review of what’s new on each one of our highlights without delay.
 
@@ -50,8 +46,7 @@ In the previous `1.8.0` release, we [welcomed the Uber image](https://microcks.i
 
 In [canonical Microcks architecture](https://microcks.io/documentation/installing/deployment-options/#architecture-for-async-api), the Async Minion integrates mainly using an Apache Kafka broker. This architecture presents a very nice decoupling, allowing both Sync and Async components to scale independently and to be distributed on different nodes. However, these needs make little sense when Microcks is used locally on your development machine. As a consequence, we changed the Kafka communication channel, switching to simple WebSocket communication as illustrated in the schema below: 
 
-![microcks-uber-architecture](/images/blog/microcks-1.8.1-uber-architecture.png)
-
+{{< image src="images/blog/microcks-1.8.1-uber-architecture.png" >}}
 
 As a consequence, a Kafka broker is no longer needed when you want to enable the Async API features of Microcks on your laptop! WebSocket protocol is directly supported by the new Microcks Uber Async Minion and if you’d like to mock or test some other protocols - like Amazon SQS, SNS, or even Kafka - You can, of course, bring and connect to your existing broker!
 
@@ -73,8 +68,7 @@ Reaching, interacting with, and building a strong community is one of our top pr
 
 You can now join the community here: [https://microcks.io/discord-invite](https://microcks.io/discord-invite) 
 
-[![microcks-discord](/images/blog/microcks-discord.png)](https://microcks.io/discord-invite)
-
+[{{< image src="images/blog/microcks-discord.png" >}}](https://microcks.io/discord-invite)
 
 > To those who were already chatting with us on our previous Zulip chat, **please make the switch**! We planned to sunset our Zulip chat at the end of March.
 

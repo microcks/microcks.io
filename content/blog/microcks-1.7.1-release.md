@@ -1,23 +1,18 @@
 ---
-draft: false
 title: Microcks 1.7.1 release 🚀
-layout: post
 date: 2023-06-21
-publishdate: 2023-06-21
-lastmod: 2023-06-21
-image: "/images/blog/microcks-1.7.1-feature.png"
-categories: [blog]
+image: "images/blog/microcks-1.7.1-feature.png"
 author: "Laurent Broudoux"
-author_title: "MicrocksIO founder"
-author_image: "/images/blog/bio/lbroudoux.jpeg"
-author_twitter: "lbroudoux"
+type: "regular"
+description: "Microcks 1.7.1 release 🚀"
+draft: false
 ---
 
 The seasons follow one another and here’s a Microcks release just ready for summer ☀️. We’re proud to announce today the `1.7.1` release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing.
 
 With 37 resolved issues - our record for a minor release - this release is an illustration of how community-driven the roadmap is: **Amazon SQS & SNS** support and **Specifications goodies** as well as **many** **enhancements** came directly from user requests and contributions. Kudos to all of them 👏 and see greetings along the notes below.
 
-![microcks-feature](/images/blog/microcks-1.7.1-feature.png)
+{{< image src="images/blog/microcks-1.7.1-feature.png" alt="image" zoomable="true" >}}
 
 Let’s do a review of what’s new on each one of our highlights without delay.
 
@@ -42,7 +37,7 @@ bindings:
 
 And of course, you’re not limited to a single protocol binding! Microcks now supports eight different protocols for [AsyncAPI](https://www.asyncapi.com/) - enabling you to reuse the same API definition on different protocols depending if you’re using messaging in the organization or at the edge for example. 
 
-![microcks-protocols](/images/blog/microcks-1.7.1-protocols.png)
+{{< image src="images/blog/microcks-1.7.1-protocols.png" alt="image" zoomable="true" >}}
 
 > Check out our updated [Event-based API test endpoints](https://microcks.io/documentation/using/tests/#event-based-apis) documentation and the complete guide for both protocols has also been published. See the [Amazon SQS/SNS Guide](https://microcks.io/documentation/guides/aws-sqs-sns-support/). For easier testing purposes, we also enabled the support of [LocalStack](https://localstack.cloud/). Thanks to [Xavier Escudero Sabadell](http://github.com/xescuder) 🙏 for the help in designing and testing this.
 
@@ -77,9 +72,9 @@ As the [Podman](https://podman.io) project releases its [first Generally Availab
 
 You may have seen it some days ago as announced by our fellow [Hugo Guerrero](https://www.linkedin.com/in/hugoguerrero/): [Docker Desktop Extension `0.2`is out](https://microcks.io/blog/docker-desktop-extension-0.2/)!
 
-![API mocks list](/images/blog/docker-desktop-extension-0.2-list.png )
+{{< image src="images/blog/docker-desktop-extension-0.2-list.png" alt="image" zoomable="true" >}}
 
-> The extension improves the [Microcks](https://microcks.io/) experience by offering a user-friendly interface, quick access to API mock URLs, and optional integration with popular tools such as Postman. [Grab it](https://hub.docker.com/layers/microcks/microcks-docker-desktop-extension/0.2.0/images/sha256-270d1100ae936b54620d97b081669d93ea3685d399f7bbf42c5bc23fede744f1?context=explore) while it’s hot! 🔥 It will be updated really soon to `1.7.1`.
+> The extension improves the [Microcks](https://microcks.io/) experience by offering a user-friendly interface, quick access to API mock URLs, and optional integration with popular tools such as Postman. [Grab it](https://hub.docker.com/layers/microcks/microcks-docker-desktop-extension/0.2.0images/sha256-270d1100ae936b54620d97b081669d93ea3685d399f7bbf42c5bc23fede744f1?context=explore) while it’s hot! 🔥 It will be updated really soon to `1.7.1`.
 
 
 ### Helm Chart enhancements

@@ -1,16 +1,11 @@
 ---
-draft: false
 title: Microcks 1.7.0 release 🚀
-layout: post
 date: 2023-03-30
-publishdate: 2023-03-30
-lastmod: 2023-03-30
-image: "/images/blog/microcks-1.7.0-feature.png"
-categories: [blog]
+image: "images/blog/microcks-1.7.0-feature.png"
 author: "Laurent Broudoux"
-author_title: "MicrocksIO founder"
-author_image: "/images/blog/bio/lbroudoux.jpeg"
-author_twitter: "lbroudoux"
+type: "regular"
+description: "Microcks 1.7.0 release 🚀"
+draft: false
 ---
 
 The end of the winter season ☃️ is coming. But unlike our fellow hibernators 🐻, instead of living off stores of fat, our amazing community has worked hard on yet another Microcks release - yes, version `1.7.0` is out 👏
@@ -27,7 +22,7 @@ In a few words, here are the highlights of this new release:
 
 Thanks a lot to those who helped push up these significant features once again 🙏
 
-![microcks-feature](/images/blog/microcks-1.7.0-feature.png)
+{{< image src="images/blog/microcks-1.7.0-feature.png" alt="image" zoomable="true" >}}
 
 > As we’re entering Spring, a green leaf seems perfectly legit. But once can also see all the interconnected veins that we try to build with the ecosystem 🌍
 
@@ -50,14 +45,14 @@ bindings:
 
 And of course, you’re not limited to a single protocol binding! Microcks now supports six different protocols for [AsyncAPI](https://www.asyncapi.com/) - enabling you to reuse the same API definition on different protocols depending if you’re using messaging in the organization or at the edge for example. 
 
-![microcks-protocols](/images/blog/microcks-1.7.0-protocols.png)
+{{< image src="images/blog/microcks-1.7.0-protocols.png" alt="image" zoomable="true" >}}
 
 
 > Whereas mocking just requires adding the binding, testing needs to be familiar with new testing endpoints syntax. Check out our updated [Event-based API test endpoints](https://microcks.io/documentation/using/tests/#event-based-apis) documentation for that. Complete guides for both protocols have also been published. See the [NATS Guide](https://microcks.io/documentation/guides/nats-support/) and the [Google PubSub Guide](https://microcks.io/documentation/guides/googlepubsub-support/). Thanks to [Jonas Lagoni](https://github.com/jonaslagoni) 🙏 for the awesome contribution on NATS.
 
 With this new release, we also introduce a new connector and importer for filling your Microcks repository with API artifacts: the [Postman Workspace](https://www.postman.com/product/workspaces/) connector. While it was previously necessary to export your Postman Collection as a file to later import it into Microcks, [Jason Miesionczek](https://github.com/JasonMiesionczek) 🙏 asks how we could directly integrate with collaborative workspaces from Postman to remove this extra step. 
 
-![postman-worskspace-connector](/images/blog/microcks-1.7.0-workspace.png)
+{{< image src="images/blog/microcks-1.7.0-workspace.png" alt="image" zoomable="true" >}}
 
 This new integration is now shipped into the `1.7.0` release and the best thing is that it’s totally transparent for users! Just create a new importer with a `https://api.getpostman.com/collections/:collection_uuid` URL pattern (or everything else that conforms to Postman Collection API 😉) and the format will be automatically detected by the importer.
 

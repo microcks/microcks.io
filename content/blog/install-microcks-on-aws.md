@@ -1,21 +1,16 @@
 ---
-draft: false
 title: Install Microcks on AWS for a test drive 🧪
-layout: post
 date: 2020-06-26
-publishdate: 2020-06-26
-lastmod: 2020-06-26
-image: "/images/blog/microcks-on-aws.png"
-categories: [blog]
+image: "images/blog/microcks-on-aws.png"
 author: "Laurent Broudoux"
-author_title: "MicrocksIO founder"
-author_image: "/images/blog/bio/lbroudoux.jpeg"
-author_twitter: "lbroudoux"
+type: "regular"
+description: "Install Microcks on AWS for a test drive 🧪"
+draft: false
 ---
 
 Whilst we recommend installing Microcks on Kubernetes for easy management and enhanced capabilities, it can also be deployed onto a regular Virtual Machine. This post details how you can setup Microcks onto an AWS EC2 instance if you’re familiar with this environment and want a quick test drive. It takes something like 6–7 minutes to complete from end-to-end. It’s an illustration of [official setup documentation](https://microcks.io/documentation/installing/docker-compose/#server-installation).
 
-![microcks-on-aws](/images/blog/microcks-on-aws.png)
+{{< image src="images/blog/microcks-on-aws.png" alt="image" zoomable="true" >}}
 
 This will give you a Microcks installation on an AWS EC2 instance running Ubuntu 18.04 LTS :
 
@@ -30,7 +25,7 @@ First step is— of course — to order a new EC2 instance at Amazon. We will us
 * Port `8080` should be reachable as it is the main port used by Microcks,
 * Port `8543` should also be reachable as it is used by Keycloak.
 
-![microcks-on-aws-ami](/images/blog/microcks-on-aws-ami.png)
+{{< image src="images/blog/microcks-on-aws-ami.png" alt="image" zoomable="true" >}}
 
 The above screenshot highlights our test configuration elements. Configure your access method with your favorite SSH key and launch your instance!
 

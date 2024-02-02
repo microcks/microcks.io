@@ -1,16 +1,10 @@
 ---
 draft: false
-title: "Installing with podman-compose"
+title: "Using podman-compose"
 date: 2021-02-25
 publishdate: 2021-02-25
 lastmod: 2023-06-21
-menu:
-  docs:
-    parent: installing
-    name: Installing with podman-compose
-    weight: 31
-toc: true
-weight: 30 #rem
+weight: 5
 ---
 
 [Podman Compose](https://github.com/containers/podman-compose) is a tool for easily testing and running multi-container applications. [Microcks](https://microcks.io/) offers a simple way to set up the minimal required containers to have a functional environment on your local computer. This procedure has been successfully tested with Podman `2.1.1` onto [Fedora 33+](https://getfedora.org/) and should be OK on [CentOS Stream 8+](https://www.centos.org/centos-stream/) and [RHEL 8+](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux) distributions too.

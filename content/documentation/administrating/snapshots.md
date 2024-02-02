@@ -4,13 +4,7 @@ title: "Repository Snapshots"
 date: 2019-11-18
 publishdate: 2019-11-18
 lastmod: 2019-11-19
-menu:
-  docs:
-    parent: administrating
-    name: Repository Snapshots
-    weight: 30
-toc: true
-weight: 30 #rem
+weight: 3
 ---
 
 ## Introduction
@@ -28,7 +22,7 @@ Snapshots can only be managed by Microcks `administrator` - we mean people havin
 
 Creating and exporting a new Snapshot is as simple as selecting the different Services you want to export and click the **Export** button on top right. See the capture below: 
 
-![snapshots](/images/snapshots.png)
+{{< image src="images/snapshots.png" alt="image" zoomable="true" >}}
 
 > Becareful: the services list panel has limited height and is scrollable. If you have many services, you may not seen some of them at first sight.
 

@@ -1,16 +1,10 @@
 ---
 draft: false
-title: "Amazon SQS/SNS Mocking and Testing"
+title: "Amazon SQS/SNS Mocking & Testing"
 date: 2023-06-06
 publishdate: 2023-06-06
 lastmod: 2023-06-06
-menu:
-  docs:
-    parent: guides
-    name: Amazon SQS/SNS Mocking and Testing
-    weight: 60
-toc: true
-weight: 60 #rem
+weight: 7
 ---
 
 This guide is a walkthrough on how to use a [Amazon SQS](https://aws.amazon.com/sqs/) and [Amazon SNS](https://aws.amazon.com/sns/) messaging services with Microcks. As those two services are very frequently used in combination, we decided to cover both of them in the same guide as principles and configuration are very similar. However, Microcks may provide mocking and testing services for SQS only and mocking and testing services for SNS only. You don't have to use both to benefit from Microcks features.
@@ -182,11 +176,11 @@ Now it’s time to validate that mock publication of messages on the targeted SQ
 
 The easiest way of doing things here would be to use the AWS console to get a quick check on what is actually published by Microcks. As soon as you have imported the AsyncAPI spec, Microcks has created a new queue named `UsersignedupAPI-0140-user-signedup` (depends on API name, version and operation channel) and starts publishing messages on it. If you get on the screen that allows sending and receiving messages, you'll get something like: 
 
-![Amazon SQS mock queue](/images/guides/aws-sqs-sns-mocks.png)
+{{< image src="images/guides/aws-sqs-sns-mocks.png" alt="image" zoomable="true" >}}
 
 Accessing the details of one of the polled messages will give you a content similar to this one:
 
-![Amazon SQS mock message](/images/guides/aws-sqs-sns-mock.png)
+{{< image src="images/guides/aws-sqs-sns-mock.png" alt="image" zoomable="true" >}}
 
 🎉 Fantastic! We are receiving the two different messages corresponding to the two defined examples each and every 3 seconds that is the default publication frequency. You'll notice that each `id` and `sendAt` properties have different values thanks to the templating notation.
 
@@ -206,7 +200,7 @@ On this tab, you'll have to create a `Basic Authentication` secret with the user
 
 The screenshot below illustrates the creation of such a secret for your `aws-qa-sqsreaduser` with username, and credentials.
 
-![AWS SQS/SNS secret](/images/guides/aws-sqs-sns-secret.png)
+{{< image src="images/guides/aws-sqs-sns-secret.png" alt="image" zoomable="true" >}}
 
 We can now prepare for a first test! Open the AWS SQS on your region of choice (we've chosen `eu-west-3` in our example below) and create a `user-signups` standard queue. Go to the **Send and receive messages** page and prepare to send the following message:
 
@@ -216,7 +210,7 @@ We can now prepare for a first test! Open the AWS SQS on your region of choice (
 
 Don't click the **Send message** now but be prepared!
 
-![AWS SQS/SNS Test send](/images/guides/aws-sqs-sns-test-send.png)
+{{< image src="images/guides/aws-sqs-sns-test-send.png" alt="image" zoomable="true" >}}
 
 We're now going to launch a **New Test** within Microcks web console. Use the following elements in the Test form:
 
@@ -229,7 +223,7 @@ We're now going to launch a **New Test** within Microcks web console. Use the fo
 
 Launch the test and quickly switch to the AWS console to send a bunch of messages. Wait for some seconds and you should get access to the test results as illustrated below:
 
-![AWS SQS/SNS Test success](/images/guides/aws-sqs-sns-test-success.png)
+{{< image src="images/guides/aws-sqs-sns-test-success.png" alt="image" zoomable="true" >}}
 
 This is fine and we can see that Microcks captured messages and validated them against the payload schema that is embedded into the AsyncAPI specification. In our sample, every property is `required` and message does not allow `additionalProperties` to be define, `sendAt` is of string type.
 
@@ -241,7 +235,7 @@ So now let see what happened if we tweak that a bit... We're going to re-launch 
 
 Relaunch a new test and you should get results similar to those below:
 
-![AWS SQS/SNS Test failure](/images/guides/aws-sqs-sns-test-failure.png)
+{{< image src="images/guides/aws-sqs-sns-test-failure.png" alt="image" zoomable="true" >}}
 
 🥳 We can see that there's now a failure and that's perfect! What does that mean? It means that when your application or devices are sending garbage, Microcks will be able to spot this and inform you that the expected message format is not respected.
 

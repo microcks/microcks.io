@@ -1,23 +1,18 @@
 ---
-draft: false
 title: Microcks 1.5.2 release 🚀
-layout: post
 date: 2022-06-02
-publishdate: 2022-06-02
-lastmod: 2022-06-02
-image: "/images/blog/microcks-1.5.2-feature.png"
-categories: [blog]
+image: "images/blog/microcks-1.5.2-feature.png"
 author: "Laurent Broudoux"
-author_title: "MicrocksIO founder"
-author_image: "/images/blog/bio/lbroudoux.jpeg"
-author_twitter: "lbroudoux"
+type: "regular"
+description: "Microcks 1.5.2 release 🚀"
+draft: false
 ---
 
 We are delighted to announce the `1.5.2` release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing. This is mainly an “Enhancement release” pushing further the [Microcks’ Hub and Marketplace](https://microcks.io/blog/microcks-hub-announcement/) we introduced a few weeks ago.
 
 In our vision, the Hub will hold a central place that will allow Microcks users to easily reuse curated API Mocks & Test suites in a single click - but also to share and publish their own. That’s why we absolutely wanted to have a nice **integration between the Hub and Microcks** - and that’s the purpose of this release.
 
-![microcks-feature](/images/blog/microcks-1.5.2-feature.png)
+{{< image src="images/blog/microcks-1.5.2-feature.png" alt="image" zoomable="true" >}}
 
 But as we have a vibrant community out there, it makes no-sense to not also embed some enhancements that were required for them. Kudos once again to all or supporters that help finding bugs 🐞, suggesting enhancements but also testing the fixes 👏. See greetings below.
 
@@ -30,18 +25,18 @@ Let’s do a quick review of what’s new.
  \
 A new `Microcks Hub` menu entry is now available by default in the vertical navigation bar. Access to this new entry can of course be restricted to certain roles in your organization or totally removed if needed (by setting the ``microcksHub.enabled`` property to `false`).
 
-![microcks-swagger](/images/blog/microcks-1.5.2-hub.png)
+{{< image src="images/blog/microcks-1.5.2-hub.png" alt="image" zoomable="true" >}}
 
 Microcks samples you used to add manually as described in our [Getting Started](https://microcks.io/documentation/getting-started/#loading-samples) documentation or either [standard APIs samples](https://microcks.io/blog/microcks-hub-announcement/#openbankingorguk-use-case) can be directly discovered and browsed from your instance.
 
-![microcks-package](/images/blog/microcks-1.5.2-package.png)
+{{< image src="images/blog/microcks-1.5.2-package.png" alt="image" zoomable="true" >}}
 
 When choosing a specific API version, you have access to its detailed information. You can also directly choose to **install it **by clicking the button. From that point, you will have 2 options:
 
 * Install it with `+ Add an Import Job`. This will in fact create a [new automatic and scheduled import](https://microcks.io/documentation/using/importers/#creating-a-new-scheduled-import) for you. So that subsequent updates of this API will be automatically propagated to your instances,
 * Install it with a `+ Direct Import` which means that the import will only be made once and you’ll have to re-run the install for updates.
 
-![microcks-install](/images/blog/microcks-1.5.2-install.png)
+{{< image src="images/blog/microcks-1.5.2-install.png" alt="image" zoomable="true" >}}
 
 > Hub integration is a very practical way to speed-up your bootstrap with Microcks but also to browse and reuse standard APIs. Please see our latest blog post regarding Microcks’ hub for further information 📖[https://microcks.io/blog/microcks-hub-announcement/](https://microcks.io/blog/microcks-hub-announcement/)
 

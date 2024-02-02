@@ -1,15 +1,11 @@
 ---
 title: "GraphQL features in Microcks: what to expect?"
-layout: post
 date: 2022-01-07
-publishdate: 2022-01-07
-lastmod: 2022-01-07
-image: "/images/blog/graphql-features.png"
-categories: [blog]
+image: "images/blog/graphql-features.png"
 author: "Laurent Broudoux"
-author_title: "MicrocksIO founder"
-author_image: "/images/blog/bio/lbroudoux.jpeg"
-author_twitter: "lbroudoux"
+type: "regular"
+description: "GraphQL features in Microcks: what to expect?"
+draft: false
 ---
 
 
@@ -17,7 +13,7 @@ In various 2021 reports, [GraphQL](https://graphql.org) has been spotted as one 
 
 At Microcks, we also identified the importance of GraphQL and thought that’s a perfect fit for Microcks model and features 😉 This post is a walkthrough of the coming GraphQL features in Microcks `1.5.0` to be released in a few weeks. It will give you insight on the GraphQL feature set we will support and how it works underneath. 
 
-![graphql-features](/images/blog/graphql-features.png)
+{{< image src="images/blog/graphql-features.png" alt="image" zoomable="true" >}}
 
 You’ll see that GraphQL is no different from the other API standards we are supporting in Microcks like [OpenAPI](https://openapi.org), [AsyncAPI](https://asyncapi.org) and [gRPC](https://grpc.io). We stick to our mantra of providing a homogeneous approach whatever the technology stack, embracing diversity. But GraphQL flexibility from the consumer point of view was another opportunity to demonstrate the smartness of our engine and hence deserved this blog post.
 
@@ -31,7 +27,7 @@ As a GraphQL schema doesn’t support the notion of examples - contrary to OpenA
 
 Thanks to the [multi-artifacts support](https://microcks.io/documentation/using/importers/#multi-artifacts-support) feature we introduced in release `1.3.0`, Microcks will be able to import both resources as **primary** and **secondary** artifacts to merge information and build a consolidated view of your GraphQL API.
 
-![graphql-artifacts](/images/blog/graphql-artifacts.png)
+{{< image src="images/blog/graphql-artifacts.png" alt="image" zoomable="true" >}}
 
 If you need some illustration for better understanding, feel free to check out our [GtiHub repository](https://github.com/microcks/microcks/tree/1.5.x/samples), focusing on the `films*` resources for our `Movie Graph API` - version `1.0` detailed thereafter.
 
@@ -43,7 +39,7 @@ After having defined and imported required artifacts, let’s have a tour of dif
 
 It's often useful to ask a GraphQL schema for information about what queries it supports. For that, GraphQL has specified the [introspection system](https://graphql.org/learn/introspection/). A system we implemented in Microcks! So once you have the mock endpoint URL of your API, you can use smart GUI clients like [Insomnia](https://insomnia.rest) to start playing around with your API and discover queries and data structure.
 
-![graphql-introspection](/images/blog/graphql-introspection.png)
+{{< image src="images/blog/graphql-introspection.png" alt="image" zoomable="true" >}}
 
 ### Field Selection and fragments
 
@@ -51,7 +47,7 @@ At its very core, GraphQL query is about [selecting a set of fields](https://gra
 
 Here below in the capture, we redefined the set of required fields and see that the response has been filtered to fit these fields.
 
-![graphql-selection](/images/blog/graphql-selection.png)
+{{< image src="images/blog/graphql-selection.png" alt="image" zoomable="true" >}}
 
 Fields selection can also be expressed using [fragments](https://graphql.org/learn/queries/#fragments) that will centralize selection definition. Microcks supports fragment spreads and associated definitions in a transparent way. Fragments are notably very useful for the next feature…
 
@@ -59,7 +55,7 @@ Fields selection can also be expressed using [fragments](https://graphql.org/lea
 
 One GraphQL query can embed different queries and selections to invoke on the server side. When using this multi-queries construction, the consumer will also need to define [aliases](https://graphql.org/learn/queries/#aliases) that will be reused by the provider when formatting the aggregated response. This feature is handled by Microcks mocks so that you can combine many operations within one mock invocation like illustrated below:
 
-![graphql-aliases](/images/blog/graphql-aliases.png)
+{{< image src="images/blog/graphql-aliases.png" alt="image" zoomable="true" >}}
 
 ### Arguments and variables
 
@@ -73,7 +69,7 @@ You can also choose to use [custom types](https://graphql.org/learn/schema/#obje
 
 Here below you can see an example of query variables JSON that will be evaluated to return the correct Film to add review to:
 
-![graphql-variables](/images/blog/graphql-variables.png)
+{{< image src="images/blog/graphql-variables.png" alt="image" zoomable="true" >}}
 
 ### Advanced features
 
@@ -92,7 +88,7 @@ Besides the mocking features in Microcks, there’s always the second side of th
 
 Testing a GraphQL API in Microcks means that we’ll reuse the different unitary operations of your API against a Test Endpoint that represents the backend implementation of this API. For each and every example in your API, Microcks will invoke the backend and record the exchanged request and responses. Request is recorded using the [HTTP POST representation](https://graphql.org/learn/serving-over-http/#post-request) of a GraphQL query ; response is recorded as is. After this recording step, Microcks will finally perform a validation step to check that returned response is conforming to the GraphQL Schema defining your API. This will allow to mark the test as passed ✅ or failed ❌.
 
-![graphql-test](/images/blog/graphql-test.png)
+{{< image src="images/blog/graphql-test.png" alt="image" zoomable="true" >}}
 
 As usual with other API technologies, tests in Microcks can be launched through the UI, the [API](https://microcks.io/documentation/automating/api/), [Jenkins Plugin](https://microcks.io/documentation/automating/jenkins/), [GitHub Action](https://microcks.io/documentation/automating/github-actions/), [Tekton Task](https://microcks.io/documentation/automating/tekton/) or simple [CLI](https://microcks.io/documentation/automating/cli/) for full automation.
 

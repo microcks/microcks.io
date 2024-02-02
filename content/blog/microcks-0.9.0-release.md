@@ -1,16 +1,11 @@
 ---
-draft: false
 title: Microcks 0.9.0 release 🚀
-layout: post
 date: 2020-05-17
-publishdate: 2020-05-17
-lastmod: 2020-05-17
-image: "/images/blog/microcks-0.9.0-enterprise-grade.png"
-categories: [blog]
+image: "images/blog/microcks-0.9.0-enterprise-grade.png"
 author: "Laurent Broudoux"
-author_title: "MicrocksIO founder"
-author_image: "/images/blog/bio/lbroudoux.jpeg"
-author_twitter: "lbroudoux"
+type: "regular"
+description: "Microcks 0.9.0 release 🚀"
+draft: false
 ---
 
 I am delighted to announce Microcks release 0.9.0 — the Open source Kubernetes native tool for API Mocking and Testing. This new version introduces a tremendous amount of enhancements and new features.
@@ -19,7 +14,7 @@ Big thanks to our growing community for all the work done, the raised issues and
 
 This release was the preparation to become more Enterprise-grade, and we are glad that Microcks is in production in more and more medium to large organisations. They use it to manage different use cases and sort out some business critical APIs life cycle management and development pains.
 
-![microcks-enterprise-grade](/images/blog/microcks-0.9.0-enterprise-grade.png)
+{{< image src="images/blog/microcks-0.9.0-enterprise-grade.png" alt="image" zoomable="true" >}}
 
 So we worked a lot on installation and managements features but also on some noticeable enhancements on existing core features.
 Let’s do a quick review on what’s new in this release!
@@ -39,7 +34,7 @@ $ helm install microcks microcks/microcks —-version 0.9.0 --set microcks.url=m
 
 Microcks Operator is available on [OperatorHub.io](https://operatorhub.io/operator/microcks) and has been upgraded to version `0.3.0` and now managed the **Seamless Upgrade** as defined by the capability model:
 
-![microcks-operators](/images/blog/microcks-0.9.0-operators.png)
+{{< image src="images/blog/microcks-0.9.0-operators.png" alt="image" zoomable="true" >}}
 
 While this version is still tagged as Alpha (till we reach the Full Lifecycle capability level at least), it is already in production on many Kubernetes clusters and has been reported as rock solid by community users.
 
@@ -69,7 +64,7 @@ Most of the features were already existing but not documented nor easily accessi
 
 As a repository content manager, we add new features regarding repository organization. With this new release, you’ll now be able to assign `labels` to your API or services. This offer you a lot of flexibility to categorize and organize your repository the way you would like.
 
-![microcks-labels](/images/blog/microcks-0.9.0-labels.jpeg)
+{{< image src="images/blog/microcks-0.9.0-labels.jpeg" alt="image" zoomable="true" >}}
 
 Labels can also be used on the main repository page allowing you to filter and display the most important labels when browsing repository content.
 
@@ -103,7 +98,7 @@ We also introduce [Tekton](https://tekton.dev/) support for bringing Microcks to
 
 Here an OpenShift 4.x example:
 
-![microcks-pipeline](/images/blog/microcks-0.9.0-pipeline.png)
+{{< image src="images/blog/microcks-0.9.0-pipeline.png" alt="image" zoomable="true" >}}
 
 We also bring the capability of overriding headers during tests for better integration with tested endpoint environment.
 

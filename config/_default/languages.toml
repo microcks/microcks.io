@@ -1,0 +1,13 @@
+################################### English language #####################################
+[en]
+languageName = "EN"
+languageCode = "en-US"
+contentDir = "content"
+weight = 1
+
+[en.params]
+########### footer content ##########
+#footer_menu_left = ""
+#footer_menu_middle = ""
+#footer_menu_right = ""
+#footer_content = ""

@@ -4,13 +4,7 @@ title: "GraphQL Mocking and Testing"
 date: 2022-01-05
 publishdate: 2022-01-05
 lastmod: 2022-02-23
-menu:
-  docs:
-    parent: using
-    name: GraphQL usage for Microcks
-    weight: 32
-toc: true
-weight: 30 #rem
+weight: 10
 ---
 
 ## Overview
@@ -97,19 +91,19 @@ Specification of examples is done using a Postman Collection as examples cannot 
 
 Using Postman, just create a new Collection - using the same name as GraphQL API and adding the custom property `version` at the beginning of description like illustrated below:
 
-![graphql-postman-collection](/images/graphql-postman-collection.png)
+{{< image src="images/graphql-postman-collection.png" alt="image" zoomable="true" >}}
 
 You can now start organizing and creating requests that are matching with the GraphQL API queries or mutations operation name. For our example, we're specifying the four operations: `allFilms`, `film`, `addStar` and `addReview`.
 
 > If you have imported or define you GraphQL Schema API into Postman, you can also directly create a Collection from it. In that case, Postman will auto-organize content using the `/queries` and `/mutations` folders like below. This is convenient but not required by Microcks.
 
-![graphql-postman-operations](/images/graphql-postman-operations.png)
+{{< image src="images/graphql-postman-operations.png" alt="image" zoomable="true" >}}
 
 The next step is now to create a bunch of examples for each of the requests/operations of your Collection as explained by the [Postman documentation](https://www.getpostman.com/docs/postman/collections/examples). You'll give each example a meaningful name regarding the use-case it is supposed to represent. Example url must also match the name of the GraphQL operation method; here we have a simple `{{url}}` because the url at the upper request level but this one must have the `http://allFilms` value.
 
 You'll define examples using simple JSON for request body and for response body as well. Below is a basic example but [Templating expressions and functions](../advanced/templates/) are obviously supported:
 
-![graphql-postman-example](/images/graphql-postman-example.png)
+{{< image src="images/graphql-postman-example.png" alt="image" zoomable="true" >}}
 
 > One particular things of GraphQL is that it allows API consumers to select the fields they want to have in response. Microcks GraphQL mocks are smart enough to realize that filtering but you should take care to define every possible fields value in your Collection examples. Otherwise, missing fields could not be retrieved by consumers.
 

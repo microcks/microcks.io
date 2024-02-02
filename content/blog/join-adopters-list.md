@@ -1,21 +1,16 @@
 ---
-draft: false
 title: Join the Microcks Adopters list and Empower the vibrant open source Community 🙌
-layout: post
 date: 2023-05-24
-publishdate: 2023-05-24
-lastmod: 2023-05-24
-image: "/images/blog/join-adopters-list-feature.png"
-categories: [blog]
+image: "images/blog/join-adopters-list-feature.png"
 author: "Yacine Kheddache"
-author_title: "MicrocksIO co-founder"
-author_image: "/images/blog/bio/yadayac.jpg"
-author_twitter: "YadaYac"
+type: "regular"
+description: "Join the Microcks Adopters list and Empower the vibrant open source Community 🙌"
+draft: false
 ---
 
 Open source software has revolutionized the way enterprises develop and deploy their applications. It fosters collaboration, innovation, and cost-effectiveness, enabling organizations to build secure and robust solutions while leveraging the collective knowledge and expertise of a vast and diverse community. 
 
-![](/images/blog/join-adopters-list-feature.png)
+{{< image src="images/blog/join-adopters-list-feature.png" alt="image" zoomable="true" >}}
 
 Microcks, the Kubernetes-Native multi-protocol open source enterprise mocking and testing API solution, is an excellent example of the power of open source projects. In this blog post, **we invite enterprises and community users to join the Microcks adopters list, showcasing their support for the project and contributing to its growth.**
 
@@ -25,7 +20,7 @@ Microcks simplifies the testing and development process for cloud-native APIs an
 
 The latest community user blog post from [J.B. Hunt](https://www.jbhunt.com/): “[Mock It till You Make It with Microcks](https://microcks.io/blog/jb-hunt-mock-it-till-you-make-it/)” is an excellent testimonial regarding Microcks' business value and importance:
 
-![J.B. Hunt The Value of Microcks](/images/blog/jb-hunt-quote.png "J.B. Hunt The Value of Microcks")
+{{< image src="images/blog/jb-hunt-quote.png" alt="J.B. Hunt The Value of Microcks" zoomable="true" >}}
 
 See, the full post here 👉 [https://microcks.io/blog/jb-hunt-mock-it-till-you-make-it/](https://microcks.io/blog/jb-hunt-mock-it-till-you-make-it/)
 
@@ -46,15 +41,15 @@ To join the Microcks adopters list, follow these simple steps.
 **1.** Visit the Microcks GitHub repository at [https://github.com/microcks/.github](https://github.com/microcks/.github)
 (Create a GitHub account if you don't already have one):
 
-![Editing the Adopters file on GitHub #1](/images/blog/editing-the-adopters-file-1.png "Editing the Adopters file on GitHub #1")
+{{< image src="images/blog/editing-the-adopters-file-1.png" alt="Editing the Adopters file on GitHub #1" zoomable="true" >}}
 
 **2.** Open the `ADOPTERS.md` file within `.github` the repository:
 
-![Editing the Adopters file on GitHub #2](/images/blog/editing-the-adopters-file-2.png "Editing the Adopters file on GitHub #2")
+{{< image src="images/blog/editing-the-adopters-file-2.png" alt="Editing the Adopters file on GitHub #2" zoomable="true" >}}
 
 **3.** Click on the pencil icon  on the top right corner of the file view to edit it:
 
-![Editing the Adopters file on GitHub #3](/images/blog/editing-the-adopters-file-3.png "Editing the Adopters file on GitHub #3")
+{{< image src="images/blog/editing-the-adopters-file-3.png" alt="Editing the Adopters file on GitHub #3" zoomable="true" >}}
 
 **4.** Add at the end of the file, your organization's name (include a link to your organization's website), your contact details along with a description of your usage and any other relevant resources.
 
@@ -69,7 +64,7 @@ You can copy/paste and modify the markdown example below:
 
 **6.** Click on the “**Propose changes**” button to process your edit then click on the “**Create pull request**” button to submit it as a pull request:
 
-![Editing the Adopters file on GitHub #5](/images/blog/editing-the-adopters-file-5.png "Editing the Adopters file on GitHub #5")
+{{< image src="images/blog/editing-the-adopters-file-5.png" alt="Editing the Adopters file on GitHub #5" zoomable="true" >}}
 
 Done ✅ with thanks, follow your pull request comments (review) and await merge by the Microcks maintainers 🙌
 

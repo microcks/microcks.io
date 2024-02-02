@@ -1,16 +1,10 @@
 ---
 draft: false
-title: "MQTT Mocking and Testing"
+title: "MQTT Mocking & Testing"
 date: 2021-02-14
 publishdate: 2021-02-15
 lastmod: 2021-02-15
-menu:
-  docs:
-    parent: guides
-    name: MQTT Mocking and Testing
-    weight: 20
-toc: true
-weight: 30 #rem
+weight: 3
 ---
 
 ## Overview
@@ -213,7 +207,7 @@ If the **QA** broker access is secured - let's say with credentials and custom c
 
 The screenshot below illustrates the creation of such a secret for your `QA MQTT Broker` with username, credentials and custom certificates using the [PEM format](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail).
 
-![MQTT Broker secret](/images/guides/mqtt-broker-secret.png)
+{{< image src="images/guides/mqtt-broker-secret.png" alt="image" zoomable="true" >}}
 
 Once saved we can go create a **New Test** within Microcks web console. Use the following elements in the Test form:
 
@@ -224,7 +218,7 @@ Once saved we can go create a **New Test** within Microcks web console. Use the 
 
 Launch the test and wait for some seconds and you should get access to the test results as illustrated below:
 
-![MQTT Test success](/images/guides/mqtt-test-success.png)
+{{< image src="images/guides/mqtt-test-success.png" alt="image" zoomable="true" >}}
 
 This is fine and we can see that Microcks captured messages and validate them against the payload schema that is embedded into the AsyncAPI specification. In our sample, every property is `required` and message does not allow `additionalProperties` to be defined.
 
@@ -248,7 +242,7 @@ Connecting to mqtts://mqtt-broker-qa.app.example.com:443 on topic streetlights-e
 
 Relaunch a new test and you should get results similar to those below:
 
-![MQTT Test failure](/images/guides/mqtt-test-failure.png)
+{{< image src="images/guides/mqtt-test-failure.png" alt="image" zoomable="true" >}}
 
 🥳 We can see that there's now a failure and that's perfect! What does that mean? It means that when your application or devices are sending garbage, Microcks will be able to spot this and inform you that the expected message format is not respected.
 

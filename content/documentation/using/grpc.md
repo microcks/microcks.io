@@ -4,13 +4,7 @@ title: "gRPC Mocking and Testing"
 date: 2021-06-29
 publishdate: 2021-06-29
 lastmod: 2022-02-23
-menu:
-  docs:
-    parent: using
-    name: gRPC usage for Microcks
-    weight: 31
-toc: true
-weight: 30 #rem
+weight: 9
 ---
 
 ## Overview
@@ -78,17 +72,17 @@ Specification of examples is done using a Postman Collection as examples cannot 
 
 Using Postman, just create a new Collection - using the same name as gRPC Service and adding the custom property `version` at the beginning of description like illustrated below:
 
-![grpc-postman-collection](/images/grpc-postman-collection.png)
+{{< image src="images/grpc-postman-collection.png" alt="image" zoomable="true" >}}
 
 You can now start organizing and creating requests that are matching with the gRPC service method name. For our example, we're specifying the `greeting` request for the `greeting` gRPC method.
 
-![grpc-postman-operations](/images/grpc-postman-operations.png)
+{{< image src="images/grpc-postman-operations.png" alt="image" zoomable="true" >}}
 
 The next step is now to create a bunch of examples for each of the requests/operations of your Collection as explained by the [Postman documentation](https://www.getpostman.com/docs/postman/collections/examples). You'll give each example a meaningful name regarding the use-case it is supposed to represent. Example url should also match with the name of the gRPC method; here we have a simple `http:///greeting`.
 
 As JSON / Protobuf translation is bi-directional, you'll define examples using simple JSON for request body and for response body as well. Below is a basic example but [Templating expressions and functions](../advanced/templates/) are obviously supported:
 
-![grpc-postman-example](/images/grpc-postman-example.png)
+{{< image src="images/grpc-postman-example.png" alt="image" zoomable="true" >}}
 
 Finally, when you have defined all examples and optional test scripts on your requests, you should export your Collection as a JSON file using the Collection v2 format like shown below. Just put the result JSON file into your favorite Source Configuration Management tool for an easy integration with Microcks.
 
@@ -104,4 +98,4 @@ The final step for assembling data coming from gRPC Protofile and Postman Collec
 
 Before Microcks `1.4.0` you should use the Microcks web console to edit the `greeting` operation properties and change the dispatcher and its rules as shown below. Here-after we have defined a simple rule that is routing incoming requests depending on the value of the `firstname` property of the incoming message.
 
-![grpc-dispatch-rule](/images/grpc-dispatch-rule.png)
+{{< image src="images/grpc-dispatch-rule.png" alt="image" zoomable="true" >}}

@@ -1,0 +1,91 @@
+{{ define "main" }}
+
+{{with .Params.banner}}
+<!-- <section class="section bg-light"> -->
+<section class="section">
+  <div class="container">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-lg-6 col-md-10 mb-5 mb-lg-0">
+        <div class="pe-0 pe-lg-5 text-center text-lg-start">
+          <h1 class="section-title h2">{{ .title | markdownify }}</h1>
+          <p class="mb-5">{{ .content | markdownify }}</p>
+          {{ if .button.enable }}
+          {{ with .button }}
+          <a href="{{ .link | relLangURL }}" title="{{ .label }}" class="btn btn-outline-primary">{{ .label }}</a>
+          {{ end }}
+          {{ end }}
+        </div>
+      </div>
+      <div class="col-lg-6 text-center">
+        {{partial "image" (dict "Src" .image "Alt" "banner image" "Size" "550x")}}
+      </div>
+    </div>
+  </div>
+</section>
+{{end}}
+
+<!-- intro_video -->
+{{ with .Params.intro_video }}
+{{ if .enable }}
+<section class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-6 text-center">
+        <h2 class="section-title h3">{{ .title | markdownify }}</h2>
+        <div class="content mb-5">
+          {{.content | markdownify}}
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-xl-9">
+        <div class="has-video rounded-2 shadow">
+          <button type="button" class="video-loader-btn rounded-2" data-src="{{.video_url}}">
+            <i class="fas fa-play"></i>
+          </button>
+          {{ partial "image" (dict "Src" .video_thumbnail "Alt" "video thumbnail" "Class" "w-100 video-thumb rounded-2") }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}
+<!-- /intro_video -->
+
+<!-- how-it-works -->
+{{ with .Params.how_it_works }}
+{{ if .enable }}
+{{ $list := .blocks }}
+{{ $len := (len $list) }}
+{{ range $i, $p := $list }}
+<section class="section how-it-works {{if eq $i 0}} first-element {{end}} {{if eq (add $i 1) $len}} last-element {{if modBool $i 2}} has-bg-light {{end}} {{end}} overflow-hidden {{if modBool $i 2}}bg-light {{end}}">
+  <div class="container">
+    <div class="block {{if modBool $i 2}}block-right-image{{end}} row align-items-center g-5">
+      <div class="col-lg-6 {{if modBool $i 2}}order-lg-0 text-lg-end{{end}} order-1">
+        <div class="px-0 px-lg-4">
+          <h2 class="section-title h3">{{ .title | markdownify }}</h2>
+          <p class="mb-4">{{ .content | markdownify }}</p>
+          {{ if .button.enable }}
+          {{ with .button }}
+          <a href="{{ .link | relLangURL }}" title="{{ .label }}" class="btn-link">{{ .label }} <i class="fas fa-arrow-right"></i></a>
+          {{ end }}
+          {{ end }}
+        </div>
+      </div>
+      <div class="col-lg-6 {{if modBool $i 2}}order-lg-1{{end}} order-0">
+        <div class="px-0 px-lg-4">
+          <div class="swiper-slide">
+            {{ partial "image" (dict "Src" .image "Alt" "image" "Class" "w-100 rounded-2") }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}
+{{ end }}
+<!-- /how-it-works -->
+
+{{ end }}

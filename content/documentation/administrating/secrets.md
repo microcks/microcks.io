@@ -4,13 +4,7 @@ title: "External Secrets"
 date: 2019-11-18
 publishdate: 2019-11-18
 lastmod: 2019-11-19
-menu:
-  docs:
-    parent: administrating
-    name: External Secrets
-    weight: 20
-toc: true
-weight: 20 #rem
+weight: 2
 ---
 
 ## Introduction
@@ -23,7 +17,7 @@ Secrets can only be managed by Microcks `administrator` - we mean people having 
 
 Secrets are displayed in a list and simply classified using a name and a description. You may use this screen to create, edit or delete secrets. Secrets are then bound to usages - today, only import jobs are using secrets.
 
-![secret-list](/images/secret-list.png)
+{{< image src="images/secret-list.png" alt="image" zoomable="true" >}}
 
 Let see how to create/update a secret and its properties below.
 
@@ -31,7 +25,7 @@ Let see how to create/update a secret and its properties below.
 
 Now imagine I want to create a secret that will hold informations on how to access my corporate GitLab instance. Here's the form you'll have to fill below. It may imply authentication method and properties as well as transport encryption information such as the custom certificate to use.
 
-![secret-edit](/images/secret-edit.png)
+{{< image src="images/secret-edit.png" alt="image" zoomable="true" >}}
 
 Authentication may be realized using different methods described below.
 
@@ -47,8 +41,8 @@ The `CA Certificate` is just here to gather a custom certificate or certifcate c
 
 Now that you have created and managed a secret, you can add it to your Import Job. For doing that, just go and update a job: the second step of the wizard modal is dedicated to security concerns. You may now just add a reference to (thus a usage of) one of your secret.
 
-![secret-job-edit](/images/secret-job-edit.png)
+{{< image src="images/secret-job-edit.png" alt="image" zoomable="true" >}}
 
 When Microcks will scheduled and execute this job to check update of artifact resource, it will simply used the referenced secret. Now your job is identifier as using a secret on the UI:
 
-![secret-job-marker](/images/secret-job-marker.png)
+{{< image src="images/secret-job-marker.png" alt="image" zoomable="true" >}}

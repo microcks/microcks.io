@@ -4,13 +4,7 @@ title: "Integrating Microcks from Jenkins"
 date: 2019-09-01
 publishdate: 2019-09-01
 lastmod: 2021-11-22
-menu:
-  docs:
-    parent: automating
-    name: Integrating Microcks from Jenkins
-    weight: 20
-toc: true
-weight: 20 #rem
+weight: 2
 ---
 
 ## Microcks Jenkins plugin
@@ -47,7 +41,7 @@ $ oc set triggers dc/jenkins --from-image=microcks-jenkins-master:latest -c jenk
 
 This plugin is using identified [Service Account](../service-account) when connecting to Microcks server. It is also able to manage multiple Microcks installation and hide the technical details from your Jobs using Microcks plugins. As a Jenkins administrator, go to the **Manage Jenkins** page and find the **Microcks** section. You should be able to add and configure as many instance of Microcks installation as you want like in the 2 configured in screenshot below:
 
-![jenkins-installations](/images/jenkins-installations.png)
+{{< image src="images/jenkins-installations.png" alt="image" zoomable="true" >}}
 
 A Microcks installation configuration need 5 parameters:
 
@@ -73,7 +67,7 @@ It provides two different actions or build steps: the `Import API specification 
 
 When defining a new project into Jenkins GUI, you may want to add a new `Import API specification files in Microcks` step as shown in the capture below.
 
-![jenkins-import-step](/images/jenkins-import-step.png)
+{{< image src="images/jenkins-import-step.png" alt="image" zoomable="true" >}}
 
 The parameters that can be set here are:
 
@@ -115,7 +109,7 @@ The parameters that can be set here are the same that in `Build Step` usage but 
 
 When defining a new project into Jenkins GUI, you may want to add a new `Launch Microcks Test Runner` step as shown in the capture below.
 
-![jenkins-build-step](/images/jenkins-build-step.png)
+{{< image src="images/jenkins-build-step.png" alt="image" zoomable="true" >}}
 
 The parameters that can be set here are:
 
@@ -166,4 +160,4 @@ The parameters that can be set here are the same that in `Build Step` usage but 
 
 Using Microcks and its Jenkins plugin, you may achieve some clean CI/CD pipelines that ensures your developed API implementation is fully aligned to expectations. See below a visualization of such a pipeline for our `Beer Catalog API` (full project to come soon).
 
-![jenkins-pipeline-openshift](/images/jenkins-pipeline-openshift.png)
+{{< image src="images/jenkins-pipeline-openshift.png" alt="image" zoomable="true" >}}

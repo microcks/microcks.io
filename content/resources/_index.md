@@ -1,79 +1,61 @@
 ---
-title: "Resources"
-menu:
-  resources:
-    name: Resources
-    weight: 10
-toc: true
+# Warning it can not a date in the feature... or you will need see this MD online!
+date: "2024-01-29"
+draft: false
+title: "Media resources"
+subtitle: "Here are a few assets in case you want to show off your support for Microcks, integration to Microcks, or want to link back to us."
 ---
 
-### Media resources
+{{< image title="Media resources" w="1200" o="webp q100" p="center" c="img-fluid shadow rounded-1" src="images/community/logo.png" alt="alter-text" >}} 
 
-- [Logos and assets](/resources/media/media-resources)
+##### Please feel free to borrow these!
+Here are the offcial Microcks [logos](https://github.com/cncf/artwork/blob/main/examples/sandbox.md#microcks-logos) registered by the [CNCF](https://www.cncf.io).
 
-### Events
+>The Linux Foundation® (TLF) has registered trademarks and uses trademarks. For a list of TLF trademarks, see [Trademark Usage](https://www.linuxfoundation.org/legal/trademark-usage). **Microcks** is a [Cloud Native Computing Sandbox](https://landscape.cncf.io/?selected=microcks) project 🚀
 
-Review recorded events where we presented and discussed Microcks:
-
+<p>Simple logo, blue and light variants with transparent background:</p>
 <table>
-  <tr style="padding: 10px">
-    <td style="padding: 10px; text-align: center;">
-      <iframe width="373" height="210" src="https://www.youtube.com/embed/QrMIY4E36dg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <br/><small>(FR) Hashicorp Radio Interview Fevrier 2022 <br/>By Laurent Broudoux</small>
-    </td>
-    <td style="padding: 10px; text-align: center;">
-      <iframe width="373" height="210" src="https://www.youtube.com/embed/j1vRuXNSsHo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <br/><small>OpenShift Coffee Break - Microcks: API testing into a microservices world <br/>By Laurent Broudoux</small>
-    </td>
-  </tr>
-  <tr style="padding: 10px">
-    <td style="padding: 10px; text-align: center;">
-      <iframe width="373" height="210" src="https://www.youtube.com/embed/3EeMHhbwyOQ?start=19925" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <br/><small>AsyncAPI Conf October 2021: AsyncAPI or CloudEvents? Both my Captain! <br/>By Laurent Broudoux</small>
-    </td>
-    <td style="padding: 10px; text-align: center;">
-      <iframe width="373" height="210" src="https://www.youtube.com/embed/KlnJrO29B0M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <br/><small>(FR) CloudNord Octobre 2021: Accélérer votre adoption EDA avec AsyncAPI & Microcks <br/>By Laurent Broudoux</small>
-    </td>
-  </tr>
-  <tr style="padding: 10px">
-    <td style="padding: 10px; text-align: center;">
-      <iframe width="373" height="210" src="https://www.youtube.com/embed/p5gdmrPFTw8?start=2205" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <br/><small>Barcelona JUG April 2021: Web API Contract First : design, mock and test <br/>By C. Anal & L. Broudoux</small>
-    </td>
-    <td style="padding: 10px; text-align: center;">
-      <iframe width="373" height="210" src="https://www.youtube.com/embed/wvsHne46qIs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <br/><small>Apidays Paris 2020: Speed-Up Kafka delivery with AsyncAPI & Microcks <br/>By Laurent Broudoux</small>
-    </td>
-  </tr>
-  <tr style="padding: 10px">
-    <td style="padding: 10px; text-align: center;">
-      <iframe width="373" height="210" src="https://www.youtube.com/embed/7xXKWnDjbIQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <br/><small>(FR) OpenShift Meetup Février 2020: Accélérer votre initiative OpenBanking APIs avec Microcks<br/>par Laurent Broudoux</small>
-    </td>
-    <td style="padding: 10px; text-align: center;">
-      <iframe width="373" height="210" src="https://www.youtube.com/embed/7gbaM73CMFY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <br/><small>(FR) Devoxx France 2019: Une API, de l'idée à la production, en mode agile avec Red Hat ! <br/>par By N. Masse & L. Broudoux</small>
-    </td>
-  </tr>
+    <tr style="padding: 20px">
+        <td style="padding: 20px; text-align: center;">{{< image src="images/logo/microcks-logo-blue.png" >}}</td>
+        <td style="padding: 20px; text-align: center; background-color: #333333">{{< image src="images/logo/microcks-logo-white.png" >}}</td>
+    </tr>
 </table>
+<p>Simple logo with name stacked, blue and light variants with transparent background:</p>
+<table>
+    <tr style="padding: 20px">
+        <td style="padding: 20px; text-align: center;">{{< image src="images/logo/microcks-logo-blue-stack.png" >}}</td>
+        <td style="padding: 20px; text-align: center; background-color: #333333">{{< image src="images/logo/microcks-logo-white-stack.png" >}}</td>
+    </tr>
+</table>
+<p>Horizontal logo with name, blue and light variants with transparent background:</p>
+<table>
+    <tr style="padding: 20px">
+        <td style="padding: 20px; text-align: center;">{{< image src="images/logo/microcks-logo-blue-name.png" >}}</td>
+        <td style="padding: 20px; text-align: center; background-color: #333333">{{< image src="images/logo/microcks-logo-white-name.png" >}}</td>
+    </tr>
+</table>
+<p>Horizontal logo with baseline, blue and light variants with transparent background:</p>
+<table>
+    <tr style="padding: 20px">
+        <td style="text-align: center;">{{< image src="images/logo/microcks-logo-blue-baseline.png" >}}</td>
+        <td style="padding: 20px; text-align: center; background-color: #333333">{{< image src="images/logo/microcks-logo-white-baseline.png" >}}</td>
+    </tr>
+</table>
+<p>Horizontal logo with color baseline and tweeter handle, blue and light variants with transparent background:</p>
+<table>
+    <tr style="padding: 20px">
+        <td style="padding: 20px; text-align: center;">{{< image src="images/logo/microcks-logo-blue-baseline-tweet.png" >}}</td>
+        <td style="padding: 20px; text-align: center; background-color: #333333">{{< image src="images/logo/microcks-logo-white-baseline-tweet.png" >}}</td>
+    </tr>
+</table>    
+	
+##### Please be kind! Do's
+✅ Use the Microcks logo to link to microcks.io<br>
+✅ Use the Microcks logo to advertise that your product has support for Microcks<br>
+✅ Use the Microcks logo in a blog post or news article about Microcks<br>
 
-### Podcasts
-
-- [(FR) Artisan Développeur #7.x – Tester son API avec Microcks](https://podcastaddict.com/episode/135165602)
-- [(FR) Electro Monkeys #81 – Testez et mockez vos API grâce à Microcks](https://electro-monkeys.fr/81-testez-et-mockez-vos-api-grace-a-microcks-avec-laurent-broudoux/)
-### Articles
-
-- [Mocking Microservices Made Easy with Microcks](https://blog.openshift.com/mocking-microservices-made-easy-microcks/)
-- [Full API lifecycle management: A primer](https://developers.redhat.com/blog/2019/02/25/full-api-lifecycle-management-a-primer/)
-- [An API Journey: From Idea to Deployment the Agile Way, Part 1](https://developers.redhat.com/blog/2018/04/11/api-journey-idea-deployment-agile-part1/)
-- [An API Journey: From Idea to Deployment the Agile Way, Part 2](https://developers.redhat.com/blog/2018/04/19/api-journey-idea-deployment-agile-way-part2/)
-- [An API Journey: From Idea to Deployment the Agile Way, Part 3](https://developers.redhat.com/blog/2018/04/26/api-journey-idea-deployment-agile-way-part3/)
-
-### Workshops
-
-- [API Lifecycle workshop](https://api-lifecycle-workshop.netlify.com/)
-- ["Day in the Life" workshop](https://github.com/RedHatWorkshops/dayinthelife-integration)
-
-### Videos
-
+##### Don'ts
+❌ Use the Microcks logo for your application’s icon<br>
+❌ Create a modified version of the Microcks logo<br>
+❌ Integrate the Microcks logo into your logo<br>
+❌ Change the Microcks logo's colors or aspect ratio

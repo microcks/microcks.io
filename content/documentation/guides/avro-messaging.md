@@ -1,16 +1,10 @@
 ---
 draft: false
-title: "Kafka, Avro and Schema Registry"
+title: "Kafka, Avro & Schema Registry"
 date: 2021-02-10
 publishdate: 2021-02-12
 lastmod: 2021-02-12
-menu:
-  docs:
-    parent: guides
-    name: Kafka, Avro and Schema Registry
-    weight: 10
-toc: true
-weight: 30 #rem
+weight: 2
 ---
 
 ## Overview
@@ -30,7 +24,7 @@ Microcks has been successfully tested with both [Confluent Schema Registry](http
 
 When connected to a Schema Registry, Microcks is pushing the Avro Schema to the registry at the same time it is pushing Avro encoded mock messages to the Kafka topic. That way, Event consumers may retrieve Avro Schema from the registry to be able to deserialize messages.
 
-![Avro Kafka Mocking](/images/guides/avro-kafka-mocking.png)
+{{< image src="images/guides/avro-kafka-mocking.png" alt="image" zoomable="true" >}}
 
 If you have used the [Operator based installation](../../installing/operator) of Microcks, you'll need to add some extra properties to your `MicrocksInstall` custom resource. The fragment below shows the important ones:
 
@@ -124,7 +118,7 @@ You'll notice that it is of importance that `contentType` and `schemaFormat` pro
 
 As we use references, our full specification is now spanning multiple files so you'll not be able to simply upload one file for API import into Microcks. You will have to define a full **Importer Job** as described [here](../../documentation/using/importers/#scheduled-import). During the import of the AsyncAPI contract file within Microcks, local references will be resolved and files downloaded and integrated within Microcks own repository. The capture below illustrates in the **Contracts** section that there are now two files: an AsyncAPI and an Avro schema one.
 
-![Avro Kafka Properties](/images/guides/avro-kafka-properties.png)
+{{< image src="images/guides/avro-kafka-properties.png" alt="image" zoomable="true" >}}
 
 Finally, as Microcks internal mechanics are based on examples, you will also have to attach examples to your AsyncAPI specification. But: how to specify examples for a binary encoding such as Avro? No problem! Simply use JSON or YAML as illustrated in the fragment below, still coming from [our GitHub repository](https://github.com/microcks/microcks/blob/master/webapp/src/test/resources/io/github/microcks/util/asyncapi/user-signedup-avro-ref-asyncapi.yaml).
 
@@ -234,7 +228,7 @@ $ npm install
 
 When using a Schema Registry with the `REGISTRY` encoding configured into Microcks, the following schema illustrates Microcks interactions with broker and registry. Here, we are not necessarily using the broker and registry Microcks is using for mocking but we are able to reuse *any Kafka broker* and *any Schema Registry* available within your organization - typically this will depend on the environment you want to launch tests upon.
 
-![Avro Kafka Testing](/images/guides/avro-kafka-testing.png)
+{{< image src="images/guides/avro-kafka-testing.png" alt="image" zoomable="true" >}}
 
 That said, imagine that you want to validate messages from a **QA** environment with dedicated broker and registry. Start by using our utility script to produce some messages on an `user-registration` arbitrary topic. This script is using a local Avro schema to do the binary encoding and it is also publishing this schema into the connected QA Schema Registry:
 
@@ -264,7 +258,7 @@ Do not interrupt the execution of the script and go create a **New Test** within
 
 Launch the test and wait for some seconds and you should get access to the test results as illustrated below:
 
-![Avro Kafka Test Success](/images/guides/avro-kafka-test-success.png)
+{{< image src="images/guides/avro-kafka-test-success.png" alt="image" zoomable="true" >}}
 
 This is fine and we can see that the type is `avro/binary` and the message content is nicely displayed using JSON but what in case of a failure? What are we able to demonstrate using Microcks validation? Next to the script lies actually two Avro schemas: 
 
@@ -273,7 +267,7 @@ This is fine and we can see that the type is `avro/binary` and the message conte
 
 Well let see now if we tweak a little bit the `avro-with-registry-producer.js` script... Open it in your favorite editor to put comments on lines 48 and 56 and to remove comments on lines 45 and 55. Relaunch it and relaunch a new test...
 
-![Avro Kafka Test Failure](/images/guides/avro-kafka-test-failure.png)
+{{< image src="images/guides/avro-kafka-test-failure.png" alt="image" zoomable="true" >}}
 
 🎉 We can see that there's now a failure and that's perfect! What does that mean? It means that when your application is using a different and incompatible schema from the one in the AsyncAPI contract, Microcks raises an error and spot the breaking change! The `fullName` required property was expected as stated in the AsyncAPI file but cannot be found in incoming message... thus your tested application producing message is sending garbage indeed 😉 
 
@@ -305,7 +299,7 @@ Do not interrupt the execution of the script and go create a **New Test** within
 
 Launch the test and wait for some seconds and you should get access to the test results as illustrated below:
 
-![Avro Kafka Test Success Raw](/images/guides/avro-kafla-test-sucsess-raw.png)
+{{< image src="images/guides/avro-kafla-test-sucsess-raw.png" alt="image" zoomable="true" >}}
 
 You can see here that we just have the string representation of the binary message that was sent. Using `RAW` encoding we cannot be sure that what we read has any sense regarding the semantic meaning of the API contract.
 
