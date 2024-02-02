@@ -122,5 +122,4 @@ tools_intregrate_support:
   - "images/support/SonarCloud.png"
   - "images/support/restream.png"
   - "images/support/commonroom.png"
-  - "images/support/orbit.png"
 ---
