@@ -20,7 +20,7 @@ This guide presents the 2 options that we will call `RAW` or `REGISTRY`. Microck
 
 ## 1. Setup Schema Registry
 
-Microcks has been successfully tested with both [Confluent Schema Registry](https://github.com/confluentinc/schema-registry) and [Apicurio Registry](https://www.apicur.io/registry/). Both can be deployed as containerized workload on your Kubernetes cluster. Microcks does not provide any installation scripts or procedures ; please refer to projects or related products documentations.
+Microcks has been successfully tested with both [Confluent Schema Registry](https://github.com/confluentinc/schema-registry) and [Apicurio Registry](https://www.apicur.io/registry/). Both can be deployed as containerized workload on your Kubernetes cluster. Microcks does not provide any installation scripts or procedures ; please refer to projects or related products documentation.
 
 When connected to a Schema Registry, Microcks is pushing the Avro Schema to the registry at the same time it is pushing Avro encoded mock messages to the Kafka topic. That way, Event consumers may retrieve Avro Schema from the registry to be able to deserialize messages.
 

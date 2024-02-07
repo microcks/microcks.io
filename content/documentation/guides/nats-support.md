@@ -17,7 +17,7 @@ Let's go! 🚀
 
 ## 1. Setup NATS broker connection
 
-First mandatory step here is to setup Microcks so that it will be able to connect to a NATS broker for sending mock messages. Microcks has been tested successfully with NATS version `2.9.8`. It can be deployed as containerized workload on your Kubernetes cluster. Microcks does not provide any installation scripts or procedures ; please refer to projects or related products documentations.
+First mandatory step here is to setup Microcks so that it will be able to connect to a NATS broker for sending mock messages. Microcks has been tested successfully with NATS version `2.9.8`. It can be deployed as containerized workload on your Kubernetes cluster. Microcks does not provide any installation scripts or procedures ; please refer to projects or related products documentation.
 
 If you have used the [Operator based installation](../../installing/operator) of Microcks, you'll need to add some extra properties to your `MicrocksInstall` custom resource. The fragment below shows the important ones:
 

@@ -17,7 +17,7 @@ Let's start! 🚀
 
 ## 1. Setup MQTT broker connection
 
-First mandatory step here is to setup Microcks so that it will be able to connect to a MQTT broker for sending mock messages. Microcks has been tested successfully with [ActiveMQ Artemis](https://activemq.apache.org/components/artemis/) as well as [Eclipse Mosquitto](https://mosquitto.org/) with MQTT protocol version `3.1.1`. Both can be deployed as containerized workload on your Kubernetes cluster. Microcks does not provide any installation scripts or procedures ; please refer to projects or related products documentations.
+First mandatory step here is to setup Microcks so that it will be able to connect to a MQTT broker for sending mock messages. Microcks has been tested successfully with [ActiveMQ Artemis](https://activemq.apache.org/components/artemis/) as well as [Eclipse Mosquitto](https://mosquitto.org/) with MQTT protocol version `3.1.1`. Both can be deployed as containerized workload on your Kubernetes cluster. Microcks does not provide any installation scripts or procedures ; please refer to projects or related products documentation.
 
 If you have used the [Operator based installation](../../installing/operator) of Microcks, you'll need to add some extra properties to your `MicrocksInstall` custom resource. The fragment below shows the important ones:
 

@@ -6,7 +6,7 @@
         <ul class="{{ if gt .WordCount 100 }}vh-100{{ end }} doc-sidenav pt-4 pe-4 ps-0 border-end border-default">
           {{ $currentNode := . }}
           {{ range .Site.Home.Sections }}
-            {{ if eq .Name "Documentations" }}
+            {{ if eq .Name "Documentation" }}
               {{ range .Sections.ByWeight }}
                 <!-- not render any single page, like contact page. -->
                 {{ $numberOfMainPages := len .Pages }}
