@@ -1,7 +1,7 @@
 ---
-title: "Documentations"
+title: "Documentation"
 date: 2023-12-29
-description: "Microcks documentations"
+description: "Microcks documentation"
 layout: documentation
 ---
 

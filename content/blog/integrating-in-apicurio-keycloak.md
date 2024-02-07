@@ -10,7 +10,7 @@ draft: false
 
 Microcks is an amazing tool that helps developers mock their APIs seamlessly using [OpenAPI](https://www.openapis.org/) specs. This makes it easy for distributed teams to develop complex micro-services without having to wait for full development cycles to complete, thus maximising team efficiencies.
 
-[Apicurio Studio](https://www.apicur.io/studio/) is another great tool to start creating your API documentations via a fully integrated OpenAPI spec editor and adds features like ability to view your documentation live as teams collaborate and edit specs on the editor in real-time.
+[Apicurio Studio](https://www.apicur.io/studio/) is another great tool to start creating your API documentation via a fully integrated OpenAPI spec editor and adds features like ability to view your documentation live as teams collaborate and edit specs on the editor in real-time.
 
 A cool feature in Apicurio is the ability to integrate seamlessly with Microcks to mock the API definition with just a single click. This yields to a great developer experience overall as clients can start consuming mock endpoints with sample responses even if the actual API is going through the CI pipeline and yet to reach staging or production environments.
 
