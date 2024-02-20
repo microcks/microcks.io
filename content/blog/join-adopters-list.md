@@ -74,6 +74,6 @@ Done ✅ with thanks, follow your pull request comments (review) and await merge
 
 Respecting open-source principles also means giving back. If your organization has benefited from Microcks, please consider contributing in other ways, such as reporting issues, suggesting improvements, curating documents, giving sponsorship or even making code contributions. 
 
-So you are welcome to join us in making Microcks even better! Come introduce yourself in our [Github discussion](https://github.com/microcks/microcks/discussions) or [Zulip chat](https://microcksio.zulipchat.com/) 🐙, show your support by giving us [GitHub stars](https://github.com/microcks/microcks) ⭐️ or follow us on [Twitter](https://twitter.com/microcksio), [Mastodon](https://mastodon.social/@microcksio), [LinkedIn](https://www.linkedin.com/company/microcks/), and our [YouTube channel](https://www.youtube.com/c/Microcks)!
+So you are welcome to join us in making Microcks even better! Come introduce yourself in our [Github discussion](https://github.com/microcks/microcks/discussions) or [Discord chat](https://microcks.io/discord-invite/) 🐙, show your support by giving us [GitHub stars](https://github.com/microcks/microcks) ⭐️ or follow us on [Twitter](https://twitter.com/microcksio), [Mastodon](https://mastodon.social/@microcksio), [LinkedIn](https://www.linkedin.com/company/microcks/), and our [YouTube channel](https://www.youtube.com/c/Microcks)!
 
 Thank you for reading and for your support!

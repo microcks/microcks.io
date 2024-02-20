@@ -110,6 +110,6 @@ $ git clone https://github.com/microcks/microcks.git && cd microcks \
 
 Now just open your browser on [http://localhost:8080](http://localhost:8080) and connect with `admin/microcks123` 🚀
 
-As usual, we’re eager for community feedback: come and discuss on our [Zulip chat](https://microcksio.zulipchat.com/) 🐙
+As usual, we’re eager for community feedback: come and discuss on our [Discord chat](https://microcks.io/discord-invite/) 🐙
 
 Thanks for reading and supporting us!

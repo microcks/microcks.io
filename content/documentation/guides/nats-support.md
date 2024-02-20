@@ -212,4 +212,4 @@ Relaunch a new test and you should get results similar to those below:
 
 In this guide we have seen how Microcks can also be used to send mock messages on a Google PubSub service connected to the Microcks instance. This helps speeding-up the development of application consuming these messages. We finally ended up demonstrating how Microcks can be used to detect any drifting issues between expected message format and the one effectively used by real-life producers.
 
-Thanks for reading and let you know what you think on our [Zulip Chat](https://microcksio.zulipchat.com) 🐙
+Thanks for reading and let you know what you think on our [Discord chat](https://microcks.io/discord-invite) 🐙

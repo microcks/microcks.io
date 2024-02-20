@@ -86,7 +86,7 @@ We’d like to thank the following awesome people:
 
 We still have many plans for the coming months and you should stay tuned during the summer time ;-) But as usual, we will be very happy to prioritize depending on community feedback: you can check and collaborate via our list of [issues on GitHub](https://github.com/microcks/microcks/issues). 
 
-Remember that we are open and it means that you can jump on board to make Microcks even greater! Come and say hi! on our [Zulip chat](https://microcksio.zulipchat.com/) 🐙, simply send some love through [GitHub stars](https://github.com/microcks/microcks) ⭐️ or follow us on [Twitter](https://twitter.com/microcksio) and [LinkedIn](https://www.linkedin.com/company/microcks/).
+Remember that we are open and it means that you can jump on board to make Microcks even greater! Come and say hi! on our [Discord chat](https://microcks.io/discord-invite/) 🐙, simply send some love through [GitHub stars](https://github.com/microcks/microcks) ⭐️ or follow us on [Twitter](https://twitter.com/microcksio) and [LinkedIn](https://www.linkedin.com/company/microcks/).
 
 Thanks for reading and supporting us!
 

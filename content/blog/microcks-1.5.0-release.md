@@ -121,6 +121,6 @@ We’d like to thank the following awesome people:
 
 As usual, we will be eager to prioritize items accordingly to community feedback: you can check and collaborate via our list of [issues on GitHub](https://github.com/microcks/microcks/issues). 
 
-Remember that we are an open community, and it means that you too can jump on board to make Microcks even greater! Come and say hi! on our [Zulip chat](https://microcksio.zulipchat.com/) 🐙, simply send some love through [GitHub stars](https://github.com/microcks/microcks) ⭐️ or follow us on [Twitter](https://twitter.com/microcksio) and [LinkedIn](https://www.linkedin.com/company/microcks/).
+Remember that we are an open community, and it means that you too can jump on board to make Microcks even greater! Come and say hi! on our [Discord chat](https://microcks.io/discord-invite/) 🐙, simply send some love through [GitHub stars](https://github.com/microcks/microcks) ⭐️ or follow us on [Twitter](https://twitter.com/microcksio) and [LinkedIn](https://www.linkedin.com/company/microcks/).
 
 Thanks for reading and supporting us! May the beginning of 2022 keep you safe and healthy. ❤️  

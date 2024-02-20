@@ -50,7 +50,7 @@ We are actively working on several exciting features for upcoming releases. We v
 
 ## Share Your Feedback
 
-We rely on your feedback to improve the Microcks Docker Desktop Extension. We invite you to test the most recent release and to share your thoughts, ideas, and any issues you encounter. Join our vibrant [GitHub community](https://github.com/microcks) and interact with our team and other users. You can also participate in discussions and seek help through our [Zulip chat](https://microcksio.zulipchat.com/) 🐙.
+We rely on your feedback to improve the Microcks Docker Desktop Extension. We invite you to test the most recent release and to share your thoughts, ideas, and any issues you encounter. Join our vibrant [GitHub community](https://github.com/microcks) and interact with our team and other users. You can also participate in discussions and seek help through our [Discord chat](https://microcks.io/discord-invite/) 🐙.
 
 Microcks Docker Desktop Extension `0.2.0` marks a significant step forward in our mission to provide developers with a smooth and efficient API mocking and testing experience. With the addition of API mock URLs to the main extension page and the optional activation of Postman, we hope to improve the efficiency and productivity of your API development workflows.
 

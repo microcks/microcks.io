@@ -159,6 +159,6 @@ As usual, we will be very happy to prioritize depending on community feedback : 
 * community sharing of mocks and tests for regulatory or industrial standards (see this [repository](https://github.com/microcks/hub.microcks.io)),
 * more metrics and analytics to govern your APIs with Microcks.
 
-Remember that we are open and it means that you can jump on board to make Microcks even greater! Come and say hi! on our [Zulip chat](https://microcksio.zulipchat.com/) 🐙, simply send some love through [GitHub stars](https://github.com/microcks/microcks) ⭐️ or follow us on [Twitter](https://twitter.com/microcksio) and [LinkedIn](https://www.linkedin.com/company/microcks/).
+Remember that we are open and it means that you can jump on board to make Microcks even greater! Come and say hi! on our [Discord chat](https://microcks.io/discord-invite/) 🐙, simply send some love through [GitHub stars](https://github.com/microcks/microcks) ⭐️ or follow us on [Twitter](https://twitter.com/microcksio) and [LinkedIn](https://www.linkedin.com/company/microcks/).
 
 Thanks for reading and supporting us! Stay safe and healthy. ❤️  

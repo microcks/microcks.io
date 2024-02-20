@@ -308,4 +308,4 @@ As a result we've got our pet name `Rusty` being returned with a new `id` being 
 
 In this guide we have seen the basics on how Microcks can be used to mock responses of an OpenAPI. We introduced some Microcks concepts like examples, dispatchers and templating features that are used to produce a live simulation. This definitely helps speeding-up the feedback loop on the ongoing design as the development of a frontend consuming this API.
 
-Thanks for reading and let you know what you think on our [Zulip Chat](https://microcksio.zulipchat.com) 🐙
+Thanks for reading and let you know what you think on our [Discord chat](https://microcks.io/discord-invite) 🐙

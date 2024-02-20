@@ -70,7 +70,7 @@ You can now join the community here: [https://microcks.io/discord-invite](https:
 
 [{{< image src="images/blog/microcks-discord.png" >}}](https://microcks.io/discord-invite)
 
-> To those who were already chatting with us on our previous Zulip chat, **please make the switch**! We planned to sunset our Zulip chat at the end of March.
+> To those who were already chatting with us on our previous Discord chat, **please make the switch**! We planned to sunset our Discord chat at the end of March.
 
 The last quarter of 2023 was a super-busy one with a lot of travels, conferences, and opportunities to meet passionate and enthusiastic people! We also have a lot of recordings to share then 😉
 

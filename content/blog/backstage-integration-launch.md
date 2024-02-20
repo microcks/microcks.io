@@ -75,6 +75,6 @@ You finally have to add the main `MicrocksApiEntityProvider` class to the list o
 
 As stated above, this is our first integration and we’re excited about the possibilities ahead to create top-notch API developer portals. [Let us know](https://github.com/microcks/microcks-backstage-provider/issues) what you’d like to see in the future!
 
-Keep in mind that we are an open community, so you are welcome to join us in making Microcks even better! Come introduce yourself in our [Github discussion](https://github.com/microcks/microcks/discussions) or [Zulip chat](https://microcksio.zulipchat.com/) 🐙, show your support by giving us [GitHub stars](https://github.com/microcks/microcks) ⭐️ or follow us on [Twitter](https://twitter.com/microcksio), [Mastodon](https://mastodon.social/@microcksio), [LinkedIn](https://www.linkedin.com/company/microcks/), and our [YouTube channel](https://www.youtube.com/c/Microcks)!
+Keep in mind that we are an open community, so you are welcome to join us in making Microcks even better! Come introduce yourself in our [Github discussion](https://github.com/microcks/microcks/discussions) or [Discord chat](https://microcks.io/discord-invite/) 🐙, show your support by giving us [GitHub stars](https://github.com/microcks/microcks) ⭐️ or follow us on [Twitter](https://twitter.com/microcksio), [Mastodon](https://mastodon.social/@microcksio), [LinkedIn](https://www.linkedin.com/company/microcks/), and our [YouTube channel](https://www.youtube.com/c/Microcks)!
 
 Thank you for reading and for your support!

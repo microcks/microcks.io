@@ -63,4 +63,4 @@ Podman adopt a very different architecture from Docker: it involves no daemon at
 
 While the **rootless** mode looks very appealing it does not come as a free lunch and involves some network or file system restrictions. For the Podman support in Microcks, we aimed to support both **rootless** and **rootfull** mode and instructions to run in **rootfull** mode are [also available](../../documentation/installing/podman-compose/#rootless-or-rootfull).
 
-If your a Podman user and hapy with it (or if you struggle making it working 😉) come and say hi! on our [Zulip chat](https://microcksio.zulipchat.com/) 🐙
+If your a Podman user and hapy with it (or if you struggle making it working 😉) come and say hi! on our [Discord chat](https://microcks.io/discord-invite/) 🐙

@@ -53,6 +53,6 @@ Thanks also to the Docker Desktop team for making the validation and certificati
 
 ## Join us and take part in the open community of Microcks👇
 
-Keep in mind that we are an open community, so you are welcome to join us in making Microcks even better! Come introduce yourself in our [Github discussion](https://github.com/microcks/microcks/discussions) or [Zulip chat](https://microcksio.zulipchat.com/) 🐙, show your support by giving us [GitHub stars](https://github.com/microcks/microcks) ⭐️ or follow us on [Twitter](https://twitter.com/microcksio), [LinkedIn](https://www.linkedin.com/company/microcks/), and our [YouTube channel](https://www.youtube.com/c/Microcks)!
+Keep in mind that we are an open community, so you are welcome to join us in making Microcks even better! Come introduce yourself in our [Github discussion](https://github.com/microcks/microcks/discussions) or [Discord chat](https://microcks.io/discord-invite/) 🐙, show your support by giving us [GitHub stars](https://github.com/microcks/microcks) ⭐️ or follow us on [Twitter](https://twitter.com/microcksio), [LinkedIn](https://www.linkedin.com/company/microcks/), and our [YouTube channel](https://www.youtube.com/c/Microcks)!
 
 Thank you for reading and for your support!

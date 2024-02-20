@@ -81,6 +81,6 @@ We have many plans for the coming months but will be very happy to prioritize de
 * community sharing of mocks and tests for regulatory or industrial standards,
 * more metrics and analytics to govern your APIs with Microcks.
 
-Remember that we are open and it means that you can jump on board to make Microcks even greater! Come and say hi! on our [Zulip chat](https://microcksio.zulipchat.com/) 🐙 , simply send some love through [GitHub stars]([https://github.com/microcks/microcks) ⭐️ or follow us on [Twitter]([https://twitter.com/microcksio).
+Remember that we are open and it means that you can jump on board to make Microcks even greater! Come and say hi! on our [Discord chat](https://microcks.io/discord-invite/) 🐙 , simply send some love through [GitHub stars]([https://github.com/microcks/microcks) ⭐️ or follow us on [Twitter]([https://twitter.com/microcksio).
 
 Thanks for reading and supporting us! Stay safe and healthy. ❤️  

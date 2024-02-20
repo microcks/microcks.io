@@ -54,7 +54,7 @@ In just a little more than two months since the [previous `1.2.0` release](https
 
 We have many plans for the coming months but will be very happy to prioritize depending on community feedback : Websocket, gRPC, GraphQL... What’s why we put substantial efforts creating several [issues on GitHub](https://github.com/microcks/microcks/issues) to detail what options we have in front of us. Please use them to react and vote for your preferred ones to allow us prioritize the backlog!
 
-Remember that we are open and it means that you can jump on board to make Microcks even greater! Come and say hi! on our [Zulip chat](https://microcksio.zulipchat.com/) 🐙 , simply send some love through [GitHub stars](https://github.com/microcks/microcks) ⭐️ or follow us on [Twitter](https://twitter.com/microcksio).
+Remember that we are open and it means that you can jump on board to make Microcks even greater! Come and say hi! on our [Discord chat](https://microcks.io/discord-invite/) 🐙 , simply send some love through [GitHub stars](https://github.com/microcks/microcks) ⭐️ or follow us on [Twitter](https://twitter.com/microcksio).
 
 {{< image src="images/blog/give-stars.jpeg" alt="image" zoomable="true" >}}
 

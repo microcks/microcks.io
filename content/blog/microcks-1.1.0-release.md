@@ -63,6 +63,6 @@ We still have a lot to accomplish but cannot do it without your support and idea
 
 We are open and you can help make Microcks an even greater tool ! Please spread the word, send us some love through [GitHub](https://github.com/microcks/microcks) stars and follow us on [Twitter](https://twitter.com/microcksio).
 
-To support the growth of our community we also wanted to enhance the way we interact and we have decided to abandon [Gitter](https://gitter.im/microcks/microcks) chat rooms in favor of [Zulip](https://microcksio.zulipchat.com/). [Zulip](https://microcksio.zulipchat.com/) offers streams and topics that will ease following each and every thread we’ve got on Gitter. It also provides a better mobile experience so you will be able to follow us on the move.
+To support the growth of our community we also wanted to enhance the way we interact and we have decided to abandon [Gitter](https://gitter.im/microcks/microcks) chat rooms in favor of [Discord](https://microcks.io/discord-invite/). [Discord](https://microcks.io/discord-invite/) offers streams and topics that will ease following each and every thread we’ve got on Gitter. It also provides a better mobile experience so you will be able to follow us on the move.
 
 Thanks for your reading and for supporting us ! Take care in these particularly weird moments and stay tuned. ❤️
