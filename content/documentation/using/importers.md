@@ -3,7 +3,7 @@ draft: false
 title: "Importing Services & APIs"
 date: 2020-02-26
 publishdate: 2020-02-26
-lastmod: 2021-07-16
+lastmod: 2023-03-07
 weight: 3
 ---
 
@@ -25,7 +25,7 @@ We provide built-in parsers and importers for the following formats:
 * [Postman collections](https://learning.postman.com/docs/postman/collections/data-formats/) files with v1.0 or v2.x file format. See our [documentation](../postman/) on some conventions you should follow for this collection structure,
 * [Apicurio Studio](https://apicurio-studio.readme.io/docs/integrate-microcks-for-mocking-your-api) direct integration when working on OpenAPI 3.x API specifications,
 * [OpenAPI v3.x](http://spec.openapis.org/oas/v3.0.3) files in either YAML or JSON format. See our [documentation](../openapi/) on some conventions you should follow for this specification,
-* [AsyncAPI v2.x](https://www.asyncapi.com/docs/specifications/2.0.0) files in either YAML or JSON format. See our [documentation](../asyncapi/) on some conventions you should follow for this specification,
+* [AsyncAPI v2.x](https://v2.asyncapi.com/docs/reference/specification/v2.6.0) and [AsyncAPI v3.x](https://www.asyncapi.com/docs/reference/specification/v3.0.0) files in either YAML or JSON format. See our [documentation](../asyncapi/) on some conventions you should follow for this specification,
 * [gRPC / Protocol buffers v3](https://grpc.io/docs/what-is-grpc/introduction/) `.proto` files. See our [documentation](../grpc/) on some conventions you should follow for this specification,
 * [GraphQL Schema](https://www.apollographql.com/docs/apollo-server/schema/schema/) `.graphql` files. See our [documentation](../graphql/) on some conventions you should follow for this specification.
 
@@ -36,7 +36,7 @@ If you own a bunch of Swagger specifications, you won't be able to directly impo
 
 {{< image src="images/artifacts-swagger-adaptations.png" alt="image" zoomable="true" >}}
 
-> Please notice that the same issue and workaround may apply to some others API specification formats like [WADL](https://www.w3.org/Submission/wadl/) or [RAML](https://raml.org/). They've got really good importers for Postman or SoapUI that offer you a very easy way to complete your syntactic specification with some real life samples that can make the foundation of some useful mocks ;-)
+> Please notice that the same issue and workaround may apply to some others API specification formats like [WADL](https://www.w3.org/Submission/wadl/) or [RAML](https://raml.org/). They've got really good importers for Postman or SoapUI that offer you a very easy way to complete your syntactic specification with some real life samples that can make the foundation of some useful mocks 😉
 
 ## Multi-artifacts support
 

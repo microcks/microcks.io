@@ -3,7 +3,7 @@ draft: false
 title: "AsyncAPI Mocking and Testing"
 date: 2020-08-01
 publishdate: 2020-08-05
-lastmod: 2023-06-07
+lastmod: 2024-03-07
 weight: 7
 ---
 
@@ -13,7 +13,11 @@ weight: 7
 
 AsyncAPI is an open source initiative that seeks to improve the current state of Event-Driven Architectures (EDA). Its long-term goal is to make working with EDA’s as easy as it is to work with REST APIs. That goes from documentation to code generation, from discovery to event management. Most of the processes you apply to your REST APIs nowadays would be applicable to your event-driven/asynchronous APIs too. So Microcks has support for AsyncAPI too 😉!
 
-Starting with Microcks version `1.0.0`, Microcks is now able to import AsyncAPI definitions for enriching the API catalogs with `Event` typed APIs. When set up accordingly, it is also able to mock the API by publishing samples messages on a dedicated message broker destination.
+Microcks is able to:
+* Mock the API by publishing samples messages on a dedicated message broker destinations,
+* Test the API by collecting messages on a broker (not necessarily the one used for mocking) and validate them against the schema information found in an AsyncAPI spec.
+
+> Starting with release `1.9.0`, Microcks supports both AsyncAPI version `2.x` and version `3.x`.
 
 ### Bindings
 
@@ -21,18 +25,17 @@ AsyncAPI specification dissociates the concern of message description (through p
 
 > At the time of `1.7.1` release, Microcks supports the `KAFKA`, the `MQTT`, the `WS` (for WebSocket), the `AMQP`, the `NATS`, the `GOOGLEPUBSUB`, the `SQS` and the `SNS` bindings. When setting up Microcks, you have the choice deploying a new Kafka broker as part of the Microcks installation or reusing an existing broker. Any other broker type must be provisioned independantly.
 
-For each version of an API managed by Microcks, it will create appropriate destination for **operations** in mixing specification elements, protocol binding specifics and versioning issues. Destination managed by Microcks are then referenced within the API details page.
+If you don't explicitly define a binding into your AsyncAPI document, the default `KAFKA` is appplied. If you specify one or many bindings, Microcks will only publish messages for the ones defined in the AsyncAPI specification.
 
 ### Conventions
 
-With AsyncAPI [Messages Objects](https://github.com/asyncapi/asyncapi/blob/master/versions/2.0.0/asyncapi.md#messageObject) you have the ability to define `examples` with your AsyncAPI specification document. Since AsyncAPI `2.1.0` examples are now fully described but in the `2.0.0` release of the specification, `examples` were simply a `[Map[ string , any]]` and we ought to propose the here-after conventions as the formal specification (see this [Feature request](https://github.com/asyncapi/asyncapi/issues/329).
+With AsyncAPI [Messages Objects](https://v2.asyncapi.com/docs/reference/specification/v2.6.0#messageObject) you have the ability to define `examples` with your AsyncAPI specification document.
+Microcks reuses these `examples` as sample messages for mocking purpose.
 
-So basically, we propose to describe `examples` using the following guidelines. An `example` may have:
+For AsyncAPI `2.x` document, the `name` attribute of example is mandatory so that Microcks reuses this name to identify available mock messages. Starting with AsyncAPI `3.0`, the `name` is no longer mandatory and Microcks can then compute a name for you based on the message name and the index of example in the list.
 
-* A short `name` that will be used as a property since AsyncAPI 2.1 or as the key within the `examples` array prior that,
-* An optional `summary` to provide more informations on the use-case mapping of the sample,
-* A mandatory `payload` that should be compliant with the defined schema for Message payload and may be expressed directly in YAML or by embedding JSON representation,
-* An optional `headers` that should be compliant with the aggregated schema for both Message-level headers and Trait-level headers.
+For each version of an API managed by Microcks, it will create appropriate destination for **operations** in mixing specification elements, protocol binding specifics and versioning issues. Destination managed by Microcks are then referenced within the API details page.
+
 
 ## Illustration
 
@@ -62,8 +65,6 @@ Examples will be an array of example objects, starting with a **key** that Micro
 
 #### Payload 
 
-##### Using AsyncAPI 2.1.0 and more recent versions
-
 Payload is expressed into the mandatory `payload` attribute, directly in YAML or by embedding JSON. In our illustration, we will define below 2 examples with straightforward summary:
 
 ```yaml
@@ -82,31 +83,9 @@ examples:
       age: 36
 ```
 
-##### Using AsyncAPI 2.0.0
-
-Payload is expressed into the mandatory `payload` attribute, directly in YAML or by embedding JSON. In our illustration, we will define below 2 examples with straightforward summary:
-
-```yaml
-examples:
-  - laurent:
-      summary: Example for Laurent user
-      payload: |-
-        {"id": "{{randomString(32)}}", "sendAt": "{{now()}}", "fullName": "Laurent Broudoux", "email": "laurent@microcks.io", "age": 41}
-  - john:
-      summary: Example for John Doe user
-      payload:
-        id: '{{randomString(32)}}'
-        sendAt: '{{now()}}'
-        fullName: John Doe
-        email: john@microcks.io
-        age: 36
-```
-
 > You can see here that we're using specific `{{ }}` notation that involves the generation of dynamic content. You can find description of the `now()` and `randomString()` functions into [Function Expressions](../advanced/templates/#function-expressions) documentation.
 
 #### Headers
-
-##### Using AsyncAPI 2.1.0 and more recent versions
 
 Headers are expressed into the optional `headers` attribute, directly in YAML or by embedding JSON. In our illustration, we will define below 2 examples using both methods:
 
@@ -121,20 +100,98 @@ examples:
     headers:
       my-app-header: 24
 ```
-##### Using AsyncAPI 2.0.0
 
-Headers are expressed into the optional `headers` attribute, directly in YAML or by embedding JSON. In our illustration, we will define below 2 examples using both methods:
+### Channel/endpoint names
+
+Given the following AsyncAPI specfiication:
 
 ```yaml
-examples:
-  - laurent:
-      [...]
-      headers: |-
-        {"my-app-header": 23}
-  - john:
-      [...]
-      headers:
-        my-app-header: 24
+asyncapi: '2.1.0'
+info:
+  title: User signed-up API
+  version: 0.1.1
+  description: This service is in charge of processing user signups
+
+channels:
+  user/signedup:
+    subscribe:
+```
+
+Microcks will detect an operation named `SUBSCRIBE user/signedup` and create destinations than integrates service name and version, channel name and protocol specific formmatting.  For example, it will create a Kafka topic named `UsersignedupAPI-0.1.1-user-signedup` or a WebScoket endpoint named `/ws/User+signed-up+API/0.1.1/user/signedup`. Destination and endpoint names for the different protocols are available on the page presenting API details.
+
+### Parameter support
+
+Microcks supports templatized channel endpoints using parameter like `{id}` in their name. Support of parameter for AsyncAPI 2.x presents some restriction though.
+
+#### AsyncAPI v2.x
+
+Microcks only supports **static parameter definition** for AsyncAPI v2.x. That means that for a parameter, you also need to specify the possible different values with examples.
+
+Let's imagine a basic Chat Room channel. In order to have the different msesages (`Example 1`, `Example 2` and `Example 3`) dispatched on different rooms, you'll have to define the different values for the `roomId` parameter for those example. Like illustrated below:
+
+```yaml
+channels:
+  /chat/{roomId}:
+    parameters:
+      idRoom:
+        description: Identifier of the chat room
+        schema:
+          type: string
+          examples:
+            Example 1:
+              value: 1
+            Example 2:
+              value: 2
+            Example 3:
+              value: 2
+    [...]
+components:
+  messages:
+    chatMessage:
+      payload:
+        $ref: '#/components/schemas/ChatMessageType'
+      examples:
+        - name: Example 1
+          payload:
+            message: Hello
+        - name: Example 2
+          payload:
+            message: Bonjour
+        - name: Example 3
+          payload:
+            message: Namaste
+```
+
+#### AsyncAPI v3.x
+
+For AsyncAPI v3.x, Microcks still supports **static parameter definition** like for AsyncAPI v2.X but also provides support for **dynamic parameter definition** using the `location` attribute.
+
+Let's reuse our basic Chat Room channel. The `location` attribute allows directly retrieving the `roomId` value from the message payload so that you don't have to specify alues for the parameter. Also, as Microcks supports AsyncAPI v3 examples without names, the examples no longer need to have `name` attributes in that case (because we don't need a key to match payload and parameter values).
+ 
+```yaml
+channels:
+  chatRoom:
+    address: /chat/{roomId}
+    parameters:
+      idRoom:
+        description: Identifier of the chat room
+        location: $message.payload#/roomId
+    [...]
+components:
+  messages:
+    chatMessage:
+      payload:
+        $ref: '#/components/schemas/ChatMessageType'
+      examples:
+        - payload:
+            message: Hello
+            room: 1
+        - payload:
+            message: Bonjour
+            room: 2
+        - payload:
+            message: Namaste
+            room: 2
 ```
 
 ## Importing AsyncAPI specification
@@ -154,8 +211,8 @@ At the `info` level of your AsyncAPI document, you can add labels specifications
 ```yaml
 asyncapi: '2.1.0'
 info:
-  title: Account Service
-  version: 1.0.0
+  title: User signed-up API
+  version: 0.1.1
   description: This service is in charge of processing user signups
   x-microcks:
     labels:
@@ -176,6 +233,27 @@ channels:
         frequency: 30
       message:
         $ref: '#/components/messages/UserSignedUp'
+[...]
+```
+
+In AsyncAPI v3.x, `operation` are now differentiated from `channels`. Our extension is still called `x-microcks-operation` and should live at the operation level like illustrated below:
+
+```yaml
+[...]
+channels:
+  user-signedup:
+    messages:
+      userSignedUp:
+        $ref: '#/components/messages/userSignedUp'
+operations:
+  publishUserSignedUps:
+    action: 'send'
+    channel:
+      $ref: '#/channels/user-signedup'
+    messages:
+      - $ref: '#/channels/user-signedup/messages/userSignedUp'
+    x-microcks-operation:
+      frequency: 30
 [...]
 ```
 
