@@ -3,7 +3,7 @@ draft: false
 title: "Monitoring & Observability"
 date: 2022-09-09
 publishdate: 2022-09-09
-lastmod: 2022-09-09
+lastmod: 2024-03-07
 weight: 20
 ---
 
@@ -17,7 +17,7 @@ Microcks provides functional metrics directly from within [its own API](../../..
 
 Three categories of endpoints are available:
 
-* `/api/merics/conformance/*` for querying/collecting the metrics related to the Test Conformance of the API | Services of your repository - see [Conformance metrics](../../tests#conformance-metrics),
+* `/api/metrics/conformance/*` for querying/collecting the metrics related to the Test Conformance of the API | Services of your repository - see [Conformance metrics](../../tests#conformance-metrics),
 * `/api/metrics/invocations/*` for querying the metrics related to mocks invocations (daily/hourly invocations, by API | Service or aggregated),
 * `/api/metrics/tests/*` for aggregated metrics on tests executed on the platform
 
@@ -33,3 +33,28 @@ Two different endpoints are available:
 * `/q/metrics` path for async-minion component
 
 From those endpoints, you will be able to collect resource consumption or perfromance metrics such as: JVM memory used, JVM thread pools, HTTP endpoints performance, Database queries performance and so on.
+
+## OpenTelemetry support
+
+Starting with Microcks `1.9.0`, the main webapp component now supports [OpenTelemetry](https://opentelemetry.io/) instrumention for logs, distributed tracing and metrics.
+
+OpenTelemetry is disabled by default and must be enabled using two different environment variables:
+
+* `OTEL_JAVAAGENT_ENABLED` is set to false by default, so you'll have to explicitly set it to `true`
+* `OTEL_EXPORTER_OTLP_ENDPOINT` is set to a local dummy endpoint, so you'll have to set it to an OpenTelemetry collector endpoint of your environment. Something like `http://otel-collector.acme.com:4317` for example.
+
+Check the dedicated [README](https://github.com/microcks/microcks/tree/1.9.x/observability) on GitHub to get more details.
+
+## Grafana dashboard
+
+Starting with Microcks `1.9.0`, we also provide a [Grafana](https://grafana.com/) dashbaord that allows you to easily track the performance and health status of your Microcks instance. 
+
+This dashboard is using data coming from a Prometheus source so you don't have to enabled the full OpenTelemetry support to use it. Standard Prometheus endpoints scraped by your Prom instance will do the job.
+
+Check the dedicated [/dashbaords](https://github.com/microcks/microcks/tree/1.9.x/observability/dashboards) on GitHub to get more details.
+
+## Benchmark suite
+
+Starting with Microcks `1.9.0`, we also provide a benchmark suite as an easy way of validating/sizing/evaluating changes on your Microcks instance. It allows you to simulate Virtual Users on different usage scenarios and gather performance metrics of your instance.
+
+Check the dedicated [README](https://github.com/microcks/microcks/tree/1.9.x/benchmark) on GitHub to get more details.
