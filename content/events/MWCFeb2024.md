@@ -8,6 +8,11 @@ logo: "images/events/MWC-Feb2024.jpg"
 
 {{< image title="Join us at the Mobile World Congress (MWC) Barcelona" w="1200" o="webp q100" p="center" c="img-fluid shadow rounded-1" src="images/events/MWC-Feb2024.jpg" alt="alter-text" >}}
 
+##### 📢 Microcks: Our Experience at MWC Barcelona 2024!
+I am sharing some exciting news from Microcks regarding our recent participation in the Mobile World Congress (MWC Barcelona) 2024 👇
+https://www.linkedin.com/feed/update/urn:li:activity:7171402434135769088 
+
+
 Join us at Mobile World Congress (MWC) Barcelona 🇪🇸
 
 ##### Info
