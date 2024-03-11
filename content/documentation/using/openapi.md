@@ -3,7 +3,7 @@ draft: false
 title: "OpenAPI Mocking and Testing"
 date: 2019-09-01
 publishdate: 2019-09-01
-lastmod: 2022-02-23
+lastmod: 2024-03-11
 weight: 5
 ---
 
@@ -113,7 +113,56 @@ responses:
               ]
 ```
 
-And yes... I've called one of my car jean-pierre... ;-)
+And yes... I've called one of my car jean-pierre... 😉
+
+#### No content response payload
+
+Now let's imagine the case where ou're dealing with an API operation that returns "No Content". This could by - for example - an operation that takes care of deleting a car from the database and return a simple `204` HTTP response code once done.
+
+In that case, we cannot rely on [Example Objects](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md#exampleObject) because the response has typically no content we can attach an `example` to. We need another way to specify the matching of this response with an incoming request. For this, we introduced a specific `x-microcks-refs` extension that allows to tell Microcks on which requests it should match this response.
+
+Let's illustrate the above-mentioned case with this snippet below:
+
+```yaml
+/owner/{owner}/car/{car}:
+  delete:
+    parameters:
+      - name: owner
+        in: path
+        description: Owner of the cars
+        required: true
+        schema:
+          format: string
+          type: string
+        examples:
+          laurent_307:
+            value: laurent
+          laurent_jp:
+            value: laurent
+      - name: car
+        in: path
+        description: Owner of the cars
+        required: true
+        schema:
+          format: string
+          type: string
+        examples:
+          laurent_307:
+            value: '307'
+          laurent_jp:
+            value: 'jean-pierre'
+responses:
+  204:
+    description: No Content
+    x-microcks-refs:
+      - laurent_307
+      - laurent_jp
+```
+
+When Microcks will receive `DELETE /owner/laurent/car/307` or `DELETE /owner/laurent/car/jean-pierre` call, it will just reply using a `204` HTTP response code.
+
+> Note that this association also works if you defined some `requestBody` examples for the operation.
+
 
 ## Importing OpenAPI specification
 
