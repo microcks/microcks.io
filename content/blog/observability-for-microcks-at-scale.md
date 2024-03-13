@@ -14,13 +14,13 @@ As part of the upcoming `1.9.0` release of Microcks, I’m super proud to have c
 
 {{< image src="images/blog/observability-for-microcks-feature.png" alt="obseravbility-for-microcks-feature" >}}
 
-
 ## Why it matters?
 
-Microcks can be used and deployed in many topologies: from ephemeral instances with few APIs & services to always-up-and-running instances serving complex ecosystems of APIs in large organizations. Within this wide range of use cases, Microcks can also be used in :
-    * Short-lived instances such as on-demand sandboxes,
-    * Quality Assurance environments,
-    * Performance testing environments.
+Microcks can be used and deployed in many topologies: from ephemeral instances with few APIs & services to always-up-and-running instances serving complex ecosystems of APIs in large organizations. Within this wide range of use cases, Microcks can also be used in:
+
+* Short-lived instances such as on-demand sandboxes,
+* Quality Assurance environments,
+* Performance testing environments.
 
 For deployments at scale, the project received the usual questions from the community:
 
