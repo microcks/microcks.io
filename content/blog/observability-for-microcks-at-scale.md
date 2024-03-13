@@ -82,6 +82,74 @@ Those traces are the ideal way to diagnose slow components within your services 
 
 To get the above data and visualizations, we ran the benchmarking suite powered by [K6](https://k6.io/) which launches four different scenarios simultaneously during one minute. Here’s the raw output we got below with details on executed scenarios and raw performance metrics:
 
+```shell
+$ docker run --rm -i -e BASE_URL=${MICROCKS_BASE_URL} -e WAIT_TIME=0.1 grafana/k6:${K6_VERSION} run - < bench-microcks.js
+
+          /\     |‾‾| /‾‾/   /‾‾/   
+     /\  /  \    |  |/  /   /  /    
+    /  \/    \   |     (   /   ‾‾\ 
+   /          \  |  |\ \ |  (‾)  | 
+  / __________ \ |__| \__\ \_____/ .io
+
+  execution: local
+     script: -
+     output: -
+
+  scenarios: (100.00%) 4 scenarios, 85 max VUs, 2m45s max duration (incl. graceful stop):
+           * browse: 20 looping VUs for 1m0s (exec: browse, gracefulStop: 30s)
+           * invokeRESTMocks: 200 iterations for each of 40 VUs (maxDuration: 2m0s, exec: invokeRESTMocks, startTime: 5s, gracefulStop: 30s)
+           * invokeGraphQLMocks: 100 iterations for each of 20 VUs (maxDuration: 2m0s, exec: invokeGraphQLMocks, startTime: 10s, gracefulStop: 30s)
+           * invokeSOAPMocks: 5 iterations for each of 5 VUs (maxDuration: 2m0s, exec: invokeSOAPMocks, startTime: 15s, gracefulStop: 30s)
+           
+[...]
+
+running (1m04.0s), 14/85 VUs, 10271 complete and 0 interrupted iterations
+browse             ↓ [ 100% ] 20 VUs  1m0s         
+invokeRESTMocks    ✓ [ 100% ] 40 VUs  0m12.7s/2m0s  8000/8000 iters, 200 per VU
+invokeGraphQLMocks ✓ [ 100% ] 20 VUs  0m06.9s/2m0s  2000/2000 iters, 100 per VU
+invokeSOAPMocks    ✓ [ 100% ] 5 VUs   0m16.0s/2m0s  25/25 iters, 5 per VU
+
+     ✓ status code should be 200
+     ✓ pastryCall status is 200
+     ✓ eclairCall status is 200
+     ✓ eclairXmlCall status is 200
+     ✓ eclairXmlCall response is Xml
+     ✓ millefeuilleCall status is 200
+     ✓ allFilmsCall status is 200
+     ✓ aFilmCall status is 200
+     ✓ aFilmFragmentCall status is 200
+     ✓ andrewCall status is 200
+     ✓ karlaCall status is 200
+     ✓ karlaCall body is correct
+     ✓ laurentCall status is 500
+     ✓ laurentCall body is fault
+
+     checks.........................: 100.00% ✓ 46385      ✗ 0    
+     data_received..................: 132 MB  2.0 MB/s
+     data_sent......................: 7.8 MB  122 kB/s
+     http_req_blocked...............: avg=40.83µs  min=291ns   med=1.04µs  max=18.4ms   p(90)=5.04µs   p(95)=8.37µs  
+     http_req_connecting............: avg=33.21µs  min=0s      med=0s      max=18.35ms  p(90)=0s       p(95)=0s      
+     http_req_duration..............: avg=17.22ms  min=1ms     med=12.57ms max=782.36ms p(90)=28.2ms   p(95)=36.67ms 
+       { expected_response:true }...: avg=17.21ms  min=1ms     med=12.57ms max=782.36ms p(90)=28.2ms   p(95)=36.66ms 
+     http_req_failed................: 0.05%   ✓ 26         ✗ 48709
+     http_req_receiving.............: avg=80.43µs  min=6.5µs   med=22.66µs max=29.12ms  p(90)=129.29µs p(95)=235.55µs
+     http_req_sending...............: avg=15.04µs  min=1.58µs  med=4.95µs  max=9.27ms   p(90)=22.33µs  p(95)=36.83µs 
+     http_req_tls_handshaking.......: avg=0s       min=0s      med=0s      max=0s       p(90)=0s       p(95)=0s      
+     http_req_waiting...............: avg=17.12ms  min=902.5µs med=12.49ms max=782.34ms p(90)=28.08ms  p(95)=36.49ms 
+     http_reqs......................: 48735   756.508316/s
+     iteration_duration.............: avg=194.32ms min=10.5ms  med=52.16ms max=5.57s    p(90)=101.2ms  p(95)=177.01ms
+     iterations.....................: 10285   159.652981/s
+     vus............................: 14      min=14       max=85 
+     vus_max........................: 85      min=85       max=85 
+
+
+running (1m04.4s), 00/85 VUs, 10285 complete and 0 interrupted iterations
+browse             ✓ [ 100% ] 20 VUs  1m0s         
+invokeRESTMocks    ✓ [ 100% ] 40 VUs  0m12.7s/2m0s  8000/8000 iters, 200 per VU
+invokeGraphQLMocks ✓ [ 100% ] 20 VUs  0m06.9s/2m0s  2000/2000 iters, 100 per VU
+invokeSOAPMocks    ✓ [ 100% ] 5 VUs   0m16.0s/2m0s  25/25 iters, 5 per VU
+```
+
 And yes, we got this impressive **756.5 hits/second** with a p(90) response time of 28.2ms during the bench on a Macbook M2 with a 400MB heap! 🚀
 
 
