@@ -37,7 +37,7 @@ clients_logo_slider:
   #- "images/adopters/Orange.png"
   - "images/adopters/JB-Hunt.png"
   - "images/adopters/la-poste-groupe.png"
-  - "images/adopters/Lombard_Odier.png"
+  #- "images/adopters/Lombard_Odier.png"
   - "images/adopters/Sesam-Vitale.png"
   - "images/adopters/societe-generale.png"
   - "images/adopters/akwatype.png"
