@@ -3,7 +3,7 @@ draft: false
 title: "Templating mock responses"
 date: 2020-02-11
 publishdate: 2020-02-11
-lastmod: 2022-12-27
+lastmod: 2024-04-19
 weight: 17
 ---
 
@@ -105,12 +105,18 @@ Imagine our API deal with library and may receive this kind of request body payl
 }
 ```
 
-Using Microcks we can just append a [JSON Pointer](https://tools.ietf.org/html/rfc6901) expression to `request.body` element in order to ask for a deeper parsing and evaluation. The JSON Pointer part should be expressed just after a starting `/` indicating we're navigating into a sub-query. Here's a bunch of examples on previous library case and how they'll be rendered:
+Using Microcks we can just append a [JSON Pointer](https://tools.ietf.org/html/rfc6901) expression to `request.body` element in order to ask for a deeper parsing and evaluation. The JSON Pointer part should be expressed just after a starting `/` indicating we're navigating into a sub-query.
+
+Starting with version `1.9.1` next to pointers referencing text value nodes also pointers to arrays and objects can be used. The node's contents will be rendered as JSON string if complex objects or arrays are referenced. Please be aware that the whitespacing might differ from the request in this case.
+
+Here's a bunch of examples on previous library case and how they'll be rendered:
 
 | Expression | Evaluation Result | Comment |
 | ---------- | ----------------- | ------- |
 | `request.body/library` | `My Personal Library` | |
-| `request.body/library/books/1/author` | `John Doe` | JSON Pointer array index starting at 0 | 
+| `request.body/books/1/author` | `John Doe` | JSON Pointer array index starting at 0 | 
+| `request.body/books/1` | `{"title":"Title 1","author":"Jane Doe"}`| JSON Pointer to object returning JSON seralized string of contents |
+| `request.body/books` | `[{"title":"Title 1","author":"Jane Doe"},{ "title":"Title 2","author":"John Doe"}]` | JSON Pointer to array returning JSON seralized string of contents |
 
 
 ### XML body XPath expression
