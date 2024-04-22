@@ -4,3 +4,6 @@ themes/microcks/node_modules
 node_modules
 .DS_Store
 *.log
+.hugo_build.lock
+hugo_stats.json
+
