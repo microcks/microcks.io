@@ -1,5 +1,5 @@
 ---
-title: "Go client"
+title: "Go Testcontainers module"
 layout: "go-package"
 package:
   prefix: microcks.io/testcontainers-go
