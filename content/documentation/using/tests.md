@@ -35,7 +35,7 @@ The **Conformance index** is a kind of grade that estimates how your API contrac
 
 The **Conformance score** is the current score that has been computed during your last test execution. We also added a trend computation if things are going better or worse comparing to your history of tests on this API.
 
-Once you have activated [labels filtering](./advanced/organizing/#applying-labels) on your repository and have ran a few tests, Microcks is also able to give you an aggregated view of your API patrimony in termes of **Conformance Risks**. The tree map below is displayed on the *Dashboard* page and represents risks in terms of average score per group of APIs (depending on the concept you chose it could be per domain, per application, per team, ...)
+Once you have activated [labels filtering](../organizing/#applying-labels) on your repository and have ran a few tests, Microcks is also able to give you an aggregated view of your API patrimony in termes of **Conformance Risks**. The tree map below is displayed on the *Dashboard* page and represents risks in terms of average score per group of APIs (depending on the concept you chose it could be per domain, per application, per team, ...)
 
 {{< image src="images/test-conformance-risks.png" alt="image" zoomable="true" >}}
 

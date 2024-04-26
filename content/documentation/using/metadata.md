@@ -46,7 +46,7 @@ operations:
 This example is pretty straightforward to understand and explain:
 
 * This document is related to the `WeatherForecast API` in version `1.1.0`. That means that this API version should already exist into your repository, otherwise the document will be ignored,
-* This document specifies additional `labels` used for [organizing the Microcks repository](../advanced/organizing). This labels will be added to existing ones,
+* This document specifies additional `labels` used for [organizing the Microcks repository](../organizing). This labels will be added to existing ones,
 * This document specifies a default `delay` as well as custom dispatching informations for our `GET` operation. The name of operation should perfectly match the name of an existing operation - whether defined through OpenAPI, AsyncAPI, Postman Collection, SoapUI Project or Protobuf definition - otherwise it will be ignored.
 
 > Note that we can use multi-line notation in YAML but we will have to escape everything and put `\` before double-quotes and `\n` characters if specified using JSON.
