@@ -20,11 +20,6 @@ url = "/community/"
 weight = 4
 
 [[main]]
-name = "GitHub ⭐️"
-url = "https://github.com/microcks/microcks"
-weight = 5
-
-[[main]]
 parent = "Community"
 name = "About"
 url = "/community/"

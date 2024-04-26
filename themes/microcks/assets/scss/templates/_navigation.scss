@@ -84,6 +84,13 @@
 
   .nav-item {
     font-size: 1rem;
+    &.gh-btn {
+      margin-left: 12px;
+      @media (max-width: 991.9px) {
+        margin-top: 12px;
+        margin-left: 28px;
+      }
+    }
 
     .nav-link {
       display: inline-block;
@@ -195,6 +202,7 @@
   @media (min-width: 992px) {
     .navbar .dropdown-menu {
       display: block;
+      top: 45px;
       height: 0;
       visibility: hidden;
       overflow: hidden;
@@ -461,6 +469,9 @@
 }
 
 .nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0;
 
   .nav-link {
