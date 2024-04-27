@@ -33,7 +33,7 @@ But how to easily figure this out at first sight? That’s why we introduced the
 
 {{< image src="images/blog/test-conformance.png" alt="image" zoomable="true" >}}
 
-By just checking these visual indicators, you immediately grasp if your tests are comprehensive for conformance validation and what is the current score and trend. What if you start having dozens of APIs or Services in your Microcks repository? The Microcks dashboard has evolved to display aggregated information on that too. Depending on the [master level filter](https://microcks.io/documentation/using/advanced/organizing/#master-level-filter) you’ve chosen to organize your repository, aggregated Conformance score will be computed and displayed in a tree map. Here is below an example where scores are grouped by `domain`:
+By just checking these visual indicators, you immediately grasp if your tests are comprehensive for conformance validation and what is the current score and trend. What if you start having dozens of APIs or Services in your Microcks repository? The Microcks dashboard has evolved to display aggregated information on that too. Depending on the [master level filter](https://microcks.io/documentation/using/organizing/#master-level-filter) you’ve chosen to organize your repository, aggregated Conformance score will be computed and displayed in a tree map. Here is below an example where scores are grouped by `domain`:
 
 {{< image src="images/blog/test-conformance-risks.png" alt="image" zoomable="true" >}}
 

@@ -84,7 +84,7 @@ Users can only be managed by Microcks `admin` - we mean people having the `admin
 
 ### Group membership
 
-From Microcks 1.4.0, you have the ability to segment the role attribution depending on the `master` label you have chosen for organizing your repository. See [Organizing repository](https://microcks.io/documentation/using/advanced/organizing/#rbac-security-segmentation) for details on this feature.
+From Microcks 1.4.0, you have the ability to segment the role attribution depending on the `master` label you have chosen for organizing your repository. See [Organizing repository](https://microcks.io/documentation/using/organizing/#rbac-security-segmentation) for details on this feature.
 
 When this feature is enabled, Microcks will create as many groups in Keycloak as we have different values for this `master` label. These groups are organized in a hierarchy so that you'll have groups with such names `/microcks/manager/<label>` those members represents the `manager` of the resources labeled with `<label>` value.
 

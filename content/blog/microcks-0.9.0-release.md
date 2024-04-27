@@ -68,7 +68,7 @@ As a repository content manager, we add new features regarding repository organi
 
 Labels can also be used on the main repository page allowing you to filter and display the most important labels when browsing repository content.
 
-> Full details are documented here: https://microcks.io/documentation/using/advanced/organizing/
+> Full details are documented here: https://microcks.io/documentation/using/organizing/
 
 ## Mocking enhancements
 

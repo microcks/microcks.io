@@ -31,7 +31,7 @@ For each and every tenant, Microcks takes care of creating and managing dedicate
 {{< image src="images/blog/users-group-management.png" alt="image" zoomable="true" >}}
 
 
-> How to enable and manage a multi-tenant repository? It’s very easy! New options have been added into both Helm Chart and Operator. Check our updated documentation on [activation](https://microcks.io/documentation/using/advanced/organizing/#rbac-security-segmentation) and user [groups management](https://microcks.io/documentation/administrating/users/#group-membership).
+> How to enable and manage a multi-tenant repository? It’s very easy! New options have been added into both Helm Chart and Operator. Check our updated documentation on [activation](https://microcks.io/documentation/using/organizing/#rbac-security-segmentation) and user [groups management](https://microcks.io/documentation/administrating/users/#group-membership).
 
 
 ### Scaling labels using new APIMetadata

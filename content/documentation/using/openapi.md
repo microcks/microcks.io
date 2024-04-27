@@ -176,7 +176,7 @@ Using the above `Car API` example, you should get the following results:
 
 Starting with version `1.4.0`, Microcks proposes custom OpenAPI extensions to specify mocks organizational or behavioral elements that cannot be deduced directly from OpenAPI document.
 
-At the `info` level of your OpenAPI document, you can add labels specifications that will be used in [organizing the Microcks repository](../advanced/organizing). See below illustration and the use of `x-microcks` extension:
+At the `info` level of your OpenAPI document, you can add labels specifications that will be used in [organizing the Microcks repository](https://microcks.io/documentation/using/organizing/). See below illustration and the use of `x-microcks` extension:
 
 ```yaml
 openapi: 3.1.0
