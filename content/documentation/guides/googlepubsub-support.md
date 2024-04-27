@@ -3,7 +3,7 @@ draft: false
 title: "Google Pub/Sub Mocking & Testing"
 date: 2023-02-08
 publishdate: 2023-02-08
-lastmod: 2023-02-08
+lastmod: 2024-04-27
 weight: 6
 ---
 
@@ -201,7 +201,7 @@ Do not interrupt the execution of the script for now.
 
 As the **QA** Pub/Sub access is secured, we will first have to manage a [Secret](../../administrating/secrets) in Microcks to hold these informations. Within Microcks console, first go to the **Administration** section and the **Secrets** tab.
 
-> **Administration** and **Secrets** will only be available to people having the `administrator` role assigned. Please check [this documentation](../../administrating/secrets/users) for details.
+> **Administration** and **Secrets** will only be available to people having the `administrator` role assigned. Please check [this documentation](../../administrating/users) for details.
 
 On this tab, you'll have to create a `Token Authentication` secret with the value being the content of a Service Account key file encrypted in base 64. This Service Account is not necessarily the one you've used previously for producing messages as this one must have the `roles/pubsub.publisher` role. You'll typically get the token value by executing this command:
 

@@ -3,7 +3,7 @@ draft: false
 title: "Testing with Microcks"
 date: 2019-09-01
 publishdate: 2019-09-01
-lastmod: 2023-06-07
+lastmod: 2024-04-27
 weight: 14
 ---
 
@@ -21,7 +21,7 @@ You find on the internet many different representations of how the different tes
   <img alt="Ideal Software Testing Pyrami" src="https://miro.medium.com/max/1400/0*f2vFclaitRRo1w2i.jpg" style="max-width: 75%; border-color: #dddddd; border-style: solid !important"/>
 </p>
 
-The purpose of Microcks tests is precisely to check that the **Interaction Contract** - as represented by an OpenAPI or AsyncAPI specification, a Postman collection or whatever [supported artifact](./importers/#supported-formats) - consumer and producer agreed upon is actually respected by the API provider. In other words: to check that an implementation of the API is conformant to its contract.
+The purpose of Microcks tests is precisely to check that the **Interaction Contract** - as represented by an OpenAPI or AsyncAPI specification, a Postman collection or whatever [supported artifact](../importers/#supported-formats) - consumer and producer agreed upon is actually respected by the API provider. In other words: to check that an implementation of the API is conformant to its contract.
 
 In order to help you getting confidence into your implementations, we developed the **Conformance index** and **Conformance score** metrics that you can see on the top right of each API | Service details page:
 

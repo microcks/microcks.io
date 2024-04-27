@@ -3,7 +3,7 @@ draft: false
 title: "Kafka, Avro & Schema Registry"
 date: 2021-02-10
 publishdate: 2021-02-12
-lastmod: 2021-02-12
+lastmod: 2024-04-27
 weight: 2
 ---
 
@@ -116,7 +116,7 @@ You'll notice that it is of importance that `contentType` and `schemaFormat` pro
 }
 ```
 
-As we use references, our full specification is now spanning multiple files so you'll not be able to simply upload one file for API import into Microcks. You will have to define a full **Importer Job** as described [here](../../documentation/using/importers/#scheduled-import). During the import of the AsyncAPI contract file within Microcks, local references will be resolved and files downloaded and integrated within Microcks own repository. The capture below illustrates in the **Contracts** section that there are now two files: an AsyncAPI and an Avro schema one.
+As we use references, our full specification is now spanning multiple files so you'll not be able to simply upload one file for API import into Microcks. You will have to define a full **Importer Job** as described [here](../../using/importers/#scheduled-import). During the import of the AsyncAPI contract file within Microcks, local references will be resolved and files downloaded and integrated within Microcks own repository. The capture below illustrates in the **Contracts** section that there are now two files: an AsyncAPI and an Avro schema one.
 
 {{< image src="images/guides/avro-kafka-properties.png" alt="image" zoomable="true" >}}
 

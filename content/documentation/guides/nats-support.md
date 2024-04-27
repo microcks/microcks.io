@@ -3,7 +3,7 @@ draft: false
 title: "NATS Mocking & Testing"
 date: 2023-01-30
 publishdate: 2023-01-30
-lastmod: 2023-01-30
+lastmod: 2024-04-27
 weight: 5
 ---
 
@@ -116,7 +116,7 @@ channels:
                 age: 36
 ```
 
-If you're now yet accustomed to it, you may wonder what it this `{{randomFullName()}}` notation? These are just [Templating functions](../../using/advanced/templates) that allow generation of dynamic content! 😉
+If you're now yet accustomed to it, you may wonder what it this `{{randomFullName()}}` notation? These are just [Templating functions](../../using/templates) that allow generation of dynamic content! 😉
 
 Now simply import your AsyncAPI file into Microcks either using a **Direct upload** import or by defining a **Importer Job**. Both methods are described in [this page](../../using/importers).
 
@@ -172,7 +172,7 @@ Do not interrupt the execution of the script for now.
 
 If the **QA** broker access is secured - let's say with credentials and custom certificates - we will first have to manage a [Secret](../../administrating/secrets) in Microcks to hold these informations. Within Microcks console, first go to the **Administration** section and the **Secrets** tab.
 
-> **Administration** and **Secrets** will only be available to people having the `administrator` role assigned. Please check [this documentation](../../administrating/secrets/users) for details.
+> **Administration** and **Secrets** will only be available to people having the `administrator` role assigned. Please check [this documentation](../../administrating/users) for details.
 
 The screenshot below illustrates the creation of such a secret for your `QA NATS Broker` with username, and credentials.
 

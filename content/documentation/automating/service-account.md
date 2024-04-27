@@ -3,7 +3,7 @@ draft: false
 title: "Microcks Service Accounts"
 date: 2019-09-01
 publishdate: 2019-09-01
-lastmod: 2023-07-17
+lastmod: 2024-04-27
 weight: 1
 ---
 
@@ -48,7 +48,7 @@ Finally, in order to operate correctly, Service Account should have role assigne
 
 {{< image src="images/service-account-roles.png" alt="image" zoomable="true" >}}
 
-> If you want to use the `Service Account` for DevOps pipelines, with the [Microcks Cli](./cli.md) for example, you have to give it more priviledges.  
+> If you want to use the `Service Account` for DevOps pipelines, with the [Microcks Cli](../cli) for example, you have to give it more priviledges.  
 > On the role page in Keycloack, click on the **Assign role** button, filter roles by clients and pick the __*microcks-app* manager__ role.
 
 ### Using Service Account

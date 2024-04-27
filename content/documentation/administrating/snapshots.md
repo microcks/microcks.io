@@ -3,7 +3,7 @@ draft: false
 title: "Repository Snapshots"
 date: 2019-11-18
 publishdate: 2019-11-18
-lastmod: 2019-11-19
+lastmod: 2024-04-27
 weight: 3
 ---
 
@@ -16,7 +16,7 @@ Snapshots are lightweight structures that can be used to:
 * easily setup a new Microcks instance dedicated for mocking a functionnal subsystem - optionally with different configured response times for simulating a real behaviour,
 * easily backup your instance if you do not bother loosing tests runs and analytics data
 
-Snapshots can only be managed by Microcks `administrator` - we mean people having the `administrator` role assigned. If you need further information on how to manage users and roles, please check [here](./users). Snapshots management is simply a thumbnail with the `Administration` page that is available from the vertical menu on the left once logged in as administrator.
+Snapshots can only be managed by Microcks `administrator` - we mean people having the `administrator` role assigned. If you need further information on how to manage users and roles, please check [here](../users). Snapshots management is simply a thumbnail with the `Administration` page that is available from the vertical menu on the left once logged in as administrator.
 
 ## Exporting a Snapshot
 

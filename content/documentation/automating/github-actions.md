@@ -3,7 +3,7 @@ draft: false
 title: "Using Microcks from GitHub Actions"
 date: 2021-02-19
 publishdate: 2021-02-19
-lastmod: 2021-11-22
+lastmod: 2024-04-27
 weight: 5
 ---
 
@@ -36,7 +36,7 @@ You may add one of the Action to your Workflow directly from the GitHub UI.
 
 The `import` action, based on the CLI command, has just one argument that specifies a comma separated list of file paths:
 
-* `<specificationFile1[:primary],specificationFile2[:primary]>` : The file paths with an optional flag telling if it should be imported as `primary` or not. See [Multi-artifacts support](../using/importers/#multi-artifacts-support) doc. Default is `true` so it is considered as primary.
+* `<specificationFile1[:primary],specificationFile2[:primary]>`: The file paths with an optional flag telling if it should be imported as `primary` or not. See [Multi-artifacts support](../../using/importers/#multi-artifacts-support) doc. Default is `true` so it is considered as primary.
 
 #### Step 1 - Configure the GH action
 

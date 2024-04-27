@@ -3,7 +3,7 @@ draft: false
 title: "Monitoring & Observability"
 date: 2022-09-09
 publishdate: 2022-09-09
-lastmod: 2024-03-07
+lastmod: 2024-04-27
 weight: 20
 ---
 
@@ -13,15 +13,15 @@ As a cloud-native application, we take great care of providing observability on 
 
 ## Functional metrics
 
-Microcks provides functional metrics directly from within [its own API](../../../automating/api). This API will give you visibility on how you use the platform to invoke mocks, execute tests and enhance or degrade quality metrics. The endpoints of the API are returning JSON data.
+Microcks provides functional metrics directly from within [its own API](../../automating/api). This API will give you visibility on how you use the platform to invoke mocks, execute tests and enhance or degrade quality metrics. The endpoints of the API are returning JSON data.
 
 Three categories of endpoints are available:
 
-* `/api/metrics/conformance/*` for querying/collecting the metrics related to the Test Conformance of the API | Services of your repository - see [Conformance metrics](../../tests#conformance-metrics),
+* `/api/metrics/conformance/*` for querying/collecting the metrics related to the Test Conformance of the API | Services of your repository - see [Conformance metrics](../tests/#conformance-metrics),
 * `/api/metrics/invocations/*` for querying the metrics related to mocks invocations (daily/hourly invocations, by API | Service or aggregated),
 * `/api/metrics/tests/*` for aggregated metrics on tests executed on the platform
 
-Have a look at [Microcks API](../../../automating/api) to get detailed on how to use those endpoints.
+Have a look at [Microcks API](../../automating/api) to get detailed on how to use those endpoints.
 
 ## Technical metrics
 

@@ -3,7 +3,7 @@ draft: false
 title: "Getting started with Tests"
 date: 2020-10-19
 publishdate: 2020-10-19
-lastmod: 2021-11-25
+lastmod: 2024-04-27
 weight: 2
 ---
 
@@ -21,7 +21,7 @@ You'll see that this sample contains a number of different features. It will ill
 
 * Simple `GET` operation mocking and testing, 
 * `Path parameters` matching and testing,
-* [Content negotiation](./using/advanced/#content-negocation-in-rest-mocks) matching and testing.
+* [Content negotiation](../using/advanced/#content-negocation-in-rest-mocks) matching and testing.
 
 Now that we have the sample API registered in Microcks, we can deploy an implementation of this API contract. This will be our [System Under Test](https://en.wikipedia.org/wiki/System_under_test).
 

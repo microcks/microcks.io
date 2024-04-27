@@ -3,7 +3,7 @@ draft: false
 title: "MQTT Mocking & Testing"
 date: 2021-02-14
 publishdate: 2021-02-15
-lastmod: 2021-02-15
+lastmod: 2024-04-27
 weight: 3
 ---
 
@@ -203,7 +203,7 @@ Do not interrupt the execution of the script for now.
 
 If the **QA** broker access is secured - let's say with credentials and custom certificates - we will first have to manage a [Secret](../../administrating/secrets) in Microcks to hold these informations. Within Microcks console, first go to the **Administration** section and the **Secrets** tab.
 
-> **Administration** and **Secrets** will only be available to people having the `administrator` role assigned. Please check [this documentation](../../administrating/secrets/users) for details.
+> **Administration** and **Secrets** will only be available to people having the `administrator` role assigned. Please check [this documentation](../../administrating/users) for details.
 
 The screenshot below illustrates the creation of such a secret for your `QA MQTT Broker` with username, credentials and custom certificates using the [PEM format](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail).
 

@@ -3,7 +3,7 @@ draft: false
 title: "Amazon SQS/SNS Mocking & Testing"
 date: 2023-06-06
 publishdate: 2023-06-06
-lastmod: 2023-06-06
+lastmod: 2024-04-27
 weight: 7
 ---
 
