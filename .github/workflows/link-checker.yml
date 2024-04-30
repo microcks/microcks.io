@@ -1,0 +1,41 @@
+# This link check is run on all content files once per day.
+# from: https://github.com/lycheeverse/lychee-action
+# link checker used is 'lychee': https://github.com/lycheeverse/lychee
+
+name: Link Check
+description: "Check Microcks website links in Markdown, HTML files..."
+
+on:
+  # This event will only trigger a workflow run if the workflow file is on the default branch.
+  workflow_dispatch:
+  # Run every day at 23h42
+#  schedule:
+#    - cron: "42 23 * * *"
+
+jobs:
+  linkChecker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Link Checker
+        id: lychee
+        uses: lycheeverse/lychee-action@v1
+
+      - name: Create Issue From File
+        if: env.lychee_exit_code != 0
+        uses: yada/create-issue-from-file@v4
+        with:
+          title: Link Checker Report
+          #content-filepath: ./lychee/out.md
+          #labels: report, automated issue
+          # Check all markdown and html files in repo (default)
+          args: --base . --verbose --no-progress './**/*.md' './**/*.html'
+          # Use markdown as output format
+          format: markdown
+          # Use different output file path
+          output: ./link-checker/report.md
+          # Use a custom GitHub token, which 
+          token: ${{ secrets.CUSTOM_TOKEN }}
+          # Don't fail action on broken links
+          fail: false
