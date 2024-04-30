@@ -2,5 +2,5 @@
 # The file allows you to list multiple regular expressions for exclusion (one pattern per line).
 
 # Ignore Google fonts performance optimization (DNS PREFETCH on PRECONNECT): fault positive
-https://fonts.gstatic.com
-https://use.fontawesome.com
+https://fonts.gstatic.com/
+https://use.fontawesome.com/
