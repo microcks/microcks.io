@@ -17,13 +17,33 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Cache setup to mitigate issues regarding rate limiting & reduce stress on external resources
+      - name: Restore lychee cache
+        id: restore-cache
+        uses: actions/cache/restore@v3
+        with:
+          path: .lycheecache
+          key: cache-lychee-${{ github.sha }}
+          restore-keys: cache-lychee-
+      
+      - name: Run lychee
+        uses: lycheeverse/lychee-action@v1
+        with:
+          args: "--base . --cache --max-cache-age 1s ."
+      
+      - name: Save lychee cache
+        uses: actions/cache/save@v3
+        if: always()
+        with:
+          path: .lycheecache
+          key: ${{ steps.restore-cache.outputs.cache-primary-key }}
+    
       - name: Link Checker
         id: lychee
         uses: lycheeverse/lychee-action@v1
         with:
-          title: Link Checker Report
           # Check all markdown and html files in repo (default)
-          args: --base . --verbose --no-progress './**/*.md' './**/*.html'
+          #args: --base . --verbose --no-progress './**/*.md' './**/*.html'
           # Use markdown as output format
           format: markdown
           # Use different output file path
