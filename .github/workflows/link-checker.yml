@@ -20,7 +20,7 @@ jobs:
       # Cache setup to mitigate issues regarding rate limiting & reduce stress on external resources
       - name: Restore lychee cache
         id: restore-cache
-        uses: actions/cache/restore@v3
+        uses: actions/cache/restore@v4
         with:
           path: .lycheecache
           key: cache-lychee-${{ github.sha }}
@@ -32,7 +32,7 @@ jobs:
           args: "--base . --cache --max-cache-age 1s ."
       
       - name: Save lychee cache
-        uses: actions/cache/save@v3
+        uses: actions/cache/save@v4
         if: always()
         with:
           path: .lycheecache
