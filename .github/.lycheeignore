@@ -1,0 +1,6 @@
+# These links are ignored by our link checker https://github.com/lycheeverse/lychee
+# The file allows you to list multiple regular expressions for exclusion (one pattern per line).
+
+# Ignore Google fonts performance optimization (DNS PREFETCH on PRECONNECT): fault positive
+https://fonts.gstatic.com
+https://use.fontawesome.com
