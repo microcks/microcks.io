@@ -7,5 +7,5 @@ https://use.fontawesome.com/
 fonts.gstatic.com
 use.fontawesome.com
 
-# Ex: "{{ $paginator.Prev.URL }}" to ignore...
-"{{ * }}"
+# href example to ignore: "{{ $paginator.Prev.URL }}" or "{{.RelPermalink}}"
+"{{*}}"
