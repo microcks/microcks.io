@@ -4,3 +4,8 @@
 # Ignore Google fonts performance optimization (DNS PREFETCH on PRECONNECT): fault positive
 https://fonts.gstatic.com/
 https://use.fontawesome.com/
+fonts.gstatic.com
+use.fontawesome.com
+
+# Ex: "{{ $paginator.Prev.URL }}" to ignore...
+"{{ * }}"
