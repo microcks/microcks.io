@@ -1,0 +1,10 @@
+# Automatically keep your GitHub actions up-to-date, thanks to dependabot
+
+version: 2
+
+updates:
+  # Keep dependencies for GitHub Actions up-to-date
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'daily'
