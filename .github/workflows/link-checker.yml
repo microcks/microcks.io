@@ -1,9 +1,8 @@
-# This link check is run on all content files once per day.
+# This link checks Microcks website links in Markdown HTML files once per day
 # from: https://github.com/lycheeverse/lychee-action
 # link checker used is 'lychee': https://github.com/lycheeverse/lychee
 
 name: Link Check
-description: "Check Microcks website links in Markdown, HTML files..."
 
 on:
   # This event will only trigger a workflow run if the workflow file is on the default branch.
