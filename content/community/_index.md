@@ -34,9 +34,6 @@ how_it_works:
     image: "images/community/opensource.png"
     content: "**Join** the Microcks [Adopters](https://github.com/microcks/.github/blob/main/ADOPTERS.md) lists, **report** [issues](https://github.com/microcks/microcks/issues), **suggest** [roadmap](https://github.com/orgs/microcks/projects/1) improvements, **curate** [documents](https://microcks.io/documentation/), **give** GitHub [stars](https://github.com/microcks/microcks) and [sponsorship](https://opencollective.com/microcks) or even **make** code [contributions](https://github.com/microcks/.github/blob/main/CONTRIBUTING.md)."
         
-BUGHERE
-[sponsorship](ht
-BUGHERE
   - title: "Events and records"
     image: "images/community/events.png"
     content: "**Learn** more about Microcks and our next [events](/events/), review or watch our [past recordings talks](/events/) ..."
