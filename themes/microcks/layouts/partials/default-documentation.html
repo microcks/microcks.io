@@ -1,9 +1,9 @@
 {{ "<!-- details page -->" | safeHTML }}
-<section>
+<section class="border-bottom border-default">
   <div class="doc-container-fluid padding-layout">
     <div class="row">
-      <div class="col-xl-2 col-lg-3 col-md-4 d-none d-md-block">
-        <ul class="{{ if gt .WordCount 100 }}vh-100{{ end }} doc-sidenav pt-4 pe-4 ps-0 border-end border-default">
+      <div class="col-xl-2 col-lg-3 col-md-4 pe-0 d-none d-md-block border-end border-default">
+        <ul class="doc-sidenav m-0 pt-4 pe-4 ps-0">
           {{ $currentNode := . }}
           {{ range .Site.Home.Sections }}
             {{ if eq .Name "Documentation" }}
@@ -21,7 +21,7 @@
         </ul>
       </div>
       <div class="col-xl-8 col-lg-9 col-md-8">
-        <div class="px-lg-5 px-sm-4 pt-5">
+        <div class="px-lg-5 px-sm-4 py-5">
           <h2 class="mb-4 fw-bold">{{ .Title }}</h2>
           
           {{ if .Content }}

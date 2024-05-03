@@ -480,12 +480,14 @@ ol {
 .doc-sidenav {
   position: sticky;
   top: 95px;
+  max-height: calc(100vh - 95px);
+  overflow: auto;
 
   ul {
     padding-left: 10px;
   }
 
-  &>li {
+  & > li {
     a {
       padding: 20px 0;
       color: $text-dark;
