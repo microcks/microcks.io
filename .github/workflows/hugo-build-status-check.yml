@@ -27,9 +27,9 @@ jobs:
           # Set the extended option to true to install the extended version of Hugo, mandatory for Microcks website
           extended: true
 
-      # Step to start Hugo server in the background
-      - name: Start Hugo server
-        run: hugo server --minify --port=8888 &
+      # Step to start Hugo --minify to validate site and build process
+      - name: Start Hugo
+        run: hugo server --minify
 
       # Add other steps here
 
@@ -42,5 +42,5 @@ jobs:
           fi
 
       # Optionally, add a step to stop the Hugo server at the end of the workflow
-      - name: Stop Hugo server
-        run: kill $(lsof -t -i:8888) || true
+      #- name: Stop Hugo server
+      #  run: kill $(lsof -t -i:8888) || true
