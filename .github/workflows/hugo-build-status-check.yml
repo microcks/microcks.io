@@ -21,7 +21,9 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: 'extended'
+          # Always use the latest version of Hugo, in case of issue with the latest version, 
+          # you can specify a specific version using '0.125.5'
+          hugo-version: 'latest'
           # Set the extended option to true to install the extended version of Hugo, mandatory for Microcks website
           extended: true
 
