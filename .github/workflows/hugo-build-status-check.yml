@@ -1,0 +1,42 @@
+name: Hugo Build and Status Check
+
+# Trigger the workflow on push events to the main branch
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    # Use the latest version of Ubuntu as the runner
+    runs-on: ubuntu-latest
+
+    # Steps to be executed as part of the job
+    steps:
+      # Step to checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Step to set up Hugo
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+
+      # Step to start Hugo server in the background
+      - name: Start Hugo server
+        run: hugo server --minify --bind=0.0.0.0 --port=8888 &
+
+      # Add other steps here
+
+      # Step to check build status and block commit if build fails
+      - name: Check build status
+        run: |
+          if [ $? -ne 0 ]; then
+            echo "Hugo build failed, blocking commit..."
+            exit 1
+          fi
+
+      # Optionally, add a step to stop the Hugo server at the end of the workflow
+      - name: Stop Hugo server
+        run: kill $(lsof -t -i:8888) || true
