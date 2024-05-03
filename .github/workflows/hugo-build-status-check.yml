@@ -29,7 +29,7 @@ jobs:
 
       # Step to start Hugo server in the background
       - name: Start Hugo server
-        run: hugo server --minify --port=8888 
+        run: hugo server --minify --port=8888 &
 
       # Add other steps here
 
