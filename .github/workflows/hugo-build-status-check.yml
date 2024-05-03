@@ -15,11 +15,11 @@ jobs:
     steps:
       # Step to checkout the repository
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       # Step to set up Hugo
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@v4
         with:
           hugo-version: 'latest'
 
