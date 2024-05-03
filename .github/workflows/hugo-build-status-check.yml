@@ -21,7 +21,9 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: 'latest'
+          hugo-version: 'extended'
+          # Set the extended option to true to install the extended version of Hugo, mandatory for Microcks website
+          extended: true
 
       # Step to start Hugo server in the background
       - name: Start Hugo server
