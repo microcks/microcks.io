@@ -19,7 +19,7 @@ jobs:
 
       # Step to set up Hugo
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v4
+        uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: 'latest'
 
