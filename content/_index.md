@@ -27,9 +27,9 @@ feature:
   enable : true
   title: Microcks is fully [community-driven](https://github.com/microcks/microcks/graphs/contributors) <br/> Check our [Adopters](https://github.com/microcks/.github/blob/main/ADOPTERS.md) file
 
-BUGHERE
-[community-driven](https:/
-BUGHERE
+#BUGHERE
+#[community-driven](https:/
+#BUGHERE
 
 ########################## Clients Logo Slider #########################
 clients_logo_slider:
