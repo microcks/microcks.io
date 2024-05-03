@@ -37,7 +37,7 @@ jobs:
       - name: Check build status
         run: |
           if [ $? -ne 0 ]; then
-            echo "::error Hugo build failed, ::blocking commit..."
+            echo "::error::Hugo build failed, blocking commit..."
             exit 1
           fi
 
