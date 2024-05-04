@@ -1,3 +1,6 @@
+# This GitHub Action builds and serves a Hugo website, checking for build errors on each push to the master branch.
+# The build status is checked, and if the build fails, the commit is blocked.
+
 name: Hugo Build and Status Check
 
 # Trigger the workflow on push events to the main branch
@@ -46,7 +49,6 @@ jobs:
             exit 1
           fi
 
-      # Optionally, add a step to stop the Hugo server at the end of the workflow
+      # Stop the Hugo server at the end of the workflow as is running in the background
       - name: Stop Hugo server
         run: kill $(lsof -t -i:8888) || true
-
