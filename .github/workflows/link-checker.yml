@@ -9,8 +9,8 @@ on:
   repository_dispatch:
   workflow_dispatch:
   # Run every day at 23h42
-#  schedule:
-#    - cron: "42 23 * * *"
+  # schedule:
+  #   - cron: "42 23 * * *"
 
 jobs:
   linkChecker:
@@ -18,7 +18,17 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-  
+
+      # Setup local cache in order to mitigate issues regarding rate limiting or to reduce stress on external resources
+      # Restore the lychee cache if it exists for the current commit
+        - name: Restore lychee cache
+        id: restore-cache
+        uses: actions/cache/restore@v3
+        with:
+          path: .lycheecache
+          key: cache-lychee-${{ github.sha }}
+          restore-keys: cache-lychee-
+      
       # # Step to set up Hugo
       # - name: Setup Hugo
       # uses: peaceiris/actions-hugo@v3
@@ -69,3 +79,10 @@ jobs:
           content-filepath: ./link-checker/report.md
           labels: report, automated issue
 
+      # Save the lychee cache for the next run    
+      - name: Save lychee cache
+        uses: actions/cache/save@v3
+          if: always()
+            with:
+              path: .lycheecache
+              key: ${{ steps.restore-cache.outputs.cache-primary-key }}       
