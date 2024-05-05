@@ -48,10 +48,11 @@ jobs:
         id: lychee
         uses: lycheeverse/lychee-action@v1
         with:
+          args: "--base public --verbose --no-progress './**/*.md' './**/*.html' --scheme https http"
           # Check all markdown and html files in repo
           # Exclude all files except those starting with http:// or https://
           #args: --scheme 'http https' --base public --verbose --no-progress './**/*.md' './**/*.html'
-          args: --base public --verbose --no-progress './**/*.md' './**/*.html' --scheme https http
+          #args: --base public --verbose --no-progress './**/*.md' './**/*.html' --scheme https http
           # Use markdown as output format
           format: markdown
           # Use different output file path
