@@ -50,7 +50,7 @@ jobs:
         with:
           # Check all markdown and html files in repo (default)
           #args: --base microcks.io/public --verbose --no-progress './**/*.md' './**/*.html'
-          args: --base file:///home/runner/work/microcks.io/microcks.io/public/ --verbose --no-progress content/documentation/getting-started.md
+          args: --base `home/runner/work/microcks.io/microcks.io/public` --verbose --no-progress content/documentation/getting-started.md
           # Use markdown as output format
           format: markdown
           # Use different output file path
