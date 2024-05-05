@@ -51,7 +51,7 @@ jobs:
           # Check all markdown and html files in repo (default)
           #args: --base microcks.io/public --verbose --no-progress './**/*.md' './**/*.html'
           # Exclude all files except those starting with http:// or https://
-          args: --scheme http https --base public --verbose --no-progress './**/*.md' './**/*.html'
+          args: --scheme 'http https' --base public --verbose --no-progress './**/*.md' './**/*.html'
           #args: --base public --verbose --no-progress ./_posts/**/*.md --exclude-mail --scheme http https'
           # Use markdown as output format
           format: markdown
