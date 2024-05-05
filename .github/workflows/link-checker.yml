@@ -65,7 +65,7 @@ jobs:
           format: markdown
           # Use different output file path
           output: ./link-checker/report.md
-          # Use a custom GitHub token, which 
+          # Use a custom GitHub token to "avoid" rate limiting 
           token: ${{ secrets.CUSTOM_TOKEN }}
           # Don't fail action on broken links
           fail: false
