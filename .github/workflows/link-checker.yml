@@ -19,6 +19,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
+          repository: yada/microcks.io
           path: /home/runner/work/microcks.io
 
       # # Step to set up Hugo
