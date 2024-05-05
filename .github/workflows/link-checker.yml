@@ -21,7 +21,7 @@ jobs:
 
       # Setup local cache in order to mitigate issues regarding rate limiting or to reduce stress on external resources
       # Restore the lychee cache if it exists for the current commit
-        - name: Restore lychee cache
+      - name: Restore lychee cache
         id: restore-cache
         uses: actions/cache/restore@v3
         with:
