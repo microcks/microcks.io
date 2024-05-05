@@ -18,9 +18,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Create Symbolic Link
-        run: ln -s /home/runner/work/microcks.io/microcks.io/public /home/runner/work/microcks.io/
   
       # # Step to set up Hugo
       # - name: Setup Hugo
@@ -53,7 +50,7 @@ jobs:
         with:
           # Check all markdown and html files in repo (default)
           #args: --base microcks.io/public --verbose --no-progress './**/*.md' './**/*.html'
-          args: --base ./public --verbose --no-progress content/documentation/getting-started.md
+          args: --base file:///home/runner/work/microcks.io/microcks.io/public/ --verbose --no-progress content/documentation/getting-started.md
           # Use markdown as output format
           format: markdown
           # Use different output file path
