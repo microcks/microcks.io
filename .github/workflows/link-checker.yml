@@ -17,6 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      with:
+        path: /home/runner/work/microcks.io
 
       # # Step to set up Hugo
       # - name: Setup Hugo
