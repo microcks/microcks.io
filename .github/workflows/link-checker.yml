@@ -7,10 +7,10 @@ name: External Link Check
 on:
   # This event will only trigger a workflow run if the workflow file is on the default branch.
   # ucomment the following line if you want to run the workflow manually
-  # workflow_dispatch:
-  # Run every day at 23h42
+  workflow_dispatch:
+  # Run every day at 22h42 UTC (10:42 PM UTC aka 11:42 PM CEST without daylight saving time)
   schedule:
-    - cron: "57 23 * * *"    
+    - cron: "*/10 * * * *"    
 
 jobs:
   linkChecker:
