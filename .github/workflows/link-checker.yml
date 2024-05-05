@@ -60,11 +60,11 @@ jobs:
           # Don't fail action on broken links
           fail: false
           
- #     - name: Create Issue From File
- #       if: env.lychee_exit_code != 0
- #       uses: peter-evans/create-issue-from-file@v4
- #       with:
- #         title: Link Checker Report
- #         content-filepath: ./lychee/out.md
- #         labels: report, automated issue
+      - name: Create Issue From File
+        if: env.lychee_exit_code != 0
+        uses: peter-evans/create-issue-from-file@v4
+        with:
+          title: Link Checker Report
+          content-filepath: ./link-checker/report.md
+          labels: report, automated issue
 
