@@ -2,14 +2,15 @@
 # from: https://github.com/lycheeverse/lychee-action
 # link checker used is 'lychee': https://github.com/lycheeverse/lychee
 
-name: Link Check
+name: External Link Check
 
 on:
   # This event will only trigger a workflow run if the workflow file is on the default branch.
-  workflow_dispatch:
+  # ucomment the following line if you want to run the workflow manually
+  # workflow_dispatch:
   # Run every day at 23h42
   schedule:
-    - cron: "42 23 * * *"    
+    - cron: "42 55 * * *"    
 
 jobs:
   linkChecker:
