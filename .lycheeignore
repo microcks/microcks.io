@@ -8,8 +8,8 @@ fonts.gstatic.com
 use.fontawesome.com
 
 # href example to ignore: "{{ $paginator.Prev.URL }}" or "{{.RelPermalink}}" or "{{ .link | relURL }}"
-\{\{[^{}|]+\}\}
+# \{\{[^{}|]+\}\}
 
 # Exclude localhost:8080 as it is consistently linked to docker-compose, which is ok.
 # Any other ports should be regarded as suspicious and undergo examination by the checker.
-localhost:8080 
+#localhost:8080 
