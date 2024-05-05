@@ -10,7 +10,7 @@ on:
   # workflow_dispatch:
   # Run every day at 23h42
   schedule:
-    - cron: "42 55 * * *"    
+    - cron: "57 23 * * *"    
 
 jobs:
   linkChecker:
