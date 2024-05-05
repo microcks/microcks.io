@@ -59,10 +59,11 @@ jobs:
           token: ${{ secrets.CUSTOM_TOKEN }}
           # Don't fail action on broken links
           fail: false
-          
+      
+      # Create an issue if there are broken links 
       - name: Create Issue From File
         if: env.lychee_exit_code != 0
-        uses: peter-evans/create-issue-from-file@v4
+        uses: peter-evans/create-issue-from-file@v5
         with:
           title: Link Checker Report
           content-filepath: ./link-checker/report.md
