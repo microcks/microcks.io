@@ -23,7 +23,7 @@ jobs:
       # Restore the lychee cache if it exists for the current commit
       - name: Restore lychee cache
         id: restore-cache
-        uses: actions/cache/restore@v3
+        uses: actions/cache/restore@v4
         with:
           path: .lycheecache
           key: cache-lychee-${{ github.sha }}
@@ -81,7 +81,7 @@ jobs:
 
       # Save the lychee cache for the next run    
       - name: Save lychee cache
-        uses: actions/cache/save@v3
+        uses: actions/cache/save@v4
           if: always()
             with:
               path: .lycheecache
