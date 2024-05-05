@@ -6,7 +6,6 @@ name: Link Check
 
 on:
   # This event will only trigger a workflow run if the workflow file is on the default branch.
-  repository_dispatch:
   workflow_dispatch:
   # Run every day at 23h42
   schedule:
