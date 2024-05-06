@@ -107,7 +107,7 @@ jobs:
               const fs = require('fs');
               const contextData = fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8');
               const context = JSON.parse(contextData);
-              const issueComment = fs.readFileSync('./contribution_message.md', 'utf8');
+              const issueComment = fs.readFileSync('contribution_message.md', 'utf8');
               const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
               await octokit.issues.createComment({
                 owner: context.repository.owner,
