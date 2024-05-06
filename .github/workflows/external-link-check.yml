@@ -96,6 +96,9 @@ jobs:
       #         issue_number: context.issue.number,
       #         body: issueComment
       #       });
+      
+      - name: Install @octokit/rest
+        run: npm install @octokit/rest
 
       - name: Create Comment on Issue
         if: env.lychee_exit_code != 0
