@@ -50,20 +50,20 @@ jobs:
           # Don't fail action on broken links
           fail: false
 
+      # Format the date for the issue title using env variable
+      - name: Format Date
+        id: format_date
+        run: echo "DATE=$(date +'%A, %e. %b %Y')" >> $GITHUB_ENV
+      
       # Create an issue if there are broken links 
       - name: Create Issue From File
         if: env.lychee_exit_code != 0
         id: create_issue
         uses: peter-evans/create-issue-from-file@v5
         with:
-          title: "External Link Check Report - ${{ steps.format_date.outputs.date }}"
+          title: "External Link Check Report - ${{ env.DATE }}"
           content-filepath: ./link-checker/report.md
           labels: report, automated issue
-
-      # Format the date for the issue title 
-      - name: Format Date
-        id: format_date
-        run: echo "::set-output name=date::$(date +'%A, %e. %b %Y')"
 
       # Save the lychee cache for the next run    
       - name: Save lychee cache
