@@ -64,6 +64,25 @@ jobs:
           title: "External Link Check Report - ${{ env.DATE }}"
           content-filepath: ./link-checker/report.md
           labels: report, automated issue
+      
+      # Create a comment on previous issue if there are broken links to ask support from the community
+      - name: Create Comment on Issue
+        if: env.lychee_exit_code != 0
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const context = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8'));
+            const issueComment = fs.readFileSync('./contribution_message.md', 'utf8');
+            const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
+            await octokit.issues.createComment({
+              #owner: context.repository.owner,
+              owner: yada,
+              repo: context.repository.name,
+              issue_number: context.issue.number,
+              body: issueComment
+            });
 
       # Save the lychee cache for the next run    
       - name: Save lychee cache
