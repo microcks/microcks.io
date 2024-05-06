@@ -3,7 +3,6 @@ name: Add Issue Comment
 on:
   issues:
     types:
-      - opened
       - created
 jobs:
   add-comment:
