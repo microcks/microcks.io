@@ -3,7 +3,7 @@ name: Add Issue Comment
 on:
   issues:
     types:
-      - created
+      - opened
 jobs:
   add-comment:
     if: github.event.label.name == 'contribution message'
