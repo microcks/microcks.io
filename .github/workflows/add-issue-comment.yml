@@ -2,8 +2,8 @@
 name: Add Issue Comment
 on:
   issues:
-    types:
-      - opened
+    types: [opened]  # Trigger when a new issue is opened
+    
 jobs:
   add-comment:
     if: github.event.label.name == 'contribution message'
