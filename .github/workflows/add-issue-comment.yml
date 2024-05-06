@@ -1,5 +1,5 @@
 # This workflow adds a comment to an issue when it is labeled with 'contribution message'.
-name: Add issue comment (contribution_message)
+name: Add issue comment
 on:
   issues:
     types:
