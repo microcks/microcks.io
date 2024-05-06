@@ -73,14 +73,14 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const fs = require('fs');
-            #const context = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8'));
+            # const context = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8'));
             const contextData = fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8');
             const context = JSON.parse(contextData);
             const issueComment = fs.readFileSync('./contribution_message.md', 'utf8');
             const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
             await octokit.issues.createComment({
-              #owner: context.repository.owner,
-              owner: yada,
+              owner: context.repository.owner,
+              # owner: yada,
               repo: context.repository.name,
               issue_number: context.issue.number,
               body: issueComment
