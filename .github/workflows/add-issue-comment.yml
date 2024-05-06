@@ -1,12 +1,14 @@
 # This workflow adds a comment to an issue when it is labeled with 'contribution message'.
 name: Add Issue Comment
 on:
-  issues:
-    types: [opened]  # Trigger when a new issue is opened
-    
+  workflow_run:
+    workflows: ["External Link Check"]
+    types:
+      - completed
+
 jobs:
   add-comment:
-    if: github.event.label.name == 'contribution message'
+    if: github.event.workflow_run.event == 'workflow_dispatch'
     runs-on: ubuntu-latest
     permissions:
       issues: write
@@ -16,6 +18,29 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
-          NUMBER: ${{ github.event.issue.number }}
+          NUMBER: ${{ github.event.workflow_run.head_commit.message }}
           BODY: |
             $(< ./contribution_message.md) > BODY
+
+
+# # This workflow adds a comment to an issue when it is labeled with 'contribution message'.
+# name: Add Issue Comment
+# on:
+#   issues:
+#     types: [opened]  # Trigger when a new issue is opened
+    
+# jobs:
+#   add-comment:
+#     if: github.event.label.name == 'contribution message'
+#     runs-on: ubuntu-latest
+#     permissions:
+#       issues: write
+#     steps:
+#       - name: Add contribution message as new comment
+#         run: gh issue comment "$NUMBER" --body "$BODY"
+#         env:
+#           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#           GH_REPO: ${{ github.repository }}
+#           NUMBER: ${{ github.event.issue.number }}
+#           BODY: |
+#             $(< ./contribution_message.md) > BODY
