@@ -110,6 +110,7 @@ jobs:
               const fs = require('fs');
               const contextData = fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8');
               const context = JSON.parse(contextData);
+              console.log('Context:', context); // Log the context object to the console
               const issueComment = fs.readFileSync('contribution_message.md', 'utf8');
 
               const { Octokit } = require('@octokit/rest');
