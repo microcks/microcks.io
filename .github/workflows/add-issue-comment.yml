@@ -11,7 +11,7 @@ on:
 
 jobs:
   add-comment:
-    if: github.event.label.name == 'contribution message'
+    # if: github.event.label.name == 'contribution message'
     runs-on: ubuntu-latest
     permissions:
       issues: write
@@ -21,8 +21,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
-          # NUMBER: 39 # Replace with the actual issue number or use ${{ github.event.issue.number }} if available
-          NUMBER: ${{ github.event.issue_number }}
+          NUMBER: 58 # Replace with the actual issue number or use ${{ github.event.issue.number }} if available
+          # NUMBER: ${{ github.event.issue_number }}
           # BODY: ${{ steps.read-message.outputs.body }}
 
 
