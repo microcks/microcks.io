@@ -21,8 +21,8 @@ jobs:
       - name: Debug ls
         run: echo "LS=$(ls -la)"
 
-      - name: Debug pwd
-        run: echo "PWD=$(pwd)"
+      - name: Debug find me
+        run: echo "$(find . -name contribution_message.md)"
       
       - name: Debug ls /
         run: echo "LS=$(ls -la /)"
