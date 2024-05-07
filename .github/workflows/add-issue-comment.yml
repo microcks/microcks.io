@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: Read contribution message from file
         id: read-message
-        run: echo "BODY=$(cat contribution_message.md)" >> $GITHUB_ENV
+        run: echo "BODY=$(cat ./contribution_message.md)" >> $GITHUB_ENV
       - name: Add contribution message as new comment
         run: gh issue comment "$NUMBER" --body "$BODY"
         env:
