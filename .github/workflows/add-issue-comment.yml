@@ -20,13 +20,13 @@ jobs:
         run: echo "{path}" 
 
       - name: Add contribution message as new comment
-        run: gh issue comment "$NUMBER" --body-file ./contribution_message.md
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_REPO: ${{ github.repository }}
-          NUMBER: 58 
-          # NUMBER: ${{ github.event.issue_number }}
-          BODY: "./contribution_message.md"
+        run: gh issue comment 58 --body-file ""./contribution_message.md"
+        # env:
+        #   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        #   GH_REPO: ${{ github.repository }}
+        #   NUMBER: 58 
+        #   # NUMBER: ${{ github.event.issue_number }}
+        #   BODY: "./contribution_message.md"
 
 
 
