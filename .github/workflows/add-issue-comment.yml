@@ -1,11 +1,13 @@
 # This workflow adds a comment to an issue when it is labeled with 'contribution message'.
 name: Add Issue Comment
 on:
+  # This event will trigger the workflow run when a workflow run is requested 
+  # from the 'External Link Check' workflow and the workflow run is completed. 
   workflow_run:
     workflows: ["External Link Check"]
     types:
       - completed
-on:
+
   # This event will only trigger a workflow run if the workflow file is on the default branch.
   # ucomment the following line if you want to run the workflow manually
   # workflow_dispatch:
