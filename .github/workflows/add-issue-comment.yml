@@ -13,9 +13,9 @@ jobs:
     permissions:
       issues: write
     steps:
-      - name: Read contribution message from file
-        id: read-message
-        run: echo "BODY=$(cat ./contribution_message.md)" >> $GITHUB_ENV
+      # - name: Read contribution message from file
+      #   id: read-message
+      #   run: echo "BODY=$(cat ./contribution_message.md)" >> $GITHUB_ENV
       - name: Add contribution message as new comment
         # run: gh issue comment "$NUMBER" -body "${{ steps.read-message.outputs.BODY }}" # --body "$BODY"
         run: gh issue comment "$NUMBER"  --body-file ./contribution_message.md
