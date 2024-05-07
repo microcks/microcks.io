@@ -21,6 +21,12 @@ jobs:
       - name: Debug ls
         run: echo "LS=$(ls -la)"
 
+      - name: Debug pwd
+        run: echo "PWD=$(pwd)"
+      
+      - name: Debug ls /
+        run: echo "LS=$(ls -la /)"
+
       - name: Add contribution message as new comment
         run: gh issue comment "$NUMBER" --body-file contribution_message.md
         env:
