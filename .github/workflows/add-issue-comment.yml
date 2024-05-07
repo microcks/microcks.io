@@ -17,7 +17,7 @@ jobs:
       issues: write
     steps:
       - name: Add contribution message as new comment
-        run: gh issue comment "$NUMBER" --body-file contribution_message.md
+        run: gh issue comment "$NUMBER" --body "Yo men" # -file contribution_message.md
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
