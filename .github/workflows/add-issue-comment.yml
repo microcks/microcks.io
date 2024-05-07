@@ -16,11 +16,8 @@ jobs:
     permissions:
       issues: write
     steps:
-      - name: echo path
-        run: echo "{path}" 
-
       - name: Add contribution message as new comment
-        run: gh issue comment 58 --body-file ""./contribution_message.md"
+        run: gh issue comment 58 --body-file contribution_message.md
         # env:
         #   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         #   GH_REPO: ${{ github.repository }}
