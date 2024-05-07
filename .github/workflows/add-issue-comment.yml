@@ -17,11 +17,13 @@ jobs:
         id: read-message
         run: echo "BODY=$(cat ./contribution_message.md)" >> $GITHUB_ENV
       - name: Add contribution message as new comment
-        run: gh issue comment "$NUMBER" -body "${{ steps.read-message.outputs.BODY }}" # --body "$BODY"
+        # run: gh issue comment "$NUMBER" -body "${{ steps.read-message.outputs.BODY }}" # --body "$BODY"
+        run: gh issue comment "$NUMBER"  --body-file .github/workflows/contribution_message.md
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
-          NUMBER: 39 # Replace with the actual issue number or use ${{ github.event.issue.number }} if available
+          # NUMBER: 39 # Replace with the actual issue number or use ${{ github.event.issue.number }} if available
+          NUMBER: ${{ github.event.issue_number }}
           BODY: ${{ steps.read-message.outputs.body }}
 
           # - name: Create Comment on Issue
