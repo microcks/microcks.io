@@ -28,11 +28,23 @@ jobs:
       # Step to checkout the repository this is necessary to access the contribution message file
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      # Step to add a comment to the issue with the contribution message  
+      
+      - name: Set issue number
+        id: extract_issue_number
+        run: echo "ISSUE_NUMBER=${{ github.event.workflow_run.payload.issue.number }}" >> $GITHUB_ENV
+      
       - name: Add contribution message as new comment
-        run: gh issue comment "$NUMBER" --body-file "$BODY"
+        if: ${{ github.event.workflow_run.conclusion == 'success' }}
+        run: gh issue comment "NUMBER" --body-file "$BODY"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NUMBER: ${{ github.event.issue_number }}
+          NUMBER: ${{ env.ISSUE_NUMBER }}
           BODY: "./.github/contribution_message.md"
+
+      # # Step to add a comment to the issue with the contribution message  
+      # - name: Add contribution message as new comment
+      #   run: gh issue comment "$NUMBER" --body-file "$BODY"
+      #   env:
+      #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     NUMBER: ${{ github.event.issue_number }}
+      #     BODY: "./.github/contribution_message.md"
