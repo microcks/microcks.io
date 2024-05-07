@@ -19,10 +19,10 @@ jobs:
 
       # DEBUG
       - name: Debug ls
-          run: echo "LS=$(ls -la)"
+        run: echo "LS=$(ls -la)"
 
       - name: Add contribution message as new comment
-          run: gh issue comment "$NUMBER" --body-file contribution_message.md
+        run: gh issue comment "$NUMBER" --body-file contribution_message.md
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
