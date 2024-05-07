@@ -1,6 +1,6 @@
 # This workflow adds a comment to an issue when it is labeled with 'contribution message'.
 name: Add Issue Comment
-on:
+#on:
   # This event will trigger the workflow run when a workflow run is requested 
   # from the 'External Link Check' workflow and the workflow run is completed. 
   # workflow_run:
@@ -19,7 +19,7 @@ on:
   issues:
     types:
       - labeled
-      
+
 jobs:
   add-comment:
     # Only run this job if the issue is labeled with 'contribution message'
@@ -43,7 +43,9 @@ jobs:
         #run: gh issue comment "${{ env.NUMBER }}" --body-file "$BODY"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NUMBER: ${{ env.ISSUE_NUMBER }}
+          GH_REPO: ${{ github.repository }}
+          NUMBER: ${{ github.event.issue.number }}
+          # NUMBER: ${{ env.ISSUE_NUMBER }}
           BODY: "./.github/contribution_message.md"
 
       # # Step to add a comment to the issue with the contribution message  
