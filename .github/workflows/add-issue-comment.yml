@@ -32,10 +32,11 @@ jobs:
       - name: Set issue number
         id: extract_issue_number
         run: echo "ISSUE_NUMBER=${{ github.event.workflow_run.payload.issue.number }}" >> $GITHUB_ENV
-      
+          
       - name: Add contribution message as new comment
         if: ${{ github.event.workflow_run.conclusion == 'success' }}
-        run: gh issue comment "NUMBER" --body-file "$BODY"
+        run: gh issue comment "$NUMBER" --body-file "$BODY"
+        #run: gh issue comment "${{ env.NUMBER }}" --body-file "$BODY"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NUMBER: ${{ env.ISSUE_NUMBER }}
