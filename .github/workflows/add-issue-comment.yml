@@ -22,13 +22,12 @@ jobs:
 
       # Step to add a comment to the issue with the contribution message  
       - name: Add contribution message as new comment
-        run: gh issue comment "$NUMBER" --body-file ./contribution_message.md
+        run: gh issue comment "$NUMBER" --body-file "$BODY"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        #   GH_REPO: ${{ github.repository }}
           NUMBER: 58 
-        #   # NUMBER: ${{ github.event.issue_number }}
-        #   BODY: "./contribution_message.md"
+          # NUMBER: ${{ github.event.issue_number }}
+          BODY: "./contribution_message.md"
 
 
 
