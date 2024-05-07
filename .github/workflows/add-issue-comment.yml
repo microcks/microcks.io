@@ -20,7 +20,7 @@ jobs:
   add-comment:
     # Only run this job if the issue is labeled with 'contribution message'
     # to be commented on if you want to run the workflow manually
-    if: github.event.label.name == 'contribution message'
+    # if: github.event.label.name == 'contribution message'
     runs-on: ubuntu-latest
     permissions:
       issues: write
