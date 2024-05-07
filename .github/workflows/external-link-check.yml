@@ -65,23 +65,6 @@ jobs:
           content-filepath: ./link-checker/report.md
           labels: report, automated issue, contribution message, help wanted
 
-      # Add 👀 reaction to the issue 
-      - name: Add 👀 reaction
-        uses: actions/github-script@v5
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const { owner, repo } = context.repo;
-            const issueNumber = context.issue.number;
-              
-            // Add 👀 reaction
-            await github.reactions.createForIssue({
-              owner,
-              repo,
-              issue_number: issueNumber,
-              content: 'eyes'
-            });
-
       # Save the lychee cache for the next run    
       - name: Save lychee cache
         uses: actions/cache/save@v4
