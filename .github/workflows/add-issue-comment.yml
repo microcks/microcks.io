@@ -27,7 +27,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NUMBER: 58 
           # NUMBER: ${{ github.event.issue_number }}
-          BODY: "./contribution_message.md"
+          BODY: "./.github/contribution_message.md"
 
 
 
