@@ -19,7 +19,7 @@ jobs:
 
       # DEBUG
       - name: Debug ls
-        run: echo "LS=$(ls -la)"
+          run: echo "LS=$(ls -la)"
 
       - name: Add contribution message as new comment
         # run: gh issue comment "$NUMBER" -body "${{ steps.read-message.outputs.BODY }}" # --body "$BODY"
