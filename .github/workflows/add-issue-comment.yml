@@ -1,32 +1,17 @@
 # This workflow adds a comment to an issue when it is labeled with 'contribution message'.
 name: Add Issue Comment
 on:
-  workflow_run:
-    workflows: ["External Link Check"]
-    types:
-      - completed
+  issues:
+    # Trigger when a new issue is opened
+    types: [opened]
 
 jobs:
   add-comment:
-    if: github.event.workflow_run.event == 'workflow_dispatch'
+    if: github.event.label.name == 'contribution message'
     runs-on: ubuntu-latest
     permissions:
       issues: write
     steps:
-      # - name: Read contribution message from file
-      #   id: read-message
-      #   run: echo "BODY=$(cat ./contribution_message.md)" >> $GITHUB_ENV
-
-      # DEBUG
-      - name: Debug ls
-        run: echo "LS=$(ls -la)"
-
-      - name: Debug find me
-        run: echo "$(find / -name contribution_message.md)"
-      
-      - name: Debug ls /
-        run: echo "LS=$(ls -la /)"
-
       - name: Add contribution message as new comment
         run: gh issue comment "$NUMBER" --body-file contribution_message.md
         env:
@@ -36,42 +21,6 @@ jobs:
           NUMBER: ${{ github.event.issue_number }}
           # BODY: ${{ steps.read-message.outputs.body }}
 
-          # - name: Create Comment on Issue
-          # if: env.lychee_exit_code != 0
-          # uses: actions/github-script@v5
-          # with:
-          #   github-token: ${{ secrets.GITHUB_TOKEN }}
-          #   script: |
-          #     const fs = require('fs');
-          #     const context = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8'));
-          #     const issueComment = fs.readFileSync('./contribution_message.md', 'utf8');
-          #     const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
-          #     await octokit.issues.createComment({
-          #       owner: context.repository.owner,
-          #       repo: context.repository.name,
-          #       issue_number: context.issue.number,
-          #       body: issueComment
-          #     });          
 
 
-# # This workflow adds a comment to an issue when it is labeled with 'contribution message'.
-# name: Add Issue Comment
-# on:
-#   issues:
-#     types: [opened]  # Trigger when a new issue is opened
-    
-# jobs:
-#   add-comment:
-#     if: github.event.label.name == 'contribution message'
-#     runs-on: ubuntu-latest
-#     permissions:
-#       issues: write
-#     steps:
-#       - name: Add contribution message as new comment
-#         run: gh issue comment "$NUMBER" --body "$BODY"
-#         env:
-#           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#           GH_REPO: ${{ github.repository }}
-#           NUMBER: ${{ github.event.issue.number }}
-#           BODY: |
-#             $(< ./contribution_message.md) > BODY
+
