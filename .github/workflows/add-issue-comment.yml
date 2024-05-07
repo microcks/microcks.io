@@ -25,8 +25,8 @@ jobs:
         run: gh issue comment "$NUMBER" --body-file "$BODY"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NUMBER: 58 
-          # NUMBER: ${{ github.event.issue_number }}
+          # NUMBER: 58 
+          NUMBER: ${{ github.event.issue_number }}
           BODY: "./.github/contribution_message.md"
 
 
