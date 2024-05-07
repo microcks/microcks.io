@@ -10,7 +10,7 @@ on:
   # Run every day at 00h42 UTC (0:42 AM UTC aka 1:42 AM CEST with daylight saving time)
   schedule:
     # - cron: "42 0 * * *"
-    - cron: "*/5 * * * *"    
+    - cron: "*/5 * * * *" # For testing purposes, run every 5 minutes"   
 
 jobs:
   linkChecker:
