@@ -9,8 +9,7 @@ on:
   # workflow_dispatch:
   # Run every day at 00h42 UTC (0:42 AM UTC aka 1:42 AM CEST with daylight saving time)
   schedule:
-    # - cron: "42 0 * * *"
-    - cron: '*/11 * * * *' # For testing purposes, run every 5 minutes"   
+    - cron: "42 0 * * *"
 
 jobs:
   linkChecker:
