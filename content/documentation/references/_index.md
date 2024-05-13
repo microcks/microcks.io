@@ -1,20 +1,20 @@
 ---
-title: "How-To Guides"
-date: 2024-05-02
-description: "Here below all the documentation pages related to **Guides**."
-weight: 3
+title: "References"
+date: 2024-04-29
+description: "Here below all the documentation pages related to **References**."
+weight: 5
 params:
-  icon: fa-book-open
+  icon: fa-file-lines
   showList: true
 ---
 
-## Teaches Microcks' capabilities at a high level
+## Microcks' references
 
-Welcome to Microcks **Guides**! Our Guides section teaches Microcks capabilities and features at a high level. It should help you getting something done, correctly and safely.
+Welcome to Microcks **References**! Our References section documents the Microcks installation, configuration and usage parameters.
 
 > #### 💡 Remember
 >
-> **Contribute to Microcks Guides**
+> **Contribute to Microcks References**
 > 
 > Code isn't the only way to contribute to OSS; Dev Docs are a huge help that benefit the entire OSS ecosystem. At Microcks, we value Doc contributions as much as every other type of contribution. ❤️
 > 

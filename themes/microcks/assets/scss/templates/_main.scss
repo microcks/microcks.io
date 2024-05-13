@@ -515,7 +515,7 @@ ol {
     &>a {
       color: $color-primary !important;
       position: relative;
-      margin-left: 10px;
+      margin-left: 0px;
 
       &::before {
         position: absolute;
@@ -540,7 +540,7 @@ ol {
       }
 
       li.active>a {
-        margin-left: 10px;
+        margin-left: 0px;
 
         &::before {
           height: 5px;
@@ -711,18 +711,13 @@ ol {
   }
 
   blockquote {
-    padding: 20px 30px;
-    border-left: 2px solid $color-primary;
-    margin: 40px 0;
-    font-weight: bold;
-    background: $light;
-
-    p {
-      color: rgba($text-dark, 0.8);
-      font-size: 18px !important;
-      margin-bottom: 0 !important;
-      line-height: 1.7;
-    }
+    color: #555;
+    padding: 1.2rem 30px;
+    border: 1px solid #eee;
+    border-left: 2px solid #46AAF3;
+    margin: 2rem 0;
+    background: #fff;
+    border-radius: 0.8rem !important;
   }
 
   pre {

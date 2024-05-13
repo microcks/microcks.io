@@ -1,20 +1,24 @@
 ---
-title: "How-To Guides"
-date: 2024-05-02
-description: "Here below all the documentation pages related to **Guides**."
-weight: 3
-params:
-  icon: fa-book-open
-  showList: true
+draft: false
+title: "Container images"
+date: 2024-05-13
+publishdate: 2024-05-13
+lastmod: 2024-05-13
+weight: 1
 ---
 
-## Teaches Microcks' capabilities at a high level
-
-Welcome to Microcks **Guides**! Our Guides section teaches Microcks capabilities and features at a high level. It should help you getting something done, correctly and safely.
+> 🪄 **To Be Created**
+>
+> This is a new documentation page that has to be written as part of our [Refactoring Effort](https://github.com/microcks/microcks.io/issues/81).
+> 
+> **Goal of this page**
+> * List different container images provided by the project
+> * Highlight use-cases targeted by different variants
+> * Specify retrieval methods from both quay.io and hub.docker.io
 
 > #### 💡 Remember
 >
-> **Contribute to Microcks Guides**
+> **Contribute to Microcks References**
 > 
 > Code isn't the only way to contribute to OSS; Dev Docs are a huge help that benefit the entire OSS ecosystem. At Microcks, we value Doc contributions as much as every other type of contribution. ❤️
 > 
