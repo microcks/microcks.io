@@ -44,5 +44,5 @@ how_it_works:
 
   - title: "Logos and assets"
     image: "images/community/logo.png"
-    content: "Here are a few [ressources](https://microcks.io/logo/) in case you want to **show off your support** for Microcks, **integrate** Microcks, or want to **link back** to us. Please feel **free to borrow** these!" 
+    content: "Here are a few [ressources](https://microcks.io/resources/) in case you want to **show off your support** for Microcks, **integrate** Microcks, or want to **link back** to us. Please feel **free to borrow** these!" 
 ---

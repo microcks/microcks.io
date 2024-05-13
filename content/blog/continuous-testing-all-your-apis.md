@@ -53,7 +53,7 @@ That is what we have demonstrated using the following CI/CD pipeline. For each a
 
 {{< image src="images/blog/continuous-testing-all-your-apis-pipeline.png" alt="image" zoomable="true" >}}
 
-The beauty of it is that the promotion is done `ONLY IF` the REST API endpoints are compliant with the corresponding [OpenAPI specification](https://swagger.io/specification/) `AND` the invocation of this APIs have triggered the publication of messages on Kafka `AND` these messages are all valid regarding the event-based API [AsyncAPI specification](https://www.asyncapi.com/docs/specifications/2.0.0). Wouah! 🎉
+The beauty of it is that the promotion is done `ONLY IF` the REST API endpoints are compliant with the corresponding [OpenAPI specification](https://swagger.io/specification/) `AND` the invocation of this APIs have triggered the publication of messages on Kafka `AND` these messages are all valid regarding the event-based API [AsyncAPI specification](https://v2.asyncapi.com/docs/reference/specification/v2.6.0). Wouah! 🎉
 
 Wondering about the plumbing part of the pipeline? What does the code look like? Is it complex to understand, write and maintain?
 

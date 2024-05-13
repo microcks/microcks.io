@@ -1,0 +1,90 @@
+# This link checks Microcks website links in Markdown HTML files once per day
+# from: https://github.com/lycheeverse/lychee-action
+# link checker used is 'lychee': https://github.com/lycheeverse/lychee
+
+name: External Link Check Refactor Doc
+on:
+  # This event will only trigger a workflow run if the workflow file is on the default branch.
+  # ucomment the following line if you want to run the workflow manually
+  workflow_dispatch:
+  # Run every day at 00h42 UTC (0:42 AM UTC aka 1:42 AM CEST with daylight saving time)
+  schedule:
+    - cron: "42 0 * * *"
+
+jobs:
+  linkChecker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: refactor-doc-org
+
+      # Setup local cache in order to mitigate issues regarding rate limiting or to reduce stress on external resources
+      # Restore the lychee cache if it exists for the current commit
+      - name: Restore lychee cache
+        id: restore-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: .lycheecache
+          key: cache-lychee-${{ github.sha }}
+          restore-keys: cache-lychee-
+      
+      # We do not need to build the site, so we can remove the Hugo build steps, thanks to the hugo check validation on push
+      # However, retaining this comment for documentation purposes, just in case ;) 
+      
+      # Link Checker run with lychee action 
+      - name: Link Checker
+        id: lychee
+        uses: lycheeverse/lychee-action@v1
+        with:
+          # Check all markdown and html files in repo
+          # Exclude all files except those starting with http:// or https:// thanks to the --scheme option
+          # Use cache but cache the results for 8 hours
+          args: --base public --verbose --no-progress './**/*.md' './**/*.html' --scheme https --scheme http --cache --max-cache-age 8h
+          # Use markdown as output format
+          format: markdown
+          # Use different output file path
+          output: ./link-checker/report.md
+          # Use a custom GitHub token to "avoid" rate limiting 
+          token: ${{ secrets.CUSTOM_TOKEN }}
+          # Don't fail action on broken links
+          fail: false
+
+      # Format the date for the issue title and store it in an environment variable
+      - name: Format Date
+        id: format_date
+        run: echo "DATE=$(date +'%A, %e. %b %Y')" >> $GITHUB_ENV
+      
+      # Create an issue if there are broken links 
+      - name: Create Issue From File
+        if: env.lychee_exit_code != 0
+        id: create_issue
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: "External Link Check Refactor Doc Report - ${{ env.DATE }}"
+          content-filepath: ./link-checker/report.md
+          labels: report, automated issue, contribution message, help wanted
+
+      # Store the issue number in an environment variable 
+      - name: Store Issue Number
+        if: steps.create_issue.outputs.issue-number
+        run: echo "ISSUE_NUMBER=${{ steps.create_issue.outputs.issue-number }}" >> $GITHUB_ENV
+      
+      # Add a comment to the issue with the contribution message  
+      - name: Add contribution message as new comment
+        if: ${{ env.ISSUE_NUMBER }} is not null
+        run: gh issue comment "$NUMBER" --body-file "$BODY"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          NUMBER: ${{ env.ISSUE_NUMBER }}
+          BODY: "./.github/contribution_message.md"
+
+      # Save the lychee cache for the next run    
+      - name: Save lychee cache
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: .lycheecache
+          key: ${{ steps.restore-cache.outputs.cache-primary-key }}
