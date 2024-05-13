@@ -21,7 +21,7 @@ So, to tackle this problem of describing an OIDC redirection, we have to use thr
 
 ## Start with OpenAPI
 
-To start my prototype, I have initialized an OpenAPI specification based on [GitHub Authorization flow for OAuth apps](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps). It describes the different query parameters and the response with the `302` HTTP response code.  You’ll see in the snippet below that each parameter contain an example named ￼`generic`￼ and that my specification also contains specific ￼`x-microks` attributes and notations like `{{}}` expressions. We’ll dive into their explanations just after! 
+To start my prototype, I have initialized an OpenAPI specification based on [GitHub Authorization flow for OAuth apps](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps). It describes the different query parameters and the response with the `302` HTTP response code.  You’ll see in the snippet below that each parameter contain an example named `generic`￼and that my specification also contains specific ￼`x-microcks` attributes and notations like `{{}}` expressions. We’ll dive into their explanations just after! 
 
 ```yaml
 paths:
