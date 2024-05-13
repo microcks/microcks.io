@@ -1,17 +1,17 @@
 ---
 draft: false
-title: "Amazon SQS/SNS Mocking & Testing"
+title: "SQS/SNS Mocking & Testing"
 date: 2023-06-06
 publishdate: 2023-06-06
-lastmod: 2024-04-27
+lastmod: 2024-05-13
 weight: 7
 ---
 
-This guide is a walkthrough on how to use a [Amazon SQS](https://aws.amazon.com/sqs/) and [Amazon SNS](https://aws.amazon.com/sns/) messaging services with Microcks. As those two services are very frequently used in combination, we decided to cover both of them in the same guide as principles and configuration are very similar. However, Microcks may provide mocking and testing services for SQS only and mocking and testing services for SNS only. You don't have to use both to benefit from Microcks features.
+This guide shows you how to use a [Amazon SQS](https://aws.amazon.com/sqs/) and [Amazon SNS](https://aws.amazon.com/sns/) messaging services with Microcks. As those two services are very frequently used in combination, we decided to cover both of them in the same guide as principles and configuration are very similar. However, Microcks may provide mocking and testing services for SQS only and mocking and testing services for SNS only. You don't have to use both to benefit from Microcks features.
 
 Amazon Simple Queue Service (SQS) lets you send, store, and receive messages between software components. As stated by the name, it is a message queuing service where one message from a queue can only be consumed by one component. Amazon Simple Notification Service (SNS) sends notifications two ways and provides high-throughput, push-based, many-to-many messaging between distributed systems, microservices, and event-driven serverless applications.
 
-Starting with the `1.7.1` release of Microcks, we support Amazon SQS and SNS as a protocol bindings for [AsyncAPI](../../using/asyncapi). That means that Microcks is able to connect to either SQS or SNS service for publishing mock messages as soon as it receives a valid [AsyncAPI](https://asyncapi.com) Specification and to connect to any SQS/SNS queue or topic to check that flowing messages are compliant to the schema described within your specification.
+Microcks supports Amazon SQS and SNS as a protocol bindings for [AsyncAPI](../../using/asyncapi). That means that Microcks is able to connect to either SQS or SNS service for publishing mock messages as soon as it receives a valid [AsyncAPI](https://asyncapi.com) Specification and to connect to any SQS/SNS queue or topic to check that flowing messages are compliant to the schema described within your specification.
 
 Let's go! 🏄‍♂️
 
