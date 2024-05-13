@@ -6,7 +6,7 @@ name: External Link Check
 on:
   # This event will only trigger a workflow run if the workflow file is on the default branch.
   # ucomment the following line if you want to run the workflow manually
-  # workflow_dispatch:
+  workflow_dispatch:
   # Run every day at 00h42 UTC (0:42 AM UTC aka 1:42 AM CEST with daylight saving time)
   schedule:
     - cron: "42 0 * * *"
@@ -39,7 +39,8 @@ jobs:
           # Check all markdown and html files in repo
           # Exclude all files except those starting with http:// or https:// thanks to the --scheme option
           # Use cache but cache the results for 8 hours
-          args: --base public --verbose --no-progress './**/*.md' './**/*.html' --scheme https --scheme http --cache --max-cache-age 8h
+          #args: --base public --verbose --no-progress './**/*.md' './**/*.html' --scheme https --scheme http --cache --max-cache-age 8h
+          args: --base public --verbose --no-progress './**/*.md' './**/*.html' 
           # Use markdown as output format
           format: markdown
           # Use different output file path
