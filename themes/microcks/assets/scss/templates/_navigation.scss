@@ -84,12 +84,10 @@
 
   .nav-item {
     font-size: 1rem;
+    
     &.gh-btn {
-      margin-left: 12px;
-      @media (max-width: 991.9px) {
-        margin-top: 12px;
-        margin-left: 28px;
-      }
+      padding-top: 8px;
+      padding-left: 12px;
     }
 
     .nav-link {
@@ -459,6 +457,13 @@
   li.nav-item.active a {
     background-color: #F5F5F5;
     border-radius: 6px;
+  }
+
+  .nav-item {
+    &.gh-btn {
+      padding-left: 12px;
+      padding-top: 8px;
+    }
   }
 }
 
