@@ -79,7 +79,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           NUMBER: ${{ env.ISSUE_NUMBER }}
-          BODY: "./.github/contribution_message.md"
+          BODY: ".github/contribution_message.md"
 
       # Save the lychee cache for the next run    
       - name: Save lychee cache
