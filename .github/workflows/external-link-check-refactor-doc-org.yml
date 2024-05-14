@@ -6,7 +6,7 @@ name: External Link Check Refactor Doc
 on:
   # This event will only trigger a workflow run if the workflow file is on the default branch.
   # ucomment the following line if you want to run the workflow manually
-  # workflow_dispatch:
+  workflow_dispatch:
   # Run every day at 00h42 UTC (0:42 AM UTC aka 1:42 AM CEST with daylight saving time)
   schedule:
     - cron: "42 0 * * *"
@@ -79,7 +79,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           NUMBER: ${{ env.ISSUE_NUMBER }}
-          BODY: "./.github/contribution_message.md"
+          BODY: ".github/contribution_message.md"
 
       # Save the lychee cache for the next run    
       - name: Save lychee cache
