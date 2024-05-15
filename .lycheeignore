@@ -2,14 +2,41 @@
 # The file allows you to list multiple regular expressions for exclusion (one pattern per line).
 
 # Ignore Google fonts performance optimization (DNS PREFETCH on PRECONNECT): fault positive
-#https://fonts.gstatic.com/
-#https://use.fontawesome.com/
-fonts.gstatic.com
-use.fontawesome.com
-
-# href example to ignore: "{{ $paginator.Prev.URL }}" or "{{.RelPermalink}}" or "{{ .link | relURL }}"
-\{\{[^{}|]+\}\}
+https://fonts.gstatic.com/
+https://use.fontawesome.com/
 
 # Exclude localhost:8080 as it is consistently linked to docker-compose, which is ok.
 # Any other ports should be regarded as suspicious and undergo examination by the checker.
-localhost:8080 
+http://localhost:8080/
+
+# Exclude GitHub profiles that are accurate and have been manually verified to prevent error reporting
+# caused by GitHub rate limits, ex: "Failed: Network error: Too Many Requests"
+https://github.com/sarasensible
+https://github.com/MathisGoichon
+https://github.com/sbonaiva
+https://github.com/Feasoron
+https://github.com/lennakai
+https://github.com/sbr82
+https://github.com/molteninjabob
+https://github.com/dalelane
+https://github.com/Apoorva64
+https://github.com/pcuriel
+https://github.com/spencer-cheng
+https://github.com/dorianbrun
+https://github.com/JasonMiesionczek
+https://github.com/timchase01
+https://github.com/jonaslagoni
+https://github.com/redben
+https://github.com/imod
+
+# Exclude LinkedIn profiles that are accurate and have been manually verified to prevent error reporting
+# caused by LinkedIn rate limits, ex: "Failed: Network error: Too Many Requests"
+https://www.linkedin.com/in/appadoo-apoorva-srinivas-481367207/
+https://www.linkedin.com/in/rquinio/
+https://www.linkedin.com/in/tsiry-sandratraina/
+https://www.linkedin.com/in/janschenk/
+https://www.linkedin.com/in/ankit-sobti/
+https://www.linkedin.com/in/kinlane/
+https://www.linkedin.com/in/joshgav/
+https://www.linkedin.com/in/abhinavasthana/
+https://www.linkedin.com/in/colin-e-griffin/
