@@ -3,15 +3,15 @@ draft: false
 title: "Kafka, Avro & Schema Registry"
 date: 2021-02-10
 publishdate: 2021-02-12
-lastmod: 2024-05-13
+lastmod: 2024-04-27
 weight: 2
 ---
 
 ## Overview
 
-This guide shows you how to use Microcks for mocking and testing [Avro](https://avro.apache.org) encoding on top of [Apache Kafka](https://kafka.apache.org). You'll see how Microcks can speed-up the sharing of Avro schema to consumers using a Schema Registry and we will check how Microcks can detect drifts between expected Avro format and the one really used.
+This guide is a walkthrough the different steps to have in mind when using Microcks for mocking and testing [Avro](https://avro.apache.org) encoding on top of [Apache Kafka](https://kafka.apache.org). You'll see how Microcks can speed-up the sharing of Avro schema to consumers using a Schema Registry and we will check how Microcks can detect drifts between expected Avro format and the one really used.
 
-Microcks supports Avro as an encoding format for mocking and testing asynchronous and event-driven APIs through [AsyncAPI](../../using/asyncapi). When it comes to serializing Avro data to a Kafka topic, you usually have 2 options :
+Starting with the `1.2.0` release of Microcks, we support Avro as an encoding format for mocking and testing asynchronous and event-driven APIs through [AsyncAPI](../../using/asyncapi). When it comes to serializing Avro data to a Kafka topic, you usually have 2 options :
 
 * The *"old-fashioned one"* that is about putting raw Avro binary representation of the message payload,
 * The *"modern one"* that is about putting the Schema ID + the Avro binary representation of the message payload (see [Schema Registry: A quick introduction](https://www.confluent.io/blog/kafka-connect-tutorial-transfer-avro-schemas-across-schema-registry-clusters/)).
@@ -81,6 +81,8 @@ AsyncAPI allows to reference Avro schema used for serializing / deserializing me
 * Using the *embedded notation*: that means that Avro schema is defined inline within the message `payload` property,
 * Using *remote reference*: that means that schema is specified using absolute remote endpoint like `$ref: 'https://schemas.example.com/user'` within the message `payload` property,
 * Using *local reference*: that means that schema is specified using relative reference like `$ref: './user-signedup.avsc#/User'` within the message `payload` property.
+
+> At time of writing and release of the `1.2.0` version of Microcks, it only supports the *local reference* way of using Avro schema from AsyncAPI. Other notations will be implemented in a near future though.
 
 Here is below a fragment of AsyncAPI specification file that shows the important things to notice when planning to use Avro and Microcks with AsyncAPI. It comes for one sample you can find on [our GitHub repository](https://github.com/microcks/microcks/blob/master/webapp/src/test/resources/io/github/microcks/util/asyncapi/user-signedup-avro-ref-asyncapi.yaml).
 
