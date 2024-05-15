@@ -3,15 +3,15 @@ draft: false
 title: "MQTT Mocking & Testing"
 date: 2021-02-14
 publishdate: 2021-02-15
-lastmod: 2024-04-27
+lastmod: 2024-05-13
 weight: 3
 ---
 
 ## Overview
 
-This guide is a walkthrough on how to use the [Message Queuing Telemetry Transport (MQTT)](https://mqtt.org/) protocol with Microcks. MQTT is a standard messaging protocol for the Internet of Things (IoT). It is used today in a wide variety of industries, such as automotive, manufacturing, telecommunications, oil and gas, etc.
+This guide shows you how to use the [Message Queuing Telemetry Transport (MQTT)](https://mqtt.org/) protocol with Microcks. MQTT is a standard messaging protocol for the Internet of Things (IoT). It is used today in a wide variety of industries, such as automotive, manufacturing, telecommunications, oil and gas, etc.
 
-Starting with the `1.2.0` release of Microcks, we support MQTT as a protocol binding for [AsyncAPI](../../using/asyncapi). That means that Microcks is able to connect to a MQTT broker for publishing mock messages as soon as it receives a valid [AsyncAPI](https://asyncapi.com) Specification and to connect to any MQTT broker in your organization to check that flowing messages are compliant to the schema described within your specification.
+Microcks supports MQTT as a protocol binding for [AsyncAPI](../../using/asyncapi). That means that Microcks is able to connect to a MQTT broker for publishing mock messages as soon as it receives a valid [AsyncAPI](https://asyncapi.com) Specification and to connect to any MQTT broker in your organization to check that flowing messages are compliant to the schema described within your specification.
 
 Let's start! 🚀
 
