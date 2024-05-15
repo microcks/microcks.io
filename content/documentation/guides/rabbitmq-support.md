@@ -3,15 +3,15 @@ draft: false
 title: "RabbitMQ Mocking & Testing"
 date: 2022-11-22
 publishdate: 2022-11-22
-lastmod: 2024-05-13
+lastmod: 2024-04-27
 weight: 4
 ---
 
 ## Overview
 
-This guide shows you how to use the [RabbitMQ](https://www.rabbitmq.com/) protocol with Microcks. RabbitMQ is one of the most popular open source message broker that is supporting different protocols and more specifically [AMQP 0.9.1](https://www.rabbitmq.com/resources/specs/amqp0-9-1.pdf), RabbitMQ was originally developed for.
+This guide is a walkthrough on how to use the [RabbitMQ](https://www.rabbitmq.com/) protocol with Microcks. RabbitMQ is one of the most popular open source message broker that is supporting different protocols and more specifically [AMQP 0.9.1](https://www.rabbitmq.com/resources/specs/amqp0-9-1.pdf), RabbitMQ was originally developed for.
 
-Microcks supports RabbitMQ/AMQP as a protocol binding for [AsyncAPI](../../using/asyncapi). That means that Microcks is able to connect to a RabbitMQ broker for publishing mock messages as soon as it receives a valid [AsyncAPI](https://asyncapi.com) Specification and to connect to any RabbitMQ broker in your organization to check that flowing messages are compliant to the schema described within your specification.
+Starting with the `1.5.1` release of Microcks, we support RabbitMQ/AMQP as a protocol binding for [AsyncAPI](../../using/asyncapi). That means that Microcks is able to connect to a RabbitMQ broker for publishing mock messages as soon as it receives a valid [AsyncAPI](https://asyncapi.com) Specification and to connect to any RabbitMQ broker in your organization to check that flowing messages are compliant to the schema described within your specification.
 
 Let's start! 🚀
 

@@ -1,17 +1,17 @@
 ---
 draft: false
-title: "Pub/Sub Mocking & Testing"
+title: "Google Pub/Sub Mocking & Testing"
 date: 2023-02-08
 publishdate: 2023-02-08
-lastmod: 2024-05-13
+lastmod: 2024-04-27
 weight: 6
 ---
 
 ## Overview
 
-This guide shows you how to use a [Google Pub/Sub](https://cloud.google.com/pubsub/) messaging service with Microcks. Pub/Sub is an asynchronous and scalable messaging service that decouples services producing messages from services processing those messages. Pub/Sub allows services to communicate asynchronously, with latencies on the order of 100 milliseconds.
+This guide is a walkthrough on how to use a [Google Pub/Sub](https://cloud.google.com/pubsub/) messaging service with Microcks. Pub/Sub is an asynchronous and scalable messaging service that decouples services producing messages from services processing those messages. Pub/Sub allows services to communicate asynchronously, with latencies on the order of 100 milliseconds.
 
-Microcks supports Google Pub/Sub as a protocol binding for [AsyncAPI](../../using/asyncapi). That means that Microcks is able to connect to a Google Pub/Sub service for publishing mock messages as soon as it receives a valid [AsyncAPI](https://asyncapi.com) Specification and to connect to any Google Pub/Sub broker provided that Google Cloud Platform to check that flowing messages are compliant to the schema described within your specification.
+Starting with the `1.7.0` release of Microcks, we support Google Pub/Sub as a protocol binding for [AsyncAPI](../../using/asyncapi). That means that Microcks is able to connect to a Google Pub/Sub service for publishing mock messages as soon as it receives a valid [AsyncAPI](https://asyncapi.com) Specification and to connect to any Google Pub/Sub broker provided that Google Cloud Platform to check that flowing messages are compliant to the schema described within your specification.
 
 Let's rock and roll! 🎸
 

@@ -22,22 +22,13 @@
       </div>
       <div class="col-xl-8 col-lg-9 col-md-8">
         <div class="px-lg-5 px-sm-4 py-5">
-          <h2 class="mb-4 fw-bold">
-            {{ if .Page.Params.Params.icon }} <i class="fa-solid {{ .Page.Params.Params.icon }}"></i> &nbsp;{{ end }}
-            {{ .Title }}
-          </h2>
+          <h2 class="mb-4 fw-bold">{{ .Title }}</h2>
           
           {{ if .Content }}
           <span class="text-muted fw-300">🗓️ Last updated on {{ .Lastmod.Format "January 2, 2006" }} 
             <span class="mx-1 text-dark-50 fw-300">|</span> <i class="far fa-clock text-dark me-1"></i> {{.ReadingTime}} {{i18n `min_read`}}
             <span class="mx-1 text-dark-50 fw-300">|</span> <a href="https://github.com/microcks/microcks.io/edit/master/content/{{.File.Path}}" class="f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link">Improve this page</a>
           </span>
-
-          {{ if (eq .Page.Params.Params.showList true) }}
-          <br/><br/><div class="doc-page-list">
-            {{ template "section-tree-nav" dict "sect" . "currentnode" $currentNode }}
-          </div>
-          {{ end }}
 
           <div class="doc-content mt-4 pt-4" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="20">{{.Content}}
           </div>
@@ -115,7 +106,7 @@
 {{ $currentNodeFileUniqueID := "" }}
 {{ with $currentNode.File }}{{ $currentNodeFileUniqueID = .UniqueID }}{{ end }}
 <li data-nav-id="{{.Permalink}}" title="{{.Title}}" class="sidelist {{if .IsAncestor $currentNode }}parent{{end}} {{if eq $fileUniqueID $currentNodeFileUniqueID}}active parent{{end}}">
-  <a href="{{.Permalink}}">{{ if .Page.Params.Params.icon }} <i class="fa-solid {{ .Page.Params.Params.icon }}"></i> &nbsp;{{ end }}{{.Title }}</a>
+  <a href="{{.Permalink}}">{{.Title }}</a>
   {{ $numberOfPages := (add (len .Pages) (len .Sections)) }}
   {{ if ne $numberOfPages 0 }}
   <ul>
@@ -126,37 +117,7 @@
     {{ $pages := ($currentNode.Scratch.Get "pages") }}
 
     {{ range $pages.ByWeight }}
-    {{ template "sub-section-tree-nav" dict "sect" . "currentnode" $currentNode }}
-    {{ end }}
-  </ul>
-</li>
-{{ end }}
-{{ end }}
-{{ end }}
-
-{{ define "sub-section-tree-nav" }}
-{{ $showvisitedlinks := .showvisitedlinks }}
-{{ $currentNode := .currentnode }}
-{{ with .sect }}
-{{ $fileUniqueID := "" }}
-{{ with .File }}{{ $fileUniqueID = .UniqueID }}{{ end }}
-{{ $currentNodeFileUniqueID := "" }}
-{{ with $currentNode.File }}{{ $currentNodeFileUniqueID = .UniqueID }}{{ end }}
-<li data-nav-id="{{.Permalink}}" title="{{.Title}}" class="sidelist {{if .IsAncestor $currentNode }}parent{{end}} {{if eq $fileUniqueID $currentNodeFileUniqueID}}active parent{{end}}">
-  {{ $numberOfPages := (add (len .Pages) (len .Sections)) }}
-  {{ $displayChildren := (and (or (.Eq $currentNode) (.IsAncestor $currentNode)) (ne $numberOfPages 0)) }}
-  {{ $displayCaret := (and (ne $numberOfPages 0) (ne $displayChildren true)) }}
-  <a href="{{.Permalink}}">{{ if $displayCaret }} <i class="fa-solid fa-caret-right"></i> &nbsp;{{ end }} {{.Title }}</a>
-  {{ if $displayChildren }}
-  <ul>
-    {{ $currentNode.Scratch.Set "pages" .Pages }}
-    {{ if .Sections}}
-    {{ $currentNode.Scratch.Set "pages" (.Pages | union .Sections) }}
-    {{ end }}
-    {{ $pages := ($currentNode.Scratch.Get "pages") }}
-
-    {{ range $pages.ByWeight }}
-    {{ template "sub-section-tree-nav" dict "sect" . "currentnode" $currentNode }}
+    {{ template "section-tree-nav" dict "sect" . "currentnode" $currentNode }}
     {{ end }}
   </ul>
 </li>

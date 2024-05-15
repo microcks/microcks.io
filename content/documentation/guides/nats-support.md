@@ -3,15 +3,15 @@ draft: false
 title: "NATS Mocking & Testing"
 date: 2023-01-30
 publishdate: 2023-01-30
-lastmod: 2024-05-13
+lastmod: 2024-04-27
 weight: 5
 ---
 
 ## Overview
 
-This guide shows you how to use a [NATS](https://nats.io/) protocol with Microcks. NATS is a Cloud Native, Open Source and High-performance Messaging technology.  It is a single technology that enables applications to securely communicate across any combination of cloud vendors, on-premise, edge, web and mobile, and devices. Client APIs are provided in over 40 languages and frameworks and you can check out the [full list of clients](https://nats.io/download/).
+This guide is a walkthrough on how to use a [NATS](https://nats.io/) protocol with Microcks. NATS is a Cloud Native, Open Source and High-performance Messaging technology.  It is a single technology that enables applications to securely communicate across any combination of cloud vendors, on-premise, edge, web and mobile, and devices. Client APIs are provided in over 40 languages and frameworks and you can check out the [full list of clients](https://nats.io/download/).
 
-Microcks supports NATS as a protocol binding for [AsyncAPI](../../using/asyncapi). That means that Microcks is able to connect to a NATS broker for publishing mock messages as soon as it receives a valid [AsyncAPI](https://asyncapi.com) Specification and to connect to any NATS broker in your organization to check that flowing messages are compliant to the schema described within your specification.
+Starting with the `1.7.0` release of Microcks, we support NATS as a protocol binding for [AsyncAPI](../../using/asyncapi). That means that Microcks is able to connect to a NATS broker for publishing mock messages as soon as it receives a valid [AsyncAPI](https://asyncapi.com) Specification and to connect to any NATS broker in your organization to check that flowing messages are compliant to the schema described within your specification.
 
 Let's go! 🚀
 
