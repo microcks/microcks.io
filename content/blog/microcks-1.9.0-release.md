@@ -8,7 +8,7 @@ description: "Microcks 1.9.0 release 🚀"
 draft: false
 ---
 
-This has been a busy week just before [KubeCon EU](https://www.linkedin.com/feed/update/urn:li:activity:7173641963068350464), but we are delighted to announce the `1.9..0` release of Microcks, the [CNCF](https://landscape.cncf.io/?selected=microcks)'s open-source cloud-native tool for API Mocking and Testing,
+This has been a busy week just before [KubeCon EU](https://www.linkedin.com/feed/update/urn:li:activity:7173641963068350464), but we are delighted to announce the `1.9.0` release of Microcks, the [CNCF](https://landscape.cncf.io/?selected=microcks)'s open-source cloud-native tool for API Mocking and Testing,
 
 We received help from **6 different external code committers** and dozens of others who opened and reviewed issues and contributed ideas or blog posts. Most of them are adopters! Kudos to all of them 👏 and see greetings along the notes below.
 
