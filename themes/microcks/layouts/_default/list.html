@@ -16,20 +16,12 @@
           </div>
           <div class="col-md-6">
             <div class="d-flex align-items-center mb-4">
-              {{ with site.GetPage (string .Params.Author | urlize | lower) }}
-              <div class="user-image me-1">
-                {{ if .Params.image }}
-                <a href="{{.RelPermalink}}" title="{{.Title}}">
-                  {{ partial "image" (dict "Src" .Params.image "Alt" .Title "Class" "rounded-circle" "Command" "Fill" "Size" "30x30") }}
-                </a>
-                {{ else }}
-                <i class="far fa-user-circle position-relative" style="font-size:26px;top:2px"></i>
-                {{ end }}
-              </div>
-              <div class="user-info me-3">
-                <p class="fw-500 mb-0"><span class="mx-1">{{i18n `by`}}</span>{{if .Title}}<a class="text-dark" href="{{.RelPermalink}}">{{ .Title }}</a>{{else}}<span class="text-muted">{{i18n `admin`}}</span> {{end}}</p>
-              </div>
-              {{end}}
+              {{- template "author-image-name" dict "author" .Params.Author -}}
+
+              {{ range .Params.Params.coauthors }}
+                {{- template "author-image-name" dict "author" . -}}
+              {{ end }}
+
               <!-- replace fa-calendar with a nicer emoji -->
               <div class="fw-500"><!-- <i class="far fa-calendar-alt text-dark me-1"></i> --> 🗓️ {{ time.Format ":date_long" .PublishDate }}</div>
             </div>
@@ -48,23 +40,12 @@
           {{ partial "image" (dict "Src" .Params.image "Alt" .Title "Class" "rounded-2 mb-4" "Size" "460x") }}
           <div class="card-body p-0">
             <div class="d-flex align-items-center mb-4">
-              {{ with site.GetPage (string .Params.Author | urlize | lower) }}
-              <div class="user-image me-1">
-                {{ if .Params.image }}
-                <a href="{{.RelPermalink}}" title="{{.Title}}">
-                  {{ partial "image" (dict "Src" .Params.image "Alt" .Title "Class" "rounded-circle" "Command" "Fill" "Size" "30x30") }}
-                </a>
-                {{ else }}
-                <i class="far fa-user-circle position-relative" style="font-size:26px;top:2px"></i>
-                {{ end }}
-              </div>
-              <!-- remove author name on regular post to make it cleaner for long name -->
-              <!--
-              <div class="user-info me-3">
-                <p class="fw-500 mb-0"><span class="mx-1">{{i18n `by`}}</span>{{if .Title}}<a class="text-dark" href="{{.RelPermalink}}">{{ .Title }}</a>{{else}}<span class="text-muted">{{i18n `admin`}}</span> {{end}}</p>
-              </div>
-              -->
-              {{end}}
+              {{- template "author-image" dict "author" .Params.Author -}}
+
+              {{ range .Params.Params.coauthors }}
+                {{- template "author-image" dict "author" . -}}
+              {{ end }}
+
               <!-- replace fa-calendar with a nicer emoji -->
               <div class="fw-500"><!-- <i class="far fa-calendar-alt text-dark me-1"></i> --> 🗓️ {{ time.Format ":date_long" .PublishDate }}</div>
             </div>
@@ -99,4 +80,38 @@
 </section>
 {{ end }}
 
+{{ end }}
+
+
+{{ define "author-image-name" }}
+{{ $author := .author }}
+{{ with site.GetPage (string $author | urlize | lower) }}
+<div class="user-image me-1">
+  {{ if .Params.image }}
+  <a href="{{.RelPermalink}}" title="{{.Title}}">
+    {{ partial "image" (dict "Src" .Params.image "Alt" .Title "Class" "rounded-circle" "Command" "Fill" "Size" "30x30") }}
+  </a>
+  {{ else }}
+  <i class="far fa-user-circle position-relative" style="font-size:26px;top:2px"></i>
+  {{ end }}
+</div>
+<div class="user-info me-3">
+  <p class="fw-500 mb-0"><span class="mx-1">{{i18n `by`}}</span>{{if .Title}}<a class="text-dark" href="{{.RelPermalink}}">{{ .Title }}</a>{{else}}<span class="text-muted">{{i18n `admin`}}</span> {{end}}</p>
+</div>
+{{ end }}
+{{ end }}
+
+{{ define "author-image" }}
+{{ $author := .author }}
+{{ with site.GetPage (string $author | urlize | lower) }}
+<div class="user-image me-1">
+  {{ if .Params.image }}
+  <a href="{{.RelPermalink}}" title="{{.Title}}">
+    {{ partial "image" (dict "Src" .Params.image "Alt" .Title "Class" "rounded-circle" "Command" "Fill" "Size" "30x30") }}
+  </a>
+  {{ else }}
+  <i class="far fa-user-circle position-relative" style="font-size:26px;top:2px"></i>
+  {{ end }}
+</div>
+{{ end }}
 {{ end }}
