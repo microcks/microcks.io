@@ -3,11 +3,11 @@ draft: false
 title: "As a Docker Desktop Extension"
 date: 2024-04-30
 publishdate: 2024-04-30
-lastmod: 2024-04-30
+lastmod: 2024-05-24
 weight: 1
 ---
 
-This guide show you how to install Microcks as a Docker Desktop Extension on your local machine. This way of isntalling Microcks is very convenient for people wanted to start quickly with most common Microcks capabilities and without hitting the terminal 👻
+This guide shows you how to install Microcks as a Docker Desktop Extension on your local machine. This way of installing Microcks is very convenient for people wanted to start quickly with most common Microcks capabilities and without hitting the terminal 👻
 
 [Docker Desktop](https://docs.docker.com/desktop/) is a simple-to-install application for [Mac](https://www.docker.com/products/docker-desktop/), [Windows](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe), or [Linux](https://docs.docker.com/desktop/linux/install/) that allows you to create and share containerized applications and microservices. Docker Desktop includes the Docker Engine, the Docker CLI client, Docker Compose, Docker Content Trust, Kubernetes, and the Credential Helper.
 
