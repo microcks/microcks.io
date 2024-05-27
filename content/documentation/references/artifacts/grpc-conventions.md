@@ -4,7 +4,7 @@ title: "gRPC Conventions"
 date: 2024-05-27
 publishdate: 2024-05-27
 lastmod: 2024-05-27
-weight: 3
+weight: 5
 ---
 
 In order to use gRPC in Microcks, you will need two artifacts for each service definition as explained in [Multi-artifacts support](/documentation/explanations/multi-artifacts):

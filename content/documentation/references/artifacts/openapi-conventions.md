@@ -4,7 +4,7 @@ title: "OpenAPI Conventions"
 date: 2024-05-27
 publishdate: 2024-05-27
 lastmod: 2024-05-27
-weight: 2
+weight: 1
 ---
 
 ## Conventions

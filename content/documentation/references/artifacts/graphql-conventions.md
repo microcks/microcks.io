@@ -4,7 +4,7 @@ title: "GraphQL Conventions"
 date: 2024-05-27
 publishdate: 2024-05-27
 lastmod: 2024-05-27
-weight: 3
+weight: 4
 ---
 
 In order to use GraphQL in Microcks, you will need two artifacts for each API definition as explained in [Multi-artifacts support](/documentation/explanations/multi-artifacts):
