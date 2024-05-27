@@ -7,6 +7,8 @@ lastmod: 2024-05-13
 weight: 7
 ---
 
+## Overview
+
 This guide shows you how to use a [Amazon SQS](https://aws.amazon.com/sqs/) and [Amazon SNS](https://aws.amazon.com/sns/) messaging services with Microcks. As those two services are very frequently used in combination, we decided to cover both of them in the same guide as principles and configuration are very similar. However, Microcks may provide mocking and testing services for SQS only and mocking and testing services for SNS only. You don't have to use both to benefit from Microcks features.
 
 Amazon Simple Queue Service (SQS) lets you send, store, and receive messages between software components. As stated by the name, it is a message queuing service where one message from a queue can only be consumed by one component. Amazon Simple Notification Service (SNS) sends notifications two ways and provides high-throughput, push-based, many-to-many messaging between distributed systems, microservices, and event-driven serverless applications.
