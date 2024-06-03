@@ -191,3 +191,60 @@ channels:
 ```
 
 Microcks will detect an operation named `SUBSCRIBE user/signedup` and create destinations than integrates service name and version, channel name and protocol specific formmatting.  For example, it will create a Kafka topic named `UsersignedupAPI-0.1.1-user-signedup` or a WebScoket endpoint named `/ws/User+signed-up+API/0.1.1/user/signedup`. Destination and endpoint names for the different protocols are available on the page presenting API details.
+
+## AsyncAPI extensions
+
+Microcks proposes custom AsyncAPI extensions to specify mocks organizational or behavioral elements that cannot be deduced directly from AsyncAPI document.
+
+At the `info` level of your AsyncAPI document, you can add labels specifications that will be used in [organizing the Microcks repository](https://microcks.io/documentation/using/organizing/). See below illustration and the use of `x-microcks` extension:
+
+```yaml
+asyncapi: '2.1.0'
+info:
+  title: User signed-up API
+  version: 0.1.1
+  description: This service is in charge of processing user signups
+  x-microcks:
+    labels:
+      domain: authentication
+      status: GA
+      team: Team B
+[...]
+```
+
+At the `operation` level of your AsyncAPI document, we could add frequency that is the interval of time in seconds between 2 publications of mock messages.. Let's give an example for OpenAPI using the `x-microcks-operation` extension:
+
+```yaml
+[...]
+channels:
+  user/signedup:
+    subscribe:
+      x-microcks-operation:
+        frequency: 30
+      message:
+        $ref: '#/components/messages/UserSignedUp'
+[...]
+```
+
+In AsyncAPI v3.x, `operation` are now differentiated from `channels`. Our extension is still called `x-microcks-operation` and should live at the operation level like illustrated below:
+
+```yaml
+[...]
+channels:
+  user-signedup:
+    messages:
+      userSignedUp:
+        $ref: '#/components/messages/userSignedUp'
+operations:
+  publishUserSignedUps:
+    action: 'send'
+    channel:
+      $ref: '#/channels/user-signedup'
+    messages:
+      - $ref: '#/channels/user-signedup/messages/userSignedUp'
+    x-microcks-operation:
+      frequency: 30
+[...]
+```
+
+Once `labels` and `frequency` are defined that way, they will overwrite the different customizations you may have done through UI or API during the next import of the AsyncAPI document.

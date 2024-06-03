@@ -650,7 +650,7 @@ ol {
 
   ul {
     padding-left: 0;
-    margin-bottom: 20px;
+    margin-bottom: 2.5rem;
 
     li {
       padding-left: 20px;
@@ -673,7 +673,7 @@ ol {
   table {
     width: 100%;
     max-width: 100%;
-    margin-bottom: 1rem;
+    margin-bottom: 2.5rem;
     border: 1px solid #EEEEEE;
     border-radius: 5px;
     border-spacing: 0;
@@ -690,6 +690,10 @@ ol {
 
   tr:not(:last-child) {
     border-bottom: 1px solid #EEEEEE;
+  }
+
+  tr:nth-child(even) {
+    background-color: $light;
   }
 
   th {
