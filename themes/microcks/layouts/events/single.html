@@ -1,0 +1,76 @@
+{{define "main"}}
+
+<section class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-10">
+        <p class="h6 opacity-50 mb-1">{{i18n `lets_meet`}}</p>
+        <h1 class="h2 mb-0 text-primary">{{.Title | markdownify}}</h1>
+        <div class="content border-top pt-5 mt-5">
+          {{.Content}}
+        </div>
+        <hr class="my-5">
+        <div class="row">
+          <div class="col-6 text-center text-md-start">
+            {{with .NextInSection }} 
+            <a href="{{.RelPermalink}}" class="d-inline-block text-reset is-hoverable shadow-none">
+              {{ $title:= .Title }}
+              {{ with .Params.logo }}
+              <div class="rounded-2" style="background:#f9f9f9">
+                {{ partial "image" (dict "Src" . "Alt" $title "Size" "x100")}}
+              </div>
+              {{end}}
+              <p class="mt-2 mb-0 text-center">{{i18n `prev_case`}}</p>
+              <p class="h5 mb-0 text-center">{{.Title}}</p>
+            </a>
+            {{end}}
+          </div>
+          <div class="col-6 text-center text-md-end">
+            {{with .PrevInSection }}
+            <a href="{{.RelPermalink}}" class="d-inline-block text-reset is-hoverable shadow-none">
+              {{with .Params.logo}}
+              <div class="rounded-2" style="background:#f9f9f9">
+                {{ partial "image.html" (dict "Src" . "Alt" "image" "Size" "x100") }}
+              </div>
+              {{end}}
+              <p class="mt-2 mb-0 text-center">{{i18n `next_case`}}</p>
+              <p class="h5 mb-0 text-center">{{.Title}}</p>
+            </a>
+            {{end}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- call to action -->
+{{with site.GetPage "case-studies"}}
+{{ if .Params.call_to_action.enable }}
+{{ with .Params.call_to_action }}
+<section class="section pt-0">
+  <div class="container">
+    <div class="row g-6 align-items-center justify-content-center text-md-left">
+      <div class="col-lg-4 col-md-5 mb-4 mb-md-0 text-center">
+        {{ partial "image" (dict "Src" .image "Alt" "call to action image" "Class" "img-fluid w-100") }}
+      </div>
+      <div class="col-lg-4">
+        <div class="ps-0 ps-lg-5 text-center text-lg-start">
+          <h2 class="section-title h3">{{ .title | markdownify }}</h2>
+          {{with .content }}<p class="mb-4">{{ . | markdownify }}</p>{{ end }}
+          {{ if .button.enable }}
+          {{ with .button }}
+          <a href="{{ .link | relLangURL }}" title="{{ .label }}" class="btn btn-primary">{{ .label }}</a>
+          {{ end }}
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}
+{{ end }}
+<!-- /call to action -->
+
+{{end}}

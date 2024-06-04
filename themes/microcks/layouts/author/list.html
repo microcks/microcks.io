@@ -1,0 +1,32 @@
+{{define "main"}}
+
+{{ partial "page-header.html" . }}
+
+<section class="section">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      {{range .RegularPages }}
+      <div class="col-lg-4 col-sm-6 mb-4">
+				{{ if .Params.image }}
+				{{ partial "image" (dict "Src" .Params.image "Alt" .Title "Class" "rounded-circle mb-3" "Command" "Fill" "Size" "120x120") }}
+				{{ else }}
+				<i class="far fa-user-circle mb-3" style="font-size:82px"></i>
+				{{ end }}
+
+        <a href="{{.Permalink}}" class="d-block text-dark">
+          <h4 class="h5 mb-3">{{.Title}}</h4>
+        </a>
+
+				<ul class="list-inline social-icons mt-4 mb-3">
+					{{ range .Params.social }}
+					<li class="list-inline-item"><a class="d-inline-block" href="{{ .link | safeURL}}"><i class="{{ .icon }}"></i></a></li>
+					{{ end }}
+				</ul>
+        <p>{{- .Summary | truncate 80 -}} &nbsp; <a class="text-dark" href="{{.Permalink}}">{{i18n "read_more"}}</a></p>
+      </div>
+      {{end}}
+    </div>
+  </div>
+</section>
+
+{{end}}

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="{{ with $.Site.LanguageCode }}{{ . }}{{ else }}en-us{{ end }}">
+
+<head>
+  <meta charset="utf-8">
+  <title>{{ .Page.Title }}</title>
+  <meta http-equiv="refresh" content="0;URL='{{ .Params.Target }}'">
+</head>
+
+<body>
+  <p>
+    Redirecting you to the <a href="{{ .Params.Target }}">page</a>...
+  </p>
+</body>
+
+</html>

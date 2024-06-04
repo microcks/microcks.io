@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="{{ with $.Site.LanguageCode }}{{ . }}{{ else }}en-us{{ end }}">
+
+<head>
+  <meta charset="utf-8">
+  <title>{{ .Page.Title }}</title>
+  <meta name="go-import" content="{{ .Params.Package.Prefix }} {{ .Params.Package.Vcs }} {{ .Params.Package.Repository }}">
+  <meta http-equiv="refresh" content="0;URL='{{ .Params.Package.Repository }}'">
+</head>
+
+<body>
+  <p>
+    Redirecting you to the <a href="{{ .Params.Package.Repository }}">project page</a>...
+  </p>
+  </body>
+</html>

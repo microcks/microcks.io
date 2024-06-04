@@ -1,0 +1,44 @@
+{{ define "main" }}
+
+{{ partial "page-header.html" . }}
+
+<section class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 mb-5">
+        <div class="input-group">
+          <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
+          <input type="text" class="form-control shadow-none rounded-1 fw-500" type="text" id="search_faq" onkeyup="searchFAQ()" placeholder="{{i18n `search_faq`}}" aria-label="{{i18n `search_faq`}}" aria-describedby="{{i18n `search_faq`}}">
+        </div>
+      </div>
+      {{range .Params.faq_list}}
+      <div class="col-lg-8 mx-auto">
+        <div class="faq-content mb-5 p-5 is-hoverable shadow border rounded-2">
+          <h3 class="h5 check-mark">{{.title | markdownify}}</h3>
+          <div class="content">
+            {{.content | markdownify}}
+          </div>
+        </div>
+      </div>
+      {{end}}
+    </div>
+  </div>
+</section>
+
+<script>
+  function searchFAQ() {
+    let input = document.getElementById('search_faq').value
+    input=input.toLowerCase();
+    let x = document.getElementsByClassName('faq-content');
+    for (i = 0; i < x.length; i++) {
+      if (!x[i].innerHTML.toLowerCase().includes(input)) {
+        x[i].style.display='none';
+      }
+      else {
+        x[i].style.display='block';
+      }
+    }
+  }
+</script>
+
+{{ end }}

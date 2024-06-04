@@ -1,0 +1,108 @@
+.herobanner {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 12vh 0;
+
+    .herobanner-left {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        padding: 5vh 0 0 5vw;
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 900;
+        }
+
+        p {
+            font-size: 1.25rem;
+            margin-bottom: 5vh;
+        }
+
+        .cloud-native-sandbox {
+            margin-top: 15vh;
+        }
+    }
+
+    .herobanner-right {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+
+        .herobanner-image img {
+            width: 100%;
+            height: 100%;
+            margin-top: 5vh;
+        }
+    }
+}
+
+@media screen and (min-width: 1120px) {
+    .herobanner {
+        height: 800px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .herobanner {
+        margin-top: 10vh;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+
+        .herobanner-left {
+            padding: 6vh 3vw;
+            width: 100%;
+            justify-content: start;
+
+            h1 {
+                font-size: 2.5rem;
+                width: 100%;
+            }
+
+            p {
+                font-size: 1rem;
+                margin-bottom: 2.5vh;
+            }
+
+            .herobanner-btn-group {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 1vw;
+
+                .btn {
+                    height: auto;
+                }
+            }
+
+            .cloud-native-sandbox {
+                margin-top: 5vh;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+        }
+
+        .herobanner-right {
+            width: 100%;
+            padding: 0 2.5vw;
+
+            .herobanner-image img {
+                margin-top: 0;
+            }
+        }
+    }
+}

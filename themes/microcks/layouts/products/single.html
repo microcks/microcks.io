@@ -1,0 +1,228 @@
+{{define "main"}}
+
+{{with .Params.banner}}
+<section class="section {{with .background_class}}{{.}} {{end}}">
+  <div class="container">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-lg-5 col-md-10 mb-5 mb-lg-0">
+        <div class="pe-0 pe-lg-5 text-center text-lg-start">
+          <h1 class="section-title h2">{{ .title | markdownify }}</h1>
+          <p class="mb-5">{{ .content | markdownify }}</p>
+          {{ if .button.enable }}
+          {{ with .button }}
+          <a href="{{ .link | relLangURL }}" title="{{ .label }}" class="btn btn-outline-primary">{{ .label }}</a>
+          {{ end }}
+          {{ end }}
+        </div>
+      </div>
+      <div class="col-lg-7 text-center">
+        {{ partial "image" (dict "Src" .image "Alt" .Title "Class" "rounded-2 shadow" ) }}
+      </div>
+    </div>
+  </div>
+</section>
+{{end}}
+
+<!-- about_this_product -->
+{{with .Params.about_this_product}}
+<section class="section {{with .background_class}}{{.}} {{end}}">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-7 mb-4 text-center mx-auto">
+        <h2 class="section-title h3">{{ .title | markdownify }}</h2>
+        <div class="content mb-5">
+          {{.content | markdownify}}
+        </div>
+      </div>
+    </div>
+    <div class="row gy-5">
+      {{range .features}}
+      <div class="col-lg-6">
+        <div class="px-5 px-lg-6 rounded-3">
+          <div class="display-3 mb-4">
+            <i class="{{.icon}} text-primary"></i>
+          </div>
+
+          <h2 class="h4 mb-3">{{.title | markdownify}}</h2>
+          <div class="content">{{.content | markdownify}}</div>
+        </div>
+      </div>
+      {{end}}
+    </div>
+  </div>
+</section>
+{{end}}
+<!-- /about_this_product -->
+
+<!-- product_info -->
+{{ with .Params.product_info }}
+{{ if .enable }}
+<section class="section {{with .background_class}}{{.}} {{end}}">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-6">
+        <h2 class="section-title h3">{{ .title | markdownify }}</h2>
+        <div class="content mb-5">
+          {{.content | markdownify}}
+        </div>
+      </div>
+    </div>
+
+    {{ range $i, $e:= .features }}
+    <div class="row align-items-center {{if ne $i 0}} mt-5 {{end}}">
+      <div class="col-lg-6 order-2 order-lg-1">
+        <div class="me-0 me-lg-5">
+          <h2 class="section-title h3">{{ .title | markdownify }}</h2>
+          <p class="mb-4">{{ .content | markdownify }}</p>
+          {{ if .button.enable }}
+          {{ with .button }}
+          <a href="{{ .link | relLangURL }}" title="{{ .label }}" class="btn-link">{{ .label }} <i
+              class="fas fa-arrow-right"></i></a>
+          {{ end }}
+          {{ end }}
+        </div>
+      </div>
+      <div class="col-lg-5 order-1 order-lg-2 mb-4 mb-lg-0">
+        {{ partial "image" (dict "Src" .image "Class" "rounded-2 shadow")}}
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+{{ end }}
+<!-- /product_info -->
+
+<!-- intro_video -->
+{{ with .Params.intro_video }}
+{{ if .enable }}
+<section class="section {{with .background_class}}{{.}} {{end}}">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-6 text-center">
+        <h2 class="section-title h3">{{ .title | markdownify }}</h2>
+        <div class="content mb-5">
+          {{.content | markdownify}}
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-xl-9">
+        <div class="has-video rounded-2 shadow video-loader">
+          <button type="button" class="video-loader-btn rounded-2" data-src="{{.video_url}}">
+            <i class="fas fa-play"></i>
+          </button>
+          {{ partial "image" (dict "Src" .video_thumbnail "Alt" "video thumbnail" "Size" "850x" "Class" "w-100 video-thumb rounded-2") }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}
+<!-- /intro_video -->
+
+<!-- content_and_image ordered block -->
+{{ with .Params.content_and_image_ordered }}
+{{ if .enable }}
+{{ range $i,$p := .block }}
+{{if modBool $i 2}}
+<section class="section {{with .background_class}}{{.}} {{end}}">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 order-2 order-lg-1">
+        <div class="me-0 me-lg-5">
+          <h2 class="section-title h3">{{ .title | markdownify }}</h2>
+          <p class="mb-4">{{ .content | markdownify }}</p>
+          {{ if .button.enable }}
+          {{ with .button }}
+          <a href="{{ .link | relLangURL }}" title="{{ .label }}" class="btn-link">{{ .label }} <i
+              class="fas fa-arrow-right"></i></a>
+          {{ end }}
+          {{ end }}
+        </div>
+      </div>
+      <div class="col-lg-6 order-1 order-lg-2 mb-4 mb-lg-0">
+        <div class="rounded-2">
+          {{$cl := gt (len .images) 1}}
+          {{if $cl}}<div class="swiper single-slider">{{end}}
+            {{if $cl}}<div class="swiper-wrapper">{{end}}
+              {{ $title:= .title }}
+              {{ range .images }}
+              <div class="swiper-slide">
+                {{ partial "image" (dict "Src" . "Alt" $title) }}
+              </div>
+              {{ end }}
+              {{if $cl}}</div>{{end}}
+            {{if $cl}}<div class="swiper-pagination"></div>{{end}}
+            {{if $cl}}</div>{{end}}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ else }}
+<section class="section {{.background_class}}">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <div class="rounded-2">
+          {{$cl := gt (len .images) 1}}
+          {{if $cl}}<div class="swiper single-slider">{{end}}
+            {{if $cl}}<div class="swiper-wrapper">{{end}}
+              {{ $title:= .title }}
+              {{ range .images }}
+              <div class="swiper-slide">
+                {{ partial "image" (dict "Src" . "Alt" $title) }}
+              </div>
+              {{ end }}
+              {{if $cl}}</div>{{end}}
+            {{if $cl}}<div class="swiper-pagination"></div>{{end}}
+            {{if $cl}}</div>{{end}}
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="ms-0 ms-lg-5">
+          <h2 class="section-title h3">{{ .title | markdownify }}</h2>
+          <p class="mb-4">{{ .content | markdownify }}</p>
+          {{ if .button.enable }}
+          {{ with .button }}
+          <a href="{{ .link | relLangURL }}" title="{{ .label }}" class="btn-link">{{ .label }} <i
+              class="fas fa-arrow-right"></i></a>
+          {{ end }}
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}
+{{ end }}
+{{ end }}
+<!-- /content_and_image ordered block -->
+
+{{with .Params.cta}}
+{{if .enable}}
+<section class="section {{with .background_class}}{{.}} {{end}}">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-7 mb-4 text-center mx-auto">
+        <h2 class="section-title h3">{{ .title | markdownify }}</h2>
+        <div class="content mb-5">
+          {{.content | markdownify}}
+        </div>
+
+        {{with .button}}
+        {{if .enable}}
+        <a class="btn btn-outline-primary" href="{{.link | relLangURL}}">{{.label}}</a>
+        {{end}}
+        {{end}}
+      </div>
+    </div>
+  </div>
+</section>
+{{end}}
+{{end}}
+
+{{end}}

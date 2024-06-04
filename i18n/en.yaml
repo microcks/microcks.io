@@ -1,0 +1,5 @@
+- id: search
+  translation: Search
+
+- id: search_placeholder
+  translation: Search Microcks documentation...

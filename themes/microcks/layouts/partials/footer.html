@@ -1,0 +1,64 @@
+<footer class="bg-light">
+  <div class="footer-container">
+    <div>
+      <a class="d-block h5" href="{{ site.BaseURL | absLangURL}}">
+        {{ partial "logo.html" }}
+      </a>
+      <p class="mb-4">{{ site.Params.footer_content | markdownify }}</p>
+    </div>
+    <div class="footer-ul">
+      <div>
+        {{ if site.Menus.footer_left }}
+          <div class="h5 mb-2">{{ site.Params.footer_menu_left }}</div>
+          <ul class="list-unstyled footer-list">
+            {{ range site.Menus.footer_left }}
+              <li>
+                <a href="{{ .URL | relLangURL }}" title="{{ .Name }}">{{ .Name }}</a>
+              </li>
+            {{ end }}
+          </ul>
+        {{ end }}
+      </div>
+      <div>
+        {{ if site.Menus.footer_middle }}
+          <div class="h5 mb-2">{{ site.Params.footer_menu_middle }}</div>
+          <ul class="list-unstyled footer-list">
+            {{ range site.Menus.footer_middle }}
+              <li>
+                <a href="{{ .URL | relLangURL }}" title="{{ .Name }}">{{ .Name }}</a>
+              </li>
+            {{ end }}
+          </ul>
+        {{ end }}
+      </div>
+      <div>
+        {{ if site.Menus.footer_right }}
+          <div class="h5 mb-2">{{ site.Params.footer_menu_right }}</div>
+          <ul class="list-unstyled footer-list">
+            {{ range site.Menus.footer_right }}
+              <li>
+                <a href="{{ .URL | relLangURL }}" title="{{ .Name }}">{{ .Name }}</a>
+              </li>
+              {{ end }}
+          </ul>
+          {{ end }}
+      </div>
+    </div>
+    <div>
+      {{ with site.Params.social }}
+        <ul class="list-inline social-icons">
+          {{ range . }}
+            <li class="list-inline-item">
+              <a href="{{ .link | safeURL }}" title="{{ .title }}">
+                <i class="{{ .icon }}"></i>
+              </a>
+            </li>
+          {{ end }}
+        </ul>
+      {{ end }}
+    </div>
+  </div>
+  <div class="border-top border-default text-center py-4 mt-4" style="width: 100%;">
+    <small class="content">{{ site.Params.Copyright | markdownify }}</small>
+  </div>
+</footer>
