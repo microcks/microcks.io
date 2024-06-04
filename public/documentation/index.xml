@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Documentation on API Mocking and Testing | Microcks.io</title>
+    <link>https://microcks.io/documentation/</link>
+    <description>Recent content in Documentation on API Mocking and Testing | Microcks.io</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sat, 27 Apr 2024 00:00:00 +0200</lastBuildDate>
+    <atom:link href="https://microcks.io/documentation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started</title>
+      <link>https://microcks.io/documentation/getting-started/</link>
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/documentation/getting-started/</guid>
+      <description>Quickstart The easiest way to get started is using Docker Compose to start with minimal requirements.</description>
+    </item>
+    <item>
+      <title>Getting started with Tests</title>
+      <link>https://microcks.io/documentation/getting-started-tests/</link>
+      <pubDate>Mon, 19 Oct 2020 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/documentation/getting-started-tests/</guid>
+      <description>Getting started (continue) with Tests Now that you have finished the Getting started guide, you should have a Microcks installation up-and-running and filled with some samples from the Microcks repository.</description>
+    </item>
+  </channel>
+</rss>

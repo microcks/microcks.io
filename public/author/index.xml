@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Author on API Mocking and Testing | Microcks.io</title>
+    <link>https://microcks.io/author/</link>
+    <description>Recent content in Author on API Mocking and Testing | Microcks.io</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <atom:link href="https://microcks.io/author/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Alain Pham</title>
+      <link>https://microcks.io/author/alain-pham/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://microcks.io/author/alain-pham/</guid>
+      <description>Principal Solutions Engineer at Grafana Labs</description>
+    </item>
+    <item>
+      <title>Carol Gschwend</title>
+      <link>https://microcks.io/author/carol-gschwend/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://microcks.io/author/carol-gschwend/</guid>
+      <description>Senior Software Engineer at J.B. Hunt</description>
+    </item>
+    <item>
+      <title>Hugo Guerrero</title>
+      <link>https://microcks.io/author/hugo-guerrero/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://microcks.io/author/hugo-guerrero/</guid>
+      <description>Chief Software Architect, APIs &amp;amp; Integration Developer Advocate at Red Hat</description>
+    </item>
+    <item>
+      <title>Laurent Broudoux</title>
+      <link>https://microcks.io/author/laurent-broudoux/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://microcks.io/author/laurent-broudoux/</guid>
+      <description>Co-founder of Microcks | Director of Engineering at Postman Open Technologies</description>
+    </item>
+    <item>
+      <title>Nicolas Masse</title>
+      <link>https://microcks.io/author/nicolas-masse/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://microcks.io/author/nicolas-masse/</guid>
+      <description>Principal Solution Architect at Red Hat</description>
+    </item>
+    <item>
+      <title>Nikolay Afanasyev</title>
+      <link>https://microcks.io/author/nikolay-afanasyev/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://microcks.io/author/nikolay-afanasyev/</guid>
+      <description>Lead Developer</description>
+    </item>
+    <item>
+      <title>Sebastien Fraigneau</title>
+      <link>https://microcks.io/author/sebastien-fraigneau/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://microcks.io/author/sebastien-fraigneau/</guid>
+      <description>Senior Software Engineer at CNAM</description>
+    </item>
+    <item>
+      <title>Yacine Kheddache</title>
+      <link>https://microcks.io/author/yacine-kheddache/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://microcks.io/author/yacine-kheddache/</guid>
+      <description>Co-founder of Microcks | Director of Product Strategy &amp;amp; Innovation at Postman Open Technologies</description>
+    </item>
+  </channel>
+</rss>

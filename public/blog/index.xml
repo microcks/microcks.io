@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Latest News on API Mocking and Testing | Microcks.io</title>
+    <link>https://microcks.io/blog/</link>
+    <description>Recent content in Latest News on API Mocking and Testing | Microcks.io</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Mon, 03 Jun 2024 00:00:00 +0200</lastBuildDate>
+    <atom:link href="https://microcks.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CNAM Partners with Microcks for Automated SOAP Service Mocking</title>
+      <link>https://microcks.io/blog/cnam-soap-service-mocking/</link>
+      <pubDate>Mon, 03 Jun 2024 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/blog/cnam-soap-service-mocking/</guid>
+      <description>With over 2,500 employees, the Caisse Nationale de l’Assurance Maladie CNAM is the operational &amp;ldquo;headquarters&amp;rdquo; of France&amp;rsquo;s compulsory health insurance system.</description>
+    </item>
+    <item>
+      <title>Microcks 1.9.1 release 🚀</title>
+      <link>https://microcks.io/blog/microcks-1.9.1-release/</link>
+      <pubDate>Thu, 23 May 2024 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/blog/microcks-1.9.1-release/</guid>
+      <description>Just two months after the previous release, we are thrilled to announce this brand-new Microcks version!</description>
+    </item>
+    <item>
+      <title>Introducing new Proxy features in Microcks 1.9.1</title>
+      <link>https://microcks.io/blog/new-proxy-features-1.9.1/</link>
+      <pubDate>Mon, 13 May 2024 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/blog/new-proxy-features-1.9.1/</guid>
+      <description>We all know about the many benefits of Microcks, which makes it an excellent tool for the software development process.</description>
+    </item>
+    <item>
+      <title>Mocking OpenID Connect redirect</title>
+      <link>https://microcks.io/blog/mocking-oidc-redirect/</link>
+      <pubDate>Wed, 24 Apr 2024 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/blog/mocking-oidc-redirect/</guid>
+      <description>A few days ago, I worked on a new prototype to see what it means to use Microcks to mock OpenID Connect authentication flows.</description>
+    </item>
+    <item>
+      <title>Microcks 1.9.0 release 🚀</title>
+      <link>https://microcks.io/blog/microcks-1.9.0-release/</link>
+      <pubDate>Thu, 14 Mar 2024 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/blog/microcks-1.9.0-release/</guid>
+      <description>This has been a busy week just before KubeCon EU , but we are delighted to announce the 1.</description>
+    </item>
+    <item>
+      <title>Observability for Microcks at scale</title>
+      <link>https://microcks.io/blog/observability-for-microcks-at-scale/</link>
+      <pubDate>Tue, 12 Mar 2024 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/blog/observability-for-microcks-at-scale/</guid>
+      <description>As part of the upcoming 1.9.0 release of Microcks, I’m super proud to have contributed new features related to its observability and performance monitoring!</description>
+    </item>
+    <item>
+      <title>Extend Microcks with custom libs and code</title>
+      <link>https://microcks.io/blog/extend-microcks-with-custom-libs/</link>
+      <pubDate>Wed, 24 Jan 2024 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/blog/extend-microcks-with-custom-libs/</guid>
+      <description>With the recent Microcks 1.8.1 version, there’s an abundance of exciting enhancements, from improved OpenAPI references support to optimizations for seamless usage via Testcontainers .</description>
+    </item>
+    <item>
+      <title>Microcks 1.8.1 release 🚀</title>
+      <link>https://microcks.io/blog/microcks-1.8.1-release/</link>
+      <pubDate>Thu, 18 Jan 2024 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/blog/microcks-1.8.1-release/</guid>
+      <description>We are thrilled to start this New Year with a brand new Microcks release!</description>
+    </item>
+    <item>
+      <title>Microcks on Kind 🚢</title>
+      <link>https://microcks.io/blog/microcks-on-kind/</link>
+      <pubDate>Thu, 28 Dec 2023 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/blog/microcks-on-kind/</guid>
+      <description>I&amp;rsquo;m still on housekeeping duty! I went through my notes on installing Microcks on Kind and decided to refresh them.</description>
+    </item>
+    <item>
+      <title>Microcks on Minikube 🧊</title>
+      <link>https://microcks.io/blog/microcks-on-minikube/</link>
+      <pubDate>Wed, 27 Dec 2023 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/blog/microcks-on-minikube/</guid>
+      <description>As we close the year, it&amp;rsquo;s a good time for some housekeeping!</description>
+    </item>
+    <item>
+      <title>Microcks 1.8.0 release 🚀</title>
+      <link>https://microcks.io/blog/microcks-1.8.0-release/</link>
+      <pubDate>Tue, 17 Oct 2023 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/blog/microcks-1.8.0-release/</guid>
+      <description>As the seasons transition, we are excited to unveil the 1.</description>
+    </item>
+    <item>
+      <title>Microcks Joining CNCF as a Sandbox Project 🎉</title>
+      <link>https://microcks.io/blog/microcks-joining-cncf-sandbox/</link>
+      <pubDate>Tue, 27 Jun 2023 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/blog/microcks-joining-cncf-sandbox/</guid>
+      <description>We are excited to announce that Microcks, the open-source API mocking and testing project, has been accepted as a Sandbox project by the Cloud Native Computing Foundation (CNCF ).</description>
+    </item>
+    <item>
+      <title>Microcks 1.7.1 release 🚀</title>
+      <link>https://microcks.io/blog/microcks-1.7.1-release/</link>
+      <pubDate>Wed, 21 Jun 2023 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/blog/microcks-1.7.1-release/</guid>
+      <description>The seasons follow one another and here’s a Microcks release just ready for summer ☀️.</description>
+    </item>
+    <item>
+      <title>Introducing Microcks Docker Desktop Extension 0.2: Enhanced Features and Increased Cadence 🚀</title>
+      <link>https://microcks.io/blog/docker-desktop-extension-0.2/</link>
+      <pubDate>Thu, 15 Jun 2023 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/blog/docker-desktop-extension-0.2/</guid>
+      <description>We are very excited to announce the availability of Microcks Docker Desktop Extension 0.</description>
+    </item>
+    <item>
+      <title>Join the Microcks Adopters list and Empower the vibrant open source Community 🙌</title>
+      <link>https://microcks.io/blog/join-adopters-list/</link>
+      <pubDate>Wed, 24 May 2023 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/blog/join-adopters-list/</guid>
+      <description>Open source software has revolutionized the way enterprises develop and deploy their applications.</description>
+    </item>
+    <item>
+      <title>Microcks&#39; Backstage integration to centralize all your APIs in a software catalog 🧩</title>
+      <link>https://microcks.io/blog/backstage-integration-launch/</link>
+      <pubDate>Fri, 12 May 2023 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/blog/backstage-integration-launch/</guid>
+      <description>Identifying and managing software assets has always been a challenge! It became more and more difficult these years with the blast of multi-cloud deployments and practices like microservices.</description>
+    </item>
+    <item>
+      <title>J.B. Hunt: Mock It till You Make It with Microcks</title>
+      <link>https://microcks.io/blog/jb-hunt-mock-it-till-you-make-it/</link>
+      <pubDate>Tue, 04 Apr 2023 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/blog/jb-hunt-mock-it-till-you-make-it/</guid>
+      <description>Collaboration in the enterprise has many challenges which can become pitfalls and roadblocks that threaten to slow agile software development to a complete standstill.</description>
+    </item>
+    <item>
+      <title>Microcks 1.7.0 release 🚀</title>
+      <link>https://microcks.io/blog/microcks-1.7.0-release/</link>
+      <pubDate>Thu, 30 Mar 2023 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/blog/microcks-1.7.0-release/</guid>
+      <description>The end of the winter season ☃️ is coming. But unlike our fellow hibernators 🐻, instead of living off stores of fat, our amazing community has worked hard on yet another Microcks release - yes, version 1.</description>
+    </item>
+    <item>
+      <title>Microcks partners with Postman to shape next-gen multi-protocol API tooling ⭐️</title>
+      <link>https://microcks.io/blog/microcks-partners-with-postman/</link>
+      <pubDate>Thu, 23 Mar 2023 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/blog/microcks-partners-with-postman/</guid>
+      <description>I’m feeling proud and honored to let you know that we’re partnering with Postman , the leading platform for API development, to define the future of multi-protocol API tooling 🚀</description>
+    </item>
+    <item>
+      <title>Microcks Docker Desktop Extension 🚀</title>
+      <link>https://microcks.io/blog/docker-desktop-extension-launch/</link>
+      <pubDate>Mon, 26 Sep 2022 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/blog/docker-desktop-extension-launch/</guid>
+      <description>We are excited to announce the release of Microcks&amp;rsquo; Docker Desktop Extension as we always love to support and improve the lives of our community members.</description>
+    </item>
+    <item>
+      <title>Microcks 1.6.0 release 🚀</title>
+      <link>https://microcks.io/blog/microcks-1.6.0-release/</link>
+      <pubDate>Thu, 15 Sep 2022 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/blog/microcks-1.6.0-release/</guid>
+      <description>We are excited to announce the 1.6.0 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing.</description>
+    </item>
+    <item>
+      <title>Microcks 1.5.2 release 🚀</title>
+      <link>https://microcks.io/blog/microcks-1.5.2-release/</link>
+      <pubDate>Thu, 02 Jun 2022 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/blog/microcks-1.5.2-release/</guid>
+      <description>We are delighted to announce the 1.5.2 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing.</description>
+    </item>
+    <item>
+      <title>Microcks’ hub and marketplace!</title>
+      <link>https://microcks.io/blog/microcks-hub-announcement/</link>
+      <pubDate>Thu, 12 May 2022 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/blog/microcks-hub-announcement/</guid>
+      <description>We are very proud to announce the launch of Microcks’ community hub and free marketplace 👉 hub.</description>
+    </item>
+    <item>
+      <title>Microcks 1.5.1 release 🚀</title>
+      <link>https://microcks.io/blog/microcks-1.5.1-release/</link>
+      <pubDate>Fri, 08 Apr 2022 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/blog/microcks-1.5.1-release/</guid>
+      <description>We are proud to announce the 1.5.1 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing.</description>
+    </item>
+    <item>
+      <title>Microcks 1.5.0 release 🚀</title>
+      <link>https://microcks.io/blog/microcks-1.5.0-release/</link>
+      <pubDate>Tue, 18 Jan 2022 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/blog/microcks-1.5.0-release/</guid>
+      <description>We are excited to announce the 1.5.0 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing.</description>
+    </item>
+    <item>
+      <title>GraphQL features in Microcks: what to expect?</title>
+      <link>https://microcks.io/blog/graphql-features-what-to-expect/</link>
+      <pubDate>Fri, 07 Jan 2022 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/blog/graphql-features-what-to-expect/</guid>
+      <description>In various 2021 reports, GraphQL has been spotted as one of the most exciting technologies to consider for APIs.</description>
+    </item>
+    <item>
+      <title>Microcks 1.4.1 release 🚀</title>
+      <link>https://microcks.io/blog/microcks-1.4.1-release/</link>
+      <pubDate>Fri, 15 Oct 2021 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/blog/microcks-1.4.1-release/</guid>
+      <description>We are thrilled to announce today the 1.4.1 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing.</description>
+    </item>
+    <item>
+      <title>Async Features with Docker Compose</title>
+      <link>https://microcks.io/blog/async-features-with-docker-compose/</link>
+      <pubDate>Mon, 30 Aug 2021 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/blog/async-features-with-docker-compose/</guid>
+      <description>For some weeks now, many users from the Microcks community were asking for playing with AsyncAPI related features without having to setup a Minikube or a full Kubernetes instance.</description>
+    </item>
+    <item>
+      <title>Microcks 1.3.0 release 🚀</title>
+      <link>https://microcks.io/blog/microcks-1.3.0-release/</link>
+      <pubDate>Wed, 30 Jun 2021 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/blog/microcks-1.3.0-release/</guid>
+      <description>We are so proud and happy to share this new major and important Microcks release two months in advance based on our initial roadmap!</description>
+    </item>
+    <item>
+      <title>Microcks 1.2.1 release 🚀</title>
+      <link>https://microcks.io/blog/microcks-1.2.1-release/</link>
+      <pubDate>Wed, 05 May 2021 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/blog/microcks-1.2.1-release/</guid>
+      <description>We are very glad to announce today the 1.2.1 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing.</description>
+    </item>
+    <item>
+      <title>Simulating CloudEvents with AsyncAPI and Microcks</title>
+      <link>https://microcks.io/blog/simulating-cloudevents-with-asyncapi/</link>
+      <pubDate>Fri, 02 Apr 2021 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/blog/simulating-cloudevents-with-asyncapi/</guid>
+      <description>TL;DR: CloudEvents and AsyncAPI are complementary specifications that help define your Event Driven Architecture .</description>
+    </item>
+    <item>
+      <title>Podman Compose support in Microcks</title>
+      <link>https://microcks.io/blog/podman-compose-support/</link>
+      <pubDate>Thu, 25 Feb 2021 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/blog/podman-compose-support/</guid>
+      <description>While Docker is still the #1 option for software packaging and installation on the developer laptop, Podman is gaining traction.</description>
+    </item>
+    <item>
+      <title>Microcks 1.2.0 release 🚀</title>
+      <link>https://microcks.io/blog/microcks-1.2.0-release/</link>
+      <pubDate>Sun, 21 Feb 2021 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/blog/microcks-1.2.0-release/</guid>
+      <description>We are delighted to announce the 1.2.0 release of Microcks - the Open source Kubernetes-native tool for API Mocking and Testing.</description>
+    </item>
+    <item>
+      <title>Advanced Dispatching and Constraints for mocks</title>
+      <link>https://microcks.io/blog/advanced-dispatching-constraints/</link>
+      <pubDate>Thu, 28 Jan 2021 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/blog/advanced-dispatching-constraints/</guid>
+      <description>The purpose of this post is to explain the advanced dispatching and constraint features available when mocking a REST API using Microcks.</description>
+    </item>
+    <item>
+      <title>Continuous Testing of ALL your APIs</title>
+      <link>https://microcks.io/blog/continuous-testing-all-your-apis/</link>
+      <pubDate>Thu, 03 Dec 2020 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/blog/continuous-testing-all-your-apis/</guid>
+      <description>We talk a lot about asynchronous API lately at Microcks! We added many new innovative features taking advantage of the AsyncAPI specification.</description>
+    </item>
+    <item>
+      <title>Integrating Microcks into Apicurio Keycloak</title>
+      <link>https://microcks.io/blog/integrating-in-apicurio-keycloak/</link>
+      <pubDate>Fri, 20 Nov 2020 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/blog/integrating-in-apicurio-keycloak/</guid>
+      <description>Microcks is an amazing tool that helps developers mock their APIs seamlessly using OpenAPI specs.</description>
+    </item>
+    <item>
+      <title>Apache Kafka Mocking and Testing</title>
+      <link>https://microcks.io/blog/apache-kafka-mocking-testing/</link>
+      <pubDate>Tue, 17 Nov 2020 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/blog/apache-kafka-mocking-testing/</guid>
+      <description>We see Apache Kafka being more and more commonly used as an event backbone in new organizations everyday.</description>
+    </item>
+    <item>
+      <title>Microcks 1.1.0 release 🚀</title>
+      <link>https://microcks.io/blog/microcks-1.1.0-release/</link>
+      <pubDate>Mon, 09 Nov 2020 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/blog/microcks-1.1.0-release/</guid>
+      <description>We are very thrilled to announce today Microcks 1.1.0 release — the Open source Kubernetes-native tool for API Mocking and Testing.</description>
+    </item>
+    <item>
+      <title>Why Microcks?</title>
+      <link>https://microcks.io/blog/why-microcks/</link>
+      <pubDate>Tue, 20 Oct 2020 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/blog/why-microcks/</guid>
+      <description>Microcks recently reached a key milestone as we officially announced on Aug 11th 2020 the release of Microcks 1.</description>
+    </item>
+    <item>
+      <title>Microcks 1.0.0 release 🚀</title>
+      <link>https://microcks.io/blog/microcks-1.0.0-release/</link>
+      <pubDate>Tue, 11 Aug 2020 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/blog/microcks-1.0.0-release/</guid>
+      <description>Today is a very special day as we launch Microcks 1.</description>
+    </item>
+    <item>
+      <title>Install Microcks on AWS for a test drive 🧪</title>
+      <link>https://microcks.io/blog/install-microcks-on-aws/</link>
+      <pubDate>Fri, 26 Jun 2020 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/blog/install-microcks-on-aws/</guid>
+      <description>Whilst we recommend installing Microcks on Kubernetes for easy management and enhanced capabilities, it can also be deployed onto a regular Virtual Machine.</description>
+    </item>
+    <item>
+      <title>Microcks 0.9.0 release 🚀</title>
+      <link>https://microcks.io/blog/microcks-0.9.0-release/</link>
+      <pubDate>Sun, 17 May 2020 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/blog/microcks-0.9.0-release/</guid>
+      <description>I am delighted to announce Microcks release 0.9.0 — the Open source Kubernetes native tool for API Mocking and Testing.</description>
+    </item>
+  </channel>
+</rss>

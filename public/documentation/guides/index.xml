@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Guides on API Mocking and Testing | Microcks.io</title>
+    <link>https://microcks.io/documentation/guides/</link>
+    <description>Recent content in Guides on API Mocking and Testing | Microcks.io</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sat, 27 Apr 2024 00:00:00 +0200</lastBuildDate>
+    <atom:link href="https://microcks.io/documentation/guides/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenAPI Mocking 101</title>
+      <link>https://microcks.io/documentation/guides/openapi-101/</link>
+      <pubDate>Wed, 23 Feb 2022 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/documentation/guides/openapi-101/</guid>
+      <description>Overview This guide is a step-by-step walkthrough on how to use OpenAPI specification to specify your mocks for your API.</description>
+    </item>
+    <item>
+      <title>Kafka, Avro &amp; Schema Registry</title>
+      <link>https://microcks.io/documentation/guides/avro-messaging/</link>
+      <pubDate>Fri, 12 Feb 2021 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/documentation/guides/avro-messaging/</guid>
+      <description>Overview This guide is a walkthrough the different steps to have in mind when using Microcks for mocking and testing Avro encoding on top of Apache Kafka .</description>
+    </item>
+    <item>
+      <title>MQTT Mocking &amp; Testing</title>
+      <link>https://microcks.io/documentation/guides/mqtt-support/</link>
+      <pubDate>Mon, 15 Feb 2021 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/documentation/guides/mqtt-support/</guid>
+      <description>Overview This guide is a walkthrough on how to use the Message Queuing Telemetry Transport (MQTT) protocol with Microcks.</description>
+    </item>
+    <item>
+      <title>RabbitMQ Mocking &amp; Testing</title>
+      <link>https://microcks.io/documentation/guides/rabbitmq-support/</link>
+      <pubDate>Tue, 22 Nov 2022 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/documentation/guides/rabbitmq-support/</guid>
+      <description>Overview This guide is a walkthrough on how to use the RabbitMQ protocol with Microcks.</description>
+    </item>
+    <item>
+      <title>NATS Mocking &amp; Testing</title>
+      <link>https://microcks.io/documentation/guides/nats-support/</link>
+      <pubDate>Mon, 30 Jan 2023 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/documentation/guides/nats-support/</guid>
+      <description>Overview This guide is a walkthrough on how to use a NATS protocol with Microcks.</description>
+    </item>
+    <item>
+      <title>Google Pub/Sub Mocking &amp; Testing</title>
+      <link>https://microcks.io/documentation/guides/googlepubsub-support/</link>
+      <pubDate>Wed, 08 Feb 2023 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/documentation/guides/googlepubsub-support/</guid>
+      <description>Overview This guide is a walkthrough on how to use a Google Pub/Sub messaging service with Microcks.</description>
+    </item>
+    <item>
+      <title>Amazon SQS/SNS Mocking &amp; Testing</title>
+      <link>https://microcks.io/documentation/guides/aws-sqs-sns-support/</link>
+      <pubDate>Tue, 06 Jun 2023 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/documentation/guides/aws-sqs-sns-support/</guid>
+      <description>This guide is a walkthrough on how to use a Amazon SQS and Amazon SNS messaging services with Microcks.</description>
+    </item>
+  </channel>
+</rss>

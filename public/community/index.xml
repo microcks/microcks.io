@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Microcks community and ressources on API Mocking and Testing | Microcks.io</title>
+    <link>https://microcks.io/community/</link>
+    <description>Recent content in Microcks community and ressources on API Mocking and Testing | Microcks.io</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <atom:link href="https://microcks.io/community/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

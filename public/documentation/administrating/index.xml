@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Administrating on API Mocking and Testing | Microcks.io</title>
+    <link>https://microcks.io/documentation/administrating/</link>
+    <description>Recent content in Administrating on API Mocking and Testing | Microcks.io</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sat, 27 Apr 2024 00:00:00 +0200</lastBuildDate>
+    <atom:link href="https://microcks.io/documentation/administrating/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Managing Users</title>
+      <link>https://microcks.io/documentation/administrating/users/</link>
+      <pubDate>Mon, 18 Nov 2019 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/documentation/administrating/users/</guid>
+      <description>Introduction Since its inception, Microcks relies on a third party component named Keycloak for managing security related topics like users identification, users authentication and habilitations as well as API endpoints protection.</description>
+    </item>
+    <item>
+      <title>External Secrets</title>
+      <link>https://microcks.io/documentation/administrating/secrets/</link>
+      <pubDate>Mon, 18 Nov 2019 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/documentation/administrating/secrets/</guid>
+      <description>Introduction Starting with Microcks version 0.7.0, we add the ability to manage some forms of Secrets in order to access private HTTP(S) repositories su as Git ones.</description>
+    </item>
+    <item>
+      <title>Repository Snapshots</title>
+      <link>https://microcks.io/documentation/administrating/snapshots/</link>
+      <pubDate>Mon, 18 Nov 2019 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/documentation/administrating/snapshots/</guid>
+      <description>Introduction Microcks allows users to export a part of its database as a Snapshot and import such a Snapshot within another instance.</description>
+    </item>
+    <item>
+      <title>External Dependencies</title>
+      <link>https://microcks.io/documentation/administrating/externals/</link>
+      <pubDate>Thu, 26 Oct 2023 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/documentation/administrating/externals/</guid>
+      <description>Introduction Microcks is able to run Groovy scripts contained in your API mocks.</description>
+    </item>
+  </channel>
+</rss>

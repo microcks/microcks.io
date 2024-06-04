@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Installing on API Mocking and Testing | Microcks.io</title>
+    <link>https://microcks.io/documentation/installing/</link>
+    <description>Recent content in Installing on API Mocking and Testing | Microcks.io</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 14 Nov 2023 00:00:00 +0100</lastBuildDate>
+    <atom:link href="https://microcks.io/documentation/installing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>On Kube using Helm</title>
+      <link>https://microcks.io/documentation/installing/kubernetes/</link>
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/documentation/installing/kubernetes/</guid>
+      <description>Instructions One easy way of installing Microcks is via a Helm Chart .</description>
+    </item>
+    <item>
+      <title>On Kube using Operator</title>
+      <link>https://microcks.io/documentation/installing/operator/</link>
+      <pubDate>Tue, 11 Feb 2020 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/documentation/installing/operator/</guid>
+      <description>Overview Operators are next-gen installer, maintainer and life-cycle manager for Kubernetes native applications.</description>
+    </item>
+    <item>
+      <title>Using docker-compose</title>
+      <link>https://microcks.io/documentation/installing/docker-compose/</link>
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/documentation/installing/docker-compose/</guid>
+      <description>Docker Compose is a tool for easily testing and running multi-container applications.</description>
+    </item>
+    <item>
+      <title>As Docker Desktop Extension</title>
+      <link>https://microcks.io/documentation/installing/docker-desktop-extension/</link>
+      <pubDate>Tue, 22 Nov 2022 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/documentation/installing/docker-desktop-extension/</guid>
+      <description>Docker Desktop is a simple-to-install application for Mac , Windows , or Linux that allows you to create and share containerized applications and microservices.</description>
+    </item>
+    <item>
+      <title>Using podman-compose</title>
+      <link>https://microcks.io/documentation/installing/podman-compose/</link>
+      <pubDate>Thu, 25 Feb 2021 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/documentation/installing/podman-compose/</guid>
+      <description>Podman Compose is a tool for easily testing and running multi-container applications.</description>
+    </item>
+    <item>
+      <title>Architecture &amp; deployment options</title>
+      <link>https://microcks.io/documentation/installing/deployment-options/</link>
+      <pubDate>Tue, 15 Dec 2020 00:00:00 +0100</pubDate>
+      <guid>https://microcks.io/documentation/installing/deployment-options/</guid>
+      <description>Introduction Now that you have looked at the different installation methods of Microcks, you may want to have a high-level view of its architecture and deployment options.</description>
+    </item>
+    <item>
+      <title>Running with Testcontainers</title>
+      <link>https://microcks.io/documentation/installing/running-uber/</link>
+      <pubDate>Thu, 12 Oct 2023 00:00:00 +0200</pubDate>
+      <guid>https://microcks.io/documentation/installing/running-uber/</guid>
+      <description>In order to support Inner Loop integration or Shift-Left scenarios , we&amp;rsquo;ve worked recently on a stripped down version of Microcks that makes embedding it in your development workflow, on a laptop, within your unit tests possible.</description>
+    </item>
+  </channel>
+</rss>
