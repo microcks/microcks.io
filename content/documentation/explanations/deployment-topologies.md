@@ -4,7 +4,7 @@ title: "Deployment topologies"
 date: 2024-05-16
 publishdate: 2024-05-16
 lastmod: 2024-05-16
-weight: 6
+weight: 1
 ---
 
 > 🪄 **To Be Created**
