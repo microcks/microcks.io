@@ -9,7 +9,7 @@ weight: 2
 
 ## Introduction
 
-Starting with Microcks version `0.7.0`, we add the ability to manage some forms of `Secrets` in order to access private HTTP(S) repositories su as Git ones.
+Starting with Microcks version `0.7.0`, we add the ability to manage some forms of `Secrets` in order to access private HTTP(S) repositories such as Git ones.
 
 Secrets can only be managed by Microcks `administrator` - we mean people having the `administrator` role assigned. If you need further information on how to manage users and roles, please check [here](../users). Secrets management is simply a thumbnail with the `Administration` page that is available from the vertical menu on the left once logged in as administrator.
 
