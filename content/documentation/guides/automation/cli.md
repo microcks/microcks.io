@@ -9,7 +9,7 @@ weight: 2
 
 ## Overview
 
-This guide illustrates usage of `microcks-cli`, a command-line tool for interacting with Microcks APIs. It allows to launch tests or import API artifacts with minimal dependencies. It is managed and released independently of the core Microcks server components within its [own GitHub repository](https://github.com/microcks/microcks-cli). The CLI [connects to API](/content/documentation/guides/automation/api) and uses of [Service Account](/content/documentation/explanations/service-account) and so it's definitely worth the read 😉
+This guide illustrates usage of `microcks-cli`, a command-line tool for interacting with Microcks APIs. It allows to launch tests or import API artifacts with minimal dependencies. It is managed and released independently of the core Microcks server components within its [own GitHub repository](https://github.com/microcks/microcks-cli). The CLI [connects to API](/documentation/guides/automation/api) and uses [Service Account](/documentation/explanations/service-account) and so it's definitely worth the read 😉
 
 The CLI also supports authenticated and non-authenticated mode when Microcks is deployed without Keycloak. You'll still have to provide client id and secret to commands but they will be ignored. See [issue #23](https://github.com/microcks/microcks-cli/issues/23) for more details.
 
@@ -19,7 +19,7 @@ The CLI is provided as a binary distribution or can be used directly through a c
 
 ### Binary distribution
 
-The CLI binary releases are available for Linux, MacOS or Windows platform with different architectures on [GitHub releases](https://github.com/microcks/microcks-cli/releases). Just download the binary corresponding to your system and put the binary into the `PATH` somewhere. For example, on a Linux platform with `amd64`architecture, you may run these commands:
+The CLI binary releases are available for Linux, MacOS or Windows platform with different architectures on [GitHub releases](https://github.com/microcks/microcks-cli/releases). Just download the binary corresponding to your system and put the binary into the `PATH` somewhere. For example, on a Linux platform with `amd64` architecture, you may run these commands:
 
 ```sh
 curl -Lo microcks-cli https://github.com/microcks/microcks-cli/releases/download/0.5.5/microcks-cli-darwin-amd64 \
@@ -73,4 +73,4 @@ You have learned how to install and use the Microcks CLI for the basic task of l
 
 Microcks CLI also provide the `import` command that allows you to push artifacts into Microcks repository. This command requires that you have a *Service Account* with more privileges than the default one though. You may follow-up this guide with learning more about [Service Accounts](/documentation/explanations/service-account).
 
-The CLI provides the halpul commands `version` and `help` to get basic informations on it. Check the `microcks-cli` [README](https://github.com/microcks/microcks-cli/blob/master/README.md) for full instructions on available commands depending your version.
+The CLI provides the helpful commands `version` and `help` to get basic informations on it. Check the `microcks-cli` [README](https://github.com/microcks/microcks-cli/blob/master/README.md) for full instructions on available commands depending your version.

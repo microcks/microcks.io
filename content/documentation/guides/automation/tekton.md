@@ -3,9 +3,23 @@ draft: false
 title: "Using in Tekton Pipeline"
 date: 2019-11-11
 publishdate: 2019-11-11
-lastmod: 2021-06-30
-weight: 7
+lastmod: 2024-06-10
+weight: 8
 ---
+
+## Overview
+
+## 1. Import Tasks in your cluster
+
+
+
+## 2. Use Tasks in a Pipeline
+
+## 3. Run your Pipeline
+
+## Wrap-up
+
+The most up-to-date information and reference documentation can be found into the repository [README](https://github.com/microcks/microcks-cli/blob/master/tekton/README.md).
 
 > ♻️ **To Be Migrated**
 >
