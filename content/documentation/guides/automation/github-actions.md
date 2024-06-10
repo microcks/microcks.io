@@ -9,13 +9,13 @@ weight: 3
 
 ## Overview
 
-This guide show you how to integrate Microcks into your [Github Actions workflows](https://github.com/features/actions). Microcks provides 2 GitHub Actions for interacting with a Microcks instance from your workflows:
+This guide shows you how to integrate Microcks into your [Github Actions workflows](https://github.com/features/actions). Microcks provides 2 GitHub Actions for interacting with a Microcks instance from your workflows:
 
 * The [Microcks Import GitHub Action](https://github.com/microcks/import-github-action) allows you to import [Artifacts](/documentation/references/artifacts/) in a Microcks instance. If import succeeds is pursuing, if not it fails,
 
 * The [Microcks Test GitHub Action](https://github.com/microcks/test-github-action) allows you to launch a Microcks test on a deployed API endpoint. If test succeeds (ie. API endpoint is conformant with API contract in Microcks) the workflow is pursuing, if not it fails.
 
-Those 2 actions are basically a wrapper around the [Microcks CLI](/documentation/guides/automation/cli.md) and are useing [Service Account](/documentation/explanations/service-account). They provide the same configuration capabilities. Especially, they're sharing the same mandatory configuration parameters that are:
+Those 2 actions are basically a wrapper around the [Microcks CLI](/documentation/guides/automation/cli.md) and are using [Service Account](/documentation/explanations/service-account). They provide the same configuration capabilities. Especially, they're sharing the same mandatory configuration parameters that are:
 
 * `microcksURL` for the Microcks API endpoint,
 * `keycloakClientId` for the Keycloak Realm Service Account ClientId,
