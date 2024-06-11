@@ -19,7 +19,7 @@ So I setup this new example based on a real life use-case our community users ha
 <br> Photo by <a href="https://unsplash.com/@jordanmadrid?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Jordan Madrid</a> on <a href="https://unsplash.com/s/photos/compass?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></i></figcaption>
 </figure>
 
-We'll see how to configure advanced mocking rules in Microcks so that requests will be routed to correct responses based on `region` value and `apiKey` will be checked as mandatory even if we do not care of the actual value. If user specified an unknow region, the mock should return a fallback response. 
+We'll see how to configure advanced mocking rules in Microcks so that requests will be routed to correct responses based on `region` value and `apiKey` will be checked as mandatory even if we do not care of the actual value. If user specified an unknown region, the mock should return a fallback response. 
 
 ## Let's start!
 
@@ -43,7 +43,7 @@ Once imported into Microcks, you should have the same result as below screenshot
 
 Some important things to notice here on how Microcks has interpreted the data coming from the OpenAPI specification:
 * It has inferred that this dispatcher will be based on `URI_PARAMS` (see [Using Exposed Mocks](https://microcks.io/documentation/using/mocks/) for introduction on dispatchers),
-* Is has inferred that this dispather will take care of two parameters being `region` and `apiKey`,
+* Is has inferred that this dispatcher will take care of two parameters being `region` and `apiKey`,
 * It has discovered 5 request/response sample pairs (see [OpenAPI Usage Conventions](https://microcks.io/documentation/using/openapi/#conventions) for detailed explanations). Each request is holding an example **Mock URL** for invoking it.
 
 As soon as it has been imported, new mock endpoints are available and you can start playing around with the mocks like illustrated with below commands: 
@@ -117,7 +117,7 @@ From there you have two options:
 * Define a set of possible values for `apiKey` within the OpenAPI specification examples. This will add complexity and a number of examples to manage if you're managing combinations of parameters,
 * Simply tall Microcks to not worry about the `apiKey` value when dispatching to a response. This makes a lot of sense here as this parameter is purely technical!
 
-Obviously we choose the second option and get back to the **Edit Properties** page for this operation. Just below the parameter constraints we have used previously, we have the ability to change the dispathing properties. We'll simply tell Microcks to keep the current dispatcher but we'll adapt the rules to only let `region` as the sole dispatching criterion:
+Obviously we choose the second option and get back to the **Edit Properties** page for this operation. Just below the parameter constraints we have used previously, we have the ability to change the dispatching properties. We'll simply tell Microcks to keep the current dispatcher but we'll adapt the rules to only let `region` as the sole dispatching criterion:
 
 {{< image src="images/blog/advanced-dispatching-constraints-adapt-rules.png" alt="image" zoomable="true" >}}
 
@@ -159,26 +159,26 @@ We still got default fallback response because Microcks cannot find any response
 
 In order to address our final requirement - having a proper 404 response if region is unknown - we will have to change the dispatcher that was inferred by Microcks. Let's get back to the **Edit Properties** page for the operation once again and now change the dispatcher to `FALLBACK` value. You'll see documentation appearing on the right with the ability to copy-paste the example.
 
-> The `FALLBACK` dispatcher is a new feature from `1.2.0` release. Depending on the day you are reading this post it may be possible that the realease it not yet available. If you need it urgently please use the `latest` version of Microcks. This feature is already enabled there and will be available till 1.2.0 announcements.
+> The `FALLBACK` dispatcher is a new feature from `1.2.0` release. Depending on the day you are reading this post it may be possible that the release it not yet available. If you need it urgently please use the `latest` version of Microcks. This feature is already enabled there and will be available till 1.2.0 announcements.
 
 The `FALLBACK` dispatcher behaves kinda like a `try-catch` wrapping block in programming: it will try applying a first dispatcher with its own rule and if it find nothings it will default to the `fallback` response. Configure this dispatcher as shown below: picking the `unknown` response as the one representing our fallback.
 
 {{< image src="images/blog/advanced-dispatching-constraints-adapt-dispatcher.png" alt="image" zoomable="true" >}}
 
-Hit the **Save** button and test again the previous curl command, you'll see that you're now receving the `404` response called `unknown`: 
+Hit the **Save** button and test again the previous curl command, you'll see that you're now receiving the `404` response called `unknown`: 
 
 ```sh
 $ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast\?region\=center\&apiKey\=qwertyuiop -k
 Region is unknown. Choose in north, west, east or south.%
 ```
 
-🎉 TADAM! Now when getting back the API summary page and checking the `GET /forecast` operation details, you'll see that dispatcher and dispatchin rules have been updated to display your new configuration:
+🎉 TADAM! Now when getting back the API summary page and checking the `GET /forecast` operation details, you'll see that dispatcher and dispatching rules have been updated to display your new configuration:
 
 {{< image src="images/blog/advanced-dispatching-constraints-final.png" alt="image" zoomable="true" >}}
 
 ## Wrap-up
 
-In this blog post, we walked through a *near real-life* sample explaining Microcks default dispatching engine as well as advanced customizations available. We saw that default configuration deduced only from the OpenAPI specification is a great start but does not allow to handle more advanced scenario where we need little smartness. Microcks is proposing advanced constructs for [Parameters Constraints](https://microcks.io/documentation/using/advanced/#operation-parameters-constraints) and [Dispatching Rules](https://microcks.io/documentation/using/advanced/dispatching/): we only scratched the surface here!
+In this blog post, we walked through a *near real-life* sample explaining Microcks default dispatching engine as well as advanced customizations available. We saw that default configuration deduced only from the OpenAPI specification is a great start but does not allow to handle more advanced scenario where we need little smartness. Microcks is proposing advanced constructs for [Parameters Constraints](https://microcks.io/documentation/using/advanced/#operation-parameters-constraints) and [Dispatching Rules](https://microcks.io/documentation/using/dispatching/): we only scratched the surface here!
 
 You may think that setting up these configuration may be cumbersome but remember that you'll only have to do it once! Microcks will keep your customizations upon subsequent imports - as long as you keep the same operation name of course 😉
 
