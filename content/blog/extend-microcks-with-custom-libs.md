@@ -25,7 +25,7 @@ Without waiting, let’s go ahead!
 
 ## Extension capabilities
 
-At the core of Microcks’ mocking engine are [Dispatchers](https://microcks.io/documentation/using/advanced/dispatching/). They are the pieces of logic that allow to match incoming requests and find the appropriate response. Dispatchers are generally deduced from your API artifacts, but they can be configured explicitly.
+At the core of Microcks’ mocking engine are [Dispatchers](https://microcks.io/documentation/using/dispatching/). They are the pieces of logic that allow to match incoming requests and find the appropriate response. Dispatchers are generally deduced from your API artifacts, but they can be configured explicitly.
 
 The `SCRIPT` dispatcher is the most versatile and powerful to integrate custom dispatching logic in Microcks. The scripts can be written in [Groovy](https://www.groovy-lang.org/) propose a very familiar syntax to Javascript users and come with an impressive number of built-in util features (JSON & XML, URL fetching, etc). However, implementing advanced processing logic and duplicating it on several APIs and versions can be cumbersome when done in pure Groovy with simple scripts!
 
@@ -105,7 +105,7 @@ docker-compose -f docker-compose-mount.yml up -d
 
 You should have two containers running (`microcks` and `microcks-db`) at that point. You can use the application by opening your browser to [http://localhost:8080](http://localhost:8080) - or change the port in the compose file if already used. 
 
-For a simple illustration, you may use one of [Microcks samples](https://microcks.io/documentation/getting-started/#loading-samples-using-importers) such as the `Pastry API`. Once loaded, you’ll need to edit the properties of the `GET /pastries` operation to access the [section allowing you to configure the dispatching rules](https://microcks.io/documentation/using/advanced/dispatching/#dispatching-rules-override). Choose the `SCRIPT` dispatcher from the list and paste this simple script as new DIspatcher rules:
+For a simple illustration, you may use one of [Microcks samples](https://microcks.io/documentation/getting-started/#loading-samples-using-importers) such as the `Pastry API`. Once loaded, you’ll need to edit the properties of the `GET /pastries` operation to access the [section allowing you to configure the dispatching rules](https://microcks.io/documentation/using/dispatching/#dispatching-rules-override). Choose the `SCRIPT` dispatcher from the list and paste this simple script as new DIspatcher rules:
 
 ```groovy
 def java = new org.acme.lib.Greeting();
@@ -140,7 +140,7 @@ return "pastries_json"
 08:47:27.279 DEBUG 1 --- [80-exec-10] i.github.microcks.web.RestController     : Dispatch criteria for finding response is pastries_json
 ```
 
-Hooray! It works!  🎉 It demonstrates that Microcks can load arbitrary Java libraries and run them within your dispatching script. This sample is very basic but thanks to the huge Java ecosystem and Microcks features like request [context injection and response templating](https://microcks.io/documentation/using/advanced/templates/#context-expression), you have many possibilities!
+Hooray! It works!  🎉 It demonstrates that Microcks can load arbitrary Java libraries and run them within your dispatching script. This sample is very basic but thanks to the huge Java ecosystem and Microcks features like request [context injection and response templating](https://microcks.io/documentation/using/templates/#context-expression), you have many possibilities!
 
 You can now safely stop the containers:
 
