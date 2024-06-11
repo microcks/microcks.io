@@ -65,7 +65,7 @@ When you define a GraphQL operation that uses only GraphQL [scalar types](https:
 
 ### Mutation with custom type
 
-You can also choose to use [custom types](https://graphql.org/learn/schema/#object-types-and-fields) as query or mutation arguments! Microcks will not be able to automatically infer dispatching rules in that case unfortunately. But it will allow you to define your own smart dispatcher simply, using the [`JSON BODY`](https://microcks.io/documentation/using/advanced/dispatching/#json-body-dispatcher) dispatcher. With this one you’ll be able to easily define an evaluation rule on the query variables JSON to return the response to the client.
+You can also choose to use [custom types](https://graphql.org/learn/schema/#object-types-and-fields) as query or mutation arguments! Microcks will not be able to automatically infer dispatching rules in that case unfortunately. But it will allow you to define your own smart dispatcher simply, using the [`JSON BODY`](https://microcks.io/documentation/using/dispatching/#json-body-dispatcher) dispatcher. With this one you’ll be able to easily define an evaluation rule on the query variables JSON to return the response to the client.
 
 Here below you can see an example of query variables JSON that will be evaluated to return the correct Film to add review to:
 
@@ -77,8 +77,8 @@ We already got a bunch of exciting features but it’s worth noting that some ot
 
 We can mention here:
 
-* [Templating expressions and functions](https://microcks.io/documentation/using/advanced/templates/) - so that you can include dynamic or random content into your mocks responses using notations like `{{ guid() }}` or `{{ request.body/filmId }}`,
-* [`FALLBACK`](https://microcks.io/documentation/using/advanced/dispatching/#fallback-dispatcher) dispatcher if you want some complex `try-catch` behavior in your matching rules when dispatching to a response,
+* [Templating expressions and functions](https://microcks.io/documentation/using/templates) - so that you can include dynamic or random content into your mocks responses using notations like `{{ guid() }}` or `{{ request.body/filmId }}`,
+* [`FALLBACK`](https://microcks.io/documentation/using/dispatching/#fallback-dispatcher) dispatcher if you want some complex `try-catch` behavior in your matching rules when dispatching to a response,
 * `SCRIPT` dispatcher that offers you all the power of [Groovy](https://groovy-lang.org/) scripting to request dispatching (documentation to come soon).
 
 
