@@ -1,10 +1,10 @@
 ---
 draft: false
-title: "Snapshoting/restoring repository"
+title: "Snapshotting/restoring Repository"
 date: 2019-11-18
 publishdate: 2019-11-18
 lastmod: 2024-04-27
-weight: 3
+weight: 4
 ---
 
 > ♻️ **To Be Migrated**

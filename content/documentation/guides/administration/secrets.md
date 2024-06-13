@@ -1,10 +1,10 @@
 ---
 draft: false
-title: "Managing external Secrets"
+title: "Using credentials with Secrets"
 date: 2019-11-18
 publishdate: 2019-11-18
-lastmod: 2024-04-27
-weight: 2
+lastmod: 2024-06-13
+weight: 3
 ---
 
 > ♻️ **To Be Migrated**

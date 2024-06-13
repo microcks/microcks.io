@@ -3,11 +3,92 @@ draft: false
 title: "Security Configuration"
 date: 2024-04-29
 publishdate: 2024-04-29
-lastmod: 2024-05-16
+lastmod: 2024-06-13
 weight: 2
 ---
 
-## Keycloak
+## Overview
+
+## Network
+
+### Using proxy for egress connections
+
+```properties
+network.proxyHost=${PROXY_HOST:}
+network.proxyPort=${PROXY_PORT:}
+network.proxyUsername=${PROXY_USERNAME:}
+network.proxyPassword=${PROXY_PASSWORD:}
+network.nonProxyHosts=${PROXY_EXCLUDE:localhost|127.0.0.1|*.svc.cluster.local}
+```
+
+## Identity Management
+
+Since its inception, Microcks relies on a third party component named [Keycloak](https://www.keycloak.org) for managing security related topics like users identification, users authentication and permissions as well as API endpoints protection. Keycloak is also used for providing **Service Accounts** authentication and authorization. This topic is detailed in a [dedicated page](/documentation/explanations/service-account).
+
+Basic installation of Microcks comes with its own Keycloak instance embedding the definitions of Microcks needed components into what is called a **realm**. Advanced installation of Microcks can reuse an existing Keycloak instance and will require your administrator to create a new dedicated [realm](https://www.keycloak.org/docs/latest/server_admin/index.html#_create-realm). We provide a sample of such a realm configuration that can be imported into your instance here in [Microcks realm full configuration](https://github.com/microcks/microcks/raw/master/install/keycloak-microcks-realm-full.json)
+
+Basically, Microcks components need the reference of the Keycloak instance endpoint into an environment variable called `KEYCLOAK_URL`.
+
+### Authentication
+
+User Authentication in Microcks is delegated to the configured Keycloak instance using the [OpenID Connect Authorization Code Flow](https://www.keycloak.org/docs/latest/server_admin/index.html#authorization-code-flow). The Keycloak instance can be used as the direct source of user's Identity or can be used as [a broker for one or more](https://www.keycloak.org/docs/latest/server_admin/index.html#_identity_broker) configured Identity Providers.
+
+> The default installation and realm settings comes with the **internal identity provider** with 3 default users: `user`, `manager` and `admin` that have the same `microcks123` password. Up to you to configure one [Identity Provider](https://www.keycloak.org/docs/latest/server_admin/index.html#_general-idp-config) attached to the realm Microcks is using.
+
+The **realm** Microcks is using is an installation parameter that defaults to `microcks`. You can adapt it to either realm you want. See [Reusing an existing Keycloak](#reusing-an-existing-keycloak) section below.
+
+On the client side (ie. in the browser), Microcks is using a client application called `microcks-app-js` that is configured to perform redirect to the public endpoint URL of the microcks app.
+
+On the server side, Microcks is using a client application called `microcks-app` for checking and trusting JWT bearers provided by the frontend application API calls.
+
+These parameters are set withing the `application.properties` configuration file. See and example below:
+
+```properties
+# Keycloak configuration properties
+keycloak.auth-server-url=${KEYCLOAK_URL:http://localhost:8180}
+keycloak.realm=microcks
+keycloak.resource=microcks-app
+keycloak.bearer-only=true
+keycloak.ssl-required=external
+```
+
+### Roles and Permissions
+
+Microcks **realm** typically defines 3 application roles that are defined as [client roles](https://www.keycloak.org/docs/latest/server_admin/index.html#client-roles) on the Keycloak side. Theses roles are attached to the `microcks-app` client application.
+
+These roles are:
+
+* `user`: a regular authenticated user of the Microcks application. This is the default role that is automatically attached the first time a user succeed authenticating into the Microcks app,
+* `manager`: a user identified as having management roles on the Microcks repository content. Managers have the permissions of adding and removing API & Services into the repository as well as configuring mocks operation properties
+* `admin`: a user identified as having administration role on the Microcks instance. Admin have the `manager` persmission and are able to manage users, configure external repositories secrets or realize backup/restore operations.
+
+Whether a connected user has these roles is checked both on the client and the server sides using [Keycloak adapters](https://www.keycloak.org/docs/latest/securing_apps/index.html).
+
+#### Groups segmentation
+
+As an optional security feature, you have the ability to segment the repository management persmissions depending on a `master` label you have chosen for organizing your repository. See [Organizing repository](/documentation/using/organizing/) for introduction on `master` label.
+
+For example, if you defined the `domain` label as the master with `customer`, `finance` and `sales` values, you'll be able to define users with the `manager` role **only** for the APIs & Services that have been labeled accordingly. Sarah may be defined as a `manager` for `domain=customer` and `domain=finance` services, while John may be defined as the `manager` for `domain=sales` APIs & services.
+
+When this feature is enabled, Microcks will create as many groups in Keycloak as we have different values for this `master` label. These groups are organized in a hierarchy so that you'll have groups with such names `/microcks/manager/<label>` those members represents the `manager` of the resources labeled with `<label>` value.
+
+This feature is enabled into the `features.properties` configuration file with following properties:
+
+| Sub-Property | Description |
+| ---------- | ----------------- |
+| `enabled` | A boolean flag that turns on the feature. `true` or `false` |
+| `artifact-import-allowed-roles` | A comma separated list of roles that you may restrict import of artifacts to. |
+
+For example:
+
+```properties
+# features.properties
+features.feature.repository-tenancy.enabled=true
+features.feature.repository-tenancy.artifact-import-allowed-roles=admin,manager,manager-any
+```
+
+> 🗒️ The `manager-any` is not actually a role, it's a notation meaning *"A user that belong to any management group even if not endorsing the global manager role"*.
+
 
 ### Reusing an existing Keycloak
 
@@ -29,9 +110,9 @@ keycloak:
   install: false
   realm: my-own-realm
   url: keycloak.example.com:443
-  privateUrl: http://keycloak.namespace.svc.cluster.local:8080/auth  # Optional
+  privateUrl: http://keycloak.namespace.svc.cluster.local:8080      # Recommended
   serviceAccount: microcks-serviceaccount
-  serviceAccountCredentials: ab54d329-e435-41ae-a900-ec6b3fe15c54    # Change recommended
+  serviceAccountCredentials: ab54d329-e435-41ae-a900-ec6b3fe15c54   # Change recommended
 ```
 
 The `privateUrl` is optional and will allow to prevent trusting requests from `webapp` component to Keycloak to go through a public address and network. In a Kubernetes deployment, you'll typically put there the cluster internal `Service` name.
@@ -55,7 +136,7 @@ extraProperties:
 
 ## Kafka
 
-### Resuing an existing secured Kafka
+### Reusing an existing secured Kafka
 
 Microcks Helm Chart and Operator can be configured to reuse an already existing Kafka broker instance for your organization.
 
@@ -98,15 +179,4 @@ features:
           passwordKey: user.password  # Keystore password entry in Secret.
 ```
 
-> We recommend having a in-depth look at the [Helm Chart README](https://github.com/microcks/microcks/tree/master/install/kubernetes) and the [Operator README](https://github.com/microcks/microcks-ansible-operator) to get the most up-to-date informations on detailed configuration.
-
-
-
-
-> 🪄 **To Be Created**
->
-> This is a new documentation page that has to be written as part of our [Refactoring Effort](https://github.com/microcks/microcks.io/issues/81).
-> 
-> **Goal of this page**
-> * Comprehensive reference of Security related configuration in Microcks
-> * Should include: Keycloak realm settings, User management and RBAC, repository organisation
+> 💡 We recommend having a in-depth look at the [Helm Chart README](https://github.com/microcks/microcks/tree/master/install/kubernetes) and the [Operator README](https://github.com/microcks/microcks-ansible-operator) to get the most up-to-date informations on detailed configuration.
