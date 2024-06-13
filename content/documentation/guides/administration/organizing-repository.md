@@ -19,7 +19,9 @@ This guide will show **3 techniques** that are using labels to enhance the organ
 
 3️⃣ From tehre, we can also **segment the management permsissions** to different users.
 
-> 💡 Labels setup and management require changing its configuration and accessing it with the `manager` or `admin` role. Be sure to be able to have access or ask some help to your admin.
+> 🚨 **Prerequisites**
+>
+> Labels setup and management require changing its configuration and accessing it with the `manager` or `admin` role. Be sure to be able to have access or ask some help to your admin.
 
 Let’s jump in! 🏂
 
@@ -42,12 +44,14 @@ When accessing API details, labels are displayed with global metadata at the top
 <div align="center">
 {{< figure src="images/documentation/organizing-labels.png" alt="image" zoomable="true" width="80%" >}}
 </div>
+<br/>
 
 Label management is done through the dialog shown below when one can easily add new labels or remove existing ones.
 
 <div align="center">
 {{< figure src="images/documentation/organizing-labels-edit.png" alt="image" zoomable="true" width="70%" >}}
 </div>
+<br/>
 
 ## 2. Filtering repository content
 
@@ -58,6 +62,7 @@ Microcks does not impose any labels or way of modeling them 😉 However, for no
 <div align="center">
 {{< figure src="images/documentation/organizing-services.png" alt="image" zoomable="true" width="90%" >}}
 </div>
+<br/>
 
 Microcks administrator can configure one label as being the main one, the `master` that will be used for first level filtering in the Services list page of the Microcks web UI.
 

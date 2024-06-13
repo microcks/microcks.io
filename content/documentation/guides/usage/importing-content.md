@@ -49,7 +49,7 @@ Another way of adding new Services or APIs mocks is by scheduling an **Importer 
 
 Still from the left vertical navigation bar, just select the **Importers** menu entry to see the list of existing importers.
 
-### Creating a new shceudled import
+### Creating a new scheduled import
 
 You may declare a new Importer job by hitting the `Create` button.
 

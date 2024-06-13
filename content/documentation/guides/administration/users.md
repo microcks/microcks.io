@@ -19,7 +19,7 @@ Your can *partially* manage users directly from the Microcks UI. "Partially" mea
 
 ## 1. Roles management
 
-Users management is simply a thumbnail with the `Administration` page that is available from the vertical menu on the left once logged in as administrator. 
+Users management is simply a thumbnail with the **Administration** page that is available from the vertical menu on the left once logged in as administrator. 
 
 On this page, you can easily search users using their name and they'll be listed, organized in pages. On each line of the list, you'll have the oportunity to check the different roles endorsed by a user.
 
@@ -44,6 +44,7 @@ Also, a new **Manage Groups** options appears in the option menu for each user. 
 <div align="center">
 {{< figure src="images/documentation/users-group-management.png" alt="image" zoomable="true" width="70%" >}}
 </div>
+<br/>
 
 > 🚨 The groups in Keycloak are actually synchronized lazyly each time an administrator visits to this page. For some unknown reasons, it appears that the sync can be delayed from time to time. Before raising an issue, please visit another page and come back to this one. 😉
 
