@@ -4,7 +4,7 @@ title: "Multi-artifacts support"
 date: 2024-04-30
 publishdate: 2024-04-30
 lastmod: 2024-05-27
-weight: 18
+weight: 8
 ---
 
 ## Introduction

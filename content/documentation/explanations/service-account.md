@@ -4,7 +4,7 @@ title: "Service accounts"
 date: 2019-09-01
 publishdate: 2019-09-01
 lastmod: 2024-06-03
-weight: 8
+weight: 15
 ---
 
 ## Introduction
@@ -17,7 +17,7 @@ Microcks comes with a default account named `microcks-serviceaccount` that comes
 
 Let's start inspecting the properties of the default *Service Account* to check its anatomy 😉 Start connecting as an administrator to the Keycloak instance your Microcks instance is running.
 
-> 💡 Just issue the following unauthenticated API call to Microcks to get the Keycloak URL and the name of realm you're using:
+Just issue the following unauthenticated API call to Microcks to get the Keycloak URL and the name of realm you're using:
 
 ```sh
 $ curl https://microcks.example.com/api/keycloak/config -s -k | jq .
@@ -78,7 +78,7 @@ $ curl -X POST https://keycloak.microcks.example.com/realms/microcks/protocol/op
 # finally, you can reuse this access_token as the bearer to call Microcks APIs
 $ curl https://microcks.example.com/api/services -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJnTVY5OUNfdHRCcDNnSy0tUklaYkY5TDJUWkdpTWZUSWQwaXNrXzh4TElZIn0.eyJleHAiOjE3MTcwNzA0MTQsImlhdCI6MTcxNzA3MDExNCwianRpIjoiM2YyYWZkMjgtMzQ3Ny00NjJiLWIzYmEtNDljZTE3NGQwMTViIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL3JlYWxtcy9taWNyb2NrcyIsImF1ZCI6WyJtaWNyb2Nrcy1hcHAiLCJhY2NvdW50Il0sInN1YiI6IjY5OGZhMzM5LTk5NjEtNDA0ZC1iMjUwLTRhMzQ5MzY2ZDQ2ZCIsInR5cCI6IkJlYXJlciIsImF6cCI6Im1pY3JvY2tzLXNlcnZpY2VhY2NvdW50IiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiZGVmYXVsdC1yb2xlcy1taWNyb2NrcyJdfSwicmVzb3VyY2VfYWNjZXNzIjp7Im1pY3JvY2tzLWFwcCI6eyJyb2xlcyI6WyJ1c2VyIl19LCJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJjbGllbnRIb3N0IjoiMTcyLjE3LjAuMSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoic2VydmljZS1hY2NvdW50LW1pY3JvY2tzLXNlcnZpY2VhY2NvdW50IiwiY2xpZW50QWRkcmVzcyI6IjE3Mi4xNy4wLjEiLCJjbGllbnRfaWQiOiJtaWNyb2Nrcy1zZXJ2aWNlYWNjb3VudCJ9.FgWaKrZthEEK4pAyd9n8mMxCfErCzXN8l8QUaAI9-VYfwfy1qXAqpqtL8rTtOf4MiAV0P7ntz1firmv6GfaInHD9FMbysXOtp6RVB3Jj0ITNqsR-Guw6lYZIKg5ECtqLw3x5cISaq00VGTIOpZDGVn8GRM-a6XQHvfRJzPqgZXELWIhxCzmBor2Sv8m35E_jNQT-cMNrd7XPdRfFYcYqxQgOmez1N9uHg0kajWJEHKFu1TFaa1HT2vaFB6QgNnJusiEIVEltK7FG42SC1QXH9LmUJC9FK7jRTqJx43VMLOCT4xnwsimVq6vlYr_TCsrCB7HqSZUQqeer9cddRnsfag' -k -s | jq .
 ```
-To fuinally get the result of an API call:
+To finally get the result of an API call:
 ```json
 [
   {

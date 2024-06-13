@@ -13,7 +13,7 @@ Quickly after your initial experience with Microcks, you'll realize that **it ne
 * Loading [Artifacts](/documentation/overview/main-concepts/#artifacts) may require accessing secured external resources such as Git repositories,
 * Launching [tests](/documentation/tutorials/getting-started-tests) may require accessing protected HTTPS endpoints or internal message brokers.
 
-This guide will explain you what is the concept of **Secret** in Microcks, how to manage those Secrets and how to use them when defining an [Importer Job](/content/documentation/guides/usage/importing-content/#2-import-content-via-importer). 
+This guide will explain you what is the concept of *Secret* in Microcks, how to manage those Secrets and how to use them when defining an [Importer Job](/content/documentation/guides/usage/importing-content/#2-import-content-via-importer). 
 
 > 🚨 **Prerequisites**
 >
@@ -23,7 +23,7 @@ This guide will explain you what is the concept of **Secret** in Microcks, how t
 
 Authentication Secrets (or simply **Secrets**) are managed by a Microcks administrator and **holds credentials for accessing remote resources** such as Git repositories, remote API endpoints or event brokers.
 
-Credentials informations wrapped within a Secret can be of several natude like a User/Password pair, a Token or some certificates.
+Credentials informations wrapped within a Secret can be of several natude like a User/Password pair, a Token or some X509 certificates.
 
 Secrets are stored within the Microcks database and may be reused by regular users when creating an Importer Job or launching a new test. At that time, regular users are just referring Secret name and don't get access to the detailed.
 
@@ -52,7 +52,7 @@ Authentication may be realized using different methods described below.
 
 The `CA Certificate` is just here to gather a custom certificate or certificate chain specified in [PEM format](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail).
 
-Using the form, you may create as much **Secret** as you need for different resources. Regular users of the Microcks instance will just have access to the name and the description of the secrets.
+Using the form, you may create as much *Secret* as you need for different resources. Regular users of the Microcks instance will just have access to the name and the description of the secrets.
 
 
 ## 3. Adding a Secret to an Import Job
