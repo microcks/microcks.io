@@ -10,7 +10,7 @@ weight: 1
 ## Overview
 
 This page aims to give you a comprehensive reference on the configuration properties used within Microcks. These informations are the ideal companion of
-the [Architecture & Deployment Options](//documentation/explanations/deployment-options) explanations and will be crucial for people who:
+the [Architecture & Deployment Options](/documentation/explanations/deployment-options) explanations and will be crucial for people who:
 * Want to install Microcks - providing info on what can be configured and what are the defaut values,
 * Want to customize configurations - providing info on what can be used to provide customized Docker-Compose files,
 * Want to develop or extend Microcks -  providing comprehensive info on what's externalized as properties and guidelines on how to extend.

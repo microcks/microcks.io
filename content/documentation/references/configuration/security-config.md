@@ -10,7 +10,7 @@ weight: 2
 ## Overview
 
 This page aims to give you a comprehensive reference on the configuration properties used within Microcks. These informations are the ideal companion of
-the [Architecture & Deployment Options](//documentation/explanations/deployment-options) explanations and will be crucial for people who want to review
+the [Architecture & Deployment Options](/documentation/explanations/deployment-options) explanations and will be crucial for people who want to review
 the different security related capabilities of a deployment.
 
 ## Network
