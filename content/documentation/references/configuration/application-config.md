@@ -153,6 +153,8 @@ features.feature.microcks-hub.endpoint=https://hub.microcks.io/api
 features.feature.microcks-hub.allowed-roles=admin,manager,manager-any
 ```
 
+> 🗒️ The `manager-any` is not actually a role, it's a notation meaning *"A user that belong to any management group even if not endorsing the global manager role"*.
+
 #### Async API support
 
 Support for AsyncAPI is an optional feature that is disabled by default. Endpoints informations may be provided for each supported binding:
@@ -186,6 +188,8 @@ Repository tenancy allows using labels for segmenting the API & Service manageme
 features.feature.repository-tenancy.enabled=false
 features.feature.repository-tenancy.artifact-import-allowed-roles=admin,manager,manager-any
 ```
+
+> 🗒️ The `manager-any` is not actually a role, it's a notation meaning *"A user that belong to any management group even if not endorsing the global manager role"*.
 
 ## Async Minion component config
 

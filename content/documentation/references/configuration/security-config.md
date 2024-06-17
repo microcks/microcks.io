@@ -9,9 +9,15 @@ weight: 2
 
 ## Overview
 
+This page aims to give you a comprehensive reference on the configuration properties used within Microcks. These informations are the ideal companion of
+the [Architecture & Deployment Options](//documentation/explanations/deployment-options) explanations and will be crucial for people who want to review
+the different security related capabilities of a deployment.
+
 ## Network
 
 ### Using proxy for egress connections
+
+You can force the main Webapp component to use a corporate proxy for egress using the `application.properties` file. No rpoxy is configured by default:
 
 ```properties
 network.proxyHost=${PROXY_HOST:}
@@ -20,6 +26,8 @@ network.proxyUsername=${PROXY_USERNAME:}
 network.proxyPassword=${PROXY_PASSWORD:}
 network.nonProxyHosts=${PROXY_EXCLUDE:localhost|127.0.0.1|*.svc.cluster.local}
 ```
+
+> 💡 As the Async Minion component is not expected to access remote resources, it is not expected to connect to a proxy.
 
 ## Identity Management
 
@@ -50,6 +58,13 @@ keycloak.realm=microcks
 keycloak.resource=microcks-app
 keycloak.bearer-only=true
 keycloak.ssl-required=external
+
+# Spring Security adapter configuration properties
+spring.security.oauth2.client.registration.keycloak.client-id=microcks-app
+spring.security.oauth2.client.registration.keycloak.authorization-grant-type=authorization_code
+
+# Keycloak access configuration properties
+sso.public-url=${KEYCLOAK_PUBLIC_URL:${keycloak.auth-server-url}}
 ```
 
 ### Roles and Permissions
@@ -133,6 +148,25 @@ extraProperties:
         internal-proxies: 172.16.0.0/12
 ```
 
+This configuration will initiaze a new `application-extra.properties` in the appropiate `ConfigMap`, allowing you to extend the `application.properties` with your
+customizations.
+
+### OAuth2/JWT configuration 
+
+OAuth2/JWT detailed configuration is hosted in the `application.properties` file on the main Webapp component. We're using [Spring Security OAuth2](https://docs.spring.io/spring-security/reference/servlet/oauth2/login/core.html) configuration mechanism. If a `privateUrl` option is provided to access Keycloak, the `jwk-set-uri` property must
+also be set to use the private url [to fetch the certificates from an internal network endpoint](https://docs.spring.io/spring-security/reference/servlet/oauth2/resource-server/jwt.html#oauth2resourceserver-jwt-jwkseturi).
+
+```properties
+# Spring Security adapter configuration properties
+[..]
+spring.security.oauth2.client.registration.keycloak.scope=openid,profile
+spring.security.oauth2.client.provider.keycloak.issuer-uri=${KEYCLOAK_URL}/realms/${keycloak.realm}
+spring.security.oauth2.client.provider.keycloak.user-name-attribute=preferred_username
+spring.security.oauth2.resourceserver.jwt.issuer-uri=${sso.public-url}/realms/${keycloak.realm}
+
+# Uncomment this line if using a privateUrl to connect to Keycloak.
+#spring.security.oauth2.resourceserver.jwt.jwk-set-uri=${KEYCLOAK_URL}/realms/${keycloak.realm}/protocol/openid-connect/certs
+```
 
 ## Kafka
 
