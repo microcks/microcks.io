@@ -4,7 +4,7 @@ title: "Generating Direct API"
 date: 2019-09-01
 publishdate: 2019-09-01
 lastmod: 2024-06-02
-weight: 5
+weight: 4
 ---
 
 ## Overview

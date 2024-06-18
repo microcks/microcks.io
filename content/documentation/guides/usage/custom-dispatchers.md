@@ -4,7 +4,7 @@ title: "Setting custom dispatcher"
 date: 2024-04-30
 publishdate: 2024-04-30
 lastmod: 2024-05-16
-weight: 5
+weight: 2
 ---
 
 > 🪄 **To Be Created**
