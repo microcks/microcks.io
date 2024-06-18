@@ -29,7 +29,10 @@ Secrets are stored within the Microcks database and may be reused by regular use
 
 Secrets management is simply a thumbnail with the **Administration** page that is available from the vertical menu on the left once logged in as administrator.
 
-{{< image src="images/secret-list.png" alt="image" zoomable="true" >}}
+<div align="center">
+{{< figure src="images/documentation/secret-list.png" alt="image" zoomable="true" width="90%" >}}
+<br/>
+</div>
 
 Let see how to create/update a secret and its properties below.
 
@@ -39,8 +42,8 @@ Let's imagine you want to create a secret that will hold informations on how to 
 
 <div align="center">
 {{< figure src="images/documentation/secret-edit.png" alt="image" zoomable="true" width="70%" >}}
-</div>
 <br/>
+</div>
 
 Authentication may be realized using different methods described below.
 
@@ -61,8 +64,8 @@ Now that you have created and managed your secrets, they can be reused when defi
 
 <div align="center">
 {{< figure src="images/documentation/secret-job-edit.png" alt="image" zoomable="true" width="80%" >}}
-</div>
 <br/>
+</div>
 
 When Microcks will scheduled and execute this job to check update of artifact resource, it will simply used the referenced secret. Now your job is identified as using a secret with a balck lock 🔒 on the UI:
 

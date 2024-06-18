@@ -153,7 +153,7 @@ With results:
 ```
 <br/>
 
-## 2. Generate a Direct Event Driven API
+## 3. Generate a Direct Event Driven API
 
 Direct API is able to also manage Event Driven API that are described using AsyncAPI specifications. Imagine a `MyQuote API` that notifies quotes updates on an asynchronous channel. You can define this API that way:
 

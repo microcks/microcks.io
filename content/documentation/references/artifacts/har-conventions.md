@@ -7,7 +7,7 @@ lastmod: 2024-05-27
 weight: 8
 ---
 
-### Conventions
+## Conventions
 
 In order to be correctly imported and understood by Microcks, your HAR file should follow a little set of reasonable conventions and best practices.
 
@@ -47,7 +47,7 @@ With this configuration, the `apiPrefix` is used for 2 purposes by Microcks:
 
 As an example, imagine you'll have a `GET https://pastries.acme.org/my/prefix/toRemove/pastries?size=S` log entry in the HAR file, this one will be considered as a valid entry because it containtes the `apiPrefix` after having removed host information and it will be considered as an example for the `GET /pastries` operation.
 
-### Primary or Secondary?
+## Primary or Secondary?
 
 A HAR file can be imported aither as a `primary` artifact or as a `secondary` artifact.
 
