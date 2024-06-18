@@ -18,6 +18,8 @@ We're on a mission to maintain our website, [microcks.io](https://microcks.io/),
 
 - **Verify Links**: If you encounter rate limit errors for LinkedIn or GitHub profiles, click on the link, verify its accuracy, and update the [.lycheeignore](https://github.com/microcks/microcks.io/blob/master/.lycheeignore) file accordingly to prevent future error reporting.
 
+- **Need and examples?**: 👉 https://github.com/yada/how-to-contribute-microcks.io-doc-refactoring
+
 Let's work together to maintain the excellence of our website! Your contributions make a real difference. 🌟
 
 Happy Contributing! 🎉

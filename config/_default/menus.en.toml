@@ -41,35 +41,35 @@ weight = 3
 ## Documentation Menus
 
 [[docs]]
-  name = "Using"
+  name = "Overview"
   weight = 5
-  identifier = "using"
-  url = "/documentation/using"
+  identifier = "overview"
+  url = "/documentation/overview"
 
 [[docs]]
-  name = "Installing"
+  name = "Tutorials"
   weight = 15
-  identifier = "installing"
-  url = "/documentation/installing"
+  identifier = "tutorials"
+  url = "/documentation/tutorials"
 
 [[docs]]
-  name = "Automating"
+  name = "How-to Guides"
   weight = 20
-  identifier = "automating"
-  url = "/documentation/automating"
-
-[[docs]]
-  name = "Administrating"
-  weight = 21
-  identifier = "administrating"
-  url = "/documentation/administrating"
-
-[[docs]]
-  name = "Guides"
-  weight = 22
   identifier = "guides"
-  post = "break"
   url = "/documentation/guides"
+
+[[docs]]
+  name = "Explanations"
+  weight = 21
+  identifier = "explanations"
+  url = "/documentation/explanations"
+
+[[docs]]
+  name = "References"
+  weight = 22
+  identifier = "references"
+  post = "break"
+  url = "/documentation/references"
 
 # footer menu left
 [[footer_left]]
