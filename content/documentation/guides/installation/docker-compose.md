@@ -87,6 +87,6 @@ This configuration enabled Asynchronous API features in a very lightweight mode 
 
 ## Wrap-up
 
-You just installed Microcks on your local machine using terminal commands. Congrats! 🎉
+You just installed Microcks on your local machine using Docker Compose and terminal commands. Congrats! 🎉
 
 You have discover that Microcks provides a bunch of default profiles to use different capabilities of Microcks depending on your working situation. Advanced profiles are using local configuration files mounted from the `/config` directory. You can refer to the [Application Configuration Reference](/documentation/references/configuration/application-config) to get the full list of configuration options.
