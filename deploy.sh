@@ -7,7 +7,7 @@ printf "\033[0;32mDeploying updates to GitHub...\033[0m\n"
 
 # Build the project.
 export HUGO_ENV=production
-hugo --environment production
+hugo --environment production --minify
 
 # Go To Public folder
 cd public
