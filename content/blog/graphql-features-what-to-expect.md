@@ -25,7 +25,7 @@ In respect of the **contract-first** approach we’re big supporters of and rely
 
 As a GraphQL schema doesn’t support the notion of examples - contrary to OpenAPI and AsyncAPI specifications - you’ll rely on a [Postman Collection](https://www.postman.com/collection/) that holds your mock dataset as examples.
 
-Thanks to the [multi-artifacts support](https://microcks.io/documentation/using/importers/#multi-artifacts-support) feature we introduced in release `1.3.0`, Microcks will be able to import both resources as **primary** and **secondary** artifacts to merge information and build a consolidated view of your GraphQL API.
+Thanks to the [multi-artifacts support](https://microcks.io/documentation/explanations/multi-artifacts/) feature we introduced in release `1.3.0`, Microcks will be able to import both resources as **primary** and **secondary** artifacts to merge information and build a consolidated view of your GraphQL API.
 
 {{< image src="images/blog/graphql-artifacts.png" alt="image" zoomable="true" >}}
 
@@ -77,8 +77,8 @@ We already got a bunch of exciting features but it’s worth noting that some ot
 
 We can mention here:
 
-* [Templating expressions and functions](https://microcks.io/documentation/using/templates) - so that you can include dynamic or random content into your mocks responses using notations like `{{ guid() }}` or `{{ request.body/filmId }}`,
-* [`FALLBACK`](https://microcks.io/documentation/using/dispatching/#fallback-dispatcher) dispatcher if you want some complex `try-catch` behavior in your matching rules when dispatching to a response,
+* [Templating expressions and functions](https://microcks.io/documentation/references/templates/) - so that you can include dynamic or random content into your mocks responses using notations like `{{ guid() }}` or `{{ request.body/filmId }}`,
+* [`FALLBACK`](https://microcks.io/documentation/explanations/dispatching/#fallback-dispatcher) dispatcher if you want some complex `try-catch` behavior in your matching rules when dispatching to a response,
 * `SCRIPT` dispatcher that offers you all the power of [Groovy](https://groovy-lang.org/) scripting to request dispatching (documentation to come soon).
 
 
@@ -90,7 +90,7 @@ Testing a GraphQL API in Microcks means that we’ll reuse the different unitary
 
 {{< image src="images/blog/graphql-test.png" alt="image" zoomable="true" >}}
 
-As usual with other API technologies, tests in Microcks can be launched through the UI, the [API](https://microcks.io/documentation/automating/api/), [Jenkins Plugin](https://microcks.io/documentation/automating/jenkins/), [GitHub Action](https://microcks.io/documentation/automating/github-actions/), [Tekton Task](https://microcks.io/documentation/automating/tekton/) or simple [CLI](https://microcks.io/documentation/automating/cli/) for full automation.
+As usual with other API technologies, tests in Microcks can be launched through the UI, the [API](https://microcks.io/documentation/guides/automation/api/), [Jenkins Plugin](https://microcks.io/documentation/guides/automation/jenkins/), [GitHub Action](https://microcks.io/documentation/guides/automation/github-actions/), [Tekton Task](https://microcks.io/documentation/guides/automation/tekton/) or simple [CLI](https://microcks.io/documentation/guides/automation/cli/) for full automation.
 
 For the technical readers, one subtle detail to notice is that in fact a GraphQL Schema does not allow direct validation of a response content. GraphQL Schema is much more like a grammar defining the range of possibilities for a response. In GraphQL, actual response validation can only be done if you precisely know what was requested by the client.
 
