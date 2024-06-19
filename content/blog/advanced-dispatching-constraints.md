@@ -42,9 +42,9 @@ Once imported into Microcks, you should have the same result as below screenshot
 {{< image src="images/blog/advanced-dispatching-constraints-init.png" alt="image" zoomable="true" >}}
 
 Some important things to notice here on how Microcks has interpreted the data coming from the OpenAPI specification:
-* It has inferred that this dispatcher will be based on `URI_PARAMS` (see [Using Exposed Mocks](https://microcks.io/documentation/using/mocks/) for introduction on dispatchers),
+* It has inferred that this dispatcher will be based on `URI_PARAMS` (see [Your 1st REST mock](https://microcks.io/documentation/tutorials/first-rest-mock/#3-using-query-parameters-in-openapi) for introduction on dispatchers),
 * Is has inferred that this dispatcher will take care of two parameters being `region` and `apiKey`,
-* It has discovered 5 request/response sample pairs (see [OpenAPI Usage Conventions](https://microcks.io/documentation/using/openapi/#conventions) for detailed explanations). Each request is holding an example **Mock URL** for invoking it.
+* It has discovered 5 request/response sample pairs (see [OpenAPI Usage Conventions](https://microcks.io/documentation/references/artifacts/openapi-conventions/) for detailed explanations). Each request is holding an example **Mock URL** for invoking it.
 
 As soon as it has been imported, new mock endpoints are available and you can start playing around with the mocks like illustrated with below commands: 
 
@@ -178,7 +178,7 @@ Region is unknown. Choose in north, west, east or south.%
 
 ## Wrap-up
 
-In this blog post, we walked through a *near real-life* sample explaining Microcks default dispatching engine as well as advanced customizations available. We saw that default configuration deduced only from the OpenAPI specification is a great start but does not allow to handle more advanced scenario where we need little smartness. Microcks is proposing advanced constructs for [Parameters Constraints](https://microcks.io/documentation/using/advanced/#operation-parameters-constraints) and [Dispatching Rules](https://microcks.io/documentation/using/dispatching/): we only scratched the surface here!
+In this blog post, we walked through a *near real-life* sample explaining Microcks default dispatching engine as well as advanced customizations available. We saw that default configuration deduced only from the OpenAPI specification is a great start but does not allow to handle more advanced scenario where we need little smartness. Microcks is proposing advanced constructs for [Parameters Constraints](hhttps://microcks.io/documentation/guides/usage/mocks-constraints/) and [Dispatching Rules](https://microcks.io/documentation/explanations/dispatching/): we only scratched the surface here!
 
 You may think that setting up these configuration may be cumbersome but remember that you'll only have to do it once! Microcks will keep your customizations upon subsequent imports - as long as you keep the same operation name of course 😉
 

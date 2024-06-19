@@ -95,7 +95,7 @@ paths:
 
 Because of the `application/json` content type, we can express examples as JSON or as YAML objects. Examples are really helpful when carefully chosen to represent real-life samples very close to actual functional situation. Here I've put my real cats 🐈 names.
 
-As soon as your contract contains examples, you can import it into Microcks and it will use examples to produce real life simulation of your API. Use the [Direct Upload](/content/documentation/guides/usage/importing-content/#1-import-content-via-upload) method to inject your OpenAPI file in Microcks. You should get the following result:
+As soon as your contract contains examples, you can import it into Microcks and it will use examples to produce real life simulation of your API. Use the [Direct Upload](/documentation/guides/usage/importing-content/#1-import-content-via-upload) method to inject your OpenAPI file in Microcks. You should get the following result:
 
 {{< image src="images/documentation/openapi-101-basic.png" alt="image" zoomable="true" >}}
 
@@ -284,7 +284,7 @@ paths:
                     }
 ```
 
-Microcks has this ability to generate [dynamic mock content](//documentation/explanations/dynamic-content). The `new_pet` example fragment above embeds two specific notations that are:
+Microcks has this ability to generate [dynamic mock content](/documentation/explanations/dynamic-content). The `new_pet` example fragment above embeds two specific notations that are:
 
 * `{{ randomInt(5,10) }}` for asking Microcks to generate a random integer between 5 and 10 for us (remember: the other pets have ids going from 1 to 4),
 * `{{ request.body/name }}` for asking Microcks to reuse here the `name` property of the request body. Simply.
