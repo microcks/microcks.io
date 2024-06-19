@@ -36,27 +36,27 @@ The maintainers needed to be able to provide the proper insights with the right 
 
 Those questions fall into the realm of continuous improvement. Therefore, the second requirement this contribution covers is understanding where errors or performance degradation could come from to facilitate code optimizations.
 
-Microcks already provided [Prometheus](https://prometheus.io/) [endpoints](https://microcks.io/documentation/using/monitoring/#technical-metrics) for metrics but to get deeper insights, it is necessary to also collect logs and traces. Furthermore, there needed to be a way to generate load in order to help with the capacity provisioning of Microcks instances.
+Microcks already provided [Prometheus](https://prometheus.io/) [endpoints](https://microcks.io/documentation/explanations/monitoring/#technical-metrics) for metrics but to get deeper insights, it is necessary to also collect logs and traces. Furthermore, there needed to be a way to generate load in order to help with the capacity provisioning of Microcks instances.
 
 
 ## What’s in the box?
 
 As part of the CNCF ecosystem, it was a natural decision with the maintainers that the way to go was to provide a comprehensive integration with the [OpenTelemetry](https://opentelemetry.io/) initiative. OpenTelemetry is a collection of APIs, SDKs, and tools that provide an open, vendor-agnostic way to instrument, generate, collect, transform, and export telemetry data.
 
-In addition to the [Prometheus endpoints](https://microcks.io/documentation/using/monitoring/#technical-metrics) still present, Microcks `1.9.0` can now be deployed with OpenTelemetry instrumentation. With that configuration enabled, the metrics, logs, and distributed traces produced by Microcks can be sent via OTLP (OpenTelemetry Line Protocol) to any OpenTelemetry [Collector service](https://opentelemetry.io/docs/collector/). Enabling this configuration is very straightforward, you just have to set two environment variables during Microcks’ deployment:
+In addition to the [Prometheus endpoints](https://microcks.io/documentation/explanations/monitoring/#technical-metrics) still present, Microcks `1.9.0` can now be deployed with OpenTelemetry instrumentation. With that configuration enabled, the metrics, logs, and distributed traces produced by Microcks can be sent via OTLP (OpenTelemetry Line Protocol) to any OpenTelemetry [Collector service](https://opentelemetry.io/docs/collector/). Enabling this configuration is very straightforward, you just have to set two environment variables during Microcks’ deployment:
 
 * `OTEL_JAVAAGENT_ENABLED` must be set to `true`, this activates the OpenTelemetry instrumentation with the OpenTelemetry Java Agent.
 * `OTEL_EXPORTER_OTLP_EXPORT` must be set to a collector URL like `[http://otel-collector.acme.com:4317](http://otel-collector.acme.com:4317)`. By default, it uses the OTLP/GRPC protocol.
 
-> You can check the project’s [OpenTelemetry documentation](https://microcks.io/documentation/using/monitoring/#opentelemetry-support) for more information.
+> You can check the project’s [OpenTelemetry documentation](https://microcks.io/documentation/explanations/monitoring/#opentelemetry-support) for more information.
 
 Aside from the telemetry data collection, with this contribution, Microcks also provides a comprehensive [Grafana dashboard](https://grafana.com/grafana/). That way you get a direct digest of all the collected information with instant access to performance metrics per mock endpoints, including TPS and response time percentile information. The backends used here to store the telemetry data on which the Grafana Dashboard is built are Prometheus for the metrics, [Loki](https://grafana.com/oss/loki/) for the logs, and [Tempo](https://grafana.com/oss/tempo/) for the traces. This enables seamless correlation of all 3 telemetry signals to analyze performance trends, discover potential issues, and identify bottlenecks.
 
-> You can check the project’s [Grafana documentation](https://microcks.io/documentation/using/monitoring/#grafana-dashboard) for more information
+> You can check the project’s [Grafana documentation](https://microcks.io/documentation/explanations/monitoring/#grafana-dashboard) for more information
 
 Finally, as generating load on Microcks can be complex for new users, we also added a benchmarking suite to Microcks `1.9.0`! Easy to go for beginners, this suite allows you to simulate Virtual Users on different usage scenarios and gather raw performance metrics of your instance. Thanks to the [K6](https://k6.io/) load and performance testing suite, it’s easy to run and tune to generate a load representative of your expected usage (browsing / invoking REST mocks / invoking Graph mocks / etc..)
 
-> Note that you can use this benchmark suite without necessarily enabling the OpenTelemetry and Grafana features. You can check the project’s [Benchmark documentation](https://microcks.io/documentation/using/monitoring/#benchmark-suite) for more information.
+> Note that you can use this benchmark suite without necessarily enabling the OpenTelemetry and Grafana features. You can check the project’s [Benchmark documentation](https://microcks.io/documentation/explanations/monitoring/#benchmark-suite) for more information.
 
 
 ## Walkthrough

@@ -140,7 +140,7 @@ return "pastries_json"
 08:47:27.279 DEBUG 1 --- [80-exec-10] i.github.microcks.web.RestController     : Dispatch criteria for finding response is pastries_json
 ```
 
-Hooray! It works!  🎉 It demonstrates that Microcks can load arbitrary Java libraries and run them within your dispatching script. This sample is very basic but thanks to the huge Java ecosystem and Microcks features like request [context injection and response templating](https://microcks.io/documentation/using/templates/#context-expression), you have many possibilities!
+Hooray! It works!  🎉 It demonstrates that Microcks can load arbitrary Java libraries and run them within your dispatching script. This sample is very basic but thanks to the huge Java ecosystem and Microcks features like request [context injection and response templating](https://microcks.io/documentation/references/templates/#context-expression), you have many possibilities!
 
 You can now safely stop the containers:
 

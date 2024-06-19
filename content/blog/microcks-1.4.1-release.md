@@ -31,7 +31,7 @@ For each and every tenant, Microcks takes care of creating and managing dedicate
 {{< image src="images/blog/users-group-management.png" alt="image" zoomable="true" >}}
 
 
-> How to enable and manage a multi-tenant repository? It’s very easy! New options have been added into both Helm Chart and Operator. Check our updated documentation on [activation](https://microcks.io/documentation/using/organizing/#rbac-security-segmentation) and user [groups management](https://microcks.io/documentation/administrating/users/#group-membership).
+> How to enable and manage a multi-tenant repository? It’s very easy! New options have been added into both Helm Chart and Operator. Check our updated documentation on [activation](https://microcks.io/documentation/guides/administration/organizing-repository/#3-segmenting-management-responsibilities) and user [groups management](https://microcks.io/documentation/guides/administration/users/#2-groups-membership-management).
 
 
 ### Scaling labels using new APIMetadata
@@ -58,7 +58,7 @@ operations:
     delay: 50
 ```
 
-> For more information on that feature, checkout the [APIMetadata documentation](https://microcks.io/documentation/using/advanced/metadata/). You can also embed such metadata directly into your [OpenAPI](https://www.openapis.org/) or [AsyncAPI](https://asyncapi.com) specification file. Please pursue your reading to the “OpenAPI & AsyncAPI Specification support” section `😉`
+> For more information on that feature, checkout the [APIMetadata documentation](https://microcks.io/documentation/references/metadada/). You can also embed such metadata directly into your [OpenAPI](https://www.openapis.org/) or [AsyncAPI](https://asyncapi.com) specification file. Please pursue your reading to the “OpenAPI & AsyncAPI Specification support” section `😉`
 
 
 ## Developer & Installation eXperiences
@@ -127,7 +127,7 @@ openapi: '3.1.0'
           return "Accepted"
 ```
 
-> Want to learn more about these extensions? Check our updated [OpenAPI support](https://microcks.io/documentation/using/openapi/#using-openapi-extensions) and [AsyncAPI support](https://microcks.io/documentation/using/asyncapi/#using-asyncapi-extensions) documentation. If embedding our extension into your spec doesn’t please you, you can still use the new `APIMetadata` document like explained in the “Repository organization” section 😇
+> Want to learn more about these extensions? Check our updated [OpenAPI support](https://microcks.io/documentation/references/artifacts/openapi-conventions/#openapi-extensions) and [AsyncAPI support](https://microcks.io/documentation/references/artifacts/asyncapi-conventions/#asyncapi-extensions) documentation. If embedding our extension into your spec doesn’t please you, you can still use the new `APIMetadata` document like explained in the “Repository organization” section 😇
 
 And of course we produced a number of fixes or enhancements thanks to user feedback that deal with edge cases of these specifications. Let mentioned: 
 

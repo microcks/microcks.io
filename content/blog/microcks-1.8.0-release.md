@@ -61,7 +61,7 @@ That way, we think we’ve got Linux philosophy as it’s best, supporting the f
 2. Optionally curate the recorded content to remove noise and inappropriate data
 3. Integrate the resulting HAR into Microcks to reuse the captures as mock sources.
 
-> Using HAR in Microcks as a primary or secondary artifact is pretty straightforward. You only have to add a specific comment to your file to tell Microcks the name and version of the API it relates to. Check [our documentation](https://microcks.io/documentation/using/har/). 
+> Using HAR in Microcks as a primary or secondary artifact is pretty straightforward. You only have to add a specific comment to your file to tell Microcks the name and version of the API it relates to. Check [our documentation](https://microcks.io/documentation/references/artifacts/har-conventions/). 
 
 
 ### Test OAuth2 secured endpoints
@@ -70,7 +70,7 @@ Testing a secured API endpoint can be tedious as it often involves retrieving an
 
 We’ve introduced the support of OAuth2 [Client Credentials Flow](https://auth0.com/docs/get-started/authentication-and-authorization-flow/client-credentials-flow), [Refresh Token Rotation](https://auth0.com/docs/secure/tokens/refresh-tokens/refresh-token-rotation) and [Resource Owner Password Flow](https://auth0.com/docs/get-started/authentication-and-authorization-flow/resource-owner-password-flow) so that you have to provide your OAuth client information to Microcks, and it will handle the authorization flow for you - taking care of transmitting the retrieved token to your API or services under test.
 
-> This feature is now enabled via the Microcks UI, API, command line tool `microcks-cli`, and the different CI/CD integration. Check [our documentation](https://microcks.io/documentation/using/tests/#oauth2-authorization).
+> This feature is now enabled via the Microcks UI, API, command line tool `microcks-cli`, and the different CI/CD integration. Check [our documentation](https://microcks.io/documentation/references/test-endpoints/#oauth2).
 
 
 ### User experience enhancements

@@ -40,7 +40,7 @@ Installing our new Docker Desktop Extension only takes three simple steps for Mi
 
 3. Choose Microcks, install and launch it and you are ready to go 🏆🤩
 
-As we are convinced that a video is worth a million words, please see the latest entry below or on our [youtube channel](https://www.youtube.com/c/Microcks/videos) for both a 3 minutes demonstration video of docker extension installation and our new [Direct API](https://microcks.io/documentation/using/dynamic/) feature 😘
+As we are convinced that a video is worth a million words, please see the latest entry below or on our [youtube channel](https://www.youtube.com/c/Microcks/videos) for both a 3 minutes demonstration video of docker extension installation and our new [Direct API](https://microcks.io/documentation/guides/usage/direct-api/) feature 😘
 
 {{< youtube id="E8rjUwznO-Q" autoplay="false" >}}
 

@@ -29,7 +29,7 @@ The simple `PROXY` dispatcher simply changes the base URL of the Microcks and ma
 
 Enabling the `PROXY` dispatcher is a per-operation setting. That means that within the same API, you may have some operations that use regular mocks and others that just delegate API calls to a real backend system. Your client still calls the Microcks endpoints though - allowing you a smooth transition from mocked inexistent operation to ready-ones on a real implementation. 
 
-The advanced `PROXY_FALLBACK` dispatcher works similarly to the [`FALLBACK` dispatcher](../../documentation/using/dispatching#fallback-dispatcher), but with one key difference: when no matching response is found within the Microcks’ dataset, instead of returning a fallback response, it changes the base URL of the request and makes a call to the real service.
+The advanced `PROXY_FALLBACK` dispatcher works similarly to the [`FALLBACK` dispatcher](https://microcks.io/documentation/explanations/dispatching/#fallback-dispatcher), but with one key difference: when no matching response is found within the Microcks’ dataset, instead of returning a fallback response, it changes the base URL of the request and makes a call to the real service.
 
 {{< image src="images/blog/new-proxy-features-1.9.1-proxy-fallback.png" alt="new-proxy-features-1.9.1-proxy-fallback" >}}
 
@@ -70,7 +70,7 @@ So, now we have two more ways to customize Microcks' behavior. Why would we need
 
 We can now set up Microcks' URL for our client application and switch between mocking and calling the actual backend service by turning on/off the proxy dispatcher in the Microcks UI without any changes to the client application configuration.
 
-And if we need some kind of automated, exotic logic, we can use the power of the [`SCRIPT` dispatcher]((../../documentation/using/dispatching#script-dispatcher)), which the `PROXY_FALLBACK` dispatcher wraps. This is the approach I took to implement the behavior that the QA engineer requested.
+And if we need some kind of automated, exotic logic, we can use the power of the [`SCRIPT` dispatcher](https://microcks.io/documentation/explanations/dispatching/#script-dispatcher), which the `PROXY_FALLBACK` dispatcher wraps. This is the approach I took to implement the behavior that the QA engineer requested.
 
 ```yaml
 x-microcks-operation:

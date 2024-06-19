@@ -11,7 +11,7 @@ weight: 4
 
 This guide shows you how to use the [RabbitMQ](https://www.rabbitmq.com/) protocol with Microcks. RabbitMQ is one of the most popular open source message broker that is supporting different protocols and more specifically [AMQP 0.9.1](https://www.rabbitmq.com/resources/specs/amqp0-9-1.pdf), RabbitMQ was originally developed for.
 
-Microcks supports RabbitMQ/AMQP as a protocol binding for [AsyncAPI](../../using/asyncapi). That means that Microcks is able to connect to a RabbitMQ broker for publishing mock messages as soon as it receives a valid [AsyncAPI](https://asyncapi.com) Specification and to connect to any RabbitMQ broker in your organization to check that flowing messages are compliant to the schema described within your specification.
+Microcks supports RabbitMQ/AMQP as a protocol binding for [AsyncAPI](/documentation/references/artifacts/asyncapi-conventions/). That means that Microcks is able to connect to a RabbitMQ broker for publishing mock messages as soon as it receives a valid [AsyncAPI](https://asyncapi.com) Specification and to connect to any RabbitMQ broker in your organization to check that flowing messages are compliant to the schema described within your specification.
 
 Let's start! 🚀
 
@@ -19,7 +19,7 @@ Let's start! 🚀
 
 First mandatory step here is to setup Microcks so that it will be able to connect to a RabbitMQ broker for sending mock messages. Microcks has been tested successfully with RabbitMQ version `3.9.13`. It can be deployed as containerized workload on your Kubernetes cluster. Microcks does not provide any installation scripts or procedures ; please refer to projects or related products documentation.
 
-If you have used the [Operator based installation](../../installing/operator) of Microcks, you'll need to add some extra properties to your `MicrocksInstall` custom resource. The fragment below shows the important ones:
+If you have used the [Operator based installation](/documentation/references/configuration/operator-config/) of Microcks, you'll need to add some extra properties to your `MicrocksInstall` custom resource. The fragment below shows the important ones:
 
 ```yaml
 apiVersion: microcks.github.io/v1alpha1
@@ -44,7 +44,7 @@ The `async` feature should of course be enabled and then the important things to
 * `username` is simply the user to use for authenticating the connection,
 * `password` represents this user credentials.
 
-If you have used the [Helm Chart based installation](../../installing/kubernetes) of Microcks, this is the corresponding fragment put in a `Values.yml` file:
+If you have used the [Helm Chart based installation](/documentation/references/configuration/helm-chart-config/) of Microcks, this is the corresponding fragment put in a `Values.yml` file:
 
 ```yaml
 [...]
@@ -127,9 +127,9 @@ components:
             email: '{{randomEmail()}}'
 ```
 
-If you're now yet accustomed to it, you may wonder what it this `{{randomFullName()}}` notation? These are just [Templating functions](../../using/advanced/templates) that allow generation of dynamic content! 😉
+If you're now yet accustomed to it, you may wonder what it this `{{randomFullName()}}` notation? These are just [Templating functions](/documentation/references/templates/) that allow generation of dynamic content! 😉
 
-Now simply import your AsyncAPI file into Microcks either using a **Direct upload** import or by defining a **Importer Job**. Both methods are described in [this page](../../using/importers).
+Now simply import your AsyncAPI file into Microcks either using a **Direct upload** import or by defining a **Importer Job**. Both methods are described in [this page](/documentation/guides/usage/importing-content/).
 
 ## 3. Validate your mocks
 
@@ -177,9 +177,9 @@ Publishing {"displayName":"John Doe","email":"john@doe.com"}
 
 Do not interrupt the execution of the script for now.
 
-If the **QA** broker access is secured - let's say with credentials and custom certificates - we will first have to manage a [Secret](../../administrating/secrets) in Microcks to hold these informations. Within Microcks console, first go to the **Administration** section and the **Secrets** tab.
+If the **QA** broker access is secured - let's say with credentials and custom certificates - we will first have to manage a [Secret](/documentation/guides/administration/secrets/) in Microcks to hold these informations. Within Microcks console, first go to the **Administration** section and the **Secrets** tab.
 
-> **Administration** and **Secrets** will only be available to people having the `administrator` role assigned. Please check [this documentation](../../administrating/users) for details.
+> **Administration** and **Secrets** will only be available to people having the `administrator` role assigned. Please check [this documentation](/documentation/guides/administration/users/) for details.
 
 The screenshot below illustrates the creation of such a secret for your `QA RabbitMQ Broker` with username and password.
 

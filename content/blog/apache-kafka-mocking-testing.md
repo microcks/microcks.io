@@ -80,7 +80,7 @@ Imagine you have now developed a simple consumer that listens to this `Usersigne
 // ...until you kill your consumer...
 ```
 
-Thanks to Microcks [message templating](https://microcks.io/documentation/using/advanced/templates/), you see that you receive different message ids each and every time.
+Thanks to Microcks [message templating](https://microcks.io/documentation/references/templates/), you see that you receive different message ids each and every time.
 
 The new thing in the Microcks release `1.1.0` is the little green-and-red bar chart in the upper right corner of the screen capture. That’s where you can launch tests of your Kafka event-based API. Let’s see what it means.
 
@@ -96,13 +96,13 @@ For defining such a test, you will need to specify:
 
 {{< image src="images/blog/apache-kafka-mocking-testing-test.png" alt="image" zoomable="true" >}}
 
-> In 1.1.0 release we only deal with JSON Schema describing message payload but we plan to include [Avro Schema](http://avro.apache.org/docs/current/spec.html) support in next releases. For more details, see the [Test Runner](https://microcks.io/documentation/using/tests/#test-runner) documentation.
+> In 1.1.0 release we only deal with JSON Schema describing message payload but we plan to include [Avro Schema](http://avro.apache.org/docs/current/spec.html) support in next releases. For more details, see the [Test Runner](https://microcks.io/documentation/references/test-endpoints/#test-runner) documentation.
 
 Microcks is able to launch tests asynchronously, to collect and store results and then give a restitution of the test results as well as the received messages. See the failed test below: received message triggered a validation error because the `sendAt` property was not of the expected type.
 
 {{< image src="images/blog/apache-kafka-mocking-testing-result.png" alt="image" zoomable="true" >}}
 
-> Even if it may be handy to launch tests manually for diagnostic or evaluation purposes, we recommend triggering tests automatically from your CI/CD pipeline. Microcks provides a [CLI](https://microcks.io/documentation/automating/cli/) and some other options for that.
+> Even if it may be handy to launch tests manually for diagnostic or evaluation purposes, we recommend triggering tests automatically from your CI/CD pipeline. Microcks provides a [CLI](https://microcks.io/documentation/guides/automation/cli/) and some other options for that.
 
 ## Summary
 

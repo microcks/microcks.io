@@ -53,7 +53,7 @@ We have added a lot of new templating functions that will allow Microcks to gene
 
 We have also added a new `FALLBACK` dispatcher that helps to define default responses and advanced behavior for your mocks.
 
-> Thanks a lot to our community users 🙏 - [@gkleij](https://github.com/gkleij), [@robvalk](https://github.com/robvalk) and [@ChristianHauwert](https://github.com/ChristianHauwert) - that suggested enhancements and helped to validate them. Check our documentation on Template functions [here](https://microcks.io/documentation/using/advanced/templates/#function-expressions) and have a look at our blog post introducing [Fallback and advanced dispatching](https://microcks.io/blog/advanced-dispatching-constraints/).
+> Thanks a lot to our community users 🙏 - [@gkleij](https://github.com/gkleij), [@robvalk](https://github.com/robvalk) and [@ChristianHauwert](https://github.com/ChristianHauwert) - that suggested enhancements and helped to validate them. Check our documentation on Template functions [here](https://microcks.io/documentation/references/templates/#function-expressions) and have a look at our blog post introducing [Fallback and advanced dispatching](https://microcks.io/blog/advanced-dispatching-constraints/).
 
 
 ### Get started with a streamlined installation experience

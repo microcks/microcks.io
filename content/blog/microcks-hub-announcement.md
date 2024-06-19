@@ -61,7 +61,7 @@ For Microcks users, it just involves 3 single steps:
 
 3. From Microcks, launch tests on your implementation to check conformance. As the hub wraps different kinds of artifacts, you can validate: contract syntactic rules checking OpenAPI schema conformance,
 **OR**
-business behavior rules using [Postman Collection](https://microcks.io/documentation/using/postman/) test scripts.
+business behavior rules using [Postman Collection](https://microcks.io/documentation/references/artifacts/postman-conventions/) test scripts.
 
 It has neither been as easy to do Open Banking nor to follow the standard and regulatory requirements as using Microcks and the community API Mocks and Test suites 🚀 We love and are happy to support #fintech #startups 😘
 

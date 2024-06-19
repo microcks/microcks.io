@@ -13,7 +13,7 @@ This guide shows you how to use a [Amazon SQS](https://aws.amazon.com/sqs/) and 
 
 Amazon Simple Queue Service (SQS) lets you send, store, and receive messages between software components. As stated by the name, it is a message queuing service where one message from a queue can only be consumed by one component. Amazon Simple Notification Service (SNS) sends notifications two ways and provides high-throughput, push-based, many-to-many messaging between distributed systems, microservices, and event-driven serverless applications.
 
-Microcks supports Amazon SQS and SNS as a protocol bindings for [AsyncAPI](../../using/asyncapi). That means that Microcks is able to connect to either SQS or SNS service for publishing mock messages as soon as it receives a valid [AsyncAPI](https://asyncapi.com) Specification and to connect to any SQS/SNS queue or topic to check that flowing messages are compliant to the schema described within your specification.
+Microcks supports Amazon SQS and SNS as a protocol bindings for [AsyncAPI](/documentation/references/artifacts/asyncapi-conventions/). That means that Microcks is able to connect to either SQS or SNS service for publishing mock messages as soon as it receives a valid [AsyncAPI](https://asyncapi.com) Specification and to connect to any SQS/SNS queue or topic to check that flowing messages are compliant to the schema described within your specification.
 
 Let's go! 🏄‍♂️
 
@@ -50,7 +50,7 @@ $ kubectl create secret generic my-aws-credentials \
 
 You also have to ensure that this IAM Account has the required permissions for connecting to the service. In order to use SQS service with Microcks, your IAM account will need the `AmazonSQSFullAccess` policy to create, list and get details on queues but also publish messages to them. In order to use SNS service with Microcks, your IAM account will need the `AmazonSNSFullAccess` policy to create, list and get details on topics but also publish messages to them. 
 
-If you have used the [Operator based installation](../../installing/operator) of Microcks, you'll need to add some extra properties to your `MicrocksInstall` custom resource. The fragment below shows the important ones with the 2 alternatives of using a `Secret` that keys will be injected as environment variables or using a `Secret` holding a profile file that will be mounted on filesystem:
+If you have used the [Operator based installation](/documentation/references/configuration/operator-config/) of Microcks, you'll need to add some extra properties to your `MicrocksInstall` custom resource. The fragment below shows the important ones with the 2 alternatives of using a `Secret` that keys will be injected as environment variables or using a `Secret` holding a profile file that will be mounted on filesystem:
 
 ```yaml
 apiVersion: microcks.github.io/v1alpha1
@@ -88,7 +88,7 @@ The `async` feature should of course be enabled and then the important things to
 * in the case of `profile` file being used, you can specify the `credentialsProfile` you want to use (default to `microcks-sqs-admin`),
 * `credentialsSecretRef` is the name of the `Secret` holding either your IAM account environment variables or profile file. You can configure either secret keys or file key.
 
-If you have used the [Helm Chart based installation](../../installing/kubernetes) of Microcks, this is the corresponding fragment put in a `Values.yml` file:
+If you have used the [Helm Chart based installation](/documentation/references/configuration/helm-chart-config/) of Microcks, this is the corresponding fragment put in a `Values.yml` file:
 
 ```yaml
 [...]
@@ -168,9 +168,9 @@ channels:
                 age: 36
 ```
 
-If you're now yet accustomed to it, you may wonder what it this `{{randomFullName()}}` notation? These are just [Templating functions](../../using/advanced/templates) that allow generation of dynamic content! 😉
+If you're now yet accustomed to it, you may wonder what it this `{{randomFullName()}}` notation? These are just [Templating functions](/documentation/references/templates/) that allow generation of dynamic content! 😉
 
-Now simply import your AsyncAPI file into Microcks either using a **Direct upload** import or by defining a **Importer Job**. Both methods are described in [this page](../../using/importers).
+Now simply import your AsyncAPI file into Microcks either using a **Direct upload** import or by defining a **Importer Job**. Both methods are described in [this page](/documentation/guides/usage/importing-content/).
 
 ## 3. Validate your mocks
 
@@ -194,9 +194,9 @@ Now the final step is to perform some tests of the validation features in Microc
 
 Imagine that you want to validate messages from a `QA` environment on a specific Amazon region (not necessarily the same as the Microcks instance is connected to for mocking purposes). As the **QA** resources access is secured, you'll need - like described above in Step 1 - to retrieve an IAM account access key credentials. In order to run tests on SQS service, such an IAM account will require the `AmazonSQSReadOnlyAccess` to list queues, get queue attributes and read messages. In order to run tests on SNS service, the IAM account will require slightly more permissions being the `AmazonSNSFullAccess` and the `AmazonSQSFullAccess`. This is actualy necessary as Microcks will dynamically create temporary SQS queue and SNS subscription in order to performa a test.
 
-Once you get the IAM account access key, you will then have to manage a [Secret](../../administrating/secrets) in Microcks to hold these informations. Within Microcks console, first go to the **Administration** section and the **Secrets** tab.
+Once you get the IAM account access key, you will then have to manage a [Secret](/documentation/guides/administration/secrets/) in Microcks to hold these informations. Within Microcks console, first go to the **Administration** section and the **Secrets** tab.
 
-> **Administration** and **Secrets** will only be available to people having the `administrator` role assigned. Please check [this documentation](../../administrating/secrets/users) for details.
+> **Administration** and **Secrets** will only be available to people having the `administrator` role assigned. Please check [this documentation](/documentation/guides//administration/users) for details.
 
 On this tab, you'll have to create a `Basic Authentication` secret with the username being the Access Key Id of your IAM account and the password being its Secret Access Key.
 

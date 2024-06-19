@@ -33,7 +33,7 @@ Microcks samples you used to add manually as described in our [Getting Started](
 
 When choosing a specific API version, you have access to its detailed information. You can also directly choose to **install it **by clicking the button. From that point, you will have 2 options:
 
-* Install it with `+ Add an Import Job`. This will in fact create a [new automatic and scheduled import](https://microcks.io/documentation/using/importers/#creating-a-new-scheduled-import) for you. So that subsequent updates of this API will be automatically propagated to your instances,
+* Install it with `+ Add an Import Job`. This will in fact create a [new automatic and scheduled import](https://microcks.io/documentation/guides/usage/importing-content/#creating-a-new-scheduled-import) for you. So that subsequent updates of this API will be automatically propagated to your instances,
 * Install it with a `+ Direct Import` which means that the import will only be made once and you’ll have to re-run the install for updates.
 
 {{< image src="images/blog/microcks-1.5.2-install.png" alt="image" zoomable="true" >}}
@@ -58,7 +58,7 @@ As GitLab URLs are build with an encoded path and a filename that is not located
 
 `https://gitlab.com/api/v4/projects/35980862/repository/files/folder%2Fsubfolder%2Ffilename/raw?ref=branch`), we realized that we cannot just extract the last part of the URL to get the file name.
 
-This leads to inconsistent behavior when using [Multi-artifacts support](https://microcks.io/documentation/using/importers/#multi-artifacts-support): all source artifacts being identified as `raw?ref=branch`, they are overwritten when importing different artifacts successively. More-over this breaks the reference resolution mechanism that also relies on simple no encoding file name and path in repository URL.
+This leads to inconsistent behavior when using [Multi-artifacts support](https://microcks.io/documentation/explanations/multi-artifacts/): all source artifacts being identified as `raw?ref=branch`, they are overwritten when importing different artifacts successively. More-over this breaks the reference resolution mechanism that also relies on simple no encoding file name and path in repository URL.
 
 To get around this specific encoding we have set-up something more sophisticated so that Microcks will be well prepared to handle other encoding implementations in the future.
 

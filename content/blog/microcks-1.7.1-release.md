@@ -39,7 +39,7 @@ And of course, you’re not limited to a single protocol binding! Microcks now s
 
 {{< image src="images/blog/microcks-1.7.1-protocols.png" alt="image" zoomable="true" >}}
 
-> Check out our updated [Event-based API test endpoints](https://microcks.io/documentation/using/tests/#event-based-apis) documentation and the complete guide for both protocols has also been published. See the [Amazon SQS/SNS Guide](https://microcks.io/documentation/guides/aws-sqs-sns-support/). For easier testing purposes, we also enabled the support of [LocalStack](https://localstack.cloud/). Thanks to [Xavier Escudero Sabadell](http://github.com/xescuder) 🙏 for the help in designing and testing this.
+> Check out our updated [Event-based API test endpoints](https://microcks.io/documentation/references/test-endpoints/#event-based-apis) documentation and the complete guide for both protocols has also been published. See the [Amazon SQS/SNS Guide](https://microcks.io/documentation/guides/usage/async-protocols/aws-sqs-sns-support/). For easier testing purposes, we also enabled the support of [LocalStack](https://localstack.cloud/). Thanks to [Xavier Escudero Sabadell](http://github.com/xescuder) 🙏 for the help in designing and testing this.
 
 
 ## API Specs goodies
@@ -104,7 +104,7 @@ We reviewed how OpenAPI is detected when importing a new artifact, leading to a 
 
 ### Response templating with a parameter containing a dot
 
-This is again an issue that leads to more robust behavior of [Microcks templating engine](https://microcks.io/documentation/using/advanced/templates/) when sending parameters that may contain dots or other non-alphanumeric characters.
+This is again an issue that leads to more robust behavior of [Microcks templating engine](https://microcks.io/documentation/references/templates/) when sending parameters that may contain dots or other non-alphanumeric characters.
 
 > Thanks again to [Mathis Goichon](https://github.com/MathisGoichon) 🙏 for raising this one and helping validate the fix. 
 

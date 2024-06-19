@@ -11,7 +11,7 @@ weight: 2
 
 This guide shows you how to use Microcks for mocking and testing [Avro](https://avro.apache.org) encoding on top of [Apache Kafka](https://kafka.apache.org). You'll see how Microcks can speed-up the sharing of Avro schema to consumers using a Schema Registry and we will check how Microcks can detect drifts between expected Avro format and the one really used.
 
-Microcks supports Avro as an encoding format for mocking and testing asynchronous and event-driven APIs through [AsyncAPI](../../using/asyncapi). When it comes to serializing Avro data to a Kafka topic, you usually have 2 options :
+Microcks supports Avro as an encoding format for mocking and testing asynchronous and event-driven APIs through [AsyncAPI](/documentation/references/artifacts/asyncapi-conventions/). When it comes to serializing Avro data to a Kafka topic, you usually have 2 options :
 
 * The *"old-fashioned one"* that is about putting raw Avro binary representation of the message payload,
 * The *"modern one"* that is about putting the Schema ID + the Avro binary representation of the message payload (see [Schema Registry: A quick introduction](https://www.confluent.io/blog/kafka-connect-tutorial-transfer-avro-schemas-across-schema-registry-clusters/)).
@@ -26,7 +26,7 @@ When connected to a Schema Registry, Microcks is pushing the Avro Schema to the 
 
 {{< image src="images/guides/avro-kafka-mocking.png" alt="image" zoomable="true" >}}
 
-If you have used the [Operator based installation](../../installing/operator) of Microcks, you'll need to add some extra properties to your `MicrocksInstall` custom resource. The fragment below shows the important ones:
+If you have used the [Operator based installation](/documentation/references/configuration/operator-config/) of Microcks, you'll need to add some extra properties to your `MicrocksInstall` custom resource. The fragment below shows the important ones:
 
 ```yaml
 apiVersion: microcks.github.io/v1alpha1
@@ -54,7 +54,7 @@ The important things to notice are:
 * `defaultAvroEncoding` should be set to `REGISTRY` (this is indeed a workaround until AsyncAPI adds support for specifying the serialization details at the Binding level. See [this issue](https://github.com/asyncapi/bindings/issues/41) for more.)
 * `schemaRegistry` block should now be specified with correct `url`. The `confluent` mode allows to tell Microcks that the registry is the Confluent one OR to turn on the Confluent compatibility mode if you're using an [Apicurio Registry](https://www.apicur.io/registry/). `username` and `creadentialsSource` are only used if using a secured Confluent registry.
 
-If you have used the [Helm Chart based installation](../../installing/kubernetes) of Microcks, this is the corresponding fragment put in a `Values.yml` file:
+If you have used the [Helm Chart based installation](/documentation/references/configuration/helm-chart-config/) of Microcks, this is the corresponding fragment put in a `Values.yml` file:
 
 ```yaml
 [...]
@@ -114,7 +114,7 @@ You'll notice that it is of importance that `contentType` and `schemaFormat` pro
 }
 ```
 
-As we use references, our full specification is now spanning multiple files so you'll not be able to simply upload one file for API import into Microcks. You will have to define a full **Importer Job** as described [here](../../using/importers/#scheduled-import). During the import of the AsyncAPI contract file within Microcks, local references will be resolved and files downloaded and integrated within Microcks own repository. The capture below illustrates in the **Contracts** section that there are now two files: an AsyncAPI and an Avro schema one.
+As we use references, our full specification is now spanning multiple files so you'll not be able to simply upload one file for API import into Microcks. You will have to define a full **Importer Job** as described [here](/documentation/guides/usage/importing-content/#2-import-content-via-importer). During the import of the AsyncAPI contract file within Microcks, local references will be resolved and files downloaded and integrated within Microcks own repository. The capture below illustrates in the **Contracts** section that there are now two files: an AsyncAPI and an Avro schema one.
 
 {{< image src="images/guides/avro-kafka-properties.png" alt="image" zoomable="true" >}}
 
@@ -252,7 +252,7 @@ Do not interrupt the execution of the script and go create a **New Test** within
 * **Test Endpoint**: `kafka://kafka-broker-qa.apps.example.com:9092/user-registration?registryUrl=https://schema-registry-qa.apps.example.com` and note this new `registryUrl` parameter to tell Microcks where to get the Avro schema used for writing 😉,
 * **Runner**: `ASYNC API SCHEMA` for validating against the AsyncAPI specification of the API.
 
-> Whilst Test Endpoint and Schema Registry may be secured with custom TLS certificates or username/password, we skipped this from this guide for seek of simplicity but Microcks is handling this through [Secrets](../../administrating/secrets) or additional `registryUsername` and `registryCredentialsSource` [parameters](../../using/tests/#event-based-apis).
+> Whilst Test Endpoint and Schema Registry may be secured with custom TLS certificates or username/password, we skipped this from this guide for seek of simplicity but Microcks is handling this through [Secrets](/documentation/guides/administration/secrets/) or additional `registryUsername` and `registryCredentialsSource` [parameters](/documentation/references/test-endpoints/#event-based-apis).
 
 Launch the test and wait for some seconds and you should get access to the test results as illustrated below:
 

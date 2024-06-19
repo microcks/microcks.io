@@ -49,7 +49,7 @@ In this situation, Microcks will dynamically create and manage corresponding des
 
 Finally, remember that our AsyncAPI v3 capabilities in Microcks support JSON or Avro schema, with integration with Schema Registry - and can also be instrumented by our [AI Copilot](https://microcks.io/blog/microcks-1.8.0-release/#introducing-ai-copilot) 🤖 to help you quickly generate rich mock datasets!
 
-> Be sure to check our [updated AsyncAPI mocking and testing](https://microcks.io/documentation/using/asyncapi/) documentation.
+> Be sure to check our [updated AsyncAPI mocking and testing](https://microcks.io/documentation/references/artifacts/asyncapi-conventions/) documentation.
 
 
 ## Observability with OpenTelemetry and all

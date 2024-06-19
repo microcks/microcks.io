@@ -20,7 +20,7 @@ And this new release is a big accomplishment as it includes in a single batch :
 
 * THE first (again…) mocking and testing tools integration that support [AsyncAPI Spec v2.1.0 ](https://www.asyncapi.com/blog/release-notes-2.1.0), YES, just one day after the Spec release 💪
 * A new and very popular AsyncAPI protocol binding 👉 [WebSocket](https://datatracker.ietf.org/doc/html/rfc6455), YES... it is available right now for mocking and testing within Microcks 🎉
-* A big and very structural add-on is the support of Multi-artifacts for mock definitions: this unlocks some previous limitations and provides a clean way to better interoperate with our ecosystem (ex: [Postman collections](https://microcks.io/documentation/using/postman/)) and add new specific and tricky protocol bindings to our roadmap,
+* A big and very structural add-on is the support of Multi-artifacts for mock definitions: this unlocks some previous limitations and provides a clean way to better interoperate with our ecosystem (ex: [Postman collections](https://microcks.io/documentation/references/artifacts/postman-conventions/)) and add new specific and tricky protocol bindings to our roadmap,
 * Last but not least and thanks to the new Multi-artifacts feature, we have been able to support and include [gRPC](https://grpc.io/) communications to our API hunting board 😃
 
 
@@ -44,7 +44,7 @@ Based on the number of requests we received from Microcks community to support W
 
 As you can see, this was a strong confirmation of users and partners interest regarding WebSocket integration and boosted by this feedback we implemented WebSocket support in just two weeks!
 
-> How to enable WebSocket mocking and testing? Easy! Simply add a WebSocket binding to your AsyncAPI specification file and Microcks takes care of publishing endpoints in seconds. Check our [updated documentation](https://microcks.io/documentation/using/asyncapi/#bindings).
+> How to enable WebSocket mocking and testing? Easy! Simply add a WebSocket binding to your AsyncAPI specification file and Microcks takes care of publishing endpoints in seconds. Check our [updated documentation](https://microcks.io/documentation/references/artifacts/asyncapi-conventions/#bindings).
 
 ## Endless possibilities with Multi-artifacts support
 
@@ -56,7 +56,7 @@ So from `1.3.0`, Microcks is now able to have multiple artifacts (1 `primary` an
 
 {{< image src="images/blog/multi-artifacts-support.png" alt="image" zoomable="true" >}}
 
-> You may now have multiple artifacts contributing to the same API mocks and tests definition: it opens to endless possibilities and use-case covering. Check [documentation](https://microcks.io/documentation/using/importers/#multi-artifacts-support). A first demonstration of that is the tricky gRPC support just below that was made possible only thanks to the multi-artifacts support.
+> You may now have multiple artifacts contributing to the same API mocks and tests definition: it opens to endless possibilities and use-case covering. Check [documentation](https://microcks.io/documentation/explanations/multi-artifacts/). A first demonstration of that is the tricky gRPC support just below that was made possible only thanks to the multi-artifacts support.
 
 ## A hug to gRPC fans
 
@@ -66,7 +66,7 @@ Integrating gRPC within Microcks was not an easy task - mainly due to the fact g
 
 Thanks to [Ben Bolton](https://github.com/molteninjabob) 🙏 pugnacity and help we have been able all together to validate a strong and robust implementation perfectly aligned with our vision and principles. This is one of the beauties of the new and great feature described above : “Multi-artifacts support”. Guess you now understand why it is so important for us as it unlock any new protocols integration in a very clean and smooth way 💥
 
-> Check out our [gRPC usage for Microcks](https://microcks.io/documentation/using/grpc/) documentation that illustrates how Protocol Buffer specifications and Postman Collection can be combined and used together. You’ll see that defining mocks and tests are as easy as describing requests and responses expectations using JSON. Microcks will do the conversion to protobuf undercover.
+> Check out our [gRPC usage for Microcks](https://microcks.io/documentation/references/artifacts/grpc-conventions/) documentation that illustrates how Protocol Buffer specifications and Postman Collection can be combined and used together. You’ll see that defining mocks and tests are as easy as describing requests and responses expectations using JSON. Microcks will do the conversion to protobuf undercover.
 
 ## Community amplification
 

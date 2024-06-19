@@ -22,5 +22,10 @@ if [ -n "$*" ]; then
 fi
 git commit -m "$msg"
 
-# Push source and build repos.
+# Push Publig folder to microcks.github.io repo
+git push origin master
+
+# Go up to update the Public symlink
+cd ..
+git commit -m "$msg" public
 git push origin master

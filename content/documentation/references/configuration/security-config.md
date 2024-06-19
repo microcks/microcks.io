@@ -81,7 +81,7 @@ Whether a connected user has these roles is checked both on the client and the s
 
 #### Groups segmentation
 
-As an optional security feature, you have the ability to segment the repository management persmissions depending on a `master` label you have chosen for organizing your repository. See [Organizing repository](/documentation/using/organizing/) for introduction on `master` label.
+As an optional security feature, you have the ability to segment the repository management persmissions depending on a `master` label you have chosen for organizing your repository. See [Organizing repository](/documentation/guides/administration/organizing-repository/) for introduction on `master` label.
 
 For example, if you defined the `domain` label as the master with `customer`, `finance` and `sales` values, you'll be able to define users with the `manager` role **only** for the APIs & Services that have been labeled accordingly. Sarah may be defined as a `manager` for `domain=customer` and `domain=finance` services, while John may be defined as the `manager` for `domain=sales` APIs & services.
 

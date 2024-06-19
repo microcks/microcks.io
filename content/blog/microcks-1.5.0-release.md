@@ -30,7 +30,7 @@ We are big supporters of the **[contract-first approach](https://microcks.io/blo
 
 {{< image src="images/blog/microcks-1.5.0-graphql-artifacts.png" alt="image" zoomable="true" >}}
 
-> Check out our [GraphQL usage for Microcks](https://microcks.io/documentation/using/graphql/) documentation that illustrates how GraphQL Schema specifications and Postman Collection can be combined and used together. You’ll see that defining mocks and tests are as easy as describing requests and responses expectations using JSON. Microcks will implement all the specificities of GraphQL fetching undercover.
+> Check out our [GraphQL usage for Microcks](https://microcks.io/documentation/references/artifacts/graphql-conventions/) documentation that illustrates how GraphQL Schema specifications and Postman Collection can be combined and used together. You’ll see that defining mocks and tests are as easy as describing requests and responses expectations using JSON. Microcks will implement all the specificities of GraphQL fetching undercover.
 
 > If you are a hands-on person and need a more detailed walkthrough of available features, we recommend you also read our “[GraphQL features in Microcks: what to expect?](https://microcks.io/blog/graphql-features-what-to-expect/)” blog post. It illustrates the mocking and testing specificities we introduced to support GraphQL queries semantics. 
 

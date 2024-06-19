@@ -65,7 +65,7 @@ When you define a GraphQL operation that uses only GraphQL [scalar types](https:
 
 ### Mutation with custom type
 
-You can also choose to use [custom types](https://graphql.org/learn/schema/#object-types-and-fields) as query or mutation arguments! Microcks will not be able to automatically infer dispatching rules in that case unfortunately. But it will allow you to define your own smart dispatcher simply, using the [`JSON BODY`](https://microcks.io/documentation/using/dispatching/#json-body-dispatcher) dispatcher. With this one you’ll be able to easily define an evaluation rule on the query variables JSON to return the response to the client.
+You can also choose to use [custom types](https://graphql.org/learn/schema/#object-types-and-fields) as query or mutation arguments! Microcks will not be able to automatically infer dispatching rules in that case unfortunately. But it will allow you to define your own smart dispatcher simply, using the [`JSON BODY`](https://microcks.io/documentation/explanations/dispatching/#json-body-dispatcher) dispatcher. With this one you’ll be able to easily define an evaluation rule on the query variables JSON to return the response to the client.
 
 Here below you can see an example of query variables JSON that will be evaluated to return the correct Film to add review to:
 

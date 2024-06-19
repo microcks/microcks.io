@@ -97,11 +97,11 @@ Microcks mocks are based on request/response pairs collected within API artifact
 
 2️⃣ Now, let’s check the `x-microcks-operation` attribute within the operation definition. 
 
-Microcks mocks use [dispatchers and dispatching rules](https://microcks.io/documentation/using/dispatching/) to identify a request/response pair - and so the response to return - by analyzing incoming request elements. Microcks is inferring the dispatcher to use when not specified by checking all the request elements. In our case, we don’t want that as we always want to return the `302` response we named￼`generic.` So for that, we define a custom dispatcher as a `FALLBACK` that will, when failing, return the `generic` response. The root dispatcher `URI_PARAMS` will never match here, and we will always have a `302` response.
+Microcks mocks use [dispatchers and dispatching rules](https://microcks.io/documentation/explanations/dispatching/) to identify a request/response pair - and so the response to return - by analyzing incoming request elements. Microcks is inferring the dispatcher to use when not specified by checking all the request elements. In our case, we don’t want that as we always want to return the `302` response we named￼`generic.` So for that, we define a custom dispatcher as a `FALLBACK` that will, when failing, return the `generic` response. The root dispatcher `URI_PARAMS` will never match here, and we will always have a `302` response.
 
 3️⃣ Finally, explore the templating features using the `{{}}` notations for the location header on the last line.
 
-Microcks can use [templates](https://microcks.io/documentation/using/templates/) for mock responses content and now header values!  
+Microcks can use [templates](https://microcks.io/documentation/references/templates/) for mock responses content and now header values!  
 * `request.params[redirect_uri]` will be evaluated and replaced by the value of the `redirect_uri` query parameter of the incoming request. Allowing to navigate to the target location,
 * `request.params[state]` will be evaluated and replaced by the value of `state` query parameter of the incoming request. Allowing you to transfer state back to the target location,
 * `uuid()` will be evaluated as a function and replaced by the value of a new [Universally Unique IDentifier](https://en.wikipedia.org/wiki/Universally_unique_identifier). 

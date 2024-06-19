@@ -90,7 +90,7 @@ Upon invocation, the mock engine will use this template and interpret the expres
 
 > See full details documented here: https://microcks.io/documentation/references/templates/
 
-We also added some nice documentation enhancements like [Content-type negociation](https://microcks.io/documentation/using/advanced/#content-negocation-in-rest-mocks), [Parameters constraints](/documentation/guides/usage/mocks-constraints/) and [Custom dispatching rules](/documentation/explanations/dispatching/).
+We also added some nice documentation enhancements like [Content-type negociation](https://microcks.io/documentation/tutorials/getting-started/#viewing-an-api), [Parameters constraints](/documentation/guides/usage/mocks-constraints/) and [Custom dispatching rules](/documentation/explanations/dispatching/).
 
 ## Testing enhancements
 
