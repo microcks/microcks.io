@@ -23,7 +23,7 @@ In Microcks, constraints can be put onto `Query` or `Header` parameters and are 
 
 ## 2. Practice
 
-To practice the setup of constraints, you can reuse the `Pastry API` sample that ois described into our [Getting Started](/documentatoin/tutorials/gettind-started) tutorial. Now imagine you put such constraints onto the `GET /pastry` operation of your REST API that is secured using a JWT Bearer and should managed tracabelity using a correlation id:
+To practice the setup of constraints, you can reuse the `Pastry API` sample that ois described into our [Getting Started](/documentatoin/tutorials/getting-started) tutorial. Now imagine you put such constraints onto the `GET /pastry` operation of your REST API that is secured using a JWT Bearer and should managed tracabelity using a correlation id:
 
 {{< image src="images/documentation/parameters-constraints.png" alt="image" zoomable="true" >}}
 

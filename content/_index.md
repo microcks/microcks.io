@@ -87,7 +87,7 @@ service:
       button:
         enable : true
         label : "Check it out"
-        link : "documentation/using/"
+        link : "documentation/guides/usage"
         
     # service item loop
     - title : "Run anywhere, thanks to containers and Kubernetes"

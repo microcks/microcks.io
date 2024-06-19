@@ -9,7 +9,7 @@ weight: 4
 
 ## Introduction
 
-From the page displaying basic information on your [API or Service mocks](/content/documentation/tutorials/getting-started), you have the ability to launch new tests against different endpoints that may be representing different environment into your development process. Hitting the **NEW TEST...** button, leads you to the following form where you will be able to specify a target URL for the test, as well as a Runner—a testing strategy for your new launch:
+From the page displaying basic information on your [API or Service mocks](/documentation/tutorials/getting-started), you have the ability to launch new tests against different endpoints that may be representing different environment into your development process. Hitting the **NEW TEST...** button, leads you to the following form where you will be able to specify a target URL for the test, as well as a Runner—a testing strategy for your new launch:
 
 {{< image src="images/sample-test-form.png" alt="image" zoomable="true" >}}
 
@@ -27,7 +27,7 @@ Depending on your API/Service type and the protocol binding you want to connect 
 
 ### Test Runner
 
-Microcks offers different strategies for running tests on endpoints where our microservice being developed are deployed. We recommend having a read at our explanations on [Conformance Testing](/content/documentation/explanations/conformance-metrics). Such strategies are implemented as **Test Runners**. Here are the default Test Runners available within Microcks:
+Microcks offers different strategies for running tests on endpoints where our microservice being developed are deployed. We recommend having a read at our explanations on [Conformance Testing](/documentation/explanations/conformance-metrics). Such strategies are implemented as **Test Runners**. Here are the default Test Runners available within Microcks:
 			
 | <div style="width: 160px">Test Runner</div> | <div style="width: 160px">API & Service Types</div> | Description |
 | ----------- | ----------------- | ----------- |

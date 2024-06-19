@@ -82,7 +82,7 @@ podman-compose -f microcks.yml -f microcks-template-async-addon.yml --podman-run
 
 Podman compose is now launching additional containers, namely `zookeeper`, `kafka` and the `microcks-async-minion`.
 
-You may want to check our [blog post](../../../blog/async-features-with-docker-compose) for a detailed walkthrough on starting Async features on docker-compose (Podman compose is very similar).
+You may want to check our [blog post](/blog/async-features-with-docker-compose) for a detailed walkthrough on starting Async features on docker-compose (Podman compose is very similar).
 
 ### Development mode
 

@@ -49,7 +49,7 @@ Now you have everything ready to launch your first test with Microcks!
 
 ## Launching a test
 
-Now that our component implementing the API is running, it's time to launch some tests to check if it is actually compliant with the API Contract. This is what we call **Contract Testing**. You can launch and run tests from the UI or from the [`microcks-cli`](../automating/cli/) tool.
+Now that our component implementing the API is running, it's time to launch some tests to check if it is actually compliant with the API Contract. This is what we call **Contract Testing**. You can launch and run tests from the UI or from the [`microcks-cli`](/documentation/guides/automation/cli/) tool.
 
 > 💡 
 > As our API implement is runing into a container bound on port 8282, it will be accessible at `http://localhost:8282` from our machine network. However, from the Microcks container perspective it will be accessible using the `http://host.docker.internal:8282` alias that allow accessing the machine netxork from inside a container.
@@ -100,4 +100,4 @@ Now that you have basic information on how to use Microcks for mocking and testi
    * your first [OpenAPI mock](/documentation/tutorials/first-rest-mock),
    * your first [GraphQL mock](/documentation/tutorials/first-graphql-mock),
    * your first [gRPC mock](/documentation/tutorials/first-grpc-mock),
-   * or your first [AsyncAPI mock with Kafka](/documentation/tutotials/first-asyncapi-mock).
+   * or your first [AsyncAPI mock with Kafka](/documentation/tutorials/first-asyncapi-mock).

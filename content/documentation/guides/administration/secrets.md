@@ -13,7 +13,7 @@ Quickly after your initial experience with Microcks, you'll realize that **it ne
 * Loading [Artifacts](/documentation/overview/main-concepts/#artifacts) may require accessing secured external resources such as Git repositories,
 * Launching [tests](/documentation/tutorials/getting-started-tests) may require accessing protected HTTPS endpoints or internal message brokers.
 
-This guide will explain you what is the concept of *Secret* in Microcks, how to manage those Secrets and how to use them when defining an [Importer Job](/content/documentation/guides/usage/importing-content/#2-import-content-via-importer). 
+This guide will explain you what is the concept of *Secret* in Microcks, how to manage those Secrets and how to use them when defining an [Importer Job](/documentation/guides/usage/importing-content/#2-import-content-via-importer). 
 
 > 🚨 **Prerequisites**
 >

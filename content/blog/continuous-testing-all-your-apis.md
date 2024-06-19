@@ -57,7 +57,7 @@ The beauty of it is that the promotion is done `ONLY IF` the REST API endpoints 
 
 Wondering about the plumbing part of the pipeline? What does the code look like? Is it complex to understand, write and maintain?
 
-For this demonstration, we have used Microcks [Tekton task](https://microcks.io/documentation/automating/tekton/) so it’s basically YAML. Principles remain the same whatever the pipeline technology used. Here’s below the YAML for launching a test on the REST API:
+For this demonstration, we have used Microcks [Tekton task](https://microcks.io/documentation/guides/automation/tekton/) so it’s basically YAML. Principles remain the same whatever the pipeline technology used. Here’s below the YAML for launching a test on the REST API:
 
 ```yaml
 - name: test-openapi-v1
@@ -101,7 +101,7 @@ And here’s below the YAML for launching a test on the Async API, they’re pre
         value: user-registration-broker
 ```
 
-> This demonstration is using [Tekton pipelines](https://tekton.dev/) but can also be implemented using Jenkins or GitLab CI by using either our [Jenkins plugin](https://microcks.io/documentation/automating/jenkins/) or our [portable CLI tool](https://microcks.io/documentation/automating/cli/).
+> This demonstration is using [Tekton pipelines](https://tekton.dev/) but can also be implemented using Jenkins or GitLab CI by using either our [Jenkins plugin](https://microcks.io/documentation/guides/automation/jenkins/) or our [portable CLI tool](https://microcks.io/documentation/guides/automation/cli/).
 
 ### Want to play with it?
 

@@ -13,13 +13,13 @@ This guide shows you how to install Microcks as a Docker Desktop Extension on yo
 
 ## Installation
 
-To get started, make sure you have [Docker Desktop installed](https://docs.docker.com/desktop/#download-and-install) on your system. Then, once it is running
+To get started, make sure you have [Docker Desktop installed](https://docs.docker.com/desktop/) on your system. Then, once it is running
 
 1. Select **Add Extensions** and type `microcks` in the search box,
 
 2. Choose Microcks, install and launch it and you are ready to go 🤩
 
-> The video just below illustrates the installation process as well as the creation of a first [Direct API](../../usage/direct/). It has never been simpler to set up and use Microcks on a laptop. 🙌
+> The video just below illustrates the installation process as well as the creation of a first [Direct API](/documentation/guides/usage/direct-api/). It has never been simpler to set up and use Microcks on a laptop. 🙌
 
 {{< youtube id="E8rjUwznO-Q" autoplay="false" >}}
 

@@ -9,7 +9,7 @@ weight: 2
 
 ## Conventions
 
-In addition of schema information, Microcks uses [AsyncAPI Message Example Objects](https://v2.asyncapi.com/docs/reference/specification/v2.6.0#messageExampleObject) to produce example messages for mocking purpose.
+In addition of schema information, Microcks uses [AsyncAPI Message Example Objects](https://v2.asyncapi.com/docs/reference/specification/v2.6.0) to produce example messages for mocking purpose.
 
 For AsyncAPI `2.x` document, the `name` attribute of example is mandatory so that Microcks reuses this name to identify available mock messages. Starting with AsyncAPI `3.0`, the `name` is no longer mandatory and Microcks can then compute a name for you based on the message name and the index of example in the list.
 

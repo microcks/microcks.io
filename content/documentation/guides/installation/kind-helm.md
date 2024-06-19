@@ -74,7 +74,7 @@ kubectl cluster-info --context kind-kind
 Have a question, bug, or feature request? Let us know! https://kind.sigs.k8s.io/#community 🙂
 ``` 
 
-Install an Ingress Controller in this cluster, we selected `nginx` but other options are available (see https://kind.sigs.k8s.io/docs/user/ingress).
+Install an Ingress Controller in this cluster, we selected `nginx` but other options are available (see https://kind.sigs.k8s.io/docs/user/ingress ).
 
 ```sh
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
@@ -284,6 +284,6 @@ Deleted nodes: ["kind-control-plane"]
 
 You've been through this guide and learned how to install Microcks on a Kubernetes cluster using Helm. Congrats! 🎉
 
-If you'd like to learn more about all the available installation parameters, you can check our [Helm Chart Parameters](/content/documentation/references/configuration/helm-chart-config) reference documentation.
+If you'd like to learn more about all the available installation parameters, you can check our [Helm Chart Parameters](/documentation/references/configuration/helm-chart-config) reference documentation.
 
 Happy learning!

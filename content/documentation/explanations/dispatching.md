@@ -38,7 +38,7 @@ Here are below some explanations on these dispatchers and associated dispatching
 
 Changing `Dispatching Rules` or even the `Dispatcher` can be done by different ways:
 * Via the web UI, selecting `Edit Properties` of the operation from the 3-dots menu on the right of the operation name. You should be logged as a repository `manager` to have this option (see [Managing Users](/documentation/guides/administration/users) how-to guide if needed),
-* Via [Microcks' owns API](/documentation/references/apis/open-api) after being [connected to Microcks API](/content/documentation/guides/automation/api),
+* Via [Microcks' owns API](/documentation/references/apis/open-api) after being [connected to Microcks API](/documentation/guides/automation/api),
 * Via an additional [API Metadata](/documentation/references/metadada) artifact that allow this customization,
 * Via Microcks [OpenAPI extensions](/documentation/references/artifacts/openapi-conventions/#openapi-extensions) or [AsyncAPI extensions](/documentation/references/artifacts/asyncapi-conventions/#asyncapi-extensions) that allow this customization as well.
 

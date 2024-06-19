@@ -76,7 +76,7 @@ So we work hand in hand with our friends from HashiCorp to provide full Mocks an
 
 {{< image src="images/blog/microcks-hub-announcement-terraform.png" alt="image" zoomable="true" >}}
 
-So now, any Terraform Enterprise customers can easily create a sandbox and test all their existing tooling on the latest release or pre-release and modify their consumer code accordingly. Last but not the least, they can integrate Microcks in their [existing CI/CD pipeline](https://microcks.io/documentation/automating/) to fully automate this tedious process 👍
+So now, any Terraform Enterprise customers can easily create a sandbox and test all their existing tooling on the latest release or pre-release and modify their consumer code accordingly. Last but not the least, they can integrate Microcks in their [existing CI/CD pipeline](https://microcks.io/documentation/guides/automation/) to fully automate this tedious process 👍
 
 Terraform Enterprise mocks repository is available here: [https://github.com/nehrman/terraform-enterprise](https://github.com/nehrman/terraform-enterprise)
 

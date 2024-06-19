@@ -53,7 +53,7 @@ This example is pretty straightforward to understand and explain:
 
 > 💡 Note that we can use multi-line notation in YAML but we will have to escape everything and put `\` before double-quotes and `\n` characters if specified using JSON.
 
-The semantic of those attributes are exactly the same that the one introduced into [OpenAPI extensions](/documentation/references/artifacts/openapi-conventions/#using-openapi-extensions) and [AsyncAPI extensions](/documentation/references/artifacts/asyncapi-conventions/#using-asyncapi-extensions).
+The semantic of those attributes are exactly the same that the one introduced into [OpenAPI extensions](/documentation/references/artifacts/openapi-conventions/#openapi-extensions) and [AsyncAPI extensions](/documentation/references/artifacts/asyncapi-conventions/#asyncapi-extensions).
 
 ## Importing API Metadata
 

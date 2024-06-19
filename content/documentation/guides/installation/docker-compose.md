@@ -67,7 +67,7 @@ Creating microcks-kafka           ... done
 Creating microcks-async-minion    ... done
 ```
 
-You may want to check our [blog post](../../../blog/async-features-with-docker-compose) for a detailed walkthrough on starting Async features on docker-compose.
+You may want to check our [blog post](/blog/async-features-with-docker-compose) for a detailed walkthrough on starting Async features on docker-compose.
 
 If you're feeling lucky regarding your machine, you can even add the [Kafdrop](https://github.com/obsidiandynamics/kafdrop) utility to visualize and troubleshoot Kafka messages with this command:
 

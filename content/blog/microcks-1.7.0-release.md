@@ -56,7 +56,7 @@ With this new release, we also introduce a new connector and importer for fillin
 
 This new integration is now shipped into the `1.7.0` release and the best thing is that it’s totally transparent for users! Just create a new importer with a `https://api.getpostman.com/collections/:collection_uuid` URL pattern (or everything else that conforms to Postman Collection API 😉) and the format will be automatically detected by the importer.
 
-> Check out our [Connect Collection workspace](https://microcks.io/documentation/using/postman/#retrieve-collection-workspace-api-link) documentation that illustrates how to retrieve your Collection unique identifier and set up the secured connection through API keys if necessary.
+> Check out our [Connect Collection workspace](https://microcks.io/documentation/guides/integration/postman-workspace/) documentation that illustrates how to retrieve your Collection unique identifier and set up the secured connection through API keys if necessary.
 
 ## Feature enhancements
 
@@ -85,7 +85,7 @@ And the `Paris` response that now include direct reference to the request contex
 {"city": "Paris", "message": "{{ conditionMsg }}"}
 ```
 
-> Have a look at our new documentation on [Script dispatcher](https://microcks.io/documentation/using/dispatching/#script-dispatcher) to check typical examples on how to use it. Thanks to [Sébastien Fraigneau](https://github.com/sfraigneau) 🙏 for having suggested the request context features and to [Dorian Brun](https://github.com/dorianbrun) 🙏 for having explored usage with dynamic arrays (see [#751](https://github.com/microcks/microcks/issues/751))!
+> Have a look at our new documentation on [Script dispatcher](https://microcks.io/documentation/explanations/dispatching/#script-dispatcher) to check typical examples on how to use it. Thanks to [Sébastien Fraigneau](https://github.com/sfraigneau) 🙏 for having suggested the request context features and to [Dorian Brun](https://github.com/dorianbrun) 🙏 for having explored usage with dynamic arrays (see [#751](https://github.com/microcks/microcks/issues/751))!
 
 
 ### Enhanced response and message templates
@@ -105,7 +105,7 @@ Below you can see a sample on how a generated identifier can be put into the req
 }
 ```
 
-> For more information, check the [`put()` function](https://microcks.io/documentation/using/templates/#put-in-context) documentation. Also good to notice that for compatibility purposes, we now support the SoapUI notation for functions or context access within response templates. So your SoapUI `${ }` notation will be translated into Microcks double-mustaches notation `{{ }}` automatically 😉
+> For more information, check the [`put()` function](https://microcks.io/documentation/references/templates/#put-in-context) documentation. Also good to notice that for compatibility purposes, we now support the SoapUI notation for functions or context access within response templates. So your SoapUI `${ }` notation will be translated into Microcks double-mustaches notation `{{ }}` automatically 😉
 
 ## Technical upgrades 
 

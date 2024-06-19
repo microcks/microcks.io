@@ -50,7 +50,7 @@ See our [microcks-quarkus repository](https://github.com/microcks/microcks-quark
 
 Our Testcontainers module for Javscript is `@microcks/microcks-testcontainers`, you easily add it to your NPM or Yarn powered project.
 
-The library is making usage of our [*Uber* distribution](/content/documentation/explanations/deployment-options/#regular-vs-uber-distribution) and you can simply start Microcks that way:
+The library is making usage of our [*Uber* distribution](/documentation/explanations/deployment-options/#regular-vs-uber-distribution) and you can simply start Microcks that way:
 
 ```javascript
 const container = await new MicrocksContainer("quay.io/microcks/microcks-uber:1.9.0").start();
@@ -63,7 +63,7 @@ See our [microcks-testcontainers-node repository](https://github.com/microcks/mi
 
 Our Testcontainers module for Javscript is `github.com/testcontainers/testcontainers-go`, you easily add it to your Go mod file.
 
-The library is making usage of our [*Uber* distribution](/content/documentation/explanations/deployment-options/#regular-vs-uber-distribution) and you can simply start Microcks that way:
+The library is making usage of our [*Uber* distribution](/documentation/explanations/deployment-options/#regular-vs-uber-distribution) and you can simply start Microcks that way:
 
 ```go
 microcksContainer, err := microcks.RunContainer(ctx, testcontainers.WithImage("quay.io/microcks/microcks-uber:1.9.1"))

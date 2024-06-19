@@ -200,7 +200,7 @@ The default user/password is `admin/microcks123`
 
 ## 4. Install Microcks with asynchronous options
 
-In this section, we're doing a complete install of Microcks, enabling the asynchronous protcols features. This requires deploying additional pods and a Kafka cluster. Microcks install can install and manage its own cluster using the [Strimzi](https://strimizi.io) project.
+In this section, we're doing a complete install of Microcks, enabling the asynchronous protcols features. This requires deploying additional pods and a Kafka cluster. Microcks install can install and manage its own cluster using the [Strimzi](https://strimzi.io) project.
 
 To be able to expose the Kafka cluster to the outside of Minikube, you’ll need to enable SSL passthrough on nginx. This require updating the default ingress controller deployment:
 
@@ -349,6 +349,6 @@ $ minikube stop
 
 You've been through this guide and learned how to install Microcks on a Kubernetes cluster using Helm. Congrats! 🎉
 
-If you'd like to learn more about all the available installation parameters, you can check our [Helm Chart Parameters](/content/documentation/references/configuration/helm-chart-config) reference documentation.
+If you'd like to learn more about all the available installation parameters, you can check our [Helm Chart Parameters](/documentation/references/configuration/helm-chart-config) reference documentation.
 
 Happy learning!

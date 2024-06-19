@@ -101,5 +101,5 @@ Now that you have basic information on how to setup and use Microcks, you can go
    * your first [OpenAPI mock](/documentation/tutorials/first-rest-mock),
    * your first [GraphQL mock](/documentation/tutorials/first-graphql-mock),
    * your first [gRPC mock](/documentation/tutorials/first-grpc-mock),
-   * or your first [AsyncAPI mock with Kafka](/documentation/tutotials/first-asyncapi-mock).
+   * or your first [AsyncAPI mock with Kafka](/documentation/tutorials/first-asyncapi-mock).
 

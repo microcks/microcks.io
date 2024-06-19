@@ -37,7 +37,7 @@ The **Conformance index** is a kind of grade that estimates how your API contrac
 
 The **Conformance score** is the current score that has been computed during your last test execution. We also added a trend computation if things are going better or worse comparing to your history of tests on this API.
 
-Once you have activated [labels filtering](../organizing/#applying-labels) on your repository and have ran a few tests, Microcks is also able to give you an aggregated view of your API patrimony in termes of **Conformance Risks**. The tree map below is displayed on the *Dashboard* page and represents risks in terms of average score per group of APIs (depending on the concept you chose it could be per domain, per application, per team, ...)
+Once you have activated [labels filtering](/documentation/guides/administration/organizing-repository/#1-applying-labels) on your repository and have ran a few tests, Microcks is also able to give you an aggregated view of your API patrimony in termes of **Conformance Risks**. The tree map below is displayed on the *Dashboard* page and represents risks in terms of average score per group of APIs (depending on the concept you chose it could be per domain, per application, per team, ...)
 
 <div align="center">
 <br/>
@@ -48,8 +48,8 @@ Once you have activated [labels filtering](../organizing/#applying-labels) on yo
 This visualization allows you to have a clear understanding of your conformance risks at first glance!
 
 ## Tests history and details
-
-Tests history for an API/Service is easily accessible from the API | Service [summary page](../mocks/#mocks-info). Microcks keep history of all the launched tests on an API/Service version. Success and failures are kept in database with unique identifier and test number to allow you to compare cases of success and failures.
+/mocks/#mocks-info
+Tests history for an API/Service is easily accessible from the API | Service [summary page](/documentation/tutorials/getting-started/#viewing-an-api). Microcks keep history of all the launched tests on an API/Service version. Success and failures are kept in database with unique identifier and test number to allow you to compare cases of success and failures.
 
 {{< image src="images/documentation/test-history.png" alt="image" zoomable="true" >}}
 

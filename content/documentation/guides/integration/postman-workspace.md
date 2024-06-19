@@ -44,7 +44,7 @@ Copy this URL that is unique and represents access to your Collection.
 
 ## 3. Create an Importer
 
-Finally, you can then use this URL (ending just before the `?`) and use it directly as an Importer URL when [creating a Scheduled Importer](/content/documentation/guides/usage/importing-content/#2-import-content-via-importer). 
+Finally, you can then use this URL (ending just before the `?`) and use it directly as an Importer URL when [creating a Scheduled Importer](/documentation/guides/usage/importing-content/#2-import-content-via-importer). 
 
 ## Wrap-up
 
