@@ -5,7 +5,7 @@ description: "Here below all the documentation pages related to **Artifacts Refe
 weight: 6
 ---
 
-As exposed in the [Main Concepts](/content/documentation/overview/main-concepts), `Artifacts` are the corner stone in Microcks as they **hold valuable information on how your API or microservices are expected to work**. One of Microcks's beauties is that it uses standard specifications or standard tooling files as Artifacts, allowing you to reuse existing assets. Microcks will use **constraints and examples** from them to build its knowledge base.
+As exposed in the [Main Concepts](/documentation/overview/main-concepts), `Artifacts` are the corner stone in Microcks as they **hold valuable information on how your API or microservices are expected to work**. One of Microcks's beauties is that it uses standard specifications or standard tooling files as Artifacts, allowing you to reuse existing assets. Microcks will use **constraints and examples** from them to build its knowledge base.
 
 Microcks supports the following specifications and tooling file formats as artifacts:
 

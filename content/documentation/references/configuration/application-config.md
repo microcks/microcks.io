@@ -26,7 +26,7 @@ The way these configuration properties are supplied is different depending how y
 or via the [Docker Desktop Extension](/documentation/guides/installation/docker-desktop-extension), the properties files are difrectly managed as files on local filesystem
 * When ran on Kubernetes and installed via [Helm CHart](/documentation/guides/installation/minikube-helm) or [Operator](/documentation/guides/installation/kubernetes-operator),
 the properties files are suuplied to the components using `ConfigMap` resources.
-* When ran through our [Testcontainers module](/content/documentation/guides/usage/developing-testcontainers), you just setup environment variables that will be used as values when laoding the configuration properties.
+* When ran through our [Testcontainers module](/documentation/guides/usage/developing-testcontainers), you just setup environment variables that will be used as values when laoding the configuration properties.
 
 It's important to note that depending on the method you use for installation, the configuration properties may have different names. However, we're just
 following installation method idioms and conventions so that matching should be straightforward. For example, a configuration property named 
@@ -236,7 +236,7 @@ microcks.serviceaccount.credentials=ab54d329-e435-41ae-a900-ec6b3fe15c54
 #### Kafka connection
 
 The Async Minion -in the stadnard distribution- is connecting to a Kafka broker to receive the service change events. If connecting to a Schema Regsitry (see
-[this guide](/content/documentation/guides/usage/async-protocols/avro-messaging)), the `Confluent` compatibility mode is the one selected by default:
+[this guide](/documentation/guides/usage/async-protocols/avro-messaging)), the `Confluent` compatibility mode is the one selected by default:
 
 ```properties
 # Access to Kafka broker.

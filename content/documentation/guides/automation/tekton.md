@@ -14,7 +14,7 @@ This guide shows you how to integrate Microcks into your [Tekton](https://tekton
 * Import [Artifacts](/documentation/references/artifacts/) in a Microcks instance. If import succeeds is pursuing, if not it fails,
 * Launch a test on a deployed API endpoint. If test succeeds (ie. API endpoint is conformant with API contract in Microcks) the workflow is pursuing, if not it fails.
 
-Those 2 tasks are basically a wrapper around the [Microcks CLI](/documentation/guides/automation/cli.md) and are using [Service Account](/documentation/explanations/service-account).
+Those 2 tasks are basically a wrapper around the [Microcks CLI](/documentation/guides/automation/cli/) and are using [Service Account](/documentation/explanations/service-account/).
 
 ## 1. Import Tasks in your cluster
 

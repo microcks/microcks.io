@@ -33,19 +33,19 @@ But how to easily figure this out at first sight? That’s why we introduced the
 
 {{< image src="images/blog/test-conformance.png" alt="image" zoomable="true" >}}
 
-By just checking these visual indicators, you immediately grasp if your tests are comprehensive for conformance validation and what is the current score and trend. What if you start having dozens of APIs or Services in your Microcks repository? The Microcks dashboard has evolved to display aggregated information on that too. Depending on the [master level filter](https://microcks.io/documentation/using/organizing/#master-level-filter) you’ve chosen to organize your repository, aggregated Conformance score will be computed and displayed in a tree map. Here is below an example where scores are grouped by `domain`:
+By just checking these visual indicators, you immediately grasp if your tests are comprehensive for conformance validation and what is the current score and trend. What if you start having dozens of APIs or Services in your Microcks repository? The Microcks dashboard has evolved to display aggregated information on that too. Depending on the [master level filter](https://microcks.io/documentation/guides/administration/organizing-repository/#2-filtering-repository-content) you’ve chosen to organize your repository, aggregated Conformance score will be computed and displayed in a tree map. Here is below an example where scores are grouped by `domain`:
 
 {{< image src="images/blog/test-conformance-risks.png" alt="image" zoomable="true" >}}
 
 This visualization will allow you to quickly spot the main **Conformance risks** associated with your API patrimony: bigger rectangles represent bigger groups of APIs and darker rectangles represent the less conformant APIs. You’ll probably want to chase big and dark rectangles 🎯
 
-> These metrics and indicators are available for ALL kinds of API! That means that you can now evaluate the risks of a patrimony whatever the API technologies it embeds. Check [our documentation](https://microcks.io/documentation/using/tests/#conformance-metrics) on Conformance metrics for more details.
+> These metrics and indicators are available for ALL kinds of API! That means that you can now evaluate the risks of a patrimony whatever the API technologies it embeds. Check [our documentation](https://microcks.io/documentation/explanations/conformance-testing/#conformance-metrics) on Conformance metrics for more details.
 
 ## Observe all the things! 
 
 Introducing the metrics we talked about earlier has led us to completely review the way we manage observability and give insights to what’s going on into a Microcks instance. We now dissociate two kinds of metrics: the **Functional metrics** are related to all the domain objects of Microcks and the **Technical metrics** that are related to resource consumption and performance.
 
-For functional metrics, we introduced a bunch of new API endpoints that return JSON formatted data on how you use Microcks for invoking mocks, executing tests and so on. Here are the main endpoint categories you’ll now find in [Microcks own API](https://microcks.io/documentation/automating/api/):
+For functional metrics, we introduced a bunch of new API endpoints that return JSON formatted data on how you use Microcks for invoking mocks, executing tests and so on. Here are the main endpoint categories you’ll now find in [Microcks own API](https://microcks.io/documentation/references/apis/open-api/):
 
 ```
 /api/metrics/conformance/*
@@ -55,7 +55,7 @@ For functional metrics, we introduced a bunch of new API endpoints that return J
 
 For technical metrics, we decided to expose [Prometheus](https://prometheus.io/) compliant endpoints that can be scraped to collect metrics. Because Prometheus format is now a de-facto standard within [Cloud Native Computing Foundation](https://cncf.io), this was an obvious choice to allow integration of Microcks with as many monitoring tools as possible. 
 
-> Check our full page dedicated to [Monitoring & Observability](https://microcks.io/documentation/using/advanced/monitoring/) for more details.
+> Check our full page dedicated to [Monitoring & Observability](https://microcks.io/documentation/explanations/monitoring/) for more details.
 
 
 ## More enhancements
@@ -72,7 +72,7 @@ That means that through a simple wizard, you can now **ask Microcks to generate 
 
 Event-driven API support for Direct API includes [Apache Kafka](https://kafka.apache.org) and [Websocket](https://websockets.spec.whatwg.org//) bindings by default; but we also generate a full-blow AsyncAPI specification file with type definition that you may refine or enrich later.
 
-> As our engine for **Direct API** has been fully rebooted, event-driven API support may be just the beginning of a whole new way of bootstrapping API contracts from resources and samples 🤔 Check our [Direct API documentation](https://microcks.io/documentation/using/dynamic/) for more details.
+> As our engine for **Direct API** has been fully rebooted, event-driven API support may be just the beginning of a whole new way of bootstrapping API contracts from resources and samples 🤔 Check our [Direct API documentation](https://microcks.io/documentation/guides/usage/direct-api/) for more details.
 
 
 ### Docker Desktop Extension

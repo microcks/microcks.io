@@ -15,7 +15,7 @@ This guide shows you how to integrate Microcks into your [Github Actions workflo
 
 * The [Microcks Test GitHub Action](https://github.com/microcks/test-github-action) allows you to launch a Microcks test on a deployed API endpoint. If test succeeds (ie. API endpoint is conformant with API contract in Microcks) the workflow is pursuing, if not it fails.
 
-Those 2 actions are basically a wrapper around the [Microcks CLI](/documentation/guides/automation/cli.md) and are using [Service Account](/documentation/explanations/service-account). They provide the same configuration capabilities. Especially, they're sharing the same mandatory configuration parameters that are:
+Those 2 actions are basically a wrapper around the [Microcks CLI](/documentation/guides/automation/cli/) and are using [Service Account](/documentation/explanations/service-account/). They provide the same configuration capabilities. Especially, they're sharing the same mandatory configuration parameters that are:
 
 * `microcksURL` for the Microcks API endpoint,
 * `keycloakClientId` for the Keycloak Realm Service Account ClientId,

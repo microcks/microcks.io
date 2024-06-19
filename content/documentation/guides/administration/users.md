@@ -52,4 +52,4 @@ Also, a new **Manage Groups** options appears in the option menu for each user. 
 
 This guide walks you through the Users Management capabilities that are available on Microcks Web UI. We hope you learned how straightforward it is to manage users roles and groups, once your administrator users has the corrent Keycloak **realm-management** client correct roles.
 
-Feel free to pursue your exploration with [Security Configuration reference](/content/documentation/references/configuration/security-config) for all the things related to Identity Management or security in general.
+Feel free to pursue your exploration with [Security Configuration reference](/documentation/references/configuration/security-config) for all the things related to Identity Management or security in general.

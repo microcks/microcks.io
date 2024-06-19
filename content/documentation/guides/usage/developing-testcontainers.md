@@ -24,7 +24,7 @@ Let’s go 🧊
 
 Our Testcontainers module for Java is `io.github.microcks:microcks-testcontainers`, you easily add it to your Maven or Gradle powered project.
 
-The library is making usage of our [*Uber* distribution](/content/documentation/explanations/deployment-options/#regular-vs-uber-distribution) and you can simply start Microcks that way:
+The library is making usage of our [*Uber* distribution](/documentation/explanations/deployment-options/#regular-vs-uber-distribution) and you can simply start Microcks that way:
 
 ```java
 MicrocksContainer microcks = new MicrocksContainer(

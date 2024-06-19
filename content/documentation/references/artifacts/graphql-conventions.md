@@ -53,7 +53,7 @@ Let's dive in details of our sample `Movie Graph` API.
 
 ### Specifying API structure
 
-This is a fairly basic GraphQL API that is inspired by the famous `Film`samples you find on [Graphql.org](https://graphql.org). You can see below the definition using Schema IDL below found in [film-1.0.graphql](https://raw.githubusercontent.com/microcks/microcks/master/samples/film-1.0.graphql) file:
+This is a fairly basic GraphQL API that is inspired by the famous `Film`samples you find on [Graphql.org](https://graphql.org). You can see below the definition using Schema IDL below found in [films.graphql](https://raw.githubusercontent.com/microcks/microcks/master/samples/films.graphql) file:
 
 ```graphql
 # microcksId: Movie Graph API : 1.0
@@ -113,7 +113,7 @@ You can now start organizing and creating requests that are matching with the Gr
 
 The next step is now to create a bunch of examples for each of the requests/operations of your Collection as explained by the [Postman documentation](https://www.getpostman.com/docs/postman/collections/examples). You'll give each example a meaningful name regarding the use-case it is supposed to represent. Example url must also match the name of the GraphQL operation method; here we have a simple `{{url}}` because the url at the upper request level but this one must have the `http://allFilms` value.
 
-You'll define examples using simple JSON for request body and for response body as well. Below is a basic example but [Templating expressions and functions](../advanced/templates/) are obviously supported:
+You'll define examples using simple JSON for request body and for response body as well. Below is a basic example but [Templating expressions and functions](/documentation/references/templates/) are obviously supported:
 
 <div align="center">
 {{< figure src="images/documentation/graphql-postman-example.png" alt="image" width="90%" >}}

@@ -33,7 +33,7 @@ When Avro is used with Kafka, it is also common to have a registry for easily sh
 
 {{< image src="images/blog/microcks-1.2.0-avro.png" alt="image" zoomable="true" >}}
 
->  Microcks have been successfully tested with both [Confluent Schema Registry](https://github.com/confluentinc/schema-registry) and [Apicurio Service Registry](https://www.apicur.io/registry/). You can find full documentation on this feature on our [Kafka, Avro and Schema Registry guide](https://microcks.io/documentation/guides/avro-messaging/).
+>  Microcks have been successfully tested with both [Confluent Schema Registry](https://github.com/confluentinc/schema-registry) and [Apicurio Service Registry](https://www.apicur.io/registry/). You can find full documentation on this feature on our [Kafka, Avro and Schema Registry guide](https://microcks.io/documentation/guides/usage/async-protocols/avro-messaging/).
 
 ## MQTT support
 
@@ -43,7 +43,7 @@ Thanks to the excellent [AsyncAPI Specification](https://www.asyncapi.com/) and 
 
 {{< image src="images/blog/microcks-1.2.0-mqtt.png" alt="image" zoomable="true" >}}
 
-> Microcks have been successfully tested with [ActiveMQ Artemis](https://activemq.apache.org/components/artemis/) as well as [Eclipse Mosquitto](https://mosquitto.org/). Check out full documentation on MQTT Mocking and Testing [here](https://microcks.io/documentation/guides/mqtt-support/)
+> Microcks have been successfully tested with [ActiveMQ Artemis](https://activemq.apache.org/components/artemis/) as well as [Eclipse Mosquitto](https://mosquitto.org/). Check out full documentation on MQTT Mocking and Testing [here](https://microcks.io/documentation/guides/usage/async-protocols/mqtt-support/)
 
 ## OpenAPI enhancements
 
@@ -58,7 +58,7 @@ We have also added a new `FALLBACK` dispatcher that helps to define default resp
 
 ### Get started with a streamlined installation experience
 
-Developer experience is of great importance for us and we worked to make it even simpler to get started with Microcks. [Docker-compose based install](../../documentation/guides/installation/docker-compose) has been drastically improved and does not require any configuration for you to start up! Installation procedures now all contain default users so that you can start playing immediately. 
+Developer experience is of great importance for us and we worked to make it even simpler to get started with Microcks. [Docker-compose based install](https://microcks.io/documentation/guides/installation/docker-compose/) has been drastically improved and does not require any configuration for you to start up! Installation procedures now all contain default users so that you can start playing immediately. 
 
 [Kubernetes Operator install](/documentation/references/configuration/operator-config/) has also been simplified by providing one-liner installation (well actually, it’s two lines 😉):
 

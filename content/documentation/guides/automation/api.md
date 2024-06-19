@@ -9,7 +9,7 @@ weight: 1
 
 ## Overview
 
-This guide shows you how to authenticate to and how to use the Microcks API for better automation of tasks. As all the features available in Microcks can be used directly through its [REST API](/content/documentation/references/apis/open-api), you can extend it we way you want and use it in a pure headless mode.
+This guide shows you how to authenticate to and how to use the Microcks API for better automation of tasks. As all the features available in Microcks can be used directly through its [REST API](/documentation/references/apis/open-api), you can extend it we way you want and use it in a pure headless mode.
 
 This guide takes place in **3 steps**:
 

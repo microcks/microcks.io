@@ -63,7 +63,7 @@ All the latest images from Microcks now have an “All green” scan report ;-)
 
 ## What’s coming next?
 
-As you read this post, you have seen that there’s some huge new features in this `1.0.0` release, in just four months since the previous one. Sure we did not include all what we had in mind but did put the efforts on the topics that matter the most based on community feedback: kudos to all our users, contributors and friends (special thanks to the [AsyncAPI team](https://twitter.com/AsyncAPISpec/status/1265176378456059904) for listing us in their [tooling ecosystem](https://asyncapi.com/docs/tooling/#mocking))
+As you read this post, you have seen that there’s some huge new features in this `1.0.0` release, in just four months since the previous one. Sure we did not include all what we had in mind but did put the efforts on the topics that matter the most based on community feedback: kudos to all our users, contributors and friends (special thanks to the [AsyncAPI team](https://twitter.com/AsyncAPISpec/status/1265176378456059904) for listing us in their [tooling ecosystem](https://asyncapi.com/tools))
 
 We still have a lot to accomplish but cannot do it without your support and ideas: tell us the enhancements or new features you are dreaming about using [GitHub](https://github.com/microcks/microcks/issues) issues.
 

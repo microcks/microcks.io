@@ -116,7 +116,7 @@ We can adapt the XPath expression to ignore namespaces prefix:
 
 ## Context Expression
 
-Aside the `request` object that is automatically injected, you have access to mock-request wide context. You can inject custom variables into this context using the `SCRIPT` dispatcher through the `requestContext` object (see [this documentation](/content/documentation/explanations/dispatching/#script-dispatcher)) or by using the `put(myVariable)` function with redirect expression as detailed below.
+Aside the `request` object that is automatically injected, you have access to mock-request wide context. You can inject custom variables into this context using the `SCRIPT` dispatcher through the `requestContext` object (see [this documentation](/documentation/explanations/dispatching/#script-dispatcher)) or by using the `put(myVariable)` function with redirect expression as detailed below.
 
 Variables from context can be simply used in templates using their name within the template mustaches markers like this `{{ myVariable }}`
 
