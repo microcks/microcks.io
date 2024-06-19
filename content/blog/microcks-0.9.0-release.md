@@ -58,9 +58,9 @@ As an administrator you’ll need effective way to manage users and repository a
 
 Most of the features were already existing but not documented nor easily accessible, so we fixed that. You’ll find documentation on:
 
-* How to [manage your users](https://microcks.io/documentation/administrating/users/) assigning them application roles,
-* How to [define secrets for your Enterprise repository](https://microcks.io/documentation/administrating/secrets/) such as Git ones,
-* How to [snapshot and restore your repository](https://microcks.io/documentation/administrating/snapshots/) content.
+* How to [manage your users](/documentation/guides/administration/users/) assigning them application roles,
+* How to [define secrets for your Enterprise repository](/documentation/guides/administration/secrets/) such as Git ones,
+* How to [snapshot and restore your repository](/documentation/guides/administration/snapshots/) content.
 
 As a repository content manager, we add new features regarding repository organization. With this new release, you’ll now be able to assign `labels` to your API or services. This offer you a lot of flexibility to categorize and organize your repository the way you would like.
 
@@ -68,7 +68,7 @@ As a repository content manager, we add new features regarding repository organi
 
 Labels can also be used on the main repository page allowing you to filter and display the most important labels when browsing repository content.
 
-> Full details are documented here: https://microcks.io/documentation/using/organizing/
+> Full details are documented here: https://microcks.io/documentation/guides/administration/organizing-repository/
 
 ## Mocking enhancements
 
@@ -88,9 +88,9 @@ So now, you can use variables references and functions to describe dynamic resul
 
 Upon invocation, the mock engine will use this template and interpret the expressions between double-mustaches (`{{` and `}}`).
 
-> See full details documented here: https://microcks.io/documentation/using/advanced/templates/
+> See full details documented here: https://microcks.io/documentation/references/templates/
 
-We also added some nice documentation enhancements like [Content-type negociation](https://microcks.io/documentation/using/advanced/#content-negocation-in-rest-mocks), [Parameters constraints](https://microcks.io/documentation/using/advanced/#operation-parameters-constraints) and [Custom dispatching rules](https://microcks.io/documentation/using/advanced/dispatching/).
+We also added some nice documentation enhancements like [Content-type negociation](https://microcks.io/documentation/using/advanced/#content-negocation-in-rest-mocks), [Parameters constraints](/documentation/guides/usage/mocks-constraints/) and [Custom dispatching rules](/documentation/explanations/dispatching/).
 
 ## Testing enhancements
 

@@ -31,7 +31,7 @@ From [cloudevents.io](http://cloudevents.io/):
 
 > CloudEvents is a specification for describing event data in common formats to provide interoperability across services, platforms, and systems.
 
-CloudEvents purpose is to establish a common format for event data description and they are part of the [CNCF's Serverless Working Group](https://github.com/cncf/wg-serverless). A lot of integrations already exist within [Knative Eventing](https://knative.dev/docs/eventing/), [Trigger Mesh](https://www.triggermesh.com/) or [Azure Event Grid](https://azure.microsoft.com/en-us/services/event-grid) ; allowing a true cross-vendor platform interoperability.
+CloudEvents purpose is to establish a common format for event data description and they are part of the [CNCF's Serverless Working Group](https://github.com/cncf/wg-serverless). A lot of integrations already exist within [Knative Eventing](https://knative.dev/docs/eventing/), [Trigger Mesh](https://www.triggermesh.com/) or [Azure Event Grid](https://azure.microsoft.com/en-us/products/event-grid/) ; allowing a true cross-vendor platform interoperability.
 
 **The CloudEvents specification is focused on the events** and defines a **common envelope** (set of attributes) for your application event. See this example from their repo:
 
@@ -53,7 +53,7 @@ So here's a new term here: `API`. API implies talking about application interac
 
 <script src="https://gist.github.com/lbroudoux/67252933bcfea50c996b44dd20225962.js"></script>
 
-From this example, you can see the definition of a `User signed-up` event, that is published to the `user/signedup` channel. These events have 3 properties: `fullName`, `email` and `age` that are defined using the semantics coming from [JSON Schema](https://json-schema.org/). Also - but not shown in this example - AsyncAPI allows us to specify event headers and whether these events will be available through different protocol bindings like [Kafka](https://kafka.apaoche.org/), [AMQP](https://www.amqp.org/), [MQTT](https://mqtt.org/) or [WebSocket](https://en.wikipedia.org/wiki/WebSocket).
+From this example, you can see the definition of a `User signed-up` event, that is published to the `user/signedup` channel. These events have 3 properties: `fullName`, `email` and `age` that are defined using the semantics coming from [JSON Schema](https://json-schema.org/). Also - but not shown in this example - AsyncAPI allows us to specify event headers and whether these events will be available through different protocol bindings like [Kafka](https://kafka.apache.org/), [AMQP](https://www.amqp.org/), [MQTT](https://mqtt.org/) or [WebSocket](https://en.wikipedia.org/wiki/WebSocket).
 
 ## CloudEvents with AsyncAPI
 
@@ -66,7 +66,7 @@ There are two mechanisms we can use in AsyncAPI to ensure this combination. Choo
 Let's take the example of using [Apache Kafka](https://kafka.apache.org/) to distribute events.
 
 * In the *structured* content mode, CloudEvents meta-information are tangled with the data in the messages value. For that mode, we'll use the JSON Schema composition mechanism that is accessible from AsyncAPI,
-* In the *binary* content mode (that may use [Avro](https://avro.apache.org/)), CloudEvents meta-information are dissociated from message value and projected on messages headers. For that, we'll use the [`MessageTrait`](https://www.asyncapi.com/docs/specifications/2.0.0#messageTraitObject) application mechanism present in AsyncAPI.
+* In the *binary* content mode (that may use [Avro](https://avro.apache.org/)), CloudEvents meta-information are dissociated from message value and projected on messages headers. For that, we'll use the [`MessageTrait`](https://v2.asyncapi.com/docs/reference/specification/v2.0.0#messageTraitObject) application mechanism present in AsyncAPI.
 
 ### Structured content mode
 
@@ -116,7 +116,7 @@ Some interesting things to notice here:
 * You can put as many examples as you want as this is a map in AsyncAPI,
 * You can specify both `headers` and `payload` values,
 * Even if `payload` will be Avro-binary encoded, you use YAML or JSON to specify examples,
-* You may use templating functions using the `{{ }}` notation to introduce some [random or dynamic values](https://microcks.io/documentation/using/advanced/templates/#function-expressions)
+* You may use templating functions using the `{{ }}` notation to introduce some [random or dynamic values](https://microcks.io/documentation/references/templates/#function-expressions)
 
 Once imported into Microcks, it is discovering the API definition as well as the different examples. It starts immediately producing mock events on the Kafka broker it is connected to - each and every 3 seconds here.
 

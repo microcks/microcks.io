@@ -196,7 +196,7 @@ Microcks will detect an operation named `SUBSCRIBE user/signedup` and create des
 
 Microcks proposes custom AsyncAPI extensions to specify mocks organizational or behavioral elements that cannot be deduced directly from AsyncAPI document.
 
-At the `info` level of your AsyncAPI document, you can add labels specifications that will be used in [organizing the Microcks repository](https://microcks.io/documentation/using/organizing/). See below illustration and the use of `x-microcks` extension:
+At the `info` level of your AsyncAPI document, you can add labels specifications that will be used in [organizing the Microcks repository](/documentation/guides/administration/organizing-repository/). See below illustration and the use of `x-microcks` extension:
 
 ```yaml
 asyncapi: '2.1.0'

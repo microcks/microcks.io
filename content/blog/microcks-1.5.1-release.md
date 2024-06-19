@@ -38,7 +38,7 @@ bindings:
 
 Of course we support queues and all the different types of exchanges for both mocking and testing.
 
-> Whereas mocking just requires adding the binding, testing needs to be familiar with new RabbitMQ/AMQP endpoints syntax. Check out our updated [Event-based API test endpoints](https://microcks.io/documentation/using/tests/#event-based-apis) documentation for that. Complete guide to come soon!
+> Whereas mocking just requires adding the binding, testing needs to be familiar with new RabbitMQ/AMQP endpoints syntax. Check out our updated [Event-based API test endpoints](/documentation/references/test-endpoints/#event-based-apis) documentation for that. Complete guide to come soon!
 
 ## Swagger v2, you asked for it: here it is too!
 
@@ -50,15 +50,15 @@ From the origin, we didn’t support Swagger (aka OpenAPI v2) standard in Microc
 
 So from the start we supported OpenAPI v3 that does not have these limitations. And that was a nice fit for us as Microcks followed the _1 artifact == 1 API mock definition_ principle.
 
-However we did get feedback from the community and now are convinced that this approach can be too restrictive sometimes. A use-case that is emerging is that some people may have a single OpenAPI file containing only base/simple examples but are managing complementary/advanced examples using a Postman Collection. As a consequence, we implemented the [Multi-artifacts support](https://microcks.io/documentation/using/importers/#multi-artifacts-support) in release `1.3.0`.
+However we did get feedback from the community and now are convinced that this approach can be too restrictive sometimes. A use-case that is emerging is that some people may have a single OpenAPI file containing only base/simple examples but are managing complementary/advanced examples using a Postman Collection. As a consequence, we implemented the [Multi-artifacts support](/documentation/explanations/multi-artifacts/) in release `1.3.0`.
 
-The thing we didn't think about at that time is that [Multi-artifacts support](https://microcks.io/documentation/using/importers/#multi-artifacts-support) could also be leveraged to finally support Swagger v2 in Microcks! Allowing you to reuse your Swagger v2 contracts and related Postman Collection have direct mocking and contract-testing within Microcks. 💥
+The thing we didn't think about at that time is that [Multi-artifacts support](/documentation/explanations/multi-artifacts/) could also be leveraged to finally support Swagger v2 in Microcks! Allowing you to reuse your Swagger v2 contracts and related Postman Collection have direct mocking and contract-testing within Microcks. 💥
 
-In a similar fashion to [gRPC support](https://microcks.io/documentation/using/grpc/) or [GraphQL support](https://microcks.io/documentation/using/graphql/) in Microcks you’ll first need a Swagger v2 file that will be considered as the primary artifact holding service and operation definitions and rely on a [Postman Collection](https://www.postman.com/collection/) that holds your mock dataset as examples:
+In a similar fashion to [gRPC support](/documentation/references/artifacts/grpc-conventions/) or [GraphQL support](/documentation/references/artifacts/graphql-conventions/) in Microcks you’ll first need a Swagger v2 file that will be considered as the primary artifact holding service and operation definitions and rely on a [Postman Collection](https://www.postman.com/collection/) that holds your mock dataset as examples:
 
 {{< image src="images/blog/microcks-1.5.1-swagger.png" alt="image" zoomable="true" >}}
 
-> Check out our [Swagger usage for Microcks](https://microcks.io/documentation/using/swagger/) documentation that illustrates how Swagger v2 specification and Postman Collection can be combined and used together.
+> Check out our [Swagger conventions for Microcks](/documentation/references/artifacts/swagger-conventions/) documentation that illustrates how Swagger v2 specification and Postman Collection can be combined and used together.
 
 ## More enhancements
 
@@ -81,7 +81,7 @@ For unknown reasons, the resolution mechanism that was used on import time for A
 
 ### Custom certificates on OpenShift
 
-When using the [Kubernetes Operator](https://microcks.io/documentation/installing/operator/) to deploy on [OpenShift](https://openshift.com), `Routes` are created to allow external access to the different Microcks services. Before the `1.5.1` release of Microcks Operator, routes were created with default settings regarding TLS so they have to reuse the default configuration for the cluster ingress controller.  
+When using the [Kubernetes Operator](/documentation/references/configuration/operator-config/) to deploy on [OpenShift](https://openshift.com), `Routes` are created to allow external access to the different Microcks services. Before the `1.5.1` release of Microcks Operator, routes were created with default settings regarding TLS so they have to reuse the default configuration for the cluster ingress controller.  
 
 > Thanks to Arjun (Zulip user) 🙏 for suggesting the enhancement. You now have the ability with [Microcks Operator](https://operatorhub.io/operator/microcks) `1.5.1` to specify custom TLS certificates for `Routes` either through directly putting them into the custom resource or using labels that will trigger [cert-utils-operator](https://github.com/redhat-cop/cert-utils-operator) and [cert-manager](https://cert-manager.io/) certificate management services
 
