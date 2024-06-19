@@ -105,7 +105,7 @@ docker-compose -f docker-compose-mount.yml up -d
 
 You should have two containers running (`microcks` and `microcks-db`) at that point. You can use the application by opening your browser to [http://localhost:8080](http://localhost:8080) - or change the port in the compose file if already used. 
 
-For a simple illustration, you may use one of [Microcks samples](https://microcks.io/documentation/getting-started/#loading-samples-using-importers) such as the `Pastry API`. Once loaded, you’ll need to edit the properties of the `GET /pastries` operation to access the [section allowing you to configure the dispatching rules](https://microcks.io/documentation/using/dispatching/#dispatching-rules-override). Choose the `SCRIPT` dispatcher from the list and paste this simple script as new DIspatcher rules:
+For a simple illustration, you may use one of [Microcks samples](https://microcks.io/documentation/tutorials/getting-started/#loading-a-sample) such as the `Pastry API`. Once loaded, you’ll need to edit the properties of the `GET /pastries` operation to access the [section allowing you to configure the dispatching rules](https://microcks.io/documentation/guides/usage/custom-dispatchers). Choose the `SCRIPT` dispatcher from the list and paste this simple script as new DIspatcher rules:
 
 ```groovy
 def java = new org.acme.lib.Greeting();

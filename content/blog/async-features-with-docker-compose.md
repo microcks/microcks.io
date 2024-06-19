@@ -106,7 +106,7 @@ ebb420d41691   strimzi/kafka:0.17.0-kafka-2.4.0                   "sh -c 'bin/zo
 
 ## Load a sample and check-up
 
-Now, follow the [Getting Started](https://microcks.io/documentation/getting-started/) guide. First access Microcks on `localhost:8080` from your browser and use `admin/microcks123` to log in. Then got to the **Importers** and add a new importer on `https://raw.githubusercontent.com/microcks/microcks/master/samples/UserSignedUpAPI-asyncapi.yml` URL as specified in [Loading samples](https://microcks.io/documentation/getting-started/#loading-samples) section.
+Now, follow the [Getting Started](https://microcks.io/documentation/tutorials/getting-started/) guide. First access Microcks on `localhost:8080` from your browser and use `admin/microcks123` to log in. Then got to the **Importers** and add a new importer on `https://raw.githubusercontent.com/microcks/microcks/master/samples/UserSignedUpAPI-asyncapi.yml` URL as specified in [Loading samples](https://microcks.io/documentation/tutorials/getting-started/#loading-a-sample) section.
 
 You should have following result:
 

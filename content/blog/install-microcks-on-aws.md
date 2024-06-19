@@ -43,7 +43,7 @@ Once Microcks is running on the EC2 instance, you just have to open your favorit
 
 {{< youtube id="mZEr1eoQ5RQ" autoplay="false" >}}
 
-And here we are! In no time! Ready to go and to import some OpenAPI contracts, Postman Collection or SoapUI Projects within the installation. And pretty soon [AsyncAPI](https://youtu.be/uZaWAekvUz4)! Have a look at [Getting Started using Microcks](https://microcks.io/documentation/getting-started/#using-microcks) for importing samples.
+And here we are! In no time! Ready to go and to import some OpenAPI contracts, Postman Collection or SoapUI Projects within the installation. And pretty soon [AsyncAPI](https://youtu.be/uZaWAekvUz4)! Have a look at [Getting Started using Microcks](https://microcks.io/documentation/tutorials/getting-started/#using-microcks) for importing samples.
 
 Do you think Microcks as a Service directly from AWS Marketplace would be of great help for you or your team? Please let us know what you think voting and commenting [on this issue](https://github.com/microcks/microcks/issues/232).
 

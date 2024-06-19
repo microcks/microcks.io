@@ -27,7 +27,7 @@ A new `Microcks Hub` menu entry is now available by default in the vertical navi
 
 {{< image src="images/blog/microcks-1.5.2-hub.png" alt="image" zoomable="true" >}}
 
-Microcks samples you used to add manually as described in our [Getting Started](https://microcks.io/documentation/getting-started/#loading-samples) documentation or either [standard APIs samples](https://microcks.io/blog/microcks-hub-announcement/#openbankingorguk-use-case) can be directly discovered and browsed from your instance.
+Microcks samples you used to add manually as described in our [Getting Started](https://microcks.io/documentation/tutorials/getting-started/#loading-a-sample) documentation or either [standard APIs samples](https://microcks.io/blog/microcks-hub-announcement/#openbankingorguk-use-case) can be directly discovered and browsed from your instance.
 
 {{< image src="images/blog/microcks-1.5.2-package.png" alt="image" zoomable="true" >}}
 
