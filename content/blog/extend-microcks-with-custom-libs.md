@@ -25,7 +25,7 @@ Without waiting, let’s go ahead!
 
 ## Extension capabilities
 
-At the core of Microcks’ mocking engine are [Dispatchers](https://microcks.io/documentation/using/dispatching/). They are the pieces of logic that allow to match incoming requests and find the appropriate response. Dispatchers are generally deduced from your API artifacts, but they can be configured explicitly.
+At the core of Microcks’ mocking engine are [Dispatchers](https://microcks.io/documentation/explanations/dispatching/). They are the pieces of logic that allow to match incoming requests and find the appropriate response. Dispatchers are generally deduced from your API artifacts, but they can be configured explicitly.
 
 The `SCRIPT` dispatcher is the most versatile and powerful to integrate custom dispatching logic in Microcks. The scripts can be written in [Groovy](https://www.groovy-lang.org/) propose a very familiar syntax to Javascript users and come with an impressive number of built-in util features (JSON & XML, URL fetching, etc). However, implementing advanced processing logic and duplicating it on several APIs and versions can be cumbersome when done in pure Groovy with simple scripts!
 
@@ -36,7 +36,7 @@ That’s where our first extension capability comes into play, allowing you to e
 * **Reuse rich datasets or decision engines** for smarter responses,
 * **Apply custom security validation**.
 
-As a complement in `1.8.1`, an extension endpoint has also been added to the Asynchronous part of Microcks on what is called the [async-minion](https://microcks.io/documentation/installing/deployment-options/#architecture-for-async-api). You now can integrate Java libs as well to customize behavior. The first covered use-case is security mechanism customization when accessing external brokers like Kafka. Others will soon come (like supporting [different JMS implementations](https://github.com/microcks/microcks/issues/879) for example).
+As a complement in `1.8.1`, an extension endpoint has also been added to the Asynchronous part of Microcks on what is called the [async-minion](https://microcks.io/documentation/explanations/deployment-options/#complete-logical-architecture). You now can integrate Java libs as well to customize behavior. The first covered use-case is security mechanism customization when accessing external brokers like Kafka. Others will soon come (like supporting [different JMS implementations](https://github.com/microcks/microcks/issues/879) for example).
 
 
 ### Exploring the demo repository
@@ -94,7 +94,7 @@ Let’s start with Microcks’ main component extension for reusing our library 
 
 ### Simple docker-compose mount
 
-The first way of doing things is very convenient when you’re having a local evaluation of Microcks using the [Docker-compose installation](https://microcks.io/documentation/installing/docker-compose/). The local `lib` folder is simply mounted within the image `/deployments/lib` directory and additional `JAVA_*` environment variables are set to load all the JARs found at this location.
+The first way of doing things is very convenient when you’re having a local evaluation of Microcks using the [Docker-compose installation](https://microcks.io/documentation/guides/installation/docker-compose/). The local `lib` folder is simply mounted within the image `/deployments/lib` directory and additional `JAVA_*` environment variables are set to load all the JARs found at this location.
 
 See it in action by starting this configuration:
 
@@ -148,7 +148,7 @@ You can now safely stop the containers:
 docker-compose -f docker-compose-mount.yml down
 ```
 
-> In the same way, you may want to use [Podman](https://microcks.io/documentation/installing/podman-compose/) to run the microcks container with external libs. See it in action by starting this configuration:
+> In the same way, you may want to use [Podman](https://microcks.io/documentation/guides/installation/podman-compose/) to run the microcks container with external libs. See it in action by starting this configuration:
 
 ```sh
 podman pod create --name=pod_microcks --infra=true --share=net
@@ -224,7 +224,7 @@ In this second part, we are exploring the extension capabilities of the async-mi
 
 ### Simple docker-compose mount
 
-Here again, a very convenient way to start up is to use the [Docker-compose installation](https://microcks.io/documentation/installing/docker-compose/). Contrary to the main component, the image `/deployments/lib` directory is already used for its purpose. So here, we will mount the local `lib` folder into `/deployments/lib-ext`. We must also to set an additional `JAVA_CLASSPATH` environment variable referencing this location.
+Here again, a very convenient way to start up is to use the [Docker-compose installation](https://microcks.io/documentation/gudies/installation/docker-compose/). Contrary to the main component, the image `/deployments/lib` directory is already used for its purpose. So here, we will mount the local `lib` folder into `/deployments/lib-ext`. We must also to set an additional `JAVA_CLASSPATH` environment variable referencing this location.
 
 See it in action by starting this configuration:
 

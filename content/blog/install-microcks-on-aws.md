@@ -8,7 +8,7 @@ description: "Install Microcks on AWS for a test drive 🧪"
 draft: false
 ---
 
-Whilst we recommend installing Microcks on Kubernetes for easy management and enhanced capabilities, it can also be deployed onto a regular Virtual Machine. This post details how you can setup Microcks onto an AWS EC2 instance if you’re familiar with this environment and want a quick test drive. It takes something like 6–7 minutes to complete from end-to-end. It’s an illustration of [official setup documentation](https://microcks.io/documentation/installing/docker-compose/#server-installation).
+Whilst we recommend installing Microcks on Kubernetes for easy management and enhanced capabilities, it can also be deployed onto a regular Virtual Machine. This post details how you can setup Microcks onto an AWS EC2 instance if you’re familiar with this environment and want a quick test drive. It takes something like 6–7 minutes to complete from end-to-end. It’s an illustration of [setup documentation using Docker Compose](https://microcks.io/documentation/guides/installation/docker-compose/).
 
 {{< image src="images/blog/microcks-on-aws.png" alt="image" zoomable="true" >}}
 

@@ -53,7 +53,7 @@ __  ____  __  _____   ___  __ ____  ______
 
 ## Installation experience
 
-We also added a very nice enhancement to improve your installation experience: the ability to put annotations on the `Ingress` resources, whether you choose to use [Helm Chart](https://microcks.io/documentation/installing/kubernetes/) or [Kubenetes Operator](https://microcks.io/documentation/installing/operator/). This sounds like little details but it clearly reinforces smooth integration of Microcks into the Enterprise ecosystem, allowing you to reuse ingress controllers specific features or integrate with organization PKI through [CertManager](https://cert-manager.io/).
+We also added a very nice enhancement to improve your installation experience: the ability to put annotations on the `Ingress` resources, whether you choose to use [Helm Chart](https://microcks.io/documentation/references/configuration/helm-chart-config/) or [Kubenetes Operator](https://microcks.io/documentation/references/configuration/operator-config/). This sounds like little details but it clearly reinforces smooth integration of Microcks into the Enterprise ecosystem, allowing you to reuse ingress controllers specific features or integrate with organization PKI through [CertManager](https://cert-manager.io/).
 
 > You can find full documentation on Microcks Helm Chart on the [README](https://github.com/microcks/microcks/blob/master/install/kubernetes/README.md) ; as well as on the Kubernetes Operator [README](https://github.com/microcks/microcks-ansible-operator/blob/master/README.md). Helm Chart is still distributed through [Helm Hub](https://hub.helm.sh/charts/microcks/microcks) and Operator through [OperatorHub.io](https://operatorhub.io/operator/microcks)
 

@@ -56,6 +56,6 @@ Microcks Docker Desktop Extension `0.2.0` marks a significant step forward in ou
 
 We are committed to your success and will continue to provide frequent updates and improvements. Try out the latest release, provide feedback, and watch for future enhancements to empower your API development journey further. Thank you for your support and confidence in Microcks! 
 
-Download the `0.2.0` version of the [Microcks Docker Desktop Extension](https://microcks.io/documentation/installing/docker-desktop-extension/) to try out the new features for yourself, and keep checking back for updates as we continue to improve it and turn it into a crucial tool for your API development journey.
+Download the `0.2.0` version of the [Microcks Docker Desktop Extension](https://microcks.io/documentation/guides/installation/docker-desktop-extension/) to try out the new features for yourself, and keep checking back for updates as we continue to improve it and turn it into a crucial tool for your API development journey.
 
 Happy API mocking and testing!

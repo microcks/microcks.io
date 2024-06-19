@@ -58,9 +58,9 @@ We have also added a new `FALLBACK` dispatcher that helps to define default resp
 
 ### Get started with a streamlined installation experience
 
-Developer experience is of great importance for us and we worked to make it even simpler to get started with Microcks. [Docker-compose based install](../../documentation/installing/docker-compose) has been drastically improved and does not require any configuration for you to start up! Installation procedures now all contain default users so that you can start playing immediately. 
+Developer experience is of great importance for us and we worked to make it even simpler to get started with Microcks. [Docker-compose based install](../../documentation/guides/installation/docker-compose) has been drastically improved and does not require any configuration for you to start up! Installation procedures now all contain default users so that you can start playing immediately. 
 
-[Kubernetes Operator install](../../documentation/installing/operator) has also been simplified by providing one-liner installation (well actually, it’s two lines 😉):
+[Kubernetes Operator install](/documentation/references/configuration/operator-config/) has also been simplified by providing one-liner installation (well actually, it’s two lines 😉):
 
 ```sh
 $ kubectl apply -f https://microcks.io/operator/operator-latest.yaml -n microcks

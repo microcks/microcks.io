@@ -44,7 +44,7 @@ As we are convinced that a video is worth a million words, please see the latest
 
 {{< youtube id="E8rjUwznO-Q" autoplay="false" >}}
 
-> Because Docker Desktop on Linux runs on [top of a VM](https://docs.docker.com/desktop/install/linux-install/) if you want a native way to install Microcks in Linux and are not afraid of CLI, keep in mind that we also support [Docker-compose ](https://microcks.io/documentation/installing/docker-compose/)and [Podman-compose](https://microcks.io/documentation/installing/podman-compose/). 😇
+> Because Docker Desktop on Linux runs on [top of a VM](https://docs.docker.com/desktop/install/linux-install/) if you want a native way to install Microcks in Linux and are not afraid of CLI, keep in mind that we also support [Docker-compose ](https://microcks.io/documentation/guides/installation/docker-compose/)and [Podman-compose](https://microcks.io/documentation/guides/installation/podman-compose/). 😇
 
 Kudos 👏 to [Hugo Guerrero](https://github.com/hguerrero) 🙏 from [Red Hat](https://www.redhat.com/) for having contributed to the code and doing the super nice video on ”Getting Started in 3 minutes - Docker Desktop Extension”. Well done mate! 💪
 

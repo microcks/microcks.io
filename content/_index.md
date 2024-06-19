@@ -97,7 +97,7 @@ service:
       button:
         enable : true
         label : "Check it out"
-        link : "documentation/installing/"
+        link : "documentation/guides/installation/"
         
 ################### tools_intregrate ########################
 tools_intregrate_sponsor:

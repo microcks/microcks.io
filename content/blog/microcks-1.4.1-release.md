@@ -75,7 +75,7 @@ $ docker-compose -f docker-compose.yml -f docker-compose-async-addon.yml up -d
 
 Aside from this new feature, come a lot of enhancements and capabilities suggested by the community. The most noticeable one are:
 
-* Connecting to a secured [external Kafka broker](https://microcks.io/documentation/installing/deployment-options/#the-kafka-broker-of-your-choice) (using TLS, MTLS or SCRAM) for producing mock messages,
+* Connecting to a secured [external Kafka broker](https://microcks.io/documentation/references/configuration/security-config/#reusing-an-existing-secured-kafka) (using TLS, MTLS or SCRAM) for producing mock messages,
 * NodePort ServiceType for Helm Chart install (in alternative to regular Ingress), thanks to [john873950](https://github.com/john873950) 🙏 contrib,
 * Resources values override for Keycloak and MongoDB, thanks to [john873950](https://github.com/john873950) 🙏 contrib,
 * Configuration of storage classes for Keycloak and MongoDB, thanks to [Mohammad Almarri](https://github.com/ALMARRI) 🙏 suggestion.

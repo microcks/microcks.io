@@ -18,7 +18,7 @@ Whilst the reality is a bit more nuanced, we made the necessary adjustment to ma
 
 ## Give it a try!
 
-As explained in the [Installing with podman-compose doc](../../documentation/installing/podman-compose), you should first ensure that you have [Podman](https://podman.io/getting-started/installation) and [Podman Compose](https://github.com/containers/podman-compose) packages installed.
+As explained in the [Installing with podman-compose doc](../../documentation/guides/installation/podman-compose), you should first ensure that you have [Podman](https://podman.io/getting-started/installation) and [Podman Compose](https://github.com/containers/podman-compose) packages installed.
 
 Then it's just a matter of cloning the repository, navigating to correct folder and running our supporting script that runs Podman in **rootless** mode:
 
@@ -59,8 +59,6 @@ d2e8d1066c48  docker.io/library/mongo:3.4.23                    mongod          
 
 ## Want to have more?
 
-Podman adopt a very different architecture from Docker: it involves no daemon at all and can run as root (**rootfull** mode) or as a regular user (**rootless** mode).
-
-While the **rootless** mode looks very appealing it does not come as a free lunch and involves some network or file system restrictions. For the Podman support in Microcks, we aimed to support both **rootless** and **rootfull** mode and instructions to run in **rootfull** mode are [also available](../../documentation/installing/podman-compose/#rootless-or-rootfull).
+Podman adopt a very different architecture from Docker: it involves no daemon at all and can run as a regular user (**rootless** mode) or as root (**rootfull** mode).
 
 If your a Podman user and hapy with it (or if you struggle making it working 😉) come and say hi! on our [Discord chat](https://microcks.io/discord-invite/) 🐙
