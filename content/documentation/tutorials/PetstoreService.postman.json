@@ -25,7 +25,22 @@
 					"name": "All Pets",
 					"originalRequest": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http:///getPets",
 							"protocol": "http",
@@ -107,7 +122,7 @@
 			]
 		},
 		{
-			"name": "createPet",
+			"name": "createPets",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -148,16 +163,8 @@
 							]
 						}
 					},
-					"_postman_previewlanguage": "text",
-					"header": [
-						{
-							"key": "Content-Type",
-							"value": "application/json",
-							"name": "Content-Type",
-							"description": "",
-							"type": "text"
-						}
-					],
+					"_postman_previewlanguage": null,
+					"header": null,
 					"cookie": [],
 					"body": "{\n    \"id\": {{ randomInt(5,10) }},\n    \"name\": \"{{ request.body/name }}\"\n}"
 				}

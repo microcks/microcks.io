@@ -28,7 +28,7 @@ First mandatory step is obviously to setup Microcks 😉. For gRPC usage, we don
 Run this command below to get your Microcks instance ready:
 
 ```shell
-docker run -p 8585:8080 -p 8686:9090 -it --rm quay.io/microcks/microcks-uber:nightly
+docker run -p 8585:8080 -p 8686:9090 -it --rm quay.io/microcks/microcks-uber:nightly-native
 ```
 
 > This could be on other ports if `8585` or `8686` are already used on your machine.
@@ -85,7 +85,7 @@ From now, we will use this Collection to specify sample data for our mock. This 
 
 1️⃣ Add a new Request named `getPets`. Change this request to be a `POST` request and update its URL to `http:///getPets`. This will ensure Microcks will asoociate it to the correct gRPC method,
 
-2️⃣ On this request, add a new example with the name of your choice. Edit this example to put a lits of Pets as the result body. Your can copy/paste the JSON snippet below:
+2️⃣ On this request, add a new example with the name of your choice. Edit this example to put an empty object as the request body (`{}`) and a list of Pets as the result body. Your can copy/paste the JSON snippet below:
 ```json
 { "pets": [ { "id": 1, "name": "Zaza" }, { "id": 2, "name": "Tigress" }, { "id": 3, "name": "Maki" }, { "id": 4, "name": "Toufik" } ] }
 ```
