@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "4e0f1ff8-1c13-46e3-b737-1b1d66a4a6d0",
+		"name": "org.acme.petstore.v1.PetstoreService",
+		"description": "version=v1 - This collection holds mocks data for gRPC tutorial",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1278651"
+	},
+	"item": [
+		{
+			"name": "getPets",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http:///getPets",
+					"protocol": "http",
+					"path": [
+						"getPets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "All Pets",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http:///getPets",
+							"protocol": "http",
+							"path": [
+								"getPets"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"pets\": [\n        {\n            \"id\": 1,\n            \"name\": \"Zaza\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Tigress\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Maki\"\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Toufik\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "searchPets",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://searchPets",
+					"protocol": "http",
+					"host": [
+						"searchPets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "k pets",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"k\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://searchPets",
+							"protocol": "http",
+							"host": [
+								"searchPets"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"pets\": [\n        {\n            \"id\": 3,\n            \"name\": \"Maki\"\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Toufik\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "createPet",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://createPet",
+					"protocol": "http",
+					"host": [
+						"createPet"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "new pet",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"name\": \"Jojo\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://createPet",
+							"protocol": "http",
+							"host": [
+								"createPet"
+							]
+						}
+					},
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": {{ randomInt(5,10) }},\n    \"name\": \"{{ request.body/name }}\"\n}"
+				}
+			]
+		}
+	]
+}

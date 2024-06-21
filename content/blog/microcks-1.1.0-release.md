@@ -49,7 +49,7 @@ __  ____  __  _____   ___  __ ____  ______
 2020-10-19 14:49:37,134 INFO  [io.quarkus] (main) quarkus-api-pastry 1.0.0-SNAPSHOT native (powered by Quarkus 1.7.1.Final) started in 0.104s. Listening on: http://0.0.0.0:8282
 ```
 
-> Find our [Getting Started with Tests](https://microcks.io/documentation/getting-started-tests/) quick start guide.
+> Find our [Getting Started with Tests](https://microcks.io/documentation/tutorials/getting-started-tests/) quick start guide.
 
 ## Installation experience
 

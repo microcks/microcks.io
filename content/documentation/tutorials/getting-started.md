@@ -51,7 +51,7 @@ Now you are ready to use Microcks for deploying your own services and API mocks!
 			
 {{< image src="images/home-screen.png" alt="image" zoomable="true" >}}
 			
-As you may have guessed, **APIs | Services** is for browsing your Services and API repository, discovering and accessing documentation, mocks, and tests. **Importers** will help you to populate your repository, allowing you to define Jobs that periodically scan your Git or simple HTTP repositories for new artifacts, parse them and integrate them into your Services and API repository. In fact **Importers<** help you discover both new and modified **Services**. Before using your own service definition files, let's load some samples into Microcks for a test ride!
+As you may have guessed, **APIs | Services** is for browsing your Services and API repository, discovering and accessing documentation, mocks, and tests. **Importers** will help you to populate your repository, allowing you to define Jobs that periodically scan your Git or simple HTTP repositories for new artifacts, parse them and integrate them into your Services and API repository. In fact **Importers** help you discover both new and modified **Services**. Before using your own service definition files, let's load some samples into Microcks for a test ride!
 
 ### Loading a Sample
 

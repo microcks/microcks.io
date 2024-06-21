@@ -9,7 +9,7 @@ weight: 6
 
 ## Conventions
 
-In order to be correctly imported and understood by Microcks, your Postman collection should follow a little set of reasonable conventions and best practices.
+In order to be correctly imported and understood by Microcks, your [Postman Collection](https://www.postman.com/collection/) should follow a little set of reasonable conventions and best practices.
 
 * Your Postman collection may contain one or more API definitions. However, because it's a best practice to consider each API as an autonomous and isolated software asset, we'd recommend managing only one API definition per Postman collection and not mixing requests related to different APIs within the same Collection,
 * Your Postman collection description should hold a custom property named `version` that allows tracking of API version. It is a good practice to change this version identifier for each API interface versioned changes. As of writing, Postman does not allow editing of such custom property although the Collection v2 format allow them. By convention, we allow setting it through the collection description using this syntax: `version=1.0 - Here is now the full description of my collection...`.

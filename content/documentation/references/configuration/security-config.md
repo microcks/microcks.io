@@ -136,7 +136,7 @@ The `serviceAccountCredentials` should typically be changed as this is the defau
 
 ### Handling proxies for Keycloak access
 
-Depending on your network configuration, authentication of request with Keycloak can be a bit tricky as Keycloak requires some [specific load-balancer or proxy settings](https://www.keycloak.org/docs/latest/server_installation/index.html#_setting-up-a-load-balancer-or-proxy). Typically, you way need to configure specific address ranges for proxies if you're not using the usual private IPv4 blocks.
+Depending on your network configuration, authentication of request with Keycloak can be a bit tricky as Keycloak requires some [specific load-balancer or proxy settings](https://www.keycloak.org/server/reverseproxy). Typically, you way need to configure specific address ranges for proxies if you're not using the usual private IPv4 blocks.
 
 This can be done specifying additional `extraProperties` into the `microcks` part of your configuration - either within `spec.microcks` path if you're using the Operator `MicrocksInstall` custom resource or from direct `microcks` path in `values.yml` when using the Helm chart. The configuration below typically declare a new IP range to treat as proxy in order to propertly forward proxy headers to the application code:
 

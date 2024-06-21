@@ -3,13 +3,13 @@ draft: false
 title: "gRPC Conventions"
 date: 2024-05-27
 publishdate: 2024-05-27
-lastmod: 2024-05-27
+lastmod: 2024-06-20
 weight: 5
 ---
 
 In order to use gRPC in Microcks, you will need two artifacts for each service definition as explained in [Multi-artifacts support](/documentation/explanations/multi-artifacts):
 
-* A [gRPC / Protocol Buffers]((https://grpc.io/docs/what-is-grpc/introduction/)) file definition that holds the Service metadata and operations definitions,
+* A [gRPC / Protocol Buffers](https://grpc.io/docs/what-is-grpc/introduction/) file definition that holds the Service metadata and operations definitions,
 * A Postman Collection file that holds the mock examples (requests and responses) for the different operations of the gRPC Service.
 
 ## Conventions
@@ -32,12 +32,12 @@ We recommend having a look at our sample gRPC for [HelloService](https://raw.git
 
 ## Dispatchers
 
-gRPC service mocks in Microcks supports 3 different types of [dispatcher](/documentation/explanations/dispatching):
+gRPC service mocks in Microcks supports 4 different types of [dispatcher](/documentation/explanations/dispatching):
 
 * `empty` dispatcher means that Microcks will pick the first available response of operation,
+* [`QUERY_ARGS`](/documentation/explanations/dispatching/#inferred-dispatchers) dispatcher can be inferred automatically at import time. It is used for dispatching based on the content of the gRPC Request if this one is made of [Protobuff scalar types](https://protobuf.dev/programming-guides/proto3/#scalar) (string, integer, boolean, float, ...) excepted `bytes`,
 * [`JSON_BODY`](/documentation/explanations/dispatching/#json-body-dispatcher) dispatcher can be used for dispatching based on the content of the complete gRPC Request body translated in JSON,
 * [`SCRIPT`](/documentation/explanations/dispatching/#script-dispatcher) dispatcher can be used for dispatching based on the content of the complete gRPC Request body translated in JSON.
-
 
 {{< image src="images/documentation/grpc-dispatch-rule.png" alt="image" zoomable="true" >}}
 
@@ -94,3 +94,11 @@ The next step is now to create a bunch of examples for each of the requests/oper
 <div align="center">
 {{< figure src="images/documentation/grpc-postman-example.png" alt="image" zoomable="true" width="90%"  >}}
 </div>
+
+### Defining dispatch rules
+
+If the default inferred dispatchers don't match with your use-case, you'll need an additional step for assembling data coming from gRPC Protofile and Postman Collection is to define how to dispatch requests. For gRPC, your can typically use a `JSON_BODY` or a `SCRIPT` dispatcher as mentionned above.
+
+You can use a [Metadata artifact](/documentation/references/metadada) for that or directly edit the dispatcher in the Web UI. Here-after we have defined a simple rule that is routing incoming requests depending on the value of the `firstname` property of the incoming message.
+
+{{< image src="images/documentation/grpc-dispatch-rule.png" alt="image" zoomable="true" >}}

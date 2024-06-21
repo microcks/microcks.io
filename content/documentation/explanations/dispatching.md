@@ -3,7 +3,7 @@ draft: false
 title: "Dispatcher & dispatching rules"
 date: 2020-03-03
 publishdate: 2020-03-03
-lastmod: 2022-12-26
+lastmod: 2024-06-20
 weight: 18
 ---
 
@@ -30,7 +30,7 @@ Here are below some explanations on these dispatchers and associated dispatching
 | `URI_PARTS` | Inferred when a Service or API operation has only `path` parameters | Path variables name separated by a `&&`. Example: for a `/blog/post/{year}/{month}` path, rule is `year && month` |
 | `URI_PARAMS`| Inferred when a Service or API operation has only `query` parameters | Query variables name separated by a `&&`. Example: for a `/search?status={s}&query={q}` operation, rule is `status && query` |
 | `URI_ELEMENTS` | Inferred when a Service or API operation has both `path` and `query` parameters | Path variables name separated by a `&&` then `??` followed by query variables name separated by a `&&`. Example: for a `/v2/pet/{petId}?user_key={k}`, rule is `petId ?? user_key` |
-| `QUERY_ARGS` | Infered when a GraphQL API operation has only primitive types arguments | Variables name separated by a `&&`. Example: for a GraphQL mutation `mutation AddStars($filmId: String, $number: Int) {...}`, rule is `filmId && number` |
+| `QUERY_ARGS` | Infered when a GraphQL API or gRPC service operation has only primitive types arguments | Variables name separated by a `&&`. Example: for a GraphQL mutation `mutation AddStars($filmId: String, $number: Int) {...}`, rule is `filmId && number` |
 | `QUERY_MATCH` | Extracted from SoapUI project. Defines a XPath matching evaluation: extracted result from input query should match a response name | Example: for a `Hello` SOAP Service that extracts the `sayHello` element value for find a greeting rule is `declare namespace ser='http://www.example.com/hello'; //ser:sayHelloResponse/sayHello`. <br/><br/> XPath functions can also be used here for evaluation - eg. something like: `concat(//ser:sayHello/title/text(),' ',//ser:sayHello/name/text())` |
 | `SCRIPT` | Extracted from SoapUI project. Defines a Groovy script evaluation: result of type Sring should match a response name | See [below section on script dispatcher](./#script-dispatcher). |
 
@@ -118,7 +118,7 @@ $ curl -X POST http://microcks.example.com/rest/Beer+Catalog+API/1.0/beer \
 
 ### FALLBACK dispatcher
 
-Another useful advanced dispatching strategy introduced in the [Advanced Dispatching and Constraints for mocks](../../../../blog/advanced-dispatching-constraints/) blog post, is the `FALLBACK` strategy. As you may have guessed by its name, it behaves like a `try-catch` wrapping block in programming: it will try applying a first dispatcher with its own rule and if it find nothings it will default to a `fallback` response. This will allow you to define a default response event of the incoming requests does not match any dispatching criteria.
+Another useful advanced dispatching strategy introduced in the [Advanced Dispatching and Constraints for mocks](https://microcks.io/blog/advanced-dispatching-constraints/) blog post, is the `FALLBACK` strategy. As you may have guessed by its name, it behaves like a `try-catch` wrapping block in programming: it will try applying a first dispatcher with its own rule and if it find nothings it will default to a `fallback` response. This will allow you to define a default response event of the incoming requests does not match any dispatching criteria.
 
 The dispatching rules of `FALLBACK` dispatcher are expressed using a JSON payload with 3 properties:
 
@@ -139,6 +139,22 @@ $ curl 'https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecas
 
 Region is unknown. Choose in north, west, east or south.%
 ```
+
+### PROXY dispatcher
+
+`PROXY` dispatcher was released in Microcks `1.9.1` and introduced in this [blog post](https://microcks.io/blog/new-proxy-features-1.9.1/). As you may have guessed, this dispatcher simply changes the base URL of the Microcks and makes a call to a real backend service.
+
+When using `PROXY` as a dispatcher, the `dispatcherRules` should just be set to the base URL of the target backend service.
+
+### PROXY_FALLBACK dispatcher
+
+The advanced `PROXY_FALLBACK` dispatcher works similarly to the `FALLBACK` dispatcher, but with one key difference: when no matching response is found within the Microcks’ dataset, instead of returning a fallback response, it changes the base URL of the request and makes a call to the real service.
+
+The dispatching rules of `PROXY_FALLBACK` dispatcher are expressed using a JSON payload with 3 properties:
+
+* `dispatcher` is the original dispatching strategy you want to be applied at first. Valid values are all the other dispatching strategies,
+* `dispatcherRules` are the rules you want the original dispatcher to apply when looking for a response,
+* `proxyUrl` must be set to the base URL of the target backend service.
 
 ### SCRIPT dispatcher
 
