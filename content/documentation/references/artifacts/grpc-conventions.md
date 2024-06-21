@@ -19,8 +19,8 @@ In order to be correctly imported and understood by Microcks, your gRPC and Post
 * As of today Microcks only supports `proto3` syntax as it is now the default and encouraged version from gRPC community,
 * gRPC doesn't have the notion of Service version. In Microcks, this notion is critical and we will use the package information from the **proto file** to compute a version.
 
-    * For package name containing containing more than 2 paths levels, we'll extract the last one as being the version. So `package io.github.microcks.grpc.hello.v1;` will produce version `v1`
-    * We'll keep unchanged simplest package named, so `package com.acme;` will produce version `com.acme` that is not very unique 😞.
+    * For package names containing more than 2 path levels, we'll extract the last one as being the version. So `package io.github.microcks.grpc.hello.v1;` will produce version `v1`
+    * We'll keep unchanged shorter package named, so `package com.acme;` will produce version `com.acme` that is not very unique 😞.
     * So be sure to follow [gRPC versioning best practices](https://docs.microsoft.com/en-us/aspnet/core/grpc/versioning?view=aspnetcore-5.0#version-number-services)!
 
 * Your Postman collection description will need to have a **name** that matches the gRPC service name and a custom property `version` that matches the above computed version,
