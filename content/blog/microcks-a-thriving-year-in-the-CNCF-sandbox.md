@@ -89,8 +89,8 @@ Microcks maintainers, care about **metrics** and are committed to **continuous i
 **Net Newly Attracted Affiliations**: **25 new organizations** with developers **actively participating in the Community**! 🚀
 {{< image src="images/blog/microcks-one-year-later-affliations.png" alt="Net Newly Attracted Affiliations">}}
 
-**Contributions Up!** 🚀 **910 commits** this year vs. **486 commits** last year 📈
-{{< image src="images/blog/microcks-910-commits-one-year-later.png" alt="Contributions Up">}}
+**Git Overview** 🚀 **910 commits** this year vs. **486 commits** last year 📈
+{{< image src="images/blog/microcks-910-commits-one-year-later.png" alt="Git Overview">}}
 
 **Attracted New Developers Continue to Rise!** 🌟 The growth has skyrocketed since we joined the CNCF! 😊
 {{< image src="images/blog/new-developers-continue-to-rise.png" alt="Attracted New Developers Continue to Rise">}}
