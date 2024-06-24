@@ -165,8 +165,9 @@ Before actualy evaluating the script, Microcks builds a runtime context where el
 | <div style="width: 160px">Object</div> | Description |
 | ------ | ----------- |
 | `mockRequest` | Wrapper around incoming request that fullfill the contract of [Soap UI mockRequest](https://www.soapui.org/docs/soap-mocking/creating-dynamic-mockservices/#2-Mock-Handler-Objects). Allows you to access body payload with `requestContent`, request headers with `getRequestHeaders()` or all others request elements with `getRequest()` that accesses underlying Java HttpServletRequest object |
-| `requestContext` | Allows you to access mock-request wide context for storing any kind of objects. Such context elements can ba later reused whne producing response content from [templates](../templates) |
+| `requestContext` | Allows you to access a request scoped context for storing any kind of objects. Such context elements can be later reused when producing response content from [templates](/documentation/references/templates) |
 | `log` | Access to a logger with commons methods like `debug()`, `info()`, `warn()` or `error()`. Useful for troubleshooting. |
+| `store` | Allows you to access a service scoped persistent store for string values. Such store elements can be later reused in other operation's script to keep track of state or feed the `requestContext`. Store provides helpful methods like `put(key, value)`, `get(key)` or `delete(key)`. Store elements are subject to a Time-To-Live that is 10 seconds by default. This TTL can be overriden using the `put(key, value, ttlInSeconds)` method. |
 
 #### Common use-cases
 
@@ -230,4 +231,12 @@ def invJson = new URL("http://127.0.0.1:8080/api/metrics/invocations/OneApp%20Ho
 def inv = new groovy.json.JsonSlurper().parseText(invJson).dailyCount
 log.info("daily invocation: " + inv)
 [...]
+```
+
+Persist, read and delete information from the service-scoped persistent store:
+
+```groovy
+def foo = store.get("foo");
+def bar = store.put("bar", "barValue");
+store.delete("baz");
 ```
