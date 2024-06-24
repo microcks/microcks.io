@@ -6,7 +6,7 @@ image: "images/blog/microcks-joining-cncf-sandbox-feature.png"
 # author
 author: "Yacine Kheddache"
 # post type (regular/featured)
-type: "featured"
+type: "regular"
 # meta description
 description: "This is meta description sandbox here"
 # post draft
