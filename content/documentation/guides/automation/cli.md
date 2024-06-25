@@ -36,7 +36,7 @@ docker pull quay.io/microcks/microcks-cli:latest
 
 ## 2. Launching a test
 
-Assuming you are running the same examples than in the [Getting started](/documentation/tutorials/getting-started) and [Getting started with Tests](/documentation/tutorials/getting-started-tests) tutorials, you may use this coimmand line to launch a new test:
+Assuming you are running the same examples than in the [Getting started](/documentation/tutorials/getting-started) and [Getting started with Tests](/documentation/tutorials/getting-started-tests) tutorials, you may use this command line to launch a new test:
 
 ```sh
 microcks-cli test 'API Pastry - 2.0:2.0.0' http://host.docker.internal:8282 OPEN_API_SCHEMA \
