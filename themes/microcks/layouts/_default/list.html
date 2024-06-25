@@ -42,7 +42,7 @@
             <div class="d-flex align-items-center mb-4">
               {{- template "author-image" dict "author" .Params.Author -}}
 
-              {{ range .Params.Params.coauthors }}
+              {{ range .Params.coauthors }}
                 {{- template "author-image" dict "author" . -}}
               {{ end }}
 
