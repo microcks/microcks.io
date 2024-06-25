@@ -1,7 +1,7 @@
 ---
 title: A Thriving year in the CNCF Sandbox and Its Transformative Impacts
 date: 2024-06-24
-image: "images/blog/microcks-contributors.jpeg"
+image: "images/blog/microcks-contributors.png"
 author: "Diane Mueller"
 type: "featured"
 description: "A Thriving year in the CNCF Sandbox and Its Transformative Impacts"
@@ -14,7 +14,7 @@ Params:
 In the **ever-evolving landscape** of **open-source software**, achieving **recognition** and **support** from **reputable foundations can be a game-changer** for projects. This was precisely the case for [Microcks](https://microcks.io/), an **innovative API mocking and testing project**. When Microcks joined the [CNCF](https://www.cncf.io/) (Cloud Native Computing Foundation) Sandbox a year ago, opportunities opened. In this blog post, we'll delve into Microcks's exciting journey as it embraced its [CNCF Sandbox](https://landscape.cncf.io/?selected=microcks) status and explore the profound positive impacts the project experienced in its **first year within the foundation**.
 
 <p style="text-align: center;">
-{{< image src="images/blog/microcks-contributors.jpeg" alt="Microcks: A Thriving year in the CNCF Sandbox and Its Transformative Impacts">}}
+{{< image src="images/blog/microcks-contributors.png" alt="Microcks: A Thriving year in the CNCF Sandbox and Its Transformative Impacts">}}
     <em><a href="https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/" target="_blank">KubeCon EU 2024</a> at the Microcks Project Pavilion booth, showcasing core contributors from Red Hat (<a href="https://www.linkedin.com/in/hugoguerrero/" target="_blank">Hugo Guerrero</a>), Google (<a href="https://www.linkedin.com/in/julienbreux/" target="_blank">Julien Breux</a>) and Microcks core maintainers (<a href="https://www.linkedin.com/in/laurentbroudoux/" target="_blank">Laurent Broudoux</a> & <a href="https://www.linkedin.com/in/yacinekheddache/" target="_blank">Yacine Kheddache</a>).</em>
 </p>
 
