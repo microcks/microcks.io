@@ -30,7 +30,7 @@ The `request` object is a simple bean of class `EvaluableRequest` that contains 
 Now let's imagine the following request coming onto a Microcks endpoint for `Hello API` version `1.0`:
 
 ```sh
-$ curl http://microcks.example.com/rest/Hello+API/1.0/hello/microcksd?locale=US -H 'trace: azertyuiop' -d 'rocks'
+$ curl http://microcks.example.com/rest/Hello+API/1.0/hello/microcks?locale=US -H 'trace: azertyuiop' -d 'rocks'
 ```
 
 Here's how the different expressions will be evaluated:
