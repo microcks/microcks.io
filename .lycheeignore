@@ -9,6 +9,9 @@ https://use.fontawesome.com/
 # Any other ports should be regarded as suspicious and undergo examination by the checker.
 http://localhost:8080/
 
+# Exclude Microcks HELM Chart repo as it is a non-browsable URL
+https://microcks.io/helm
+
 # Exclude GitHub profiles that are accurate and have been manually verified to prevent error reporting
 # caused by GitHub rate limits, ex: "Failed: Network error: Too Many Requests"
 https://github.com/sarasensible
