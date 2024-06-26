@@ -15,6 +15,9 @@ https://microcks.io/helm
 # Avoid some medium.com URLs since the site appears to be sensitive to concurrent requests...
 https://medium.com/@lbroudoux/
 
+# The AMQP website certificate has expired on June 3rd, 2024, so let's exclude it
+https://www.amqp.org/
+
 # Exclude GitHub profiles that are accurate and have been manually verified to prevent error reporting
 # caused by GitHub rate limits, ex: "Failed: Network error: Too Many Requests"
 https://github.com/sarasensible
