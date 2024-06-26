@@ -69,8 +69,5 @@ https://developers.redhat.com/blog/2018/04/26/api-journey-idea-deployment-agile-
 - An API Journey, from Mock to Deployment!<br>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/EWweP57as5U?si=xPi2EU69zg1LeNQa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-- API Lifecycle workshop<br>
-https://api-lifecycle-workshop.netlify.com/ 
-
 - “Day in the Life” workshop<br>
 https://github.com/RedHatWorkshops/dayinthelife-integration
