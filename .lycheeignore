@@ -12,6 +12,9 @@ http://localhost:8080/
 # Exclude Microcks HELM Chart repo as it is a non-browsable URL
 https://microcks.io/helm
 
+# Avoid some medium.com URLs since the site appears to be sensitive to concurrent requests...
+https://medium.com/@lbroudoux/
+
 # Exclude GitHub profiles that are accurate and have been manually verified to prevent error reporting
 # caused by GitHub rate limits, ex: "Failed: Network error: Too Many Requests"
 https://github.com/sarasensible
