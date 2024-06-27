@@ -48,4 +48,4 @@ Finally, you can then use this URL (ending just before the `?`) and use it direc
 
 ## Wrap-up
 
-Congrats 🎉 You now know how to connect Microcks to your Postman Workspace in order to get diret access to the Postman Colleciton shared woith your team!
+Congrats 🎉 You now know how to connect Microcks to your Postman Workspace in order to get diret access to the Postman Collection shared with your team!
