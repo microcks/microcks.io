@@ -111,7 +111,7 @@ You can now start organizing and creating requests that are matching with the Gr
 {{< image src="images/documentation/graphql-postman-operations.png" alt="image" >}}
 </div>
 
-The next step is now to create a bunch of examples for each of the requests/operations of your Collection as explained by the [Postman documentation](https://www.getpostman.com/docs/postman/collections/examples). You'll give each example a meaningful name regarding the use-case it is supposed to represent. Example url must also match the name of the GraphQL operation method; here we have a simple `{{url}}` because the url at the upper request level but this one must have the `http://allFilms` value.
+The next step is now to create a bunch of examples for each of the requests/operations of your Collection as explained by the [Postman documentation](https://learning.postman.com/docs/sending-requests/response-data/examples). You'll give each example a meaningful name regarding the use-case it is supposed to represent. Example url must also match the name of the GraphQL operation method; here we have a simple `{{url}}` because the url at the upper request level but this one must have the `http://allFilms` value.
 
 You'll define examples using simple JSON for request body and for response body as well. Below is a basic example but [Templating expressions and functions](/documentation/references/templates/) are obviously supported:
 
