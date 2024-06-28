@@ -145,7 +145,7 @@ We’d like to thank the following awesome people:
 * [Tamimi Ahmad](https://github.com/TamimiGitHub) 🙏 that invited us to talk about Microcks at the [Solace Community Lightning Talk](https://solace.community/discussion/838/solace-community-lightning-talk-2-0-is-here) where we had the opportunity to demonstrate our work. Recording is available on [YouTube](https://www.youtube.com/watch?v=dMnk-jCkBOo),
 * The [Solace Dev Community](https://solace.community/)  and [Tamimi Ahmad](https://github.com/TamimiGitHub) 🙏 for working on a joint demonstration with their PubSub+ Event Portal product. The demo has been played 2 times during Solace Office Hours at [Kafka Summit Americas](https://www.kafka-summit.org/) 😉
 * [Cloud Nord](https://www.youtube.com/watch?v=KlnJrO29B0M&t=0s) 🙏 team for inviting us to talk at their latest event. Recording to come very soon but for french folks only! 
-* [Hugo Guerrero](https://github.com/hguerrero ) 🙏 for having two talks on Kafka Summit APAC and Americas 2021! Be sure to watch the replay of its [Automated Apache Kafka Mocking and Testing with AsyncAPI](https://kafkasummit.io/session-virtual/?v26dd132ae80017cdaf764437c30ebe6f10c1b1eeaab01165e44366654b368dfaeab6baf7e386a642ecb238989334530e=E64EFD7272E5F3345043B3D69A4D2BBAF2C9E410AC7D32BAC53CCA4ECB3CFD7412D76A6F755F2261D4D4E5CA294B3EAA). Congrats mate! 💪
+* [Hugo Guerrero](https://github.com/hguerrero) 🙏 for having two talks on Kafka Summit APAC and Americas 2021! Be sure to watch the replay of its [Automated Apache Kafka Mocking and Testing with AsyncAPI](https://www.confluent.io/events/kafka-summit-americas-2021/automated-apache-kafka-mocking-and-testing-with-asyncapi/). Congrats mate! 💪
 
 
 ## What’s coming next?
