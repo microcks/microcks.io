@@ -224,7 +224,7 @@ In this second part, we are exploring the extension capabilities of the async-mi
 
 ### Simple docker-compose mount
 
-Here again, a very convenient way to start up is to use the [Docker-compose installation](https://microcks.io/documentation/gudies/installation/docker-compose/). Contrary to the main component, the image `/deployments/lib` directory is already used for its purpose. So here, we will mount the local `lib` folder into `/deployments/lib-ext`. We must also to set an additional `JAVA_CLASSPATH` environment variable referencing this location.
+Here again, a very convenient way to start up is to use the [Docker-compose installation](https://microcks.io/documentation/guides/installation/docker-compose/). Contrary to the main component, the image `/deployments/lib` directory is already used for its purpose. So here, we will mount the local `lib` folder into `/deployments/lib-ext`. We must also to set an additional `JAVA_CLASSPATH` environment variable referencing this location.
 
 See it in action by starting this configuration:
 
