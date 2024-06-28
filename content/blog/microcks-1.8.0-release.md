@@ -46,7 +46,7 @@ Adding samples to an existing OpenAPI specification or Postman Collection - so t
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">🚨 Exciting <a href="https://twitter.com/hashtag/AI?src=hash&amp;ref_src=twsrc%5Etfw">#AI</a> features are coming to Microcks! 🧠<br><br>Watch our early prototype in action! See how to boost your <a href="https://twitter.com/hashtag/API?src=hash&amp;ref_src=twsrc%5Etfw">#API</a> development lifecycle with our AI Copilot on API <a href="https://twitter.com/hashtag/mocking?src=hash&amp;ref_src=twsrc%5Etfw">#mocking</a> and <a href="https://twitter.com/hashtag/testing?src=hash&amp;ref_src=twsrc%5Etfw">#testing</a> workflows! <a href="https://t.co/Zeoc07qaBB">pic.twitter.com/Zeoc07qaBB</a></p>&mdash; Microcks (@microcksio) <a href="https://twitter.com/microcksio/status/1676584280728715267?ref_src=twsrc%5Etfw">July 5, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
 
-> This feature leverages [OpenAI](https://platform.openai.com/docs/api-reference) GPT models API underhood as a first implementation. We designed it to be adaptable and ready for other AI engines in the future. Check [this issue](https://github.com/microcks/microcks/issues/872) for more information.
+> This feature leverages [OpenAI](https://platform.openai.com/docs/api-reference/introduction) GPT models API underhood as a first implementation. We designed it to be adaptable and ready for other AI engines in the future. Check [this issue](https://github.com/microcks/microcks/issues/872) for more information.
 
 
 ### Support for HAR artifacts
