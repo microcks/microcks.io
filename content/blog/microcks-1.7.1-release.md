@@ -74,7 +74,7 @@ You may have seen it some days ago as announced by our fellow [Hugo Guerrero](ht
 
 {{< image src="images/blog/docker-desktop-extension-0.2-list.png" alt="image" zoomable="true" >}}
 
-> The extension improves the [Microcks](https://microcks.io/) experience by offering a user-friendly interface, quick access to API mock URLs, and optional integration with popular tools such as Postman. [Grab it](https://hub.docker.com/layers/microcks/microcks-docker-desktop-extension/0.2.0images/sha256-270d1100ae936b54620d97b081669d93ea3685d399f7bbf42c5bc23fede744f1?context=explore) while it’s hot! 🔥 It will be updated really soon to `1.7.1`.
+> The extension improves the [Microcks](https://microcks.io/) experience by offering a user-friendly interface, quick access to API mock URLs, and optional integration with popular tools such as Postman. [Grab it](https://hub.docker.com/extensions/microcks/microcks-docker-desktop-extension) while it’s hot! 🔥 It will be updated really soon to `1.7.1`.
 
 
 ### Helm Chart enhancements
