@@ -18,6 +18,10 @@ https://medium.com/@lbroudoux/
 # The AMQP website certificate has expired on June 3rd, 2024, so let's exclude it
 https://www.amqp.org/
 
+# This can be ignored and excluded as it is in a template layout file... not a static external URL...
+# By the way, this layout has not been used on the website so far. We keep it as part of the template, just in case.
+https://facebook.com/sharer/sharer.php?u={{%20$url%20}}
+
 # Add valid URLs here, when the broken link error is due to web site rate limit... 
 https://mvnrepository.com/repos/central
 
