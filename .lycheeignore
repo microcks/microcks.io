@@ -18,6 +18,9 @@ https://medium.com/@lbroudoux/
 # The AMQP website certificate has expired on June 3rd, 2024, so let's exclude it
 https://www.amqp.org/
 
+# Add valid URLs here, when the broken link error is due to web site rate limit... 
+https://mvnrepository.com/repos/central
+
 # Exclude GitHub profiles that are accurate and have been manually verified to prevent error reporting
 # caused by GitHub rate limits, ex: "Failed: Network error: Too Many Requests"
 https://github.com/sarasensible
