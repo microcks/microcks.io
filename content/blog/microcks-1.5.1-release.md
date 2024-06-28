@@ -93,7 +93,7 @@ Community contributions are essential to us and do not come only from feature re
 We’d like to thank the following awesome people:
 
 * [Noelia Martín Hernández](https://www.linkedin.com/in/noelia-mart%C3%ADn-hern%C3%A1ndez-9bb12960/) 🙏 for its awesome introduction on [Kafka events mocking with AsyncAPI and Microcks](https://www.paradigmadigital.com/dev/mockear-eventos-en-kafka-con-asyncapi-microcks/) in Spanish on [Paradigma Digital](https://www.paradigmadigital.com/) blog,
-* [Nicolas Ehrman](https://www.linkedin.com/in/nicolas-ehrman-629b8910/) 🙏 and [Jérôme Delabarre](https://www.linkedin.com/in/jerome-delabarre-a350848/) 🙏 from [Hashicorp](https://www.hashicorp.com/) for a very nice chat in French regarding Microcks genesis. The recording is available on [YouTube](https://www.youtube.com/watch?v=QrMIY4E36dg),
+* [Nicolas Ehrman](https://www.linkedin.com/in/nicolas-ehrman-629b8910/) 🙏 and [Jérôme Delabarre](https://www.linkedin.com/in/jerome-delabarre-a350848/) 🙏 from [Hashicorp](https://www.hashicorp.com/) for a very nice chat in French regarding Microcks genesis,
 * [OpenShift Coffee Break](https://www.youtube.com/playlist?list=PLaR6Rq6Z4IqdKiGzRkBRKCiyAzQ5hM-rb) 🙏 Red Hat team for inviting us to talk about API testing into a Microservices world with Microcks. The recording is available on [YouTube](https://www.youtube.com/watch?v=j1vRuXNSsHo&list=PLaR6Rq6Z4IqdKiGzRkBRKCiyAzQ5hM-rb&index=8) too,
 * [Hugo Guerrero](https://github.com/hguerrero ) 🙏 from [Red Hat](https://redhat.com) for having contributed a super nice video on [Creating Fluid API Mocks in 3 minutes](https://www.youtube.com/watch?v=7jQClrrR-Dw) on our [YouTube channel](https://www.youtube.com/c/Microcks). Well done mate! 💪
 
