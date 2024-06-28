@@ -18,9 +18,6 @@ https://www.youtube.com/@Microcks/videos
 - (🇫🇷)  [Paris JUG](https://www.parisjug.org/events/2024/02-13-microcks-et-api-agile/), meetup Fevrier 2024
 <iframe width="373" height="315" src="https://www.youtube.com/embed/MrPhe--agKw?si=TLlMJDQ05i_8D5NR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-- (🇫🇷) Hashicorp Radio Interview Fevrier 2022
-<iframe width="373" height="210" src="https://www.youtube.com/embed/QrMIY4E36dg" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
 - OpenShift Coffee Break - Microcks: API testing into a microservices world
 <iframe width="373" height="210" src="https://www.youtube.com/embed/j1vRuXNSsHo" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
