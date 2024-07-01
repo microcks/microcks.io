@@ -31,7 +31,7 @@
         {{ end }}
         
         <!-- comments -->
-        {{ if site.DisqusShortname }}
+        {{ if .Site.Config.Services.Disqus.Shortname }}
         <div class="border p-5 rounded-2 mt-5">
           {{ template "_internal/disqus.html" . }}
         </div>
