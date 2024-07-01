@@ -115,7 +115,7 @@
 {{ $currentNodeFileUniqueID := "" }}
 {{ with $currentNode.File }}{{ $currentNodeFileUniqueID = .UniqueID }}{{ end }}
 <li data-nav-id="{{.Permalink}}" title="{{.Title}}" class="sidelist {{if .IsAncestor $currentNode }}parent{{end}} {{if eq $fileUniqueID $currentNodeFileUniqueID}}active parent{{end}}">
-  <a href="{{.Permalink}}">{{ if .Page.Params.Params.icon }} <i class="fa-solid {{ .Page.Params.Params.icon }}"></i> &nbsp;{{ end }}{{.Title }}</a>
+  <a href="{{.Permalink}}">{{ if .Page.Params.icon }} <i class="fa-solid {{ .Page.Params.icon }}"></i> &nbsp;{{ end }}{{.Title }}</a>
   {{ $numberOfPages := (add (len .Pages) (len .Sections)) }}
   {{ if ne $numberOfPages 0 }}
   <ul>
