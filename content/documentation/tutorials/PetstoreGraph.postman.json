@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "ce5abe9a-2813-4673-8e61-8a6f2790dc21",
+		"name": "Petstore Graph API",
+		"description": "version=1.0 - This collection holds mocks data for GraphQL tutorial",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1278651"
+	},
+	"item": [
+		{
+			"name": "allPets",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://allPets",
+					"protocol": "http",
+					"host": [
+						"allPets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "allPets",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://allPets",
+							"protocol": "http",
+							"host": [
+								"allPets"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"allPets\": [\n            {\n                \"id\": \"1\",\n                \"name\": \"Zaza\",\n                \"color\": \"blue\"\n            },\n            {\n                \"id\": \"2\",\n                \"name\": \"Tigress\",\n                \"color\": \"stripped\"\n            },\n            {\n                \"id\": \"3\",\n                \"name\": \"Maki\",\n                \"color\": \"calico\"\n            },\n            {\n                \"id\": \"4\",\n                \"name\": \"Toufik\",\n                \"color\": \"stripped\"\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "searchPets",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://searchPets",
+					"protocol": "http",
+					"host": [
+						"searchPets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "k pets",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query searchPets ($name: String) {\n    searchPets (name: $name) {\n        id\n        name\n        color\n    }\n}",
+								"variables": "{\n    \"name\": \"k\"\n}"
+							}
+						},
+						"url": {
+							"raw": "http://searchPets",
+							"protocol": "http",
+							"host": [
+								"searchPets"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"searchPets\": [\n            {\n                \"id\": \"3\",\n                \"name\": \"Maki\",\n                \"color\": \"calico\"\n            },\n            {\n                \"id\": \"4\",\n                \"name\": \"Toufik\",\n                \"color\": \"stripped\"\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "i pets",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query searchPets ($name: String) {\n    searchPets (name: $name) {\n        id\n        name\n        color\n    }\n}",
+								"variables": "{\n    \"name\": \"i\"\n}"
+							}
+						},
+						"url": {
+							"raw": "http://searchPets",
+							"protocol": "http",
+							"host": [
+								"searchPets"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"searchPets\": [\n            {\n                \"id\":\"2\",\n                \"name\":\"Tigress\",\n                \"color\":\"stripped\"\n            },\n            {\n                \"id\": \"3\",\n                \"name\": \"Maki\",\n                \"color\": \"calico\"\n            },\n            {\n                \"id\": \"4\",\n                \"name\": \"Toufik\",\n                \"color\": \"stripped\"\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "createPet",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://createPet",
+					"protocol": "http",
+					"host": [
+						"createPet"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "new pet",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation createPet($newPet: NewPet) {\n    createPet(review: $newPet) {\n        id\n        name\n        color\n    }\n}",
+								"variables": "{\n    \"newPet\": {\n        \"name\": \"Jojo\",\n        \"color\": \"tuxedo\"\n    }\n}"
+							}
+						},
+						"url": {
+							"raw": "http://createPet",
+							"protocol": "http",
+							"host": [
+								"createPet"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n  \"data\":{\n    \"createPet\":{\n        \"id\":\"{{ randomInt(5, 10) }}\",\n        \"name\":\"{{ request.body/variables/newPet/name }}\",\n        \"color\":\"{{ request.body/variables/newPet/color }}\"\n    }\n  }\n}"
+				}
+			]
+		}
+	]
+}

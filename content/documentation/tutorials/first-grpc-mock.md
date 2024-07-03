@@ -35,7 +35,7 @@ docker run -p 8585:8080 -p 8686:9090 -it --rm quay.io/microcks/microcks-uber:nig
 
 Following the getting started, you should have a Microcks running instance on `http://localhost:8585` with a gRPC server available on `localhost:8686`.
 
-Now let start with the skeleton of our Protobuf contract for the Petstore Service. We'll start with the definition of three different messages:
+Now let's start with the skeleton of our Protobuf contract for the Petstore Service. We'll start with the definition of three different messages:
 * `Pet` is the data structure that represents a registered pet in our store - it has an `id` and a `name`,
 * `PetsResponse` is a structure that allows returning many pets as a service method result,
 * `AllPetsRequest` is an empty structure that represents the input type of our first method.
@@ -70,7 +70,7 @@ From now, you can save this as a file on your disk, then go to the **Importers**
 
 ## 2. Specifying mock data with Postman
 
-We have loaded a gRPC / Protobuf definition in Microcks that correctly discoverd the structure of your service but you have now sample data loaded at the moment. We're going to fix this using Postman and create a [Collection](https://www.postman.com/collection/) to hold our mock data.
+We have loaded a gRPC / Protobuf definition in Microcks that correctly discovered the structure of your service, but you have no sample data loaded at the moment. We're going to fix this using Postman and create a [Collection](https://www.postman.com/collection/) to hold our mock data.
 
 In your Postman Workspace, start creating a new standard and empty Collection. As one of [our conventions](/documentation/references/artifacts/postman-conventions/), your Collection must have the full name of your gRPC Service: `org.acme.petstore.v1.PetstoreService`. The documentation summary you put in the Collection must also start with `version=v1` like illustrated below:
 
@@ -154,7 +154,7 @@ This is your first gRPC mock 🎉 Nice achievement!
 
 Let's make things a bit more spicy by adding request arguments. Now assume we want to provide a simple searching method to retrieve all pets in store using simple filter. We'll end up adding a new `searchPets()` method in your API. Of course, we'll have to define a new `PetSearchRequest` input message so that users will specify `name=zoe` to get all the pets having `zoe` in name.
 
-So we'll add new elements in our Protobuf document like below: a nwe message and we complete the service with a new `rpc` method: 
+So we'll add new elements in our Protobuf document like below: a new message and we complete the service with a new `rpc` method: 
 
 ```proto
 message PetSearchRequest {
@@ -167,11 +167,11 @@ service PetstoreService {
 }
 ```
 
-You can then import the updated Protobuf file into Microcks using the upload dialog but **without tikcing the box** as we want to update our service definition and not simply add test data. You can check the updated result:
+You can then import the updated Protobuf file into Microcks using the upload dialog but **without ticking the box** as we want to update our service definition and not simply add test data. You can check the updated result:
 
 {{< image src="images/documentation/first-grpc-2-methods.png" alt="image" zoomable="true" >}}
 
-What about the dispatcher property we mentioned earlier? You can see that it now have the `QUERY_ARG` value. Because of the presence of arguments in the new method definition, Microcks has inferred a routing logic based on this argument. If you get access to the operaiton details, you'll see that the associated rule is `name`. Microcks will use the name to route incoming gRPC request.
+What about the dispatcher property we mentioned earlier? You can see that it now have the `QUERY_ARG` value. Because of the presence of arguments in the new method definition, Microcks has inferred a routing logic based on this argument. If you get access to the operation details, you'll see that the associated rule is `name`. Microcks will use the name to route incoming gRPC request.
 
 Let's complete our Postman Collection with a new request for the new `searchPets` method and a new example for searching for pets having a `k` in their name:
 
@@ -238,7 +238,7 @@ service PetstoreService {
 }
 ```
 
-You can then import the updated Protobuf file into Microcks using the upload dialog but **without tikcing the box** as we want to update our service definition and not simply add test data. You can check the updated result:
+You can then import the updated Protobuf file into Microcks using the upload dialog but **without ticking the box** as we want to update our service definition and not simply add test data. You can check the updated result:
 
 {{< image src="images/documentation/first-grpc-3-methods.png" alt="image" zoomable="true" >}}
 
@@ -268,7 +268,7 @@ Let's complete our Postman Collection with a new request for the new `createPet`
 
 Import this updated Postman Collection back in Microcks - **this time you need to tick the box** - and verify the results:
 
-{{< image src="images/documentation/first-grpc-searchpets.png" alt="image" zoomable="true" >}}
+{{< image src="images/documentation/first-grpc-createpet.png" alt="image" zoomable="true" >}}
 
 Let's now finally test this new method using some content and see what's going on:
 
@@ -282,7 +282,7 @@ $ grpcurl -plaintext -d '{"name": "Rusty"}' localhost:8686 org.acme.petstore.v1.
 
 As a result we've got our pet name `Rusty` being returned with a new `id` being generated. Ta Dam! 🥳
 
-> 🛠️ As a validation, send a few more requests changing your pet name. You'll check that given name is always returned. But you can also go further by defining an [advanced dispatcher](/documentation/explanations/dispatching/#json-body-dispatcher) that will inspect your request body content to decide which response must be sent back. Very useful to describe different creation or error cases!
+> 🛠️ As a validation, send a few more requests changing your pet name. You'll check that given name is always returned and the `id` is actual random. But you can also go further by defining an [advanced dispatcher](/documentation/explanations/dispatching/#json-body-dispatcher) that will inspect your request body content to decide which response must be sent back. Very useful to describe different creation or error cases!
 
 ## Wrap-up
 
