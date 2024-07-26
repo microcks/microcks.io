@@ -3,7 +3,7 @@ draft: false
 title: "Your 1st gRPC mock"
 date: 2024-04-30
 publishdate: 2024-04-30
-lastmod: 2024-06-20
+lastmod: 2024-07-29
 weight: 4
 ---
 
@@ -216,7 +216,7 @@ $ grpcurl -plaintext -d '{"name": "k"}' localhost:8686 org.acme.petstore.v1.Pets
 
 🎉 Fantastic! We now have a mock with routing logic based on request arguments.
 
-> 💡 Microcks dispatcher can support multiple arguments to find appropriate response to an incoming request. In that case, the dispatcher rule will have the form of `argu_1 && arg_2 && arg_3`.
+> 💡 Microcks dispatcher can support multiple arguments to find appropriate response to an incoming request. In that case, the dispatcher rule will have the form of `arg_1 && arg_2 && arg_3`.
 
 > 🛠️ As an exercice to validate your understanding, just add a new `i pets` sample so that when user specify a filter with value `i`, the 3 correct cats are returned (Tigresse, Maki and Toufik)
 

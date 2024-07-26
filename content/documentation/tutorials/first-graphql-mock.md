@@ -276,7 +276,7 @@ $ echo '{ "query":
 
 🎉 Fantastic! We now have a mock with routing logic based on request arguments.
 
-> 💡 Microcks dispatcher can support multiple arguments to find appropriate response to an incoming request. In that case, the dispatcher rule will have the form of `argu_1 && arg_2 && arg_3`.
+> 💡 Microcks dispatcher can support multiple arguments to find appropriate response to an incoming request. In that case, the dispatcher rule will have the form of `arg_1 && arg_2 && arg_3`.
 
 > 🛠️ As an exercice to validate your understanding, just add a new `i pets` sample so that when user specify a filter with value `i`, the 3 correct cats are returned (Tigresse, Maki and Toufik). Once both cases are passing, you can also try some more advanced query like the one below. Yes, Microcks supports advanced GraphQL semantics like composite queries and fragments 😉
 
