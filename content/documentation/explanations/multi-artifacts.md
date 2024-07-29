@@ -19,7 +19,7 @@ In that case, Microcks is first fed with an OpenAPI file to get the main identif
 
 If not explicitly identified as `primary` or `secondary,` the default is to consider an imported artifact as the primary one. Microcks will simply ignore a `secondary` artifact if it doesn't match any existing API name + version.
 
-> 💡 Note that the `secondary` artifact is not necessarily a Postman Collection. It can also be some other artifacts like [HTTP Archive Format (HAR)](https://w3c.github.io/web-performance/specs/HAR/Overview.html) file, for example. Check our reference on [Supported artifacts and conventions](/documentation/references/artifacts-conventions).
+> 💡 Note that the `secondary` artifact is not necessarily a Postman Collection. It can also be some other artifacts like [HTTP Archive Format (HAR)](https://w3c.github.io/web-performance/specs/HAR/Overview.html) file, for example. Check our reference on [Supported artifacts and conventions](/documentation/references/artifacts/).
 
 ## Usage for different protocols
 
@@ -29,7 +29,7 @@ It is then mandatory to use multiple artifacts in Microcks for [GraphQL](https:/
 
 {{< image src="images/documentation/artifacts-merging-protocols.png" alt="image" zoomable="true" >}}
 
-> 💡 Here again, the `secondary` artifact is not necessarily a Postman Collection just used for illustration purpose. Check our reference on [Supported artifacts and conventions](/documentation/references/artifacts-conventions).
+> 💡 Here again, the `secondary` artifact is not necessarily a Postman Collection just used for illustration purpose. Check our reference on [Supported artifacts and conventions](/documentation/references/artifacts/).
 
 Also, note that multiple artifacts for one API definition don't necessarily involve different specifications and file formats! The merging process in Microcks is generic, so you can use the same format multiple times. For example, you may want to use an OpenAPI specification as a `primary` one and apply some overlay by managing examples into other OpenAPI files.
 
