@@ -11,7 +11,7 @@ weight: 3
 
 Sometimes it may be required to specify additional constraints onto a mock operation. Constraints that are related to API behaviour or semantic may be hard even impossible to express with an API contract. Microcks allows you to specify such constraints by editing the properties of a Service or API operation.
 
-This guide will introduce you the concepts of Microcks **parameters constraints** that allows you to customize the behavior and the validation of your mocks. You'll kearn thorugh a simple exemple how to place constraints onto a REST API operation.
+This guide will introduce you the concepts of Microcks **parameters constraints** that allows you to customize the behavior and the validation of your mocks. You'll kearn through a simple example how to place constraints onto a REST API operation.
 
 ## 1. Concepts
 

@@ -1,0 +1,209 @@
+---
+openapi: 3.0.2
+info:
+  title: Cart API
+  version: 1.0.0
+  description: A simple Cart for demonstrating stateful mocking capabilities in Microcks
+  contact:
+    name: Laurent Broudoux
+    url: https://github.com/lbroudoux
+    email: laurent.broudoux@gmail.com
+  license:
+    name: MIT License
+    url: https://opensource.org/licenses/MIT
+paths:
+  /cart:
+    parameters:
+      - name: customerId
+        in: header
+        schema:
+          type: string
+        required: true
+        examples:
+          Cart:
+            value: lbroudoux
+    get:
+      operationId: GetCart
+      x-microcks-operation:
+        dispatcher: SCRIPT
+        dispatcherRules: |-
+          def customerId = mockRequest.getRequestHeaders().get("customerId", "null")
+          def items = store.get(customerId + "-items")
+          if (items != null) {
+            requestContext.items = items
+            def cartItems = new groovy.json.JsonSlurper().parseText(items)
+            def totalPrice = 0.0
+            for (item in cartItems) {
+              totalPrice += item.price * item.quantity
+            }
+            requestContext.totalPrice = totalPrice
+          } else {
+            requestContext.items = []
+            requestContext.totalPrice = 0.0
+          }
+          return "Cart"
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  customerId:
+                    type: string
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Item'
+                  totalPrice:
+                    format: double
+                    type: number
+                required:
+                  - customerId
+                  - items
+                  - totalPrice
+              examples:
+                Cart:
+                  value: |-
+                    {
+                      "customerId": "{{request.headers[customerid]}}",
+                      "items": {{ items }},
+                      "totalPrice": {{ totalPrice }}
+                    }
+  /cart/items:
+    parameters:
+      - name: customerId
+        in: header
+        schema:
+          type: string
+        required: true
+    put:
+      operationId: PutItemsInCart
+      x-microcks-operation:
+        dispatcher: SCRIPT
+        dispatcherRules: |-
+          def customerId = mockRequest.getRequestHeaders().get("customerId", "null")
+          def items = store.get(customerId + "-items")
+          def cartItems = []
+          if (items != null) {
+            cartItems = new groovy.json.JsonSlurper().parseText(items)
+          }
+          def item = new groovy.json.JsonSlurper().parseText(mockRequest.requestContent)
+          cartItems.add([productId: item.productId, quantity: item.quantity, price: item.price])
+          store.put(customerId + "-items", groovy.json.JsonOutput.toJson(cartItems), 60)
+          return "One item"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Item'
+            examples:
+              One item:
+                value:
+                  productId: Millefeuille
+                  quantity: 2
+                  price: 4.0
+      responses:
+        201:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+              examples:
+                One item:
+                  value: |-
+                    {
+                      "productId": "{{request.body/productId}}",
+                      "quantity": {{request.body/quantity}},
+                      "price": {{request.body/price}}
+                    }
+    delete:
+      operationId: RemoveItemsFromCart
+      x-microcks-operation:
+        dispatcher: SCRIPT
+        dispatcherRules: |-
+          def customerId = mockRequest.getRequestHeaders().get("customerId", "null")
+          def items = store.get(customerId + "-items")
+          
+          if (items != null) {
+            def productId = new groovy.json.JsonSlurper().parseText(mockRequest.requestContent).productId
+            def cartItems = new groovy.json.JsonSlurper().parseText(items)
+            def newCartItems = []
+            for (item in cartItems) {
+              if (item.productId != productId) {
+                newCartItems.add(item)
+              }
+            }
+            store.put(customerId + "-items", groovy.json.JsonOutput.toJson(newCartItems), 60)  
+          }
+          return "Item to remove"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Item'
+            examples:
+              Item to remove:
+                value:
+                  productId: Baba Rhum
+                  quantity: 1
+                  price: 4.2
+      responses:
+        204:
+          x-microcks-refs:
+            - Item to remove
+  /cart/empty:
+    parameters:
+      - name: customerId
+        in: header
+        schema:
+          type: string
+        required: true
+    post:
+      operationId: RemoveAlltemsFromCart
+      x-microcks-operation:
+        dispatcher: SCRIPT
+        dispatcherRules: |-
+          def customerId = mockRequest.getRequestHeaders().get("customerId", "null")
+          def items = store.delete(customerId + "-items")
+          return "Cart"
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  customerId:
+                    type: string
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Item'
+                  totalPrice:
+                    format: double
+                    type: number
+                required:
+                  - customerId
+                  - items
+                  - totalPrice
+              examples:
+                Cart:
+                  value: |-
+                    {
+                      "customerId": "{{request.headers[customerid]}}",
+                      "items": [],
+                      "totalPrice": 0.0
+                    }
+components:
+  schemas:
+    Item:
+      type: object
+      properties:
+        productId:
+          type: string
+        quantity:
+          type: integer
+        price:
+          format: double
+          type: number
