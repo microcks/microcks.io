@@ -3,7 +3,7 @@ draft: false
 title: "Your 1st gRPC mock"
 date: 2024-04-30
 publishdate: 2024-04-30
-lastmod: 2024-07-29
+lastmod: 2024-08-07
 weight: 4
 ---
 
@@ -23,12 +23,10 @@ Ready? Go! 💥
 
 First mandatory step is obviously to setup Microcks 😉. For gRPC usage, we don't need any particular setup and the simple `docker` way of deploying Microcks as exposed in [Getting started](/documentation/tutorials/getting-started) is perfectly suited. 
 
-> 🚨 As we're using new features that may not be released yet, we recommend using the `nightly` version for this tutorial. Moreover, this time we need to bind the gRPC port of Microcks (running on port `9090`) to one local port. We may choose `8686` for that.
-
 Run this command below to get your Microcks instance ready:
 
 ```shell
-docker run -p 8585:8080 -p 8686:9090 -it --rm quay.io/microcks/microcks-uber:nightly-native
+docker run -p 8585:8080 -p 8686:9090 -it --rm quay.io/microcks/microcks-uber:latest-native
 ```
 
 > This could be on other ports if `8585` or `8686` are already used on your machine.
