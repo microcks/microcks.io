@@ -33,7 +33,7 @@ In order to help you getting confidence into your implementations, we developed 
 {{< image src="images/documentation/test-conformance.png" alt="image" zoomable="true" >}}
 <br/>
 
-The **Conformance index** is a kind of grade that estimates how your API contract is actually covered by the samples you've attached to it. We compute this index based on the number of samples you've got on each operation, the complexity of dispatching rules of these operation and so on... It represents the maximum possible conformance score you may achieve if all your tests are successfull.
+The **Conformance index** is a kind of grade that estimates how your API contract is actually covered by the samples you've attached to it. We compute this index based on the number of samples you've got on each operation, the complexity of dispatching rules of these operation and so on... It represents the maximum possible conformance score you may achieve if all your tests are successful.
 
 The **Conformance score** is the current score that has been computed during your last test execution. We also added a trend computation if things are going better or worse comparing to your history of tests on this API.
 

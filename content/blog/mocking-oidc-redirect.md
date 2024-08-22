@@ -62,7 +62,7 @@ paths:
               value: e956e017-5e13-4c9d-b83b-6dd6337a6a86
         - name: redirect_uri
           in: query
-          description: Redirect to this URI after successfull authorization
+          description: Redirect to this URI after successful authorization
           schema:
             type: string
             format: uri
