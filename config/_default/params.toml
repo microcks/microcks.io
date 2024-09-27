@@ -133,7 +133,7 @@ link = "https://www.linkedin.com/company/microcks/"
 
 [[social]]
 title = "Twitter"
-icon = "fab fa-twitter" # themify icon : https://themify.me/themify-icons
+icon = "fab fa-x-twitter" # themify icon : https://themify.me/themify-icons
 link = "https://twitter.com/microcksio"
 
 [[social]]
