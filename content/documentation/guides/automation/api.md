@@ -3,7 +3,7 @@ draft: false
 title: "Connecting to Microcks API"
 date: 2024-04-30
 publishdate: 2024-04-30
-lastmod: 2024-04-30
+lastmod: 2024-09-30
 weight: 1
 ---
 
@@ -19,7 +19,7 @@ This guide takes place in **3 steps**:
 
 3️⃣ We will **issue a bunch of API calls** and discuss permissions.
 
-> 💡 All the commands of this guide are exposed as `curl` commands, it's then up-to-you to translate them into your language or automation stack of choice. As this is a simple test, we will not bother with certificates validation and add the `-k` flags to the commands. Be sure to use `--cacert` or `--cacert` options on real environment with custom certificates.
+> 💡 All the commands of this guide are exposed as `curl` commands, it's then up-to-you to translate them into your language or automation stack of choice. As this is a simple test, we will not bother with certificates validation and add the `-k` flags to the commands. Be sure to use `--cacert` or `--capath` options on real environment with custom certificates.
 
 Let's jump in! 🏂
 

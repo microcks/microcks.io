@@ -33,13 +33,31 @@ While this method is very convenient for a quick test, you'll have to re-import 
 
 ### Via the API
 
-> 🚧 To Be Completed.
-> 
-> The same thing can be done via Microcks' own API
+The same thing can be done via Microcks' own API. Be sure to start reading the [Connecting to Microcks API](/automation/api.md) guide first, and to retrieve a `token` by running the authentication flow. The *Service Account* you use for this operation is required to have the `manager` role - that is not the case of the default one as explained in [Inspecting default Service Account](/microcks.io/documentation/explanations/service-account/#inspecting-default-service-account).
+
+Once you have the `$TOKEN` issued for the correct account, uploading a new Artifact is just a matter of executing this `curl` command:
+
+```sh
+# Uploading a local artifact.
+curl 'https://microcks.example.com/api/artifacts/upload?mainArtifact=true' -H "Authorization: Bearer $TOKEN" -F 'file=@samples/films.graphql' -k
+```
+
+### Configure dependency resolution
+
+Direct upload is straightforward and quick to realize but comes with one caveat: it does not allow you to automatically resolve dependencies. For example, if your artifact file uses external references with relative paths, Microcks is not able to resolve this external reference - by default.
+
+As a workaround to this limitation, and since Microcks `1.10.1`, we introduced a new `default-artifacts-repository.url` property that takes the value of `DEFAULT_ARTIFACTS_REPOSITORY_URL` environment variable when defined. It can be set to either an HTTP endpoint (starting with `http[s]://`) or a file endpoint (starting with `file://`). This default repository for artifats will be used as the default location for Microcks to resolve relative dependencies.
+
+```properties
+default-artifacts-repository.url=${DEFAULT_ARTIFACTS_REPOSITORY_URL:#{null}}
+```
+
+> 💡 For local development purposes, this is super convenient to use a very small HTTP server running on your laptop or a common folder mounted into Microcks container as this default artifacts repository.
+
 
 ## 2. Import content via Importer
 
-Another way of adding new Services or APIs mocks is by scheduling an **Importer Job** into Microcks. We think its actually the best way to achieve continuous, iterative and incremental discovery of your Services and APIs. The principle is very simple: you save your artifact file into the Git repository of your choice (public or private) and Microcks will take care of periodically checking if changes have been applied and new mock or services definitions are present in your artifact.
+Another way of adding new Services or APIs mocks is by scheduling an **Importer Job** into Microcks. We think its actually the best way to achieve continuous, iterative and incremental discovery of your Services and APIs. The principle is very simple: you save your artifact file into the Git repository of your choice (public or private) and Microcks will take care of periodically checking if changes have been applied and new mock or services definitions are present in your artifact. The nice thing about using Importer is that external files referenced in the target artifact will be automatically resolved for you. 
 
 <div align="center">
 {{< figure src="images/documentation/artifacts-scheduling.png" width="80%" >}}
