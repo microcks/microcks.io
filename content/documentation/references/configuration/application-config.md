@@ -3,7 +3,7 @@ draft: false
 title: "Application Configuration"
 date: 2024-04-29
 publishdate: 2024-04-29
-lastmod: 2024-06-13
+lastmod: 2024-09-30
 weight: 1
 ---
 
@@ -84,6 +84,9 @@ The Webapp component should know how to connect to external component and the ca
 tests-callback.url=${TEST_CALLBACK_URL:http://localhost:8080}
 postman-runner.url=${POSTMAN_RUNNER_URL:http://localhost:3000}
 async-minion.url=${ASYNC_MINION_URL:http://localhost:8081}
+default-artifacts-repository.url=${DEFAULT_ARTIFACTS_REPOSITORY_URL:#{null}}
+
+validation.resourceUrl=http://localhost:8080/api/resources/
 ```
 
 #### Scheduled imports

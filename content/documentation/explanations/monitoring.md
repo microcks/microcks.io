@@ -3,7 +3,7 @@ draft: false
 title: "Monitoring & Observability"
 date: 2022-09-09
 publishdate: 2022-09-09
-lastmod: 2024-06-13
+lastmod: 2024-09-30
 weight: 20
 ---
 
@@ -43,7 +43,7 @@ OpenTelemetry is disabled by default and must be enabled using two different env
 * `OTEL_JAVAAGENT_ENABLED` is set to false by default, so you'll have to explicitly set it to `true`
 * `OTEL_EXPORTER_OTLP_ENDPOINT` is set to a local dummy endpoint, so you'll have to set it to an OpenTelemetry collector endpoint of your environment. Something like `http://otel-collector.acme.com:4317` for example.
 
-Check the dedicated [README](https://github.com/microcks/microcks/tree/1.9.x/observability) on GitHub to get more details.
+Check the dedicated [README](https://github.com/microcks/microcks/tree/master/observability) on GitHub to get more details.
 
 ## Grafana dashboard
 
@@ -51,10 +51,10 @@ Starting with Microcks `1.9.0`, we also provide a [Grafana](https://grafana.com/
 
 This dashboard is using data coming from a Prometheus source so you don't have to enabled the full OpenTelemetry support to use it. Standard Prometheus endpoints scraped by your Prom instance will do the job.
 
-Check the dedicated [/dashbaords](https://github.com/microcks/microcks/tree/1.9.x/observability/dashboards) on GitHub to get more details.
+Check the dedicated [/dashbaords](https://github.com/microcks/microcks/tree/master/observability/dashboards) on GitHub to get more details.
 
 ## Benchmark suite
 
 Starting with Microcks `1.9.0`, we also provide a benchmark suite as an easy way of validating/sizing/evaluating changes on your Microcks instance. It allows you to simulate Virtual Users on different usage scenarios and gather performance metrics of your instance.
 
-Check the dedicated [README](https://github.com/microcks/microcks/tree/1.9.x/benchmark) on GitHub to get more details.
+Check the dedicated [README](https://github.com/microcks/microcks/tree/master/benchmark) on GitHub to get more details.
