@@ -6,7 +6,7 @@ description: "Microcks community and ressources"
 draft: false
 layout: "how-it-works"
 
-######################### how it works banner #####################
+######################### how it works banner ######################
 banner:
   title: "For the Community, By the Community 🙌"
   image: "images/community/maintainers.png"
