@@ -3,7 +3,7 @@ draft: false
 title: "API Examples Format"
 date: 2024-07-26
 publishdate: 2024-07-26
-lastmod: 2024-07-26
+lastmod: 2024-10-09
 weight: 6
 ---
 
@@ -68,7 +68,7 @@ operations:
         headers:
           Accept: text/xml
       response:
-        code: '200'
+        status: '200'
         mediaType: text/xml
         body: |-
           <pastry>
@@ -86,7 +86,7 @@ The above snippet is pretty straightforward to understand:
 * Both examples should be matched to a pastry `name` of `Eclair Chocolat`, defined within the request `parameters`. Those `parameters` can contain any number of parameter mapped on operation path or on query parameters,
 * Both `request` and `response` can define `headers` and a `body` - though it only makes sens to have a response body on this use-case,
 * Request and response `body` can be defined as plain String (Json or Xml), as Yaml object or as Yaml array (automatically converted to Json during the import),
-* A `response` may have additional attributes like the response `code` (optional - `200` is actually the default for REST API) and the `mediaType` of the response.
+* A `response` may have additional attributes like the response `status` (optional - `200` is actually the default for REST API) and the `mediaType` of the response.
 
 The beauty of it is that the principles are kinda the same for a gRPC service:
 
