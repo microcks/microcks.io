@@ -6,7 +6,7 @@ description: "Microcks community and ressources"
 draft: false
 layout: "how-it-works"
 
-######################### how it works banner #####################
+######################### how it works banner ######################
 banner:
   title: "For the Community, By the Community 🙌"
   image: "images/community/maintainers.png"
@@ -27,7 +27,7 @@ how_it_works:
           
   - title: "Follow us on social"
     image: "images/community/social.png"
-    content: "**Stay tuned**! Follow us on [LinkedIn](https://www.linkedin.com/company/microcks/), [Twitter](https://twitter.com/microcksio), [Mastodon](https://mastodon.social/@microcksio) and our [YouTube](https://www.youtube.com/c/Microcks) channel!"
+    content: "**Stay tuned**! Follow us on [LinkedIn](https://www.linkedin.com/company/microcks/), [X](https://x.com/microcksio), [Mastodon](https://mastodon.social/@microcksio) and our [YouTube](https://www.youtube.com/c/Microcks) channel!"
       
   - #title: "Empower the vibrant open source Community 🙌"
     title: "We ❤️ open source!"
