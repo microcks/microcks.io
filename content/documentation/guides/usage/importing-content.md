@@ -10,7 +10,7 @@ weight: 1
 ## Overview
 
 This guide will show you and discuss the different options for importing Services and APIs into Microcks. There is basically two different ways of putting new content into Microcks:
-1. Pushing content to Microcks via Uplaod,
+1. Pushing content to Microcks via Upload,
 2. Having Microcks pulling content via Importer.
 
 We will see the different ways of doing things as weel of the pros and cons of the different methods.
