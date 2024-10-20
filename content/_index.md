@@ -11,7 +11,7 @@ banner:
   button:
     enable : true
     #label : "Microcks is a Cloud Native Computing Sandbox project 🚀"
-    label : "♻️ 1.10.1 has just been released! 🚀"
+    label : "♻️ 1.10.0 has just been released! 🚀"
     #link : "https://microcks.io/blog/microcks-joining-cncf-sandbox/"
     getstarted: ./documentation/tutorials/getting-started/
     link : "blog/microcks-1.10.0-release/"
@@ -32,16 +32,20 @@ clients_logo_slider:
   enable : true
   #title: "The best customer experiences are built with Bigspring"
   logos:
+  - "images/adopters/bitso.png"
   - "images/adopters/BNP-Paribas.png"
   - "images/adopters/Deloitte.png"
   #- "images/adopters/Orange.png"
   - "images/adopters/JB-Hunt.png"
+  - "images/adopters/nordic-semiconductor.png"
   - "images/adopters/la-poste-groupe.png"
   #- "images/adopters/Lombard_Odier.png"
   - "images/adopters/Sesam-Vitale.png"
+  - "images/adopters/catena-clearing.png"
   - "images/adopters/societe-generale.png"
   - "images/adopters/akwatype.png"
   - "images/adopters/assurance-maladie.png"
+  - "images/adopters/onem.png"
   - "images/adopters/codecentric.png"
   - "images/adopters/inetum.png"
 
