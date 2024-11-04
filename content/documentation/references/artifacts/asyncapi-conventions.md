@@ -3,7 +3,7 @@ draft: false
 title: "AsyncAPI Conventions"
 date: 2024-05-27
 publishdate: 2024-05-27
-lastmod: 2024-05-27
+lastmod: 2024-11-04
 weight: 2
 ---
 
@@ -79,6 +79,44 @@ components:
           payload:
             message: Namaste
 ```
+
+Starting with Microcks `1.11.0`, you'll also have access to a notation that is much more aligned with JSON Schema constraints on `schema.examples` definition being an array::
+
+```yaml
+channels:
+  /chat/{roomId}:
+    parameters:
+      idRoom:
+        description: Identifier of the chat room
+        schema:
+          type: string
+          examples:
+            - Example 1:
+                value: 1
+            - Example 2:
+                value: 2
+            - Example 3:
+                value: 2
+    [...]
+```
+
+or to a shorcut notation we introduced with AsyncAPI v3.x importer. This shorcut notation allows you to define example name and value using `name:value` items like illustrated below:
+
+```yaml
+channels:
+  /chat/{roomId}:
+    parameters:
+      idRoom:
+        description: Identifier of the chat room
+        schema:
+          type: string
+          examples:
+            - 'Example 1:1'
+            - 'Example 2:2'
+            - 'Example 3:2'
+    [...]
+```
+
 
 ### AsyncAPI v3.x
 
