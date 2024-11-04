@@ -15,7 +15,7 @@ weight: 6
 
 `APIExamples` files are simple YAML and aim to be very easy to understand and edit. More over, the description is independant from the API protocol! We're rather attached to describe examples depending on the API interaction style: Request/Response based or Event-driven/Asynchronous.
 
-For ease of use, we provide a [JSON Schema](https://json-schema.org/) that you can [download here](https://raw.githubusercontent.com/microcks/microcks/refs/heads/master/api/APIExamples-v1alpha1-schema.json). Thus, you can integrate it in your code editor and benefit from code completion and validation.
+For ease of use, we provide a [JSON Schema](https://json-schema.org/) that you can [download here](https://microcks.io/schemas/APIExamples-v1alpha1-schema.json). Thus, you can integrate it in your code editor and benefit from code completion and validation.
 
 `APIExamples` documents are intended to be imported as `secondary` artifacts only ; thanks to the [Multi-Artifacts support](/documentation/explanations/multi-artifacts).
 

@@ -3,7 +3,7 @@ draft: false
 title: "API Metadata Format"
 date: 2024-05-16
 publishdate: 2024-05-16
-lastmod: 2024-06-17
+lastmod: 2024-11-04
 weight: 5
 ---
 
@@ -18,6 +18,10 @@ But sometimes you don't want to add some `x-microcks` extensions attributes into
 Hence we propose defining these metadata and properties into a standalone document called an `APIMetadata` ; document that can imported as a `secondary` artifact thanks to the [Multi-Artifacts support](/documentation/explanations/multi-artifacts).
 
 > 💡 For the later gRPC use-case, it means that the [Defining dispatch rules](/documentation/references/artifacts/grpc-conventions/#defining-dispatch-rules) step can be done automatically by importing another artifact that lives right next your files in Git repo.
+
+For ease of use, we provide a [JSON Schema](https://json-schema.org/) that you can [download here](https://microcks.io/schemas/APIMetadata-v1alpha1-schema.json). Thus, you can integrate it in your code editor and benefit from code completion and validation.
+
+`APIMetadata` documents are intended to be imported as `secondary` artifacts only ; thanks to the [Multi-Artifacts support](/documentation/explanations/multi-artifacts).
 
 ## API Metadata properties
 
@@ -54,6 +58,33 @@ This example is pretty straightforward to understand and explain:
 > 💡 Note that we can use multi-line notation in YAML but we will have to escape everything and put `\` before double-quotes and `\n` characters if specified using JSON.
 
 The semantic of those attributes are exactly the same that the one introduced into [OpenAPI extensions](/documentation/references/artifacts/openapi-conventions/#openapi-extensions) and [AsyncAPI extensions](/documentation/references/artifacts/asyncapi-conventions/#asyncapi-extensions).
+
+Starting with Microcks `1.11.0`, you can also declare [mock constraints](/documentation/guides/usage/mocks-constraints) into your `APIMetadata` file:
+
+```yaml
+apiVersion: mocks.microcks.io/v1alpha1
+kind: APIMetadata
+metadata:
+  name: WeatherForecast API
+  version: 1.1.0
+  labels:
+    domain: weather
+    status: GA
+    team: Team C
+operations:
+  'GET /forecast/{region}':
+    delay: 100
+    parameterConstraints:
+      - name: Authorization
+        in: header
+        required: true
+        recopy: false
+        mustMatchRegexp: "^Bearer\\s[a-zA-Z0-9\\._-]+$"
+      - name: x-request-id
+        in: header
+        required: true
+        recopy: true
+```
 
 ## Importing API Metadata
 
