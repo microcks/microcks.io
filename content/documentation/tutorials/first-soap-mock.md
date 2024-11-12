@@ -11,7 +11,7 @@ weight: 5
 
 This tutorial is a step-by-step walkthrough on how to use [SoapUI](https://www.soapui.org) projects to get mocks for your SOAP WebService. This is hands-on introduction to [SoapUI Conventions reference](/documentation/references/artifacts/soapui-conventions) that brings all details on conventions being used.
 
-We will go through a practical example based on the famous PetStore API. We’ll build the reference [petstore-1.0-project.xml](../petstore-1.0-project.xml) file by iterations, highlighting the details to get you starting with mocking SOAP WebServices on Microcks.
+We will go through a practical example based on the famous PetStore API. We’ll build the reference [petstore-1.0-soapui-project.xml](../petstore-1.0-soapui-project.xml) file by iterations, highlighting the details to get you starting with mocking SOAP WebServices on Microcks.
 
 Of course, to complete this tutorial, you will need to install [SoapUI](https://www.soapui.org/) to define mocks on top of the WSDL file that describes your SOAP WebService interface. To validate that our mock is working correctly, you'll be able to reuse SoapUI as-well but we'll also provide simple `curl` commands.
 
@@ -23,13 +23,13 @@ First mandatory step is obviously to setup Microcks 😉. For OpenAPI usage, we 
 
 > This could be on another port if `8585` is already used on your machine.
 
-Following the getting started, you should have a Microcks running instance on `http://localhost:8585` with a gRPC server available on `localhost:8686`.
+Following the getting started, you should have a Microcks running instance on `http://localhost:8585`.
 
 Now let start with the skeleton of our WSDL contract for the Petstore Service. We'll start with the definition of two different types:
 * `Pet` is the data structure that represents a registered pet in our store - it has an `id` and a `name`,
 * `PetsResponse` is a structure that allows returning many pets as a service method result.
 
-We also have the definition of one `getPets()` operation that allow returning all the pets in the store. This is over-simplistic but enough to help demonstrate how to do things. Here's the WSDL contract (yes, it's pretty verbose 😅):
+We also have the definition of one `getPets` operation that allow returning all the pets in the store. This is over-simplistic but enough to help demonstrate how to do things. Here's the WSDL contract (yes, it's pretty verbose 😅):
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
@@ -92,7 +92,7 @@ We also have the definition of one `getPets()` operation that allow returning al
 </wsdl:definitions>
 ```
 
-From now, you can save this as a file on your disk, then open SoapUI and choose **New SOAP Project** in the **File** menu or from the top buttons bar. Give your project a name like `PetstoreService` and choose to **Upload** this file as its definition. It should create a new folder for your project on the left pane initalized with a Service named `PetstoreServiceSoapBinding`.
+From now, you can save this as a file on your disk - or your can retreive our finalized [petstore-1.0.wsdl](../petstore-1.0.wsdl) file. Then open SoapUI and choose **New SOAP Project** in the **File** menu or from the top buttons bar. Give your project a name like `PetstoreService` and choose to **Upload** this file as its definition. It should create a new folder for your project on the left pane initalized with a Service named `PetstoreServiceSoapBinding`.
 
 We now have some more initalization work to do. This is a four steps process that is illustrated below in the slider (you can the blue dots to freeze the swiper below):
 

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="8510bab6-b729-43b1-8f26-a0e42e43e279" activeEnvironment="Default" name="PetstoreService" resourceRoot="" soapui-version="5.7.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="9f32a1b7-0a38-4885-8d69-51a6703ac635" wsaVersion="NONE" name="PetstoreServiceSoapBinding" type="wsdl" bindingName="{http://www.acme.org/petstore}PetstoreServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="file:/Users/laurent/Development/github/microcks/samples/petstore-1.0.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/Users/laurent/Development/github/microcks/samples/petstore-1.0.wsdl"><con:part><con:url>file:/Users/laurent/Development/github/microcks/samples/petstore-1.0.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="PetstoreService" targetNamespace="http://www.acme.org/petstore" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.acme.org/petstore" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://www.acme.org/petstore" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="Pet">
+        <xs:sequence>
+          <xs:element name="id" type="xs:int"/>
+          <xs:element name="name" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PetsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="pet" type="tns:Pet"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getPets">
+        <xs:complexType/>
+      </xs:element>
+      <xs:element name="getPetsResponse" type="tns:PetsResponse"/>
+      <xs:element name="searchPets">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="name" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="searchPetsResponse" type="tns:PetsResponse"/>
+      <xs:element name="createPet">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="name" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="createPetResponse" type="tns:Pet"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getPets">
+    <wsdl:part element="tns:getPets" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getPetsResponse">
+    <wsdl:part element="tns:getPetsResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="searchPets">
+    <wsdl:part element="tns:searchPets" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="searchPetsResponse">
+    <wsdl:part element="tns:searchPetsResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="createPet">
+    <wsdl:part element="tns:createPet" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="createPetResponse">
+    <wsdl:part element="tns:createPetResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="PetstoreService">
+    <wsdl:operation name="getPets">
+      <wsdl:input message="tns:getPets" name="getPets"/>
+      <wsdl:output message="tns:getPetsResponse" name="getPetsResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="searchPets">
+      <wsdl:input message="tns:searchPets" name="searchPets"/>
+      <wsdl:output message="tns:searchPetsResponse" name="searchPetsResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="createPet">
+      <wsdl:input message="tns:createPet" name="createPet"/>
+      <wsdl:output message="tns:createPetResponse" name="createPetResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PetstoreServiceSoapBinding" type="tns:PetstoreService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getPets">
+      <soap:operation soapAction="http://www.acme.org/petstore/getPets" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchPets">
+      <soap:operation soapAction="http://www.acme.org/petstore/searchPets" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createPet">
+      <soap:operation soapAction="http://www.acme.org/petstore/createPet" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PetstoreService">
+    <wsdl:port binding="tns:PetstoreServiceSoapBinding" name="PetstoreServiceEndpointPort">
+      <soap:address location="http://localhost:8080/services/PetstoreService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://MacBook-Pro-de-Laurent-2.local:8088/mockPetstoreServiceSoapBinding</con:endpoint><con:endpoint>http://localhost:8080/services/PetstoreService</con:endpoint></con:endpoints><con:operation id="8fc75550-4e04-481c-8f4a-810173620cca" isOneWay="false" action="http://www.acme.org/petstore/getPets" name="getPets" bindingOperationName="getPets" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b5599d49-879e-4cb1-95d2-d2ac16978f5d" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/PetstoreService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pet="http://www.acme.org/petstore">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pet:getPets/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.acme.org/petstore/getPets"/></con:call></con:operation><con:operation id="8a8474bb-1750-4a89-8715-71fb18c03263" isOneWay="false" action="http://www.acme.org/petstore/searchPets" name="searchPets" bindingOperationName="searchPets" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ce1a7701-ade6-4b9e-bd51-ed062bb64107" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/PetstoreService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pet="http://www.acme.org/petstore">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pet:searchPets>
+         <name>?</name>
+      </pet:searchPets>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.acme.org/petstore/searchPets"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="81d5af8d-e759-4cdc-ab49-64ce500cb6db" isOneWay="false" action="http://www.acme.org/petstore/createPet" name="createPet" bindingOperationName="createPet" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="80f7a47f-a4b9-491e-8bf7-ccd97967b498" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://MacBook-Pro-de-Laurent-2.local:8088/mockPetstoreServiceSoapBinding</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pet="http://www.acme.org/petstore">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pet:createPet>
+         <name>?</name>
+      </pet:createPet>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.acme.org/petstore/createPet"/></con:call></con:operation></con:interface><con:testSuite id="b946e7ac-a3b9-4027-8f0b-e184af30e033" name="PetstoreService"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="023f4074-2392-445a-9b0b-4dbde1e06f24" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getPets TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="0916a83b-1f6f-4700-8f36-141aef649db8" name="getPets"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>PetstoreServiceSoapBinding</con:interface><con:operation>getPets</con:operation><con:request name="getPets" id="31b54e32-10f9-4e28-a0dd-be8811964753"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://MacBook-Pro-de-Laurent-2.local:8088/mockPetstoreServiceSoapBinding</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pet="http://www.acme.org/petstore">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pet:getPets/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.acme.org/petstore/getPets"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="a7787daf-7ad6-4218-a3c9-8d8b3be1865f" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="searchPets TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="35a68296-870e-407b-aab6-369394a500b1" name="searchPets K"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>PetstoreServiceSoapBinding</con:interface><con:operation>searchPets</con:operation><con:request name="searchPets K" id="8c165d32-0b0e-4c52-a395-7d4fe271cd5a"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://MacBook-Pro-de-Laurent-2.local:8088/mockPetstoreServiceSoapBinding</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pet="http://www.acme.org/petstore">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pet:searchPets>
+         <name>k</name>
+      </pet:searchPets>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.acme.org/petstore/searchPets" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="searchPets I" id="a2f6708e-e5aa-4090-b779-c1584e9c37cf"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>PetstoreServiceSoapBinding</con:interface><con:operation>searchPets</con:operation><con:request name="searchPets I" id="11b3df24-beb9-4a8a-8f2e-0b1c37c2acfb"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://MacBook-Pro-de-Laurent-2.local:8088/mockPetstoreServiceSoapBinding</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pet="http://www.acme.org/petstore">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pet:searchPets>
+         <name>i</name>
+      </pet:searchPets>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="c4b46a2c-6763-4ecf-8e9d-95f1248301e4" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="createTest TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="createPet" id="21133e9b-3b7a-4da2-b254-ba3b73c9961f"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>PetstoreServiceSoapBinding</con:interface><con:operation>createPet</con:operation><con:request name="createPet" id="89dc2897-5743-4c2d-9d1d-b756c6ed04bc"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://MacBook-Pro-de-Laurent-2.local:8088/mockPetstoreServiceSoapBinding</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pet="http://www.acme.org/petstore">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pet:createPet>
+         <name>Jojo</name>
+      </pet:createPet>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:mockService id="6d42c652-3520-4045-b883-86c8d1b1844a" port="8088" path="/mockPetstoreServiceSoapBinding" host="MacBook-Pro-de-Laurent-2.local" name="PetstoreService"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties><con:property><con:name>version</con:name><con:value>1.0</con:value></con:property></con:properties><con:mockOperation name="getPets" id="20a74c0c-0863-4db5-9ccd-f5fbf9ce7206" interface="PetstoreServiceSoapBinding" operation="getPets"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>RANDOM</con:dispatchStyle><con:response name="getPets" id="23843575-084c-46cb-9e20-91dc7dda08d3" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pet="http://www.acme.org/petstore">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <pet:getPetsResponse>
+      <pet>
+        <id>1</id>
+        <name>Zaza</name>
+      </pet>
+      <pet>
+        <id>2</id>
+        <name>Tigress</name>
+      </pet>
+      <pet>
+        <id>3</id>
+        <name>Maki</name>
+      </pet>
+      <pet>
+        <id>4</id>
+        <name>Toufik</name>
+      </pet>
+    </pet:getPetsResponse>
+  </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.acme.org/petstore/getPets"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="searchPets" id="139f1337-76af-46b9-a54a-8a2e1daa8042" interface="PetstoreServiceSoapBinding" operation="searchPets"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>QUERY_MATCH</con:dispatchStyle><con:response name="searchPets K" id="acfe9478-60ad-477a-ac3d-aca72b5cb4dc" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pet="http://www.acme.org/petstore">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pet:searchPetsResponse>
+         <pet>
+            <id>3</id>
+            <name>Maki</name>
+         </pet>
+         <pet>
+            <id>4</id>
+            <name>Toufik</name>
+         </pet>
+      </pet:searchPetsResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.acme.org/petstore/searchPets"/></con:response><con:response name="searchPets I" id="acfe9478-60ad-477a-ac3d-aca72b5cb4dc" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pet="http://www.acme.org/petstore">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pet:searchPetsResponse>
+         <pet>
+            <id>2</id>
+            <name>Tigress</name>
+         </pet>
+         <pet>
+            <id>3</id>
+            <name>Maki</name>
+         </pet>
+         <pet>
+            <id>4</id>
+            <name>Toufik</name>
+         </pet>
+      </pet:searchPetsResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.acme.org/petstore/searchPets"/></con:response><con:dispatchConfig xsi:type="con:MockOperationQueryMatchDispatch" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:query><con:name>match_K</con:name><con:query>declare namespace pet='http://www.acme.org/petstore';
+//pet:searchPets/name</con:query><con:match>k</con:match><con:response>searchPets K</con:response></con:query><con:query><con:name>match_I</con:name><con:query>declare namespace pet='http://www.acme.org/petstore';
+//pet:searchPets/name</con:query><con:match>i</con:match><con:response>searchPets I</con:response></con:query></con:dispatchConfig></con:mockOperation><con:mockOperation name="createPet" id="1ec11dde-2b0b-4bc9-907a-2312fca9b104" interface="PetstoreServiceSoapBinding" operation="createPet"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>RANDOM</con:dispatchStyle><con:response name="createPet" id="17a4f7cd-3475-421b-bf58-0a334c6a3faa" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pet="http://www.acme.org/petstore">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pet:createPetResponse>
+         <id>{{ randomInt(5,10) }}</id>
+         <name>{{ request.body//*[local-name() = 'name'] }}</name>
+      </pet:createPetResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.acme.org/petstore/createPet"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

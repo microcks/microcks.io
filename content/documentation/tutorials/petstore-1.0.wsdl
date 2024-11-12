@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:tns="http://www.acme.org/petstore" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  name="PetstoreService" targetNamespace="http://www.acme.org/petstore"
+                  xmlns="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:tns="http://www.acme.org/petstore" targetNamespace="http://www.acme.org/petstore">
+      <xs:complexType name="Pet">
+        <xs:sequence>
+          <xs:element name="id" type="xs:int"/>
+          <xs:element name="name" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PetsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="pet" type="tns:Pet" />
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:element name="getPets">
+        <xs:complexType/>
+      </xs:element>
+      <xs:element name="getPetsResponse" type="tns:PetsResponse" />
+      <xs:element name="searchPets">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="name" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="searchPetsResponse" type="tns:PetsResponse" />
+      <xs:element name="createPet">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="name" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="createPetResponse" type="tns:Pet" />
+    </xs:schema>
+  </wsdl:types>
+
+  <wsdl:message name="getPets">
+    <wsdl:part element="tns:getPets" name="parameters" />
+  </wsdl:message>
+  <wsdl:message name="getPetsResponse">
+    <wsdl:part element="tns:getPetsResponse" name="parameters" />
+  </wsdl:message>
+  <wsdl:message name="searchPets">
+    <wsdl:part element="tns:searchPets" name="parameters" />
+  </wsdl:message>
+  <wsdl:message name="searchPetsResponse">
+    <wsdl:part element="tns:searchPetsResponse" name="parameters" />
+  </wsdl:message>
+  <wsdl:message name="createPet">
+    <wsdl:part element="tns:createPet" name="parameters" />
+  </wsdl:message>
+  <wsdl:message name="createPetResponse">
+    <wsdl:part element="tns:createPetResponse" name="parameters" />
+  </wsdl:message>
+
+  <wsdl:portType name="PetstoreService">
+    <wsdl:operation name="getPets">
+      <wsdl:input message="tns:getPets" name="getPets"/>
+      <wsdl:output message="tns:getPetsResponse" name="getPetsResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="searchPets">
+      <wsdl:input message="tns:searchPets" name="searchPets"/>
+      <wsdl:output message="tns:searchPetsResponse" name="searchPetsResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="createPet">
+      <wsdl:input message="tns:createPet" name="createPet"/>
+      <wsdl:output message="tns:createPetResponse" name="createPetResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+
+  <wsdl:binding name="PetstoreServiceSoapBinding" type="tns:PetstoreService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getPets">
+      <soap:operation soapAction="http://www.acme.org/petstore/getPets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchPets">
+      <soap:operation soapAction="http://www.acme.org/petstore/searchPets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createPet">
+      <soap:operation soapAction="http://www.acme.org/petstore/createPet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PetstoreService">
+    <wsdl:port binding="tns:PetstoreServiceSoapBinding" name="PetstoreServiceEndpointPort">
+      <soap:address location="http://localhost:8080/services/PetstoreService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
