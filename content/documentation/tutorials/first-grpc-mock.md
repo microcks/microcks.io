@@ -150,7 +150,7 @@ This is your first gRPC mock 🎉 Nice achievement!
 
 ## 4. Using request arguments in gRPC method
 
-Let's make things a bit more spicy by adding request arguments. Now assume we want to provide a simple searching method to retrieve all pets in store using simple filter. We'll end up adding a new `searchPets()` method in your API. Of course, we'll have to define a new `PetSearchRequest` input message so that users will specify `name=zoe` to get all the pets having `zoe` in name.
+Let's make things a bit more spicy by adding request arguments. Now assume we want to provide a simple searching method to retrieve all pets in store using simple filter. We'll end up adding a new `searchPets()` method in our service. Of course, we'll have to define a new `PetSearchRequest` input message so that users will specify `name=zoe` to get all the pets having `zoe` in name.
 
 So we'll add new elements in our Protobuf document like below: a new message and we complete the service with a new `rpc` method: 
 
