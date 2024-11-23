@@ -1,0 +1,17 @@
+<style>iframe{width:100%}</style>
+<iframe id="asyncapi-web" frameBorder="0" scrolling="no" src="{{ "asyncapi-web/index.html" | absURL }}" >
+</iframe>
+
+<script type="text/javascript" src="{{"/scripts/iframeResizer.min.js" | absURL }}"></script>
+<script type="text/javascript">
+  iFrameResize({
+    log         : false,                  // Enable console logging
+    checkOrigin : false,
+    sizeWidth   : false,
+    widthCalculationMethod : 'rightMostElement'
+  });
+  var shortcode_url = "{{ .Get "url" }}";
+  {{ with .Get "api_key" }}
+  var shortcode_api_key = "{{ . }}";
+  {{ end }}
+</script>

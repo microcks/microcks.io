@@ -1,0 +1,31 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>AsyncAPI Web</title>
+
+  
+  <!-- Remove 'webcomponentsjs' if no support for older browsers is required -->
+  <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.5.0/webcomponents-bundle.js"></script>
+  <script src="https://unpkg.com/@asyncapi/web-component@2.4.3/lib/asyncapi-web-component.js" defer></script>
+
+  <script src="/scripts/iframeResizer.contentWindow.min.js" type="text/javascript"></script>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif !important;
+    }
+  </style>
+</head>
+
+<body>
+  <asyncapi-component
+    schemaUrl="https://raw.githubusercontent.com/microcks/microcks/refs/heads/1.11.x/api/microcks-asyncapi-v1.10.yaml"
+    schemaFetchOptions='{"method":"GET","mode":"cors"}'
+    cssImportPath="https://unpkg.com/@asyncapi/react-component@2.4.3/styles/default.min.css">
+  </asyncapi-component>
+</body>
+
+</html>
