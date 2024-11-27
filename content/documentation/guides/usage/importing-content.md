@@ -39,7 +39,7 @@ Once you have the `$TOKEN` issued for the correct account, uploading a new Artif
 
 ```sh
 # Uploading a local artifact.
-curl 'https://microcks.example.com/api/artifacts/upload?mainArtifact=true' -H "Authorization: Bearer $TOKEN" -F 'file=@samples/films.graphql' -k
+curl 'https://microcks.example.com/api/artifact/upload?mainArtifact=true' -H "Authorization: Bearer $TOKEN" -F 'file=@samples/films.graphql' -k
 ```
 
 ### Configure dependency resolution
