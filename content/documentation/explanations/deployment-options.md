@@ -38,7 +38,7 @@ The *Uber* distribution is designed to support [Inner Loop integration or Shift-
 
 {{< image src="images/documentation/deployment-uber.png" alt="image" zoomable="true" >}}
 
-Whilst *Regular* distribution relies on an external MongoDB database for persistence, the *Uber* distribution uses a in-memory MongoDB that suits well ephemeral usages. Whilst *Regular* distribution relies on Kafka for scalable sync-to-async communications, *Uber* dsitribution is using WebSocket for simple one-to-one async communications.
+Whilst *Regular* distribution relies on an external MongoDB database for persistence, the *Uber* distribution uses a in-memory MongoDB that suits well ephemeral usages. Whilst *Regular* distribution relies on Kafka for scalable sync-to-async communications, *Uber* distribution is using WebSocket for simple one-to-one async communications.
 
 *Uber* distribution makes it easy to launch Microcks using a simple `docker` command like below, binding the only necessary port to your local `8585`:
 
