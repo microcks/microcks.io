@@ -11,6 +11,8 @@ weight: 1
 
 We often get the question on the field 
 
+Microcks runs in so many different ways, and having so many options can make it unclear to novice users where to begin and how to get started.
+
 ## 1. Global centralized instance
 
 ## 2. Local instances
