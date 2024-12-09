@@ -7,10 +7,16 @@ lastmod: 2024-05-16
 weight: 1
 ---
 
-> 🪄 **To Be Created**
->
-> This is a new documentation page that has to be written as part of our [Refactoring Effort](https://github.com/microcks/microcks.io/issues/81).
-> 
-> **Goal of this page**
-> * List the different deployment topologies
-> * Should include: personal instance or testcontainers, central instance, regional instances with promotion, etc...
+## Introduction
+
+We often get the question on the field 
+
+## 1. Global centralized instance
+
+## 2. Local instances
+
+## 3. Process-scoped instances
+
+## 4. Regional instances
+
+## Microcks at scale
