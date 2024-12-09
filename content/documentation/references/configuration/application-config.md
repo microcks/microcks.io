@@ -3,7 +3,7 @@ draft: false
 title: "Application Configuration"
 date: 2024-04-29
 publishdate: 2024-04-29
-lastmod: 2024-09-30
+lastmod: 2024-12-09
 weight: 1
 ---
 
@@ -205,6 +205,17 @@ This section details the configuration properties used by the optional Async Min
 > 💡 When launched using Docker Compose, the Async Minion is run with a profile named `docker-compose`. Each property below should then be prefixed with `%docker-compose.`
 >
 > So -for example- if you want to change the Http port to `8082`, you'll actually need to setup `%docker-compose.quarkus.http.port=8082`.
+
+### Behavior
+
+The Async Minion behavior can be configured in terms of supported protocols (`minion.supported-bindings`), restricted message-producing frequencies (`minion.restricted-frequencies` is a coma-separated list of delays in seconds between 2 publications) and default Avro encoding (see [Kafka, Avro & Schema Registry](/documentation/guides/usage/async-protocols/avro-messaging/))
+
+```properties
+# Configure the minion own behavioral properties.
+minion.supported-bindings=KAFKA,WS
+minion.restricted-frequencies=3,10,30
+minion.default-avro-encoding=RAW
+```
 
 #### Network & management
 
