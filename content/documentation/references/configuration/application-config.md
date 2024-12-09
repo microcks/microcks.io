@@ -206,7 +206,7 @@ This section details the configuration properties used by the optional Async Min
 >
 > So -for example- if you want to change the Http port to `8082`, you'll actually need to setup `%docker-compose.quarkus.http.port=8082`.
 
-### Behavior
+#### Behavior
 
 The Async Minion behavior can be configured in terms of supported protocols (`minion.supported-bindings`), restricted message-producing frequencies (`minion.restricted-frequencies` is a coma-separated list of delays in seconds between 2 publications) and default Avro encoding (see [Kafka, Avro & Schema Registry](/documentation/guides/usage/async-protocols/avro-messaging/))
 
