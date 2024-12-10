@@ -35,7 +35,7 @@ Lombard Odier operates in a diverse technology landscape, employing various spec
 **A Testimonial from Ludovic Pourrat, Head of API Management at Lombard Odier.**
 In the ever-evolving landscape of API management, Lombard Odier stands out as a trailblazer in embracing cutting-edge technologies to drive innovation and growth. 
 
-> Microcks is a robust open source tool that has become an essential tool for Lombard Odier. It enables us to **manage, maintain, and automate the lifecycle** of our extensive API ecosystem efficiently. At the heart of our remarkable journey, Microcks has become a key asset that achieves the right balance between innovation and stability, empowering developers with fast iterations of their APIs.
+> Microcks is a robust open source tool that has become an essential solution for Lombard Odier. It enables us to **manage, maintain, and automate the lifecycle** of our extensive API ecosystem efficiently. At the heart of our remarkable journey, Microcks has become a key asset that achieves the right balance between innovation and stability, empowering developers with fast iterations of their APIs.
 
 **The Numbers Speak: Managing Over 2000 API Endpoints with Less Than 200 Developers.**
 Microcks' scalability and efficiency are evident in Lombard Odier's achievement of managing over 2000 API endpoints with a lean team of fewer than 200 developers. 
