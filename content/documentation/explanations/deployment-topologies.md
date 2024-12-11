@@ -40,13 +40,13 @@ In such a topology, Microcks is always up-and-running and should be dimensioned 
 
 ## 2. Local instances
 
-As a developer, you may want to use Microcks directly on your laptop during your development iterations and within your unit tests with the help of [Testcontainers](https://testcontainers.com). Running it directly in your IDE is also possible via [DevContainers](https://containers.dev). This ease the pain in manging dependencies and gives you fast feddback.
+As a developer, you may want to use Microcks directly on your laptop during your development iterations and within your unit tests with the help of [Testcontainers](https://testcontainers.com). Running it directly in your IDE is also possible via [DevContainers](https://containers.dev). This eases the pain in managing dependencies and gives you fast feedback.
 
 <div align="center">
 {{< figure src="images/documentation/deployment-topologies-local.png" width="50%" >}}
 </div>
 
-In such a topology, Microcks instances are considered *"Ephemeral"* and thus don't keep history. They can be configured with custom datasets but with the risk of drifting. Frequent synchronization need to happen to avoid this.
+In such a topology, Microcks instances are considered *"Ephemeral"* and thus don't keep history. They can be configured with custom datasets but with the risk of drifting. Frequent synchronization needs to happen to avoid this.
 
 #### Benefits
 ✅ Directly run in IDE or unit tests!<br/>
@@ -69,7 +69,7 @@ As an intermediate solution, we see more and more adopters deploying Microcks fo
 {{< figure src="images/documentation/deployment-topologies-process.png" width="80%" >}}
 </div>
 
-Those instances are considered *"Ephemeral"* or temporary but it could be: minutes, days or even months. They allow fine-grained configuration and customization as they're dedicated to one single use-case or project/team. Depending on use-case, you may pay great attention to management automation and what's where Microcks [Kubernetes Operator](https://github.com/microcks/microcks-operator) can makes sense in a [GitOps](https://www.redhat.com/topics/devops/what-is-gitops) approach.
+Those instances are considered *"Ephemeral"* or temporary, but it could be: minutes, days or even months. They allow fine-grained configuration and customization as they're dedicated to one single use case or project/team. Depending on the use-case, you may pay great attention to management automation and what's where Microcks [Kubernetes Operator](https://github.com/microcks/microcks-operator) can make sense in a [GitOps](https://www.redhat.com/topics/devops/what-is-gitops) approach.
 
 #### Benefits
 ✅ "Ephemeral": saves money vs comprehensive environments<br/>
