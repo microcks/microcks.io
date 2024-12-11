@@ -105,11 +105,11 @@ As this pattern can be used in standalone mode, we think it's best to consider t
 
 ## Microcks at scale
 
-Do you have to choose between one and the other topologies? Yes, you definitely have to define priorities to ensure a smooth and incremental adoption. But, at the end, all of those topologies can play nicely together to handle different situations and stages of your Software Development Life-Cycle.
+Do you have to choose between one and the other topologies? Yes, you definitely have to define priorities to ensure a smooth and incremental adoption. But, ultimately, all of those topologies can play nicely together to handle different situations and stages of your Software Development Life-Cycle.
 
-We see users with great maturity confirming [How Microcks fit and unify Inner and Outer Loops for cloud-native development](https://www.linkedin.com/pulse/how-microcks-fit-unify-inner-outer-loops-cloud-native-kheddache/). They deploy it using many topologies in order to have the **same tool using the same sources-of-truth** thoughout the whole lifecyle. That's what we call: *Microcks at scale*! 🚀
+We see users with great maturity confirming [How Microcks fit and unify Inner and Outer Loops for cloud-native development](https://www.linkedin.com/pulse/how-microcks-fit-unify-inner-outer-loops-cloud-native-kheddache/). They deploy it using many topologies in order to have the **same tool using the same sources-of-truth** throughout the whole lifecyle. That's what we call: *Microcks at scale*! 🚀
 
-The schema below represents our vision on those deployment topologies can be combined to serve the [different personas](/documentation/overview/what-is-microcks/).
+The schema below represents our vision on how those deployment topologies can be combined to serve the [different personas](/documentation/overview/what-is-microcks/).
 
 <div align="center">
 {{< figure src="images/documentation/deployment-topologies-all-together.png" width="100%" >}}
@@ -117,6 +117,6 @@ The schema below represents our vision on those deployment topologies can be com
 
 From left to right:
 * It all starts with *Local Instances* integrated into **Developers** Inner Loop flow. It eases their life in external dependencies management and provides them immediate feedback using contract-testing right in their unit tests,
-* Then, *Regional Instances* may be fed with the promoted API artifacts coming for design iterations. API artifacts contribute to the comprehensive catalog of this BU/domain/application. **API Owners** can use those instance to launch contract-tests on deployed API endpoints and track quality metrics and improvements over time,
-* Tempory *Process-scoped Instances* can be easily provisioned, on-demand, using the regional instances as natural references catalogs. They allow applying different settings (access-control, datasets, response time,...) depending on the projet or use-case needs. **Platform Engineers** can fully automate this provisionning, in a reproducible way, saving costs vs maintaining comprehensive environments,
+* Then, *Regional Instances* may be fed with the promoted API artifacts coming for design iterations. API artifacts contribute to the comprehensive catalog of this BU/domain/application. **API Owners** can use those instances to launch contract-tests on deployed API endpoints and track quality metrics and improvements over time,
+* Temporary *Process-scoped Instances* can be easily provisioned, on-demand, using the regional instances as natural references catalogs. They allow applying different settings (access-control, datasets, response time,...) depending on the projet or use-case needs. **Platform Engineers** can fully automate this provisionning, in a reproducible way, saving costs vs maintaining comprehensive environments,
 * Finally, *Globaly shared, centralized instance* can serves as the consolidated catalog of the public APIs in the organization, offering access to the corresponding mocks to enhance discoverability and tracking of promoted APIs. **Enterprise Architects** and **API consumers** will find it useful as the centralized source-of-truth for all the organization APIs.
