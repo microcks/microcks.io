@@ -3,7 +3,7 @@ draft: false
 title: "Mock Templates"
 date: 2020-02-11
 publishdate: 2020-02-11
-lastmod: 2024-06-13
+lastmod: 2024-12-18
 weight: 2
 ---
 
@@ -113,6 +113,17 @@ We can adapt the XPath expression to ignore namespaces prefix:
 | Expression | Evaluation Result | Comment |
 | ---------- | ----------------- | ------- |
 | `request.body//*[local-name() = 'name']` | `My Personal Library` | Ignore namespaces and use local tag names |
+
+### Fallback
+
+When dealing with optional content from incoming request, it can be useful to have some fallback in case of missing content. For that purpose, you can use the `||` notation to express a fallback expression. In the example below, either the incoming request `prefix` is used, or we generate a random one using a function in the case it's null or empty.
+
+```json
+{
+  "prefix": "{{ request.body/prefix || randomNamePrefix() }}",
+  "fullname": "{{ request.body/firstname request.body/lastname }}"
+}
+```
 
 ## Context Expression
 

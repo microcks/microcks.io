@@ -602,6 +602,7 @@
       "event-drivenasynchronous-api",
       "exploring-the-demo-repository",
       "extension-capabilities",
+      "fallback",
       "fallback-dispatcher",
       "faster-startup-on-kubernetes",
       "feature-enhancements",
