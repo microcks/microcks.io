@@ -35,11 +35,11 @@ clients_logo_slider:
   - "images/adopters/bitso.png"
   - "images/adopters/BNP-Paribas.png"
   - "images/adopters/Deloitte.png"
-  #- "images/adopters/Orange.png"
+  - "images/adopters/BancoPan.png"
   - "images/adopters/JB-Hunt.png"
   - "images/adopters/nordic-semiconductor.png"
   - "images/adopters/la-poste-groupe.png"
-  #- "images/adopters/Lombard_Odier.png"
+  - "images/adopters/Traefiklabs.png"
   - "images/adopters/Sesam-Vitale.png"
   - "images/adopters/catena-clearing.png"
   - "images/adopters/societe-generale.png"
@@ -48,6 +48,7 @@ clients_logo_slider:
   - "images/adopters/onem.png"
   - "images/adopters/codecentric.png"
   - "images/adopters/inetum.png"
+  - "images/adopters/APIQuality.png"
 
 ######################### Intro Video #####################
 intro_video:
