@@ -40,7 +40,7 @@ how_it_works:
       
   - title: "Community call"
     image: "images/community/call.png"
-    content: "Coming soon 🔜"
+    content: "Microcks hosts **two monthly community meetings**, tailored for different time zones. Here’s how to [join and participate](https://github.com/microcks/community/blob/main/JOIN-OUR-MEETINGS.md). We look forward to **seeing you** there! 🙌 Previous meetings are on the [YouTube](https://www.youtube.com/c/Microcks) channel."
 
   - title: "Logos and assets"
     image: "images/community/logo.png"
