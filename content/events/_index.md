@@ -4,7 +4,7 @@ subtitle: "**Discover** more about Microcks by **participating** in our **upcomi
 draft: false
 ---
 
-{{< image title="Media resources" w="1200" o="webp q100" p="center" c="img-fluid shadow rounded-1" src="images/events/events-banner.png" alt="alter-text" >}} 
+{{< image title="Media resources" w="1200" o="webp q100" p="center" c="img-fluid shadow rounded-1" src="images/events/events-banner.jpg" alt="alter-text" >}} 
 
 ##### 🗓️ Events
 We actively participate in **events worldwide** and announce our presence on social networks, especially **LinkedIn**, so follow us (https://www.linkedin.com/company/microcks) to **stay connected** with the Microcks [community](http://localhost:1313/community/). If you're an event organizer or [CNCF ambassador](https://www.cncf.io/people/ambassadors/program-standards/), feel free to invite us for talks, demos, or workshops—we’re passionate about learning and sharing!
