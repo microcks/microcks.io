@@ -13,11 +13,11 @@ This guide will provide you with pointers on how to embed Microcks into your uni
 
 You’ll learn how to automatically launch and shut down Microcks’ instances so that you can easily test your API clients and API contracts. You can find information on the official module on [Testcontainers Microcks page](https://testcontainers.com/modules/microcks/).
 
-As of today, we provide support for following languages:
+As of today, we provide support for the following languages:
 * Java ☕️ - starting from Java 8 to latest releases - via a library available on [Maven Central](https://mvnrepository.com/repos/central),
 * NodeJS / Typescript - via a Javascript library with types available on [NPM](https://www.npmjs.com),
-* Golang - via a library dsitributed via our GitHub,
-* .NET -  starting from .NET 6.0 to latest releases - via a library availble on [Nuget](https://www.nuget.org/packages/Microcks.Testcontainers).
+* Golang - via a library distributed via our GitHub,
+* .NET -  starting from .NET 6.0 to latest releases - via a library available on [Nuget](https://www.nuget.org/packages/Microcks.Testcontainers).
 
 Let’s go 🧊
 
