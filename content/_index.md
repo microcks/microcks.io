@@ -39,6 +39,7 @@ clients_logo_slider:
   - "images/adopters/JB-Hunt.png"
   - "images/adopters/nordic-semiconductor.png"
   - "images/adopters/la-poste-groupe.png"
+  - "images/adopters/opt-nc.png"
   - "images/adopters/Traefiklabs.png"
   - "images/adopters/Sesam-Vitale.png"
   - "images/adopters/catena-clearing.png"
