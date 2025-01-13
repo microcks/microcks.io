@@ -3,7 +3,7 @@ draft: false
 title: "Dispatcher & dispatching rules"
 date: 2020-03-03
 publishdate: 2020-03-03
-lastmod: 2024-06-20
+lastmod: 2025-01-13
 weight: 18
 ---
 
@@ -43,6 +43,12 @@ Changing `Dispatching Rules` or even the `Dispatcher` can be done by different w
 * Via Microcks [OpenAPI extensions](/documentation/references/artifacts/openapi-conventions/#openapi-extensions) or [AsyncAPI extensions](/documentation/references/artifacts/asyncapi-conventions/#asyncapi-extensions) that allow this customization as well.
 
 ## Advanced dispatchers and rules
+
+### QUERY HEADER dispatcher
+
+Since Microcks `1.11`, the `QUERY_HEADER` dispatching strategy is available on REST mocks and allows specifying one or many request headers as the criterion to find a matching response.
+
+If you want to use it, you can just specify a dispatching rule where header names are separated by a `&&`. An example rule can be `x-api-key && x-tenant` - in this case, Microcks will use both request headers values to find a matching response.
 
 ### JSON BODY dispatcher
 
@@ -146,7 +152,7 @@ Region is unknown. Choose in north, west, east or south.%
 
 When using `PROXY` as a dispatcher, the `dispatcherRules` should just be set to the base URL of the target backend service.
 
-### PROXY_FALLBACK dispatcher
+### PROXY FALLBACK dispatcher
 
 The advanced `PROXY_FALLBACK` dispatcher works similarly to the `FALLBACK` dispatcher, but with one key difference: when no matching response is found within the Microcks’ dataset, instead of returning a fallback response, it changes the base URL of the request and makes a call to the real service.
 
