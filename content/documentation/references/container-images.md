@@ -3,7 +3,7 @@ draft: false
 title: "Container Images"
 date: 2024-05-13
 publishdate: 2024-05-13
-lastmod: 2024-12-06
+lastmod: 2025-01-13
 weight: 1
 ---
 
@@ -166,10 +166,17 @@ You can then extract the `logIndex` and connect to [Rekor](https://search.sigsto
 All our images are built with a [SLSA Provenance](https://slsa.dev/spec/v1.0/provenance#v02) attestation (currently in `v0.2`). This attestation is attached as a layer of a 
 metadata manifest of the main image index.
 
-As Microcks images are provided for `linux/amd64` and `linux/arm64` architectures, the 2 first manifests of an image index are reserved for these architectures. Then, starting 
-at index 2 come the metadata manifests from where you can extract attestations that are formatted as [in-toto predicates](https://github.com/in-toto/attestation/tree/v1.0/spec/predicates).
+You can quickly inspect the `Provenance` attestations value using the `imagestools inspect` tool from `docker`like this:
 
-For example: you can extract the Provenance of the `microcks:nightly` image using those commands - using [ORAS](https://oras.land/) utility:
+```sh
+docker buildx imagetools inspect quay.io/microcks/microcks:nightly --format "{{ json .Provenance }}"
+```
+
+If you need to get access to the raw [in-toto predicates](https://github.com/in-toto/attestation/tree/v1.0/spec/predicates), you can use a tool like [ORAS](https://oras.land/) utility.
+
+As Microcks images are provided for `linux/amd64` and `linux/arm64` architectures, the 2 first manifests of an image index are reserved for these architectures. Then, starting
+at index 2 come the metadata manifests from where you can extract in-toto attestations. For example: you can extract the Provenance of the `microcks:nightly` image using those
+commands:
 
 ```sh
 PROVENANCE_DIGEST=`docker manifest inspect --verbose quay.io/microcks/microcks:nightly | jq -r '.[2].OCIManifest.layers | map(select(.annotations."in-toto.io/predicate-type" == "https://slsa.dev/provenance/v0.2") | .digest)[0]'`
@@ -257,10 +264,17 @@ You can find in the attestation the GitHub source and revision, the base image u
 
 All our images are built with a [SPDX SBOM](https://spdx.dev/) attestation (currently in `v2.3`). This attestation is attached as a layer of a metadata manifest of the main image index.
 
-As Microcks images are provided for `linux/amd64` and `linux/arm64` architectures, the 2 first manifests of an image index are reserved for these architectures. Then, starting 
-at index 2 come the metadata manifests from where you can extract attestations that are formatted as [in-toto predicates](https://github.com/in-toto/attestation/tree/v1.0/spec/predicates).
+You can quickly inspect the `Provenance` attestations value using the `imagestools inspect` tool from `docker`like this:
 
-For example: you can extract the SBOM of the `microcks-postman-runtime:nightly` image using those commands - using [ORAS](https://oras.land/) utility:
+```sh
+docker buildx imagetools inspect quay.io/microcks/microcks-postman-runtime:nightly --format "{{ json .SBOM }}"
+```
+
+If you need to get access to the raw [in-toto predicates](https://github.com/in-toto/attestation/tree/v1.0/spec/predicates), you can use a tool like [ORAS](https://oras.land/) utility.
+
+As Microcks images are provided for `linux/amd64` and `linux/arm64` architectures, the 2 first manifests of an image index are reserved for these architectures. Then, starting
+at index 2 come the metadata manifests from where you can extract in-toto attestations. For example: you can extract the SBOM of the `microcks-postman-runtime:nightly` image 
+using those commands:
 
 ```sh
 SBOM_DIGEST=`docker manifest inspect --verbose quay.io/microcks/microcks-postman-runtime:nightly | jq -r '.[2].OCIManifest.layers | map(select(.annotations."in-toto.io/predicate-type" == "https://spdx.dev/Document") | .digest)[0]'`
