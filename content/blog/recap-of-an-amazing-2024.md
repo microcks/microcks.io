@@ -73,7 +73,7 @@ Notable highlights include:
 * [Hugo Guerrero](https://www.linkedin.com/in/hugoguerrero/) from [**Red Hat**](https://www.redhat.com/en), during [KCD Guadalajara](https://community.cncf.io/kcd-guadalajara/) on Microcks journey in Spanish *“[Llevando tu Proyecto de Hobby a la Cloud Native Computing Foundation](https://youtu.be/wpS7ZrEeIi4?si=DRBA-Ytj4h9sVd44)”.*  
 * ...and many more, apologies to the ones I missed in this brief recap\!
 
-These stories inspire us and showcase the diverse ways Microcks is making an impact in the real world.
+> These stories inspire us and highlight the various ways Microcks is making a meaningful impact in the real world, while also encouraging community members to contribute to enhancing the project's visibility and promotion.
 
 In 2024, we introduced **two monthly community meetings**, scheduled to accommodate different time zones. These sessions are [open to everyone](https://github.com/microcks/community/blob/main/JOIN-OUR-MEETINGS.md), so feel free to join us live\!
 
