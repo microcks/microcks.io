@@ -54,7 +54,7 @@ The first step is very convenient when you’re having a local evaluation of Mic
       - ./lib:/deployments/lib
     environment:
       - JAVA_OPTIONS=-Dloader.path=/deployments/lib
-      - JAVA_MAIN_CLASS=org.springframework.boot.loader.PropertiesLauncher
+      - JAVA_MAIN_CLASS=org.springframework.boot.loader.launch.PropertiesLauncher
       - JAVA_APP_JAR=app.jar
 ```
 
@@ -89,7 +89,7 @@ FROM quay.io/microcks/microcks:latest
 COPY lib /deployments/lib
 
 ENV JAVA_OPTIONS=-Dloader.path=/deployments/lib
-ENV JAVA_MAIN_CLASS=org.springframework.boot.loader.PropertiesLauncher
+ENV JAVA_MAIN_CLASS=org.springframework.boot.loader.launch.PropertiesLauncher
 ENV JAVA_APP_JAR=app.jar
 ```
 
