@@ -3,7 +3,7 @@ draft: false
 title: "Adding external dependencies"
 date: 2023-10-26
 publishdate: 2023-10-26
-lastmod: 2024-06-18
+lastmod: 2025-01-17
 weight: 20 #rem
 ---
 
