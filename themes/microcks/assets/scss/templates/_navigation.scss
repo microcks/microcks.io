@@ -84,13 +84,6 @@
 
   .nav-item {
     font-size: 1rem;
-    &.gh-btn {
-      margin-left: 12px;
-      @media (max-width: 991.9px) {
-        margin-top: 12px;
-        margin-left: 28px;
-      }
-    }
 
     .nav-link {
       display: inline-block;
@@ -476,6 +469,15 @@
 
   .nav-link {
     text-transform: capitalize;
+  }
+
+  &.gh-btn {
+    margin-left: 12px;
+    padding-top: 5px;
+    @media (max-width: 991.9px) {
+      margin-top: 12px;
+      margin-left: 28px;
+    }
   }
 }
 
