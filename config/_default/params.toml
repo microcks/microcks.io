@@ -128,7 +128,7 @@ link = "https://microcks.io/discord-invite"
 
 [[social]]
 title = "LinkedIn"
-icon = "fab fa-linkedin" # themify icon : https://themify.me/themify-icons
+icon = "fab fa-linkedin-in" # themify icon : https://themify.me/themify-icons
 link = "https://www.linkedin.com/company/microcks/"
 
 [[social]]
