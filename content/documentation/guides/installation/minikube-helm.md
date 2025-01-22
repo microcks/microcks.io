@@ -17,7 +17,7 @@ Let's go 🚀
 
 ## 1. Preparation
 
-As being on a Macr, people usually use [brew](https://brew.sh) to install `minikube`. However, it is also available from several different package managers out there. You can also check the [Getting Started](https://minikube.sigs.k8s.io/docs/start/) guide to access direct binary downloads. Obviously, you'll also need the [`kubectl`](https://kubernetes.io/docs/tasks/tools/#kubectl) utility to interact with your cluster. 
+As being on a Mac, people usually use [brew](https://brew.sh) to install `minikube`. However, it is also available from several different package managers out there. You can also check the [Getting Started](https://minikube.sigs.k8s.io/docs/start/) guide to access direct binary downloads. Obviously, you'll also need the [`kubectl`](https://kubernetes.io/docs/tasks/tools/#kubectl) utility to interact with your cluster. 
 
 ```sh
 $ brew install minikube
