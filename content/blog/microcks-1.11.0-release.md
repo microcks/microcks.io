@@ -111,6 +111,12 @@ Aside from the major changes listed above, here are some other improvements that
 
 And many more… The full release notes with all changes can be found [here](https://github.com/microcks/microcks/releases/tag/1.11.0).
 
+> ⚠️ ***Warning***<br/><br/>
+>
+> With the release `1.11.0`, **we decommissioned the [Microcks Ansible Operator](https://github.com/microcks/microcks-ansible-operator)** that will no longer work if you choose Microcks `1.11.0` or `latest` as your Microcks version. As a consequence, we recommend not to change the Microcks version in your existing `MicrocksInstall` Custom-Resource and pin it to `1.10.1` if you temporarily want to stick with this operator.<br/><br/>
+>
+> We now **provide a [new Microcks Operator](https://github.com/microcks/microcks-operator) that is more lightweight, performant with more features** in a 100% GitOps oriented way. The new Microcks Operator has been used in production for months by different adopter and we're confident it behaves well.
+
 
 ## What’s coming next?
 
