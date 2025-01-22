@@ -132,6 +132,11 @@ icon = "fab fa-linkedin" # themify icon : https://themify.me/themify-icons
 link = "https://www.linkedin.com/company/microcks/"
 
 [[social]]
+title = "BlueSky"
+icon = "fab fa-bluesky" # themify icon : https://themify.me/themify-icons
+link = "https://bsky.app/profile/microcks.io"
+
+[[social]]
 title = "Twitter"
 icon = "fab fa-x-twitter" # themify icon : https://themify.me/themify-icons
 link = "https://twitter.com/microcksio"

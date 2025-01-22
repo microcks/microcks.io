@@ -42,6 +42,8 @@ github.com/gethugothemes/hugo-modules/icons/font-awesome v0.0.0-20230705095442-1
 github.com/gethugothemes/hugo-modules/icons/font-awesome v0.0.0-20230705095442-1f2d5ac8b18d/go.mod h1:d3gy1vQyfasPmGpau7HpQLrXbOv23PfXclSnjyOBxeU=
 github.com/gethugothemes/hugo-modules/icons/font-awesome v0.0.0-20240925042433-d2b5d05977e8 h1:h2xHThbg1laJN6t2+bMr6dIAcD/b0IXBWOp+kJlzJec=
 github.com/gethugothemes/hugo-modules/icons/font-awesome v0.0.0-20240925042433-d2b5d05977e8/go.mod h1:d3gy1vQyfasPmGpau7HpQLrXbOv23PfXclSnjyOBxeU=
+github.com/gethugothemes/hugo-modules/icons/font-awesome v0.0.0-20241202174442-fd870d01c544 h1:Vo2ga+ujG2dJ3kKET81lQM8BJJXhbe4ty3luzDlZwis=
+github.com/gethugothemes/hugo-modules/icons/font-awesome v0.0.0-20241202174442-fd870d01c544/go.mod h1:d3gy1vQyfasPmGpau7HpQLrXbOv23PfXclSnjyOBxeU=
 github.com/gethugothemes/hugo-modules/images v0.0.0-20230705095442-1f2d5ac8b18d h1:4BSpUG0gKaEV0P5KTS37Z3GQuzfuEM3cZWBAql1XztU=
 github.com/gethugothemes/hugo-modules/images v0.0.0-20230705095442-1f2d5ac8b18d/go.mod h1:FKliP3qOW9diIcQeLtyZ0Hdhg3PL8bdAkC/6O+XtU90=
 github.com/gethugothemes/hugo-modules/images v0.0.0-20240925042433-d2b5d05977e8 h1:rGWMqcpmotd5G+q5HS9p9sC4GQF2hMxEesuJx8aKvKE=
