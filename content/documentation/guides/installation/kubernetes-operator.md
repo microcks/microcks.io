@@ -11,7 +11,7 @@ weight: 9
 
 This guide shows you how to deploy and use the [Microcks Kubernetes Operator](https://github.com/microcks/microcks-operator). If you're not familiar with Operators, we recommend having a read of this [excellent introduction on Kubernetes Operators](https://www.cncf.io/blog/2022/06/15/kubernetes-operators-what-are-they-some-examples/) and their benefits.
 
-The Microcks Operator offers advanced features comparing to the Helm chart and can be used in a complete [GitOps approach](https://www.redhat.com/en/topics/devops/what-is-gitops) where all the content of a Microcks instance can be pulled from a Git repository. Deploying this practice will allow the automated creation of fully-configured instances on demand, in seconds or minutes, and in a full reproducible way. The Microcks Operator is the cornerstone for your Sandbox-as-aService approach!
+The Microcks Operator offers advanced features comparing to the Helm chart and can be used in a complete [GitOps approach](https://www.redhat.com/en/topics/devops/what-is-gitops) where all the content of a Microcks instance can be pulled from a Git repository. Deploying this practice will allow the automated creation of fully-configured instances on demand, in seconds or minutes, and in a full reproducible way. The Microcks Operator is the cornerstone for your Sandbox-as-a-Service approach!
 
 Let's walk the different steps 🥾
 
@@ -75,9 +75,9 @@ microcks-postman-runtime-6fdd4659f5-vm76j       1/1     Running   0          55s
 $ kubectl get ingresses -n microcks
 --- OUTPUT --- 
 NAME                CLASS    HOSTS                             ADDRESS        PORTS     AGE
-microcks            <none>   microcks.m2.minikube.local        192.168.49.2   80, 443   3m20s
-microcks-grpc       nginx    microcks-grpc.m2.minikube.local   192.168.49.2   80, 443   85s
-microcks-keycloak   <none>   keycloak.m2.minikube.local        192.168.49.2   80, 443   3m19s
+microcks            <none>   microcks.m.minikube.local        192.168.49.2   80, 443   3m20s
+microcks-grpc       nginx    microcks-grpc.m.minikube.local   192.168.49.2   80, 443   85s
+microcks-keycloak   <none>   keycloak.m.minikube.local        192.168.49.2   80, 443   3m19s
 ```
 
 Start opening `https://keycloak.m.minikube.local` in your browser to validate the self-signed certificate. Once done, you can visit `https://microcks.m.minikube.local` in your browser, validate the self-signed certificate and start playing around with Microcks!
