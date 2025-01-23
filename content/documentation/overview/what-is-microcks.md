@@ -73,7 +73,7 @@ Depending on your profile, you way use Microcks to gain different advantages:
           <li>Provide testing environments as-a-service, at very low cost</li>
           <li>Guarantee flexibility and scalability thanks to <a href="/documentation/guides/installation/">Kubernetes-native deployments</a></li>
           <li>Integrate Microcks into your Internal Developer Portal powered by <a href="/documentation/guides/integration/backstage-plugin/">Backstage</a> or Kratix</li>
-          <li>Deploy Sandboxes for internals, partners, customers the easy-way via GitOps</li>
+          <li>Deploy Sandboxes for internals, partners, customers the easy-way <a href="/documentation/guides/installation/kubernetes-operator/">via GitOps</a></li>
         </ul>
       </div>
     </div>

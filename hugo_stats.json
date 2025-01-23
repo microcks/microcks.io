@@ -2,6 +2,7 @@
   "htmlElements": {
     "tags": [
       "a",
+      "base",
       "blockquote",
       "body",
       "br",
@@ -770,7 +771,6 @@
       "postman-urls-correct-fallback",
       "preparation",
       "primary-or-secondary",
-      "production-grade-deployment",
       "project-initialization",
       "provenance",
       "proxy",
