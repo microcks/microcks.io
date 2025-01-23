@@ -3,7 +3,7 @@ draft: false
 title: "Architecture & deployment options"
 date: 2020-12-15
 publishdate: 2020-12-15
-lastmod: 2025-06-03
+lastmod: 2025-01-23
 weight: 2
 ---
 
@@ -92,7 +92,7 @@ We provide provide a bunch of default profiles to use different capabilities of 
 
 ### 1. Everything managed
 
-When starting from scratch - the simplest way of deploying Microcks is to use our [Helm Chart](/documentation/references/configuration/helm-chart-config) or [Operator](/documentation/references/configuration/operator-config) that will handle the setup of all required dependencies for you. All the components from the architecture are setup through community container images or operators like the excellent [Strimzi Operator](https://strimzi.io).
+When starting from scratch - the simplest way of deploying Microcks is to use our [Helm Chart](/documentation/references/configuration/helm-chart-config) or [Operator](/documentation/guides/installation/kubernetes-operator/) that will handle the setup of all required dependencies for you. All the components from the architecture are setup through community container images or operators like the excellent [Strimzi Operator](https://strimzi.io).
 
 This setup makes things easy to start and easy to drop: everything is placed under a single Kubernetes namespace as illustrated into the schema below:
 
@@ -115,4 +115,35 @@ Besides this all-in-one approach, you may also use both installation methods to 
 
 Please check additional reference content for configuration details:
 * Security Configuration reference > [Reusing Keycloak](/documentation/references/configuration/security-config/#reusing-an-existing-keycloak) section
-* Security Configuration reference > [Kafka](/documentation/references/configuration/security-config/#reusing-an-existing-secured-kafka) section
+* Security Configuration reference > [Reusing Kafka](/documentation/references/configuration/security-config/#reusing-an-existing-secured-kafka) section
+
+
+### 3. Production concerns
+
+As explained above, the Helm chart and Operator for Microcks come with sensible defaults that make them easy to deploy a fully functionnal cluster in a few minutes. However there are some points to be considered in order to have a production-grade deployment, especially if you're targeting a [Global and centralized instance](https://microcks.io/documentation/explanations/deployment-topologies/#1-global-centralized-instance).
+
+Here are below a non-exhaustive list of common topics and concerns with details on how you could address them:
+
+###### 1. HTTPS endpoints access
+
+Helm chart and Operator default is to deploy `Ingresses` using self-signed certificates. Those certificates are generated with a TTL of 1 year and must be validated by the user in the browser to use Microcks.
+
+👉 _Certificate generation can be turned off setting `generateCert: false`. You can either statically provide your own certificate using a `secretRef` property of each component. Or, you can also put some specific annotations using the `annotations` properties so that creating the Ingress will associate it with a dynamically provisioned certificate like [cert-manager](https://cert-manager.io/) for example._
+
+###### 2. Keycloak externalisation
+
+Helm chart and Operator default is to deploy a single Keycloak instance using a `Deployment`.  
+
+👉 _We advise relying on Keycloak or community Charts or Operators to deploy this component. The [Reusing Keycloak](/documentation/references/configuration/security-config/#reusing-an-existing-keycloak) reference documentation provides informations on Microcks requirements to reuse an existing Keycloak instance._
+
+###### 3. MongoDB externalisation
+
+Helm chart and Operator default is to deploy a single MongoDB instance using a `Deployment`. 
+
+👉 _We advise relying on MongoDB or community Charts or Operators to deploy this component. Accessing an external MongoDB database may require injecting a custom certificate containing a [Java Keystore](https://en.wikipedia.org/wiki/Java_KeyStore) into the main Microcks pod. This can be done using the `customSecretRef` property in chart or operator. The starting options of Microcks should then be adjusted declaring a new `env` like `JAVA_OPTIONS: "-Djavax.net.ssl.trustStore=/deployments/config/custom/secret/KEYSTORE -Djavax.net.ssl.trustStorePassword=XXXXX"`_
+
+###### 4. Kafka externalisation
+
+Helm chart and Operator default is to leverage the [Strimzi Operator](https://strimzi.io) to create a Microcks dedicated Kafka instance. This instance is created with the minimal required resources and topics having a very short retention periods. After all, as the exchanged messages are mock messages, there should be no need of long-time persistence. At time of writing, topics are not secured which means that once you get access to the broker (via a client certificate for example), you have the ability to access every Microcks' managed topics.
+
+👉 _Providing a secured Kafka broker -even for mock purposes- can be a hard requirement. In that case, we recommend provisioning the broker your own way, with your custom security settings. The [Reusing Kafka](/documentation/references/configuration/security-config/#reusing-an-existing-secured-kafka) reference documentation provides informations on how to suply secure connection details to Microcks._

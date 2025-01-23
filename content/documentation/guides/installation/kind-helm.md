@@ -153,7 +153,7 @@ The default user/password is `admin/microcks123`
 
 ## 4. Install Microcks with asynchronous options
 
-In this section, we're doing a complete install of Microcks, enabling the asynchronous protcols features. This requires deploying additional pods and a Kafka cluster. Microcks install can install and manage its own cluster using the [Strimzi](https://strimzi.io) project.
+In this section, we're doing a complete install of Microcks, enabling the asynchronous protcolos feature. This requires deploying additional pods and a Kafka cluster. Microcks install can install and manage its own cluster using the [Strimzi](https://strimzi.io) project.
 
 To be able to expose the Kafka cluster to the outside of Kind, you’ll need to enable SSL passthrough on nginx: This require updating the default ingress controller deployment:
 

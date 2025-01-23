@@ -104,7 +104,7 @@ components:
         - name: Tigress
           payload:
             id: 2
-            name: Tigresse
+            name: Tigress
   schemas:
     Pet:
       type: object
