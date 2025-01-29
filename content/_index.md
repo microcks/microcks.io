@@ -25,7 +25,8 @@ screenshot:
 ##################### Feature ##########################
 feature:
   enable : true
-  title: Microcks is fully [community-driven](https://github.com/microcks/microcks/graphs/contributors) <br/> Check our [Adopters](https://github.com/microcks/.github/blob/main/ADOPTERS.md) file
+  title: Microcks rule them all! <br/> See how our [Adopters](https://github.com/microcks/.github/blob/main/ADOPTERS.md) benefit from it.
+  #title: Microcks is fully [community-driven](https://github.com/microcks/microcks/graphs/contributors) <br/> Check our [Adopters](https://github.com/microcks/.github/blob/main/ADOPTERS.md) file
 
 ########################## Clients Logo Slider #########################
 clients_logo_slider:
@@ -54,57 +55,55 @@ clients_logo_slider:
   - "images/adopters/inetum.png"
 
 ######################### Intro Video #####################
-intro_video:
-  enable: true
-  title: "Getting Started in 3 minutes 🔥"
-  content: "Effortlessly set up and deploy Microcks in your existing [Docker environment](https://www.docker.com/blog/get-started-with-the-microcks-docker-extension-for-api-mocking-and-testing/), eliminating the need for extensive configurations 🚀"
-  video_url: "https://www.youtube.com/embed/E8rjUwznO-Q"
-  video_thumbnail: "images/community/Docker-desktop-youtube.png"
+#intro_video:
+#  enable: true
+#  title: "Getting Started in 3 minutes 🔥"
+#  content: "Effortlessly set up and deploy Microcks in your existing [Docker environment](https://www.docker.com/blog/#get-started-with-the-microcks-docker-extension-for-api-mocking-and-testing/), eliminating the need for extensive #configurations 🚀"
+#  video_url: "https://www.youtube.com/embed/E8rjUwznO-Q"
+#  video_thumbnail: "images/community/Docker-desktop-youtube.png"
 
 ######################### Service #####################
 service:
   enable : true
   service_item:
     # service item loop
-    - title : "Shorten the feedback loop and reduce your Time To Market"
+    - title : "Multiple Specifications & Protocols"
       images:
-      - "images/microcks-shorten-feedback-loop.png"
-      - "images/microcks-parallelizing-developments.png"
-      - "images/microcks-anywhere.png"
-      content : "Microcks is a powerful tool to facilitate **rapid mock service generation**, **automated API testing**, and **seamless CI/CD integration**, streamlining development and deployment processes. Microcks **empowers teams** to optimize services and **accelerate product releases**, **gaining a competitive edge**."
+      - "images/microcks-multiple-specifications-protocols.png"
+      content : "Effortlessly **manage all** synchronous and event-driven **APIs** by leveraging OpenAPI, AsyncAPI, gRPC/Protobuf, GraphQL schemas and even SOAP. Microcks offers **a single**, **comprehensive tool** to handle everything, boosting **productivity** and cutting **costs**."
       button:
         enable : true
-        label : "Check it out"
+        label : "👉 Lombard Odier's Success Story with Microcks"
+        link : "blog/lombard-odier-revolutionizing-api-strategy/"
+        
+    # service item loop
+    - title : "Smart Dynamic Mocking"
+      images:
+      - "images/microcks-smart-dynamic-mocking.png"
+      content : "Microcks offers **customizable mocking**: re-use, generate **realistic** examples or **transform** mock data and responses on the fly. Effectively **simulate** your application or microservices **dependencies** to accelerate API development."
+      button:
+        enable : true
+        label : "👉 J.B. Hunt: Mock It till You Make It with Microcks"
         link : "blog/jb-hunt-mock-it-till-you-make-it/"
         
     # service item loop
-    - title : "Parallelizing developments by mocking all dependencies"
+    - title : "Testing  Automation"
       images:
-      - "images/microcks-shorten-feedback-loop.png"
-      content : "This **allows developers** to **create and simulate dependencies**, ensuring smooth and **efficient testing** of their applications. By adopting Microcks, development teams can **accelerate their release cycles** while **maintaining a high standard of software quality**."
+      - "images/microcks-testing-automation.png"
+      content : "Guarantee that your APIs meet their commitments. Perform **provider and consumer contract testing** on live implementations against various specification **versions**. Microcks saves time by auto-generating code snippets for seamless integration and automating checks within **CI/CD** pipelines."
       button:
         enable : true
-        label : "Check it out"
-        link : "https://youtu.be/2C2AqEpNAWI?feature=shared"
+        label : "👉 Getting started with Tests"
+        link : "documentation/tutorials/getting-started-tests/"
         
     # service item loop
-    - title : "A consistent and universal approach for all types of API"
-      images:
-      - "images/microcks-parallelizing-developments.png"
-      content : "By enabling **seamless API mocking and testing** for all types of API, Microcks guarantees that your APIs **perform as expected across various environments**, delivering a **reliable** and **satisfying experience to your consumers**."
-      button:
-        enable : true
-        label : "Check it out"
-        link : "documentation/guides/usage"
-        
-    # service item loop
-    - title : "Run anywhere, thanks to containers and Kubernetes"
+    - title : "Flexible Deployment"
       images:
       - "images/microcks-anywhere.png"
-      content : "Microcks offers the **flexibility to deploy and run anywhere**, whether **on-premise**, in **any cloud** infrastructure, or on **your laptop**. This versatility allows organizations and developers to **choose the most suitable environment** for their needs, making **development** and **testing processes** more **accessible** and **efficient**."
+      content : "Thanks to its lightweight, containerized architecture, Microcks can be deployed **anywhere** on-premises, in the cloud, or on developers' laptops. Tailor the environment to your needs for **seamless integration**, boosting agility and lowering infrastructure barriers."
       button:
         enable : true
-        label : "Check it out"
+        label : "👉 Check our installation's How-To Guides"
         link : "documentation/guides/installation/"
         
 ################### tools_intregrate ########################
