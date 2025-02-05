@@ -203,7 +203,7 @@ blocks.forEach((block) => {
 async function copyCode(block, button) {
 	let code = block.querySelector("code");
 	let text = code.innerText;
-  // Remove extra new lines
+  // Remove extra new lines.
   text = text.replace(/(\n\n)/gm, '\n');
 	await navigator.clipboard.writeText(text);
 	button.innerText = "copied";
