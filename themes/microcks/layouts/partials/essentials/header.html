@@ -29,7 +29,10 @@
           {{ range site.Menus.main }}
           {{ $menuURL := .URL | absLangURL }}
           {{ $pageURL:= $currentPage.Permalink | absLangURL }}
-          {{ $active := eq $menuURL $pageURL }}
+          {{ $active := or 
+            (eq $menuURL $pageURL) 
+            (and (ne $menuURL site.BaseURL) (hasPrefix $pageURL $menuURL)) 
+          }}
           {{ if .HasChildren }}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
