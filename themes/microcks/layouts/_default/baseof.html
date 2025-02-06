@@ -2,8 +2,10 @@
 <html lang="{{ site.LanguageCode | default `en-US` }}" itemscope itemtype="http://schema.org/WebPage">
 
 <head>
-	<!-- head (don't cache it) -->
-	{{ partial "head.html" . }}
+	 <!-- Prevent recursive call to head.html -->
+    {{ if not .IsHome }} <!-- Check if this is the home page -->
+        {{ partial "head.html" . }}
+    {{ end }}
 
 	<!-- cache partial only in production -->
 	{{ if hugo.IsProduction }}

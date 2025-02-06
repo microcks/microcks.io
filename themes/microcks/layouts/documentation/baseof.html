@@ -4,8 +4,10 @@
   itemscope
   itemtype="http://schema.org/WebPage">
   <head>
-    <!-- head (don't cache it) -->
-    {{ partial "essentials/head.html" . }}
+    <!-- Prevent recursive call to head.html -->
+    {{ if not .IsHome }} <!-- Check if this is the home page -->
+      {{ partial "essentials/head.html" . }}
+    {{ end }}
 
 		
     <!-- cache partial only in production -->
