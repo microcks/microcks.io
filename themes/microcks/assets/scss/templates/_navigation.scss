@@ -334,6 +334,7 @@
 
   li.nav-item.active a {
     background-color: black;
+    color: $color-primary !important;
   }
 
   .nav-link {
@@ -452,6 +453,7 @@
   li.nav-item.active a {
     background-color: #F5F5F5;
     border-radius: 6px;
+    padding: 10px;
   }
 }
 
