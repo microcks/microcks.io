@@ -261,16 +261,20 @@
   .form-inline button {
     transition: 0s;
   }
+  
 
   @include desktop {
     .form-inline {
       cursor: pointer;
-      margin: 0 0px 0 auto !important;
+      // margin: 0 0px 0 auto !important;
 
       button {
         padding: 10px;
         position: static;
         transform: none;
+      }
+      .search-wrapper {
+        margin-left: 10px;
       }
     }
 
@@ -315,6 +319,11 @@
   //end modifications
 
 }
+
+.search-wrapper {
+  margin-left: 10px !important;
+}
+
 
 // dark style
 .dark .navigation, .dark .doc-navigation {
@@ -551,13 +560,9 @@
     transform: translateY(-50%);
     border-radius: 4px;
     cursor: text;
-  }
-
-  @media screen and (min-width: 992px) {
-    width:250px;
-
-    .form-control{
-      width: 100%;
+  
+    @media (max-width: 991px) { // Hides for md and smaller screens
+      display: none !important;
     }
   }
 }
