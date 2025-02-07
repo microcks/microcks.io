@@ -13,8 +13,7 @@
   }
 
   @include mobile {
-    margin-left: 10px;
-    margin-top: -4px; // for better alignment
+    margin:0 auto; // for better alignment
   } 
 }
 
