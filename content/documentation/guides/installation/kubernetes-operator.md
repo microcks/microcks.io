@@ -194,7 +194,7 @@ kubectl patch -n ingress-nginx deployment/ingress-nginx-controller --type='json'
     -p '[{"op":"add","path":"/spec/template/spec/containers/0/args/-","value":"--enable-ssl-passthrough"}]'
 ```
 
-So assuming you're having the Strimzi operator up and runing in your `microcks` namespace, you can now create a new Microcks instance with additional properties to enable the asynchronous feature and to popup a new Kafka cluster that will be made available to users at `kafka.m.minikube.local`:
+So assuming you're having the Strimzi operator up and runinng in your `microcks` namespace, you can now create a new Microcks instance with additional properties to enable the asynchronous feature and to popup a new Kafka cluster that will be made available to users at `kafka.m.minikube.local`:
 
 ```yaml
 cat <<EOF | kubectl apply -n microcks -f -
