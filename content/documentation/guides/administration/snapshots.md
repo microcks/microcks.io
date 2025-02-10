@@ -21,7 +21,7 @@ Microcks Snapshots are not complete database exports because they only integrate
 
 > 🚨 **Warning**
 >
-> Snapshots cannot be substitutes for proper database backup and restore procedures! If you choose to deploy Microcks as a central instance that should always up-and-runing, databases backups are necessary to keep all the history of different objects and retain the configuration of your instance.
+> Snapshots cannot be substitutes for proper database backup and restore procedures! If you choose to deploy Microcks as a central instance that should always up-and-running, databases backups are necessary to keep all the history of different objects and retain the configuration of your instance.
 
 Snapshots are lightweight structures that can be used to:
 * easily exchange a set of Services & APIs definition with another instance of Microcks,
