@@ -21,7 +21,7 @@ Ready? Go! 💥
 
 First mandatory step is obviously to setup Microcks 😉. For AsyncAPI usage, we need a particular setup that embeds an Apache Kafka broker linked to a Microcks instance. Do not worry, we made this available for you as a simple `docker compose` command! 
 
-> As an alternative, you could also use our [Docker Desktop Extension](https://microcks.io/documentation/guides/installation/docker-desktop-extension/) is you feel more comfortable with graphical tools.
+> As an alternative, you could also use our [Docker Desktop Extension](https://microcks.io/documentation/guides/installation/docker-desktop-extension/) if you feel more comfortable with graphical tools.
 
 To retrieve and start the `docker compose` configuration, just execute the following commands, adapting the folder to one of your choice:
 
