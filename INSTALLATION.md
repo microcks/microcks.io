@@ -45,4 +45,4 @@ Now you can see the Microcks.io website running locally!
 ---
 
 ## Contributing
-Feel free to contribute to this repository by submitting pull requests or reporting issues. Happy coding! 🚀
+Check out our [CONTRIBUTING](https://github.com/microcks/microcks.io/blob/master/CONTRIBUTING.md) guide for details. Happy coding! 🚀
