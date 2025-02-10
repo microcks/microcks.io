@@ -92,7 +92,7 @@ The Microcks project also provides a bunch of **container images** and we’ve d
 
     * A [SLSA Provenance](https://slsa.dev/spec/v1.0/provenance#v02) attestation that can attest that the container comes from our CI/CD process,
     * A [SPDX SBOM](https://spdx.dev/) attestation that tracks all the dependent layers in the image
-* We became a `Verified` and `Official` publisher on [https://artifacthub.io/packages/search?org=microcks&sort=relevance&page=1](ArtifactHub.io), the CNCF official artifact repository. 
+* We became a `Verified` and `Official` publisher on [ArtifactHub.io](https://artifacthub.io/packages/search?org=microcks&sort=relevance&page=1), the CNCF official artifact repository. 
 
 Whouah! This was a **long-run task that spans the six last months** and has been tracked in issue [#1201](https://github.com/microcks/microcks/issues/1201). This has been done not just for the main Microcks packages but for all the packages coming from all the GitHub repositories in the [Microcks organization](https://github.com/microcks)! To help us monitor that daily, we have set the [CLO Monitor tooling](https://clomonitor.io/projects/cncf/microcks) that you can also use to track our progress 😎 
 
