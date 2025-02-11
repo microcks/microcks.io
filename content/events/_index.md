@@ -32,10 +32,8 @@ https://www.youtube.com/@Microcks/videos
   <img src="https://i.ytimg.com/vi/4ObZu9Gh9Xk/maxresdefault.jpg" alt="Video Thumbnail" width="560" height="315" style="cursor: pointer;">
 </a>
 
-- **[GraphQL conf 2023](https://www.linkedin.com/pulse/week-san-francisco-bay-area-microcks-exciting-journey-kheddache)**, Increase Your Productivity With No Code GraphQL Mocking.
-
+- [GraphQL conf 2023](https://www.linkedin.com/pulse/week-san-francisco-bay-area-microcks-exciting-journey-kheddache), Increase Your Productivity With No Code GraphQL Mocking.
 <a href="https://m.youtube.com/watch?v=UjDnrrTp7uI" target="_blank" rel="noopener noreferrer">
- 
  <img src="https://i.ytimg.com/vi/UjDnrrTp7uI/maxresdefault.jpg" alt="Video Thumbnail" width="560" height="315" style="cursor: pointer;">
 </a>
 
@@ -70,11 +68,12 @@ https://www.youtube.com/@Microcks/videos
  
   <img src="https://i.ytimg.com/vi/MrPhe--agKw/maxresdefault.jpg" alt="Video Thumbnail" width="560" height="315" style="cursor: pointer;">
  </a>
+ 
 - **AsyncAPI Conf India 2023**, Elevating Event-Driven Architecture: Boost your delivery with AsyncAPI and Microcks.
-<a href="https://www.youtube.com/watch?v=PYEW3F91wbI" target="_blank" rel="noopener noreferrer">
+  <a href="https://www.youtube.com/watch?v=PYEW3F91wbI" target="_blank" rel="noopener noreferrer">
  
   <img src="https://i.ytimg.com/vi/PYEW3F91wbI/maxresdefault.jpg" alt="Video Thumbnail" width="560" height="315" style="cursor: pointer;">
- </a>
+  </a>
 
 - **AsyncAPI Conf 2022**, AsyncAPI Recipes for EDA Gourmet.
 <a href="https://www.youtube.com/watch?v=m6vWzTF7LGI" target="_blank" rel="noopener noreferrer">
