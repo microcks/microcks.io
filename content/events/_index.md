@@ -18,24 +18,27 @@ https://www.youtube.com/@Microcks/videos
 >Must-(re)watch for tech enthusiasts, developers, and anyone interested in streamlining API delivery processes.
 
 - **[Kubecon NA Salt Lake City 2024](https://www.linkedin.com/pulse/reflections-kubecon-na-2024-salt-lake-city-above-clouds-kheddache-lupke/?trackingId=gxixGWa8T9GLSTBlblLx3Q%3D%3D)**, Streamlining Cloud-Native Development: Simplifying Dependencies and Testing with Microcks.
-<a href="https://www.youtube.com/watch?v=PeQyAVJo52I" target="_blank" rel="noopener noreferrer">
+
+  <a href="https://www.youtube.com/watch?v=PeQyAVJo52I" target="_blank" rel="noopener noreferrer">
   <img src="https://i.ytimg.com/vi_webp/PeQyAVJo52I/maxresdefault.webp" alt="Video Thumbnail" width="560" height="315" style="cursor: pointer;">
 </a>
 
 - **Live stream** recording with [**Josh Long**](https://twitter.com/starbuxman), Microcks Reloaded: Spring AOT and Testcontainers support.
-<a href="https://www.youtube.com/watch?v=VsTj0hyYiAA&t=1s" target="_blank" rel="noopener noreferrer">
+
+  <a href="https://www.youtube.com/watch?v=VsTj0hyYiAA&t=1s" target="_blank" rel="noopener noreferrer">
   <img src=" https://i.ytimg.com/vi/VsTj0hyYiAA/hqdefault.jpg" alt="Video Thumbnail" width="560" height="315" style="cursor: pointer;">
 </a>
 
 - **Live stream** recording with [**Josh Long**](https://twitter.com/starbuxman), Microcks: Open source Kubernetes Native tool for API Mocking and Testing 👀
-<a href="https://www.youtube.com/watch?v=4ObZu9Gh9Xk" target="_blank" rel="noopener noreferrer">
+
+  <a href="https://www.youtube.com/watch?v=4ObZu9Gh9Xk" target="_blank" rel="noopener noreferrer">
   <img src="https://i.ytimg.com/vi/4ObZu9Gh9Xk/maxresdefault.jpg" alt="Video Thumbnail" width="560" height="315" style="cursor: pointer;">
 </a>
 
 - [GraphQL conf 2023](https://www.linkedin.com/pulse/week-san-francisco-bay-area-microcks-exciting-journey-kheddache), Increase Your Productivity With No Code GraphQL Mocking.
-<a href="https://m.youtube.com/watch?v=UjDnrrTp7uI" target="_blank" rel="noopener noreferrer">
- <img src="https://i.ytimg.com/vi/UjDnrrTp7uI/maxresdefault.jpg" alt="Video Thumbnail" width="560" height="315" style="cursor: pointer;">
-</a>
+
+    <a href="https://m.youtube.com/watch?v=UjDnrrTp7uI" target="_blank" rel="noopener noreferrer"><img src="https://i.ytimg.com/vi/UjDnrrTp7uI/maxresdefault.jpg" alt="Video Thumbnail" width="560" height="315" style="cursor: pointer;">
+     </a>
 
 
 - **[Devoxx France 2023](https://www.linkedin.com/feed/update/urn:li:activity:7057731749547532288/)**, Accélérer vos livraisons d'API avec Microcks.
