@@ -272,6 +272,10 @@
         position: static;
         transform: none;
       }
+
+      .search-wrapper {
+        margin-left: 10px;
+      }
     }
 
     &.pull-top {
@@ -314,6 +318,10 @@
   }
   //end modifications
 
+}
+
+.search-wrapper {
+  margin-left: 10px !important;
 }
 
 // dark style
@@ -558,6 +566,9 @@
 
     .form-control{
       width: 100%;
+      @media (max-width: 991px){
+        display: none !important;
+      }
     }
   }
 }
