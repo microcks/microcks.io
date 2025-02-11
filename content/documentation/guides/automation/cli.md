@@ -69,7 +69,7 @@ Check the `microcks-cli` [README](https://github.com/microcks/microcks-cli/blob/
 
 ## Wrap-up
 
-You have learned how to install and use the Microcks CLI for the basic task of launching a new test. This is waht you would typically do within your CI/CD pipeline to ensure the application you just deployed correctly implements API specifications.
+You have learned how to install and use the Microcks CLI for the basic task of launching a new test. This is what you would typically do within your CI/CD pipeline to ensure the application you just deployed correctly implements API specifications.
 
 Microcks CLI also provide the `import` command that allows you to push artifacts into Microcks repository. This command requires that you have a *Service Account* with more privileges than the default one though. You may follow-up this guide with learning more about [Service Accounts](/documentation/explanations/service-account).
 
