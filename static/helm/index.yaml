@@ -24,7 +24,7 @@ entries:
     type: application
     urls:
     - https://microcks.io/helm/microcks-1.11.0-fix-2.tgz
-    version: 1.11.0-fix-2
+    version: 1.11.02
   - apiVersion: v2
     appVersion: 1.11.0
     created: "2025-01-15T14:34:10.797324+01:00"
