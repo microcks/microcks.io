@@ -35,7 +35,7 @@ https://www.youtube.com/@Microcks/videos
   <img src="https://i.ytimg.com/vi/4ObZu9Gh9Xk/maxresdefault.jpg" alt="Video Thumbnail" width="560" height="315" style="cursor: pointer;">
 </a>
 
-- [GraphQL conf 2023](https://www.linkedin.com/pulse/week-san-francisco-bay-area-microcks-exciting-journey-kheddache), Increase Your Productivity With No Code GraphQL Mocking.
+- **[GraphQL conf 2023](https://www.linkedin.com/pulse/week-san-francisco-bay-area-microcks-exciting-journey-kheddache)**, Increase Your Productivity With No Code GraphQL Mocking.
 
     <a href="https://m.youtube.com/watch?v=UjDnrrTp7uI" target="_blank" rel="noopener noreferrer"><img src="https://i.ytimg.com/vi/UjDnrrTp7uI/maxresdefault.jpg" alt="Video Thumbnail" width="560" height="315" style="cursor: pointer;">
      </a>
