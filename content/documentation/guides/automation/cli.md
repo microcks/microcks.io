@@ -42,7 +42,7 @@ Assuming you are running the same examples than in the [Getting started](/docume
 microcks-cli test 'API Pastry - 2.0:2.0.0' http://host.docker.internal:8282 OPEN_API_SCHEMA \
     --microcksURL=http://host.docker.internal:8585/api/ \
     --keycloakClientId=microcks-serviceaccount \ 
-    --keycloakClientSecret=ab54d329-e435-41ae-a900-ec6b3fe15c54 \
+    --keycloakClientSecret="ab54d329-e435-41ae-a900-ec6b3fe15c54" \
     --operationsHeaders='{"globals": [{"name": "x-api-key", "values": "azertyuiop"}], "GET /pastries": [{"name": "x-trace-id", "values": "qsdfghjklm"}]}' \
     --insecure --waitFor=6sec
 ```
@@ -60,7 +60,7 @@ docker run -it quay.io/microcks/microcks-cli:latest microcks-cli test \
     'API Pastry - 2.0:2.0.0' http://host.docker.internal:8282 OPEN_API_SCHEMA \
     --microcksURL=http://host.docker.internal:8585/api/ \
     --keycloakClientId=microcks-serviceaccount \ 
-    --keycloakClientSecret=ab54d329-e435-41ae-a900-ec6b3fe15c54 \
+    --keycloakClientSecret="ab54d329-e435-41ae-a900-ec6b3fe15c54" \
     --operationsHeaders='{"globals": [{"name": "x-api-key", "values": "azertyuiop"}], "GET /pastries": [{"name": "x-trace-id", "values": "qsdfghjklm"}]}' \
     --insecure --waitFor=6sec
 ```
