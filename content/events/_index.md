@@ -18,58 +18,113 @@ https://www.youtube.com/@Microcks/videos
 >Must-(re)watch for tech enthusiasts, developers, and anyone interested in streamlining API delivery processes.
 
 - **[Kubecon NA Salt Lake City 2024](https://www.linkedin.com/pulse/reflections-kubecon-na-2024-salt-lake-city-above-clouds-kheddache-lupke/?trackingId=gxixGWa8T9GLSTBlblLx3Q%3D%3D)**, Streamlining Cloud-Native Development: Simplifying Dependencies and Testing with Microcks.
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PeQyAVJo52I?si=zCGRP7Pn4r67TvEB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+  <a href="https://www.youtube.com/watch?v=PeQyAVJo52I" target="_blank" rel="noopener noreferrer">
+  <img src="https://i.ytimg.com/vi_webp/PeQyAVJo52I/maxresdefault.webp" alt="Video Thumbnail" width="560" height="315" style="cursor: pointer;">
+</a>
 
 - **Live stream** recording with [**Josh Long**](https://twitter.com/starbuxman), Microcks Reloaded: Spring AOT and Testcontainers support.
-<iframe width="560" height="315" src="https://www.youtube.com/embed/VsTj0hyYiAA?si=dvOHTgqzMp2endNh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+  <a href="https://www.youtube.com/watch?v=VsTj0hyYiAA&t=1s" target="_blank" rel="noopener noreferrer">
+  <img src=" https://i.ytimg.com/vi/VsTj0hyYiAA/hqdefault.jpg" alt="Video Thumbnail" width="560" height="315" style="cursor: pointer;">
+</a>
 
 - **Live stream** recording with [**Josh Long**](https://twitter.com/starbuxman), Microcks: Open source Kubernetes Native tool for API Mocking and Testing 👀
-<iframe width="560" height="315" src="https://www.youtube.com/embed/4ObZu9Gh9Xk?si=pXUstOAB3VllMB8c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+  <a href="https://www.youtube.com/watch?v=4ObZu9Gh9Xk" target="_blank" rel="noopener noreferrer">
+  <img src="https://i.ytimg.com/vi/4ObZu9Gh9Xk/maxresdefault.jpg" alt="Video Thumbnail" width="560" height="315" style="cursor: pointer;">
+</a>
 
 - **[GraphQL conf 2023](https://www.linkedin.com/pulse/week-san-francisco-bay-area-microcks-exciting-journey-kheddache)**, Increase Your Productivity With No Code GraphQL Mocking.
-<iframe width="560" height="315" src="https://www.youtube.com/embed/UjDnrrTp7uI?si=oW2bLyTXBZ6dwolG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    <a href="https://m.youtube.com/watch?v=UjDnrrTp7uI" target="_blank" rel="noopener noreferrer"><img src="https://i.ytimg.com/vi/UjDnrrTp7uI/maxresdefault.jpg" alt="Video Thumbnail" width="560" height="315" style="cursor: pointer;">
+     </a>
+
 
 - **[Devoxx France 2023](https://www.linkedin.com/feed/update/urn:li:activity:7057731749547532288/)**, Accélérer vos livraisons d'API avec Microcks.
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3qLzj2rTFmA?si=kRowe3SaTqzjT5bP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<a href="https://www.youtube.com/watch?v=3qLzj2rTFmA" target="_blank" rel="noopener noreferrer">
+ 
+  <img src="https://i.ytimg.com/vi/3qLzj2rTFmA/maxresdefault.jpg" alt="Video Thumbnail" width="560" height="315" style="cursor: pointer;">
+ </a>
 
 - **[Devoxx Belgium 2023](https://www.linkedin.com/pulse/wrapping-up-fantastic-week-microcks-devoxx-belgium-2023-kheddache)**, Speed Up your API delivery with Microcks.
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2C2AqEpNAWI?si=_ZNPrdaqWDTX0ZKD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<a href="https://www.youtube.com/watch?v=2C2AqEpNAWI" target="_blank" rel="noopener noreferrer">
+ 
+  <img src="https://i.ytimg.com/vi/2C2AqEpNAWI/maxresdefault.jpg" alt="Video Thumbnail" width="560" height="315" style="cursor: pointer;">
+ </a>
 
 - **Demo from [Dale Lane](https://www.linkedin.com/in/dalelane/)**: (Chief Architect, IBM Event Automation), Using AsyncAPI to generate a mock stream of Kafka events with Microcks.
-<iframe width="560" height="315" src="https://www.youtube.com/embed/SIHZOaw15s4?si=N9a4jspGwJK8mj6R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<a href="https://www.youtube.com/watch?v=SIHZOaw15s4" target="_blank" rel="noopener noreferrer">
+ 
+  <img src="https://i.ytimg.com/vi/SIHZOaw15s4/maxresdefault.jpg" alt="Video Thumbnail" width="560" height="315" style="cursor: pointer;">
+ </a>
+
 
 - **[Quarkus Insights #148](https://www.youtube.com/@Quarkusio)**, Microcks in Quarkus.
-<iframe width="560" height="315" src="https://www.youtube.com/embed/EQ6i7jxv_Rk?si=gwBZ6qI4v3pWonin" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<a href="https://www.youtube.com/watch?v=EQ6i7jxv_Rk" target="_blank" rel="noopener noreferrer">
+ 
+  <img src="https://i.ytimg.com/vi/EQ6i7jxv_Rk/maxresdefault.jpg" alt="Video Thumbnail" width="560" height="315" style="cursor: pointer;">
+ </a>
 
 - (🇫🇷) **[Paris JUG](https://www.parisjug.org/events/2024/02-13-microcks-et-api-agile/)**, meetup Fevrier 2024.
-<iframe width="560" height="315" src="https://www.youtube.com/embed/MrPhe--agKw?si=Pjn5eyQ9ObYng3Bg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
+<a href="https://www.youtube.com/watch?v=MrPhe--agKw" target="_blank" rel="noopener noreferrer">
+ 
+  <img src="https://i.ytimg.com/vi/MrPhe--agKw/maxresdefault.jpg" alt="Video Thumbnail" width="560" height="315" style="cursor: pointer;">
+ </a>
+ 
 - **AsyncAPI Conf India 2023**, Elevating Event-Driven Architecture: Boost your delivery with AsyncAPI and Microcks.
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PYEW3F91wbI?si=P8FTRf7Uha8qjR9m" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <a href="https://www.youtube.com/watch?v=PYEW3F91wbI" target="_blank" rel="noopener noreferrer">
+ 
+  <img src="https://i.ytimg.com/vi/PYEW3F91wbI/maxresdefault.jpg" alt="Video Thumbnail" width="560" height="315" style="cursor: pointer;">
+  </a>
 
 - **AsyncAPI Conf 2022**, AsyncAPI Recipes for EDA Gourmet.
-<iframe width="560" height="315" src="https://www.youtube.com/embed/m6vWzTF7LGI?si=VxuyuyiVcil32HKC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<a href="https://www.youtube.com/watch?v=m6vWzTF7LGI" target="_blank" rel="noopener noreferrer">
+ 
+  <img src="https://i.ytimg.com/vi/m6vWzTF7LGI/hqdefault.jpg" alt="Video Thumbnail" width="560" height="315" style="cursor: pointer;">
+ </a>
 
 - **AsyncAPI Conf 2021**, AsyncAPI or CloudEvents? Both my Captain!
-<iframe width="560" height="315" src="https://www.youtube.com/embed/_p9RyClgYhE?si=GAwwvidirTnr_qDS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<a href="https://www.youtube.com/watch?v=_p9RyClgYhE" target="_blank" rel="noopener noreferrer">
+ 
+  <img src="https://i.ytimg.com/vi/_p9RyClgYhE/maxresdefault.jpg" alt="Video Thumbnail" width="560" height="315" style="cursor: pointer;">
+ </a>
 
 - **OpenShift Coffee Break**, Microcks: API testing into a microservices world.
-<iframe width="373" height="210" src="https://www.youtube.com/embed/j1vRuXNSsHo?si=CTF11UFmov315EuK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<a href="https://www.youtube.com/watch?v=j1vRuXNSsHo" target="_blank" rel="noopener noreferrer">
+ 
+  <img src="https://i.ytimg.com/vi/j1vRuXNSsHo/maxresdefault.jpg" alt="Video Thumbnail" width="560" height="315" style="cursor: pointer;">
+ </a>
 
 - (🇫🇷) **CloudNord Octobre 2021**, Accélérer votre adoption EDA avec AsyncAPI & Microcks.
-<iframe width="373" height="210" src="https://www.youtube.com/embed/KlnJrO29B0M" title="Accélérer votre adoption EDA avec AsyncAPI &amp; Microcks | Laurent Broudoux" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<a href="https://www.youtube.com/watch?v=KlnJrO29B0M" target="_blank" rel="noopener noreferrer">
+ 
+  <img src="https://i.ytimg.com/vi/KlnJrO29B0M/maxresdefault.jpg" alt="Video Thumbnail" width="560" height="315" style="cursor: pointer;">
+ </a>
 
 - **Barcelona JUG April 2021**, Web API Contract First: design, mock and test.
-<iframe width="373" height="210" src="https://www.youtube.com/embed/p5gdmrPFTw8" title="Web API Contract First : design, mock and test" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<a href="https://www.youtube.com/watch?v=p5gdmrPFTw8" target="_blank" rel="noopener noreferrer">
+ 
+  <img src="https://i.ytimg.com/vi/p5gdmrPFTw8/hqdefault.jpg" alt="Video Thumbnail" width="560" height="315" style="cursor: pointer;">
+ </a>
 
 - **Apidays Paris 2020**, Speed-Up Kafka delivery with AsyncAPI & Microcks.
-<iframe width="373" height="210" src="https://www.youtube.com/embed/wvsHne46qIs" title="Apidays LIVE Paris  2020 - Speed-Up Kafka delivery with AsyncAPI &amp; Microcks By Laurent Broudoux" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<a href="https://www.youtube.com/watch?v=wvsHne46qIs" target="_blank" rel="noopener noreferrer">
+ 
+  <img src="https://i.ytimg.com/vi/wvsHne46qIs/maxresdefault.jpg" alt="Video Thumbnail" width="560" height="315" style="cursor: pointer;">
+ </a>
 
 - (🇫🇷) **OpenShift Meetup Février 2020**, Accélérer votre initiative OpenBanking APIs avec Microcks.
-<iframe width="373" height="210" src="https://www.youtube.com/embed/7xXKWnDjbIQ" title="Accélérer votre initiative OpenBanking APIs avec Microcks" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<a href="https://www.youtube.com/watch?v=7xXKWnDjbIQ" target="_blank" rel="noopener noreferrer">
+ 
+  <img src="https://i.ytimg.com/vi/7xXKWnDjbIQ/maxresdefault.jpg" alt="Video Thumbnail" width="560" height="315" style="cursor: pointer;">
+ </a>
 
 - (🇫🇷) **Devoxx France 2019**, Une API, de l'idée à la production, en mode agile avec Red Hat!
-<iframe width="373" height="210" src="https://www.youtube.com/embed/7gbaM73CMFY" title="Une API, de l&#39;idée à la production, en mode agile avec Red Hat ! (N. Masse &amp; L. Broudoux)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<a href="https://www.youtube.com/watch?v=7gbaM73CMFY" target="_blank" rel="noopener noreferrer">
+ 
+  <img src="https://i.ytimg.com/vi/7gbaM73CMFY/maxresdefault.jpg" alt="Video Thumbnail" width="560" height="315" style="cursor: pointer;">
+ </a>
 
 ##### Podcasts 👂
 - (🇫🇷) **[Artisan Développeur](https://artisandeveloppeur.fr)**, #7.x – Tester son API avec Microcks.<br>
@@ -120,7 +175,10 @@ https://developers.redhat.com/blog/2018/04/26/api-journey-idea-deployment-agile-
 
 ##### Workshops
 - An API Journey, from Mock to Deployment!<br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/EWweP57as5U?si=xPi2EU69zg1LeNQa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<a href="https://www.youtube.com/watch?v=EWweP57as5U" target="_blank" rel="noopener noreferrer">
+ 
+  <img src="https://i.ytimg.com/vi/EWweP57as5U/hqdefault.jpg" alt="Video Thumbnail" width="560" height="315" style="cursor: pointer;">
+ </a>
 
 - “Day in the Life” workshop<br>
 https://github.com/RedHatWorkshops/dayinthelife-integration

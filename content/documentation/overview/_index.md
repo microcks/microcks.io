@@ -10,7 +10,7 @@ params:
 
 ## Overview: Define Microcks scope and capabilities
 
-Welcome to Microcks **Overview**! Our Overview section will defined the scope and main concepts of Microcks featires and capabilities.
+Welcome to Microcks **Overview**! Our Overview section will defined the scope and main concepts of Microcks features and capabilities.
 
 > #### 💡 Remember
 >
