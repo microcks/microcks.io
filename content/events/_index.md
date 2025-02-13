@@ -7,7 +7,7 @@ draft: false
 {{< image title="Media resources" w="1200" o="webp q100" p="center" c="img-fluid shadow rounded-1" src="images/events/events-banner.jpg" alt="alter-text" >}} 
 
 ##### 🗓️ Events
-We actively participate in **events worldwide** and announce our presence on social networks, especially **LinkedIn**, so follow us (https://www.linkedin.com/company/microcks) to **stay connected** with the Microcks [community](http://localhost:1313/community/). If you're an event organizer or [CNCF ambassador](https://www.cncf.io/people/ambassadors/program-standards/), feel free to invite us for talks, demos, or workshops—we’re passionate about learning and sharing!
+We actively participate in **events worldwide** and announce our presence on social networks, especially **LinkedIn**, so follow us on [LinkedIn](https://www.linkedin.com/company/microcks) to **stay connected** with the Microcks [community](https://microcks.io/community/). If you're an event organizer or [CNCF ambassador](https://www.cncf.io/people/ambassadors/program-standards/), feel free to invite us for talks, demos, or workshops—we’re passionate about learning and sharing!
 
 ##### ⏯️ Past Recordings
 Explore Microcks' archive of past event recordings, podcasts, articles, and informative resources!
