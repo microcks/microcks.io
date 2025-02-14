@@ -74,8 +74,8 @@ link = "plugins/font-awesome/v6/solid.css"
 link = "plugins/font-awesome/v6/regular.css"
 [[params.plugins.css]]
 link = "plugins/font-awesome/v6/icons.css"
-# [[params.plugins.css]]
-# link = "plugins/glightbox/glightbox.css"
+[[params.plugins.css]]
+link = "plugins/glightbox/glightbox.css"
 
 # JS Plugins
 [[params.plugins.js]]
@@ -88,8 +88,8 @@ link = "plugins/cookie.js"
 link = "plugins/lazy-loader.js"
 [[params.plugins.js]]
 link = "js/tab.js"
-# [[params.plugins.js]]
-# link = "plugins/glightbox/glightbox.js"
+[[params.plugins.js]]
+link = "plugins/glightbox/glightbox.js"
 # [[params.plugins.js]]
 # link = "js/gallery-slider.js"
 
