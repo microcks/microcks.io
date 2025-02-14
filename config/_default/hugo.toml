@@ -7,7 +7,6 @@ theme = "microcks"
 timeZone = "Europe/Paris" # frenchies
 
 # post pagination
-[pagination]
 pagerSize = 6 # see https://gohugo.io/extras/pagination/ as paginate is deprecated since Hugo version v0.128.0
 # post excerpt
 summaryLength = 10 # see https://gohugo.io/content-management/excerpts/
