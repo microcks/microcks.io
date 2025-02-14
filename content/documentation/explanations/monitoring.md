@@ -51,7 +51,7 @@ Starting with Microcks `1.9.0`, we also provide a [Grafana](https://grafana.com/
 
 This dashboard is using data coming from a Prometheus source so you don't have to enabled the full OpenTelemetry support to use it. Standard Prometheus endpoints scraped by your Prom instance will do the job.
 
-Check the dedicated [/dashbaords](https://github.com/microcks/microcks/tree/master/observability/dashboards) on GitHub to get more details.
+Check the dedicated [Dashbaords](https://github.com/microcks/microcks/tree/master/observability/dashboards) on GitHub to get more details.
 
 ## Benchmark suite
 
