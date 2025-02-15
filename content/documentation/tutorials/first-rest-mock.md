@@ -105,6 +105,8 @@ Microcks has found `my_pets` as a valid sample to build a simulation upon. A moc
 
 ```sh
 $ curl http://localhost:8585/rest/Petstore+API/1.0.0/my/pets -s | jq
+```
+```sh
 [
   {
     "id": 1,
@@ -171,6 +173,8 @@ What about dispatching properties we mentioned earlier? You can see that they no
 
 ```shell
 $ curl http://localhost:8585/rest/Petstore+API/1.0.0/pets\?filter\=k -s | jq 
+```
+```sh
 [
   {
     "id": 3,
@@ -233,6 +237,8 @@ The `Dispatcher` inferred by Microcks has been adapted to `URI_PARTS` which mean
 
 ```shell
 $ curl http://localhost:8585/rest/Petstore+API/1.0.0/pets/1 -s | jq
+```
+```json
 {
   "id": 1,
   "name": "Zaza"
@@ -297,6 +303,8 @@ You can see in the picture above that the `Dispatcher` has no value as we have n
 
 ```shell
 $ curl http://localhost:8585/rest/Petstore+API/1.0.0/pets -H 'Content-Type: application/json' -d '{"name":"Rusty"}' -s | jq
+```
+```json
 {
   "id": 8,
   "name": "Rusty"

@@ -32,15 +32,23 @@ When invoked twice with different params at different dates, here are the result
 ```sh
 $ curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H 'Content-type: application/json' \
     -d '{"name": "World"}' -s | jq .
+
+```
+output:
+```json
 {
   "id": "pQnDIytzeYJFLxaQg56yObw0WTpYNBMjPYu7FLBoNSGF6ZJsTcHov5ZmaiWG8Gt8",
   "date": "10/02/2020",
   "message": "Hello World!"
 }
-
+```
 # Wait for a day...
+```sh
 $ curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H 'Content-type: application/json' \
     -d '{"name": "Laurent"}' -s | jq .
+```
+output:
+```json
 {
   "id": "Hn9lUKkzYsvQq98wDEHa7Ln3H4eVfnfpJLLPPe4ns9vBgaTRvblOOBHIVq3BluEC",
   "date": "11/02/2020",

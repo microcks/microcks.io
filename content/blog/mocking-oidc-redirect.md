@@ -114,6 +114,8 @@ Loading this OpenAPI specification file into Microcks will give you a local endp
 
 ```shell
 $ curl -X GET 'http://localhost:8080/rest/GitHub+OIDC/1.1.4/login/oauth/authorize?response_type=code&client_id=GHCLIENT&scope=openid+user:email&redirect_uri=http://localhost:8080/Login/githubLoginSuccess&state=e956e017-5e13-4c9d-b83b-6dd6337a6a86' -v
+```
+```sh
 ==== OUTPUT ====
 [...]
 > 

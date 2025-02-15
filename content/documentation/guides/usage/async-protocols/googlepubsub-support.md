@@ -161,6 +161,8 @@ $ cd api-tooling/async-clients/googlepubsub-client
 $ npm install
 
 $ node consumer.js my-gcp-project-347219 UsersignedupAPI-0.1.20-user-signedup /Users/me/google-cloud-creds/my-gcp-project-347219/pubsub-service-account.json
+```
+```sh
 Connecting to my-gcp-project-347219 on topic UsersignedupAPI-0.1.20-user-signedup with sub gpubsub-client-echo
 {
   "id": "rZxAKnfxbe7yCXAJLENTHtnBI64H2KRN",
@@ -191,6 +193,8 @@ Still being in the `googlepubsub-client` folder, now use the `producer.js` utili
 
 ```sh
 $ node producer.js my-qa-gcp-project-347223 user-signups /Users/me/google-cloud-creds/my-qa-gcp-project-347223/pubsub-service-account.json
+```
+```sh
 Connecting to my-qa-gcp-project-347223 on user-signups
 Sending {"id":"jhlch3gv1dexkodt71zet","sendAt":"1675848599703","fullName":"Laurent Broudoux","email":"laurent@microcks.io","age":43}
 Sending {"id":"gm6c39oa69nw7dukbpper","sendAt":"1675848602703","fullName":"Laurent Broudoux","email":"laurent@microcks.io","age":43}
@@ -230,6 +234,8 @@ So now let see what happened if we tweak that a bit... Open the `producer.js` sc
 
 ```sh
 $ node producer.js my-qa-gcp-project-347223 user-signups /Users/me/google-cloud-creds/my-qa-gcp-project-347223/pubsub-service-account.json
+```
+```sh
 Connecting to my-qa-gcp-project-347223 on user-signups
 Sending {"id":"2zzo4kf16mxu5e6k8hyecl","sendAt":1675946954300,"displayName":"Laurent Broudoux","email":"laurent@microcks.io","age":43}
 Sending {"id":"9ny4r1qu1p5xv37wxufshm","sendAt":1675946957300,"displayName":"Laurent Broudoux","email":"laurent@microcks.io","age":43}

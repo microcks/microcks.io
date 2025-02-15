@@ -27,9 +27,9 @@ Also for users who just want to take the installation for a spin on localhost, m
 The steps to setup Apicurio are similar to the steps mentioned in their GitHub docker-compose readme page. As of writing this article, Apicurio is at version `BETA 2.46`
 
 - Clone the Apicurio repository in a convenient location 
-  ```sh
+```sh
   git clone https://github.com/Apicurio/apicurio-studio.git
-  ```
+```
 
 - Cd to the directory to enter the Apicurio docker-compose installation workspace. Its now time to make a few edits
   ```sh

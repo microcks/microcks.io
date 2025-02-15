@@ -134,6 +134,8 @@ $ cd api-tooling/async-clients/natsjs-client
 $ npm install
 
 $ node consumer.js nats-broker.app.example.com:4222 UsersignedupAPI-0.1.30-user/signedup microcks microcks
+```
+```sh
 Connecting to nats-broker.app.example.com:4222 on topic UsersignedupAPI-0.1.30-user/signedup
 {
   "id": "eyN7TbotUwN6RTPD4mRwwStS8gBA7tI6",
@@ -162,6 +164,8 @@ Imagine that you want to validate messages from a `QA` environment with dedicate
 
 ```sh
 $ node producer.js nats-broker-qa.app.example.com:4222 user-signedups qa-user qa-password
+```
+```sh
 Connecting to nats-broker-qa.app.example.com:4222 on topic user-signedups
 Sending {"id":"itq382xi2usbz41nwel888","sendAt":"1675089667454","fullName":"Laurent Broudoux","email":"laurent@microcks.io","age":41}
 Sending {"id":"qfb0fn4yrff06ylrge5fh75","sendAt":"1675089670454","fullName":"Laurent Broudoux","email":"laurent@microcks.io","age":41}
@@ -195,6 +199,8 @@ So now let see what happened if we tweak that a bit... Open the `producer.js` sc
 
 ```sh
 $ node producer.js nats-broker-qa.app.example.com:4222 user-signedups qa-user qa-password
+```
+```sh
 Connecting to nats-broker-qa.app.example.com:4222 on topic user-signedups
 Sending {"id":"9x12cp2u40f01avend41ryw","sendAt":1675092166658,"displayName":"Laurent Broudoux","email":"laurent@microcks.io","age":41}
 Sending {"id":"han9zjhmqhkzkl76epz4xm","sendAt":1675092169659,"displayName":"Laurent Broudoux","email":"laurent@microcks.io","age":41}

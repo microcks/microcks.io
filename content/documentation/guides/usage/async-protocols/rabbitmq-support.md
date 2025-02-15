@@ -145,6 +145,8 @@ $ cd api-tooling/async-clients/amqpjs-client
 $ npm install
 
 $ node consumer.js amqp://<user>:<password>@rabbitmq-broker.app.example.com:5672 AccountService-1.1.0-user/signedup
+```
+```sh
 Connecting to amqp://<user>:<password>@rabbitmq-broker.app.example.com:5672 on topic AccountService-1.1.0-user/signedup
 {
   "displayName": "Laurent Broudoux",
@@ -168,6 +170,8 @@ Imagine that you want to validate messages from a `QA` environment with dedicate
 
 ```sh
 $ node producer.js amqp://<user>:<password>@rabbitmq-qa-broker.app.example.com:5672 signedup-exchange topic
+```
+```sh
 Connecting to amqp://<user>:<password>@rabbitmq-qa-broker.app.example.com:5672 on destination signedup-exchange
 Publishing {"displayName":"John Doe","email":"john@doe.com"}
 Publishing {"displayName":"John Doe","email":"john@doe.com"}
@@ -205,6 +209,8 @@ So now let see what happened if we tweak that a bit... Open the `producer.js` sc
 
 ```sh
 $ node producer.js amqp://<user>:<password>@rabbitmq-qa-broker.app.example.com:5672 signedup-exchange topic
+```
+```sh
 Connecting to amqp://<user>:<password>@rabbitmq-qa-broker.app.example.com:5672 on destination signedup-exchange
 Publishing {"name":"John Doe","email":"john@doe.com"}
 Publishing {"name":"John Doe","email":"john@doe.com"}

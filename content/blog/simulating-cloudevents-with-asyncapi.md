@@ -126,6 +126,8 @@ Since release [1.2.0](https://microcks.io/blog/microcks-1.2.0-release/), Microc
 
 ```shell
 $ kafkacat -b my-cluster-kafka-bootstrap.apps.try.microcks.io:9092 -t UsersignedupCloudEventsAPI_0.1.3_user-signedup -s value=avro -r http://apicurio-registry.apps.try.microcks.io/api/ccompat -o end -f 'Headers: %h - Value: %s\n'
+```
+```sh
 --- OUTPUT 
 % Auto-selecting Consumer mode (use -P or -C to override)
 % Reached end of topic UsersignedupCloudEventsAPI_0.1.3_user-signedup [0] at offset 276

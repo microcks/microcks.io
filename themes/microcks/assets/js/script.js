@@ -201,23 +201,15 @@ blocks.forEach((block) => {
 	}
 });
 async function copyCode(block, button) {
-  let code = block.querySelector("code");
-  let text = code.innerText;
-
-  // Extract only lines that start with "$ "
-  let filteredLines = text.split("\n")
-      .filter(line => line.trim().startsWith("$ ")) // Keep only command lines
-      .map(line => line.replace(/^\$\s*/, "")) // Remove the "$ " prefix
-      .join("\n");
-
-  // Copy to clipboard
-  await navigator.clipboard.writeText(filteredLines);
-
-  // UI feedback
-  button.innerText = "copied";
-  setTimeout(() => {
-      button.innerText = "copy";
-  }, 700);
+	let code = block.querySelector("code");
+	let text = code.innerText;
+  // Remove extra new lines.
+  text = text.replace(/(\n\n)/gm, '\n');
+	await navigator.clipboard.writeText(text);
+	button.innerText = "copied";
+	setTimeout(() => {
+		button.innerText = "copy";
+	}, 700);
 }
 
 // table of content

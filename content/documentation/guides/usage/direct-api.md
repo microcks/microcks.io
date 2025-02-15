@@ -179,6 +179,9 @@ Looking at the operation details, you can retrieve the information of the endpoi
 
 ```sh
 $ kcat -b my-cluster-kafka-bootstrap.apps.try.microcks.io:443 -t MyQuoteAPI-1.0-quotes -o end
+```
+output:
+```sh
 % Auto-selecting Consumer mode (use -P or -C to override)
 % Reached end of topic MyQuoteAPI-1.0-quotes [0] at offset 87
 {

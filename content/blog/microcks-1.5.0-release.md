@@ -42,9 +42,13 @@ For this reason, we decided to enhance things up and make the deployment of Micr
 
 ```sh
 $ docker-compose -f docker-compose.yml -f docker-compose-async-addon.yml up -d
-[...]
 
+```
+```sh
 $ docker stats --format "table {{.Container}}\t{{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}"
+```
+output:
+```sh
 CONTAINER      NAME                       CPU %     MEM USAGE / LIMIT
 3687d032ecad   microcks-async-minion      1.82%     266.2MiB / 6.789GiB
 5ab9aaf5bed2   microcks                   0.67%     325.1MiB / 6.789GiB
@@ -63,9 +67,13 @@ Let now see the results using the new 1.5.0 `docker-compose-devmode.yml` file:
 
 ```sh
 $ docker-compose -f docker-compose-devmode.yml up -d
-[...]
+```
+```sh
 
 $ docker stats --format "table {{.Container}}\t{{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}"
+```
+output: 
+```sh
 CONTAINER      NAME                       CPU %     MEM USAGE / LIMIT
 832548c518d3   microcks-async-minion      2.06%     243.2MiB / 6.789GiB
 6641782436b5   microcks                   0.52%     311.8MiB / 6.789GiB

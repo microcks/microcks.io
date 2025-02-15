@@ -124,6 +124,8 @@ Microcks has found `All Pets` as a valid sample to build a simulation upon. A mo
 
 ```shell
 $ grpcurl -plaintext -d '{}' localhost:8686 org.acme.petstore.v1.PetstoreService/getPets
+```
+```json
 {
   "pets": [
     {
@@ -198,6 +200,8 @@ Let's try the new gRPC method mock with this command:
 
 ```shell
 $ grpcurl -plaintext -d '{"name": "k"}' localhost:8686 org.acme.petstore.v1.PetstoreService/searchPets
+```
+```json
 {
   "pets": [
     {
@@ -272,6 +276,8 @@ Let's now finally test this new method using some content and see what's going o
 
 ```shell
 $ grpcurl -plaintext -d '{"name": "Rusty"}' localhost:8686 org.acme.petstore.v1.PetstoreService/createPet
+```
+```json
 {
   "id": 6,
   "name": "Rusty"

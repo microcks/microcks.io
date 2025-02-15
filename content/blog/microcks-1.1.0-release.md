@@ -42,6 +42,9 @@ Run it in less than 100 ms and use a single command line: thanks to [Quarkus](ht
 
 ```sh
 $ docker run -i --rm -p 8282:8282 quay.io/microcks/quarkus-api-pastry:latest
+```
+output:
+```sh
 __  ____  __  _____   ___  __ ____  ______ 
  --/ __ \/ / / / _ | / _ \/ //_/ / / / __/ 
  -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \  

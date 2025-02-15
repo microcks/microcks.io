@@ -34,7 +34,8 @@ Open a new terminal window and run this command to locally launch the implementa
 
 ```sh
 $ docker run -i --rm -p 8282:8282 quay.io/microcks/quarkus-api-pastry:latest
-
+```
+```sh
 WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
 __  ____  __  _____   ___  __ ____  ______ 
  --/ __ \/ / / / _ | / _ \/ //_/ / / / __/ 
@@ -82,7 +83,8 @@ $ docker run -it quay.io/microcks/microcks-cli:latest microcks-cli test \
         --microcksURL=http://host.docker.internal:8585/api/ \
         --keycloakClientId=foo --keycloakClientSecret=bar \
         --insecure --waitFor=6sec
-
+```
+```sh
 MicrocksClient got status for test "6644db75269ded17868d654c" - success: true, inProgress: true 
 MicrocksTester waiting for 2 seconds before checking again or exiting.
 Full TestResult details are available here: http://host.docker.internal:8585/#/tests/6644db75269ded17868d654c
