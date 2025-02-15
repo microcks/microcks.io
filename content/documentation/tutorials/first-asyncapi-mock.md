@@ -60,6 +60,9 @@ You can check everything is running correctly with the `docker ps` command that 
 
 ```shell
 $ docker ps
+```
+output
+```sh
 CONTAINER ID   IMAGE                                             COMMAND                  CREATED         STATUS         PORTS                                                                       NAMES
 b2c1ce881983   quay.io/microcks/microcks-async-minion:1.11.0     "/deployments/run-ja…"   3 minutes ago   Up 3 minutes   8080/tcp, 0.0.0.0:8081->8081/tcp                                            microcks-async-minion
 274c44597199   quay.io/microcks/microcks:1.11.0                  "/deployments/run-ja…"   3 minutes ago   Up 3 minutes   0.0.0.0:8080->8080/tcp, 0.0.0.0:9090->9090/tcp                              microcks
@@ -149,6 +152,8 @@ Microcks has found `Zaza` and `Tigress` as valid samples to build a simulation u
 
 ```sh
 $ kcat -b localhost:9092 -t PetstoreAsynchronousAPI-1.0.0-receiveNewPetCreateEvent
+```
+```json
 {"id":1,"name":"Zaza"}
 {"id":2,"name":"Tigress"}
 {"id":1,"name":"Zaza"}
@@ -261,6 +266,8 @@ Let's try this on the different topics corresponding to the differnet colors:
 
 ```sh
 $ kcat -b localhost:9092 -t PetstoreAsynchronousAPI-1.0.0-pet-blue
+```
+```sh
 % Auto-selecting Consumer mode (use -P or -C to override)
 {"id":1,"name":"Zaza","color":"blue"}
 {"id":1,"name":"Zaza","color":"blue"}
@@ -272,6 +279,8 @@ Looks good! Only Zaza is a blue cat. Let's check the others:
 
 ```sh
 $ kcat -b localhost:9092 -t PetstoreAsynchronousAPI-1.0.0-pet-stripped
+```
+```sh
 % Auto-selecting Consumer mode (use -P or -C to override)
 {"id":2,"name":"Tigress","color":"stripped"}
 {"id":4,"name":"Toufik","color":"stripped"}
@@ -291,6 +300,8 @@ Correct! Tigress and Toufik are the stripped ones. Just confirm with the calico 
 
 ```sh
 $ kcat -b localhost:9092 -t PetstoreAsynchronousAPI-1.0.0-pet-calico
+```
+```sh
 % Auto-selecting Consumer mode (use -P or -C to override)
 {"id":3,"name":"Maki","color":"calico"}
 {"id":3,"name":"Maki","color":"calico"}
@@ -339,6 +350,8 @@ Let's now finally test the first Kafka topic again and see what's going on:
 
 ```sh
 $ kcat -b localhost:9092 -t PetstoreAsynchronousAPI-1.0.0-receiveNewPetCreateEvent
+```
+```sh
 [...]
 {"id":1,"name":"Zaza"}
 {"id":2,"name":"Tigresse"}

@@ -93,7 +93,9 @@ Let start by creating a new beer coming from Belgium:
 $ curl -X POST http://microcks.example.com/rest/Beer+Catalog+API/1.0/beer \
     -H 'Content-type: application/json' \
     -d '{"name": "Abbey Brune", "country": "Belgium", "type": "Brown ale", "rating": 4.2, "references": [ { "referenceId": 1234 }, { "referenceId": 5678 } ]}'
-    
+```
+output:
+```sh    
 {
   "name": "Abbey Brune",
   "country": "Belgium",
@@ -114,7 +116,9 @@ Now let's try with a German beer... You'll see that the `Not accepted` response 
 $ curl -X POST http://microcks.example.com/rest/Beer+Catalog+API/1.0/beer \
     -H 'Content-type: application/json' \
     -d '{"name": "Spaten Oktoberfiest", "country": "Germany", "type": "Amber", "rating": 2.8, "references": []}'
-
+```
+output:
+```sh
 < HTTP/1.1 406 
 {
   "error": "Not accepted",
@@ -142,7 +146,9 @@ Just issue a Http request with an unmanaged region like below:
 
 ```sh
 $ curl 'https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast?region=center&apiKey=qwertyuiop' -k
-
+```
+output:
+```sh
 Region is unknown. Choose in north, west, east or south.%
 ```
 

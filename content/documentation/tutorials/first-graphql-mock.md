@@ -123,7 +123,8 @@ $ echo '{ "query":
   -H "Content-Type: application/json" \
   -s -d @- \
   http://localhost:8585/graphql/Petstore+Graph+API/1.0
-
+```
+```json
 {
   "data":{
     "allPets":[
@@ -167,7 +168,8 @@ $ echo '{ "query":
   -H "Content-Type: application/json" \
   -s -d @- \
   http://localhost:8585/graphql/Petstore+Graph+API/1.0
-
+```
+```json
 {
   "data":{
     "allPets":[
@@ -255,7 +257,8 @@ $ echo '{ "query":
   -H "Content-Type: application/json" \
   -s -d @- \
   http://localhost:8585/graphql/Petstore+Graph+API/1.0
-
+```
+```json
 {
   "data":{
     "searchPets":[
@@ -299,7 +302,8 @@ $ echo '{ "query":
   -H "Content-Type: application/json" \
   -s -v -d @- \
   http://localhost:8585/graphql/Petstore+Graph+API/1.0
-
+```
+```json
 {
   "data":{
     "k_pets":[
@@ -406,7 +410,8 @@ $ echo '{ "query":
   -H "Content-Type: application/json" \
   -s -d @- \
   http://localhost:8585/graphql/Petstore+Graph+API/1.0
-
+```
+```json
 {
   "data":{
     "createPet":{

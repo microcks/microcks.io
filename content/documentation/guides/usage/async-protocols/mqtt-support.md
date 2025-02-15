@@ -154,6 +154,8 @@ $ cd api-tooling/async-clients/mqttjs-client
 $ npm install
 
 $ node consumer.js mqtt://mqtt-broker.app.example.com:1883 StreetlightsAPI_1.0.0_smartylighting-streetlights-event-lighting-measured microcks microcks
+```
+```sh
 Connecting to mqtt://mqtt-broker.app.example.com:1883 on topic StreetlightsAPI_1.0.0_smartylighting-streetlights-event-lighting-measured
 {
   "streetlightId": "dev0",
@@ -184,7 +186,9 @@ Now the final step is to perform some test of the validation features in Microck
 Imagine that you want to validate messages from a `QA` environment with dedicated MQTT broker. Still being in the `mqttjs-client` folder, now use the `producer.js` utility script to publish messages on a `streetlights-event-lighting-measured` topic:
 
 ```sh
-$ node producer.js mqtts://mqtt-broker-qa.app.example.com:443 streetlights-event-lighting-measured qa-user qa-password broker-qa.crt       
+$ node producer.js mqtts://mqtt-broker-qa.app.example.com:443 streetlights-event-lighting-measured qa-user qa-password broker-qa.crt  
+```
+```sh     
 Connecting to mqtts://mqtt-broker-qa.app.example.com:443 on topic streetlights-event-lighting-measured
 {
   streetlightId: 'devX',
@@ -226,6 +230,8 @@ So now let see what happened if we tweak that a bit... Open the `producer.js` sc
 
 ```sh
 $ node producer.js mqtts://mqtt-broker-qa.app.example.com:443 streetlights-event-lighting-measured qa-user qa-password broker-qa.crt
+```
+```sh
 Connecting to mqtts://mqtt-broker-qa.app.example.com:443 on topic streetlights-event-lighting-measured
 {
   streetlightId: 'devX',

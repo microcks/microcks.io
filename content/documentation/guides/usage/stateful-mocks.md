@@ -96,7 +96,8 @@ As a first test, you may check the initial state of our cart by issuing the foll
 ```sh
 # Check johndoes's cart
 $ curl -X GET 'http://localhost:8585/rest/Cart+API/1.0.0/cart' -H 'Accept: application/json' -H 'customerId: johndoe'
-
+```
+```json
 {
   "customerId": "johndoe",
   "items": [],
@@ -158,16 +159,20 @@ We may now fully test that we're able to save a state by adding items and then r
 ```sh
 # Add a millefeuille to the cart for user johndoe
 $ curl -X PUT 'http://localhost:8585/rest/Cart+API/1.0.0/cart/items' -d '{"productId":"Millefeuille","quantity":2,"price":4.0}' -H 'Content-Type: application/json' -H 'customerId: johndoe'
-
+```
+```json
 {
   "productId": "Millefeuille",
   "quantity": 2,
   "price": 4.0
 }
+```
+```sh
 
 # Check johndoes's cart
 $ curl -X GET 'http://localhost:8585/rest/Cart+API/1.0.0/cart' -H 'Accept: application/json' -H 'customerId: johndoe'
-
+```
+```json
 {
   "customerId": "johndoe",
   "items": [
@@ -221,10 +226,13 @@ As a final test, we may now check that we are able to add items to a cart, retri
 ```sh
 # Add a Baba au Rhum
 curl -X PUT 'http://localhost:8585/rest/Cart+API/1.0.0/cart/items' -d '{"productId":"Baba Rhum","quantity":1,"price":4.1}' -H 'Content-Type: application/json' -H 'customerId: johndoe'
+```
+```sh
 
 # Check johndoes's cart
 $ curl -X GET 'http://localhost:8585/rest/Cart+API/1.0.0/cart' -H 'Accept: application/json' -H 'customerId: johndoe'
-
+```
+```json
 {
   "customerId": "johndoe",
   "items": [
@@ -244,16 +252,19 @@ $ curl -X GET 'http://localhost:8585/rest/Cart+API/1.0.0/cart' -H 'Accept: appli
 
 # Empty johndoe's cart
 $ curl -X POST 'http://localhost:8585/rest/Cart+API/1.0.0/cart/empty' -H 'Accept: application/json' -H 'customerId: johndoe'
-
+```
+```json
 {
   "customerId": "johndoe",
   "items": [],
   "totalPrice": 0
 }
-
+```
+```sh
 # Check johndoes's cart
 $ curl -X GET 'http://localhost:8585/rest/Cart+API/1.0.0/cart' -H 'Accept: application/json' -H 'customerId: johndoe'
-
+```
+```json
 {
   "customerId": "johndoe",
   "items": [],

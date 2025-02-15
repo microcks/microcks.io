@@ -46,6 +46,8 @@ Just issue an invalid call to this endpoint - changing the price to a string for
 $ curl -X PATCH 'http://localhost:8080/rest-valid/API+Pastries/0.0.1/pastries/Eclair+Cafe' \
     -H 'Accept: application/json' -H 'Content-Type: application/json' \
     -d '{ "price": "2.6" }' -v
+```
+```sh
 === OUTPUT ===
 [...]
 < HTTP/1.1 400 

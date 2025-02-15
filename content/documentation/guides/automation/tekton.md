@@ -92,6 +92,9 @@ The parameters that can be set here are:
 
 ```sh
 $ tkn pipelinerun start user-registration-tekton-pipeline
+```
+output:
+```sh
 PipelineRun started: user-registration-tekton-pipeline-run-64xf7
 Showing logs...
 [...]
@@ -101,6 +104,9 @@ Showing logs...
 
 ```sh
 $ tkn pipeline logs user-registration-tekton-pipeline-run-64xf7 -f -n user-registration
+```
+output:
+```sh
 [...]
 
 [test-openapi-v1 : microcks-test] MicrocksClient got status for test "5f76e969dcba620f6d21008d" - success: false, inProgress: true 

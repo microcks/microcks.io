@@ -149,15 +149,25 @@ Now it's time to validate that mock publication of Avro messages is correct.
 When using the `REGISTRY` encoding options with a deployed Schema Registry, things are pretty simple as you can interact with registry either from GUI or CLI. Let's check that Microcks has correctly published the schema for our sample topic. See below the results we have with our sample:
 
 ```sh
-$ curl https://schema-registry.apps.example.com -s -k | jq . 
+$ curl https://schema-registry.apps.example.com -s -k | jq .
+```
+```sh 
 [
   "UsersignedupAvroAPI_0.1.2_user-signedup-microcks.avro.User"
 ]
+```
+```sh
 $ curl https://schema-registry.apps.example.com/subjects/UsersignedupAvroAPI_0.1.2_user-signedup-microcks.avro.User/versions -s -k | jq .
+```
+```sh
 [
   1
 ]
+```
+```sh
 $ curl https://schema-registry.apps.example.com/subjects/UsersignedupAvroAPI_0.1.2_user-signedup-microcks.avro.User/versions/1 -s -k | jq .
+```
+```json
 {
   "subject": "UsersignedupAvroAPI_0.1.2_user-signedup-microcks.avro.User",
   "version": 1,
@@ -170,6 +180,8 @@ Very nice! We can also use the [`kafkacat` CLI tool](https://github.com/edenhill
 
 ```sh
 $ kafkacat -b microcks-kafka-bootstrap-microcks.apps.example.com:9092 -t UsersignedupAvroAPI_0.1.2_user-signedup -s value=avro -r https://schema-registry.apps.example.com -o end
+```
+```sh
 % Auto-selecting Consumer mode (use -P or -C to override)
 % Reached end of topic UsersignedupAvroAPI_0.1.2_user-signedup [0] at offset 114
 {"fullName": "Laurent Broudoux", "email": "laurent@microcks.io", "age": 41}
@@ -192,7 +204,9 @@ $ git clone https://github.com/microcks/api-tooling.git
 $ cd api-tooling/async-clients/kafkajs-client
 $ npm install
 
-$ node avro-consumer.js microcks-kafka-bootstrap-microcks.apps.example.com:9092 UsersignedupAvroAPI_0.1.2_user-signedup              
+$ node avro-consumer.js microcks-kafka-bootstrap-microcks.apps.example.com:9092 UsersignedupAvroAPI_0.1.2_user-signedup   
+```
+```sh           
 Connecting to microcks-kafka-bootstrap-microcks.apps.example.com:9092 on topic UsersignedupAvroAPI_0.1.2_user-signedup
 {"level":"INFO","timestamp":"2021-02-11T20:30:48.672Z","logger":"kafkajs","message":"[Consumer] Starting","groupId":"kafkajs-client"}
 {"level":"INFO","timestamp":"2021-02-11T20:30:48.708Z","logger":"kafkajs","message":"[Runner] Consumer has joined the group","groupId":"kafkajs-client","memberId":"my-app-7feb2099-1701-4a8a-9eff-50aeed60d65d","leaderId":"my-app-7feb2099-1701-4a8a-9eff-50aeed60d65d","isLeader":true,"memberAssignment":{"UsersignedupAvroAPI_0.1.2_user-signedup":[0]},"groupProtocol":"RoundRobinAssigner","duration":36}
@@ -232,6 +246,8 @@ That said, imagine that you want to validate messages from a **QA** environment 
 
 ```sh
 $ node avro-with-registry-producer.js kafka-broker-qa.apps.example.com:9092 user-registration https://schema-registry-qa.apps.example.com
+```
+```sh
 Connecting to kafka-broker-qa.apps.example.com:9092 on topic user-registration, using registry https://schema-registry-qa.apps.example.com
 {"level":"ERROR","timestamp":"2021-02-11T21:07:09.962Z","logger":"kafkajs","message":"[Connection] Response Metadata(key: 3, version: 5)","broker":"kafka-broker-qa.apps.example.com:9092","clientId":"my-app","error":"There is no leader for this topic-partition as we are in the middle of a leadership election","correlationId":1,"size":108}
 [
@@ -275,6 +291,8 @@ Now looking at the `RAW` encoding option and what we can deduce from tests. To s
 
 ```sh
 $ node avro-producer.js kafka-broker-qa.apps.example.com:9092 user-registration
+```
+```sh
 Connecting to kafka-broker-qa.apps.example.com:9092 on topic user-registration
 {"level":"ERROR","timestamp":"2021-02-11T21:37:28.266Z","logger":"kafkajs","message":"[Connection] Response Metadata(key: 3, version: 5)","broker":"kafka-broker-qa.apps.example.com:9092","clientId":"my-app","error":"There is no leader for this topic-partition as we are in the middle of a leadership election","correlationId":1,"size":96}
 [

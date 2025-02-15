@@ -63,6 +63,8 @@ Wait a bit for the operator to be triggered, the images to be pulled, pods to be
 
 ```shell
 $ kubectl get pods -n microcks
+```
+```sh
 --- OUTPUT --- 
 NAME                                            READY   STATUS    RESTARTS   AGE
 microcks-6779c95d59-v2p7j                       1/1     Running   0          55s
@@ -71,8 +73,11 @@ microcks-keycloak-postgresql-85b69859d9-nwqqs   1/1     Running   0          56s
 microcks-mongodb-5f7764bbd8-fgqhb               1/1     Running   0          56s
 microcks-operator-6ff95d44f9-5kgvq              1/1     Running   0          73s
 microcks-postman-runtime-6fdd4659f5-vm76j       1/1     Running   0          55s
-
+```
+```sh
 $ kubectl get ingresses -n microcks
+```
+```sh
 --- OUTPUT --- 
 NAME                CLASS    HOSTS                             ADDRESS        PORTS     AGE
 microcks            <none>   microcks.m.minikube.local        192.168.49.2   80, 443   3m20s
@@ -222,6 +227,9 @@ Watch and check the pods you should get in the namespace:
 
 ```sh
 $ kubectl get pods -n microcks
+```
+output:
+```sh
 NAME                                              READY   STATUS    RESTARTS        AGE
 microcks-585d4554bf-bplwc                         1/1     Running   0               7m21s
 microcks-async-minion-545d5bf4fc-l5xrq            1/1     Running   3 (3m43s ago)   7m21s
@@ -244,6 +252,8 @@ Now connect to the Kafka broker pod to check a topic has been correctly created 
 
 ```sh
 $ kubectl -n microcks exec microcks-kafka-kafka-0 -it -- /bin/sh
+```
+```sh
 --- INPUT ---
 sh-4.4$ cd bin
 sh-4.4$ ./kafka-topics.sh --bootstrap-server localhost:9092 --list
