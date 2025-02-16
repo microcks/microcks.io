@@ -56,7 +56,7 @@ jobs:
       
       # Create an issue if there are broken links 
       - name: Create Issue From File
-        if: steps.lychee.outcome == 'failure' || (env.lychee_exit_code != '' && env.lychee_exit_code != '0')
+        if: env.lychee_exit_code == 1
         id: create_issue
         uses: peter-evans/create-issue-from-file@v5
         with:
@@ -71,7 +71,7 @@ jobs:
       
       # Add a comment to the issue with the contribution message  
       - name: Add contribution message as new comment
-        if: ${{ env.ISSUE_NUMBER }} is not null
+        if: env.ISSUE_NUMBER != ''  
         run: gh issue comment "$NUMBER" --body-file "$BODY"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
