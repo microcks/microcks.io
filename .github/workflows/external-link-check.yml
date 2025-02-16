@@ -71,7 +71,7 @@ jobs:
       
       # Add a comment to the issue with the contribution message  
       - name: Add contribution message as new comment
-        if: env.ISSUE_NUMBER != ''  
+        if: ${{ env.ISSUE_NUMBER }} is not null 
         run: gh issue comment "$NUMBER" --body-file "$BODY"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
