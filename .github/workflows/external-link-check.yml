@@ -25,7 +25,7 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: .lycheecache
-          key: cache-lychee-${{ github.sha }}
+          key: cache-lychee-${{ github.ref_name }}
           restore-keys: cache-lychee-
       
       # We do not need to build the site, so we can remove the Hugo build steps, thanks to the hugo check validation on push
