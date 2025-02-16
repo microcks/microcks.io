@@ -56,7 +56,7 @@ jobs:
       
       # Create an issue if there are broken links 
       - name: Create Issue From File
-        if: env.lychee_exit_code != 0
+        if: env.lychee_exit_code == 1
         id: create_issue
         uses: peter-evans/create-issue-from-file@v5
         with:
