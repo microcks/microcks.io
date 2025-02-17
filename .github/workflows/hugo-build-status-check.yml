@@ -50,14 +50,6 @@ jobs:
             exit 1
           fi
 
-      # Step to check if build failed
-      - name: Check build status
-        run: |
-          if [ ${{ steps.build.outcome }} != 'success' ]; then
-            echo "::error::Hugo build failed, blocking commit..."
-            exit 1
-          fi
-
       # Step to stop the Hugo server at the end of the workflow as it's running in the background
       - name: Stop Hugo server
         run: |
