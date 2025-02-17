@@ -56,41 +56,40 @@
           <!-- menu active -->
           {{ $currentPage := . }}
           {{ range site.Menus.main }}
-          {{ $menuURL := .URL | absLangURL }}
-          {{ $pageURL:= $currentPage.Permalink | absLangURL }}
-          {{ $active := eq $menuURL $pageURL }}
-          {{ if .HasChildren }}
-          <li class="nav-item dropdown {{if .Params.isMenuLarge}}dropdown-lg {{end}}
-          {{- range .Children -}}
-          {{- $childURL := .URL | absLangURL -}}
-          {{- $active := eq $childURL $pageURL -}}
-          {{- if $active }}active{{ end -}}
-          {{- end -}}">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              {{ .Name }}
-            </a>
-            <ul class="dropdown-menu">
+            {{ if .HasChildren }}
+              {{ $anyChildActive := false }}
               {{ range .Children }}
-              {{ $childURL := .URL | absLangURL }}
-              {{ $active := eq $childURL $pageURL }}
-              <li>
-                <a class="dropdown-item {{ if $active }}active{{ end }}" {{if findRE `^http` .URL}}target="_blank" rel="noopener" {{end}}
-                href="{{if findRE `^#` .URL}}{{if not $.IsHome}}{{site.BaseURL | relLangURL}}{{end}}{{.URL}}{{else}}{{.URL | relLangURL}}{{end}}">{{.Pre}}{{ .Name }}{{.Post}}</a>
-              </li>
+                {{ if eq $currentPage.RelPermalink (.URL | relLangURL) }}
+                  {{ $anyChildActive = true }}
+                {{ end }}
               {{ end }}
-            </ul>
-          </li>
-          {{ else }}
-          <li class="nav-item {{ if $active }}active{{ end }}">
-            <a class="nav-link" {{if findRE `^http` .URL}}target="_blank" rel="noopener" {{end}}
-              href="{{if findRE `^#` .URL}}{{if not $.IsHome}}{{site.BaseURL | relLangURL}}{{end}}{{.URL}}{{else}}{{.URL | relLangURL}}{{end}}">{{.Name}}</a>
-          </li>
-          {{ end }}
+              <li class="nav-item special dropdown {{if .Params.isMenuLarge}}dropdown-lg{{end}} {{ if $anyChildActive }}active{{ end }}">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                  {{ .Name }}
+                </a>
+                <ul class="dropdown-menu">
+                  {{ range .Children }}
+                    {{ $isActive := eq $currentPage.RelPermalink (.URL | relLangURL) }}
+                    <li>
+                      <a class="dropdown-item {{ if $isActive }}active{{ end }}" href="{{ .URL }}">
+                        {{ .Name }}
+                      </a>
+                    </li>
+                  {{ end }}
+                </ul>
+              </li>
+            {{ else }}
+              <li class="nav-item {{ if eq $currentPage.RelPermalink (.URL | relLangURL) }}active{{ end }}">
+                <a class="nav-link" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+              </li>
+            {{ end }}
           {{ end }}
           <li class="nav-item gh-btn">
-            <a class="github-button" href="https://github.com/microcks/microcks" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" data-show-count="true" aria-label="Star microcks/microcks on GitHub">Star</a>
-          </li>
-        </ul>
+            <a class="github-button" href="https://github.com/microcks/microcks" 
+               data-color-scheme="no-preference: light; light: light; dark: dark;" 
+               data-size="large" data-show-count="true" 
+               aria-label="Star microcks/microcks on GitHub">Star</a>
+          </li>
 
         <!-- Language List -->
         {{ if .IsTranslated }}
