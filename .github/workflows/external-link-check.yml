@@ -8,6 +8,7 @@ on:
   # ucomment the following line if you want to run the workflow manually
   # workflow_dispatch:
   # Run once a week on Sunday at 00h42 UTC (0:42 AM UTC aka 1:42 AM CEST with daylight saving time)
+  workflow_dispatch:
   schedule:
     - cron: "42 0 * * 0"
 
