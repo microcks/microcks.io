@@ -34,8 +34,6 @@ jobs:
       # Step to build the site
       - name: Build site
         run: hugo --minify
-        # Capture output and error code
-        continue-on-error: true
         id: build
 
       # Step to start Hugo server in the background
