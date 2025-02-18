@@ -28,8 +28,8 @@ jobs:
           path: .lycheecache
           key: cache-lychee-${{ github.ref_name }}
           restore-keys: |
-          cache-lychee-
-          cache-lychee-${{ github.ref_name }}
+            cache-lychee-
+            cache-lychee-${{ github.ref_name }}
       
       # We do not need to build the site, so we can remove the Hugo build steps, thanks to the hugo check validation on push
       # However, retaining this comment for documentation purposes, just in case ;) 
