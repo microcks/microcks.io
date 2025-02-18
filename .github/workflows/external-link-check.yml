@@ -19,6 +19,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Ensure .lycheecache directory exists
+        run: mkdir -p .lycheecache && chmod 777 .lycheecache 
       # Setup local cache in order to mitigate issues regarding rate limiting or to reduce stress on external resources
       # Restore the lychee cache if it exists for the current commit
       - name: Restore lychee cache
@@ -31,9 +33,7 @@ jobs:
             cache-lychee-
             cache-lychee-${{ github.ref_name }}
 
-      - name: Ensure .lycheecache directory exists
-        run: mkdir -p .lycheecache && chmod 777 .lycheecache 
-        
+
       - name: Debug lychee cache
         run: ls -la .lycheecache || echo "No cache directory found!"
 
