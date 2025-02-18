@@ -5,6 +5,8 @@ name: Hugo Build and Status Check
 
 # Trigger the workflow on push events to the main branch
 on:
+  # ucomment the following line if you want to run the workflow manually
+  # workflow_dispatch:
   push:
     branches:
       - master
@@ -33,22 +35,28 @@ jobs:
       # Step to build the site
       - name: Build site
         run: hugo --minify
-        # Capture output and error code
-        continue-on-error: true
         id: build
 
       # Step to start Hugo server in the background
       - name: Start Hugo server
         run: hugo server --minify --port=8888 &
 
-      # Check if build failed
-      - name: Check build status
+      # Step to verify that Hugo server started successfully
+      - name: Verify Hugo server
         run: |
-          if [ ${{ steps.build.outcome }} != 'success' ]; then
-            echo "::error::Hugo build failed, blocking commit..."
+          sleep 5  # Wait for a few seconds for the server to start
+          if ! lsof -i:8888; then
+            echo "::error::Hugo server failed to start!"
             exit 1
           fi
 
-      # Stop the Hugo server at the end of the workflow as is running in the background
+      # Step to stop the Hugo server at the end of the workflow as it's running in the background
       - name: Stop Hugo server
-        run: kill $(lsof -t -i:8888) || true
+        run: |
+          PID=$(lsof -t -i:8888)
+          if [ -n "$PID" ]; then
+            kill $PID
+            echo "Hugo server stopped."
+          else
+            echo "Hugo server was not running."
+          fi
