@@ -86,4 +86,4 @@ jobs:
         if: always() && hashFiles('.lycheecache') != ''
         with:
           path: .lycheecache
-          key: ${{ steps.restore-cache.outputs.cache-primary-key }}
+          key: cache-lychee-${{ github.ref_name }}
