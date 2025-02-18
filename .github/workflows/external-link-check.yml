@@ -73,7 +73,7 @@ jobs:
       # Add a comment to the issue with the contribution message  
       - name: Add contribution message as new comment
         if: env.ISSUE_NUMBER != ''  
-        run: gh issue comment "$NUMBER" --body-file "$BODY"
+        run: gh issue comment "$ISSUE_NUMBER" --body-file "$BODY"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
@@ -83,7 +83,7 @@ jobs:
       # Save the lychee cache for the next run    
       - name: Save lychee cache
         uses: actions/cache/save@v4
-        if: always()
+        if: always() && hashFiles('.lycheecache') != ''
         with:
           path: .lycheecache
           key: ${{ steps.restore-cache.outputs.cache-primary-key }}
