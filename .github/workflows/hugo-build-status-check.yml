@@ -5,7 +5,8 @@ name: Hugo Build and Status Check
 
 # Trigger the workflow on push events to the main branch
 on:
-  workflow_dispatch:
+  # ucomment the following line if you want to run the workflow manually
+  # workflow_dispatch:
   push:
     branches:
       - master
