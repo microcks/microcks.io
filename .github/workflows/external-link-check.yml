@@ -31,7 +31,9 @@ jobs:
             cache-lychee-
             cache-lychee-${{ github.ref_name }}
 
-            
+      - name: Ensure .lycheecache directory exists
+        run: mkdir -p .lycheecache && chmod 777 .lycheecache 
+        
       - name: Debug lychee cache
         run: ls -la .lycheecache || echo "No cache directory found!"
 
