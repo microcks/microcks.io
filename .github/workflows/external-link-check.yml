@@ -8,7 +8,6 @@ on:
   # ucomment the following line if you want to run the workflow manually
   # workflow_dispatch:
   # Run once a week on Sunday at 00h42 UTC (0:42 AM UTC aka 1:42 AM CEST with daylight saving time)
-  workflow_dispatch:
   schedule:
     - cron: "42 0 * * 0"
 
@@ -19,8 +18,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Ensure .lycheecache directory exists
-        run: mkdir -p .lycheecache && chmod 777 .lycheecache 
       # Setup local cache in order to mitigate issues regarding rate limiting or to reduce stress on external resources
       # Restore the lychee cache if it exists for the current commit
       - name: Restore lychee cache
@@ -29,14 +26,8 @@ jobs:
         with:
           path: .lycheecache
           key: cache-lychee-${{ github.ref_name }}
-          restore-keys: |
-            cache-lychee-
-            cache-lychee-${{ github.ref_name }}
-
-
-      - name: Debug lychee cache
-        run: ls -la .lycheecache || echo "No cache directory found!"
-
+          restore-keys: cache-lychee-
+      
       # We do not need to build the site, so we can remove the Hugo build steps, thanks to the hugo check validation on push
       # However, retaining this comment for documentation purposes, just in case ;) 
       
@@ -80,8 +71,8 @@ jobs:
       
       # Add a comment to the issue with the contribution message  
       - name: Add contribution message as new comment
-        if: env.ISSUE_NUMBER != ''  
-        run: gh issue comment "$ISSUE_NUMBER" --body-file "$BODY"
+        if: ${{ env.ISSUE_NUMBER }} is not null
+        run: gh issue comment "$NUMBER" --body-file "$BODY"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
@@ -91,7 +82,7 @@ jobs:
       # Save the lychee cache for the next run    
       - name: Save lychee cache
         uses: actions/cache/save@v4
-        if: always() && hashFiles('.lycheecache') != ''
+        if: always()
         with:
           path: .lycheecache
-          key: cache-lychee-${{ github.ref_name }}
+          key: ${{ steps.restore-cache.outputs.cache-primary-key }}
