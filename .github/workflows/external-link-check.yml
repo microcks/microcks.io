@@ -16,20 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
-
-      # Setup local cache in order to mitigate issues regarding rate limiting or to reduce stress on external resources
-      # Restore the lychee cache if it exists for the current commit
-      - name: Restore lychee cache
-        id: restore-cache
-        uses: actions/cache/restore@v4
-        with:
-          path: .lycheecache
-          key: cache-lychee-${{ github.ref_name }}
-          restore-keys: cache-lychee-
-      
-      # We do not need to build the site, so we can remove the Hugo build steps, thanks to the hugo check validation on push
-      # However, retaining this comment for documentation purposes, just in case ;) 
+        uses: actions/checkout@v4 
       
       # Link Checker run with lychee action 
       - name: Link Checker
@@ -71,18 +58,10 @@ jobs:
       
       # Add a comment to the issue with the contribution message  
       - name: Add contribution message as new comment
-        if: ${{ env.ISSUE_NUMBER }} is not null
-        run: gh issue comment "$NUMBER" --body-file "$BODY"
+        if: ${{ env.ISSUE_NUMBER }} 
+        run: gh issue comment "$ISSUE_NUMBER" --body-file "$BODY"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           NUMBER: ${{ env.ISSUE_NUMBER }}
           BODY: "./.github/contribution_message.md"
-
-      # Save the lychee cache for the next run    
-      - name: Save lychee cache
-        uses: actions/cache/save@v4
-        if: always()
-        with:
-          path: .lycheecache
-          key: ${{ steps.restore-cache.outputs.cache-primary-key }}
