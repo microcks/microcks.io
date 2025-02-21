@@ -30,7 +30,7 @@
     font-weight: 500;
   }
 
-  li.nav-item.active a {
+  li.nav-item.active > a {
     background-color: $light;
     border-radius: 6px;
   }
@@ -183,11 +183,14 @@
       border-radius: 6px;
 
       &:focus,
-      &:hover,
       &.active,
       &:active {
         color: $color-primary !important;
+        background-color: $light;
+      }
+      &:hover{
         background-color: transparent;
+        color: $color-primary !important;
       }
     }
   }
@@ -340,7 +343,7 @@
     color: darken($white, 13.33);
   }
 
-  li.nav-item.active a {
+  li.nav-item.active> a {
     background-color: black;
     color: $color-primary !important;
   }
@@ -349,7 +352,7 @@
     color: $white !important;
   }
 
-  .nav-link:hover,
+  .nav-link,
   &.active .nav-link {
     color: $color-primary !important;
   }
@@ -364,11 +367,16 @@
     .dropdown-item {
       color: $white !important;
 
-      &:hover,
-      &.active {
+      &:focus,
+      &.active,
+      &:active {
+        color: $color-primary !important;
+        background-color: black;
+      }
+      &:hover{
+        background-color: transparent;
         color: $color-primary !important;
       }
-
       .dropdown-subtitle {
         color: #aaa;
       }

@@ -1,8 +1,8 @@
 ---
-title: "Microcks community and ressources"
+title: "Microcks community and resources"
 subtitle: ""
 # meta description
-description: "Microcks community and ressources"
+description: "Microcks community and resources"
 draft: false
 layout: "how-it-works"
 
@@ -44,5 +44,5 @@ how_it_works:
 
   - title: "Logos and assets"
     image: "images/community/logo.png"
-    content: "Here are a few [ressources](https://microcks.io/resources/) in case you want to **show off your support** for Microcks, **integrate** Microcks, or want to **link back** to us. Please feel **free to borrow** these!" 
+    content: "Here are a few [resources](https://microcks.io/resources/) in case you want to **show off your support** for Microcks, **integrate** Microcks, or want to **link back** to us. Please feel **free to borrow** these!" 
 ---
