@@ -9,7 +9,7 @@ weight: 4
 
 ## Overview
 
-Microcks allows to specifiy [dynamic mock content](/documentation/explanations/dynamic-content) using expressions since the early days. Most of the time, those features help in translating the dynamic behaviour of an API and provide meaningful simulations. However, you may need sometime to provide even more realistic behaviour and that's where **stateful mocks** may be of interest.
+Microcks allows to specify [dynamic mock content](/documentation/explanations/dynamic-content) using expressions since the early days. Most of the time, those features help in translating the dynamic behaviour of an API and provide meaningful simulations. However, you may need sometime to provide even more realistic behaviour and that's where **stateful mocks** may be of interest.
 
 > 💡 Stateful mocks are available starting with Microcks `1.10.0`. 
 
@@ -181,7 +181,7 @@ $ curl -X GET 'http://localhost:8585/rest/Cart+API/1.0.0/cart' -H 'Accept: appli
 }
 ```
 
-Ho ho ho! We now have super-smart mocks that persist and retreive state but also integrates computed elements in the response! Just with a few lines of Groovy scripts! 🕺
+Ho ho ho! We now have super-smart mocks that persist and retrieve state but also integrates computed elements in the response! Just with a few lines of Groovy scripts! 🕺
 
 ## 4. Removing state
 

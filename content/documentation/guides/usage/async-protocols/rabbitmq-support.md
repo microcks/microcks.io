@@ -197,7 +197,7 @@ Launch the test and wait for some seconds and you should get access to the test 
 
 {{< image src="images/guides/amqp-test-success.png" alt="image" zoomable="true" >}}
 
-> You may have noticed the `/t/` path element in Test endpoint used above. You may be aware that RabbitMQ is supporting different kinds of Exchnages and `/t/` is here to tell Microcks it should consider a topic. As an exercice, you can reuse our `producer.js` script above and replace with `fanout`, `direct` or `headers`. Respectively, you'll have to replace `/t/` with `/f/`, `/d/` and `/h/` to tell Microcks the expected type of Exchange.
+> You may have noticed the `/t/` path element in Test endpoint used above. You may be aware that RabbitMQ is supporting different kinds of Exchanges and `/t/` is here to tell Microcks it should consider a topic. As an exercice, you can reuse our `producer.js` script above and replace with `fanout`, `direct` or `headers`. Respectively, you'll have to replace `/t/` with `/f/`, `/d/` and `/h/` to tell Microcks the expected type of Exchange.
 
 This is fine and we can see that Microcks captured messages and validated them against the payload schema that is embedded into the AsyncAPI specification. In our sample, every property is `required` and message does not allow `additionalProperties` to be defined.
 

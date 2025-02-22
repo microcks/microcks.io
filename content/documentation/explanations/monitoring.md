@@ -32,7 +32,7 @@ Two different endpoints are available:
 * `/actuator/prometheus` path for the main webapp component,
 * `/q/metrics` path for async-minion component
 
-From those endpoints, you will be able to collect resource consumption or perfromance metrics such as: JVM memory used, JVM thread pools, HTTP endpoints performance, Database queries performance and so on.
+From those endpoints, you will be able to collect resource consumption or performance metrics such as: JVM memory used, JVM thread pools, HTTP endpoints performance, Database queries performance and so on.
 
 ## OpenTelemetry support
 
@@ -47,11 +47,11 @@ Check the dedicated [README](https://github.com/microcks/microcks/tree/master/ob
 
 ## Grafana dashboard
 
-Starting with Microcks `1.9.0`, we also provide a [Grafana](https://grafana.com/) dashbaord that allows you to easily track the performance and health status of your Microcks instance. 
+Starting with Microcks `1.9.0`, we also provide a [Grafana](https://grafana.com/) dashboard that allows you to easily track the performance and health status of your Microcks instance. 
 
 This dashboard is using data coming from a Prometheus source so you don't have to enabled the full OpenTelemetry support to use it. Standard Prometheus endpoints scraped by your Prom instance will do the job.
 
-Check the dedicated [/dashbaords](https://github.com/microcks/microcks/tree/master/observability/dashboards) on GitHub to get more details.
+Check the dedicated [/dashboards](https://github.com/microcks/microcks/tree/master/observability/dashboards) on GitHub to get more details.
 
 ## Benchmark suite
 

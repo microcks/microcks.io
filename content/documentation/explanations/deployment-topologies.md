@@ -18,7 +18,7 @@ In this article we share our experience on different tolopologies - or patterns 
 
 ## 1. Global centralized instance
 
-The first deployment topology that people often start with is the one of the *Globaly shared, centralized instance*. In this topology, Microcks is deployed on a centralized infrastructure and can be accessed by many different teams. It allows discovering and sharing the same API mocks, sourced by one or many Git repositories. It can also be used to run tests on deployed API endpoints.
+The first deployment topology that people often start with is the one of the *Globally shared, centralized instance*. In this topology, Microcks is deployed on a centralized infrastructure and can be accessed by many different teams. It allows discovering and sharing the same API mocks, sourced by one or many Git repositories. It can also be used to run tests on deployed API endpoints.
 
 <div align="center">
 {{< figure src="images/documentation/deployment-topologies-global.png" width="60%" >}}
@@ -84,7 +84,7 @@ Those instances are considered *"Ephemeral"* or temporary, but it could be: minu
 
 ## 4. Regional instances
 
-Final pattern to take in consideration, is the one of *Regional and scoped instances*. This one can be used from start in the case of a scoped-test adoption of Microcks: it presents more or less the same characteristices of the *Globaly shared, centralized instance* but you decide to restrict it to a specific scope in your organization. It could be for a functional domain, for an application, or whatever makes sense in a governance point-of-view. A regional instance will hold all the API mocks and tests - for both public and private APIs - and will be the reference to measure quality, improvements and to source some other catalogs.
+Final pattern to take in consideration, is the one of *Regional and scoped instances*. This one can be used from start in the case of a scoped-test adoption of Microcks: it presents more or less the same characteristices of the *Globally shared, centralized instance* but you decide to restrict it to a specific scope in your organization. It could be for a functional domain, for an application, or whatever makes sense in a governance point-of-view. A regional instance will hold all the API mocks and tests - for both public and private APIs - and will be the reference to measure quality, improvements and to source some other catalogs.
 
 <div align="center">
 {{< figure src="images/documentation/deployment-topologies-regional.png" width="80%" >}}
@@ -119,4 +119,4 @@ From left to right:
 * It all starts with *Local Instances* integrated into **Developers** Inner Loop flow. It eases their life in external dependencies management and provides them immediate feedback using contract-testing right in their unit tests,
 * Then, *Regional Instances* may be fed with the promoted API artifacts coming for design iterations. API artifacts contribute to the comprehensive catalog of this BU/domain/application. **API Owners** can use those instances to launch contract-tests on deployed API endpoints and track quality metrics and improvements over time,
 * Temporary *Process-scoped Instances* can be easily provisioned, on-demand, using the regional instances as natural references catalogs. They allow applying different settings (access-control, datasets, response time,...) depending on the projet or use-case needs. **Platform Engineers** can fully automate this provisionning, in a reproducible way, saving costs vs maintaining comprehensive environments,
-* Finally, *Globaly shared, centralized instance* can serves as the consolidated catalog of the public APIs in the organization, offering access to the corresponding mocks to enhance discoverability and tracking of promoted APIs. **Enterprise Architects** and **API consumers** will find it useful as the centralized source-of-truth for all the organization APIs.
+* Finally, *Globally shared, centralized instance* can serves as the consolidated catalog of the public APIs in the organization, offering access to the corresponding mocks to enhance discoverability and tracking of promoted APIs. **Enterprise Architects** and **API consumers** will find it useful as the centralized source-of-truth for all the organization APIs.

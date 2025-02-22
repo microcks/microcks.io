@@ -33,7 +33,7 @@ As an administrator, create a new Secret using this template and replacing the t
 
 ## 2. Share your API
 
-Now you need to retreive the Collection Api linkg. For that, you have to go through the **Share** button and select the **Via API** thumbnail as illustrated in the picture below:
+Now you need to retrieve the Collection Api linkg. For that, you have to go through the **Share** button and select the **Via API** thumbnail as illustrated in the picture below:
 
 {{< image src="images/documentation/postman-share-api-link.png" alt="image" zoomable="true" >}}
 
