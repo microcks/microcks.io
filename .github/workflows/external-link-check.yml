@@ -17,24 +17,21 @@ jobs:
       - name: Ensure Report Directory Exists
         run: mkdir -p link-checker
 
-      # Run lychee and capture both stdout & stderr into report.md
+      # Run lychee and capture all errors
       - name: Link Checker
         id: lychee
         continue-on-error: true
-        uses: lycheeverse/lychee-action@v1
-        with:
-          args: --verbose --no-progress './**/*.md' './**/*.html' --scheme https --scheme http --cache --max-cache-age 8h --exclude "https://facebook.com/sharer/sharer.php?u={{%20\$url%20}}"
-          token: ${{ secrets.CUSTOM_TOKEN }}
-          fail: false
-          output: ./link-checker/report.md
-
-      # Capture lychee's output manually if the file is empty
-      - name: Capture Lychee Errors
         run: |
-          if [ ! -s "./link-checker/report.md" ]; then
-            echo "Lychee encountered an error, capturing logs..." >> ./link-checker/report.md
-            /home/runner/work/_actions/lycheeverse/lychee-action/v1/entrypoint.sh 2>&1 | tee -a ./link-checker/report.md
-          fi
+          lychee --verbose --no-progress './**/*.md' './**/*.html' --scheme https --scheme http --cache --max-cache-age 8h --exclude "https://facebook.com/sharer/sharer.php?u={{%20\$url%20}}" | tee link-checker/report.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.CUSTOM_TOKEN }}
+
+      # Capture lychee's error logs if it failed
+      - name: Capture Lychee Errors
+        if: failure()
+        run: |
+          echo "### Lychee encountered an error:" >> link-checker/report.md
+          cat $GITHUB_WORKSPACE/_temp/* >> link-checker/report.md || echo "No extra logs found"
 
       # Debug: Check report contents
       - name: Debug Link Report
@@ -44,7 +41,7 @@ jobs:
       - name: Check Lychee Report
         id: check_lychee_exit
         run: |
-          if [ -s "./link-checker/report.md" ]; then
+          if grep -q "Error:" ./link-checker/report.md; then
             echo "has_broken_links=true" >> $GITHUB_ENV
           else
             echo "has_broken_links=false" >> $GITHUB_ENV
@@ -54,7 +51,7 @@ jobs:
       - name: Format Date
         run: echo "DATE=$(date +'%A, %e. %b %Y')" >> $GITHUB_ENV
 
-      # Create an issue if there are broken links
+      # Create an issue if there are broken links or regex errors
       - name: Create Issue From File
         if: env.has_broken_links == 'true'
         uses: peter-evans/create-issue-from-file@v5
