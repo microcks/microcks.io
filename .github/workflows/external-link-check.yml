@@ -5,7 +5,7 @@ on:
   schedule:
     - cron: "42 0 * * 0"
   # Uncomment to enable manual triggering
-  workflow_dispatch:
+  # workflow_dispatch:
 
 jobs:
   linkChecker:
@@ -21,9 +21,10 @@ jobs:
         uses: lycheeverse/lychee-action@v1
         with:
           # Check all markdown and HTML files
-          args: --verbose --no-progress './**/*.md' './**/*.html' --scheme https --scheme http --cache --max-cache-age 8h --format markdown --output ./link-checker/report.md
+          args: --verbose --no-progress './**/*.md' './**/*.html' --scheme https --scheme http --cache --max-cache-age 8h
           token: ${{ secrets.CUSTOM_TOKEN }}
           fail: false
+          output: ./link-checker/report.md  # Only specify output here
 
       # Debug step to check if report.md contains correct output
       - name: Debug Link Report
