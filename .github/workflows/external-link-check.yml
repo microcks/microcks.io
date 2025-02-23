@@ -1,10 +1,8 @@
 name: External Link Check
 
 on:
-  # Run once a week on Sunday at 00:42 UTC
   schedule:
     - cron: "42 0 * * 0"
-  # Uncomment to enable manual triggering
   workflow_dispatch:
 
 jobs:
@@ -18,23 +16,20 @@ jobs:
       # Run lychee to check links
       - name: Link Checker
         id: lychee
-        uses: lycheeverse/lychee-action@v1
-        with:
-          # Check all markdown and HTML files
-          args: --verbose --no-progress './**/*.md' './**/*.html' --scheme https --scheme http --cache --max-cache-age 8h
-          token: ${{ secrets.CUSTOM_TOKEN }}
-          fail: false
-          output: ./link-checker/report.md  # Only specify output here
+        continue-on-error: true  # Prevents the workflow from stopping on errors
+        run: |
+          lychee --verbose --no-progress './**/*.md' './**/*.html' --scheme https --scheme http --cache --max-cache-age 8h --exclude "https://facebook.com/sharer/sharer.php?u={{%20\$url%20}}" | tee link-checker/report.md
+          echo "LYCHEE_EXIT_CODE=$?" >> $GITHUB_ENV
 
       # Debug step to check if report.md contains correct output
       - name: Debug Link Report
         run: cat ./link-checker/report.md || echo "No broken links found."
 
       # Ensure the issue is only created when actual broken links are found
-      - name: Check if report contains broken links
-        id: check_report
+      - name: Check Lychee Exit Code
+        id: check_lychee_exit
         run: |
-          if grep -q "BROKEN" ./link-checker/report.md; then
+          if [ "$LYCHEE_EXIT_CODE" -ne 0 ]; then
             echo "has_broken_links=true" >> $GITHUB_ENV
           else
             echo "has_broken_links=false" >> $GITHUB_ENV
