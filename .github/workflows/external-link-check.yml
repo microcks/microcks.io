@@ -16,9 +16,11 @@ jobs:
       - name: Ensure Report Directory Exists
         run: mkdir -p link-checker
 
+      # Run lychee and capture errors
       - name: Link Checker
         id: lychee
         uses: lycheeverse/lychee-action@v1
+        continue-on-error: true
         with:
           args: --verbose --no-progress './**/*.md' './**/*.html' --scheme https --scheme http --cache --max-cache-age 8h --exclude "https://facebook.com/sharer/sharer.php?u={{%20\$url%20}}"
           format: markdown
@@ -27,25 +29,33 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.CUSTOM_TOKEN }}
 
-      # Debug: Check report contents
-      - name: Debug Link Report
-        run: cat ./link-checker/report.md || echo "No broken links found."
+      # Capture lychee output including regex errors
+      - name: Capture Errors
+        run: |
+          echo "### Lychee Link Check Report" > ./link-checker/report.md
+          echo "" >> ./link-checker/report.md
+          { lychee --verbose --no-progress './**/*.md' './**/*.html' --scheme https --scheme http --cache --max-cache-age 8h --exclude "https://facebook.com/sharer/sharer.php?u={{%20\$url%20}}"; } >> ./link-checker/report.md 2>&1 || true
+          echo "" >> ./link-checker/report.md
 
-      # Check if report contains errors
-      - name: Check Lychee Report
-        id: check_lychee_exit
+      # Debug: Show report contents
+      - name: Debug Report
+        run: cat ./link-checker/report.md
+
+      # Check if report contains regex errors or broken links
+      - name: Check for Errors
+        id: check_errors
         run: |
           if grep -q "Error:" ./link-checker/report.md || grep -q "✗" ./link-checker/report.md; then
-            echo "has_broken_links=true" >> $GITHUB_ENV
+            echo "has_errors=true" >> $GITHUB_ENV
           else
-            echo "has_broken_links=false" >> $GITHUB_ENV
+            echo "has_errors=false" >> $GITHUB_ENV
           fi
 
       - name: Format Date
         run: echo "DATE=$(date +'%A, %e. %b %Y')" >> $GITHUB_ENV
 
       - name: Create Issue From File
-        if: env.has_broken_links == 'true'
+        if: env.has_errors == 'true'
         uses: peter-evans/create-issue-from-file@v5
         with:
           title: "External Link Check Report - ${{ env.DATE }}"
