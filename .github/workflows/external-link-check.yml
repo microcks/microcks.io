@@ -22,7 +22,7 @@ jobs:
         uses: lycheeverse/lychee-action@v1
         continue-on-error: true
         with:
-          args: --verbose --no-progress './**/*.md' './**/*.html' --scheme https --scheme http --cache --max-cache-age 8h --exclude "https://facebook.com/sharer/sharer.php?u={{%20\$url%20}}"
+          args: --verbose --no-progress './**/*.md' './**/*.html' --scheme https --scheme http
           format: markdown
           output: ./link-checker/report.md
           fail: false
@@ -34,7 +34,7 @@ jobs:
         run: |
           echo "### Lychee Link Check Report" > ./link-checker/report.md
           echo "" >> ./link-checker/report.md
-          { lychee --verbose --no-progress './**/*.md' './**/*.html' --scheme https --scheme http --cache --max-cache-age 8h --exclude "https://facebook.com/sharer/sharer.php?u={{%20\$url%20}}"; } >> ./link-checker/report.md 2>&1 || true
+          { lychee --verbose --no-progress './**/*.md' './**/*.html' --scheme https --scheme http; } >> ./link-checker/report.md 2>&1 || true
           echo "" >> ./link-checker/report.md
 
       # Debug: Show report contents
