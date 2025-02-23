@@ -65,7 +65,7 @@ Depending on your profile, you may use Microcks to gain different advantages:
     </div>
     <div class="row justify-content-center mb-5">
       <div class="col-lg-4 col-md-10 mb-4 mb-lg-0 text-center">
-        {{< image src="images/documentation/platform-engineer-updated.png" alt="Developer" zoomable="false" >}}
+        {{< image src="images/documentation/platform-engineer.png" alt="Developer" zoomable="false" >}}
         <h6 >For Platform Engineers</h6>
       </div>
       <div class="col-lg-8">
