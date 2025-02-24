@@ -17,12 +17,14 @@ jobs:
 
     steps:
       - name: Checkout repository
+      
         uses: actions/checkout@v4
 
       - name: Ensure Report Directory Exists
         run: mkdir -p link-checker
 
       # Run lychee and capture errors
+
       - name: Link Checker
         id: lychee
         uses: lycheeverse/lychee-action@v1
@@ -84,7 +86,9 @@ jobs:
     
       # Add a comment to the issue with the contribution message  
       - name: Add contribution message as new comment
+
         if: env.ISSUE_NUMBER != ''
+
         run: gh issue comment "$ISSUE_NUMBER" --body-file "$BODY"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
