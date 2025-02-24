@@ -65,26 +65,27 @@ jobs:
       # Format the date for the issue title and store it in an environment variable    
       - name: Format Date
         run: echo "DATE=$(date +'%A, %e. %b %Y')" >> $GITHUB_ENV
-      # Create an issue if there are broken links     
-      - name: Create Issue From File
-        if: env.has_errors == 'true'
-        uses: peter-evans/create-issue-from-file@v5
-        with:
-          title: "External Link Check Report - ${{ env.DATE }}"
-          content-filepath: ./link-checker/report.md
-          labels: report, automated issue, contribution massage, help wanted
-          
-      # Store the issue number in an environment variable 
-      - name: Store Issue Number
-        if: steps.create_issue.outputs.issue-number
-        run: echo "ISSUE_NUMBER=${{ steps.create_issue.outputs.issue-number }}" >> $GITHUB_ENV
-      
-      # Add a comment to the issue with the contribution message  
-      - name: Add contribution message as new comment
-        if: ${{ env.ISSUE_NUMBER }} 
-        run: gh issue comment "$ISSUE_NUMBER" --body-file "$BODY"
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_REPO: ${{ github.repository }}
-          NUMBER: ${{ env.ISSUE_NUMBER }}
-          BODY: "./.github/contribution_message.md"
+            # Create an issue if there are broken links     
+            - name: Create Issue From File
+            if: env.has_errors == 'true'
+            id: create_issue   # 🔹 Add an ID to reference outputs later
+            uses: peter-evans/create-issue-from-file@v5
+            with:
+              title: "External Link Check Report - ${{ env.DATE }}"
+              content-filepath: ./link-checker/report.md
+              labels: report, automated issue, contribution message, help wanted
+              
+          # Store the issue number in an environment variable 
+          - name: Store Issue Number
+            if: steps.create_issue.outputs.issue-number != ''
+            run: echo "ISSUE_NUMBER=${{ steps.create_issue.outputs.issue-number }}" >> $GITHUB_ENV
+    
+          # Add a comment to the issue with the contribution message  
+          - name: Add contribution message as new comment
+            if: env.ISSUE_NUMBER != ''
+            run: gh issue comment "$ISSUE_NUMBER" --body-file "$BODY"
+            env:
+              GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              GH_REPO: ${{ github.repository }}
+              BODY: "./.github/contribution_message.md"
+    
