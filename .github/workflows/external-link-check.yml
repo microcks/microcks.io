@@ -73,16 +73,18 @@ jobs:
           title: "External Link Check Report - ${{ env.DATE }}"
           content-filepath: ./link-checker/report.md
           labels: report, automated issue, contribution massage, help wanted
-      # Extract the issue number
-      - name: Get Issue Number
+          
+      # Store the issue number in an environment variable 
+      - name: Store Issue Number
         if: steps.create_issue.outputs.issue-number
         run: echo "ISSUE_NUMBER=${{ steps.create_issue.outputs.issue-number }}" >> $GITHUB_ENV
-
-      # Add a comment to the issue
+      
+      # Add a comment to the issue with the contribution message  
       - name: Add contribution message as new comment
-        if: env.ISSUE_NUMBER
+        if: ${{ env.ISSUE_NUMBER }} 
         run: gh issue comment "$ISSUE_NUMBER" --body-file "$BODY"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
-          BODY: "./.github/contribution_message.md"    
+          NUMBER: ${{ env.ISSUE_NUMBER }}
+          BODY: "./.github/contribution_message.md"
