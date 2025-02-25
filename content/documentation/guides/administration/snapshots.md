@@ -25,7 +25,7 @@ Microcks Snapshots are not complete database exports because they only integrate
 
 Snapshots are lightweight structures that can be used to:
 * easily exchange a set of Services & APIs definition with another instance of Microcks,
-* easily setup a new Microcks instance dedicated for mocking a functionnal subsystem - optionally with different configured response times for simulating a real behaviour,
+* easily setup a new Microcks instance dedicated for mocking a functional subsystem - optionally with different configured response times for simulating a real behaviour,
 * easily backup your instance if you do not bother loosing tests runs and analytics data
 
 Snapshots can only be managed by Microcks `administrator` - we mean people having the `administrator` role assigned. If you need further information on how to manage users and roles, please check [here](/documentation/guides/administration/users). Snapshots management is simply a thumbnail with the `Administration` page that is available from the vertical menu on the left once logged in as administrator.

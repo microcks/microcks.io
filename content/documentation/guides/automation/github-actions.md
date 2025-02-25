@@ -65,7 +65,7 @@ It's a best practice to use GitHub Secrets (general or tied to `Environment` lik
 
 The `test` action, based on the CLI command, needs 3 arguments:
 
-* `<apiName:apiVersion>` : Service to test reference. Exemple: `'Beer Catalog API:0.9'`
+* `<apiName:apiVersion>` : Service to test reference. Example: `'Beer Catalog API:0.9'`
 * `<testEndpoint>` : URL where is deployed implementation to test
 * `<runner>` : Test strategy (one of: `HTTP`, `SOAP`, `SOAP_UI`, `POSTMAN`, `OPEN_API_SCHEMA`, `ASYNC_API_SCHEMA`)
 

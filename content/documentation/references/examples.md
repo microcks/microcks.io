@@ -9,11 +9,11 @@ weight: 6
 
 ## Introduction
 
-`APIExamples` format is Microcks' own specification format for defining examples intented to be used by Microcks mocks. It can be seen as a lightweight, general purpose specification to solely serve the need to provide mock datasets. The goal of this specification is to keep the Microcks adoption curve very smooth with development teams but also for non developers.
+`APIExamples` format is Microcks' own specification format for defining examples intended to be used by Microcks mocks. It can be seen as a lightweight, general purpose specification to solely serve the need to provide mock datasets. The goal of this specification is to keep the Microcks adoption curve very smooth with development teams but also for non developers.
 
 > 💡 `APIExamples` artifacts are supported starting with Microcks `1.10.0`.
 
-`APIExamples` files are simple YAML and aim to be very easy to understand and edit. More over, the description is independant from the API protocol! We're rather attached to describe examples depending on the API interaction style: Request/Response based or Event-driven/Asynchronous.
+`APIExamples` files are simple YAML and aim to be very easy to understand and edit. More over, the description is independent from the API protocol! We're rather attached to describe examples depending on the API interaction style: Request/Response based or Event-driven/Asynchronous.
 
 For ease of use, we provide a [JSON Schema](https://json-schema.org/) that you can [download here](https://microcks.io/schemas/APIExamples-v1alpha1-schema.json). Thus, you can integrate it in your code editor and benefit from code completion and validation.
 
