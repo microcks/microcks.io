@@ -1,67 +1,93 @@
 # This link checks Microcks website links in Markdown HTML files once per day
 # from: https://github.com/lycheeverse/lychee-action
 # link checker used is 'lychee': https://github.com/lycheeverse/lychee
-
 name: External Link Check
+
 on:
-  # This event will only trigger a workflow run if the workflow file is on the default branch.
-  # ucomment the following line if you want to run the workflow manually
-  # workflow_dispatch:
-  # Run once a week on Sunday at 00h42 UTC (0:42 AM UTC aka 1:42 AM CEST with daylight saving time)
   schedule:
-    - cron: "42 0 * * 0"
+    - cron: "42 0 * * 0"  # This will run the workflow every Sunday at 00:42 UTC
+  workflow_dispatch:  # This allows the workflow to be triggered manually
 
 jobs:
   linkChecker:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4 
       
-      # Link Checker run with lychee action 
+        uses: actions/checkout@v4
+
+      - name: Ensure Report Directory Exists
+        run: mkdir -p link-checker
+
+      # Run lychee and capture errors
+
       - name: Link Checker
         id: lychee
         uses: lycheeverse/lychee-action@v1
+        continue-on-error: true
         with:
           # Check all markdown and html files in repo
           # Exclude all files except those starting with http:// or https:// thanks to the --scheme option
-          # Use cache but cache the results for 8 hours
-          args: --base public --verbose --no-progress './**/*.md' './**/*.html' --scheme https --scheme http --cache --max-cache-age 8h
+          args: --verbose --no-progress './**/*.md' './**/*.html' --scheme https --scheme http
           # Use markdown as output format
           format: markdown
           # Use different output file path
           output: ./link-checker/report.md
-          # Use a custom GitHub token to "avoid" rate limiting 
-          token: ${{ secrets.CUSTOM_TOKEN }}
           # Don't fail action on broken links
           fail: false
+        env:
+          # Use a custom GitHub token to "avoid" rate limiting 
+          GITHUB_TOKEN: ${{ secrets.CUSTOM_TOKEN }}
 
-      # Format the date for the issue title and store it in an environment variable
+      # Capture lychee output including regex errors
+      - name: Capture Errors
+        run: |
+          echo "### Lychee Link Check Report" > ./link-checker/report.md
+          echo "" >> ./link-checker/report.md
+          { lychee --verbose --no-progress './**/*.md' './**/*.html' --scheme https --scheme http; } >> ./link-checker/report.md 2>&1 || true
+          echo "" >> ./link-checker/report.md
+
+      # Debug: Show report contents
+      - name: Debug Report
+        run: cat ./link-checker/report.md
+
+      # Check if report contains regex errors or broken links
+      - name: Check for Errors
+        id: check_errors
+        run: |
+          if grep -q "Error:" ./link-checker/report.md || grep -q "✗" ./link-checker/report.md; then
+            echo "has_errors=true" >> $GITHUB_ENV
+          else
+            echo "has_errors=false" >> $GITHUB_ENV
+          fi
+
+      # Format the date for the issue title and store it in an environment variable    
       - name: Format Date
-        id: format_date
         run: echo "DATE=$(date +'%A, %e. %b %Y')" >> $GITHUB_ENV
-      
-      # Create an issue if there are broken links 
+
+      # Create an issue if there are broken links     
       - name: Create Issue From File
-        if: env.lychee_exit_code == 1
-        id: create_issue
+        if: env.has_errors == 'true'
+        id: create_issue   # 🔹 Add an ID to reference outputs later
         uses: peter-evans/create-issue-from-file@v5
         with:
           title: "External Link Check Report - ${{ env.DATE }}"
           content-filepath: ./link-checker/report.md
           labels: report, automated issue, contribution message, help wanted
-
+              
       # Store the issue number in an environment variable 
       - name: Store Issue Number
-        if: steps.create_issue.outputs.issue-number
+        if: steps.create_issue.outputs.issue-number != ''
         run: echo "ISSUE_NUMBER=${{ steps.create_issue.outputs.issue-number }}" >> $GITHUB_ENV
-      
+    
       # Add a comment to the issue with the contribution message  
       - name: Add contribution message as new comment
-        if: ${{ env.ISSUE_NUMBER }} 
+
+        if: env.ISSUE_NUMBER != ''
+
         run: gh issue comment "$ISSUE_NUMBER" --body-file "$BODY"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
-          NUMBER: ${{ env.ISSUE_NUMBER }}
           BODY: "./.github/contribution_message.md"
