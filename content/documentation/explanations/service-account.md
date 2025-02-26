@@ -38,7 +38,7 @@ Getting to the details of the `Service Account`, you can check that it is `Enabl
 
 {{< image src="images/documentation/service-account-settings.png" alt="image" zoomable="true" >}}
 
-So one crucial thing for `Service Account` is their associated `Credentials` because because clients will have to know it for initating the flow. Credetnials are available in the `Credentials` thumb like shown below:
+So one crucial thing for `Service Account` is their associated `Credentials` because because clients will have to know it for initating the flow. Credentials are available in the `Credentials` thumb like shown below:
 
 {{< image src="images/documentation/service-account-credentials.png" alt="image" zoomable="true" >}}
 
@@ -48,7 +48,7 @@ Finally, in order to operate correctly, *Service Account* should have role assig
 
 > 🚨 If you want to use the *Service Account* from pipelines in order to perform advanced operations like importing new Artifacts, or triggering scheduled imports, you have to give it more privileges as the default account has just the `user` role.
 >
-> On the role page in Keycloack, click on the **Assign role** button, filter roles by clients and pick the `microcks-app` > `manager` role.
+> On the role page in Keycloak, click on the **Assign role** button, filter roles by clients and pick the `microcks-app` > `manager` role.
 
 ## Using Service Account
 
