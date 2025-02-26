@@ -25,7 +25,7 @@ Have a look at [Connecting Microcks API](/documentation/guides/automation/api) a
 
 ## Technical metrics
 
-For Technical metrics, Microcks components expose [Prometheus](https://prometheus.io) endpoints that can be scraped to collect technical metrics. That way you ca neasily integrate Microcks monitoring into any modern monitoring stack with [Alert Manager](https://prometheus.io/docs/alerting/latest/alertmanager/) or [Grafana](https://grafana.com/grafana/).
+For Technical metrics, Microcks components expose [Prometheus](https://prometheus.io) endpoints that can be scraped to collect technical metrics. That way you can easily integrate Microcks monitoring into any modern monitoring stack with [Alert Manager](https://prometheus.io/docs/alerting/latest/alertmanager/) or [Grafana](https://grafana.com/grafana/).
 
 Two different endpoints are available:
 
@@ -47,7 +47,7 @@ Check the dedicated [README](https://github.com/microcks/microcks/tree/master/ob
 
 ## Grafana dashboard
 
-Starting with Microcks `1.9.0`, we also provide a [Grafana](https://grafana.com/) dashbaord that allows you to easily track the performance and health status of your Microcks instance. 
+Starting with Microcks `1.9.0`, we also provide a [Grafana](https://grafana.com/) dashboard that allows you to easily track the performance and health status of your Microcks instance. 
 
 This dashboard is using data coming from a Prometheus source so you don't have to enabled the full OpenTelemetry support to use it. Standard Prometheus endpoints scraped by your Prom instance will do the job.
 
