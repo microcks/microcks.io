@@ -1,3 +1,15 @@
+Add Interactivity-
+Provide an interactive code snippet or API testing demo for users to quickly understand Microcks.
+Use collapsible sections or tooltips for additional information without cluttering the page.
+
+Enhance Visuals & Branding-
+The rocket icon and cloud mascot are great, but they could be better aligned or resized for a cleaner look.
+Improve alignment between the Cloud Native Computing Foundation logo and text.
+Consider using a more engaging background related to API mocking instead of the moon
+
+
+
+
 ---
 title: "Documentation"
 date: 2024-05-22
