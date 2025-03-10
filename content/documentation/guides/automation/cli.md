@@ -17,6 +17,15 @@ The CLI also supports authenticated and non-authenticated mode when Microcks is 
 
 The CLI is provided as a binary distribution or can be used directly through a container image.
 
+### Using Homebrew
+
+You can install `microcks-cli` using [Homebrew](https://brew.sh).
+
+```sh
+brew tap microcks/tap
+brew install microcks-cli
+```
+
 ### Binary distribution
 
 The CLI binary releases are available for Linux, MacOS or Windows platform with different architectures on [GitHub releases](https://github.com/microcks/microcks-cli/releases). Just download the binary corresponding to your system and put the binary into the `PATH` somewhere. For example, on a Linux platform with `amd64` architecture, you may run these commands:
@@ -41,7 +50,7 @@ Assuming you are running the same examples than in the [Getting started](/docume
 ```sh
 microcks-cli test 'API Pastry - 2.0:2.0.0' http://host.docker.internal:8282 OPEN_API_SCHEMA \
     --microcksURL=http://host.docker.internal:8585/api/ \
-    --keycloakClientId=microcks-serviceaccount \ 
+    --keycloakClientId=microcks-serviceaccount \
     --keycloakClientSecret="ab54d329-e435-41ae-a900-ec6b3fe15c54" \
     --operationsHeaders='{"globals": [{"name": "x-api-key", "values": "azertyuiop"}], "GET /pastries": [{"name": "x-trace-id", "values": "qsdfghjklm"}]}' \
     --insecure --waitFor=6sec
@@ -59,7 +68,7 @@ The same command can be also executed using the container image:
 docker run -it quay.io/microcks/microcks-cli:latest microcks-cli test \
     'API Pastry - 2.0:2.0.0' http://host.docker.internal:8282 OPEN_API_SCHEMA \
     --microcksURL=http://host.docker.internal:8585/api/ \
-    --keycloakClientId=microcks-serviceaccount \ 
+    --keycloakClientId=microcks-serviceaccount \
     --keycloakClientSecret="ab54d329-e435-41ae-a900-ec6b3fe15c54" \
     --operationsHeaders='{"globals": [{"name": "x-api-key", "values": "azertyuiop"}], "GET /pastries": [{"name": "x-trace-id", "values": "qsdfghjklm"}]}' \
     --insecure --waitFor=6sec
