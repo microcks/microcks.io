@@ -101,7 +101,7 @@ The container images base layers as well as the Microcks application dependencie
 ### Signatures
 
 All our images are signed with [Cosign](https://docs.sigstore.dev/cosign/signing/overview/) and using the Sigstore framework.
-The signing is actually done from withing our GitHub Actions process using the [GitHub OIDC token](https://docs.sigstore.dev/certificate_authority/oidc-in-fulcio/#github) associated with the Actions process.
+The signing is actually done from within our GitHub Actions process using the [GitHub OIDC token](https://docs.sigstore.dev/certificate_authority/oidc-in-fulcio/#github) associated with the Actions process.
 
 To verify the signature of a Microcks container image you just pulled, you first have to check the name of the Actions process - usually `build-verify.yml` - and the tag or branch from where it has been produced.
 

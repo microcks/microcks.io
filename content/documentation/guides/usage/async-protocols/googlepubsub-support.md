@@ -62,7 +62,7 @@ spec:
 The `async` feature should of course be enabled and then the important things to notice are located in to the `googlepubsub` block:
 
 * `project` is the project identifier of your Google project where Pub/Sub service is located,
-* `serviceAccountSecretRef` is the name + the file key name for the `Secret` holding our Service Account private key we just previoulsy created.
+* `serviceAccountSecretRef` is the name + the file key name for the `Secret` holding our Service Account private key we just previously created.
 
 If you have used the [Helm Chart based installation](/documentation/references/configuration/helm-chart-config/) of Microcks, this is the corresponding fragment put in a `Values.yml` file:
 
