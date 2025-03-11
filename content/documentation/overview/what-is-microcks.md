@@ -3,7 +3,7 @@ draft: false
 title: "What is Microcks?"
 date: 2024-04-29
 publishdate: 2024-04-29
-lastmod: 2025-01-22
+lastmod: 2025-03-11
 weight: 1
 ---
 

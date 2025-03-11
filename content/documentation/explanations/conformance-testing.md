@@ -3,17 +3,17 @@ draft: false
 title: "Conformance testing"
 date: 2020-12-15
 publishdate: 2020-12-15
-lastmod: 2024-06-13
+lastmod: 2025-03-11
 weight: 9
 ---
 
 ## Introduction
 
-It is likely you experienced the painful situation of deploying to production only to find out that an API or Services you integrate with has broken its contract. How can we effectively ensure this does not happen?
+You may have experienced the frustration of deploying to production, only to discover that an API or service you integrate with has broken its contract. How can we effectively ensure this does not happen?
 
 As introduced in [Main Concepts](/documentation/overview/main-concepts), Microcks can be used for **Contract conformance testing** of API or services being under development. You spend a lot of time describing request/response pairs and matching rules: it would be a shame not to use this sample as test cases once the development is on its way!
 
-You find on the internet many different representations of how the different testing techniques relates to one another and should be ideally combine into a robust testing pipeline. At Microcks, we particularly like the Watirmelon representation below. Microcks clearly allows you to realize **Automated API Tests** and focus more precisely on **Contract conformance testing**.
+You find on the internet many different representations of how the different testing techniques relates to one another and should be ideally combine into a robust testing pipeline. At Microcks, we particularly like the Watirmelon representation below. Microcks enables you to automate **Automated API Tests** and focus specifically on **Contract conformance testing**.
 
 <br/>
 <div align="center">

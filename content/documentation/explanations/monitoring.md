@@ -3,7 +3,7 @@ draft: false
 title: "Monitoring & Observability"
 date: 2022-09-09
 publishdate: 2022-09-09
-lastmod: 2024-09-30
+lastmod: 2025-03-11
 weight: 20
 ---
 
@@ -25,7 +25,7 @@ Have a look at [Connecting Microcks API](/documentation/guides/automation/api) a
 
 ## Technical metrics
 
-For Technical metrics, Microcks components expose [Prometheus](https://prometheus.io) endpoints that can be scraped to collect technical metrics. That way you ca neasily integrate Microcks monitoring into any modern monitoring stack with [Alert Manager](https://prometheus.io/docs/alerting/latest/alertmanager/) or [Grafana](https://grafana.com/grafana/).
+For Technical metrics, Microcks components expose [Prometheus](https://prometheus.io) endpoints that can be scraped to collect technical metrics. That way you can easily integrate Microcks monitoring into any modern monitoring stack with [Alert Manager](https://prometheus.io/docs/alerting/latest/alertmanager/) or [Grafana](https://grafana.com/grafana/).
 
 Two different endpoints are available:
 
