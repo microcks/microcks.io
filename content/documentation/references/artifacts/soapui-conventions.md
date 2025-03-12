@@ -79,6 +79,8 @@ Below the exemple of using the name find in incoming request to find a matching 
 
 #### Using a Groovy script
 
+> 🚨 **Warning**: Uber-native image doesn't support Groovy scripting as it required dynamic compilation available in JVM mode only. Use the standard Uber version.
+
 Another way of defining matching rules is using a Groovy script. Such a script allows to define much more logic for finding a response for an incoming requests. With scripts you can use request payload but also have access to query string, http headers and so on.
 
 {{< image src="images/documentation/soapui-script.png" zoomable="true" >}}
