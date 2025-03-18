@@ -30,7 +30,7 @@ Here are below some explanations on these dispatchers and associated dispatching
 | `URI_PARTS` | Inferred when a Service or API operation has only `path` parameters | Path variables name separated by a `&&`. Example: for a `/blog/post/{year}/{month}` path, rule is `year && month` |
 | `URI_PARAMS`| Inferred when a Service or API operation has only `query` parameters | Query variables name separated by a `&&`. Example: for a `/search?status={s}&query={q}` operation, rule is `status && query` |
 | `URI_ELEMENTS` | Inferred when a Service or API operation has both `path` and `query` parameters | Path variables name separated by a `&&` then `??` followed by query variables name separated by a `&&`. Example: for a `/v2/pet/{petId}?user_key={k}`, rule is `petId ?? user_key` |
-| `QUERY_ARGS` | Infered when a GraphQL API or gRPC service operation has only primitive types arguments | Variables name separated by a `&&`. Example: for a GraphQL mutation `mutation AddStars($filmId: String, $number: Int) {...}`, rule is `filmId && number` |
+| `QUERY_ARGS` | Inferred when a GraphQL API or gRPC service operation has only primitive types arguments | Variables name separated by a `&&`. Example: for a GraphQL mutation `mutation AddStars($filmId: String, $number: Int) {...}`, rule is `filmId && number` |
 | `QUERY_MATCH` | Extracted from SoapUI project. Defines a XPath matching evaluation: extracted result from input query should match a response name | Example: for a `Hello` SOAP Service that extracts the `sayHello` element value for find a greeting rule is `declare namespace ser='http://www.example.com/hello'; //ser:sayHelloResponse/sayHello`. <br/><br/> XPath functions can also be used here for evaluation - eg. something like: `concat(//ser:sayHello/title/text(),' ',//ser:sayHello/name/text())` |
 | `SCRIPT` | Extracted from SoapUI project. Defines a Groovy script evaluation: result of type Sring should match a response name | See [below section on script dispatcher](./#script-dispatcher). |
 
@@ -65,7 +65,7 @@ Depending on the operator applied, the `cases` may have different specification 
 | <div style="width: 120px">Operator</div> |<div style="width: 200px">Cases syntax</div> | Comments |
 | ---------- | ----------------- | ------- |
 | `equals` | `"<value>": "<response>"` | A case named `default` is used as default option |
-| `range` | `[<min>;<max>]: "<response>"` | Bracket side matter: `[` means incluse, `]` means exclusive for a left bracket. A case named `default` is used as default option | 
+| `range` | `[<min>;<max>]: "<response>"` | Bracket side matter: `[` means include, `]` means exclusive for a left bracket. A case named `default` is used as default option | 
 | `size` | `"[<min>;<max>]": "<response>"` | Size of an array property. Brackets must be inclusive. A case named `default` is used as default option |
 | `regexp` | `"<posix regexp>": "<response>"` | Regular expression applied to value. A case named `default` is used as default option |
 | `presence` | `"found": "<response>"` | Check the presence/absence of a property. 2 mandatory cases: `found` and `default` |
@@ -81,7 +81,7 @@ Our business constraints here is to only accept beers coming from Belgium 🇧�
 
 {{< image src="images/documentation/dispatcher-updated.png" alt="image" zoomable="true" >}}
 
-> 💡 We recommend having an in-depth look at the exemple provided on the page to fully understand the power of different options.
+> 💡 We recommend having an in-depth look at the example provided on the page to fully understand the power of different options.
 
 #### Illustration
 
@@ -118,7 +118,7 @@ $ curl -X POST http://microcks.example.com/rest/Beer+Catalog+API/1.0/beer \
 < HTTP/1.1 406 
 {
   "error": "Not accepted",
-  "message": "Germany origin country is forbiden"
+  "message": "Germany origin country is forbidden"
 }
 ```
 
@@ -166,14 +166,14 @@ The dispatching rules of `PROXY_FALLBACK` dispatcher are expressed using a JSON 
 
 `SCRIPT` dispatchers are the most versatile and powerful to integrate custom dispatching logic in Microcks. When using such a `Dispatcher`, `Dispatching Rule` is simply a Groovy script that is evaluated and has to return the name of mock response. 
 
-Before actualy evaluating the script, Microcks builds a runtime context where elements from incoming requests are made available. Therefore, you may have access to different objects from the script.
+Before actually evaluating the script, Microcks builds a runtime context where elements from incoming requests are made available. Therefore, you may have access to different objects from the script.
 
 | <div style="width: 160px">Object</div> | Description |
 | ------ | ----------- |
-| `mockRequest` | Wrapper around incoming request that fullfill the contract of [Soap UI mockRequest](https://www.soapui.org/docs/soap-mocking/creating-dynamic-mockservices/#2-Mock-Handler-Objects). Allows you to access body payload with `requestContent`, request headers with `getRequestHeaders()` or all others request elements with `getRequest()` that accesses underlying Java HttpServletRequest object |
+| `mockRequest` | Wrapper around incoming request that fulfill the contract of [Soap UI mockRequest](https://www.soapui.org/docs/soap-mocking/creating-dynamic-mockservices/#2-Mock-Handler-Objects). Allows you to access body payload with `requestContent`, request headers with `getRequestHeaders()` or all others request elements with `getRequest()` that accesses underlying Java HttpServletRequest object |
 | `requestContext` | Allows you to access a request scoped context for storing any kind of objects. Such context elements can be later reused when producing response content from [templates](/documentation/references/templates) |
 | `log` | Access to a logger with commons methods like `debug()`, `info()`, `warn()` or `error()`. Useful for troubleshooting. |
-| `store` | Allows you to access a service scoped persistent store for string values. Such store elements can be later reused in other operation's script to keep track of state or feed the `requestContext`. Store provides helpful methods like `put(key, value)`, `get(key)` or `delete(key)`. Store elements are subject to a Time-To-Live that is 10 seconds by default. This TTL can be overriden using the `put(key, value, ttlInSeconds)` method. |
+| `store` | Allows you to access a service scoped persistent store for string values. Such store elements can be later reused in other operation's script to keep track of state or feed the `requestContext`. Store provides helpful methods like `put(key, value)`, `get(key)` or `delete(key)`. Store elements are subject to a Time-To-Live that is 10 seconds by default. This TTL can be overridden using the `put(key, value, ttlInSeconds)` method. |
 
 #### Common use-cases
 

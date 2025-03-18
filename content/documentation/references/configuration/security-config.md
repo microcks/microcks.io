@@ -49,7 +49,7 @@ On the client side (ie. in the browser), Microcks is using a client application 
 
 On the server side, Microcks is using a client application called `microcks-app` for checking and trusting JWT bearers provided by the frontend application API calls.
 
-These parameters are set withing the `application.properties` configuration file. See and example below:
+These parameters are set within the `application.properties` configuration file. See and example below:
 
 ```properties
 # Keycloak configuration properties
@@ -138,7 +138,7 @@ The `serviceAccountCredentials` should typically be changed as this is the defau
 
 Depending on your network configuration, authentication of request with Keycloak can be a bit tricky as Keycloak requires some [specific load-balancer or proxy settings](https://www.keycloak.org/server/reverseproxy). Typically, you way need to configure specific address ranges for proxies if you're not using the usual private IPv4 blocks.
 
-This can be done specifying additional `extraProperties` into the `microcks` part of your configuration - either within `spec.microcks` path if you're using the Operator `MicrocksInstall` custom resource or from direct `microcks` path in `values.yml` when using the Helm chart. The configuration below typically declare a new IP range to treat as proxy in order to propertly forward proxy headers to the application code:
+This can be done specifying additional `extraProperties` into the `microcks` part of your configuration - either within `spec.microcks` path if you're using the Operator `MicrocksInstall` custom resource or from direct `microcks` path in `values.yml` when using the Helm chart. The configuration below typically declare a new IP range to treat as proxy in order to properly forward proxy headers to the application code:
 
 ```yml
 extraProperties:
@@ -148,7 +148,7 @@ extraProperties:
         internal-proxies: 172.16.0.0/12
 ```
 
-This configuration will initiaze a new `application-extra.properties` in the appropiate `ConfigMap`, allowing you to extend the `application.properties` with your
+This configuration will initiaze a new `application-extra.properties` in the appropriate `ConfigMap`, allowing you to extend the `application.properties` with your
 customizations.
 
 ### OAuth2/JWT configuration 

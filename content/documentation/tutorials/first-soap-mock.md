@@ -92,9 +92,9 @@ We also have the definition of one `getPets` operation that allow returning all 
 </wsdl:definitions>
 ```
 
-From now, you can save this as a file on your disk - or your can retreive our finalized [petstore-1.0.wsdl](../petstore-1.0.wsdl) file. Then open SoapUI and choose **New SOAP Project** in the **File** menu or from the top buttons bar. Give your project a name like `PetstoreService` and choose to **Upload** this file as its definition. It should create a new folder for your project on the left pane initalized with a Service named `PetstoreServiceSoapBinding`.
+From now, you can save this as a file on your disk - or your can retrieve our finalized [petstore-1.0.wsdl](../petstore-1.0.wsdl) file. Then open SoapUI and choose **New SOAP Project** in the **File** menu or from the top buttons bar. Give your project a name like `PetstoreService` and choose to **Upload** this file as its definition. It should create a new folder for your project on the left pane initialized with a Service named `PetstoreServiceSoapBinding`.
 
-We now have some more initalization work to do. This is a four steps process that is illustrated below in the slider (you can the blue dots to freeze the swiper below):
+We now have some more initialization work to do. This is a four steps process that is illustrated below in the slider (you can the blue dots to freeze the swiper below):
 
 1️⃣ Right-click on the imported binding and ask SoapUI to generate a new mock server for this binding,,
 
@@ -307,7 +307,7 @@ This is the results you should achieve below:
 </div>
 
 
-What about the dispatcher property we mentioned earlier? FOr this operation, we're going to use another dispatcher that allows to analyse the incoming SOAP body to find the correst response. This dispatcher is called `QUERY_MATCH` and uses [XPath expression](https://www.w3schools.com/xml/xpath_intro.asp) to extract data from incoming request to get the reponse. 
+What about the dispatcher property we mentioned earlier? FOr this operation, we're going to use another dispatcher that allows to analyse the incoming SOAP body to find the correst response. This dispatcher is called `QUERY_MATCH` and uses [XPath expression](https://www.w3schools.com/xml/xpath_intro.asp) to extract data from incoming request to get the response. 
 
 To set this dispatcher configuration, you will have to go on the Mock Server `searchPaets` operation properties and select the appropriate **QUERY_MATCH** option. Then, for each request you'll have to add a matching rule (let's name them `match_i` and `match_k` for example) and define an XPath expression. You'll have to use this expression below that declares an alias `pet` for the Xml namespace of your query and a selector to extract the incoming `name` property:
 
