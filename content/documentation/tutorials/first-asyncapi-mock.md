@@ -3,7 +3,7 @@ draft: false
 title: "Your 1st AsyncAPI on Kafka mock"
 date: 2024-04-30
 publishdate: 2024-04-30
-lastmod: 2025-01-22
+lastmod: 2025-03-19
 weight: 6
 ---
 
@@ -29,7 +29,7 @@ To retrieve and start the `docker compose` configuration, just execute the follo
 cd ~/Development/temp
 git clone https://github.com/microcks/microcks
 cd microcks/install/docker-compose
-docker compose -f docker-compose.yml up -d
+docker compose -f docker-compose-devmode.yml up -d
 ```
 
 `docker` pulls the missing container images and starts 5 containers:
