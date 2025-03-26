@@ -205,4 +205,4 @@ $ kcat -b my-cluster-kafka-bootstrap.apps.try.microcks.io:443 -t MyQuoteAPI-1.0-
 
 ## Wrap-up
 
-In a few step, you've discovered how easy it is to have Microcks generate fake APIs for you! This one may allow you to quickly bootstrap your API design and contracts while exposing mock endpoints that allows your consumers or partners to immediatly start testing your API.
+In a few step, you've discovered how easy it is to have Microcks generate fake APIs for you! This one may allow you to quickly bootstrap your API design and contracts while exposing mock endpoints that allows your consumers or partners to immediately start testing your API.
