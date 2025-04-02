@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: Checkout repository
       
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Ensure Report Directory Exists
         run: mkdir -p link-checker
@@ -70,7 +70,7 @@ jobs:
       - name: Create Issue From File
         if: env.has_errors == 'true'
         id: create_issue   # 🔹 Add an ID to reference outputs later
-        uses: peter-evans/create-issue-from-file@v5
+        uses: peter-evans/create-issue-from-file@e8ef132d6df98ed982188e460ebb3b5d4ef3a9cd # v5.0.1
         with:
           title: "External Link Check Report - ${{ env.DATE }}"
           content-filepath: ./link-checker/report.md
