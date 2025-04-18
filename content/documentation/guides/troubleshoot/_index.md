@@ -43,7 +43,7 @@ After the next operator reconciliation, the log level is changed in both main we
 <details>
   <summary><strong>Docker or Podman Compose</strong></summary>
 
-When using [Docker or Podman Compose](/documentation/guides/installation/docker-compose/) for running Microcks, you shoud have a local `logback.xml` file mounted into the running containers in the `/deployments/config`.
+When using [Docker or Podman Compose](/documentation/guides/installation/docker-compose/) for running Microcks, you should have a local `logback.xml` file mounted into the running containers in the `/deployments/config`.
 
 First thing is to intialize this file into a local folder at the same location of your `docker-compose.yml` file, let's say `config-logs/`:
 
