@@ -10,10 +10,12 @@ To learn more about Microcks and its features, visit the [Microcks website](http
 
 ## Contributing
 
-We welcome contributions from the community to help improve the Microcks website. Whether it's fixing bugs, adding new features, or improving documentation, your contributions are valuable to us.
+We welcome contributions from the community to improve the Microcks website. Your contributions are valuable to us, whether they fix bugs, add new features, or improve documentation.
 
-For more detailed information on how to contribute, please refer to our [Contribution Guidelines](https://github.com/microcks/.github/blob/main/CONTRIBUTING.md).
+For more detailed information on how to contribute, please take a look at our [Contribution Guidelines](https://github.com/microcks/.github/blob/main/CONTRIBUTING.md) and the [Documentation Guidelines](https://github.com/yada/microcks.io/blob/master/GUIDELINES.md).
 
 We appreciate your interest in contributing to the Microcks website! If you have any questions or need assistance, feel free to reach out to us: https://microcks.io/community/
 
-Happy coding! 🚀
+> By the community, for the community. 🙌
+
+Thank you for helping us improve Microcks! Every contribution counts 💙
