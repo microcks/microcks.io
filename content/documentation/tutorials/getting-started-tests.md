@@ -74,7 +74,7 @@ Following the **Full results** link in the above screen will lead you to a scree
 
 Microcks also provides the [`microcks-cli`](/documentation/guides/automation/cli/) tool that can be used to automate the testing. Binary releases for Linux, MacOS or Windows platform are available on the GitHub [releases page](https://github.com/microcks/microcks-cli/releases).
 
-You can downlaod the binary or just use the corresponding container image for a quick ride! Specify the `test` command followed by the API/Service name and version, the test endpoint URL, the runner as well as some connection credentials and it will launch the test for you:
+You can download the binary or just use the corresponding container image for a quick ride! Specify the `test` command followed by the API/Service name and version, the test endpoint URL, the runner as well as some connection credentials and it will launch the test for you:
 
 ```sh
 $ docker run -it quay.io/microcks/microcks-cli:latest microcks-cli test \

@@ -43,7 +43,7 @@ curl https://microcks.example.com/api/keycloak/config -k
 
 On the above command output, you see that Keycloak and thus authentication are actually enabled. We will use the `auth-server-url` and `realm` for authentication. If it's not the case, then you can skip the end of this step as well as step 2.
 
-Before going further, you need to retrieve a *Service Account* for authenticating to Keycloak. Your Microcks provider or adminsitrator has probably read the explanations on [Service Account](/documentation/explanations/service-account) and will be able to provide this information.
+Before going further, you need to retrieve a *Service Account* for authenticating to Keycloak. Your Microcks provider or administrator has probably read the explanations on [Service Account](/documentation/explanations/service-account) and will be able to provide this information.
 
 For new comers, don't worry! Microcks comes with a default account named `microcks-serviceaccount` that comes with default installation; with a default credential that is set to `ab54d329-e435-41ae-a900-ec6b3fe15c54`. 😉
 
@@ -208,7 +208,7 @@ curl 'https://microcks.example.com/api/jobs?page=0&size=1' -H "Authorization: Be
 ]
 ```
 
-However, some of the API calls are restrictied to certain permissions. For example, if you try to activate the above importer job using the following API call:
+However, some of the API calls are restrictive to certain permissions. For example, if you try to activate the above importer job using the following API call:
 
 ```sh
 curl 'https://microcks.example.com/api/jobs/6470b31415d8e3652a787bad/start' -H "Authorization: Bearer $TOKEN" -k -v

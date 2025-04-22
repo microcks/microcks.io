@@ -21,7 +21,7 @@ Your can *partially* manage users directly from the Microcks UI. "Partially" mea
 
 Users management is simply a thumbnail with the **Administration** page that is available from the vertical menu on the left once logged in as administrator. 
 
-On this page, you can easily search users using their name and they'll be listed, organized in pages. On each line of the list, you'll have the oportunity to check the different roles endorsed by a user.
+On this page, you can easily search users using their name and they'll be listed, organized in pages. On each line of the list, you'll have the opportunity to check the different roles endorsed by a user.
 
 * **Registred** means that the user has already sign-in within Microcks and has been just endorsed with the `user` role,
 * **Manager** means that the user has been ensorded with the `manager` Microcks role,

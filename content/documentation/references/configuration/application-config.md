@@ -235,7 +235,7 @@ quarkus.kafka.health.enabled=true
 
 #### Components connection
 
-The Async Minion component should know how to connect to Microcks. Keycloak/IDP connection is discovered dyanmically from Microcks or can be overriden at the local level (commented by default):
+The Async Minion component should know how to connect to Microcks. Keycloak/IDP connection is discovered dynamically from Microcks or can be overridden at the local level (commented by default):
 
 ```properties
 # Access to Microcks API server.
@@ -249,7 +249,7 @@ microcks.serviceaccount.credentials=ab54d329-e435-41ae-a900-ec6b3fe15c54
 
 #### Kafka connection
 
-The Async Minion -in the stadnard distribution- is connecting to a Kafka broker to receive the service change events. If connecting to a Schema Regsitry (see
+The Async Minion -in the stadnard distribution- is connecting to a Kafka broker to receive the service change events. If connecting to a Schema Registry (see
 [this guide](/documentation/guides/usage/async-protocols/avro-messaging)), the `Confluent` compatibility mode is the one selected by default:
 
 ```properties
