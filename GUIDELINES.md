@@ -11,7 +11,7 @@ Our documentation is structured following the principles of the [Diátaxis metho
 3. **Reference** – information-oriented, precise technical descriptions.
 4. **Explanations** – understanding-oriented discussions and concepts.
 
-We believe documentation is a **learning cycle**, helping users move fluidly from discovery to mastery. Diátaxis helps us ensure content is accessible and purposeful at every stage of that journey.
+Documentation is a learning cycle, helping users move fluidly from discovery to mastery. Diátaxis helps us ensure that content is accessible and purposeful at every stage of that journey.
 
 ## 📂 Structure & Organization
 
@@ -29,12 +29,6 @@ Using the Diátaxis principles, Microcks documentation includes:
 - **References**  
   APIs, configuration options, CLI usage, schemas, and interfaces.
 
-- **Deployment & Configuration**  
-  Local and cloud-native deployments with Kubernetes, OpenShift, Helm, and more.
-
-- **Developer & Contributor Docs**  
-  Module-specific guides, contribution workflow, and build instructions.
-
 ## ✅ Writing Best Practices
 
 - **Be clear and concise** – Avoid unnecessary jargon; simplicity is key.
@@ -49,13 +43,45 @@ Using the Diátaxis principles, Microcks documentation includes:
 > **💡 Important Note:**
 > To ensure usability and enable efficient copy/paste, commands and outputs must be **clearly separated** and follow these conventions:
 
-### 🛠️ Command Blocks
+### 🛠️ Command and output Blocks
 
-- Should be written **as-is** and directly copyable — **no `$` or shell prompts**.
-- Avoid adding additional characters or prefixes that aren’t part of the command.
+- Command should be written **as-is** and directly copyable — **no `$` or shell prompts**.
+- Avoid adding characters or prefixes that are not part of the command.
 - Do not include outputs in the same block as commands.
 
 **✅ Example:**
 
-```bash
-kubectl apply -f microcks.yaml
+See: https://microcks.io/documentation/tutorials/getting-started/
+
+## 🧱 Markdown Conventions
+
+| **Element**      | **Convention**                                      |
+|------------------|-----------------------------------------------------|
+| **Headings**     | Use `#`, `##`, `###` for hierarchy                  |
+| **Code blocks**  | Use triple backticks ` ``` ` with language tag      |
+| **Inline code**  | Use backticks: `` `like-this` ``                    |
+| **Lists**        | Use `-` for bullets, `1.` for numbers               |
+| **Links**        | `[label](https://url)`                              |
+| **Notes & Alerts** | `> **Note:**`, `> **Tip:**`, `> **Warning:**`     |
+
+## 🔁 Versioning & Updates
+
+- Align documentation with the latest stable release of Microcks.
+- Flag deprecated or removed features with clear explanations.
+- If necessary, please make sure to maintain version-specific instructions to avoid confusion.
+
+## 🤝 Contributing to Documentation
+We welcome contributions to foster a collaborative and inclusive documentation environment.
+
+You can help by:
+
+- Suggesting improvements
+- Fixing typos or broken links
+- Reporting errors
+- Adding new guides or clarifying existing ones
+
+This collaborative approach keeps the documentation fresh and accurate and builds a stronger sense of ownership and engagement within our community.
+
+> By the community, for the community. 🙌
+
+Thank you for helping us improve Microcks! Every contribution counts — let’s build great docs together 💙
