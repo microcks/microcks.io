@@ -54,7 +54,7 @@ docker run -p 8586:8081 -e MICROCKS_HOST_PORT=host.docker.internal:8585 -it quay
 
 ## Deploying on your laptop
 
-As explained just above, the easiest way to deploy and use most of Microcks features is to simply run the *Uber* distribution containers. Altough, depending on how you plan to use it into your workflow, it may be more convenient to go with other deployment methods.
+As explained just above, the easiest way to deploy and use most of Microcks features is to simply run the *Uber* distribution containers. Although, depending on how you plan to use it into your workflow, it may be more convenient to go with other deployment methods.
 
 ### 1. Using Testcontainers
 
@@ -120,7 +120,7 @@ Please check additional reference content for configuration details:
 
 ### 3. Production concerns
 
-As explained above, the Helm chart and Operator for Microcks come with sensible defaults that make them easy to deploy a fully functionnal cluster in a few minutes. However there are some points to be considered in order to have a production-grade deployment, especially if you're targeting a [Global and centralized instance](https://microcks.io/documentation/explanations/deployment-topologies/#1-global-centralized-instance).
+As explained above, the Helm chart and Operator for Microcks come with sensible defaults that make them easy to deploy a fully functional cluster in a few minutes. However there are some points to be considered in order to have a production-grade deployment, especially if you're targeting a [Global and centralized instance](https://microcks.io/documentation/explanations/deployment-topologies/#1-global-centralized-instance).
 
 Here are below a non-exhaustive list of common topics and concerns with details on how you could address them:
 

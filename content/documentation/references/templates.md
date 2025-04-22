@@ -133,7 +133,7 @@ Variables from context can be simply used in templates using their name within t
 
 ## Function Expressions
 
-Function expressions allows generation of dynamic content. They are different from varaible reference as they include the `()` notation to provide arguments. Microcks also support the notation compatibility with [Postman Dynamic variables](https://learning.postman.com/docs/writing-scripts/script-references/variables-list/). So that you can reuse your existing response expressed within Postman Collection. The only limitation being that Postman dynamic variables cannot handle arguments passing so functions will always be invoked without arguments.
+Function expressions allows generation of dynamic content. They are different from variable reference as they include the `()` notation to provide arguments. Microcks also support the notation compatibility with [Postman Dynamic variables](https://learning.postman.com/docs/writing-scripts/script-references/variables-list/). So that you can reuse your existing response expressed within Postman Collection. The only limitation being that Postman dynamic variables cannot handle arguments passing so functions will always be invoked without arguments.
 
 So basically, a function expression can be materialized with the Microcks notation `function(arg1, arg2)` **OR** the Postman notation `$function`.
 
@@ -153,7 +153,7 @@ The `now()` function allows to generate current date. It can also be invoked usi
 
 Invoked with no argument, it's a simple milliseconds timestamp since EPOCH beginning. This function can also be invoked with one argument being the pattern to use for rendering current's date as string. The Java [date and time patterns](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) are use as referenced.
 
-It can also be called with a second argument representing an amount of time to add to current date before rendering string representation. It does not support composite ammount for the moment. Think of it as a commodity for generating expiry or validity dates 😉 Here are some examples below:
+It can also be called with a second argument representing an amount of time to add to current date before rendering string representation. It does not support composite amount for the moment. Think of it as a commodity for generating expiry or validity dates 😉 Here are some examples below:
 
 ```js
 now() // 1581425292309
