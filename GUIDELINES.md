@@ -64,11 +64,15 @@ See: https://microcks.io/documentation/tutorials/getting-started/
 | **Links**        | `[label](https://url)`                              |
 | **Notes & Alerts** | `> **Note:**`, `> **Tip:**`, `> **Warning:**`     |
 
+> **Note:** For all references to Microcks UI menu items in the documentation, please format them in bold using `**` in markdown.  
+> Example: _"Select the **Importers** menu entry"_, as shown in this guide: [Importing Content via Upload](https://microcks.io/documentation/guides/usage/importing-content/#1-import-content-via-upload).
+
 ## 🔁 Versioning & Updates
 
 - Align documentation with the latest stable release of Microcks.
 - Flag deprecated or removed features with clear explanations.
 - If necessary, please make sure to maintain version-specific instructions to avoid confusion.
+- If you're documenting a recently introduced feature in Microcks, please add a note mentioning the version it was added in, and feel free to link to the [release notes](https://microcks.io/blog).
 
 ## 🤝 Contributing to Documentation
 We welcome contributions to foster a collaborative and inclusive documentation environment.
