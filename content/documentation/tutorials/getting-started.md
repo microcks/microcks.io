@@ -16,7 +16,7 @@ The easiest way to get started with Microcks is using [Docker](https://docs.dock
 In your terminal issue the following command - maybe replacing `8585` by another port of your choice if this one is not free:
 
 ```sh
-$ docker run -p 8585:8080 -it --rm quay.io/microcks/microcks-uber:latest-native 
+docker run -p 8585:8080 -it --rm quay.io/microcks/microcks-uber:latest-native 
 ```
 
 This will pull and spin the `uber` container and setup a simple environment for you to use. You should get something like this on your terminal:
@@ -84,12 +84,14 @@ You'll be able to access the details, documentation and request/response samples
 At the end of the **Mock URL** line, you'll notice two icons and buttons. The first one allows you to copy the URL to the clipboard so that you can directly use it in a browser for example. The second one allows you to get a `curl` command to interact with the mocked API from the terminal. You can copy the URL for the `Millefeuille` example and give it a try in your terminal:
 
 ```sh
-$ curl -X GET 'http://localhost:8585/rest/API+Pastry+-+2.0/2.0.0/pastry/Millefeuille' -H 'Accept: application/json'
-
-{"name":"Millefeuille","description":"Delicieux Millefeuille pas calorique du tout","size":"L","price":4.4,"status":"available"}
+curl -X GET 'http://localhost:8585/rest/API+Pastry+-+2.0/2.0.0/pastry/Millefeuille' -H 'Accept: application/json'
 ```
 
 Ta Dam! 🎉
+
+```sh
+{"name":"Millefeuille","description":"Delicieux Millefeuille pas calorique du tout","size":"L","price":4.4,"status":"available"}
+```
 
 ## What's next?
 
