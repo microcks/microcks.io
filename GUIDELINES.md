@@ -53,6 +53,51 @@ Using the Diátaxis principles, Microcks documentation includes:
 
 See: https://microcks.io/documentation/tutorials/getting-started/
 
+## 🔤 English Spell Checking Guidelines
+
+To ensure high-quality documentation and avoid introducing typos or misspellings, Microcks leverages an automated [GitHub Action for spell checking](https://github.com/microcks/microcks.io/blob/master/.github/workflows/spellcheck.yml) on each new pull request (PR).
+
+### 🛠️ How It Works
+
+We use the [`misspell`](https://github.com/golangci/misspell) tool to automatically detect spelling issues in markdown files across the `microcks.io` documentation. Contributors are encouraged to run this check locally before submitting a PR to accelerate the review process.
+
+### 🧪 Run Spell Check Locally
+
+1. **Install `misspell`**
+   Follow the installation instructions from the official repo: [https://github.com/golangci/misspell](https://github.com/golangci/misspell)
+   
+3. **Clone the Microcks documentation site**  
+   ``` sh
+   git clone https://github.com/microcks/microcks.io.git
+   cd microcks.io
+   ```
+4. **Run the spell check**
+   ``` sh
+   IGNORE_WORDS=$(tr '\n' ',' < .wordlist.txt | sed 's/,$//')
+   misspell -i "$IGNORE_WORDS" -error $(find content -type f -name "*.md")
+   ```
+   Below is an example of what you might see if misspelled words are found:
+   ``` sh
+   content/blog/microcks-1.2.0-release.md:46:134: "Mosquitto" is a misspelling of "Mosquito"
+   content/blog/microcks-on-minikube.md:46:54: "existant" is a misspelling of "existent"
+   content/blog/microcks-on-minikube.md:47:9: "marrage" is a misspelling of "marriage"
+   content/blog/microcks-on-minikube.md:184:19: "marrage" is a misspelling of "marriage"
+   ```
+
+### 🧩 Managing False Positives
+If a word is valid in a specific context (e.g., localized English or technical jargon) and should be retained in the docs, add it to the `.wordlist.txt` file via a pull request. Example:
+
+``` sh
+cat .wordlist.txt
+```
+
+``` sh
+Mosquitto
+emition
+marrage
+existant
+```
+
 ## 🧱 Markdown Conventions
 
 | **Element**      | **Convention**                                      |
