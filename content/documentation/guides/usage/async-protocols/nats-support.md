@@ -129,11 +129,11 @@ For our `User signed-up API`, we have such a consumer [in one GitHub repository]
 Follow the following steps to retrieve it, install dependencies and check the Microcks mocks:
 
 ```sh
-$ git clone https://github.com/microcks/api-tooling.git
-$ cd api-tooling/async-clients/natsjs-client
-$ npm install
+git clone https://github.com/microcks/api-tooling.git
+cd api-tooling/async-clients/natsjs-client
+npm install
 
-$ node consumer.js nats-broker.app.example.com:4222 UsersignedupAPI-0.1.30-user/signedup microcks microcks
+node consumer.js nats-broker.app.example.com:4222 UsersignedupAPI-0.1.30-user/signedup microcks microcks
 ```
 ```sh
 Connecting to nats-broker.app.example.com:4222 on topic UsersignedupAPI-0.1.30-user/signedup
@@ -163,7 +163,7 @@ Now the final step is to perform some test of the validation features in Microck
 Imagine that you want to validate messages from a `QA` environment with dedicated NATS broker. Still being in the `natsjs-client` folder, now use the `producer.js` utility script to publish messages on a `user-signedups` queue:
 
 ```sh
-$ node producer.js nats-broker-qa.app.example.com:4222 user-signedups qa-user qa-password
+node producer.js nats-broker-qa.app.example.com:4222 user-signedups qa-user qa-password
 ```
 ```sh
 Connecting to nats-broker-qa.app.example.com:4222 on topic user-signedups
@@ -198,7 +198,7 @@ This is fine and we can see that Microcks captured messages and validated them a
 So now let see what happened if we tweak that a bit... Open the `producer.js` script in your favorite editor to put comments on lines 28 and 29 and to remove comments on lines 30 and 31. It's removing the `fullName` measure and adding an unexpected `displayName` property and it's also changing the type of the `sendAt` property as shown below after having restarted the producer:
 
 ```sh
-$ node producer.js nats-broker-qa.app.example.com:4222 user-signedups qa-user qa-password
+node producer.js nats-broker-qa.app.example.com:4222 user-signedups qa-user qa-password
 ```
 ```sh
 Connecting to nats-broker-qa.app.example.com:4222 on topic user-signedups

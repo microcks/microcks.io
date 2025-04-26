@@ -30,7 +30,7 @@ To practice the setup of constraints, you can reuse the `Pastry API` sample that
 Now let's do some tests to check Microcks behavior:
 
 ```sh
-$ http http://localhost:8080/rest/API+Pastry/1.0.0/pastry
+http http://localhost:8080/rest/API+Pastry/1.0.0/pastry
 ```
 ```sh
 --- OUTPUT ---
@@ -46,8 +46,8 @@ Parameter Authorization is required. Check parameter constraints.
 
 Hum... Adding the `Authorization` header...
 
-```sh
-$ http http://localhost:8080/rest/API+Pastry/1.0.0/pastry Authorization:'Bearer 123'
+```sh 
+http http://localhost:8080/rest/API+Pastry/1.0.0/pastry Authorization:'Bearer 123'
 ```
 ```sh
 --- OUTPUT ---
@@ -58,13 +58,12 @@ Content-Type: text/plain;charset=UTF-8
 Date: Fri, 13 Dec 2019 19:31:01 GMT
 X-Application-Context: application
 
-Parameter Authorization should match ^Bearer\s[a-f0-9]{36}$. Check parameter constraints.
+Parameter Authorization should match ^Bearer\s[a-f0-9]{36}  . Check parameter constraints.
 ```
 
 Hum... Fixing the `Bearer` format and adding the `x-request-id` header:
 
-```sh
-$ http http://localhost:8080/rest/API+Pastry/1.0.0/pastry Authorization:'Bearer abcdefabcdefabcdefabcdefab1234567890' x-request-id:123
+```sh http http://localhost:8080/rest/API+Pastry/1.0.0/pastry Authorization:'Bearer abcdefabcdefabcdefabcdefab1234567890' x-request-id:123
 ```
 ```sh
 --- OUTPUT ---

@@ -24,18 +24,18 @@ As accessing Google Pub/Sub is subject to authentication and authorization, the 
 Let's say you've called it `my-googlecloud-service-account.json`, you'll then need to transfer this file as a `Secret` within your Kubernetes cluster into the namespace where you plan to setup Microcks - here after `microcks`:
 
 ```sh
-$ kubectl create secret generic my-googlecloud-service-account \
+kubectl create secret generic my-googlecloud-service-account \
     --from-file=./my-googlecloud-service-account.json -n microcks
 ```
 
 You also have to ensure that this Service Account has the required permissions for connecting to Pub/Sub, listing and creating topics. This can be done by adding the `roles/pubsub.editor` and `roles/pubsub.publisher` roles to the Service Account. Check the [Pub/Sub permissions and roles](https://cloud.google.com/pubsub/docs/access-control#permissions_and_roles) for more details. Here are below typical `gcloud` commands for that:
 
 ```sh
-$ gcloud projects add-iam-policy-binding $PROJECT \
-    --member=serviceaccount:microcks-pubsub-sa@$PROJECT.iam.gserviceaccount.com \
+gcloud projects add-iam-policy-binding   PROJECT \
+    --member=serviceaccount:microcks-pubsub-sa@  PROJECT.iam.gserviceaccount.com \
     --role=roles/pubsub.editor
-$ gcloud projects add-iam-policy-binding $PROJECT \
-    --member=serviceaccount:microcks-pubsub-sa@$PROJECT.iam.gserviceaccount.com \
+gcloud projects add-iam-policy-binding   PROJECT \
+    --member=serviceaccount:microcks-pubsub-sa@  PROJECT.iam.gserviceaccount.com \
     --role=roles/pubsub.publisher
 ```
 
@@ -148,19 +148,18 @@ Now it’s time to validate that mock publication of messages on the targeted Pu
 For our `User signed-up API`, we have such a consumer [in one GitHub repository](https://github.com/microcks/api-tooling/blob/main/async-clients/googlepubsub-client/consumer.js). Like in previous Step 1, you'll need a Service Account and its key file so that our consumer will be able to connect to Pub/Sub. This Service Account must have the `roles/pubsub.subscriber` role. If you choose to reuse previously created Service Account, you'll have to issue this additional ommand:
 
 ```sh
-$ gcloud projects add-iam-policy-binding $PROJECT \
-    --member=serviceaccount:microcks-pubsub-sa@$PROJECT.iam.gserviceaccount.com \
+gcloud projects add-iam-policy-binding   PROJECT \
+    --member=serviceaccount:microcks-pubsub-sa@  PROJECT.iam.gserviceaccount.com \
     --role=roles/pubsub.subscriber
 ```
 
 Now, with the Service Account key file at hand - let say in `/Users/me/google-cloud-creds/my-gcp-project-347219/pubsub-service-account.json` folder - you'll have to follow these steps to retrieve it, install dependencies and check the Microcks mocks:
 
 ```sh
-$ git clone https://github.com/microcks/api-tooling.git
-$ cd api-tooling/async-clients/googlepubsub-client
-$ npm install
-
-$ node consumer.js my-gcp-project-347219 UsersignedupAPI-0.1.20-user-signedup /Users/me/google-cloud-creds/my-gcp-project-347219/pubsub-service-account.json
+git clone https://github.com/microcks/api-tooling.git
+cd api-tooling/async-clients/googlepubsub-client
+npm install
+node consumer.js my-gcp-project-347219 UsersignedupAPI-0.1.20-user-signedup /Users/me/google-cloud-creds/my-gcp-project-347219/pubsub-service-account.json
 ```
 ```sh
 Connecting to my-gcp-project-347219 on topic UsersignedupAPI-0.1.20-user-signedup with sub gpubsub-client-echo
@@ -192,7 +191,7 @@ Imagine that you want to validate messages from a `QA` environment on a dedicate
 Still being in the `googlepubsub-client` folder, now use the `producer.js` utility script to publish messages on a `user-signups` topic hosted by a `my-qa-gcp-project-347223` project with local access to your Service Account key file:
 
 ```sh
-$ node producer.js my-qa-gcp-project-347223 user-signups /Users/me/google-cloud-creds/my-qa-gcp-project-347223/pubsub-service-account.json
+node producer.js my-qa-gcp-project-347223 user-signups /Users/me/google-cloud-creds/my-qa-gcp-project-347223/pubsub-service-account.json
 ```
 ```sh
 Connecting to my-qa-gcp-project-347223 on user-signups
@@ -210,7 +209,7 @@ As the **QA** Pub/Sub access is secured, we will first have to manage a [Secret]
 On this tab, you'll have to create a `Token Authentication` secret with the value being the content of a Service Account key file encrypted in base 64. This Service Account is not necessarily the one you've used previously for producing messages as this one must have the `roles/pubsub.publisher` role. You'll typically get the token value by executing this command:
 
 ```sh
-$ cat googlecloud-service-account.json | base64 
+cat googlecloud-service-account.json | base64 
 ```
 
 The screenshot below illustrates the creation of such a secret for your `QA PubSub Service Account` with username, and credentials.
@@ -233,7 +232,7 @@ This is fine and we can see that Microcks captured messages and validated them a
 So now let see what happened if we tweak that a bit... Open the `producer.js` script in your favorite editor to put comments on lines 24 and 25 and to remove comments on lines 26 and 27. It's removing the `fullName` measure and adding an unexpected `displayName` property and it's also changing the type of the `sendAt` property as shown below after having restarted the producer:
 
 ```sh
-$ node producer.js my-qa-gcp-project-347223 user-signups /Users/me/google-cloud-creds/my-qa-gcp-project-347223/pubsub-service-account.json
+node producer.js my-qa-gcp-project-347223 user-signups /Users/me/google-cloud-creds/my-qa-gcp-project-347223/pubsub-service-account.json
 ```
 ```sh
 Connecting to my-qa-gcp-project-347223 on user-signups

@@ -62,7 +62,7 @@ EOF
 Wait a bit for the operator to be triggered, the images to be pulled, pods to be started and ingresses to be there:
 
 ```shell
-$ kubectl get pods -n microcks
+  kubectl get pods -n microcks
 ```
 ```sh
 --- OUTPUT --- 
@@ -75,7 +75,7 @@ microcks-operator-6ff95d44f9-5kgvq              1/1     Running   0          73s
 microcks-postman-runtime-6fdd4659f5-vm76j       1/1     Running   0          55s
 ```
 ```sh
-$ kubectl get ingresses -n microcks
+ kubectl get ingresses -n microcks
 ```
 ```sh
 --- OUTPUT --- 
@@ -226,7 +226,7 @@ EOF
 Watch and check the pods you should get in the namespace:
 
 ```sh
-$ kubectl get pods -n microcks
+ kubectl get pods -n microcks
 ```
 output:
 ```sh
@@ -251,7 +251,7 @@ Start with loading the [User signed-up API](https://microcks.io/blog/async-featu
 Now connect to the Kafka broker pod to check a topic has been correctly created and that you can consume messages from there:
 
 ```sh
-$ kubectl -n microcks exec microcks-kafka-kafka-0 -it -- /bin/sh
+ kubectl -n microcks exec microcks-kafka-kafka-0 -it -- /bin/sh
 ```
 ```sh
 --- INPUT ---

@@ -30,7 +30,7 @@ You'll notice that response payload is expressed using some templating mustaches
 When invoked twice with different params at different dates, here are the results:
 
 ```sh
-$ curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H 'Content-type: application/json' \
+  curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H 'Content-type: application/json' \
     -d '{"name": "World"}' -s | jq .
 
 ```
@@ -44,7 +44,7 @@ output:
 ```
 # Wait for a day...
 ```sh
-$ curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H 'Content-type: application/json' \
+  curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H 'Content-type: application/json' \
     -d '{"name": "Laurent"}' -s | jq .
 ```
 output:

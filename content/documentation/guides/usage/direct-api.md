@@ -178,7 +178,7 @@ Clicking `Next` some more time, you now have a Direct Async API that is immediat
 Looking at the operation details, you can retrieve the information of the endpoints used by different protocols and issue commands to receive the different messages published by the mock engine:
 
 ```sh
-$ kcat -b my-cluster-kafka-bootstrap.apps.try.microcks.io:443 -t MyQuoteAPI-1.0-quotes -o end
+kcat -b my-cluster-kafka-bootstrap.apps.try.microcks.io:443 -t MyQuoteAPI-1.0-quotes -o end
 ```
 output:
 ```sh

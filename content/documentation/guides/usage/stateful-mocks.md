@@ -18,7 +18,7 @@ In this guide, we'll go through the different concepts that are used and useful 
 If you haven't started a Microcks instance yet, you can do so using the following command - maybe replacing `8585` by another port of your choice if this one is not free:
 
 ```sh
-$ docker run -p 8585:8080 -it --rm quay.io/microcks/microcks-uber:latest
+docker run -p 8585:8080 -it --rm quay.io/microcks/microcks-uber:latest
 ```
 
 Then, you'll need to [import the content](/documentation/guides/usage/importing-content) our [`stateful-cart-openapi.yaml`](../stateful-cart-openapi.yaml) OpenAPI specification to follow-up explanations in next sections.

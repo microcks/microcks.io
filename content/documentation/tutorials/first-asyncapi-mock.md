@@ -59,7 +59,7 @@ docker compose -f docker-compose.yml up -d
 You can check everything is running correctly with the `docker ps` command that should provide you something like:
 
 ```shell
-$ docker ps
+docker ps
 ```
 output
 ```sh
@@ -151,7 +151,7 @@ As soon as your contract contains examples, you can import it into Microcks and 
 Microcks has found `Zaza` and `Tigress` as valid samples to build a simulation upon. A Kafka Topic has been made available and you can use it to test the API operation as demonstrated below with a `kcat` command:
 
 ```sh
-$ kcat -b localhost:9092 -t PetstoreAsynchronousAPI-1.0.0-receiveNewPetCreateEvent
+kcat -b localhost:9092 -t PetstoreAsynchronousAPI-1.0.0-receiveNewPetCreateEvent
 ```
 ```json
 {"id":1,"name":"Zaza"}
@@ -265,7 +265,7 @@ You can see two important changes from the previous operation we created:
 Let's try this on the different topics corresponding to the differnet colors:
 
 ```sh
-$ kcat -b localhost:9092 -t PetstoreAsynchronousAPI-1.0.0-pet-blue
+kcat -b localhost:9092 -t PetstoreAsynchronousAPI-1.0.0-pet-blue
 ```
 ```sh
 % Auto-selecting Consumer mode (use -P or -C to override)
@@ -278,7 +278,7 @@ $ kcat -b localhost:9092 -t PetstoreAsynchronousAPI-1.0.0-pet-blue
 Looks good! Only Zaza is a blue cat. Let's check the others:
 
 ```sh
-$ kcat -b localhost:9092 -t PetstoreAsynchronousAPI-1.0.0-pet-stripped
+kcat -b localhost:9092 -t PetstoreAsynchronousAPI-1.0.0-pet-stripped
 ```
 ```sh
 % Auto-selecting Consumer mode (use -P or -C to override)
@@ -299,7 +299,7 @@ $ kcat -b localhost:9092 -t PetstoreAsynchronousAPI-1.0.0-pet-stripped
 Correct! Tigress and Toufik are the stripped ones. Just confirm with the calico color:
 
 ```sh
-$ kcat -b localhost:9092 -t PetstoreAsynchronousAPI-1.0.0-pet-calico
+kcat -b localhost:9092 -t PetstoreAsynchronousAPI-1.0.0-pet-calico
 ```
 ```sh
 % Auto-selecting Consumer mode (use -P or -C to override)
@@ -349,7 +349,7 @@ When imported into Microcks, you should have following result:
 Let's now finally test the first Kafka topic again and see what's going on:
 
 ```sh
-$ kcat -b localhost:9092 -t PetstoreAsynchronousAPI-1.0.0-receiveNewPetCreateEvent
+kcat -b localhost:9092 -t PetstoreAsynchronousAPI-1.0.0-receiveNewPetCreateEvent
 ```
 ```sh
 [...]

@@ -96,7 +96,7 @@ channels:
       contentType: avro/binary
       schemaFormat: application/vnd.apache.avro+json;version=1.9.0
       payload:
-        $ref: './user-signedup.avsc#/User'
+          ref: './user-signedup.avsc#/User'
 ```
 
 You'll notice that it is of importance that `contentType` and `schemaFormat` property should be defined according to the Avro format. In this GitHub repository same folder, you'll also find the `user-signedup.avsc` file defining the `User` record type like below:
@@ -149,7 +149,7 @@ Now it's time to validate that mock publication of Avro messages is correct.
 When using the `REGISTRY` encoding options with a deployed Schema Registry, things are pretty simple as you can interact with registry either from GUI or CLI. Let's check that Microcks has correctly published the schema for our sample topic. See below the results we have with our sample:
 
 ```sh
-$ curl https://schema-registry.apps.example.com -s -k | jq .
+curl https://schema-registry.apps.example.com -s -k | jq .
 ```
 ```sh 
 [
@@ -157,7 +157,7 @@ $ curl https://schema-registry.apps.example.com -s -k | jq .
 ]
 ```
 ```sh
-$ curl https://schema-registry.apps.example.com/subjects/UsersignedupAvroAPI_0.1.2_user-signedup-microcks.avro.User/versions -s -k | jq .
+curl https://schema-registry.apps.example.com/subjects/UsersignedupAvroAPI_0.1.2_user-signedup-microcks.avro.User/versions -s -k | jq .
 ```
 ```sh
 [
@@ -165,7 +165,7 @@ $ curl https://schema-registry.apps.example.com/subjects/UsersignedupAvroAPI_0.1
 ]
 ```
 ```sh
-$ curl https://schema-registry.apps.example.com/subjects/UsersignedupAvroAPI_0.1.2_user-signedup-microcks.avro.User/versions/1 -s -k | jq .
+curl https://schema-registry.apps.example.com/subjects/UsersignedupAvroAPI_0.1.2_user-signedup-microcks.avro.User/versions/1 -s -k | jq .
 ```
 ```json
 {
@@ -179,7 +179,7 @@ $ curl https://schema-registry.apps.example.com/subjects/UsersignedupAvroAPI_0.1
 Very nice! We can also use the [`kafkacat` CLI tool](https://github.com/edenhill/kafkacat) to ensure that a topic consumer will be able to deserialize messages using the schema stored into registry.
 
 ```sh
-$ kafkacat -b microcks-kafka-bootstrap-microcks.apps.example.com:9092 -t UsersignedupAvroAPI_0.1.2_user-signedup -s value=avro -r https://schema-registry.apps.example.com -o end
+kafkacat -b microcks-kafka-bootstrap-microcks.apps.example.com:9092 -t UsersignedupAvroAPI_0.1.2_user-signedup -s value=avro -r https://schema-registry.apps.example.com -o end
 ```
 ```sh
 % Auto-selecting Consumer mode (use -P or -C to override)
@@ -200,11 +200,11 @@ For our `User signedup Avro API` sample, we have such a consumer [in one GitHub 
 Follow the following steps to retrieve it, install dependencies and check the Microcks mocks:
 
 ```sh
-$ git clone https://github.com/microcks/api-tooling.git
-$ cd api-tooling/async-clients/kafkajs-client
-$ npm install
+git clone https://github.com/microcks/api-tooling.git
+cd api-tooling/async-clients/kafkajs-client
+npm install
 
-$ node avro-consumer.js microcks-kafka-bootstrap-microcks.apps.example.com:9092 UsersignedupAvroAPI_0.1.2_user-signedup   
+node avro-consumer.js microcks-kafka-bootstrap-microcks.apps.example.com:9092 UsersignedupAvroAPI_0.1.2_user-signedup   
 ```
 ```sh           
 Connecting to microcks-kafka-bootstrap-microcks.apps.example.com:9092 on topic UsersignedupAvroAPI_0.1.2_user-signedup
@@ -231,9 +231,9 @@ Now the last step for being fully accustomed to Avro on Kafka support in Microck
 So the first thing for this section, will be to retrieve the scripts and install dependencies if you have not already do that in previous section. Follow below instructions:
 
 ```sh
-$ git clone https://github.com/microcks/api-tooling.git
-$ cd api-tooling/async-clients/kafkajs-client
-$ npm install
+git clone https://github.com/microcks/api-tooling.git
+cd api-tooling/async-clients/kafkajs-client
+npm install
 ```
 
 ### With Schema Registry
@@ -245,7 +245,7 @@ When using a Schema Registry with the `REGISTRY` encoding configured into Microc
 That said, imagine that you want to validate messages from a **QA** environment with dedicated broker and registry. Start by using our utility script to produce some messages on an `user-registration` arbitrary topic. This script is using a local Avro schema to do the binary encoding and it is also publishing this schema into the connected QA Schema Registry:
 
 ```sh
-$ node avro-with-registry-producer.js kafka-broker-qa.apps.example.com:9092 user-registration https://schema-registry-qa.apps.example.com
+node avro-with-registry-producer.js kafka-broker-qa.apps.example.com:9092 user-registration https://schema-registry-qa.apps.example.com
 ```
 ```sh
 Connecting to kafka-broker-qa.apps.example.com:9092 on topic user-registration, using registry https://schema-registry-qa.apps.example.com
@@ -290,7 +290,7 @@ Well let see now if we tweak a little bit the `avro-with-registry-producer.js` s
 Now looking at the `RAW` encoding option and what we can deduce from tests. To simulate an existing application, we will now use the `avro-producer.js` script that is also using the local `user-signedup.avsc` Avro schema to do the binary encoding:
 
 ```sh
-$ node avro-producer.js kafka-broker-qa.apps.example.com:9092 user-registration
+node avro-producer.js kafka-broker-qa.apps.example.com:9092 user-registration
 ```
 ```sh
 Connecting to kafka-broker-qa.apps.example.com:9092 on topic user-registration

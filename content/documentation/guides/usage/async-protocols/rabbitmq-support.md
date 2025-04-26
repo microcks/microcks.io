@@ -140,11 +140,11 @@ For our `Account Service`, we have such a consumer [in one GitHub repository](ht
 Follow the following steps to retrieve it, install dependencies and check the Microcks mocks:
 
 ```sh
-$ git clone https://github.com/microcks/api-tooling.git
-$ cd api-tooling/async-clients/amqpjs-client
-$ npm install
+git clone https://github.com/microcks/api-tooling.git
+cd api-tooling/async-clients/amqpjs-client
+npm install
 
-$ node consumer.js amqp://<user>:<password>@rabbitmq-broker.app.example.com:5672 AccountService-1.1.0-user/signedup
+node consumer.js amqp://<user>:<password>@rabbitmq-broker.app.example.com:5672 AccountService-1.1.0-user/signedup
 ```
 ```sh
 Connecting to amqp://<user>:<password>@rabbitmq-broker.app.example.com:5672 on topic AccountService-1.1.0-user/signedup
@@ -169,7 +169,7 @@ Now the final step is to perform some test of the validation features in Microck
 Imagine that you want to validate messages from a `QA` environment with dedicated RabbitMQ broker. Still being in the `amqpjs-client` folder, now use the `producer.js` utility script to publish messages on a `signedup-exchange` topic. Our producer takes care of creating a non-durable exchange of type topic on RabbitMQ broker:
 
 ```sh
-$ node producer.js amqp://<user>:<password>@rabbitmq-qa-broker.app.example.com:5672 signedup-exchange topic
+node producer.js amqp://<user>:<password>@rabbitmq-qa-broker.app.example.com:5672 signedup-exchange topic
 ```
 ```sh
 Connecting to amqp://<user>:<password>@rabbitmq-qa-broker.app.example.com:5672 on destination signedup-exchange
@@ -208,7 +208,7 @@ This is fine and we can see that Microcks captured messages and validated them a
 So now let see what happened if we tweak that a bit... Open the `producer.js` script in your favorite editor to put comments on line 21 and to remove comments from line 22. It's removing the `displayName` property and adding an unexpected `name` property as shown below after having restarted the producer:
 
 ```sh
-$ node producer.js amqp://<user>:<password>@rabbitmq-qa-broker.app.example.com:5672 signedup-exchange topic
+node producer.js amqp://<user>:<password>@rabbitmq-qa-broker.app.example.com:5672 signedup-exchange topic
 ```
 ```sh
 Connecting to amqp://<user>:<password>@rabbitmq-qa-broker.app.example.com:5672 on destination signedup-exchange

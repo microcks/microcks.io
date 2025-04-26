@@ -20,13 +20,13 @@ One easy way of installing Microcks is via a [Helm Chart](https://helm.sh/). Kub
 Microcks provides a Helm 3 chart that is now available on our own repository: https://microcks.io/helm. This allows you to install Microcks with just 3 commands:
 
 ```sh
-$ helm repo add microcks https://microcks.io/helm
+helm repo add microcks https://microcks.io/helm
 
-$ kubectl create namespace microcks
+kubectl create namespace microcks
 
-$ helm install microcks microcks/microcks --version 1.9.1 --namespace microcks \
-   --set microcks.url=microcks.$(minikube ip).nip.io \
-   --set keycloak.url=keycloak.$(minikube ip).nip.io \
+helm install microcks microcks/microcks --version 1.9.1 --namespace microcks \
+   --set microcks.url=microcks.  (minikube ip).nip.io \
+   --set keycloak.url=keycloak.  (minikube ip).nip.io \
    --set keycloak.privateUrl=http://microcks-keycloak.microcks.svc.cluster.local:8080
 ```
 
