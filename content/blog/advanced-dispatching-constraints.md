@@ -49,7 +49,7 @@ Some important things to notice here on how Microcks has interpreted the data co
 As soon as it has been imported, new mock endpoints are available and you can start playing around with the mocks like illustrated with below commands: 
 
 ```sh
-$ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast\?region\=east -k -s | jq .
+curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast\?region\=east -k -s | jq .
 ```
 Output:
 ```json
@@ -61,7 +61,7 @@ Output:
 }
 ```
 ```sh
-$ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast\?region\=north -k -s | jq . 
+curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast\?region\=north -k -s | jq . 
 ```
 Output:
 ```json
@@ -97,7 +97,7 @@ Parameter apiKey is required. Check parameter constraints.%
 So far so good but now let's try adding the `apiKey` parameter to our requests:
 
 ```sh
-$ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast\?region\=east\&apiKey\=qwertyuiop -k -s | jq .
+curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast\?region\=east\&apiKey\=qwertyuiop -k -s | jq .
 ```
 output:
 ```json
@@ -109,7 +109,7 @@ output:
 }
 ```
 ```sh
-$ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast\?region\=west\&apiKey\=qwertyuiop -k -s | jq .
+curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast\?region\=west\&apiKey\=qwertyuiop -k -s | jq .
 ```
 output:
 ```json
@@ -138,7 +138,7 @@ Obviously we choose the second option and get back to the **Edit Properties** pa
 Once saved, you will be able to test again the different mock URLs for the four regions and you'll see that now you're getting the response associated with each requested region:
 
 ```sh
-$ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast\?region\=west\&apiKey\=qwertyuiop -k -s | jq .
+curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast\?region\=west\&apiKey\=qwertyuiop -k -s | jq .
 ```
 output: 
 ```json
@@ -150,7 +150,7 @@ output:
 }
 ``` 
 ```sh
-$ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast\?region\=south\&apiKey\=qwertyuiop -k -s | jq .
+curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast\?region\=south\&apiKey\=qwertyuiop -k -s | jq .
 ```
 output: 
 ```json
@@ -165,7 +165,7 @@ output:
 🎉 Excellent! We solved our routing issue. But let's try now with an unknown `center` region:
 
 ```sh
-$ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast\?region\=center\&apiKey\=qwertyuiop -s | jq .
+curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast\?region\=center\&apiKey\=qwertyuiop -s | jq .
 ```
 outut: 
 ```json
@@ -192,7 +192,7 @@ The `FALLBACK` dispatcher behaves kinda like a `try-catch` wrapping block in pro
 Hit the **Save** button and test again the previous curl command, you'll see that you're now receiving the `404` response called `unknown`: 
 
 ```sh
-$ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast\?region\=center\&apiKey\=qwertyuiop -k
+curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast\?region\=center\&apiKey\=qwertyuiop -k
 ```
 output: 
 ```sh

@@ -41,11 +41,11 @@ One significant advantage of Microcks is its versatility. Of course, it can be i
 For this reason, we decided to enhance things up and make the deployment of Microcks a breeze on developers’ laptops and constrained environments concerned by bootstrap time or resource consumption. Let’s see what we got with the previous `1.4.1` version of Microcks:
 
 ```sh
-$ docker-compose -f docker-compose.yml -f docker-compose-async-addon.yml up -d
+docker-compose -f docker-compose.yml -f docker-compose-async-addon.yml up -d
 
 ```
 ```sh
-$ docker stats --format "table {{.Container}}\t{{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}"
+docker stats --format "table {{.Container}}\t{{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}"
 ```
 output:
 ```sh
@@ -66,11 +66,10 @@ We identified two potential enhancements to make this experience leaner. First, 
 Let now see the results using the new 1.5.0 `docker-compose-devmode.yml` file:
 
 ```sh
-$ docker-compose -f docker-compose-devmode.yml up -d
+docker-compose -f docker-compose-devmode.yml up -d
 ```
 ```sh
-
-$ docker stats --format "table {{.Container}}\t{{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}"
+docker stats --format "table {{.Container}}\t{{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}"
 ```
 output: 
 ```sh

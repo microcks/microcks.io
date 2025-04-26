@@ -83,7 +83,7 @@ Those traces are the ideal way to diagnose slow components within your services 
 To get the above data and visualizations, we ran the benchmarking suite powered by [K6](https://k6.io/) which launches four different scenarios simultaneously during one minute. Here’s the raw output we got below with details on executed scenarios and raw performance metrics:
 
 ```shell
-$ docker run --rm -i -e BASE_URL=${MICROCKS_BASE_URL} -e WAIT_TIME=0.1 grafana/k6:${K6_VERSION} run - < bench-microcks.js
+docker run --rm -i -e BASE_URL=${MICROCKS_BASE_URL} -e WAIT_TIME=0.1 grafana/k6:${K6_VERSION} run - < bench-microcks.js
 ```
 ```sh
 

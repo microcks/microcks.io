@@ -43,7 +43,7 @@ From the small toggle next to the **Mock URL** you can now ask for the `valid` e
 Just issue an invalid call to this endpoint - changing the price to a string for example - and you’ll see the validation in action:
 
 ```sh
-$ curl -X PATCH 'http://localhost:8080/rest-valid/API+Pastries/0.0.1/pastries/Eclair+Cafe' \
+curl -X PATCH 'http://localhost:8080/rest-valid/API+Pastries/0.0.1/pastries/Eclair+Cafe' \
     -H 'Accept: application/json' -H 'Content-Type: application/json' \
     -d '{ "price": "2.6" }' -v
 ```

@@ -23,9 +23,9 @@ As explained in the [Installing with podman-compose doc](../../documentation/gui
 Then it's just a matter of cloning the repository, navigating to correct folder and running our supporting script that runs Podman in **rootless** mode:
 
 ```sh
-$ git clone https://github.com/microcks/microcks.git
-$ cd microcks/install/podman-compose
-$ ./run-microcks.sh
+git clone https://github.com/microcks/microcks.git
+cd microcks/install/podman-compose
+./run-microcks.sh
 ```
 output:
 ```sh
@@ -52,7 +52,7 @@ Open a new browser tab and point to the `http://localhost:8080` endpoint. This w
 Want to see what's running? Check the running containers with:
 
 ```sh
-$ podman ps
+podman ps
 ```
 output:
 ```sh

@@ -63,8 +63,8 @@ Developer experience is of great importance for us and we worked to make it even
 [Kubernetes Operator install](/documentation/references/configuration/operator-config/) has also been simplified by providing one-liner installation (well actually, it’s two lines 😉):
 
 ```sh
-$ kubectl apply -f https://microcks.io/operator/operator-latest.yaml -n microcks
-$ curl https://microcks.io/operator/minikube-minimal.yaml -s | sed 's/KUBE_APPS_URL/'$(minikube ip)'.nip.io/g' | kubectl apply -n microcks -f -
+kubectl apply -f https://microcks.io/operator/operator-latest.yaml -n microcks
+curl https://microcks.io/operator/minikube-minimal.yaml -s | sed 's/KUBE_APPS_URL/'$(minikube ip)'.nip.io/g' | kubectl apply -n microcks -f -
 ```
 
 While at first look it looks simpler, the installation has been enhanced to adapt to any Kube configuration and advanced users will now have the ability to specify resource utilization for the different components.

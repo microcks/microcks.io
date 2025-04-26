@@ -21,14 +21,14 @@ So all you need from now is `docker` and `docker-compose` on your machine. Ready
 Go to a temporary folder and remove previously downloaded `latest` images in case you made any other attempt to use Microcks in the past:
 
 ```sh
-$ cd ~/Development/temp
-$ docker rmi quay.io/microcks/microcks:latest quay.io/microcks/microcks-async-minion:latest quay.io/microcks/microcks-postman-runtime:latest
+cd ~/Development/temp
+docker rmi quay.io/microcks/microcks:latest quay.io/microcks/microcks-async-minion:latest quay.io/microcks/microcks-postman-runtime:latest
 ```
 
 Then, clone a fresh copy of Microcks Git repository:
 
 ```sh
-$ git clone https://github.com/microcks/microcks
+git clone https://github.com/microcks/microcks
 ```
 output:
 ```sh
@@ -44,8 +44,8 @@ Resolving deltas: 100% (5347/5347), done.
 Go to the `docker-compose` installation folder and launch docker-compose with `async-addon`:
 
 ```sh
-$ cd microcks/install/docker-compose
-$ docker-compose -f docker-compose.yml -f docker-compose-async-addon.yml up -d
+cd microcks/install/docker-compose
+docker-compose -f docker-compose.yml -f docker-compose-async-addon.yml up -d
 ```
 output:
 ```sh
@@ -97,7 +97,7 @@ Creating microcks-async-minion    ... done
 After some minutes, check everything is running. Microcks app is bound on `localhost:8080`, Keycloak is bound on `localhost:18080`and Kafka broker is bound on `localhost:9092`:
 
 ```sh
-$ docker ps
+docker ps
 ```
 output:
 ```sh
@@ -124,7 +124,7 @@ You should have following result:
 Check the relevant logs on `microcks` container:
 
 ```sh
-$ docker logs c2d7f3e10215
+docker logs c2d7f3e10215
 ```
 output:
 ```sh
@@ -158,7 +158,7 @@ As stated in the logs, a new API **User signed-up API, 0.1.1** has been discover
 From now, you should start having messages on the Kafka broker. Check the relevant logs on `microcks-async-minion` container:
 
 ```sh
-$ docker logs 3779d9672ea1
+docker logs 3779d9672ea1
 ```
 output:
 ```sh
@@ -177,7 +177,7 @@ output:
 Check the Kafka topic for messages, directly from your machine shell using `kafkacat` utility and `9092` advertised port:
 
 ```sh
-$ kafkacat -b localhost:9092 -t UsersignedupAPI-0.1.1-user-signedup -o end
+kafkacat -b localhost:9092 -t UsersignedupAPI-0.1.1-user-signedup -o end
 ```
 output:
 ```sh
@@ -195,11 +195,11 @@ Yes! 😉
 You can also connect to the running `microcks-kafka` container to use the built-in Kafka tools. This time, you access the broker using the `kafka:19092` address:
 
 ```sh
-$ docker exec -it 7e1f2d2c5305 /bin/sh
+docker exec -it 7e1f2d2c5305 /bin/sh
 ```
 ```sh
-sh-4.2$ cd bin/
-sh-4.2$ ./kafka-topics.sh --bootstrap-server kafka:19092 --list
+cd bin/
+./kafka-topics.sh --bootstrap-server kafka:19092 --list
 ```
 output:
 ```sh
@@ -208,7 +208,7 @@ __consumer_offsets
 microcks-services-updates
 ```
 ```sh
-sh-4.2$ ./kafka-console-consumer.sh --bootstrap-server kafka:19092 --topic UsersignedupAPI-0.1.1-user-signedup
+./kafka-console-consumer.sh --bootstrap-server kafka:19092 --topic UsersignedupAPI-0.1.1-user-signedup
 ```
 output:
 ```json
@@ -219,7 +219,7 @@ output:
 ^CProcessed a total of 4 messages
 ```
 ```sh
-sh-4.2$ exit or press ctrl+D
+exit or press ctrl+D
 ```
 output:
 ```sh
@@ -233,7 +233,7 @@ That's it! 🎉
 Happy with your Microcks discovery? You can turn off everything and free resources executing this command:
 
 ```sh
-$ docker-compose -f docker-compose.yml -f docker-compose-async-addon.yml down
+docker-compose -f docker-compose.yml -f docker-compose-async-addon.yml down
 ```
 output:
 ```sh
