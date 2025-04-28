@@ -146,7 +146,7 @@ The parameters that can be set here are the same that in `Build Step` usage but 
 
 You can also set additional advanced parameters like:
 * The `filteredOperations` to consider: this is a list of the name of the chosen operations. Example: `filteredOperations: ["GET /beer", "GET /beer/{name}"]`.
-* The `operationHeaders` to add to requests: this is a map that specifies these headers globally or per-operation. Example: `["globals": ["name": "x-api-key", "values": "my-values"], "GET /beer": ["name": "x-trace-id", "values": "xcvbnsdfghjklm"]]`
+* The `operationHeaders` to add to requests: this is a map that specifies these headers globally or per-operation. Example: `operationHeaders: ["globals": ["name": "x-api-key", "values": "my-values"], "GET /beer": ["name": "x-trace-id", "values": "xcvbnsdfghjklm"]]`
 
 ## Wrap-up
 
