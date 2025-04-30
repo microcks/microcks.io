@@ -51,7 +51,7 @@ As soon as it has been imported, new mock endpoints are available and you can st
 ```sh
 curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast\?region\=east -k -s | jq .
 ```
-Output:
+
 ```json
 {
   "region": "east",
@@ -63,7 +63,7 @@ Output:
 ```sh
 curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast\?region\=north -k -s | jq . 
 ```
-Output:
+
 ```json
 {
   "region": "north",
@@ -99,7 +99,7 @@ So far so good but now let's try adding the `apiKey` parameter to our requests:
 ```sh
 curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast\?region\=east\&apiKey\=qwertyuiop -k -s | jq .
 ```
-output:
+
 ```json
 {
   "region": "north",
@@ -111,7 +111,7 @@ output:
 ```sh
 curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast\?region\=west\&apiKey\=qwertyuiop -k -s | jq .
 ```
-output:
+
 ```json
 {
   "region": "north",
@@ -140,7 +140,7 @@ Once saved, you will be able to test again the different mock URLs for the four 
 ```sh
 curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast\?region\=west\&apiKey\=qwertyuiop -k -s | jq .
 ```
-output: 
+ 
 ```json
 {
   "region": "west",
@@ -152,7 +152,7 @@ output:
 ```sh
 curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast\?region\=south\&apiKey\=qwertyuiop -k -s | jq .
 ```
-output: 
+ 
 ```json
 {
   "region": "south",
@@ -194,7 +194,7 @@ Hit the **Save** button and test again the previous curl command, you'll see tha
 ```sh
 curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast\?region\=center\&apiKey\=qwertyuiop -k
 ```
-output: 
+ 
 ```sh
 Region is unknown. Choose in north, west, east or south.%
 ```

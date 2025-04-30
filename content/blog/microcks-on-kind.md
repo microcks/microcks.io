@@ -24,7 +24,7 @@ brew install kind
 ```sh
 kind --version
 ```
-output:
+
 ```sh
 kind version 0.20.0
 ```
@@ -63,7 +63,7 @@ We're now going to start a Kube cluster. Start your `kind` cluster using the `cl
 kind create cluster --config=cluster-kind.yaml
 ``` 
 ```sh
---- OUTPUT ---
+
 Creating cluster "kind" ...
  ✓ Ensuring node image (kindest/node:v1.27.3) 🖼 
  ✓ Preparing nodes 📦  
@@ -104,7 +104,7 @@ helm repo add microcks https://microcks.io/helm
 helm install microcks microcks/microcks --namespace microcks --set microcks.url=microcks.127.0.0.1.nip.io --set keycloak.url=keycloak.127.0.0.1.nip.io --set keycloak.privateUrl=http://microcks-keycloak.microcks.svc.cluster.local:8080
 ```
 ```sh
---- OUTPUT ---
+
 NAME: microcks
 LAST DEPLOYED: Sun Dec  3 19:27:27 2023
 NAMESPACE: microcks
@@ -138,7 +138,7 @@ Wait for images to be pulled, pods to be started and ingresses to be there:
 kubectl get pods -n microcks
 ```
 ```sh
---- OUTPUT ---
+
 NAME                                            READY   STATUS    RESTARTS   AGE
 microcks-577874c5b6-z97zm                       1/1     Running   0          73s
 microcks-keycloak-7477cd4fbb-tbmg7              1/1     Running   0          21s
@@ -150,7 +150,7 @@ microcks-postman-runtime-5d8fc9695-kp45w        1/1     Running   0          10m
 kubectl get ingresses -n microcks
 ```
 ```sh
---- OUTPUT ---
+
 NAME                CLASS    HOSTS                            ADDRESS     PORTS     AGE
 microcks            <none>   microcks.127.0.0.1.nip.io        localhost   80, 443   10m
 microcks-grpc       <none>   microcks-grpc.127.0.0.1.nip.io   localhost   80, 443   10m
@@ -183,7 +183,7 @@ Now, you can install Microcks using the Helm chart and enable the asynchronous f
 helm install microcks microcks/microcks --namespace microcks --set microcks.url=microcks.127.0.0.1.nip.io --set keycloak.url=keycloak.127.0.0.1.nip.io --set keycloak.privateUrl=http://microcks-keycloak.microcks.svc.cluster.local:8080 --set features.async.enabled=true --set features.async.kafka.url=kafka.127.0.0.1.nip.io
 ```
 ```sh
---- OUTPUT ---
+
 NAME: microcks
 LAST DEPLOYED: Sun Dec  3 20:14:38 2023
 NAMESPACE: microcks
@@ -223,7 +223,7 @@ Watch and check the pods you should get in the namespace:
 kubectl get pods -n microcks
 ```
 ```sh
---- OUTPUT ---
+
 NAME                                              READY   STATUS    RESTARTS        AGE
 microcks-6ffcc7dc54-c9h4w                         1/1     Running   0               68s
 microcks-async-minion-7f689d9ff7-ptv4c            1/1     Running   2 (40s ago)     48s
@@ -272,7 +272,7 @@ And finally, from your Mac host, you can install the [`kcat`](https://github.com
 kcat -b microcks-kafka.kafka.127.0.0.1.nip.io:443 -X security.protocol=SSL -X ssl.ca.location=ca.crt -t UsersignedupAPI-0.1.1-user-signedup
 ```
 ```sh
---- OUTPUT ---
+
 % Auto-selecting Consumer mode (use -P or -C to override)
 {"id": "zYcAzFlRoTGvu9Mu4ajg30lr1fBa4Kah", "sendAt": "1703699827456", "fullName": "Laurent Broudoux", "email": "laurent@microcks.io", "age": 41}
 {"id":"v0TkDvd1Z7RxynQvi1i0NmXAaLPzuYXE","sendAt":"1703699827585","fullName":"John Doe","email":"john@microcks.io","age":36}
@@ -291,14 +291,14 @@ Deleting the microcks Helm release from your cluster is straightforward. Then yo
 helm delete microcks -n microcks
 ```
 ```sh
---- OUTPUT ---
+
 release "microcks" uninstalled
 ```
 ```sh
 kind delete cluster
 ```
 ```sh
---- OUTPUT ---
+
 Deleting cluster "kind" ...
 Deleted nodes: ["kind-control-plane"]
 ```

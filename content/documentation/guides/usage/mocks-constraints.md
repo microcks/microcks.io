@@ -33,7 +33,7 @@ Now let's do some tests to check Microcks behavior:
 http http://localhost:8080/rest/API+Pastry/1.0.0/pastry
 ```
 ```sh
---- OUTPUT ---
+
 HTTP/1.1 400 
 Connection: close
 Content-Length: 65
@@ -50,7 +50,7 @@ Hum... Adding the `Authorization` header...
 http http://localhost:8080/rest/API+Pastry/1.0.0/pastry Authorization:'Bearer 123'
 ```
 ```sh
---- OUTPUT ---
+
 HTTP/1.1 400 
 Connection: close
 Content-Length: 89
@@ -66,7 +66,7 @@ Hum... Fixing the `Bearer` format and adding the `x-request-id` header:
 ```sh http http://localhost:8080/rest/API+Pastry/1.0.0/pastry Authorization:'Bearer abcdefabcdefabcdefabcdefab1234567890' x-request-id:123
 ```
 ```sh
---- OUTPUT ---
+
 HTTP/1.1 200 
 Content-Length: 559
 Content-Type: application/json

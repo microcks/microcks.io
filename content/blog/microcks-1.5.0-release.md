@@ -47,7 +47,7 @@ docker-compose -f docker-compose.yml -f docker-compose-async-addon.yml up -d
 ```sh
 docker stats --format "table {{.Container}}\t{{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}"
 ```
-output:
+
 ```sh
 CONTAINER      NAME                       CPU %     MEM USAGE / LIMIT
 3687d032ecad   microcks-async-minion      1.82%     266.2MiB / 6.789GiB
@@ -71,7 +71,7 @@ docker-compose -f docker-compose-devmode.yml up -d
 ```sh
 docker stats --format "table {{.Container}}\t{{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}"
 ```
-output: 
+ 
 ```sh
 CONTAINER      NAME                       CPU %     MEM USAGE / LIMIT
 832548c518d3   microcks-async-minion      2.06%     243.2MiB / 6.789GiB

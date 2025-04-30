@@ -93,7 +93,7 @@ The parameters that can be set here are:
 ```sh
   tkn pipelinerun start user-registration-tekton-pipeline
 ```
-output:
+
 ```sh
 PipelineRun started: user-registration-tekton-pipeline-run-64xf7
 Showing logs...
@@ -105,7 +105,7 @@ Showing logs...
 ```sh
   tkn pipeline logs user-registration-tekton-pipeline-run-64xf7 -f -n user-registration
 ```
-output:
+
 ```sh
 [...]
 

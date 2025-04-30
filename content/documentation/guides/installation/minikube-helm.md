@@ -23,7 +23,7 @@ As being on a Mac, people usually use [brew](https://brew.sh) to install `miniku
 brew install minikube
 minikube version
 ```
-output:
+
 ```sh
 minikube version: v1.32.0
 commit: 8220a6eb95f0a4d75f7f2d7b14cef975f050512d
@@ -45,9 +45,9 @@ We're now going to start a Kube cluster. Start your `minikube` cluster with the 
 ```sh
 minikube start
 ```
-output:
+
 ```sh
---- OUTPUT ---
+
 😄  minikube v1.32.0 sur Darwin 14.1.2 (arm64)
 🎉  minikube 1.33.1 est disponible ! Téléchargez-le ici : https://github.com/kubernetes/minikube/releases/tag/v1.33.1
 💡  Pour désactiver cette notification, exécutez : 'minikube config set WantUpdateNotification false'
@@ -80,7 +80,7 @@ You need to enable the `ingress` add-on if not already set by default:
 
 ```sh
 minikube addons enable ingress
---- OUTPUT ---
+
 💡  ingress est un addon maintenu par Kubernetes. Pour toute question, contactez minikube sur GitHub.
 Vous pouvez consulter la liste des mainteneurs de minikube sur : https://github.com/kubernetes/minikube/blob/master/OWNERS
 💡  Après que le module est activé, veuiller exécuter "minikube tunnel" et vos ressources ingress seront disponibles à "127.0.0.1"
@@ -97,7 +97,7 @@ You can check connection to the cluster and that Ingresses are OK running the fo
 kubectl get pods -n ingress-nginx
 ```
 ```sh
---- OUTPUT ---
+
 NAME                                       READY   STATUS      RESTARTS   AGE
 ingress-nginx-admission-create-dz95x       0/1     Completed   0          26m
 ingress-nginx-admission-patch-5bjwv        0/1     Completed   1          26m
@@ -114,7 +114,7 @@ Then, we'll need to prepare the `/etc/hosts` file to access Microcks using an In
 cat /etc/hosts
 ```
 ```sh
---- OUTPUT --- 
+ 
 ##
 # Host Database
 #
@@ -134,7 +134,7 @@ helm repo add microcks https://microcks.io/helm
 helm install microcks microcks/microcks --namespace microcks --set microcks.url=microcks.m.minikube.local --set keycloak.url=keycloak.m.minikube.local --set keycloak.privateUrl=http://microcks-keycloak.microcks.svc.cluster.local:8080
 ```
 ```sh
---- OUTPUT ---
+
 NAME: microcks
 LAST DEPLOYED: Tue Dec 19 15:23:23 2023
 NAMESPACE: microcks
@@ -168,7 +168,7 @@ Wait for the images to be pulled, pods to be started and ingresses to be there:
 kubectl get pods -n microcks
 ```
 ```sh
---- OUTPUT ---
+
 NAME                                            READY   STATUS    RESTARTS   AGE
 microcks-865b66d867-httf7                       1/1     Running   0          56s
 microcks-keycloak-5bd7866b5f-9kr8k              1/1     Running   0          56s
@@ -180,7 +180,7 @@ microcks-postman-runtime-5cbc478db7-rzprn       1/1     Running   0          56s
 kubectl get ingresses -n microcks
 ```
 ```sh
---- OUTPUT ---
+
 NAME                CLASS   HOSTS                             ADDRESS        PORTS     AGE
 microcks            nginx   microcks.m.minikube.local         192.168.49.2   80, 443   2m4s
 microcks-grpc       nginx   microcks-grpc.m.minikube.local    192.168.49.2   80, 443   2m4s
@@ -193,7 +193,7 @@ To access the ingress from your browser, you'll need to start the networking tun
 minikube tunnel
 ```
 ```sh
---- OUTPUT ---
+
 ✅  Tunnel démarré avec succès
 
 📌  REMARQUE : veuillez ne pas fermer ce terminal car ce processus doit rester actif pour que le tunnel soit accessible...
@@ -229,7 +229,7 @@ Then, you'll also have to update your  `/etc/hosts` file so that we’ll can acc
 
 ```sh
 cat /etc/hosts
---- OUTPUT --- 
+ 
 ##
 # Host Database
 #
@@ -253,7 +253,7 @@ Now, you can install Microcks using the Helm chart and enable the asynchronous f
 helm install microcks microcks/microcks --namespace microcks --set microcks.url=microcks.m.minikube.local --set keycloak.url=keycloak.m.minikube.local --set keycloak.privateUrl=http://microcks-keycloak.microcks.svc.cluster.local:8080 --set features.async.enabled=true --set features.async.kafka.url=kafka.m.minikube.local
 ```
 ```sh
---- OUTPUT ---
+
 NAME: microcks
 LAST DEPLOYED: Tue Dec 26 15:07:35 2023
 NAMESPACE: microcks
@@ -292,7 +292,7 @@ Watch and check the pods you should get in the namespace (this can take a bit lo
 kc get pods -n microcks
 ```
 ```sh
---- OUTPUT ---
+
 NAME                                             READY   STATUS    RESTARTS       AGE
 microcks-5fbf679987-kzctj                        1/1     Running   1 (116s ago)   4m32s
 microcks-async-minion-ddfc99cf5-lcs7s            1/1     Running   5 (101s ago)   4m32s
@@ -342,7 +342,7 @@ And finally, from your Mac host, you can install the [`kcat`](https://github.com
 kcat -b microcks-kafka.kafka.m.minikube.local:443 -X security.protocol=SSL -X ssl.ca.location=ca.crt -t UsersignedupAPI-0.1.1-user-signedup
 ```
 ```sh
---- OUTPUT ---
+
 % Auto-selecting Consumer mode (use -P or -C to override)
 {"id": "FrncZaUsQFWPlcKSm4onTrw3o0sXhMkJ", "sendAt": "1703600745149", "fullName": "Laurent Broudoux", "email": "laurent@microcks.io", "age": 41}
 {"id":"EFcTdsrMuxKJiJUUikJnnSZWaKxltfJ0","sendAt":"1703600745275","fullName":"John Doe","email":"john@microcks.io","age":36}
@@ -361,14 +361,14 @@ Deleting the microcks Helm release from your cluster is straightforward. Then yo
 helm delete microcks -n microcks
 ```
 ```sh
---- OUTPUT ---
+
 release "microcks" uninstalled
 ```
 ```sh
 minikube stop
 ```
 ```sh
---- OUTPUT ---
+
 ✋  Nœud d'arrêt "minikube" ...
 🛑  Mise hors tension du profil "minikube" via SSH…
 🛑  1 nœud arrêté.

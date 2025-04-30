@@ -65,7 +65,7 @@ Wait a bit for the operator to be triggered, the images to be pulled, pods to be
   kubectl get pods -n microcks
 ```
 ```sh
---- OUTPUT --- 
+ 
 NAME                                            READY   STATUS    RESTARTS   AGE
 microcks-6779c95d59-v2p7j                       1/1     Running   0          55s
 microcks-keycloak-7cc44f6cb5-ntgl6              1/1     Running   0          56s
@@ -78,7 +78,7 @@ microcks-postman-runtime-6fdd4659f5-vm76j       1/1     Running   0          55s
  kubectl get ingresses -n microcks
 ```
 ```sh
---- OUTPUT --- 
+ 
 NAME                CLASS    HOSTS                             ADDRESS        PORTS     AGE
 microcks            <none>   microcks.m.minikube.local        192.168.49.2   80, 443   3m20s
 microcks-grpc       nginx    microcks-grpc.m.minikube.local   192.168.49.2   80, 443   85s
@@ -228,7 +228,7 @@ Watch and check the pods you should get in the namespace:
 ```sh
  kubectl get pods -n microcks
 ```
-output:
+
 ```sh
 NAME                                              READY   STATUS    RESTARTS        AGE
 microcks-585d4554bf-bplwc                         1/1     Running   0               7m21s

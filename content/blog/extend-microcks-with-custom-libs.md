@@ -48,7 +48,6 @@ We have set up a specific GitHub repository to illustrate those extension endpoi
 tree
 ```
 ```sh
-=== OUTPUT ===
 .
 |____Dockerfile.acme
 |____Dockerfile.acme.minion
@@ -240,7 +239,6 @@ In this configuration, we will have four containers running - with additional `m
 docker ps
 ```
 ```sh
-=== OUTPUT ===
 CONTAINER ID   IMAGE                                            COMMAND                  CREATED         STATUS         PORTS                                                                       NAMES
 5d314d3bf8b0   quay.io/microcks/microcks-async-minion:nightly   "/deployments/run-ja…"   5 seconds ago   Up 1 second    8080/tcp, 0.0.0.0:8081->8081/tcp                                            microcks-async-minion
 052dd9777229   quay.io/microcks/microcks:nightly                "/deployments/run-ja…"   6 seconds ago   Up 5 seconds   0.0.0.0:8080->8080/tcp, 8778/tcp, 0.0.0.0:9090->9090/tcp, 9779/tcp          microcks

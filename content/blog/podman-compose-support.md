@@ -27,7 +27,7 @@ git clone https://github.com/microcks/microcks.git
 cd microcks/install/podman-compose
 ./run-microcks.sh
 ```
-output:
+
 ```sh
 Running rootless containers...
 Discovered host IP address: 192.168.3.102
@@ -54,7 +54,7 @@ Want to see what's running? Check the running containers with:
 ```sh
 podman ps
 ```
-output:
+
 ```sh
 CONTAINER ID  IMAGE                                             COMMAND               CREATED         STATUS             PORTS                     NAMES
 68faf7825db1  quay.io/microcks/microcks:latest                                        8 seconds ago   Up 7 seconds ago   0.0.0.0:8080->8080/tcp    microcks
