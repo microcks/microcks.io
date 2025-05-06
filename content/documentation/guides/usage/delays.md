@@ -68,7 +68,7 @@ The `500 ms` delay has overriden the default delay set at the operation level! ð
 Now finally, let see how to override things at the request level. This is as simple as setting a `x-microcks-delay` HTTP header! To demonstrate that it supercedes all over delays definition, we will keep the previous one and issue the following command:
 
 ```sh
-time curl -X GET 'http://localhost:8080/rest/API+Pastry+-+2.0/2.0.0/pastry?delay=500' -H 'x-microcks-delay: 800' -H 'Accept: application/json'
+time curl -X GET 'http://localhost:8585/rest/API+Pastry+-+2.0/2.0.0/pastry?delay=500' -H 'x-microcks-delay: 800' -H 'Accept: application/json'
 ```
 that will produce the following output:
 ```sh
