@@ -23,15 +23,17 @@ In Microcks, constraints can be put onto `Query` or `Header` parameters and are 
 
 ## 2. Practice
 
-To practice the setup of constraints, you can reuse the `Pastry API` sample that ois described into our [Getting Started](/documentatoin/tutorials/getting-started) tutorial. Now imagine you put such constraints onto the `GET /pastry` operation of your REST API that is secured using a JWT Bearer and should managed tracabelity using a correlation id:
+To practice the setup of constraints, you can reuse the `Pastry API` sample that is described into our [Getting Started](/documentatoin/tutorials/getting-started) tutorial. Now imagine you put such constraints onto the `GET /pastry` operation of your REST API that is secured using a JWT Bearer and should managed tracabelity using a correlation id:
 
 {{< image src="images/documentation/parameters-constraints.png" alt="image" zoomable="true" >}}
 
 Now let's do some tests to check Microcks behavior:
 
 ```sh
-$ http http://localhost:8080/rest/API+Pastry/1.0.0/pastry
---- OUTPUT ---
+http http://localhost:8080/rest/API+Pastry/1.0.0/pastry
+```
+will produce the following output:
+```sh
 HTTP/1.1 400 
 Connection: close
 Content-Length: 65
@@ -45,8 +47,10 @@ Parameter Authorization is required. Check parameter constraints.
 Hum... Adding the `Authorization` header...
 
 ```sh
-$ http http://localhost:8080/rest/API+Pastry/1.0.0/pastry Authorization:'Bearer 123'
---- OUTPUT ---
+http http://localhost:8080/rest/API+Pastry/1.0.0/pastry Authorization:'Bearer 123'
+```
+will produce the following output:
+```sh
 HTTP/1.1 400 
 Connection: close
 Content-Length: 89
@@ -60,8 +64,10 @@ Parameter Authorization should match ^Bearer\s[a-f0-9]{36}$. Check parameter con
 Hum... Fixing the `Bearer` format and adding the `x-request-id` header:
 
 ```sh
-$ http http://localhost:8080/rest/API+Pastry/1.0.0/pastry Authorization:'Bearer abcdefabcdefabcdefabcdefab1234567890' x-request-id:123
---- OUTPUT ---
+http http://localhost:8080/rest/API+Pastry/1.0.0/pastry Authorization:'Bearer abcdefabcdefabcdefabcdefab1234567890' x-request-id:123
+```
+will produce thecorrect following output:
+```sh
 HTTP/1.1 200 
 Content-Length: 559
 Content-Type: application/json
