@@ -369,6 +369,17 @@
   position: initial !important;
 }
 
+/* light mode */
+.search-form-control::placeholder {
+  color: #6c757d;
+}
+
+/* Dark mode */
+[data-bs-theme="dark"] .search-form-control::placeholder {
+  color: #d1d1d1 !important; 
+  opacity: 1;
+}
+
 .dark .search-modal .modal-header {
   background-color: $dark-body-bg;
   box-shadow: none;

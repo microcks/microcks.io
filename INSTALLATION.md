@@ -8,16 +8,16 @@ First, fork the [Microcks.io repository](https://github.com/microcks/microcks.io
 ## 2. Clone the Repository
 Next, clone the forked repository to your local machine:
 
-sh
+```sh
 git clone https://github.com/YOUR-USERNAME/microcks.io.git
-
+```
 
 Replace YOUR-USERNAME with your GitHub username.
 
 ## 3. Navigate to the Project Directory
-sh
+```sh
 cd microcks.io
-
+```
 
 ## 4. Install Hugo
 Microcks.io is powered by [Hugo](https://gohugo.io/). You need to install it to run the website locally.
@@ -27,9 +27,9 @@ Follow the official installation guide for your operating system: [Hugo Installa
 ## 5. Start the Local Server
 Run the following command to start the local development server:
 
-sh
+```sh
 hugo server
-
+```
 
 This will download the necessary Hugo modules and start a local server.
 

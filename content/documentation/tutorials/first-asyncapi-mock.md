@@ -3,7 +3,7 @@ draft: false
 title: "Your 1st AsyncAPI on Kafka mock"
 date: 2024-04-30
 publishdate: 2024-04-30
-lastmod: 2025-01-22
+lastmod: 2025-03-19
 weight: 6
 ---
 
@@ -29,7 +29,7 @@ To retrieve and start the `docker compose` configuration, just execute the follo
 cd ~/Development/temp
 git clone https://github.com/microcks/microcks
 cd microcks/install/docker-compose
-docker compose -f docker-compose.yml up -d
+docker compose -f docker-compose-devmode.yml up -d
 ```
 
 `docker` pulls the missing container images and starts 5 containers:
@@ -260,7 +260,7 @@ The important thing to notice here is the **location** of the new channel. In fa
 
 You can see two important changes from the previous operation we created:
 * The operation has now a dispatcher named `URI_PARTS` that means that Microcks will create dynamic endpoints/topic having templatized parts (like `pet-{color}` in our case),
-* Each example may have a different Kafka Topic associated with. Microcks will dyanmically create them and produce mock messages in the correct ones.
+* Each example may have a different Kafka Topic associated with. Microcks will dynamically create them and produce mock messages in the correct ones.
 
 Let's try this on the different topics corresponding to the differnet colors:
 

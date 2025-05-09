@@ -3,7 +3,7 @@ draft: false
 title: "On Kubernetes with Operator"
 date: 2024-04-30
 publishdate: 2024-04-30
-lastmod: 2025-01-22
+lastmod: 2025-03-21
 weight: 9
 ---
 
@@ -13,11 +13,17 @@ This guide shows you how to deploy and use the [Microcks Kubernetes Operator](ht
 
 The Microcks Operator offers advanced features comparing to the Helm chart and can be used in a complete [GitOps approach](https://www.redhat.com/en/topics/devops/what-is-gitops) where all the content of a Microcks instance can be pulled from a Git repository. Deploying this practice will allow the automated creation of fully-configured instances on demand, in seconds or minutes, and in a full reproducible way. The Microcks Operator is the cornerstone for your Sandbox-as-a-Service approach!
 
+> The video below illustrates what you can achieve using the Microcks Kubernetes Operator the GitOps way using [ArgoCD](https://argo-cd.readthedocs.io/en/stable/)
+
+{{< youtube id="D7Jsr7-R3p8" autoplay="false" >}}
+
+<br/>
+
 Let's walk the different steps 🥾
 
 ## 1. Operator deployment
 
-Before starting, we'll assume you have access to a working Kubernetes cluster with the adminstrator privileges. If it's not the case, please ask your favorite SRE or Platform Engineer to do this preparation step for you. If you're practicing, you can also use a local Minikube or Kind cluster. You can have a look a the first two steps of our [Minikube with Helm](/documentation/guides/installation/minikube-helm) or [Kind with Helm](/documentation/guides/installation/minikube-helm) installation guides to do so.
+Before starting, we'll assume you have access to a working Kubernetes cluster with the administrator privileges. If it's not the case, please ask your favorite SRE or Platform Engineer to do this preparation step for you. If you're practicing, you can also use a local Minikube or Kind cluster. You can have a look a the first two steps of our [Minikube with Helm](/documentation/guides/installation/minikube-helm) or [Kind with Helm](/documentation/guides/installation/minikube-helm) installation guides to do so.
 
 First thing, you need to do is to install the [Custom Resource Definitions](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) of the Operator in your cluster. You can do this directly pointing to the resources on our GitHub repository: 
 
@@ -177,7 +183,7 @@ There are three important things to notice here:
 
 ### Status management
 
-`APISource` artifacts may need and reference secrets to accesss remote repositories. As one cannot predict the order of resource reconcialiation in Kubernetes, if an `APISource` artifact creation is failing because of a missing secret, the reconciliation will be retried after a certain delay. The operator will track the status of each `APISource` artifact & importers as well as `SecretSource` secrets using the `Status` property of the corresponding resource.
+`APISource` artifacts may need and reference secrets to access remote repositories. As one cannot predict the order of resource reconcialiation in Kubernetes, if an `APISource` artifact creation is failing because of a missing secret, the reconciliation will be retried after a certain delay. The operator will track the status of each `APISource` artifact & importers as well as `SecretSource` secrets using the `Status` property of the corresponding resource.
 
 You can check the description of the `Status` property for `APISource` [here](https://github.com/microcks/microcks-operator/blob/main/documentation/apisource-cr.md) and you can check the description of the `Status` property for `SecretSource` [there](https://github.com/microcks/microcks-operator/blob/main/documentation/secretsource-cr.md).
 
@@ -199,7 +205,7 @@ kubectl patch -n ingress-nginx deployment/ingress-nginx-controller --type='json'
     -p '[{"op":"add","path":"/spec/template/spec/containers/0/args/-","value":"--enable-ssl-passthrough"}]'
 ```
 
-So assuming you're having the Strimzi operator up and runinng in your `microcks` namespace, you can now create a new Microcks instance with additional properties to enable the asynchronous feature and to popup a new Kafka cluster that will be made available to users at `kafka.m.minikube.local`:
+So assuming you're having the Strimzi operator up and running in your `microcks` namespace, you can now create a new Microcks instance with additional properties to enable the asynchronous feature and to popup a new Kafka cluster that will be made available to users at `kafka.m.minikube.local`:
 
 ```yaml
 cat <<EOF | kubectl apply -n microcks -f -

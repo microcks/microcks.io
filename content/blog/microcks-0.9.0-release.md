@@ -21,7 +21,7 @@ Let’s do a quick review on what’s new in this release!
 
 ## Installation experience
 
-First contact with a new solution comes usually from the installion process itself and we care about user experience to make your life easier ;-)
+First contact with a new solution comes usually from the installation process itself and we care about user experience to make your life easier ;-)
 
 Microcks is now available on Helm Hub and has its own Chart repo. So installing Microcks via Helm is just 2 commands:
 
@@ -90,7 +90,7 @@ Upon invocation, the mock engine will use this template and interpret the expres
 
 > See full details documented here: https://microcks.io/documentation/references/templates/
 
-We also added some nice documentation enhancements like [Content-type negociation](https://microcks.io/documentation/tutorials/getting-started/#viewing-an-api), [Parameters constraints](/documentation/guides/usage/mocks-constraints/) and [Custom dispatching rules](/documentation/explanations/dispatching/).
+We also added some nice documentation enhancements like [Content-type negotiation](https://microcks.io/documentation/tutorials/getting-started/#viewing-an-api), [Parameters constraints](/documentation/guides/usage/mocks-constraints/) and [Custom dispatching rules](/documentation/explanations/dispatching/).
 
 ## Testing enhancements
 

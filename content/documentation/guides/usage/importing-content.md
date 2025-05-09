@@ -33,7 +33,7 @@ While this method is very convenient for a quick test, you'll have to re-import 
 
 ### Via the API
 
-The same thing can be done via Microcks' own API. Be sure to start reading the [Connecting to Microcks API](/automation/api.md) guide first, and to retrieve a `token` by running the authentication flow. The *Service Account* you use for this operation is required to have the `manager` role - that is not the case of the default one as explained in [Inspecting default Service Account](/microcks.io/documentation/explanations/service-account/#inspecting-default-service-account).
+The same thing can be done via Microcks' own API. Be sure to start reading the [Connecting to Microcks API](/documentation/guides/automation/api) guide first, and to retrieve a `token` by running the authentication flow. The *Service Account* you use for this operation is required to have the `manager` role - that is not the case of the default one as explained in [Inspecting default Service Account](/documentation/explanations/service-account/#inspecting-default-service-account).
 
 Once you have the `$TOKEN` issued for the correct account, uploading a new Artifact is just a matter of executing this `curl` command:
 

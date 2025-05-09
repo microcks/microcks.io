@@ -3,7 +3,7 @@ draft: false
 title: "What is Microcks?"
 date: 2024-04-29
 publishdate: 2024-04-29
-lastmod: 2025-01-22
+lastmod: 2025-03-11
 weight: 1
 ---
 
@@ -15,9 +15,9 @@ Microcks is a [Cloud Native Computing Foundation (CNCF) Sandbox project](https:/
 
 <br/>
 
-### Who can use Microcks for?
+### Who can use Microcks?
 
-Depending on your profile, you way use Microcks to gain different advantages:
+Depending on your profile, you may use Microcks to gain different advantages:
 
 <section class="mt-5">
   <div class="container">
@@ -30,7 +30,7 @@ Depending on your profile, you way use Microcks to gain different advantages:
         <ul>
           <li>Get instant feedback on design iterations with Microcks powered simulations</li>
           <li>Leverage <a href="/documentation/references/artifacts/">Open Standards</a> and ensure re-use for easy communication</li>
-          <li>Share simulations and conformance certification tests kit with your teams and partners</li>
+          <li>Share simulations and conformance certification test kits with your teams and partners</li>
           <li>Assess and monitor <a href="/documentation/explanations/conformance-testing/">conformance quality risks</a> of your API and services portfolio</li>
         </ul>
       </div>

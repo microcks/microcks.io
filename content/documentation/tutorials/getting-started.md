@@ -19,7 +19,7 @@ In your terminal issue the following command - maybe replacing `8585` by another
 docker run -p 8585:8080 -it --rm quay.io/microcks/microcks-uber:latest-native 
 ```
 
-This will pull and spin the `uber` container and setup a simple environment for you to use. You shoud get something like this on your terminal:
+This will pull and spin the `uber` container and setup a simple environment for you to use. You should get something like this on your terminal:
 
 ```sh
 [...]
@@ -86,11 +86,16 @@ At the end of the **Mock URL** line, you'll notice two icons and buttons. The fi
 ```sh
 curl -X GET 'http://localhost:8585/rest/API+Pastry+-+2.0/2.0.0/pastry/Millefeuille' -H 'Accept: application/json'
 ```
+
 ```json
 {"name":"Millefeuille","description":"Delicieux Millefeuille pas calorique du tout","size":"L","price":4.4,"status":"available"}
 ```
 
 Ta Dam! 🎉
+
+```sh
+{"name":"Millefeuille","description":"Delicieux Millefeuille pas calorique du tout","size":"L","price":4.4,"status":"available"}
+```
 
 ## What's next?
 

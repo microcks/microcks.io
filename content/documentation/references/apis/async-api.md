@@ -13,4 +13,4 @@ The AsyncAPI Web Component below allows you to browse and discover the various A
 
 Previous releases of the API definitions can be found in the [GitHub repository](https://github.com/microcks/microcks/tree/master/api).
 
-{{< aai-spec url="https://raw.githubusercontent.com/microcks/microcks/refs/heads/1.11.x/api/microcks-asyncapi-v1.10.yaml" >}}
+{{< aai-spec url="https://raw.githubusercontent.com/microcks/microcks/master/api/microcks-asyncapi-v1.10.yaml" >}}

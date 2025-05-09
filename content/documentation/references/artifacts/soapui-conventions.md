@@ -73,11 +73,13 @@ After double-clicking on the operation node of your Mock Service, a window as sh
 
 > 🚨 **Warning**: The XPath expression used by your different *Match Rule* must strictly be the same. You cannot used different expression for different rules.
 
-Below the exemple of using the name find in incoming request to find a matching response.
+Below the example of using the name find in incoming request to find a matching response.
 
 {{< image src="images/documentation/soapui-querymatch.png" zoomable="true" >}}
 
 #### Using a Groovy script
+
+> 🚨 **Warning**: Uber-native image doesn't support Groovy scripting as it required dynamic compilation available in JVM mode only. Use the standard Uber version.
 
 Another way of defining matching rules is using a Groovy script. Such a script allows to define much more logic for finding a response for an incoming requests. With scripts you can use request payload but also have access to query string, http headers and so on.
 

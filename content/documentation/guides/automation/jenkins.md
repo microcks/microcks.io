@@ -3,7 +3,7 @@ draft: false
 title: "Using in Jenkins Pipeline"
 date: 2021-02-19
 publishdate: 2021-02-19
-lastmod: 2024-06-10
+lastmod: 2025-04-28
 weight: 6
 ---
 
@@ -15,7 +15,7 @@ The Microcks Jenkins plugin has its [own GitHub repository](https://github.com/m
 
 ## 1. Download the Jenkins plugin
 
-Microcks Jenkins plugin is available and can be downloaded from [Central Maven repository](https://repo.maven.apache.org/maven2/io/github/microcks/microcks-jenkins-plugin/). Just get the [HPI file](https://repo.maven.apache.org/maven2/io/github/microcks/microcks-jenkins-plugin/0.5.0/microcks-jenkins-plugin-0.5.0.hpi) and install it on your Jenkins master [your preferred way](https://jenkins.io/doc/book/managing/plugins/).
+Microcks Jenkins plugin is available and can be downloaded from [Central Maven repository](https://repo.maven.apache.org/maven2/io/github/microcks/microcks-jenkins-plugin/). Just get the [HPI file](https://repo.maven.apache.org/maven2/io/github/microcks/microcks-jenkins-plugin/0.6.0/microcks-jenkins-plugin-0.6.0.hpi) and install it on your Jenkins master [your preferred way](https://jenkins.io/doc/book/managing/plugins/).
 
 ## 2. Setup the Jenkins plugin
 
@@ -102,6 +102,10 @@ The parameters that can be set here are:
 * The `Verbose` flag: allows to collect detailed logs on Microcks plugin execution,
 * The `Timeout` configuration: allows you to override default timeout for this tests.
 
+You can also set additional advanced parameters like:
+* The `Filtered Operations` to consider: this is a JSON array containing the name of the chosen operations. Exampl: `["GET /beer", "GET /beer/{name}"]`.
+* The `Operations Headers` to add to requests: this is a JSON object that specifies these headers globally or per-operation. Example: `{"globals": [{"name": "x-api-key", "values": "my-values"}], "GET /beer": [{"name": "x-trace-id", "values": "xcvbnsdfghjklm"}]}`
+
 #### DSL plugin usage
 
 When defining a new CI/CD pipeline - even through the Jenkins or OpenShift GUI or through a `Jenkinsfile` within your source repository - you may want to add a specific `microcksTest` within your pipeline script as the example below:
@@ -139,6 +143,10 @@ The parameters that can be set here are the same that in `Build Step` usage but 
 * The `verbose` flag: allows to collect detailed logs on Microcks plugin execution,
 * The `waitTime` configuration: allows you to override the default time quantity for this tests.
 * The `waitUnit` configuration: allows you to override the default time unit for this tests (values in milli, sec or min).
+
+You can also set additional advanced parameters like:
+* The `filteredOperations` to consider: this is a list of the name of the chosen operations. Example: `filteredOperations: ["GET /beer", "GET /beer/{name}"]`.
+* The `operationHeaders` to add to requests: this is a map that specifies these headers globally or per-operation. Example: `operationHeaders: ["globals": ["name": "x-api-key", "values": "my-values"], "GET /beer": ["name": "x-trace-id", "values": "xcvbnsdfghjklm"]]`
 
 ## Wrap-up
 

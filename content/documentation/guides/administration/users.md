@@ -11,7 +11,7 @@ weight: 1
 
 This guide will show you how to use the **Users Management capabilities** of the Microcks Web UI. 
 
-Your can *partially* manage users directly from the Microcks UI. "Partially" means that you are able to manage a user's rolesand groups within Microcks but that you're not able to create a new user. This action is reserved to your Identity Provider used through Keycloak configuration or to Keycloak itself if you choose to use it as a provider. Please check the [Identity Management section](/documentation/references/configuration/security-config/#identity-management) of the [Security Configuration](/documentation/references/configuration/security-config) reference for more information on that.
+Your can *partially* manage users directly from the Microcks UI. "Partially" means that you are able to manage a user's roles and groups within Microcks, but that you're not able to create a new user. This action is reserved for your Identity Provider used through Keycloak configuration or to Keycloak itself if you choose to use it as a provider. Please check the [Identity Management section](/documentation/references/configuration/security-config/#identity-management) of the [Security Configuration](/documentation/references/configuration/security-config) reference for more information on that.
 
 > 🚨 **Prerequisites**
 >
@@ -21,9 +21,9 @@ Your can *partially* manage users directly from the Microcks UI. "Partially" mea
 
 Users management is simply a thumbnail with the **Administration** page that is available from the vertical menu on the left once logged in as administrator. 
 
-On this page, you can easily search users using their name and they'll be listed, organized in pages. On each line of the list, you'll have the oportunity to check the different roles endorsed by a user.
+On this page, you can easily search users using their name and they'll be listed, organized in pages. On each line of the list, you'll have the opportunity to check the different roles endorsed by a user.
 
-* **Registred** means that the user has already sign-in within Microcks and has been just endorsed with the `user` role,
+* **Registred** means that the user has already sign-in within Microcks and has just been endorsed with the `user` role,
 * **Manager** means that the user has been ensorded with the `manager` Microcks role,
 * **Admin** means that the user has been ensorded with the `admin` Microcks role.
 
@@ -35,18 +35,18 @@ From the 3-dots menu on the end of the line, you have the ability to **Add** or 
 
 ## 2. Groups membership management
 
-If you have enabled the segmentation of management roles on a `master` label you have chosen for organizing your repository (see [Organizing Repository](/documentation/guides/organizing-repository/#segmenting-management-responsibilities)), you will also be able to assign groups memberships for managers.
+If you have enabled the segmentation of management roles on a `master` label you have chosen for organizing your repository (see [Organizing Repository](/documentation/guides/administration/organizing-repository/#3-segmenting-management-responsibilities), you will also be able to assign groups memberships for managers.
 
-When this feature is enabled, Microcks will create as many groups in Keycloak as we have different values for this `master` label. These groups are organized in a hierarchy so that you'll have groups with such names `/microcks/manager/<value>` those members represents the `manager` of the resources labeled with `<value>` value.
+When this feature is enabled, Microcks will create as many groups in Keycloak as we have different values for this `master` label. These groups are organized in a hierarchy so that you'll have groups with such names `/microcks/manager/<value>`, those members represent the `manager` of the resources labeled with `<value>` value.
 
-Also, a new **Manage Groups** options appears in the option menu for each user. From this new modal window, you can easily manage group membership for a specified user as shown below: 
+Also, a new **Manage Groups** option appears in the option menu for each user. From this new modal window, you can easily manage group membership for a specified user as shown below: 
 
 <div align="center">
 {{< figure src="images/documentation/users-group-management.png" alt="image" zoomable="true" width="70%" >}}
 </div>
 <br/>
 
-> 🚨 The groups in Keycloak are actually synchronized lazyly each time an administrator visits to this page. For some unknown reasons, it appears that the sync can be delayed from time to time. Before raising an issue, please visit another page and come back to this one. 😉
+> 🚨 The groups in Keycloak are actually synchronized lazily each time an administrator visits this page. For some unknown reason, it appears that the sync can be delayed from time to time. Before raising an issue, please visit another page and come back to this one. 😉
 
 ## Wrap-up
 
