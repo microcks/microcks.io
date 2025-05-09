@@ -207,7 +207,7 @@ It's now the moment to import this SoapUI Project back in Microcks and see the r
 Microcks has found `getPets` as a valid sample to build a simulation upon. A mock URL has been made available. We can use this to test the query as demonstrated below with a `curl` command:
 
 ```shell
-$ curl -X POST 'http://localhost:8585/soap/PetstoreService/1.0' -H 'Content-Type: application/xml' \
+curl -X POST 'http://localhost:8585/soap/PetstoreService/1.0' -H 'Content-Type: application/xml' \
    -d '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pet="http://www.acme.org/petstore"><soapenv:Header/><soapenv:Body><pet:getPets/></soapenv:Body></soapenv:Envelope>'
 
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pet="http://www.acme.org/petstore">
@@ -339,7 +339,7 @@ Import this updated SoapUI Project back in Microcks and see the results:
 Let's try the new SOAP operation mock with this command:
 
 ```shell
-$ curl -X POST 'http://localhost:8080/soap/PetstoreService/1.0' -H 'Content-Type: application/xml' \
+curl -X POST 'http://localhost:8080/soap/PetstoreService/1.0' -H 'Content-Type: application/xml' \
    -d '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pet="http://www.acme.org/petstore"><soapenv:Header/><soapenv:Body> <pet:searchPets><name>i</name></pet:searchPets></soapenv:Body></soapenv:Envelope>'
 
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pet="http://www.acme.org/petstore">
@@ -366,7 +366,7 @@ $ curl -X POST 'http://localhost:8080/soap/PetstoreService/1.0' -H 'Content-Type
 and this one:
 
 ```shell
-$ curl -X POST 'http://localhost:8080/soap/PetstoreService/1.0' -H 'Content-Type: application/xml' \
+curl -X POST 'http://localhost:8080/soap/PetstoreService/1.0' -H 'Content-Type: application/xml' \
    -d '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pet="http://www.acme.org/petstore"><soapenv:Header/><soapenv:Body> <pet:searchPets><name>k</name></pet:searchPets></soapenv:Body></soapenv:Envelope>'
    
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pet="http://www.acme.org/petstore">
@@ -469,7 +469,7 @@ Import this updated SoapUI Project back in Microcks and see the results:
 Let's now finally test this new operation using some content and see what's going on:
 
 ```shell
-$ curl -X POST 'http://localhost:8585/soap/PetstoreService/1.0' -H 'Content-Type: application/xml' \
+curl -X POST 'http://localhost:8585/soap/PetstoreService/1.0' -H 'Content-Type: application/xml' \
    -d '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pet="http://www.acme.org/petstore"><soapenv:Header/><soapenv:Body><pet:createPet><name>Rusty</name></pet:createPet></soapenv:Body></soapenv:Envelope>'
 
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pet="http://www.acme.org/petstore">

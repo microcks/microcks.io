@@ -68,7 +68,7 @@ As mentioned in the introduction, Developer eXperience was a focus on `1.4.1` an
 The important addition of this feature is the Docker-compose support for [AsyncAPI](https://asyncapi.com) mocking and testing! It was a long time request not having to go through a Minikube or Kube cluster installation to use AsyncAPI in Microcks. Starting Microcks with AsyncAPI support and embedded Kafka broker is now as easy as:
 
 ```sh
-$ docker-compose -f docker-compose.yml -f docker-compose-async-addon.yml up -d
+docker-compose -f docker-compose.yml -f docker-compose-async-addon.yml up -d
 ```
 
 > Thanks a lot to [Ilia Ternovykh](https://github.com/tillias) 🙏 for having baked this new capability. It has been fully detailed in the [Async Features with Docker Compose](https://microcks.io/blog/async-features-with-docker-compose/) blog post if you want to give it a try!

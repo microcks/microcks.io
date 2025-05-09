@@ -30,20 +30,25 @@ cd microcks/install/podman-compose
 3. Spin up the containers in [rootless mode](https://github.com/containers/podman/blob/master/docs/tutorials/rootless_tutorial.md) using our utility script:
 
 ```sh
-$ ./run-microcks.sh
+./run-microcks.sh
+```
+```sh
 
 On macos, need to get the userid and groupid from postman machine.
 Assuming this machine is named 'podman-machine-default'. Change name in script otherwise.
 
 Starting Microcks using podman-compose ...
 ------------------------------------------
+
 Stop it with: podman-compose -f microcks.yml --podman-run-args='--userns=keep-id:uid=501,gid=1000' stop
 Re-launch it with: podman-compose -f microcks.yml --podman-run-args='--userns=keep-id:uid=501,gid=1000' start
 Clean everything with: podman-compose -f microcks.yml --podman-run-args='--userns=keep-id:uid=501,gid=1000' down
+
 ------------------------------------------
 Go to https://localhost:8080 - first login with admin/microcks123
 Having issues? Check you have changed microcks.yml to your platform
-
+```
+```sh
 podman-compose -f microcks.yml --podman-run-args='--userns=keep-id:uid=501,gid=1000' up -d
 ```
 
@@ -63,20 +68,24 @@ Support for Asynchronous API features of Microcks are not enabled by default. If
 In your terminal use the following command instead:
 
 ```sh
-$ ./run-microcks.sh async
-
+./run-microcks.sh async
+```
+```sh
 On macos, need to get the userid and groupid from postman machine.
 Assuming this machine is named 'podman-machine-default'. Change name in script otherwise.
 
 Starting Microcks using podman-compose ...
 ------------------------------------------
+
 Stop it with: podman-compose -f microcks.yml -f microcks-template-async-addon.yml --podman-run-args='--userns=keep-id:uid=501,gid=1000' stop
 Re-launch it with: podman-compose -f microcks.yml -f microcks-template-async-addon.yml --podman-run-args='--userns=keep-id:uid=501,gid=1000' start
 Clean everything with: podman-compose -f microcks.yml -f microcks-template-async-addon.yml --podman-run-args='--userns=keep-id:uid=501,gid=1000' down
+
 ------------------------------------------
 Go to https://localhost:8080 - first login with admin/microcks123
 Having issues? Check you have changed microcks.yml to your platform
-
+```
+```sh
 podman-compose -f microcks.yml -f microcks-template-async-addon.yml --podman-run-args='--userns=keep-id:uid=501,gid=1000' up -d
 ```
 
@@ -89,7 +98,7 @@ You may want to check our [blog post](/blog/async-features-with-docker-compose) 
 A development oriented mode, without the Keycloak service is also available thanks to:
 
 ```sh
-$ ./run-microcks.sh dev
+./run-microcks.sh dev
 ```
 
 This configuration enabled Asynchronous API features in a very lightweight mode using [Red Panda broker](https://redpanda.com/) instead of full-blown Apache Kafka distribution.

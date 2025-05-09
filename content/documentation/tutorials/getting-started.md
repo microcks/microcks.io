@@ -87,6 +87,10 @@ At the end of the **Mock URL** line, you'll notice two icons and buttons. The fi
 curl -X GET 'http://localhost:8585/rest/API+Pastry+-+2.0/2.0.0/pastry/Millefeuille' -H 'Accept: application/json'
 ```
 
+```json
+{"name":"Millefeuille","description":"Delicieux Millefeuille pas calorique du tout","size":"L","price":4.4,"status":"available"}
+```
+
 Ta Dam! 🎉
 
 ```sh

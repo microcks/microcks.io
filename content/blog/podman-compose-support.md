@@ -23,9 +23,12 @@ As explained in the [Installing with podman-compose doc](../../documentation/gui
 Then it's just a matter of cloning the repository, navigating to correct folder and running our supporting script that runs Podman in **rootless** mode:
 
 ```sh
-$ git clone https://github.com/microcks/microcks.git
-$ cd microcks/install/podman-compose
-$ ./run-microcks.sh
+git clone https://github.com/microcks/microcks.git
+cd microcks/install/podman-compose
+./run-microcks.sh
+```
+
+```sh
 Running rootless containers...
 Discovered host IP address: 192.168.3.102
 
@@ -49,7 +52,10 @@ Open a new browser tab and point to the `http://localhost:8080` endpoint. This w
 Want to see what's running? Check the running containers with:
 
 ```sh
-$ podman ps
+podman ps
+```
+
+```sh
 CONTAINER ID  IMAGE                                             COMMAND               CREATED         STATUS             PORTS                     NAMES
 68faf7825db1  quay.io/microcks/microcks:latest                                        8 seconds ago   Up 7 seconds ago   0.0.0.0:8080->8080/tcp    microcks
 71af3326ba9d  docker.io/jboss/keycloak:10.0.1                   -b 0.0.0.0 -Dkeyc...  9 seconds ago   Up 9 seconds ago   0.0.0.0:8180->8080/tcp    microcks-keycloak

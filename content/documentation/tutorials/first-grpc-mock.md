@@ -123,7 +123,9 @@ Your gRPC service details should now have been updated with the samples you prov
 Microcks has found `All Pets` as a valid sample to build a simulation upon. A mock URL has been made available but remember that in our case, we exposed the gRPC port to `8686`. We can use this to test the service method as demonstrated below with a `grpcurl` command:
 
 ```shell
-$ grpcurl -plaintext -d '{}' localhost:8686 org.acme.petstore.v1.PetstoreService/getPets
+grpcurl -plaintext -d '{}' localhost:8686 org.acme.petstore.v1.PetstoreService/getPets
+```
+```json
 {
   "pets": [
     {
@@ -197,7 +199,9 @@ Import this updated Postman Collection back in Microcks - **this time you need t
 Let's try the new gRPC method mock with this command:
 
 ```shell
-$ grpcurl -plaintext -d '{"name": "k"}' localhost:8686 org.acme.petstore.v1.PetstoreService/searchPets
+grpcurl -plaintext -d '{"name": "k"}' localhost:8686 org.acme.petstore.v1.PetstoreService/searchPets
+```
+```json
 {
   "pets": [
     {
@@ -271,7 +275,9 @@ Import this updated Postman Collection back in Microcks - **this time you need t
 Let's now finally test this new method using some content and see what's going on:
 
 ```shell
-$ grpcurl -plaintext -d '{"name": "Rusty"}' localhost:8686 org.acme.petstore.v1.PetstoreService/createPet
+grpcurl -plaintext -d '{"name": "Rusty"}' localhost:8686 org.acme.petstore.v1.PetstoreService/createPet
+```
+```json
 {
   "id": 6,
   "name": "Rusty"

@@ -21,14 +21,17 @@ So all you need from now is `docker` and `docker-compose` on your machine. Ready
 Go to a temporary folder and remove previously downloaded `latest` images in case you made any other attempt to use Microcks in the past:
 
 ```sh
-$ cd ~/Development/temp
-$ docker rmi quay.io/microcks/microcks:latest quay.io/microcks/microcks-async-minion:latest quay.io/microcks/microcks-postman-runtime:latest
+cd ~/Development/temp
+docker rmi quay.io/microcks/microcks:latest quay.io/microcks/microcks-async-minion:latest quay.io/microcks/microcks-postman-runtime:latest
 ```
 
 Then, clone a fresh copy of Microcks Git repository:
 
 ```sh
-$ git clone https://github.com/microcks/microcks
+git clone https://github.com/microcks/microcks
+```
+
+```sh
 Cloning into 'microcks'...
 remote: Enumerating objects: 10546, done.
 remote: Counting objects: 100% (1802/1802), done.
@@ -41,8 +44,11 @@ Resolving deltas: 100% (5347/5347), done.
 Go to the `docker-compose` installation folder and launch docker-compose with `async-addon`:
 
 ```sh
-$ cd microcks/install/docker-compose
-$ docker-compose -f docker-compose.yml -f docker-compose-async-addon.yml up -d
+cd microcks/install/docker-compose
+docker-compose -f docker-compose.yml -f docker-compose-async-addon.yml up -d
+```
+
+```sh
 Creating network "docker-compose_default" with the default driver
 Pulling postman (quay.io/microcks/microcks-postman-runtime:latest)...
 latest: Pulling from microcks/microcks-postman-runtime
@@ -91,7 +97,10 @@ Creating microcks-async-minion    ... done
 After some minutes, check everything is running. Microcks app is bound on `localhost:8080`, Keycloak is bound on `localhost:18080`and Kafka broker is bound on `localhost:9092`:
 
 ```sh
-$ docker ps
+docker ps
+```
+
+```sh
 CONTAINER ID   IMAGE                                              COMMAND                  CREATED              STATUS              PORTS                                                                                                      NAMES
 3779d9672ea1   quay.io/microcks/microcks-async-minion:latest      "/deployments/run-ja…"   About a minute ago   Up 38 seconds       8080/tcp                                                                                                   microcks-async-minion
 c2d7f3e10215   quay.io/microcks/microcks:latest                   "/deployments/run-ja…"   About a minute ago   Up About a minute   0.0.0.0:8080->8080/tcp, :::8080->8080/tcp, 8778/tcp, 0.0.0.0:9090->9090/tcp, :::9090->9090/tcp, 9779/tcp   microcks
@@ -114,8 +123,11 @@ You should have following result:
 
 Check the relevant logs on `microcks` container:
 
+```sh
+docker logs c2d7f3e10215
 ```
-$ docker logs c2d7f3e10215
+
+```sh
 ...
 12:49:09.245 DEBUG 1 --- [080-exec-9] io.github.microcks.web.JobController     : Creating new job: io.github.microcks.domain.ImportJob@2c6712c7
 12:49:09.404 DEBUG 1 --- [080-exec-6] io.github.microcks.web.JobController     : Getting job list for page 0 and size 20
@@ -146,7 +158,10 @@ As stated in the logs, a new API **User signed-up API, 0.1.1** has been discover
 From now, you should start having messages on the Kafka broker. Check the relevant logs on `microcks-async-minion` container:
 
 ```sh
-$ docker logs 3779d9672ea1
+docker logs 3779d9672ea1
+```
+
+```sh
 2021-08-30 12:49:11,234 INFO  [io.git.mic.min.asy.AsyncMockDefinitionUpdater] (vert.x-eventloop-thread-0) Received a new change event [CREATED] for '612ca95fb327764983693ef1', at 1630327750357
 2021-08-30 12:49:11,236 INFO  [io.git.mic.min.asy.AsyncMockDefinitionUpdater] (vert.x-eventloop-thread-0) Found 'SUBSCRIBE user/signedup' as a candidate for async message mocking
 2021-08-30 12:49:11,267 INFO  [io.git.mic.min.asy.SchemaRegistry] (vert.x-eventloop-thread-0) Updating schema registry for 'User signed-up API - 0.1.1' with 1 entries
@@ -162,7 +177,10 @@ $ docker logs 3779d9672ea1
 Check the Kafka topic for messages, directly from your machine shell using `kafkacat` utility and `9092` advertised port:
 
 ```sh
-$ kafkacat -b localhost:9092 -t UsersignedupAPI-0.1.1-user-signedup -o end
+kafkacat -b localhost:9092 -t UsersignedupAPI-0.1.1-user-signedup -o end
+```
+
+```sh
 % Auto-selecting Consumer mode (use -P or -C to override)
 % Reached end of topic UsersignedupAPI-0.1.1-user-signedup [0] at offset 356
 {"id": "vcGIcN5mwytIFqtdaEljCRfDrDHg0u3u", "sendAt": "1630327965424", "fullName": "Laurent Broudoux", "email": "laurent@microcks.io", "age": 41}
@@ -177,21 +195,34 @@ Yes! 😉
 You can also connect to the running `microcks-kafka` container to use the built-in Kafka tools. This time, you access the broker using the `kafka:19092` address:
 
 ```sh
-$ docker exec -it 7e1f2d2c5305 /bin/sh
-sh-4.2$ cd bin/
-sh-4.2$ ./kafka-topics.sh --bootstrap-server kafka:19092 --list
+docker exec -it 7e1f2d2c5305 /bin/sh
+```
+```sh
+cd bin/
+./kafka-topics.sh --bootstrap-server kafka:19092 --list
+```
+
+```sh
 UsersignedupAPI-0.1.1-user-signedup
 __consumer_offsets
 microcks-services-updates
+```
+```sh
+./kafka-console-consumer.sh --bootstrap-server kafka:19092 --topic UsersignedupAPI-0.1.1-user-signedup
+```
 
-sh-4.2$ ./kafka-console-consumer.sh --bootstrap-server kafka:19092 --topic UsersignedupAPI-0.1.1-user-signedup
+```json
 {"id": "T1smkgqMAmyb2UVKXDAYKw5Vtx8KD9up", "sendAt": "1630328127425", "fullName": "Laurent Broudoux", "email": "laurent@microcks.io", "age": 41}
 {"id":"NvKLRGG91NsyoK9dj9CGlk2D8NrqaZuC","sendAt":"1630328127429","fullName":"John Doe","email":"john@microcks.io","age":36}
 {"id": "f85zgAtDzvku7Uztp58UDfTokvePJxlg", "sendAt": "1630328130425", "fullName": "Laurent Broudoux", "email": "laurent@microcks.io", "age": 41}
 {"id":"YbJA2ZeOKVaw0qNbMgMOi3TE3pPtwFM7","sendAt":"1630328130429","fullName":"John Doe","email":"john@microcks.io","age":36}
 ^CProcessed a total of 4 messages
+```
+```sh
+exit or press ctrl+D
+```
 
-sh-4.2$ exit
+```sh
 exit
 ```
 
@@ -202,7 +233,10 @@ That's it! 🎉
 Happy with your Microcks discovery? You can turn off everything and free resources executing this command:
 
 ```sh
-$ docker-compose -f docker-compose.yml -f docker-compose-async-addon.yml down
+docker-compose -f docker-compose.yml -f docker-compose-async-addon.yml down
+```
+
+```sh
 Stopping microcks-async-minion    ... done
 Stopping microcks                 ... done
 Stopping microcks-kafka           ... done

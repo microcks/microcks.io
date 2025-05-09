@@ -103,7 +103,7 @@ We hope this walkthrough has made you enthusiastic about this new set of feature
 Everything is always present in the `1.5.x` branch of the [GitHub repository](https://github.com/microcks/microcks/tree/1.5.x) and in the `nightly` tagged container image. So starting playing with this new GraphQL support is as simple as this one-liner:
 
 ```shell
-$ git clone https://github.com/microcks/microcks.git && cd microcks \
+git clone https://github.com/microcks/microcks.git && cd microcks \
     && git fetch && git checkout 1.5.x && cd install/docker-compose \
     && docker-compose up -d
 ````

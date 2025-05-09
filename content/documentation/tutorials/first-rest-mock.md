@@ -104,7 +104,9 @@ As soon as your contract contains examples, you can import it into Microcks and 
 Microcks has found `my_pets` as a valid sample to build a simulation upon. A mock URL has been made available and you can use it to test the API operation as demonstrated below with a `curl` command:
 
 ```sh
-$ curl http://localhost:8585/rest/Petstore+API/1.0.0/my/pets -s | jq
+curl http://localhost:8585/rest/Petstore+API/1.0.0/my/pets -s | jq
+```
+```sh
 [
   {
     "id": 1,
@@ -170,7 +172,9 @@ The important things to notice here is the **logic behind example naming**. In f
 What about dispatching properties we mentioned earlier? You can see that they now having values. Because of the presence of parameter in your operation, Microcks has inferred a routing logic named `URI_PARAMS` that will be based on matching rule on `filter` parameter. Let's try the mock URL with this command:
 
 ```shell
-$ curl http://localhost:8585/rest/Petstore+API/1.0.0/pets\?filter\=k -s | jq 
+curl http://localhost:8585/rest/Petstore+API/1.0.0/pets\?filter\=k -s | jq 
+```
+```sh
 [
   {
     "id": 3,
@@ -232,13 +236,15 @@ You can notice in this snippet that we directly integrates two different samples
 The `Dispatcher` inferred by Microcks has been adapted to `URI_PARTS` which means that routing logic is made of parts (or path elements) or the URI. The element that is considered for routing is the `id` parameter. Let's tests these new mocks with some commands:
 
 ```shell
-$ curl http://localhost:8585/rest/Petstore+API/1.0.0/pets/1 -s | jq
+curl http://localhost:8585/rest/Petstore+API/1.0.0/pets/1 -s | jq
+```
+```json
 {
   "id": 1,
   "name": "Zaza"
 }
 
-$ curl http://localhost:8585/rest/Petstore+API/1.0.0/pets/2 -s | jq
+curl http://localhost:8585/rest/Petstore+API/1.0.0/pets/2 -s | jq
 {
   "id": 2,
   "name": "Tigresse"
@@ -296,7 +302,9 @@ When imported into Microcks, you should have following result:
 You can see in the picture above that the `Dispatcher` has no value as we have no parameters in operation. But this does not prevent use to use both parameters and template functions. In fact, template also allows you to reuse response parameters to inject in response content. Let's now finally test this mock URL using some content and see what's going on:
 
 ```shell
-$ curl http://localhost:8585/rest/Petstore+API/1.0.0/pets -H 'Content-Type: application/json' -d '{"name":"Rusty"}' -s | jq
+curl http://localhost:8585/rest/Petstore+API/1.0.0/pets -H 'Content-Type: application/json' -d '{"name":"Rusty"}' -s | jq
+```
+```json
 {
   "id": 8,
   "name": "Rusty"

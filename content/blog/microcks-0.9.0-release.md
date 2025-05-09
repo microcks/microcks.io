@@ -26,8 +26,8 @@ First contact with a new solution comes usually from the installation process it
 Microcks is now available on Helm Hub and has its own Chart repo. So installing Microcks via Helm is just 2 commands:
 
 ```sh
-$ helm repo add microcks https://microcks.io/helm
-$ helm install microcks microcks/microcks —-version 0.9.0 --set microcks.url=microcks.$(minikube ip).nip.io,keycloak.url=keycloak.$(minikube ip).nip.io
+helm repo add microcks https://microcks.io/helm
+helm install microcks microcks/microcks —-version 0.9.0 --set microcks.url=microcks.$(minikube ip).nip.io,keycloak.url=keycloak.$(minikube ip).nip.io
 ```
 
 > More details here: https://hub.helm.sh/charts/microcks/microcks

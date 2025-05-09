@@ -33,8 +33,9 @@ Before launching some contract-tests on this implementation, you'll need to run 
 Open a new terminal window and run this command to locally launch the implementation:
 
 ```sh
-$ docker run -i --rm -p 8282:8282 quay.io/microcks/quarkus-api-pastry:latest
-
+docker run -i --rm -p 8282:8282 quay.io/microcks/quarkus-api-pastry:latest
+```
+```sh
 WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
 __  ____  __  _____   ___  __ ____  ______ 
  --/ __ \/ / / / _ | / _ \/ //_/ / / / __/ 
@@ -77,12 +78,13 @@ Microcks also provides the [`microcks-cli`](/documentation/guides/automation/cli
 You can download the binary or just use the corresponding container image for a quick ride! Specify the `test` command followed by the API/Service name and version, the test endpoint URL, the runner as well as some connection credentials and it will launch the test for you:
 
 ```sh
-$ docker run -it quay.io/microcks/microcks-cli:latest microcks-cli test \
+docker run -it quay.io/microcks/microcks-cli:latest microcks-cli test \
         'API Pastry - 2.0:2.0.0' http://host.docker.internal:8282 OPEN_API_SCHEMA \
         --microcksURL=http://host.docker.internal:8585/api/ \
         --keycloakClientId=foo --keycloakClientSecret=bar \
         --insecure --waitFor=6sec
-
+```
+```sh
 MicrocksClient got status for test "6644db75269ded17868d654c" - success: true, inProgress: true 
 MicrocksTester waiting for 2 seconds before checking again or exiting.
 Full TestResult details are available here: http://host.docker.internal:8585/#/tests/6644db75269ded17868d654c

@@ -114,7 +114,7 @@ Your GraphQL API details should now have been updated with the samples you provi
 Microcks has found `allPets` as a valid sample to build a simulation upon. A mock URL has been made available. We can use this to test the query as demonstrated below with a `curl` command:
 
 ```shell
-$ echo '{ "query":
+echo '{ "query":
   "query {
     allPets
   }"
@@ -123,7 +123,8 @@ $ echo '{ "query":
   -H "Content-Type: application/json" \
   -s -d @- \
   http://localhost:8585/graphql/Petstore+Graph+API/1.0
-
+```
+```json
 {
   "data":{
     "allPets":[
@@ -155,7 +156,7 @@ $ echo '{ "query":
 This is nice! However remember that one of GraphQL most powerful feature is to allow consumers to specify the data they actually need. What if we only care about pets `id` and `color`? Let's try a new filtered query:
 
 ```shell
-$ echo '{ "query":
+echo '{ "query":
   "query {
     allPets {
       id
@@ -167,7 +168,8 @@ $ echo '{ "query":
   -H "Content-Type: application/json" \
   -s -d @- \
   http://localhost:8585/graphql/Petstore+Graph+API/1.0
-
+```
+```json
 {
   "data":{
     "allPets":[
@@ -243,7 +245,7 @@ Import this updated Postman Collection back in Microcks - **this time you need t
 Let's try the new GraphQL query mock with this command, this time specifying the `variables` property to provide a name:
 
 ```shell
-$ echo '{ "query":
+echo '{ "query":
   "query search($name: String) {
     searchPets(name: $name)
   }",
@@ -255,7 +257,8 @@ $ echo '{ "query":
   -H "Content-Type: application/json" \
   -s -d @- \
   http://localhost:8585/graphql/Petstore+Graph+API/1.0
-
+```
+```json
 {
   "data":{
     "searchPets":[
@@ -281,7 +284,7 @@ $ echo '{ "query":
 > 🛠️ As an exercice to validate your understanding, just add a new `i pets` sample so that when user specify a filter with value `i`, the 3 correct cats are returned (Tigresse, Maki and Toufik). Once both cases are passing, you can also try some more advanced query like the one below. Yes, Microcks supports advanced GraphQL semantics like composite queries and fragments 😉
 
 ```shell
-$ echo '{ "query":
+echo '{ "query":
   "{
     k_pets: searchPets(name: \"k\") {
       ...comparisonFields
@@ -299,7 +302,8 @@ $ echo '{ "query":
   -H "Content-Type: application/json" \
   -s -v -d @- \
   http://localhost:8585/graphql/Petstore+Graph+API/1.0
-
+```
+```json
 {
   "data":{
     "k_pets":[
@@ -387,7 +391,7 @@ Import this updated Postman Collection back in Microcks - **this time you need t
 Let's now finally test this new method using some content and see what's going on:
 
 ```shell
-$ echo '{ "query":
+echo '{ "query":
   "mutation createPet($newPet: NewPet) {
     createPet(review: $newPet) {
         id
@@ -406,7 +410,8 @@ $ echo '{ "query":
   -H "Content-Type: application/json" \
   -s -d @- \
   http://localhost:8585/graphql/Petstore+Graph+API/1.0
-
+```
+```json
 {
   "data":{
     "createPet":{

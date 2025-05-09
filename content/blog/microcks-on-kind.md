@@ -19,18 +19,22 @@ This installation notes were ran on my Apple Mac book M2 but those steps would s
 As a Mac user, I used [brew](https://brew.sh) to install `kind`. However, it is also available from several different package managers out there. You can check the [Quick Start](https://kind.sigs.k8s.io/docs/user/quick-start/#installation) guide for that. Obviously, you'll also need the [`kubectl`](https://kubernetes.io/docs/tasks/tools/#kubectl) utility to interact with your cluster. 
 
 ```sh
-$ brew install kind
+brew install kind
+```
+```sh
+kind --version
+```
 
-$ kind --version
+```sh
 kind version 0.20.0
 ```
 
 In a dedicated folder, prepare a `cluster-kind.yaml` configuration file like this:
 
 ```sh
-$ cd ~/tmp
-$ mkdir microcks && cd microcks
-$ cat > cluster-kind.yaml <<EOF
+ cd ~/tmp
+ mkdir microcks && cd microcks
+ cat > cluster-kind.yaml <<EOF
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
 nodes:
@@ -56,8 +60,10 @@ EOF
 We're now going to start a Kube cluster. Start your `kind` cluster using the `cluster-kind.yaml` configuration file we just created before:
 
 ```sh
-$ kind create cluster --config=cluster-kind.yaml
---- OUTPUT ---
+kind create cluster --config=cluster-kind.yaml
+``` 
+```sh
+
 Creating cluster "kind" ...
  ✓ Ensuring node image (kindest/node:v1.27.3) 🖼 
  ✓ Preparing nodes 📦  
@@ -71,18 +77,18 @@ You can now use your cluster with:
 kubectl cluster-info --context kind-kind
 
 Have a question, bug, or feature request? Let us know! https://kind.sigs.k8s.io/#community 🙂
-``` 
+
 
 Install an Ingress Controller in this cluster, we selected `nginx` but other options are available (see https://kind.sigs.k8s.io/docs/user/ingress).
 
 ```sh
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
 ```
 
 Wait for the controller to be available:
 
 ```sh
-$ kubectl wait --namespace ingress-nginx \
+kubectl wait --namespace ingress-nginx \
   --for=condition=ready pod \
   --selector=app.kubernetes.io/component=controller \
   --timeout=90s
@@ -93,12 +99,12 @@ $ kubectl wait --namespace ingress-nginx \
 We're now going to install Microcks with basic options. We'll do that using the Helm Chart so you'll also need the [`helm`](https://helm.sh) binary. You can use `brew install helm` on Mac for that.
 
 ```sh
-$ kubectl create namespace microcks
+kubectl create namespace microcks
+helm repo add microcks https://microcks.io/helm
+helm install microcks microcks/microcks --namespace microcks --set microcks.url=microcks.127.0.0.1.nip.io --set keycloak.url=keycloak.127.0.0.1.nip.io --set keycloak.privateUrl=http://microcks-keycloak.microcks.svc.cluster.local:8080
+```
+```sh
 
-$ helm repo add microcks https://microcks.io/helm
-
-$ helm install microcks microcks/microcks --namespace microcks --set microcks.url=microcks.127.0.0.1.nip.io --set keycloak.url=keycloak.127.0.0.1.nip.io --set keycloak.privateUrl=http://microcks-keycloak.microcks.svc.cluster.local:8080
---- OUTPUT ---
 NAME: microcks
 LAST DEPLOYED: Sun Dec  3 19:27:27 2023
 NAMESPACE: microcks
@@ -129,17 +135,22 @@ username and password found into 'microcks-keycloak-admin' secret.
 Wait for images to be pulled, pods to be started and ingresses to be there:
 
 ```sh
-$ kubectl get pods -n microcks
---- OUTPUT ---
+kubectl get pods -n microcks
+```
+```sh
+
 NAME                                            READY   STATUS    RESTARTS   AGE
 microcks-577874c5b6-z97zm                       1/1     Running   0          73s
 microcks-keycloak-7477cd4fbb-tbmg7              1/1     Running   0          21s
 microcks-keycloak-postgresql-868b7dbdd4-8zrbv   1/1     Running   0          10m
 microcks-mongodb-78888fb67f-47fwh               1/1     Running   0          10m
 microcks-postman-runtime-5d8fc9695-kp45w        1/1     Running   0          10m
+```
+```sh
+kubectl get ingresses -n microcks
+```
+```sh
 
-$ kubectl get ingresses -n microcks
---- OUTPUT ---
 NAME                CLASS    HOSTS                            ADDRESS     PORTS     AGE
 microcks            <none>   microcks.127.0.0.1.nip.io        localhost   80, 443   10m
 microcks-grpc       <none>   microcks-grpc.127.0.0.1.nip.io   localhost   80, 443   10m
@@ -157,20 +168,22 @@ In this section, we're doing a complete install of Microcks, enabling the asynch
 To be able to expose the Kafka cluster to the outside of Kind, you’ll need to enable SSL passthrough on nginx: This require updating the default ingress controller deployment:
 
 ```sh
-$ kubectl patch -n ingress-nginx deployment/ingress-nginx-controller --type='json' \
+kubectl patch -n ingress-nginx deployment/ingress-nginx-controller --type='json' \
     -p '[{"op":"add","path":"/spec/template/spec/containers/0/args/-","value":"--enable-ssl-passthrough"}]'
 ```
 
 Then, you have to install the latest version of Strimzi that provides an easy way to setup Kafka on Kubernetes:
 ```sh
-$ kubectl apply -f 'https://strimzi.io/install/latest?namespace=microcks' -n microcks
+kubectl apply -f 'https://strimzi.io/install/latest?namespace=microcks' -n microcks
 ```
 
 Now, you can install Microcks using the Helm chart and enable the asynchronous features:
 
 ```sh
-$ helm install microcks microcks/microcks --namespace microcks --set microcks.url=microcks.127.0.0.1.nip.io --set keycloak.url=keycloak.127.0.0.1.nip.io --set keycloak.privateUrl=http://microcks-keycloak.microcks.svc.cluster.local:8080 --set features.async.enabled=true --set features.async.kafka.url=kafka.127.0.0.1.nip.io
---- OUTPUT ---
+helm install microcks microcks/microcks --namespace microcks --set microcks.url=microcks.127.0.0.1.nip.io --set keycloak.url=keycloak.127.0.0.1.nip.io --set keycloak.privateUrl=http://microcks-keycloak.microcks.svc.cluster.local:8080 --set features.async.enabled=true --set features.async.kafka.url=kafka.127.0.0.1.nip.io
+```
+```sh
+
 NAME: microcks
 LAST DEPLOYED: Sun Dec  3 20:14:38 2023
 NAMESPACE: microcks
@@ -207,8 +220,10 @@ It has been exposed using TLS passthrough on the Ingress controller, you should 
 Watch and check the pods you should get in the namespace:
 
 ```sh
-$ kubectl get pods -n microcks
---- OUTPUT ---
+kubectl get pods -n microcks
+```
+```sh
+
 NAME                                              READY   STATUS    RESTARTS        AGE
 microcks-6ffcc7dc54-c9h4w                         1/1     Running   0               68s
 microcks-async-minion-7f689d9ff7-ptv4c            1/1     Running   2 (40s ago)     48s
@@ -230,7 +245,9 @@ Now connect to the Kafka broker pod to check a topic has been correctly created 
 
 
 ```sh
-$ kubectl -n microcks exec microcks-kafka-kafka-0 -it -- /bin/sh
+kubectl -n microcks exec microcks-kafka-kafka-0 -it -- /bin/sh
+```
+```sh
 --- INPUT ---
 sh-4.4$ cd bin
 sh-4.4$ ./kafka-topics.sh --bootstrap-server localhost:9092 --list
@@ -252,8 +269,10 @@ command terminated with exit code 130
 And finally, from your Mac host, you can install the [`kcat`](https://github.com/edenhill/kcat) utility to consume messages as well. You'll need to refer the `ca.crt` certificate you previsouly extracted from there:
 
 ```sh
-$ kcat -b microcks-kafka.kafka.127.0.0.1.nip.io:443 -X security.protocol=SSL -X ssl.ca.location=ca.crt -t UsersignedupAPI-0.1.1-user-signedup
---- OUTPUT ---
+kcat -b microcks-kafka.kafka.127.0.0.1.nip.io:443 -X security.protocol=SSL -X ssl.ca.location=ca.crt -t UsersignedupAPI-0.1.1-user-signedup
+```
+```sh
+
 % Auto-selecting Consumer mode (use -P or -C to override)
 {"id": "zYcAzFlRoTGvu9Mu4ajg30lr1fBa4Kah", "sendAt": "1703699827456", "fullName": "Laurent Broudoux", "email": "laurent@microcks.io", "age": 41}
 {"id":"v0TkDvd1Z7RxynQvi1i0NmXAaLPzuYXE","sendAt":"1703699827585","fullName":"John Doe","email":"john@microcks.io","age":36}
@@ -269,12 +288,17 @@ $ kcat -b microcks-kafka.kafka.127.0.0.1.nip.io:443 -X security.protocol=SSL -X 
 Deleting the microcks Helm release from your cluster is straightforward. Then you can finally delete your Kind cluster to save some resources!
 
 ```sh
-$ helm delete microcks -n microcks
---- OUTPUT ---
-release "microcks" uninstalled
+helm delete microcks -n microcks
+```
+```sh
 
-$ kind delete cluster
---- OUTPUT ---
+release "microcks" uninstalled
+```
+```sh
+kind delete cluster
+```
+```sh
+
 Deleting cluster "kind" ...
 Deleted nodes: ["kind-control-plane"]
 ```

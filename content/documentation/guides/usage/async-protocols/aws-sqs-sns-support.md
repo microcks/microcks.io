@@ -34,17 +34,17 @@ Based on the option you chose and the way you handle secrets in your cluster, yo
 **Create a Secret for environment variable usage:**
 
 ```sh
-$ kubectl create secret generic my-aws-credentials \
-    --from-literal=access_key_id=$AWS_ACCESS_KEY_ID \
-    --from-literal=secret_access_key=$AWS_SECRET_ACCESS_KEY \
-    --from-literal=secret_token_key=$AWS_SESSION_TOKEN \
+kubectl create secret generic my-aws-credentials \
+    --from-literal=access_key_id=  AWS_ACCESS_KEY_ID \
+    --from-literal=secret_access_key=  AWS_SECRET_ACCESS_KEY \
+    --from-literal=secret_token_key=  AWS_SESSION_TOKEN \
      -n microcks
 ```
 
 **Create a Secret for profile file usage:**
 
 ```sh
-$ kubectl create secret generic my-aws-credentials \
+kubectl create secret generic my-aws-credentials \
     --from-file=./my-aws-credentials.profile -n microcks
 ```
 

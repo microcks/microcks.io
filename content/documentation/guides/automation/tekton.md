@@ -91,7 +91,10 @@ The parameters that can be set here are:
 `Pipeline` can be executed through a new `PipelineRun` resource creation or using the `tkn` CLI tool. This time we're using the CLI tool to start a new pipeline:
 
 ```sh
-$ tkn pipelinerun start user-registration-tekton-pipeline
+  tkn pipelinerun start user-registration-tekton-pipeline
+```
+
+```sh
 PipelineRun started: user-registration-tekton-pipeline-run-64xf7
 Showing logs...
 [...]
@@ -100,7 +103,10 @@ Showing logs...
 `tkn` can also be used later to retrieve the logs for the pipeline execution:
 
 ```sh
-$ tkn pipeline logs user-registration-tekton-pipeline-run-64xf7 -f -n user-registration
+  tkn pipeline logs user-registration-tekton-pipeline-run-64xf7 -f -n user-registration
+```
+
+```sh
 [...]
 
 [test-openapi-v1 : microcks-test] MicrocksClient got status for test "5f76e969dcba620f6d21008d" - success: false, inProgress: true 
