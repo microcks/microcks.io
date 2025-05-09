@@ -61,7 +61,7 @@ You can check everything is running correctly with the `docker ps` command that 
 ```shell
 docker ps
 ```
-output
+
 ```sh
 CONTAINER ID   IMAGE                                             COMMAND                  CREATED         STATUS         PORTS                                                                       NAMES
 b2c1ce881983   quay.io/microcks/microcks-async-minion:1.11.0     "/deployments/run-ja…"   3 minutes ago   Up 3 minutes   8080/tcp, 0.0.0.0:8081->8081/tcp                                            microcks-async-minion

@@ -167,7 +167,7 @@ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast\?
 ```sh
 curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast\?region\=center\&apiKey\=qwertyuiop -s | jq .
 ```
-outut: 
+
 ```json
 {
   "region": "north",
