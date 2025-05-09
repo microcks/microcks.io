@@ -85,7 +85,7 @@ Once on the properties edition for the `GET /forecast` operation, add a new cons
 
 Do not forget to hit the **Save** button and then you can re-try calling a mock endpoint:
 
-```
+```sh
 $ curl https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast\?region\=east -k       
 Parameter apiKey is required. Check parameter constraints.% 
 ```
