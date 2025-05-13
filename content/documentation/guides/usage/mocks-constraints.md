@@ -105,7 +105,7 @@ You successfully conifgured parmaeters contraints on the `GET /pastry` operation
 
 ## Wrap-up
 
-Constraints are an easy to use and powerful for specifying additional behavior or validation rules for your mocks. Defining constraints place your consumers in a better position for a seamless transition to real-life implementation of your API once it is ready.
+Constraints are easy to use and powerful for specifying additional behavior or validation rules for your mocks. Defining constraints place your consumers in a better position for a seamless transition to real-life implementation of your API once it is ready.
 
 It's worth noting that Operation parameter constraints are saved into Microcks database and not replaced by a new import of your Service or API definition. They can be independently set and updated using the [Microcks REST API](/documentation/guides/automation/api).
 
