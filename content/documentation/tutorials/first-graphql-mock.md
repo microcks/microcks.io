@@ -23,11 +23,11 @@ First mandatory step is obviously to setup Microcks 😉. For GraphQL usage, we 
 
 > This could be on another port if `8585` is already used on your machine.
 
-Now let's start with the skeleton of our GraphQL schema for the PetStore API. We'll start with general information on this API and with definition of one type and one query:
+Now let's start with the skeleton of our GraphQL schema for the PetStore API. We'll start with general information on this API and with the definition of one type and one query:
 * `Pet` is the data structure that represents a registered pet in our store - it has an `id`, a `name` and a `color`,
 * `allPets` is the query that allows fetching all the registered pets as an API call result.
 
-One important thing with GraphQL conventions in Microcks is that **we must add an additional specific comment** in this schema file so that we can identity your API name and version (something GraphQL Schema does not allow us to handle by default). The `microcksId:` comment simply identity the API name and version separated with a colon (`:`).
+One important thing with GraphQL conventions in Microcks is that **we must add an additional specific comment** in this schema file so that we can identify your API name and version (something GraphQL Schema does not allow us to handle by default). The `microcksId:` comment simply identifies the API name and version separated with a colon (`: ').
 
 Here's the first iteration of our GraphQL Schema:
 
@@ -48,7 +48,7 @@ type Query {
 }
 ```
 
-From now, you can save this as a file on your disk, then go to the **Importers** page in the left navigation menu and choose to **Upload** this file. The file should import correctly and you should receive a toast notifiation on the upper right corner. Then, while browsing **APIs | Services**, you should get acess to the following details in Microcks:
+From now on, you can save this as a file on your disk, then go to the **Importers** page in the left navigation menu and choose to **Upload** this file. The file should import correctly, and you should receive a toast notification in the upper right corner. Then, while browsing **APIs | Services**, you should get access to the following details in Microcks:
 
 {{< image src="images/documentation/first-graphql-initial-import.png" alt="image" zoomable="true" >}}
 
@@ -62,11 +62,11 @@ In your Postman Workspace, start creating a new standard and empty Collection. A
 
 Having the **same name and the same version in the Postman Collection is very important** as it will allow Microcks to merge this information with the one from the Protobuf file.
 
-We will use this Collection to specify sample data for our mock. This is a three step process that is illustrated below in the slider (you can the blue dots to freeze the swiper below):
+We will use this Collection to specify sample data for our mock. This is a three-step process that is illustrated below in the slider (you can see the blue dots to freeze the swiper below):
 
-1️⃣ Add a new Request named `allPets`. Change this request to be a `POST` request and update its URL to `http://allPets`. This will ensure Microcks will asoociate it to the correct GraphQL operation,
+1️⃣ Add a new Request named `allPets`. Change this request to be a `POST` request and update its URL to `http://allPets`. This will ensure Microcks will associate it with the correct GraphQL operation,
 
-2️⃣ On this request, add a new example with the name of your choice. Edit this example to put a list of Pets as the result body. Your can copy/paste the JSON snippet below:
+2️⃣ On this request, add a new example with the name of your choice. Edit this example to put a list of Pets as the result body. You can copy/paste the JSON snippet below:
 ```json
 {
   "data": {
@@ -101,7 +101,7 @@ We will use this Collection to specify sample data for our mock. This is a three
 
 ## 3. Basic query of GraphQL API
 
-It's now the time to import this Postman Collection back in Microcks and see the results! Go to the **Importers** page in the left navigation menu and choose to **Upload** this file. Proceed with care because **this time you need to tick the box** telling Microcks to consider the Collection as a _Secondary Artifact_ like below:
+It's now time to import this Postman Collection back into Microcks and see the results! Go to the **Importers** page in the left navigation menu and choose to **Upload** this file. Proceed with care because **this time you need to tick the box** telling Microcks to consider the Collection as a _Secondary Artifact_ like below:
 
 {{< image src="images/documentation/first-graphql-collection-import.png" alt="image" zoomable="true" >}}
 
@@ -109,7 +109,7 @@ Your GraphQL API details should now have been updated with the samples you provi
 
 {{< image src="images/documentation/first-graphql-allpets.png" alt="image" zoomable="true" >}}
 
-> 🤔 You may have noticed in the above screenshot that dispatching properties are empty for now. This is normal as we're on a basic operation with no routing logic. We'll talk about dispatchers in next section.
+> 🤔 You may have noticed in the above screenshot that the dispatching properties are empty for now. This is normal as we're on a basic operation with no routing logic. We'll talk about dispatchers in the next section.
 
 Microcks has found `allPets` as a valid sample to build a simulation upon. A mock URL has been made available. We can use this to test the query as demonstrated below with a `curl` command:
 
@@ -153,7 +153,7 @@ echo '{ "query":
 }
 ```
 
-This is nice! However remember that one of GraphQL most powerful feature is to allow consumers to specify the data they actually need. What if we only care about pets `id` and `color`? Let's try a new filtered query:
+This is nice! However, remember that one of GraphQL's most powerful features is to allow consumers to specify the data they actually need. What if we only care about pets `id` and `color`? Let's try a new filtered query:
 
 ```shell
 echo '{ "query":
@@ -202,7 +202,7 @@ This is your first GraphQL mock 🎉 Nice achievement!
 
 ## 4. Using query variables in GraphQL query
 
-Let's make things a bit more elaborated by adding query arguments. Now assume we want to provide a simple searching method to retrieve all pets in store using simple filter. We'll end up adding a new `searchPets()` method in your API. Of course, we'll have to define a `name` input argument so that users will specify `name=zoe` to get all the pets having `zoe` in name.
+Let's make things a bit more elaborated by adding query arguments. Now assume we want to provide a simple searching method to retrieve all pets in store using simple filter. We'll end up adding a new `searchPets()` method in your API. Of course, we'll have to define a `name` input argument so that users will specify `name=zoe` to get all the pets having `zoe` in the name.
 
 So we'll add a new query in our GraphQL schema like below:
 
@@ -217,9 +217,9 @@ You can then import the updated GraphQL file into Microcks using the upload dial
 
 {{< image src="images/documentation/first-graphql-2-operations.png" alt="image" zoomable="true" >}}
 
-What about the dispatcher property we mentioned earlier? You can see that it now have the `QUERY_ARG` value. Because of the presence of arguments in the new query definition, Microcks has inferred a routing logic based on this argument. If you get access to the operation details, you'll see that the associated rule is `name`. Microcks will use the name to route incoming GraphQL query.
+What about the dispatcher property we mentioned earlier? You can see that it now has the `QUERY_ARG` value. Because of the presence of arguments in the new query definition, Microcks has inferred a routing logic based on these arguments. If you get access to the operation details, you'll see that the associated rule is `name`. Microcks will use the name to route incoming GraphQL queries.
 
-Let's complete our Postman Collection with a new request for the new `searchPets` method and a new example for searching for pets having a `k` in their name. This time it can be useful to provide also an example for the request body that is now using a **variable** identified with `$name`:
+Let's complete our Postman Collection with a new request for the new `searchPets` method and a new example for searching for pets having a `k` in their name. This time it can be useful to also provide an example for the request body that is now using a **variable** identified with `$name`:
 
 <div class="swiper single-slider">
   <div class="swiper-wrapper">
@@ -279,9 +279,9 @@ echo '{ "query":
 
 🎉 Fantastic! We now have a mock with routing logic based on request arguments.
 
-> 💡 Microcks dispatcher can support multiple arguments to find appropriate response to an incoming request. In that case, the dispatcher rule will have the form of `arg_1 && arg_2 && arg_3`.
+> 💡 Microcks dispatcher can support multiple arguments to find the appropriate response to an incoming request. In that case, the dispatcher rule will have the form of `arg_1 && arg_2 && arg_3`.
 
-> 🛠️ As an exercice to validate your understanding, just add a new `i pets` sample so that when user specify a filter with value `i`, the 3 correct cats are returned (Tigresse, Maki and Toufik). Once both cases are passing, you can also try some more advanced query like the one below. Yes, Microcks supports advanced GraphQL semantics like composite queries and fragments 😉
+> 🛠️ As an exercise to validate your understanding, just add a new `i pets` sample so that when the user specifies a filter with value `i`, the 3 correct cats are returned (Tigresse, Maki and Toufik). Once both cases are passed, you can also try some more advanced queries like the one below. Yes, Microcks supports advanced GraphQL semantics like composite queries and fragments 😉
 
 ```shell
 echo '{ "query":
@@ -321,9 +321,9 @@ echo '{ "query":
 
 ## 5. Mocking a mutation operation
 
-And now the final step! Let's deal with a new method that allows registering a new pet within the Petstore. For that, you'll typically have to define a new `createPet()` method on the `PetstoreService`. In order to be meaningful to the user of this operation, a mock would have to integrate some logic that reuse contents from the incoming request and/or generate sample data. That's typically what we're going to do in this last section 😉
+And now the final step! Let's deal with a new method that allows registering a new pet within the Petstore. For that, you'll typically have to define a new `createPet()` method on the `PetstoreService`. In order to be meaningful to the user of this operation, a mock would have to integrate some logic that reuses content from the incoming request and/or generates sample data. That's typically what we're going to do in this last section 😉
 
-Let's add such a new operation into the Protobuf file by updating the schema and adding the following elements:
+Let's add a new operation to the Protobuf file by updating the schema and adding the following elements:
 
 ```graphql
 schema {
@@ -341,11 +341,11 @@ type Mutation {
 }
 ```
 
-You can then import the updated GraphQL Schema file into Microcks using the upload dialog but **without ticking the box** as we want to update our service definition and not simply add test data. You can check the updated result:
+You can then import the updated GraphQL Schema file into Microcks using the upload dialog, but **without ticking the box** as we want to update our service definition and not simply add test data. You can check the updated result:
 
 {{< image src="images/documentation/first-graphql-3-operations.png" alt="image" zoomable="true" >}}
 
-As said above, we want to define a smart mock with some logic. Thankfully, Microcks has this ability to generate [dynamic mock content](/documentation/explanations/dynamic-content). When defining our example in the Postman Collection, we're are going to use three specific notations that are:
+As said above, we want to define a smart mock with some logic. Thankfully, Microcks has this ability to generate [dynamic mock content](/documentation/explanations/dynamic-content). When defining our example in the Postman Collection, we're going to use three specific notations that are:
 
 * `{{ randomInt(5,10) }}` for asking Microcks to generate a random integer between 5 and 10 for us (remember: the other pets have ids going from 1 to 4),
 * `{{ request.body/variables/newPet/name }}` for asking Microcks to reuse here the `name` property provided as a variable in the request body.
@@ -423,12 +423,12 @@ echo '{ "query":
 }
 ```
 
-As a result we've got our pet name `Rusty` being returned with a new `id` being generated. Ta Dam! 🥳
+As a result, we've got our pet name `Rusty` being returned with a new `id` being generated. Ta Dam! 🥳
 
-> 🛠️ As a validation, send a few more requests changing your pet name. You'll check that given name is always returned and the `id` is actual random. But you can also go further by defining an [advanced dispatcher](/documentation/explanations/dispatching/#json-body-dispatcher) that will inspect your request variables content to decide which response must be sent back. Very useful to describe different creation or error cases!
+> 🛠️ As a validation, send a few more requests changing your pet's name. You'll check that the given name is always returned and the `id` is actually random. But you can also go further by defining an [advanced dispatcher](/documentation/explanations/dispatching/#json-body-dispatcher) that will inspect your request variables' content to decide which response must be sent back. Very useful to describe different creation or error cases!
 
 ## Wrap-up
 
-In this tutorial we have seen the basics on how Microcks can be used to mock responses of a GraphQL API. We introduced some Microcks concepts like examples, dispatchers and templating features that are used to produce a live simulation. This definitely helps speeding-up the feedback loop on the ongoing design as the development of a consumer using this API.
+In this tutorial, we have seen the basics of how Microcks can be used to mock responses of a GraphQL API. We introduced some Microcks concepts like examples, dispatchers and templating features that are used to produce a live simulation. This definitely helps speed up the feedback loop on the ongoing design and development of a consumer using this API.
 
-Thanks for reading and let us know what you think on our [Discord chat](https://microcks.io/discord-invite) 🐙
+Thanks for reading, and let us know what you think on our [Discord chat](https://microcks.io/discord-invite) 🐙
