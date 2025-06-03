@@ -84,7 +84,7 @@ We extend our heartfelt thanks to the community for amplifying Microcks' presenc
 
 At **KubeCon + CloudNativeCon Europe 2025**, Microcks was featured in two insightful sessions:
 
-* [From 0 to Production-Grade With Kubernetes Native Development](https://youtu.be/07RnkzSc6Jg?si=6Kf8zjDFvuGWzNQP) 🍿 by [Thomas Vitale](https://www.linkedin.com/in/vitalethomas/) and [Kevin Dubois](https://www.linkedin.com/in/kevindubois/) highlights* Microcks' role in enhancing the developer experience with Kubernetes-native Java applications.
+* [From 0 to Production-Grade With Kubernetes Native Development](https://youtu.be/07RnkzSc6Jg?si=6Kf8zjDFvuGWzNQP) 🍿 by [Thomas Vitale](https://www.linkedin.com/in/vitalethomas/) and [Kevin Dubois](https://www.linkedin.com/in/kevindubois/) highlights Microcks' role in enhancing the developer experience with Kubernetes-native Java applications.
 * [Platform Engineering Loves Security: Shift Down To Your Platform, Not Left To Your Developers!](https://youtu.be/Es3DBj2UgIE?si=tuh_Ek_so8OcnwUu) 🍿 by [Maxime Coquerel](https://www.linkedin.com/in/maximecoquerel/) & [Mathieu Benoit](https://www.linkedin.com/in/mathieubenoitqc/) emphasized the importance of integrating security and quality assurance into the platform layer, a strategy that aligns with Microcks' approach within the API lifecycle.
 
 Additionally, we were honored to present at the **[Dapr Community Call](https://www.youtube.com/live/pbla9IjikvM?si=2l1_PtmbJEo6Su7A)** 🍿 on May 14th, where we provided a teaser of the integration value between Microcks and Dapr.
