@@ -3,7 +3,7 @@ draft: false
 title: "On Kubernetes with Operator"
 date: 2024-04-30
 publishdate: 2024-04-30
-lastmod: 2025-03-21
+lastmod: 2025-06-03
 weight: 9
 ---
 
@@ -31,6 +31,7 @@ First thing, you need to do is to install the [Custom Resource Definitions](http
 kubectl apply -f https://raw.githubusercontent.com/microcks/microcks-operator/refs/heads/main/deploy/crd/microckses.microcks.io-v1.yml
 kubectl apply -f https://raw.githubusercontent.com/microcks/microcks-operator/refs/heads/main/deploy/crd/apisources.microcks.io-v1.yml
 kubectl apply -f https://raw.githubusercontent.com/microcks/microcks-operator/refs/heads/main/deploy/crd/secretsources.microcks.io-v1.yml
+kubectl apply -f https://raw.githubusercontent.com/microcks/microcks-operator/refs/heads/main/deploy/crd/tests.microcks.io-v1.yml
 ```
 
 Then, you can install the operator itself in a dedicated namespace - let's say `microcks` - using:
@@ -40,7 +41,7 @@ kubectl create namespace microcks
 kubectl apply -f https://raw.githubusercontent.com/microcks/microcks-operator/refs/heads/main/deploy/operator-jvm.yaml -n microcks
 ```
 
-> 💡 For a reproducible production-grade deployment, we recommend using tagged versions of the resource definitions. It means you have to replace the `/heads/main` part or the above URLs by `/tags/<version>`. For example: `/tags/0.0.3/` if you want to pin the `0.0.3` version of the operator.
+> 💡 For a reproducible production-grade deployment, we recommend using tagged versions of the resource definitions. It means you have to replace the `/heads/main` part or the above URLs by `/tags/<version>`. For example: `/tags/0.0.4/` if you want to pin the `0.0.4` version of the operator.
 
 ## 2. Install Microcks with default options
 
@@ -48,7 +49,7 @@ Once the operator is up and running, you can create a new `Microcks` Custom Reso
 
 The default options of the Custom Resource will deploy a full Microcks instance without the asynchronous components (the Async Minion and the Kafka broker) such as explained in [Architecture & deployment options](/documentation/explanations/deployment-options/). The access to Microcks and Keycloak is done using Ingresses by default.
 
-In below example, we're creating a new `Microcks` CR named `microcks` that will install Microcks `1.11.0`. You need to customize the two url fields to match your environment with DNS names that will be mapped to the Microcks and Keycloak ingresses:
+In below example, we're creating a new `Microcks` CR named `microcks` that will install Microcks `1.12.0`. You need to customize the two url fields to match your environment with DNS names that will be mapped to the Microcks and Keycloak ingresses:
 
 ```yaml
 cat <<EOF | kubectl apply -n microcks -f -
@@ -57,7 +58,7 @@ kind: Microcks
 metadata:
   name: microcks
 spec:
-  version: 1.11.0
+  version: 1.12.0
   microcks:
     url: microcks.m.minikube.local
   keycloak:
@@ -214,7 +215,7 @@ kind: Microcks
 metadata:
   name: microcks
 spec:
-  version: 1.11.0
+  version: 1.12.0
   microcks:
     url: microcks.m.minikube.local
   keycloak:
@@ -302,6 +303,6 @@ kc delete -f https://raw.githubusercontent.com/microcks/microcks-operator/refs/h
 
 You've been through this guide and learned how to install Microcks on a Kubernetes cluster using the Operator. Congrats! 🎉
 
-If you want to get more information about available deployment options and production-grade deployment concerns, we'd recommend looking at [Architecture & deployment options](http://localhost:1313/documentation/explanations/deployment-options/#deploying-on-kubernetes) documentation. If you like to review all the available installation parameters, you can check our [reference documentation on GitHub](https://github.com/microcks/microcks-operator/blob/main/README.md).
+If you want to get more information about available deployment options and production-grade deployment concerns, we'd recommend looking at [Architecture & deployment options](/documentation/explanations/deployment-options/#deploying-on-kubernetes) documentation. If you like to review all the available installation parameters, you can check our [reference documentation on GitHub](https://github.com/microcks/microcks-operator/blob/main/README.md).
 
 Happy learning!
