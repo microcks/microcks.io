@@ -390,8 +390,6 @@
   }
   @media (min-width: 992px) {
     .navbar .dropdown-menu {
-      background-color: transparent;
-
       &::after {
         background-color: lighten($dark-body-bg, 2);
         box-shadow: 0 6px 50px -1px rgba(0, 0, 0, 0.3);
