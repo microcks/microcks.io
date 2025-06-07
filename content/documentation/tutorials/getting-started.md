@@ -3,7 +3,7 @@ draft: false
 title: "Getting started"
 date: 2019-09-01
 publishdate: 2019-09-01
-lastmod: 2024-05-15
+lastmod: 2025-06-07
 weight: 1
 ---
 
@@ -22,25 +22,27 @@ docker run -p 8585:8080 -it --rm quay.io/microcks/microcks-uber:latest-native
 This will pull and spin the `uber` container and setup a simple environment for you to use. You should get something like this on your terminal:
 
 ```sh
-[...]
  .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
 ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
   '  |____| .__|_| |_|_| |_\__, | / / / /
  =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::                (v3.2.1)
 
-14:51:07.473  INFO 1 --- [      main] i.g.microcks.MicrocksApplication         : Starting AOT-processed MicrocksApplication using Java 17.0.10 with PID 1 (/workspace/io.github.microcks.MicrocksApplication started by cnb in /workspace)
-14:51:07.473  INFO 1 --- [      main] i.g.microcks.MicrocksApplication         : The following 1 profile is active: "uber"
-14:51:07.520  INFO 1 --- [      main] i.g.microcks.config.WebConfiguration     : Starting web application configuration, using profiles: [uber]
-14:51:07.520  INFO 1 --- [      main] i.g.microcks.config.WebConfiguration     : Web application fully configured
+ :: Spring Boot ::               (v3.3.10)
+
+20:25:08.589  INFO 1 --- [      main] i.g.microcks.MicrocksApplication         : Starting AOT-processed MicrocksApplication using Java 21.0.6 with PID 1 (/workspace/io.github.microcks.MicrocksApplication started by ? in /workspace)
+20:25:08.589  INFO 1 --- [      main] i.g.microcks.MicrocksApplication         : The following 1 profile is active: "uber"
+20:25:08.659  INFO 1 --- [      main] i.g.microcks.config.WebConfiguration     : Starting web application configuration, using profiles: [uber]
+20:25:08.659  INFO 1 --- [      main] i.g.microcks.config.WebConfiguration     : Web application fully configured
 [...]
-14:51:07.637  INFO 1 --- [      main] i.g.m.util.grpc.GrpcServerStarter        : GRPC Server started on port 9090
-14:51:07.640  INFO 1 --- [      main] i.g.m.config.AICopilotConfiguration      : AICopilot is disabled
-14:51:07.682  INFO 1 --- [      main] i.g.m.config.SecurityConfiguration       : Starting security configuration
-14:51:07.682  INFO 1 --- [      main] i.g.m.config.SecurityConfiguration       : Keycloak is disabled, permitting all requests
-14:51:07.755  INFO 1 --- [      main] i.g.microcks.MicrocksApplication         : Started MicrocksApplication in 0.296 seconds (process running for 0.303)
+20:25:08.719  INFO 1 --- [      main] i.g.m.util.grpc.GrpcServerStarter        : GRPC Server started on port 9090
+20:25:08.727  INFO 1 --- [      main] i.g.m.config.AICopilotConfiguration      : AICopilot is disabled
+20:25:08.795  INFO 1 --- [      main] i.g.m.config.SecurityConfiguration       : Starting security configuration for mocks
+20:25:08.796  INFO 1 --- [      main] i.g.m.config.SecurityConfiguration       : Starting security configuration for APIs
+20:25:08.796  INFO 1 --- [      main] i.g.m.config.SecurityConfiguration       : Keycloak is disabled, permitting all requests
+20:25:08.824  INFO 1 --- [      main] i.g.m.config.MongoConfiguration          : Ensuring TTL index for ServiceState
+20:25:08.826  INFO 1 --- [      main] i.g.microcks.MicrocksApplication         : Started MicrocksApplication in 0.256 seconds (process running for 0.261)
 ```
 
 Open a new browser tab and point to the `http://localhost:8585` endpoint - or other port you choose to access Microcks.
