@@ -48,8 +48,8 @@ preloader = "images/preloader-02.gif"
 # Navigation button
 [navigation_button]
 enable = true
-label = "Get Started"
-link = "/documentation/tutorials/getting-started/"
+label = "Try Microcks"
+link = "https://microcks.io/documentation/overview/try-microcks/"
 
 # Call to action
 [call_to_action]
