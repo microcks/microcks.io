@@ -37,6 +37,7 @@ clients_logo_slider:
   - "images/adopters/bnp-paribas.png"
   - "images/adopters/deloitte.png"
   - "images/adopters/bancopan.png"
+  - "images/adopters/amway.png"
   - "images/adopters/jb-hunt.png"
   - "images/adopters/michelin.png"
   - "images/adopters/nordic-semiconductor.png"
