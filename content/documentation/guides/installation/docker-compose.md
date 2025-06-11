@@ -3,7 +3,7 @@ draft: false
 title: "With Docker Compose"
 date: 2024-04-30
 publishdate: 2024-04-30
-lastmod: 2024-05-24
+lastmod: 2025-05-11
 weight: 2
 ---
 
@@ -51,7 +51,7 @@ Support for Asynchronous API features of Microcks are not enabled by default int
 In your terminal use the following command instead:
 
 ```sh
-docker compose -f docker-compose.yml -f docker-compose-async-addon.yml up -d
+docker compose -f docker-compose.yml -f async-addon.yml up -d
 ```
 
 Docker compose is now launching additional containers, namely `zookeeper`, `kafka` and the `microcks-async-minion`. The above command should produce the following output:
@@ -72,7 +72,7 @@ You may want to check our [blog post](/blog/async-features-with-docker-compose) 
 If you're feeling lucky regarding your machine, you can even add the [Kafdrop](https://github.com/obsidiandynamics/kafdrop) utility to visualize and troubleshoot Kafka messages with this command:
 
 ```sh
-docker compose -f docker-compose.yml -f docker-compose-async-addon.yml -f kafdrop-addon.yml up -d
+docker compose -f docker-compose.yml -f async-addon.yml -f kafdrop-addon.yml up -d
 ```
 
 ## Development mode
