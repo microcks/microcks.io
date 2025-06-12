@@ -11,7 +11,7 @@ Microcks is a tool for **mocking and testing** your APIs and microservices. It l
 
 Microcks facilitates **rapid simulation generation**, **automated API testing**, and **seamless CI/CD integration**, streamlining development and deployment processes. Microcks **empowers teams** to optimize services and **accelerate product releases**, gaining a competitive advantage.
 
-Microcks is a [Cloud Native Computing Foundation (CNCF) Sandbox project](https://landscape.cncf.io/?selected=microcks) and a 100% Open Source and community driven initiative.
+Microcks is a [Cloud Native Computing Foundation (CNCF) Sandbox project](https://landscape.cncf.io/?selected=microcks) and a 100% open source, community-driven initiative.
 
 <br/>
 
@@ -44,7 +44,7 @@ Depending on your profile, you may use Microcks to gain different advantages:
         <ul>
           <li>Use Microcks on your laptop to simulate API and services dependencies</li>
           <li>Leverage your API specifications, <a href="/documentation/references/artifacts/graphql-conventions/">GraphQL</a> or <a href="/documentation/references/artifacts/grpc-conventions/">gRPC</a> schemas and collections to get free mocks</li>
-          <li>Write Integration Tests the easy-way with <a href="/documentation/guides/usage/developing-testcontainers/">our Testcontainers module</a></li>
+          <li>Write Integration Tests the easy way with <a href="/documentation/guides/usage/developing-testcontainers/">our Testcontainers module</a></li>
           <li>Get free, no-code contract-testing for all your API and services versions</li>
         </ul>
       </div>
@@ -73,7 +73,7 @@ Depending on your profile, you may use Microcks to gain different advantages:
           <li>Provide testing environments as-a-service, at very low cost</li>
           <li>Guarantee flexibility and scalability thanks to <a href="/documentation/guides/installation/">Kubernetes-native deployments</a></li>
           <li>Integrate Microcks into your Internal Developer Portal powered by <a href="/documentation/guides/integration/backstage-plugin/">Backstage</a> or Kratix</li>
-          <li>Deploy Sandboxes for internals, partners, customers the easy-way <a href="/documentation/guides/installation/kubernetes-operator/">via GitOps</a></li>
+          <li>Deploy Sandboxes for internals, partners, customers the easy way <a href="/documentation/guides/installation/kubernetes-operator/">via GitOps</a></li>
         </ul>
       </div>
     </div>
