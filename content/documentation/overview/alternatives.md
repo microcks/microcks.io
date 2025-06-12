@@ -14,6 +14,6 @@ Please check this **neutral Wikipedia page** for more insights:
 
 If you would like a more opinionated description on _"How Microcks **compares to Pact for Contract Testing**?"_, you may want to read this [Medium blog](https://medium.com/@lbroudoux/) post by one of the project co-founder: [Microcks and Pact for API contract testing](https://medium.com/@lbroudoux/microcks-and-pact-for-api-contract-testing-3e0e7d4516ca).
 
-Finally, if you're wondering why we think Microcks is **unique in terms of Development Lifecycle coverage**, you may check [How Microcks fit and unify Inner and Outer Loops for cloud-native development](https://www.linkedin.com/pulse/how-microcks-fit-unify-inner-outer-loops-cloud-native-kheddache/) the other co-founder of the project.
+Finally, if you're wondering why we think Microcks is **unique in terms of Development Lifecycle coverage**, you may check [How Microcks fit and unify Inner and Outer Loops for cloud-native development](https://www.linkedin.com/pulse/how-microcks-fit-unify-inner-outer-loops-cloud-native-kheddache/), the other co-founder of the project.
 
 Happy reading! 😉
