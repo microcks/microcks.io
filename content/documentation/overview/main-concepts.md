@@ -23,7 +23,7 @@ The more Artifacts you put in Microcks, the richer its knowledge base about your
 
 `Mocks` - or simulations as we sometimes call them - **are fake API or service implementations** inferred from the aggregated knowledge base. In a nutshell, you feed Microcks with your `Artifacts`, and it immediately produces `Mocks` available on specific endpoints.
 
-You can use these endpoints to play around with your API as if it were real. As an API owner, you can start collecting consumer feedback. As a developer, you can start developing and using this API without bothering with external dependency. You don't even have to write code!
+You can use these endpoints to play around with your API as if it were real. As an API owner, you can start collecting consumer feedback. As a developer, you can start developing and using this API without bothering with any external dependencies. You don't even have to write code!
 
 {{< image src="images/documentation/concepts-mocks.png" alt="Mocks" zoomable="true" >}}
 
@@ -31,7 +31,7 @@ Microcks provides smart and transparent mocks. Your consumers don't even notice 
 
 ## Tests
 
-`Tests` are the direct side effect benefits of the Microcks knowledge base! From all the acquired knowledge and samples, Microcks can also **validate that an actual implementation of an API or service conforms to its expectations**.
+`Tests` are the direct side effects of the Microcks knowledge base! From all the acquired knowledge and samples, Microcks can also **validate that an actual implementation of an API or service conforms to its expectations**.
 
 In the literature, this process is usually called contract or conformance testing and is associated with integration testing methodologies.
 
