@@ -16,7 +16,7 @@ Welcome to Microcks **Tutorials**! Our Tutorials section teaches beginner proces
 >
 > **Contribute to Microcks Tutorials**
 > 
-> Code isn't the only way to contribute to OSS; Dev Docs are a huge help that benefit the entire OSS ecosystem. At Microcks, we value Doc contributions as much as every other type of contribution. ❤️
+> Code isn't the only way to contribute to OSS; Dev Docs are a huge help that benefits the entire OSS ecosystem. At Microcks, we value Doc contributions as much as every other type of contribution. ❤️
 > 
 > To get started as a Docs contributor:
 > 
