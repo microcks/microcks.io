@@ -29,24 +29,24 @@ It is then mandatory to use multiple artifacts in Microcks for [GraphQL](https:/
 
 {{< image src="images/documentation/artifacts-merging-protocols.png" alt="image" zoomable="true" >}}
 
-> 💡 Here again, the `secondary` artifact is not necessarily a Postman Collection just used for illustration purpose. Check our reference on [Supported artifacts and conventions](/documentation/references/artifacts/).
+> 💡 Here again, the `secondary` artifact is not necessarily a Postman Collection just used for illustration purposes. Check our reference on [Supported artifacts and conventions](/documentation/references/artifacts/).
 
 Also, note that multiple artifacts for one API definition don't necessarily involve different specifications and file formats! The merging process in Microcks is generic, so you can use the same format multiple times. For example, you may want to use an OpenAPI specification as a `primary` one and apply some overlay by managing examples into other OpenAPI files.
 
 {{< image src="images/documentation/artifacts-merging-overlay.png" alt="image" zoomable="true" >}}
 
-One specific case of the merging process - that can be used in combination with any other artifact as a `primary` one - relates to the [Microcks APIMetadata](/documentation/references/metadada) format. When importing such artifacts as secondary ones, the merging process involves the metadata of the API or Service and not the examples or tests as illustrated below:
+One specific case of the merging process - that can be used in combination with any other artifact as a `primary` one - relates to the [Microcks APIMetadata](/documentation/references/metadada) format. When importing such artifacts as secondary ones, the merging process involves the metadata of the API or Service and not the examples or tests, as illustrated below:
 
 {{< image src="images/documentation/artifacts-merging-metadata.png" alt="image" zoomable="true" >}}
 
 ## Opportunities
 
-Microcks's multi-artifacts support is a flexible and powerful feature that opens many opportunities for managing your artifacts.
+Microcks' multi-artifact support is a flexible and powerful feature that opens many opportunities for managing your artifacts.
 
 An emerging use case is that some people may have a single OpenAPI file containing only base/simple examples but manage complementary/advanced examples using, for example, a Postman Collection.
 
 One can extend this base use case to implement some variations:
 
 * Different Postman collections for different lifecycle environments, maintained in coordination with reference datasets,
-* Different Postman collections for different API providers implementing a shared industrial standard (think of IoT [Fiware](https://www.fiware.org/) implementation but for different industry verticals),
+* Different Postman collections for different API providers implementing a shared industrial standard (think of IoT [Fiware](https://www.fiware.org/) implementation, but for different industry verticals),
 * Different Postman collections for different API consumers that will allow consumer-driven contract testing.
