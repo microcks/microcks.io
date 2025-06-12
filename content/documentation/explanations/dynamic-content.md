@@ -9,23 +9,23 @@ weight: 8
 
 ## Introduction
 
-Whilst we deeply think that "real-world" static values for request/response samples are crucial in order to fully understand the business usages and expectations of an API, we have to admit that it is more than often useful to introduce some kind of dynamically generated content for response. 
+Whilst we deeply think that "real-world" static values for request/response samples are crucial to fully understanding the business usages and expectations of an API, we have to admit that it is more than often useful to introduce some kind of dynamically generated content for the response. 
 
-Those use-case encompass:
+Those use cases encompass:
 
 * random numbers that may be defined in a range,
-* today's date or today's + an amount of time (for validity date for example),
+* today's date or today's + an amount of time (for validity date, for example),
 * response part expressed from request part (body part, header, query param)
 
-Thus, Microcks has some templating features allowing to specify dynamic parts in response content.
+Thus, Microcks has some templating features allowing the specification of dynamic parts in response content.
 
-Let's introduce this new feature with an example: a simple `Hello API` that takes a JSON payload as request payload and that return a `Greeting` response including: the id of message, the date of message generation and the message content itself that is just saying `Hello !`.
+Let's introduce this new feature with an example: a simple `Hello API` that takes a JSON payload as the request payload and returns a `Greeting` response including the message's ID, the date of message generation, and the message content itself, which is just saying `Hello !`.
 
-You can find the OpenAPI v3 contract of this API [here](https://github.com/microcks/microcks/blob/master/webapp/src/test/resources/io/github/microcks/util/openapi/hello-dynamic-openapi.yaml) and here's below the result once imported into Microcks:
+You can find the OpenAPI v3 contract of this API [here](https://github.com/microcks/microcks/blob/master/webapp/src/test/resources/io/github/microcks/util/openapi/hello-dynamic-openapi.yaml), and here's the result once imported into Microcks:
 
 {{< image src="images/documentation/template-intro.png" alt="image" zoomable="true" >}}
 
-You'll notice that response payload is expressed using some templating mustaches (`{{` and `}}`) that indicates here that Microcks should recognize the delimited expression and replace it with new values.
+You'll notice that the response payload is expressed using some templating mustaches (`{{` and `}}`) that indicate here that Microcks should recognize the delimited expression and replace it with new values.
 
 When invoked twice with different params at different dates, here are the results:
 
@@ -60,13 +60,13 @@ Here we are: 1 sample definition but dynamic content generated on purpose!
 
 ## Few concepts
 
-Let explain the few concepts behind Microcks templating features. These are really simple and straightforward: 
+Let's explain the few concepts behind Microcks' templating features. These are really simple and straightforward: 
 
-* An expression should be delimited by mustaches like this: `{{ expression }}`. This pattern can be included in any textual representation of your response body content: plain text, JSON, XML, whatever... Microcks will just replace this pattern by its evaluated content or `null` if evaluation fail for any reason,
-* An expression can be a reference to a context variable. In this case, we use a `.` notation to tell which property of this variable we refer to. Built-in contextual informations are attached to variable named `request` so we may use expression like `request.body` for example,
-* An expression can also be a function evaluation. In this case, we use a `()` notation to indicate the function name and its arguments. For example we use `randomString(64)` to evaluate the random string generation function with one arg being `64` (the length of the desired string),
-* An expression may also include `>` redirect character so that result from a first evaluation is injected as an extra argument on the next function. For example, you may use `uuid() > put(myId)`. So that result from `uuid()` function is printed out and also injected as second argument of the `put()` function so that this is will be stored within the `myId` context variable,
+* An expression should be delimited by mustaches like this: `{{ expression }}`. This pattern can be included in any textual representation of your response body content: plain text, JSON, XML, whatever... Microcks will just replace this pattern with its evaluated content or `null` if evaluation fails for any reason,
+* An expression can be a reference to a context variable. In this case, we use a `.` notation to tell which property of this variable we refer to. Built-in contextual information is attached to the variable named `request` so we may use expressions like `request.body`, for example,
+* An expression can also be a function evaluation. In this case, we use a `()` notation to indicate the function name and its arguments. For example, we use `randomString(64)` to evaluate the random string generation function with one arg being `64` (the length of the desired string),
+* An expression may also include `>` redirect character so that the result from a first evaluation is injected as an extra argument on the next function. For example, you may use `uuid() > put(myId)`. So that result from `uuid()` function is printed out and also injected as the second argument of the `put()` function so that this will be stored within the `myId` context variable,
 
 Pretty easy. No? 🎉
 
-You can check the [Mock Templates reference](/documentation/references/templates) to get full list of available variable and function expressions.
+You can check the [Mock Templates reference](/documentation/references/templates) to get a full list of available variables and function expressions.
