@@ -9,9 +9,9 @@ weight: 9
 
 ## Introduction
 
-You know that API and AI are closely related and that tomorrow—and even today—LLMs and AI agents will be among the top consumers of your APIs. It becomes crucial to be able to check how AI Agents will reuse your API as tools!
+You know that API and AI are closely related and that LLMs and AI agents will be among the top consumers of your APIs tomorrow and even today. It becomes crucial to be able to check how AI Agents will reuse your API as tools!
 
-Starting with version `1.12.0`, Microcks automatically translates your API mocks into [Model Context Protocol](https://modelcontextprotocol.io/) (or MCP)- aware endpoints! A new **MCP Server** section in a mock property gives you access to MCP-compatible endpoints to integrate your mocks with your favorite tool.
+Starting with version `1.12.0`, Microcks automatically translates your API mocks into [Model Context Protocol](https://modelcontextprotocol.io/) (or MCP) aware endpoints! A new **MCP Server** section in a mock property gives you access to MCP-compatible endpoints to integrate your mocks with your favorite tool.
 
 {{< image src="images/documentation/mcp-endpoints.png" alt="image" zoomable="true" >}}
 
@@ -25,7 +25,7 @@ Depending on the tool you're using - [MCP Inspector](https://modelcontextprotoco
 
 The different operations of an API mock baked by an OpenAPI specification are automatically published as [MCP tools](https://modelcontextprotocol.io/specification/2025-03-26/server/tools).
 
-Microcks reuses elements from the schemas found in the OpenAPI spec to translate them into descriptive MCP input schemas so that the agent calling the tool is aware of expected input arguments. As MCP is based on the JSON-RPC, we don't have all the REST possibilities that accept operation arguments in `body`, `path`, `query` and `headers`. Consequently, Microcks wraps those elements into the `params.arguments` field of an incoming MCP request.
+Microcks reuses elements from the schemas found in the OpenAPI spec to translate them into descriptive MCP input schemas so that the agent calling the tool is aware of expected input arguments. As MCP is based on JSON-RPC, we don't have all the REST possibilities that accept operation arguments in `body`, `path`, `query` and `headers`. Consequently, Microcks wraps those elements into the `params.arguments` field of an incoming MCP request.
 
 Check this video below that demonstrates OpenAPI-to-MCP Server conversion in Microcks:
 
@@ -43,7 +43,7 @@ Check this video below that demonstrates GraphQL-to-MCP Server conversion in Mic
 
 ## gRPC mocks support
 
-The different rpc unary calls of a gRPC service defined in a Protobuffer contract are automatically published as [MCP tools](https://modelcontextprotocol.io/specification/2025-03-26/server/tools).
+The different RPC unary calls of a gRPC service defined in a Protobuf contract are automatically published as [MCP tools](https://modelcontextprotocol.io/specification/2025-03-26/server/tools).
 
 Microcks reuses elements from the Protobuffer contract to translate them into descriptive MCP input schemas so that the agent calling the tool is aware of expected input arguments.
 
