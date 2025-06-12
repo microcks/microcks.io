@@ -15,7 +15,7 @@ If you're looking to quickly explore Microcks without any installation, you can 
 
 > ⚠️ Note: **This is a read-only environment**
 >
-> You can explore and interact with existing APIs and mocks but cannot modify or import new artifacts.
+> You can explore and interact with existing APIs and mocks, but cannot modify or import new artifacts.
 
 ## What You Can Do
 
