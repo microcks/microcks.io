@@ -9,15 +9,15 @@ weight: 15
 
 ## Introduction
 
-Microcks is using [OpenId Connect](https://openid.net/connect/) and [OAuth 2.0 bearer tokens](https://oauth.net/2/bearer-tokens/) to secure its frontend and API access. While this is very convenient for interactive users, it may be unpracticable for machine-to-machine authentication when you want to interact with Microcks from a robot, CI/CD pipeline or simple CLI tool. For that, we decided to implement the simple [OAuth 2.0 Client Credentials Grant](https://oauth.net/2/grant-types/client-credentials/) in addition of other grants. This authentication is implemented using *Service Accounts* clients defined into the Realm configuration in Keycloak.
+Microcks is using [OpenId Connect](https://openid.net/connect/) and [OAuth 2.0 bearer tokens](https://oauth.net/2/bearer-tokens/) to secure its frontend and API access. While this is very convenient for interactive users, it may be impractical for machine-to-machine authentication when you want to interact with Microcks from a robot, CI/CD pipeline or simple CLI tool. For that, we decided to implement the simple [OAuth 2.0 Client Credentials Grant](https://oauth.net/2/grant-types/client-credentials/) in addition to other grants. This authentication is implemented using *Service Accounts* clients defined in the Realm configuration in Keycloak.
 
-Microcks comes with a default account named `microcks-serviceaccount` that comes with default installation but you are free to create as many account as you may have robots users.
+Microcks comes with a default account named `microcks-serviceaccount` that comes with the default installation, but you are free to create as many accounts as you may have robot users.
 
 ## Inspecting default Service Account
 
-Let's start inspecting the properties of the default *Service Account* to check its anatomy 😉 Start connecting as an administrator to the Keycloak instance your Microcks instance is running.
+Let's inspect the properties of the default *Service Account* to check its anatomy 😉 Start connecting as an administrator to the Keycloak instance your Microcks instance is running.
 
-Just issue the following unauthenticated API call to Microcks to get the Keycloak URL and the name of realm you're using:
+Just issue the following unauthenticated API call to Microcks to get the Keycloak URL and the name of the realm you're using:
 
 ```sh
   curl https://microcks.example.com/api/keycloak/config -s -k | jq .
@@ -33,33 +33,33 @@ Just issue the following unauthenticated API call to Microcks to get the Keycloa
 }
 ```
 
-Authenticate as administrator into the Keycloak administration console and browse the realm Microcks is using. You should have the list of defined `Applications` or `Clients` defined on this realm and see the default `microcks-serviceaccount` as in below screenshot:
+Authenticate as an administrator into the Keycloak administration console and browse the realm Microcks is using. You should have the list of defined `Applications` or `Clients` defined on this realm and see the default `microcks-serviceaccount` as in the below screenshot:
 
 {{< image src="images/documentation/service-account-clients.png" alt="image" zoomable="true" >}}
 
-Getting to the details of the `Service Account`, you can check that it is `Enabled`, that it should conform to the `openid-connect` Client Protocol with a `confidential` Access Type. Finally, it should also be able to do a `Direct Access Grant` and act as a `Service Account`. See below the settings of default account: 
+Getting to the details of the `Service Account`, you can check that it is `Enabled`, that it should conform to the `openid-connect` Client Protocol with a `confidential` Access Type. Finally, it should also be able to do a `Direct Access Grant` and act as a `Service Account`. See below the settings of the default account: 
 
 {{< image src="images/documentation/service-account-settings.png" alt="image" zoomable="true" >}}
 
-So one crucial thing for `Service Account` is their associated `Credentials` because because clients will have to know it for initating the flow. Credentials are available in the `Credentials` thumb like shown below:
+So, one crucial thing for `Service Account` is its associated `Credentials` because clients will have to know it for initiating the flow. Credentials are available in the `Credentials` thumb, as shown below:
 
 {{< image src="images/documentation/service-account-credentials.png" alt="image" zoomable="true" >}}
 
-Finally, in order to operate correctly, *Service Account* should have role assigned. The default account comes with the `user` role defined into the main `microcks-app` OpenId client that matches to the main Microcks component:
+Finally, in order to operate correctly, the *Service Account* should have a role assigned. The default account comes with the `user` role defined in the main `microcks-app` OpenId client that matches the main Microcks component:
 
 {{< image src="images/documentation/service-account-roles.png" alt="image" zoomable="true" >}}
 
-> 🚨 If you want to use the *Service Account* from pipelines in order to perform advanced operations like importing new Artifacts, or triggering scheduled imports, you have to give it more privileges as the default account has just the `user` role.
+> 🚨 If you want to use the *Service Account* from pipelines in order to perform advanced operations like importing new Artifacts, or triggering scheduled imports, you have to give it more privileges, as the default account has just the `user` role.
 >
 > On the role page in Keycloak, click on the **Assign role** button, filter roles by clients and pick the `microcks-app` > `manager` role.
 
 ## Using Service Account
 
-In Microcks, the default `microcks-serviceaccount` is used by internal components when communicating with the main Microcks webapp that is holding API. So be careful before changing its credentials and do not delete it!
+In Microcks, the default `microcks-serviceaccount` is used by internal components when communicating with the main Microcks webapp that is holding the API. So be careful before changing its credentials and do not delete it!
 
 However, you can create as many other `Service Accounts` as you may have CI/CD pipelines, CLI users or integration with your own solutions.
 
-As a sum-up, here's some basic commands showing you how to use this service account once defined:
+As a sum-up, here are some basic commands showing you how to use this service account once defined:
 
 ```sh
 # account:credentials should be first encoded as base 64
