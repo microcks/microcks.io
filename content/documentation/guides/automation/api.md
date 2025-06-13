@@ -9,7 +9,7 @@ weight: 1
 
 ## Overview
 
-This guide shows you how to authenticate to and how to use the Microcks API for better automation of tasks. As all the features available in Microcks can be used directly through its [REST API](/documentation/references/apis/open-api), you can extend it we way you want and use it in a pure headless mode.
+This guide shows you how to authenticate to and use the Microcks API for better automation of tasks. As all the features available in Microcks can be used directly through its [REST API](/documentation/references/apis/open-api), you can extend it in the way you want and use it in a pure headless mode.
 
 This guide takes place in **3 steps**:
 
@@ -19,11 +19,11 @@ This guide takes place in **3 steps**:
 
 3️⃣ We will **issue a bunch of API calls** and discuss permissions.
 
-> 💡 All the commands of this guide are exposed as `curl` commands, it's then up-to-you to translate them into your language or automation stack of choice. As this is a simple test, we will not bother with certificates validation and add the `-k` flags to the commands. Be sure to use `--cacert` or `--capath` options on real environment with custom certificates.
+> 💡 All the commands of this guide are exposed as `curl` commands, it's then up to up-to-you to translate them into your language or automation stack of choice. As this is a simple test, we will not bother with certificate validation and add the `-k` flags to the commands. Be sure to use `--cacert` or `--capath` options in the real environment with custom certificates.
 
 Let's jump in! 🏂
 
-## 1. Check security configuration
+## 1. Check the security configuration
 
 Assuming you're running your Microcks instance at `https://microcks.example.com/api/keycloak/config` and that you're not aware of your security configuration, you may execute this first command in your terminal to get the configuration:
 
@@ -41,17 +41,17 @@ curl https://microcks.example.com/api/keycloak/config -k
 }
 ```
 
-On the above command output, you see that Keycloak and thus authentication are actually enabled. We will use the `auth-server-url` and `realm` for authentication. If it's not the case, then you can skip the end of this step as well as step 2.
+In the above command output, you see that Keycloak and, thus, authentication are actually enabled. We will use the `auth-server-url` and `realm` for authentication. If it's not the case, then you can skip the end of this step as well as step 2.
 
-Before going further, you need to retrieve a *Service Account* for authenticating to Keycloak. Your Microcks provider or administrator has probably read the explanations on [Service Account](/documentation/explanations/service-account) and will be able to provide this information.
+Before proceeding, you need to retrieve a *Service Account* for authenticating to Keycloak. Your Microcks provider or administrator has probably read the explanations on [Service Account](/documentation/explanations/service-account) and will be able to provide this information.
 
-For new comers, don't worry! Microcks comes with a default account named `microcks-serviceaccount` that comes with default installation; with a default credential that is set to `ab54d329-e435-41ae-a900-ec6b3fe15c54`. 😉
+For newcomers, don't worry! Microcks comes with a default account named `microcks-serviceaccount` that comes with a default installation, with a default credential that is set to `ab54d329-e435-41ae-a900-ec6b3fe15c54`. 😉
 
 ## 2. Authenticate to Keycloak
 
 Your Microcks installation is secured, you have your *Service Account* information at hand and you know need to authenticate and retrieve a `token`.
 
-The authentication of *Service Account* implements the simple [OAuth 2.0 Client Credentials Grant](https://oauth.net/2/grant-types/client-credentials/) so that its convenient for machine-to-machine interaction scenarios. This grant requires that our service account name and credentials being first encode in Base64:
+The authentication of *Service Account* implements the simple [OAuth 2.0 Client Credentials Grant](https://oauth.net/2/grant-types/client-credentials/) so that it's convenient for machine-to-machine interaction scenarios. This grant requires that our service account name and credentials be first encoded in Base64:
 
 ```sh
 # encode account:credentials as base 64
@@ -59,7 +59,7 @@ $ echo "microcks-serviceaccount:ab54d329-e435-41ae-a900-ec6b3fe15c54" | base64
 bWljcm9ja3Mtc2VydmljZWFjY291bnQ6YWI1NGQzMjktZTQzNS00MWFlLWE5MDAtZWM2YjNmZTE1YzU0Cg=
 ```
 
-Then you can issue a `POST` comamnd to the `auth-server-url` and `realm` previously retrieved, reusing this Base64 string in a basic authorization header and specifying the client credentials grant type:
+Then you can issue a `POST` command to the `auth-server-url` and `realm` previously retrieved, reusing this Base64 string in a basic authorization header and specifying the client credentials grant type:
 
 ```sh
 # authenticate and retrieve an access_token from Keycloak
@@ -79,23 +79,23 @@ curl -X POST https://keycloak.microcks.example.com/realms/microcks/protocol/open
 }
 ```
 
-The important things here is the `access_token` property of the authentication response that you need to extract and keep at hand.
+The important thing here is the `access_token` property of the authentication response that you need to extract and keep at hand.
 
 ## 3. Connect to Microcks API
 
-If you retrieved an `access_token` in the previous step, you can store into a `TOKEN` environment variable like this:
+If you retrieved an `access_token` in the previous step, you can store in a `TOKEN` environment variable like this:
 
 ```sh
 export TOKEN=eyJhbGciOiJSUzI1NiIsIn...
 ```
 
-If you skipped the step 2 because you're using an unauthenticated instance of Microcks then you can set `TOKEN` to any value you want like below.
+If you skipped step 2 because you're using an unauthenticated instance of Microcks, you can set `TOKEN` to any value you want, like below.
 
 ```sh
 export TOKEN=foobar
 ```
 
-Now that the `TOKEN` is set you can issue commands to Microcks API, providing it as the `Authorization` header value.
+Now that the `TOKEN` is set, you can issue commands to the Microcks API, providing it as the `Authorization` header value.
 
 For example, you can check the content of your API | Services repository like this:
 
@@ -173,13 +173,13 @@ curl 'https://microcks.example.com/api/services?page=0&size=1' -H "Authorization
 ]
 ```
 
-And you can also get access to the details of this specific API, reusing its `id` with following API call:
+And you can also get access to the details of this specific API, reusing its `id` with the following API call:
 
 ```sh
 curl 'https://microcks.example.com/api/services/65fc52b9512f6013cb7e9781?messages=true' -H "Authorization: Bearer $TOKEN" -k
 ```
 
-Imagine you followed the [Importing Services & APIs guide](/documentation/guides/usage/importing-content) previously and you have created a scheduled importer, then you can access the list of importer jobs:
+Imagine you followed the [Importing Services & APIs guide](/documentation/guides/usage/importing-content) previously, and you have created a scheduled importer, then you can access the list of importer jobs:
 
 ```sh
 curl 'https://microcks.example.com/api/jobs?page=0&size=1' -H "Authorization: Bearer $TOKEN" -k
@@ -208,7 +208,7 @@ curl 'https://microcks.example.com/api/jobs?page=0&size=1' -H "Authorization: Be
 ]
 ```
 
-However, some of the API calls are restrictive to certain permissions. For example, if you try to activate the above importer job using the following API call:
+However, some of the API calls are restricted to certain permissions. For example, if you try to activate the above importer job using the following API call:
 
 ```sh
 curl 'https://microcks.example.com/api/jobs/6470b31415d8e3652a787bad/start' -H "Authorization: Bearer $TOKEN" -k -v
@@ -221,10 +221,10 @@ You'll get the following error response:
 < WWW-Authenticate: Bearer error="insufficient_scope", error_description="The request requires higher privileges than provided by the access token.", error_uri="https://tools.ietf.org/html/rfc6750#section-3.1"
 ```
 
-This is expected as *Service Account* are endorsing roles. By default the `microcks-serviceaccount` only endorse the `user` role and cannot perform advanced operations like creating or activating importer jobs.
+This is expected as *Service Account* is endorsing roles. By default, the `microcks-serviceaccount` only endorses the `user` role and cannot perform advanced operations like creating or activating importer jobs.
 
 ## Wrap-up
 
-Walking this guide, you have learned how to connect to the Microcks API, going through authentication first if your installation has enabled it. Microcks proposes to authenticate via *Service Account* and using [OAuth 2.0 Client Credentials Grant](https://oauth.net/2/grant-types/client-credentials/) to retrieve a valid token. This authentication mechanism is the foundation that is used with all other means to interact with Microcks' API: the [CLI](/documentation/guides/automation/cli), the [GitHub Actions](/documentation/guides/automation/github-actions), the [Jenkins plugin](/documentation/guides/automation/jenkins), etc.
+Walking through this guide, you have learned how to connect to the Microcks API, going through authentication first if your installation has enabled it. Microcks proposes to authenticate via *Service Account* and using [OAuth 2.0 Client Credentials Grant](https://oauth.net/2/grant-types/client-credentials/) to retrieve a valid token. This authentication mechanism is the foundation that is used with all other means to interact with Microcks' API: the [CLI](/documentation/guides/automation/cli), the [GitHub Actions](/documentation/guides/automation/github-actions), the [Jenkins plugin](/documentation/guides/automation/jenkins), etc.
 
-You may follow-up this guide with consulting the reference about [Microcks' REST API](/documentation/references/apis/open-api) or learning more about [Service Accounts](/documentation/explanations/service-account).
+You may follow up this guide with consulting the reference about [Microcks' REST API](/documentation/references/apis/open-api) or learning more about [Service Accounts](/documentation/explanations/service-account).
