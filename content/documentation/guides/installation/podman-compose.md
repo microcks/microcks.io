@@ -63,9 +63,9 @@ You will be redirected to the main dashboard page.
 
 ### Enabling Asynchronous API features
 
-Support for Asynchronous API features of Microcks are not enabled by default. If you feel your local machine has enough resources to afford it, you can enable them using a slightly different command line.
+Microcks does not enable the asynchronous API features by default. However, if you feel your local machine has enough resources to afford it, you can enable them using a slightly different command line.
 
-In your terminal use the following command instead:
+In your terminal, use the following command instead:
 
 ```sh
 ./run-microcks.sh async
