@@ -52,7 +52,7 @@ Having open discussions always brings fresh ideas and new perspectives! And as I
 
 * Angular was not that bad and dead and Angular 19 was a very different beast,
 * Existing Patternfly Look and Feel experience was still quite good - the only complaint being it was missing a dark theme 🎨,
-* Our architecture hypothesis from 2005 (pure SPA architecture, no SSR, no real need for SEO) was confirmed.
+* Our 2005 architecture hypothesis (pure SPA architecture, no SSR, no real need for SEO) was confirmed.
 
 As a consequence, we adapted our strategy and **decided to stick with Angular - processing to a major upgrade - and to update and [vendor](https://slaptijack.com/programming/what-is-vendoring.html) the Patternfly library** to be able to control our future usage of it!
 
