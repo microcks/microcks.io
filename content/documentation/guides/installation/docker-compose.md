@@ -15,7 +15,7 @@ This guide shows you how to install and run Microcks using Docker Compose.
 
 To get started, make sure you have [Docker installed](https://docs.docker.com/get-docker/) on your system.
 
-In your terminal issue the following commands:
+In your terminal, issue the following commands:
 
 1. Clone this repository.
 
@@ -35,9 +35,9 @@ cd microcks/install/docker-compose
 docker compose up -d
 ```
 
-This will start the required containers and setup a simple environment for you to use.
+This will start the required containers and set up a simple environment for you to use.
 
-Open a new browser tab and point to the `http://localhost:8080` endpoint. This will redirect you to the [Keycloak](https://www.keycloak.org/) sign-in page for login. Use the following default credentials to login into the application:
+Open a new browser tab and point to the `http://localhost:8080` endpoint. This will redirect you to the [Keycloak](https://www.keycloak.org/) sign-in page for login. Use the following default credentials to log in to the application:
 
 * **Username:** `admin`
 * **Password:** `microcks123`
@@ -46,9 +46,9 @@ You will be redirected to the main dashboard page.
 
 ## Enabling Asynchronous API features
 
-Support for Asynchronous API features of Microcks are not enabled by default into the `docker-compose.yml` file. If you feel your local machine has enough resources to afford it, you can enable them using a slightly different command line.
+The `docker-compose.yml` file does not, by default, support Microcks' asynchronous API features. However, if you feel your local machine has enough resources to afford it, you can enable them using a slightly different command line.
 
-In your terminal use the following command instead:
+In your terminal, use the following command instead:
 
 ```sh
 docker compose -f docker-compose.yml -f async-addon.yml up -d
@@ -77,16 +77,16 @@ docker compose -f docker-compose.yml -f async-addon.yml -f kafdrop-addon.yml up 
 
 ## Development mode
 
-A development oriented mode, without the Keycloak service is also available thanks to: 
+A development-oriented mode, without the Keycloak service, is also available thanks to: 
 
 ```sh
 docker compose -f docker-compose-devmode.yml up -d
 ```
 
-This configuration enabled Asynchronous API features in a very lightweight mode using [Red Panda broker](https://redpanda.com/) instead of full-blown Apache Kafka distribution.
+This configuration enabled Asynchronous API features in a very lightweight mode using [Red Panda broker](https://redpanda.com/) instead of a full-blown Apache Kafka distribution.
 
 ## Wrap-up
 
 You just installed Microcks on your local machine using Docker Compose and terminal commands. Congrats! 🎉
 
-You have discover that Microcks provides a bunch of default profiles to use different capabilities of Microcks depending on your working situation. Advanced profiles are using local configuration files mounted from the `/config` directory. You can refer to the [Application Configuration Reference](/documentation/references/configuration/application-config) to get the full list of configuration options.
+You have discovered that Microcks provides a bunch of default profiles to use different capabilities of Microcks depending on your working situation. Advanced profiles use local configuration files mounted from the `/config` directory. You can refer to the [Application Configuration Reference](/documentation/references/configuration/application-config) to get the full list of configuration options.
