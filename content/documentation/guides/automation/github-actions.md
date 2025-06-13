@@ -1,6 +1,6 @@
 ---
 draft: false
-title: "Using in GitHub Actions"
+title: "Using GitHub Actions"
 date: 2021-02-19
 publishdate: 2021-02-19
 lastmod: 2024-06-10
