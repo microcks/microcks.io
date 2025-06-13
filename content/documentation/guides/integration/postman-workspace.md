@@ -9,7 +9,7 @@ weight: 8
 
 ## Overview 
 
-[Postman Workspaces](https://www.postman.com/product/workspaces/) are a common and effective way of organizing your team API work. Workspaces allow you to collaborate while designing your API and share your API artifacts like Postman Collections.
+[Postman Workspaces](https://www.postman.com/product/workspaces/) are a common and effective way of organizing your team's API work. Workspaces allow you to collaborate while designing your API and share your API artifacts like Postman Collections.
 
 In this guide, you'll learn how to directly connect Microcks to your Postman Collection living in a Workspace so that changes in Postman may be automatically propagated to Microcks. 
 
@@ -22,9 +22,9 @@ In order to connect to your Postman Workspace, you'll need an API Access Key so 
 <br/><br/>
 </div>
 
-This API Key must then be saved as an authentication [Secret in Microcks](/documentation/guides/administration/secrets) so that your importer will be able to reference it and supply it to Postman API using the `X-API-Key` header. 
+This API Key must then be saved as an authentication [Secret in Microcks](/documentation/guides/administration/secrets) so that your importer can reference it and supply it to the Postman API using the `X-API-Key` header. 
 
-As an administrator, create a new Secret using this template and replacing the token with your own value:
+As an administrator, create a new Secret using this template and replace the token with your own value:
 
 <div align="center">
 {{< image src="images/documentation/postman-api-secret.png" alt="image" zoomable="true" >}}
@@ -33,19 +33,19 @@ As an administrator, create a new Secret using this template and replacing the t
 
 ## 2. Share your API
 
-Now you need to retrieve the Collection Api linkg. For that, you have to go through the **Share** button and select the **Via API** thumbnail as illustrated in the picture below:
+Now you need to retrieve the Collection API link. For that, you have to go through the **Share** button and select the **Via API** thumbnail as illustrated in the picture below:
 
 {{< image src="images/documentation/postman-share-api-link.png" alt="image" zoomable="true" >}}
 
 > 🗒️ You can see that it's also possible to generate a new API key from this step if you have skipped step 1 😉
 
-Copy this URL that is unique and represents access to your Collection.
+Copy this URL, which is unique and represents access to your Collection.
 
 
 ## 3. Create an Importer
 
-Finally, you can then use this URL (ending just before the `?`) and use it directly as an Importer URL when [creating a Scheduled Importer](/documentation/guides/usage/importing-content/#2-import-content-via-importer). 
+Finally, you can use this URL (ending just before the `?`) and use it directly as an Importer URL when [creating a Scheduled Importer](/documentation/guides/usage/importing-content/#2-import-content-via-importer). 
 
 ## Wrap-up
 
-Congrats 🎉 You now know how to connect Microcks to your Postman Workspace in order to get diret access to the Postman Collection shared with your team!
+Congrats 🎉 You now know how to connect Microcks to your Postman Workspace and get direct access to the Postman Collection shared with your team!
