@@ -9,21 +9,21 @@ weight: 20 #rem
 
 ## Overview
 
-This guide is a walkthrough, that exposes Microcks extension capabilities and explain how to leverage them. By the end of this tour, you should be able to apply your customizations and figure out the possibilities it offers.
+This guide is a walkthrough that exposes Microcks extension capabilities and explains how to leverage them. By the end of this tour, you should be able to apply your customizations and figure out the possibilities it offers.
 
 > 💡 This guide is actually an adaptation of the excellent [CNAM](https://assurance-maladie.ameli.fr/qui-sommes-nous)'s blog post here: [Extend Microcks with custom libs and code](/blog/extend-microcks-with-custom-libs/) that provides comprehensive samples on how to apply the below principles.
 
-This guide is organized in 3 different steps you'll have to follow to test and produce a robust extended version of Microcks:
+This guide is organized into 3 different steps you'll have to follow to test and produce a robust extended version of Microcks:
 
 1. **Identify the extension use-case** and the component you'll need to extend,
-2. **Locally extend and test** your additions of container image,
-3. **Build a final custom image** embedding your additons for easy distribution.
+2. **Locally extend and test** your additions to the container image,
+3. **Build a final custom image** embedding your additions for easy distribution.
 
 Let's jump in! 🪂
 
 ## 1. Identify use-cases
 
-At time of writing, there are 2 extension points may be used to extend the built-in features of Microcks:
+At the time of writing, there are 2 extension points that may be used to extend the built-in features of Microcks:
 
 1️⃣ The [`SCRIPT` dispatcher](/documentation/explanations/dispatching/#script-dispatcher) that runs Groovy scripts may need additional dependencies, allowing you to easily reuse your own or third-party libraries across all your mocks. Think about:
   * Parsing and analyzing some custom headers or message envelopes,
@@ -40,14 +40,14 @@ Based on your knowledge of [Microcks Architecture and Deployment Options](/docum
 
 ## 2. Locally extend container images
 
-The first step is very convenient when you’re having a local evaluation of Microcks using the [Docker Compose installation](/documentation/guides/installation/docker-compose). A local `lib` folder can be simply mounted within the image `/deployments/lib` directory and additional `JAVA_*` environment variables are set to load all the JARs found at this location.
+The first step is very convenient when you’re having a local evaluation of Microcks using the [Docker Compose installation](/documentation/guides/installation/docker-compose). A local `lib` folder can be simply mounted within the image `/deployments/lib` directory, and additional `JAVA_*` environment variables are set to load all the JARs found at this location.
 
 > 🗒️ It's worth noting that even if we mentioned Docker Compose above, the solution is similar for Podman Compose.
 
 ### For Webapp component
 
-1. Put your Jar files into a dedicated folder (i.e. `./lib`)
-2. Add the following lines into your compose file for the Microcks container:
+1. Put your Jar files into a dedicated folder (i.e., `./lib`)
+2. Add the following lines to your compose file for the Microcks container:
 
 ```yaml
     volumes:
@@ -61,9 +61,9 @@ The first step is very convenient when you’re having a local evaluation of Mic
 3. Restart and see the Jar files appended to the application classpath.
 4. You can directly use the Java or Groovy classes from your Jar in a `SCRIPT`
 
-### For Async Minion component
+### For the Async Minion component
 
-The things are very similar here excepted that the mount point in the Async Minion container is `/deployments/lib-ext` (`/deployments/lib` is used for internal purpose).
+The things are very similar here, except that the mount point in the Async Minion container is `/deployments/lib-ext` (`/deployments/lib` is used for internal purposes).
 
 ```yaml
     volumes:
@@ -85,7 +85,7 @@ For this, start writing this simple Dockerfile, extending the Microcks official 
 ```dockerfile
 FROM quay.io/microcks/microcks:latest
 
-# Copy libraries jar files
+# Copy libraries' jar files
 COPY lib /deployments/lib
 
 ENV JAVA_OPTIONS=-Dloader.path=/deployments/lib
@@ -98,14 +98,14 @@ ENV JAVA_APP_JAR=app.jar
 > RUN curl -f "${REPOSITORY_URL}"/${libname}/${version}/${libname}-${version}.jar -o ${LIBDIR}/${libname}-${version}.jar
 > ```
 
-### For Async Minion component
+### For the Async Minion component
 
-For this, start writing this simple `Dockerfile`, extending the Microcks Async Minoing official image. Notice that here, we can reuse the `/deployments/lib` location as we’re not going to replace existing libs but augment them with our own ones:
+For this, start writing this simple `Dockerfile`, extending the Microcks Async Minion official image. Notice that here, we can reuse the `/deployments/lib` location as we’re not going to replace existing libs but augment them with our own ones:
 
 ```dockerfile
 FROM quay.io/microcks/microcks-async-minion:latest
 
-# Copy libraries jar files
+# Copy libraries' jar files
 COPY lib /deployments/lib
 
 ENV JAVA_CLASSPATH=/deployments/*:/deployments/lib/*
@@ -117,4 +117,4 @@ We have set the `JAVA_CLASSPATH` to force the discovery of the new JAR files.
 
 With this guide, you’ve learned how to integrate private or third-party Java libraries to customize the behavior of Microcks during mock invocation or when integrating with external brokers. 🎉
 
-These capabilities pave the way for advanced use cases like the processing of common message structures or the dynamic enrichments of datasets to produce the smartest mocks.
+These capabilities pave the way for advanced use cases like the processing of common message structures or the dynamic enrichment of datasets to produce the smartest mocks.
