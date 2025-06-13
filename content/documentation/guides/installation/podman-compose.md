@@ -13,7 +13,7 @@ This guide shows you how to install and run Microcks using Docker Compose.
 
 To get started, make sure you first have the [Podman](https://podman.io/getting-started/installation) and the [Podman Compose](https://github.com/containers/podman-compose) packages installed on your system.
 
-Then, in your terminal issue the following commands:
+Then, in your terminal, issue the following commands:
 
 1. Clone this repository.
 
@@ -34,8 +34,8 @@ cd microcks/install/podman-compose
 ```
 ```sh
 
-On macos, need to get the userid and groupid from postman machine.
-Assuming this machine is named 'podman-machine-default'. Change name in script otherwise.
+On macOS, you need to get the userid and groupid from the podman machine.
+Assuming this machine is named 'podman-machine-default'. Change the name in the script, otherwise.
 
 Starting Microcks using podman-compose ...
 ------------------------------------------
@@ -46,15 +46,15 @@ Clean everything with: podman-compose -f microcks.yml --podman-run-args='--usern
 
 ------------------------------------------
 Go to https://localhost:8080 - first login with admin/microcks123
-Having issues? Check you have changed microcks.yml to your platform
+Having issues? Check that you have changed microcks.yml to your platform
 ```
 ```sh
 podman-compose -f microcks.yml --podman-run-args='--userns=keep-id:uid=501,gid=1000' up -d
 ```
 
-This will start the required containers and setup a simple environment for your usage.
+This will start the required containers and set up a simple environment for your usage.
 
-Open a new browser tab and point to the `http://localhost:8080` endpoint. This will redirect you to the [Keycloak](https://www.keycloak.org/) Single Sign On page for login. Use the following default credentials to login into the application:
+Open a new browser tab and point to the `http://localhost:8080` endpoint. This will redirect you to the [Keycloak](https://www.keycloak.org/) Single Sign On page for login. Use the following default credentials to log in to the application:
 
 * **Username:** `admin`
 * **Password:** `microcks123`
@@ -71,8 +71,8 @@ In your terminal use the following command instead:
 ./run-microcks.sh async
 ```
 ```sh
-On macos, need to get the userid and groupid from postman machine.
-Assuming this machine is named 'podman-machine-default'. Change name in script otherwise.
+On macOS, you need to get the userid and groupid from the podman machine.
+Assuming this machine is named 'podman-machine-default'. Change the name in the script, otherwise.
 
 Starting Microcks using podman-compose ...
 ------------------------------------------
@@ -83,7 +83,7 @@ Clean everything with: podman-compose -f microcks.yml -f microcks-template-async
 
 ------------------------------------------
 Go to https://localhost:8080 - first login with admin/microcks123
-Having issues? Check you have changed microcks.yml to your platform
+Having issues? Check that you have changed microcks.yml to your platform
 ```
 ```sh
 podman-compose -f microcks.yml -f microcks-template-async-addon.yml --podman-run-args='--userns=keep-id:uid=501,gid=1000' up -d
@@ -95,16 +95,16 @@ You may want to check our [blog post](/blog/async-features-with-docker-compose) 
 
 ### Development mode
 
-A development oriented mode, without the Keycloak service is also available thanks to:
+A development-oriented mode, without the Keycloak service, is also available thanks to:
 
 ```sh
 ./run-microcks.sh dev
 ```
 
-This configuration enabled Asynchronous API features in a very lightweight mode using [Red Panda broker](https://redpanda.com/) instead of full-blown Apache Kafka distribution.
+This configuration enabled Asynchronous API features in a very lightweight mode using [Red Panda broker](https://redpanda.com/) instead of a full-blown Apache Kafka distribution.
 
 ## Wrap-up
 
 You just installed Microcks on your local machine using Podman Compose and terminal commands. Congrats! 🎉
 
-You have discover that Microcks provides a bunch of default profiles to use different capabilities of Microcks depending on your working situation. Advanced profiles are using local configuration files mounted from the `/config` directory. You can refer to the [Application Configuration Reference](/documentation/references/configuration/application-config) to get the full list of configuration options.
+You have discovered that Microcks provides a bunch of default profiles to use different capabilities of Microcks depending on your working situation. Advanced profiles use local configuration files mounted from the `/config` directory. You can refer to the [Application Configuration Reference](/documentation/references/configuration/application-config) to get the full list of configuration options.
