@@ -9,9 +9,9 @@ weight: 2
 
 ## Overview
 
-This guide illustrates usage of `microcks-cli`, a command-line tool for interacting with Microcks APIs. It allows to launch tests or import API artifacts with minimal dependencies. It is managed and released independently of the core Microcks server components within its [own GitHub repository](https://github.com/microcks/microcks-cli). The CLI [connects to API](/documentation/guides/automation/api) and uses [Service Account](/documentation/explanations/service-account) and so it's definitely worth the read 😉
+This guide illustrates the usage of `microcks-cli`, a command-line tool for interacting with Microcks APIs. It allows for launching tests or importing API artifacts with minimal dependencies. It is managed and released independently of the core Microcks server components within its [own GitHub repository](https://github.com/microcks/microcks-cli). The CLI [connects to API](/documentation/guides/automation/api) and uses [Service Account](/documentation/explanations/service-account) and so it's definitely worth the read 😉
 
-The CLI also supports authenticated and non-authenticated mode when Microcks is deployed without Keycloak. You'll still have to provide client id and secret to commands but they will be ignored. See [issue #23](https://github.com/microcks/microcks-cli/issues/23) for more details.
+The CLI also supports authenticated and non-authenticated modes when Microcks is deployed without Keycloak. You'll still have to provide the client ID and secret to commands, but they will be ignored. See [issue #23](https://github.com/microcks/microcks-cli/issues/23) for more details.
 
 ## 1. Install the CLI
 
@@ -28,7 +28,7 @@ brew install microcks-cli
 
 ### Binary distribution
 
-The CLI binary releases are available for Linux, MacOS or Windows platform with different architectures on [GitHub releases](https://github.com/microcks/microcks-cli/releases). Just download the binary corresponding to your system and put the binary into the `PATH` somewhere. For example, on a Linux platform with `amd64` architecture, you may run these commands:
+The CLI binary releases are available for Linux, macOS or Windows platforms with different architectures on [GitHub releases](https://github.com/microcks/microcks-cli/releases). Just download the binary corresponding to your system and put it in the `PATH` somewhere. For example, on a Linux platform with `amd64` architecture, you may run these commands:
 
 ```sh
 curl -Lo microcks-cli https://github.com/microcks/microcks-cli/releases/download/0.5.5/microcks-cli-darwin-amd64 \
@@ -37,7 +37,7 @@ curl -Lo microcks-cli https://github.com/microcks/microcks-cli/releases/download
 
 ### Container image
 
-The `microcks-cli` is also available as a container image so that you may run it without installing it. The hosting repository is on [Quay.io](https://quay.io/repository/microcks/microcks-cli?tab=info). You can just simply pull the image to get it locally:
+The `microcks-cli` is also available as a container image so that you may run it without installing it. The hosting repository is on [Quay.io](https://quay.io/repository/microcks/microcks-cli?tab=info). You can simply pull the image to get it locally:
 
 ```sh
 docker pull quay.io/microcks/microcks-cli:latest
@@ -45,7 +45,7 @@ docker pull quay.io/microcks/microcks-cli:latest
 
 ## 2. Launching a test
 
-Assuming you are running the same examples than in the [Getting started](/documentation/tutorials/getting-started) and [Getting started with Tests](/documentation/tutorials/getting-started-tests) tutorials, you may use this command line to launch a new test:
+Assuming you are running the same examples as in the [Getting started](/documentation/tutorials/getting-started) and [Getting started with Tests](/documentation/tutorials/getting-started-tests) tutorials, you may use this command line to launch a new test:
 
 ```sh
 microcks-cli test 'API Pastry - 2.0:2.0.0' http://host.docker.internal:8282 OPEN_API_SCHEMA \
@@ -62,7 +62,7 @@ With some explanations on arguments and flags:
 * 3rd argument is the testing strategy to execute,
 * `--flags` are contextual flags for API endpoints, authentication, timeouts, etc.
 
-The same command can be also executed using the container image:
+The same command can also be executed using the container image:
 
 ```sh
 docker run -it quay.io/microcks/microcks-cli:latest microcks-cli test \
@@ -78,8 +78,8 @@ Check the `microcks-cli` [README](https://github.com/microcks/microcks-cli/blob/
 
 ## Wrap-up
 
-You have learned how to install and use the Microcks CLI for the basic task of launching a new test. This is what you would typically do within your CI/CD pipeline to ensure the application you just deployed correctly implements API specifications.
+You have learned how to install and use the Microcks CLI to launch a new test. This is what you would typically do within your CI/CD pipeline to ensure that the application you just deployed correctly implements the API specifications.
 
-Microcks CLI also provide the `import` command that allows you to push artifacts into Microcks repository. This command requires that you have a *Service Account* with more privileges than the default one though. You may follow-up this guide with learning more about [Service Accounts](/documentation/explanations/service-account).
+Microcks CLI also provides the `import` command that allows you to push artifacts into the Microcks repository. This command requires that you have a *Service Account* with more privileges than the default one, though. You may follow up on this guide by learning more about [Service Accounts](/documentation/explanations/service-account).
 
-The CLI provides the helpful commands `version` and `help` to get basic informations on it. Check the `microcks-cli` [README](https://github.com/microcks/microcks-cli/blob/master/README.md) for full instructions on available commands depending your version.
+The CLI provides the helpful commands `version` and `help` to get basic information on it. Check the `microcks-cli` [README](https://github.com/microcks/microcks-cli/blob/master/README.md) for full instructions on available commands depending on your version.
