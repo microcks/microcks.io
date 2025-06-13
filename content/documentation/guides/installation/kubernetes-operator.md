@@ -11,21 +11,21 @@ weight: 9
 
 This guide shows you how to deploy and use the [Microcks Kubernetes Operator](https://github.com/microcks/microcks-operator). If you're not familiar with Operators, we recommend having a read of this [excellent introduction on Kubernetes Operators](https://www.cncf.io/blog/2022/06/15/kubernetes-operators-what-are-they-some-examples/) and their benefits.
 
-The Microcks Operator offers advanced features comparing to the Helm chart and can be used in a complete [GitOps approach](https://www.redhat.com/en/topics/devops/what-is-gitops) where all the content of a Microcks instance can be pulled from a Git repository. Deploying this practice will allow the automated creation of fully-configured instances on demand, in seconds or minutes, and in a full reproducible way. The Microcks Operator is the cornerstone for your Sandbox-as-a-Service approach!
+The Microcks Operator offers advanced features compared to the Helm chart and can be used in a complete [GitOps approach](https://www.redhat.com/en/topics/devops/what-is-gitops) where all the content of a Microcks instance can be pulled from a Git repository. Deploying this practice will allow the automated creation of fully configured instances on demand, in seconds or minutes, and in a fully reproducible way. The Microcks Operator is the cornerstone for your Sandbox-as-Service approach!
 
-> The video below illustrates what you can achieve using the Microcks Kubernetes Operator the GitOps way using [ArgoCD](https://argo-cd.readthedocs.io/en/stable/)
+> The video below illustrates what you can achieve using the Microcks Kubernetes Operator, the GitOps way using [ArgoCD](https://argo-cd.readthedocs.io/en/stable/)
 
 {{< youtube id="D7Jsr7-R3p8" autoplay="false" >}}
 
 <br/>
 
-Let's walk the different steps 🥾
+Let's walk through the different steps 🥾
 
 ## 1. Operator deployment
 
-Before starting, we'll assume you have access to a working Kubernetes cluster with the administrator privileges. If it's not the case, please ask your favorite SRE or Platform Engineer to do this preparation step for you. If you're practicing, you can also use a local Minikube or Kind cluster. You can have a look a the first two steps of our [Minikube with Helm](/documentation/guides/installation/minikube-helm) or [Kind with Helm](/documentation/guides/installation/minikube-helm) installation guides to do so.
+Before starting, we'll assume you have access to a working Kubernetes cluster with administrator privileges. If it's not the case, please ask your favorite SRE or Platform Engineer to do this preparation step for you. If you're practicing, you can also use a local Minikube or Kind cluster. You can have a look a the first two steps of our [Minikube with Helm](/documentation/guides/installation/minikube-helm) or [Kind with Helm](/documentation/guides/installation/minikube-helm) installation guides to do so.
 
-First thing, you need to do is to install the [Custom Resource Definitions](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) of the Operator in your cluster. You can do this directly pointing to the resources on our GitHub repository: 
+First thing you need to do is to install the [Custom Resource Definitions](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) of the Operator in your cluster. You can do this by directly pointing to the resources on our GitHub repository: 
 
 ```shell
 kubectl apply -f https://raw.githubusercontent.com/microcks/microcks-operator/refs/heads/main/deploy/crd/microckses.microcks.io-v1.yml
@@ -41,15 +41,15 @@ kubectl create namespace microcks
 kubectl apply -f https://raw.githubusercontent.com/microcks/microcks-operator/refs/heads/main/deploy/operator-jvm.yaml -n microcks
 ```
 
-> 💡 For a reproducible production-grade deployment, we recommend using tagged versions of the resource definitions. It means you have to replace the `/heads/main` part or the above URLs by `/tags/<version>`. For example: `/tags/0.0.4/` if you want to pin the `0.0.4` version of the operator.
+> 💡 For a reproducible production-grade deployment, we recommend using tagged versions of the resource definitions. It means you have to replace the `/heads/main` part or the above URLs with `/tags/<version>`. For example: `/tags/0.0.4/` if you want to pin the `0.0.4` version of the operator.
 
 ## 2. Install Microcks with default options
 
 Once the operator is up and running, you can create a new `Microcks` Custom Resource (CR) to get a working instance of Microcks.
 
-The default options of the Custom Resource will deploy a full Microcks instance without the asynchronous components (the Async Minion and the Kafka broker) such as explained in [Architecture & deployment options](/documentation/explanations/deployment-options/). The access to Microcks and Keycloak is done using Ingresses by default.
+The Custom Resource's default options will deploy a full Microcks instance without the asynchronous components (the Async Minion and the Kafka broker), as explained in [Architecture & deployment options](/documentation/explanations/deployment-options/). By default, access to Microcks and Keycloak is done using Ingresses.
 
-In below example, we're creating a new `Microcks` CR named `microcks` that will install Microcks `1.12.0`. You need to customize the two url fields to match your environment with DNS names that will be mapped to the Microcks and Keycloak ingresses:
+In the below example, we're creating a new `Microcks` CR named `microcks` that will install Microcks 1.12.0. You need to customize the two URL fields to match your environment with DNS names that will be mapped to the Microcks and Keycloak ingresses:
 
 ```yaml
 cat <<EOF | kubectl apply -n microcks -f -
@@ -98,11 +98,11 @@ The default user/password is `admin/microcks123`
 
 ## 3. Use Operator Custom Resources
 
-As said in the Overview section, one goal of the Microcks Operator is to allow you to manage all the content of your Microcks instance via Kubernetes resources only to allow a full GitOps approach. For that, the operator also provides the `APISource` and `SecretSource` Custom Resources to load pre-existing API definitions and connection secrets into an operator-managed Microcks instance.
+As said in the Overview section, one goal of the Microcks Operator is to allow you to manage all the content of your Microcks instance via Kubernetes resources only, allowing a full GitOps approach. For that, the operator also provides the `APISource` and `SecretSource` Custom Resources to load pre-existing API definitions and connection secrets into an operator-managed Microcks instance.
 
 ### APISource resource
 
-For example, you can create a new `APISource` CR named `tests-artifacts` that will load four artifacts into the microcks instance and create an additional `Hello Soap Service` importer. Instead of [importing Services & APIs via the UI or the API](/documentation/guides/usage/importing-content/) or [creating an importer](/documentation/guides/usage/importing-content/#2-import-content-via-importer), you can directly apply this YAML resource on your Kubernetes namespace:
+For example, you can create a new `APISource` CR named `tests-artifacts` that will load four artifacts into the Microcks instance and create an additional `Hello Soap Service` importer. Instead of [importing Services & APIs via the UI or the API](/documentation/guides/usage/importing-content/) or [creating an importer](/documentation/guides/usage/importing-content/#2-import-content-via-importer), you can directly apply this YAML resource to your Kubernetes namespace:
 
 ```yaml
 cat <<EOF | kubectl apply  -n microcks -f -
@@ -138,8 +138,8 @@ EOF
 There are three important things to notice here:
 
 * The target Microcks instance to those API & Services is provided by the `microcks.io/instance` annotation,
-* The connection to this target instance is realized using a specific [Service Account](/documentation/explanations/service-account/) named `microcks-operator-serviceaccount` and created by the Operator during the installation of Keycloak. The operator also supports using an external Keycloak instance - we recommend to read [this advanced documentation](https://github.com/microcks/microcks-operator/blob/main/documentation/microcks-dependent-cr.md) for the setup,
-* This resource allows you to specify primary and secondary artifacts using the `mainArtifact` property in the respect of [Multi-artifacts support](/documentation/explanations/multi-artifacts/)
+* The connection to this target instance is realized using a specific [Service Account](/documentation/explanations/service-account/) named `microcks-operator-serviceaccount` and created by the Operator during the installation of Keycloak. The operator also supports using an external Keycloak instance - we recommend reading [this advanced documentation](https://github.com/microcks/microcks-operator/blob/main/documentation/microcks-dependent-cr.md) for the setup,
+* This resource allows you to specify primary and secondary artifacts using the `mainArtifact` property with respect to [Multi-artifacts support](/documentation/explanations/multi-artifacts/)
 
 ### SecretSource resource
 
@@ -179,34 +179,34 @@ EOF
 There are three important things to notice here:
 
 * Like the `APISource`, the target Microcks instance to those API & Services is provided by the `microcks.io/instance` annotation,
-* The connection to this target instance is realized using a specific [Service Account](/documentation/explanations/service-account/) named `microcks-operator-serviceaccount` and created by the Operator during the installation of Keycloak. The operator also supports using an external Keycloak instance - we recommend to read [this advanced documentation](https://github.com/microcks/microcks-operator/blob/main/documentation/microcks-dependent-cr.md) for the setup,
-* The synchronization with Kubernetes Secrets is limited to the namespace secrets. As the operator is scoped to a namespace, it is not able to view secrets outside its namespace.
+* The connection to this target instance is realized using a specific [Service Account](/documentation/explanations/service-account/) named `microcks-operator-serviceaccount` and created by the Operator during the installation of Keycloak. The operator also supports using an external Keycloak instance - we recommend reading [this advanced documentation](https://github.com/microcks/microcks-operator/blob/main/documentation/microcks-dependent-cr.md) for the setup,
+* Synchronization with Kubernetes Secrets is limited to namespace secrets. As the operator is scoped to a namespace, it cannot view secrets outside that namespace.
 
 ### Status management
 
-`APISource` artifacts may need and reference secrets to access remote repositories. As one cannot predict the order of resource reconcialiation in Kubernetes, if an `APISource` artifact creation is failing because of a missing secret, the reconciliation will be retried after a certain delay. The operator will track the status of each `APISource` artifact & importers as well as `SecretSource` secrets using the `Status` property of the corresponding resource.
+`APISource` artifacts may need to reference secrets to access remote repositories. As one cannot predict the order of resource reconciliation in Kubernetes, if an `APISource` artifact creation is failing because of a missing secret, the reconciliation will be retried after a certain delay. The operator will track the status of each `APISource` artifact & importer as well as `SecretSource` secrets using the `Status` property of the corresponding resource.
 
-You can check the description of the `Status` property for `APISource` [here](https://github.com/microcks/microcks-operator/blob/main/documentation/apisource-cr.md) and you can check the description of the `Status` property for `SecretSource` [there](https://github.com/microcks/microcks-operator/blob/main/documentation/secretsource-cr.md).
+You can check the description of the `Status` property for `APISource` [here](https://github.com/microcks/microcks-operator/blob/main/documentation/apisource-cr.md), and you can check the description of the `Status` property for `SecretSource` [there](https://github.com/microcks/microcks-operator/blob/main/documentation/secretsource-cr.md).
 
 
 ## 4. Install Microcks with asynchronous options
 
-In this section, we're doing a complete install of Microcks, enabling the asynchronous protocols feature. To do so, the Operator will need either an existing Kafka cluster or it can provision and mange its own using the [Strimzi](https://strimzi.io) operator. Ask your favorite SRE or Platform Engineer for the best option. If you're oinging the Strimzi way, it will require administrator privileges to install Strimzi.
+In this section, we're installing Microcks completely, enabling the asynchronous protocols feature. To do so, the Operator will need either an existing Kafka cluster or the ability to provision and manage its own using the [Strimzi](https://strimzi.io) operator. Ask your favorite SRE or Platform Engineer for the best option. If you're using Strimzi, installing it will require administrator privileges.
 
-You can install Strimzi in different ways but the easier is just to execute the following command: 
+You can install Strimzi in different ways, but the easiest is just to execute the following command: 
 
 ```sh
 kubectl create -f 'https://strimzi.io/install/latest?namespace=microcks' -n microcks
 ```
 
-To be able to expose the Kafka cluster to the outside of Minikube, you’ll need to enable SSL passthrough on your ingress controller. Typically, using nginx, this require updating the default ingress controller deployment like below:
+To be able to expose the Kafka cluster to the outside of Minikube, you’ll need to enable SSL passthrough on your ingress controller. Typically, using nginx, this requires updating the default ingress controller deployment like below:
 
 ```sh
 kubectl patch -n ingress-nginx deployment/ingress-nginx-controller --type='json' \
     -p '[{"op":"add","path":"/spec/template/spec/containers/0/args/-","value":"--enable-ssl-passthrough"}]'
 ```
 
-So assuming you're having the Strimzi operator up and running in your `microcks` namespace, you can now create a new Microcks instance with additional properties to enable the asynchronous feature and to popup a new Kafka cluster that will be made available to users at `kafka.m.minikube.local`:
+So, assuming you're having the Strimzi operator up and running in your `microcks` namespace, you can now create a new Microcks instance with additional properties to enable the asynchronous feature and to pop up a new Kafka cluster that will be made available to users at `kafka.m.minikube.local`:
 
 ```yaml
 cat <<EOF | kubectl apply -n microcks -f -
@@ -228,7 +228,7 @@ spec:
 EOF
 ```
 
-> 💡 The `spec.features.async.kafka` section has an `install` property those defeault value is `true`. You can also setup to `false` and then provide connection details to your own pre-existing Kafka cluster. See the reference documentation on [Reusing an existing secured Kafka](/documentation/references/configuration/security-config/#kafka)
+> 💡 The `spec.features.async.kafka` section has an `install` property whose default value is `true`. You can also set up to `false` and then provide connection details to your own pre-existing Kafka cluster. See the reference documentation on [Reusing an existing secured Kafka](/documentation/references/configuration/security-config/#kafka)
 
 Watch and check the pods you should get in the namespace:
 
@@ -303,6 +303,6 @@ kc delete -f https://raw.githubusercontent.com/microcks/microcks-operator/refs/h
 
 You've been through this guide and learned how to install Microcks on a Kubernetes cluster using the Operator. Congrats! 🎉
 
-If you want to get more information about available deployment options and production-grade deployment concerns, we'd recommend looking at [Architecture & deployment options](/documentation/explanations/deployment-options/#deploying-on-kubernetes) documentation. If you like to review all the available installation parameters, you can check our [reference documentation on GitHub](https://github.com/microcks/microcks-operator/blob/main/README.md).
+If you want more information about available deployment options and production-grade deployment concerns, we recommend looking at [Architecture & deployment options](/documentation/explanations/deployment-options/#deploying-on-kubernetes) documentation. If you want to review all the available installation parameters, you can check our [reference documentation on GitHub](https://github.com/microcks/microcks-operator/blob/main/README.md).
 
 Happy learning!
