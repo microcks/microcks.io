@@ -12,6 +12,6 @@ weight: 2
 > This is a new documentation page that has to be written as part of our [Refactoring Effort](https://github.com/microcks/microcks.io/issues/81).
 > 
 > **Goal of this page**
-> * Load a sample API and explain on how to proceed via the UI
-> * Add x-microcks-operation attributes and re-load the API to check the effect
+> * Load a sample API and explain how to proceed via the UI
+> * Add x-microcks-operation attributes and reload the API to check the effect
 > * Discuss the availability of API Metadata or API call to do that
