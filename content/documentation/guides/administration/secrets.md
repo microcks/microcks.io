@@ -25,7 +25,7 @@ Authentication Secrets (or simply **Secrets**) are managed by a Microcks adminis
 
 Credential information wrapped within a Secret can be of several natures, such as a User/Password pair, a Token or some X509 certificates.
 
-Secrets are stored within the Microcks database and may be reused by regular users when creating an Importer Job or launching a new test. At that time, regular users are just referring Secret name and don't get access to the detailed.
+Secrets are stored within the Microcks database and may be reused by regular users when creating an Importer Job or launching a new test. At that time, regular users refer to the Secret name only and don't get access to the detailed information.
 
 Secrets management is simply a thumbnail of the **Administration** page, which is available from the vertical menu on the left once you are logged in as an administrator.
 
@@ -55,7 +55,7 @@ Authentication may be realized using different methods described below.
 
 The `CA Certificate` is just here to gather a custom certificate or certificate chain specified in [PEM format](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail).
 
-Using the form, you may create as many *Secrets* as you need for different resources. Regular users of the Microcks instance will just have access to the name and the description of the secrets.
+Using the form, you may create as many *Secrets* as you need for different resources. Regular users of the Microcks instance will just have access to the secrets' names and descriptions.
 
 
 ## 3. Adding a Secret to an Import Job
@@ -72,8 +72,8 @@ When Microcks schedules and executes this job to check the update of the artifac
 {{< image src="images/documentation/secret-job-marker.png" alt="image" zoomable="true" >}}
 <br/><br/>
 
-Each and every time the scheduled import job will be fired, it will reused the up-to-date informations of the secret to provide the correct token and certificates to the external resource.
+Each time the scheduled import job is fired, it reuses the up-to-date secret information to provide the correct token and certificates to the external resource.
 
 ## Wrap-up
 
-Following this guide, you have learned how **Authentication Secrets** allows you to hold credentials informations for accessing secured remote resources used by Microcks importers or tests. You should now be confident in the way Microcks access these protected resources, letting regular users just reference the Secret name.
+Following this guide, you have learned how **Authentication Secrets** allows you to hold credentials information for accessing secured remote resources used by Microcks importers or tests. You should now be confident in the way Microcks accesses these protected resources, letting regular users just reference the Secret name.
