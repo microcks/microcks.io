@@ -1,7 +1,7 @@
 ---
 title: "Troubleshooting"
 date: 2025-02-03
-description: "Here below all the guides related to **Troubleshooting**."
+description: "Below are all the guides related to **Troubleshooting**."
 weight: 6
 ---
 
@@ -9,13 +9,13 @@ weight: 6
 
 #### Changing the log level
 
-The default log level in Microcks is set to `INFO` which allow to track basic activity. To get more details on internal mechanics and behaviours, you may want to change the level to `DEBUG`. As explained in [Application Configuration reference](/documentation/references/configuration/application-config/), the logging configuration is set in a `logback.xml` file for the main webapp component and in `application.properties` for the Async Minion component.
+The default log level in Microcks is set to `INFO`, which allows tracking basic activity. To get more details on internal mechanics and behaviours, you may want to change the level to `DEBUG`. As explained in [Application Configuration reference](/documentation/references/configuration/application-config/), the logging configuration is set in a `logback.xml` file for the main webapp component and in `application.properties` for the Async Minion component.
 
 Changing the log level depends on the way you installed Microcks.
 <details>
   <summary><strong>Helm Chart</strong></summary>
 
-When using the [Helm Chart](/documentation/references/configuration/helm-chart-config/) to deploy Microcks, there's a `microcks.logLevel`spec property you can set to `DEBUG`. Change it into your `values.yaml` file or as a command line argument using `--set microcks.logLevel=DEBUG` when redeploying the chart. This property changes both values for main webapp and Async Miniong components.
+When using the [Helm Chart](/documentation/references/configuration/helm-chart-config/) to deploy Microcks, there's a `microcks.logLevel`spec property you can set to `DEBUG`. Change it into your `values.yaml` file or as a command line argument using `--set microcks.logLevel=DEBUG` when redeploying the chart. This property changes both values for the main webapp and Async Miniong components.
 </details>
 
 <details>
@@ -37,7 +37,7 @@ spec:
     url: keycloak.m.minikube.local
 ```
 
-After the next operator reconciliation, the log level is changed in both main webapp and Async Miniong components.
+After the next operator reconciliation, the log level is changed in both the main webapp and the Async Minion component.
 </details>
 
 <details>
@@ -76,7 +76,7 @@ cat <<EOF >logback.xml
 EOF
 ```
 
-In this folder, you also have to create a simple `application.properties` file that makes the main webapp component consider the `logback.xml` file as its reference and enable debug level for Async Minion component:
+In this folder, you also have to create a simple `application.properties` file that makes the main webapp component consider the `logback.xml` file as its reference and enable debug level for the Async Minion component:
 
 ```sh
 cat <<EOF >application.properties
@@ -88,7 +88,7 @@ logging.config=/deployments/config/logback.xml
 EOF
 ```
 
-Finally, you have to edit the `docker-compose.yml` file to mount those files in the containers. You can do it adding new volumes like below:
+Finally, you have to edit the `docker-compose.yml` file to mount those files in the containers. You can do it by adding new volumes like below:
 
 ```yaml
   app:
