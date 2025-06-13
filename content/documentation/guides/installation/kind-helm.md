@@ -9,9 +9,9 @@ weight: 4
 
 ## Overview 
 
-This guide will walk you through the different steps of running a full Microcks installation on your laptop using [Kind](https://kind.sigs.k8s.io). The step #4 is actually optional and may only be of interest if you'd like to use Asynchronous features of Microcks.
+This guide will walk you through the different steps of running a full Microcks installation on your laptop using [Kind](https://kind.sigs.k8s.io). Step #4 is actually optional and may only be of interest if you'd like to use the Asynchronous features of Microcks.
 
-The installation notes were ran on an Apple Mac book M2 but those steps would sensibly be the same on any Linux machine. 
+The installation notes were run on an Apple MacBook M2, but those steps would sensibly be the same on any Linux machine. 
 
 Let's go 🚀
 
@@ -78,7 +78,7 @@ kubectl cluster-info --context kind-kind
 Have a question, bug, or feature request? Let us know! https://kind.sigs.k8s.io/#community 🙂
 ``` 
 
-Install an Ingress Controller in this cluster, we selected `nginx` but other options are available (see https://kind.sigs.k8s.io/docs/user/ingress ).
+To install an Ingress Controller in this cluster, we selected `nginx`, but other options are available (see https://kind.sigs.k8s.io/docs/user/ingress ).
 
 ```sh
   kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
@@ -95,7 +95,7 @@ Wait for the controller to be available:
 
 ## 3. Install Microcks with default options
 
-We're now going to install Microcks with basic options. We'll do that using the Helm Chart so you'll also need the [`helm`](https://helm.sh) binary. You can use `brew install helm` on Mac for that.
+We're now going to install Microcks with basic options. We'll do that using the Helm Chart, so you'll also need the [`helm`](https://helm.sh) binary. You can use `brew install helm` on Mac for that.
 
 ```sh
   kubectl create namespace microcks
@@ -163,16 +163,16 @@ The default user/password is `admin/microcks123`
 
 ## 4. Install Microcks with asynchronous options
 
-In this section, we're doing a complete install of Microcks, enabling the asynchronous protcolos feature. This requires deploying additional pods and a Kafka cluster. Microcks install can install and manage its own cluster using the [Strimzi](https://strimzi.io) project.
+In this section, we're installing Microcks completely and enabling the asynchronous protocols feature. This requires deploying additional pods and a Kafka cluster. Microcks installs and manages its own cluster using the [Strimzi](https://strimzi.io) project.
 
-To be able to expose the Kafka cluster to the outside of Kind, you’ll need to enable SSL passthrough on nginx: This require updating the default ingress controller deployment:
+To be able to expose the Kafka cluster to the outside of Kind, you’ll need to enable SSL passthrough on nginx: This requires updating the default ingress controller deployment:
 
 ```sh
   kubectl patch -n ingress-nginx deployment/ingress-nginx-controller --type='json' \
     -p '[{"op":"add","path":"/spec/template/spec/containers/0/args/-","value":"--enable-ssl-passthrough"}]'
 ```
 
-Then, you have to install the latest version of Strimzi that provides an easy way to setup Kafka on Kubernetes:
+Then, you have to install the latest version of Strimzi, which provides an easy way to set up Kafka on Kubernetes:
 ```sh
   kubectl apply -f 'https://strimzi.io/install/latest?namespace=microcks' -n microcks
 ```
@@ -241,7 +241,7 @@ Now you can extract the Kafka cluster certificate using `kubectl get secret micr
 
 Start with loading the [User signed-up API](https://microcks.io/blog/async-features-with-docker-compose/#load-a-sample-and-check-up) sample within your Microcks instance - remember that you have to validate the self-signed certificates like in the basic install first.
 
-Now connect to the Kafka broker pod to check a topic has been correctly created and that you can consume messages from there:
+Now connect to the Kafka broker pod to check that a topic has been correctly created and that you can consume messages from there:
 
 
 ```sh
@@ -266,7 +266,7 @@ exit
 command terminated with exit code 130
 ```
 
-And finally, from your Mac host, you can install the [`kcat`](https://github.com/edenhill/kcat) utility to consume messages as well. You'll need to refer the `ca.crt` certificate you previsouly extracted from there:
+And finally, from your Mac host, you can install the [`kcat`](https://github.com/edenhill/kcat) utility to consume messages as well. You'll need to refer to the `ca.crt` certificate you previously extracted from there:
 
 ```sh
   kcat -b microcks-kafka.kafka.127.0.0.1.nip.io:443 -X security.protocol=SSL -X ssl.ca.location=ca.crt -t UsersignedupAPI-0.1.1-user-signedup
@@ -293,7 +293,7 @@ Deleting the microcks Helm release from your cluster is straightforward. Then yo
 
 ```sh
 
-release "microcks" uninstalled
+Release "microcks" uninstalled
 ```
 ```sh
   kind delete cluster
