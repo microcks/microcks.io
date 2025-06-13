@@ -9,11 +9,11 @@ weight: 4
 
 ## Overview
 
-Microcks allows to specify [dynamic mock content](/documentation/explanations/dynamic-content) using expressions since the early days. Most of the time, those features help in translating the dynamic behaviour of an API and provide meaningful simulations. However, you may need sometime to provide even more realistic behaviour and that's where **stateful mocks** may be of interest.
+Microcks has allowed specifying [dynamic mock content](/documentation/explanations/dynamic-content) using expressions since the early days. Those features help translate an API's dynamic behaviour and provide meaningful simulations. However, sometimes, you may need to provide even more realistic behaviour, and that's where stateful mocks may be of interest.
 
 > 💡 Stateful mocks are available starting with Microcks `1.10.0`. 
 
-In this guide, we'll go through the different concepts that are used and useful when wanting to configure statful mocks with Microcks. We'll illustrate how to use those concepts on a real use-case of a shopping cart, allowing you to persist chosen items in a customer cart.
+In this guide, we'll discuss the different concepts that are useful when configuring stateful mocks with Microcks. We'll illustrate how to use those concepts in a real use case: a shopping cart, which allows you to persist chosen items in a customer's cart.
 
 If you haven't started a Microcks instance yet, you can do so using the following command - maybe replacing `8585` by another port of your choice if this one is not free:
 
@@ -21,28 +21,28 @@ If you haven't started a Microcks instance yet, you can do so using the followin
 docker run -p 8585:8080 -it --rm quay.io/microcks/microcks-uber:latest
 ```
 
-Then, you'll need to [import the content](/documentation/guides/usage/importing-content) our [`stateful-cart-openapi.yaml`](../stateful-cart-openapi.yaml) OpenAPI specification to follow-up explanations in next sections.
+Then, you'll need to [import the content](/documentation/guides/usage/importing-content) our [`stateful-cart-openapi.yaml`](../stateful-cart-openapi.yaml) OpenAPI specification to follow-up explanations in the next sections.
 
 
 ## 1. Concepts
 
-When configuring staful mocks in Microcks, you'll require or need those useful concepts:
+When configuring stateful mocks in Microcks, you'll require or need those useful concepts:
 
 * The `SCRIPT` dispatcher will be mandatory as it will hold your persistence logic (see the [Script explanations](/documentation/explanations/dispatching/#script-dispatcher)),
-* The `store` is a an implicit service that is available within scripts. It allows you to persist state within a simple Key/Value store. Key and values are simple strings you may process and manage the way you want. Check the some examples in [common use-cases](/documentation/explanations/dispatching/#common-use-cases) for scripts,
-* The `requestContext` is a request scoped context that allows passing content to [response templates](/documentation/references/templates),
+* The `store` is a an implicit service that is available within scripts. It allows you to persist state within a simple Key/Value store. Keys and values are simple strings you may process and manage the way you want. Check the some examples in [common use-cases](/documentation/explanations/dispatching/#common-use-cases) for scripts,
+* The `requestContext` is a request-scoped context that allows passing content to [response templates](/documentation/references/templates),
 * Finally, the templating [Context Expressions](/documentation/references/templates/#context-expression) can be very useful to reuse persisted (or computed) information to mock responses!
 
-> 🚨 One important thing to notice when using **stateful capabilities** in Microcks is that state is not persisted forever. The values you'll register in the `store` are subsject to a Time-To-Live period. This duration is customizable with a default value of 10 seconds.
+> 🚨 One important thing to notice when using **stateful capabilities** in Microcks is that state is not persisted forever. The values you'll register in the `store` are subject to a Time-To-Live period. This duration is customizable with a default value of 10 seconds.
 
 > 🚨 A second important thing to notice when using **stateful capabilities** in Microcks is that the `store` is scoped to an API. This means that it is shared between the different operations of the same API but not available to other APIs. You cannot write in a store within an API context and read from the same store from another API.
 
-We'll use all those concepts together with our [`stateful-cart-openapi.yaml`](../stateful-cart-openapi.yaml) specification. Please use this OpenAPI file as a reference for the next sections. In each in every section, we'll put the light on the specification details that allow enabling statefulness in mocks.
+We'll use all those concepts together with our [`stateful-cart-openapi.yaml`](../stateful-cart-openapi.yaml) specification. Please use this OpenAPI file as a reference for the next sections. In each section, we'll highlight the specification details that enable statefulness in mocks.
 
 
 ## 2. Retrieving state
 
-In our shopping cart use-case, the first operation to consider is `GET /cart` that application must use to get the status of a specific customer cart. In our sample, the customer identifier is provided as a request header named `customerId`. We want to use Microcks' stateful store to retrieve the cart items stored under a key `<customierId>-items` and compute the cart total price.
+In our shopping cart use case, the first operation to consider is `GET /cart`, which the application must use to get the status of a specific customer cart. In our sample, the customer identifier is provided as a request header named `customerId`. We want to use Microcks' stateful store to retrieve the cart items stored under a key `<customierId>-items` and compute the cart total price.
 
 Using a `SCRIPT` dispatcher, we can write the following [Groovy](https://groovy-lang.org/) script to do so:
 
@@ -51,7 +51,7 @@ Using a `SCRIPT` dispatcher, we can write the following [Groovy](https://groovy-
 def customerId = mockRequest.getRequestHeaders().get("customerId", "null")
 def items = store.get(customerId + "-items")
 
-// If items exist, convert them into objects and compute total price.
+// If items exist, convert them into objects and compute the total price.
 if (items != null) {
   def cartItems = new groovy.json.JsonSlurper().parseText(items)
   def totalPrice = 0.0
@@ -105,11 +105,11 @@ $ curl -X GET 'http://localhost:8585/rest/Cart+API/1.0.0/cart' -H 'Accept: appli
 }
 ```
 
-You've used a stateful mock in Microcks, congrats! 🎉 Ok, you didn't notice any change at the moment as we didn't persist anything but that's for the next section 😉
+You've used a stateful mock in Microcks, congrats! 🎉 Ok, you didn't notice any change at the moment as we didn't persist anything, but that's for the next section 😉
 
 ## 3. Persisting state
 
-We're now going to persist some state within the `PUT /cart/items` operation that application must use to add new items into the cart. When sending a new item description (a `productId`, a `quantity` and a unit `price`), we're going to add to this item to customer cart so that the status will be updaetd using the previous operation.
+We're now going to persist some state within the `PUT /cart/items` operation that the application must use to add new items into the cart. When sending a new item description (a `productId`, a `quantity` and a unit `price`), we're going to add this item to the customer cart so that the status will be updated using the previous operation.
 
 We can write the following [Groovy](https://groovy-lang.org/) script to do so:
 
@@ -128,12 +128,12 @@ if (items != null) {
 def item = new groovy.json.JsonSlurper().parseText(mockRequest.requestContent)
 cartItems.add([productId: item.productId, quantity: item.quantity, price: item.price])
 
-// Store customier items for 60 seconds.
+// Store customer items for 60 seconds.
 store.put(customerId + "-items", groovy.json.JsonOutput.toJson(cartItems), 60)
 return "One item"
 ```
 
-Here, we've use the `store.put(key, value, ttl)` function, recording our state for 60 seconds. Also, we included some logic to parse JSON text to objects and converts them back to text as the persisted value is a regular character string. The script returns one single output that is the name of the response representation to use: `One item`. This representation is included in this operation OpenAPI specification and directly uses `{{ }}` expressions to just output the incoming request informations:
+Here, we've used the `store.put(key, value, ttl)` function, recording our state for 60 seconds. Also, we included some logic to parse JSON text to objects and convert them back to text, as the persisted value is a regular character string. The script returns one single output that is the name of the response representation to use: `One item`. This representation is included in this operation OpenAPI specification and directly uses `{{ }}` expressions to just output the incoming request information:
 
 ```yaml
 [...]
@@ -186,11 +186,11 @@ $ curl -X GET 'http://localhost:8585/rest/Cart+API/1.0.0/cart' -H 'Accept: appli
 }
 ```
 
-Ho ho ho! We now have super-smart mocks that persist and retrieve state but also integrates computed elements in the response! Just with a few lines of Groovy scripts! 🕺
+Ho ho ho! We now have super-smart mocks that persist and retrieve state, but also integrate computed elements in the response! Just with a few lines of Groovy scripts! 🕺
 
 ## 4. Removing state
 
-The final thing to explore in this guide is how to remove some state information from the `store`. We'll consider for that the `POST /cart/empty` operation that can be triggered to remove all the items within a shopping cart. 
+The final thing to explore in this guide is how to remove some state information from the `store`. We'll consider the `POST /cart/empty` operation, which can be triggered to remove all the items within a shopping cart. 
 
 Let's check the following [Groovy](https://groovy-lang.org/) snippet to do this:
 
@@ -200,7 +200,7 @@ def items = store.delete(customerId + "-items")
 return "Cart"
 ```
 
-Pretty easy, no? It's just a matter of callling the `store.delete(key)` function. Here again, the script returns a single `Cart` response that is the generic rerpesentation of an empty shopping chart for current user:
+Pretty easy, no? It's just a matter of calling the `store.delete(key)` function. Here again, the script returns a single `Cart` response that is the generic representation of an empty shopping cart for the current user:
 
 ```yaml
 [...]
@@ -221,7 +221,7 @@ responses:
 [...]
 ```
 
-As a final test, we may now check that we are able to add items to a cart, retrieve this cart items, delete all the items from the cart and check that we finally read an empty cart status. Let's go!
+As a final test, we may now check that we are able to add items to a cart, retrieve the cart items, delete all the items from the cart and finally read an empty cart status. Let's go!
 
 ```sh
 # Add a Baba au Rhum
@@ -275,10 +275,10 @@ $ curl -X GET 'http://localhost:8585/rest/Cart+API/1.0.0/cart' -H 'Accept: appli
 
 ## Wrap-up
 
-Starting with `1.10.0` release, Microcks mocks can now become **stateful**. Automaticaly turning mocks into stateful simulations is impossible as there are numerous design guidelines that need to be considered, and after all, the world is definitely not only CRUD 😉
+Starting with `1.10.0` release, Microcks mocks can now become **stateful**. Automatically turning mocks into stateful simulations is impossible as there are numerous design guidelines that need to be considered, and after all, the world is definitely not only CRUD 😉
 
-At Microcks we took the approach to put this power in user's hand, providing powerful primitives like scripts, `store`, `requestContext` and [template expressions](/documentation/references/templates) to manage persistence where it makes sense for your simulations.
+At Microcks, we took the approach of putting this power in the user's hands, providing powerful primitives like scripts, `store`, `requestContext` and [template expressions](/documentation/references/templates) to manage persistence where it makes sense for your simulations.
 
-You've seen these different primitives - `store.get()`, `store.put()`, `store.delete()` functions - in action during this how-to guide. Remember that the things you've learned here are not restricted to REST APIs but are also applicable to other API types like GraphQL, gRPC and SOAP!
+During this how-to guide, you've seen these different primitives—`store.get()`, `store.put()`, `store.delete()` functions—in action. Remember that the things you've learned here are not restricted to REST APIs but also apply to other API types like GraphQL, gRPC and SOAP!
 
 Happy mocking! 🤡
