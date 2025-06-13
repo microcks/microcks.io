@@ -9,35 +9,35 @@ weight: 1
 
 ## Overview
 
-This guide walks through the different techniques for organinzing your API & Services repository content in Microcks. As you import more and more artifacts into Microcks, it can be come difficult to find the API you're looking for! Microcks proposes handling by putting `labels` 🏷️ on **APIs & Services** or **Importer Jobs** of your repository. Labels are a very flexible way to map your own organizational structures with loose coupling. 
+This guide walks through the different techniques for organizing your API & Services repository content in Microcks. As you import more and more artifacts into Microcks, it can become difficult to find the API you're looking for! Microcks proposes handling by putting `labels` 🏷️ on **APIs & Services** or **Importer Jobs** of your repository. Labels are a very flexible way to map your own organizational structures with loose coupling. 
 
-This guide will show **3 techniques** that are using labels to enhance the organization of your repository. These techniques are progressive and you decide applying the first one without pursuing on others. However, applying the third ones requires to have adopted the previous ones.
+This guide will show **3 techniques** that use labels to enhance the organization of your repository. These techniques are progressive, and you apply the first one without pursuing the others. However, applying the third ones requires having adopted the previous ones.
 
-1️⃣ We will **apply labels** labels to different objects in order to add categorization informations,
+1️⃣ We will **apply labels** labels to different objects in order to add categorization information,
 
-2️⃣ From there, we can then **define a master filter** for our repository, choosing a discriminetion criterion,
+2️⃣ From there, we can then **define a master filter** for our repository, choosing a discrimination criterion,
 
-3️⃣ From tehre, we can also **segment the management permsissions** to different users.
+3️⃣ From there, we can also **segment the management permissions** to different users.
 
 > 🚨 **Prerequisites**
 >
-> Labels setup and management require changing its configuration and accessing it with the `manager` or `admin` role. Be sure to be able to have access or ask some help to your admin.
+> Labels setup and management require changing the configuration and accessing it with the `manager` or `admin` role. Be sure to have access or ask your admin for help.
 
 Let’s jump in! 🏂
 
 
 ## 1. Applying labels
 
-Generally speaking, `labels` 🏷️  are key/value pairs that are attached to objects, such as **APIs & Services** or **Importer Jobs**. Labels are intended to be used to specify identifying attributes of objects that are meaningful and relevant to your business or organization, but do not directly imply semantics to the core system. 
+Generally speaking, `labels` 🏷️  are key/value pairs attached to objects, such as **APIs & Services** or **Importer Jobs**. Labels are intended to specify the identifying attributes of objects that are meaningful and relevant to your business or organization, but do not directly imply semantics to the core system. 
 
 Some example labels that may suit your classification needs:
 
-* `domain` may represent the business or application domain this API belongs to. Example values: `customer`, `finance`, `sales`, `shipping` ...
-* `status` may represent the status of the API in the lifecycle. Example values: `wip`, `preview`, `GA`, `deprecated`, `retired` ...
+* `domain` may represent the business or application domain to which the API belongs. Example values: `customer`, `finance`, `sales`, `shipping` ...
+* `status` may represent the API's status in the lifecycle. Example values: `wip`, `preview`, `GA`, `deprecated`, `retired` ...
 * `type` or `pattern` may represent the pattern involved in the API implementation. Example values: `proxy`, `composition`, `assembly` ...
 * `team` may represent the owner team for this API. Example values: `team-A`, `team-B` ...
 
-Labels can be attached at creation time and subsequently added and modified at any time. Each APIs & Services can have a set of key/value labels defined and each key must be unique for a given object.
+Labels can be attached at creation time and subsequently added to and modified at any time. Each APIs & Services can have a set of key/value labels defined and each key must be unique for a given object.
 
 When accessing API details, labels are displayed with global metadata at the top level with the **Manage labels...** link:
 
@@ -46,7 +46,7 @@ When accessing API details, labels are displayed with global metadata at the top
 </div>
 <br/>
 
-Label management is done through the dialog shown below when one can easily add new labels or remove existing ones.
+Label management is done through the dialog shown below, where one can easily add new labels or remove existing ones.
 
 <div align="center">
 {{< figure src="images/documentation/organizing-labels-edit.png" alt="image" zoomable="true" width="70%" >}}
@@ -57,16 +57,16 @@ Label management is done through the dialog shown below when one can easily add 
 
 Labels can also be used to select subsets of APIs & Services.
 
-Microcks does not impose any labels or way of modeling them 😉 However, for now it applies one level filtering in its UI using one `master` label you define as the most important. Below an example of what you've got on the UI side when defining `Domain` as the main label:
+Microcks does not impose any labels or way of modeling them 😉 However, for now, it applies one level of filtering in its UI using one `master` label you define as the most important. Below is an example of what you've got on the UI side when defining `Domain` as the main label:
 
 <div align="center">
 {{< figure src="images/documentation/organizing-services.png" alt="image" zoomable="true" width="90%" >}}
 </div>
 <br/>
+ 
+The Microcks administrator can configure one label as the main one, the `master` that will be used for first-level filtering in the Services list page of the Microcks web UI.
 
-Microcks administrator can configure one label as being the main one, the `master` that will be used for first level filtering in the Services list page of the Microcks web UI.
-
-For that, we rely on the `features.properties` configuration file found on the server side. Here's below the portion of `features.properties` configuration used for enabling `repository-filter` and having the results shown in the capture just above. You'll see that we use `domain` as the main label and that we only display `domain` and `status` labels on the Services list page:
+For that, we rely on the `features.properties` configuration file found on the server side. Here is a portion of the `features.properties` configuration used for enabling `repository-filter` and having the results shown in the capture just above. You'll see that we use `domain` as the main label and that we only display `domain` and `status` labels on the Services list page:
 
 ```properties
 features.feature.repository-filter.enabled=true
@@ -75,15 +75,15 @@ features.feature.repository-filter.label-label=Domain
 features.feature.repository-filter.label-list=domain,status
 ```
 
-> 💡 You may check the [Application Configuration reference](/documentation/references/configuration/application-config#repository-filtering-properties) documentation to get comprehensive list and explanations of above properties.
+> 💡 You may check the [Application Configuration reference](/documentation/references/configuration/application-config#repository-filtering-properties) documentation for a comprehensive list and explanations of the above properties.
 
 ## 3. Segmenting management responsibilities
 
-The final techniques of repository organization is to distribute/segment the management permissions between different users. 
+The final technique of repository organization is to distribute/segment the management permissions between different users. 
 
 As an example, if you defined the `domain` label as the master with `customer`, `finance` and `sales` values, you'll be able to define users with the `manager` role **only** for the APIs & Services that have been labeled accordingly. Sarah may be defined as a `manager` for `domain=customer` and `domain=finance` services, while John may be defined as the `manager` for `domain=sales` APIs & services.
 
-For that, we rely on the `features.properties` configuration file found on the server side Here's below the portion of `features.properties` configuration used for enabling `repository-tenancy`:
+For that, we rely on the `features.properties` configuration file found on the server side. Here's below the portion of `features.properties` configuration used for enabling `repository-tenancy`:
 
 ```properties
 features.feature.repository-tenancy.enabled=true
@@ -97,7 +97,7 @@ As an administrator of the Microcks instance, you can now assign users to differ
 
 ## Wrap-up
 
-Walking this guide, you have learned the different means available for organizing your API & Services repository thanks to `labels` 🏷️. It's important to note that labels are saved into Microcks database and not replaced by a new import of your Service or API definition. They can be independently set and updated using the [Microcks APIs](/documentation/references/apis/open-api), [Microcks Metadata](/documentation/references/metadada), [OpenAPI extensions](/documentation/references/artifacts/openapi-conventions/#openapi-extensions) or [AsyncAPI extensions](/documentation/references/artifacts/asyncapi-conventions/#asyncapi-extensions).
+Walking through this guide, you have learned the different means available for organizing your API & Services repository thanks to `labels` 🏷️. It's important to note that labels are saved into Microcks' database and not replaced by a new import of your Service or API definition. They can be independently set and updated using the [Microcks APIs](/documentation/references/apis/open-api), [Microcks Metadata](/documentation/references/metadada), [OpenAPI extensions](/documentation/references/artifacts/openapi-conventions/#openapi-extensions) or [AsyncAPI extensions](/documentation/references/artifacts/asyncapi-conventions/#asyncapi-extensions).
 
-You may follow-up this guide with the one related to [Managing Users](/documentation/guides/administration/users) or [Snapshotting/restoring your Repository](/documentation/guides/administration/snapshots)
+You may follow up this guide with the one related to [Managing Users](/documentation/guides/administration/users) or [Snapshotting/restoring your Repository](/documentation/guides/administration/snapshots)
 
