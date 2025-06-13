@@ -9,9 +9,9 @@ weight: 5
 
 ## Overview 
 
-This guide will walk you through the different steps of running a full Microcks installation on your laptop using [Minikube](https://minikube.sigs.k8s.io/). The step #4 is actually optional and may only be of interest if you'd like to use Asynchronous features of Microcks.
+This guide will walk you through the different steps of running a full Microcks installation on your laptop using [Minikube](https://minikube.sigs.k8s.io/). Step #4 is actually optional and may only be of interest if you'd like to use the Asynchronous features of Microcks.
 
-The installation notes were ran on an Apple Mac book M2 but those steps would sensibly be the same on any Linux machine. 
+The installation notes were run on an Apple MacBook M2, but those steps would sensibly be the same on any Linux machine. 
 
 Let's go 🚀
 
@@ -40,7 +40,7 @@ minikube config view
 
 We're now going to start a Kube cluster. Start your `minikube` cluster with the defaults.
 
-> The default locale of commands below is French, but you'll easily translate to your own language thanks to the nice emojis on the beginning of lines 😉
+> The default locale of commands below is French, but you'll easily translate to your own language thanks to the nice emojis at the beginning of lines 😉
 
 ```sh
 minikube start
@@ -91,7 +91,7 @@ Vous pouvez consulter la liste des mainteneurs de minikube sur : https://github
 🌟  Le module 'ingress' est activé
 ```
 
-You can check connection to the cluster and that Ingresses are OK running the following command:
+You can check the connection to the cluster and that Ingresses are OK by running the following command:
 
 ```sh
 kubectl get pods -n ingress-nginx
@@ -106,9 +106,9 @@ ingress-nginx-controller-b6894599f-pml9s   1/1     Running     0          26m
 
 ## 3. Install Microcks with default options
 
-We're now going to install Microcks with basic options. We'll do that using the Helm Chart so you'll also need the [`helm`](https://helm.sh) binary. You can use `brew install helm` on Mac for that.
+We're now going to install Microcks with basic options. We'll do that using the Helm Chart, so you'll also need the [`helm`](https://helm.sh) binary. You can use `brew install helm` on Mac for that.
 
-Then, we'll need to prepare the `/etc/hosts` file to access Microcks using an Ingress. Add the line containing `microcks.m.minikube.local` address. You need to declare 2 host names for both Microcks and Keycloak.
+Then, we'll need to prepare the `/etc/hosts` file to access Microcks using an Ingress. Add the line containing the `microcks.m.minikube.local` address. You need to declare 2 hostnames for both Microcks and Keycloak.
 
 ```sh
 cat /etc/hosts
@@ -126,7 +126,7 @@ cat /etc/hosts
 ::1 localhost
 ```
 
-Now create a new namespace and do the install in this namespace:
+Now, create a new namespace and do the install in this namespace:
 
 ```sh
 kubectl create namespace microcks
@@ -187,7 +187,7 @@ microcks-grpc       nginx   microcks-grpc.m.minikube.local    192.168.49.2   80,
 microcks-keycloak   nginx   keycloak.m.minikube.local         192.168.49.2   80, 443   2m4s
 ```
 
-To access the ingress from your browser, you'll need to start the networking tunneling service of Minikube - it may ask for `sudo` permission depending on when you did open your latest session:
+To access the ingress from your browser, you'll need to start the networking tunneling service of Minikube - it may ask for `sudo` permission depending on when you opened your latest session:
 
 ```sh
 minikube tunnel
@@ -216,16 +216,16 @@ The default user/password is `admin/microcks123`
 
 ## 4. Install Microcks with asynchronous options
 
-In this section, we're doing a complete install of Microcks, enabling the asynchronous protocol feature. This requires deploying additional pods and a Kafka cluster. Microcks install can install and manage its own cluster using the [Strimzi](https://strimzi.io) project.
+In this section, we're installing Microcks completely and enabling the asynchronous protocol feature. This requires deploying additional pods and a Kafka cluster. Microcks can install and manage its own cluster using the [Strimzi](https://strimzi.io) project.
 
-To be able to expose the Kafka cluster to the outside of Minikube, you’ll need to enable SSL passthrough on nginx. This require updating the default ingress controller deployment:
+To be able to expose the Kafka cluster to the outside of Minikube, you’ll need to enable SSL passthrough on nginx. This requires updating the default ingress controller deployment:
 
 ```sh
 kubectl patch -n ingress-nginx deployment/ingress-nginx-controller --type='json' \
     -p '[{"op":"add","path":"/spec/template/spec/containers/0/args/-","value":"--enable-ssl-passthrough"}]'
 ```
 
-Then, you'll also have to update your  `/etc/hosts` file so that we’ll can access Microcks Kafka broker using an Ingress. Add the line containing `microcks-kafka.kafka.m.minikube.local` and `microcks-kafka-0.kafka.m.minikube.local` hosts:
+Then, you'll also have to update your entry in the  `/etc/hosts` file so that we can access Microcks Kafka broker using an Ingress. Add the line containing `microcks-kafka.kafka.m.minikube.local` and `microcks-kafka-0.kafka.m.minikube.local` hosts:
 
 ```sh
 cat /etc/hosts
@@ -241,7 +241,7 @@ cat /etc/hosts
 ::1 localhost
 ```
 
-You'll still need to have the `minikube tunnel` services up-and-running like in the previous section. Next, you have to install the latest version of Strimzi operator:
+You'll still need to have the `minikube tunnel` services up and running like in the previous section. Next, you have to install the latest version of the Strimzi operator:
 
 ```sh
 kubectl apply -f 'https://strimzi.io/install/latest?namespace=microcks' -n microcks
@@ -310,7 +310,7 @@ Now you can extract the Kafka cluster certificate using `kubectl get secret micr
 
 Start with loading the [User signed-up API](https://microcks.io/blog/async-features-with-docker-compose/#load-a-sample-and-check-up) sample within your Microcks instance - remember that you have to validate the self-signed certificates like in the basic install first.
 
-Now connect to the Kafka broker pod to check a topic has been correctly created and that you can consume messages from there:
+Now connect to the Kafka broker pod to check that a topic has been correctly created and that you can consume messages from there:
 
 ```sh
   kubectl -n microcks exec microcks-kafka-kafka-0 -it -- /bin/sh\
@@ -336,7 +336,7 @@ exit
 command terminated with exit code 130
 ```
 
-And finally, from your Mac host, you can install the [`kcat`](https://github.com/edenhill/kcat) utility to consume messages as well. You'll need to refer the `ca.crt` certificate you previsouly extracted from there:
+And finally, from your Mac host, you can install the [`kcat`](https://github.com/edenhill/kcat) utility to consume messages as well. You'll need to refer to the `ca.crt` certificate you previously extracted from there:
 
 ```sh
 kcat -b microcks-kafka.kafka.m.minikube.local:443 -X security.protocol=SSL -X ssl.ca.location=ca.crt -t UsersignedupAPI-0.1.1-user-signedup
