@@ -1,7 +1,8 @@
 {{ "<!-- details page -->" | safeHTML }}
-<section class="border-bottom border-default">
+<section class="border-bottom border-default doc-section">
   <div class="doc-container-fluid padding-layout">
     <div class="row">
+      <!-- Desktop Sidebar -->
       <div class="col-xl-2 col-lg-3 col-md-4 pe-0 d-none d-md-block border-end border-default">
         <ul class="doc-sidenav m-0 pt-4 pe-4 ps-0">
           {{ $currentNode := . }}
@@ -20,6 +21,41 @@
           {{ end }}
         </ul>
       </div>
+
+      <!-- Mobile Sidebar Toggle Button -->
+      <div class="col-12 d-md-none mb-3 mt-5">
+        <button class="btn btn-outline-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#mobileSidebar" aria-expanded="false" aria-controls="mobileSidebar">
+          <i class="fas fa-bars me-2"></i>Documentation Menu
+        </button>
+      </div>
+
+      <!-- Mobile Sidebar -->
+      <div class="col-12 d-md-none">
+        <div class="collapse" id="mobileSidebar">
+          <div class="card card-body mb-4 mobile-sidebar-container">
+            <div class="mobile-sidebar-scroll">
+              <ul class="doc-sidenav-mobile m-0 p-0">
+                {{ $currentNode := . }}
+                {{ range .Site.Home.Sections }}
+                  {{ if eq .Name "Documentation" }}
+                    {{ range .Sections.ByWeight }}
+                      <!-- not render any single page, like contact page. -->
+                      {{ $numberOfMainPages := len .Pages }}
+                      {{ if eq $numberOfMainPages 0 }}
+                      {{ else }}
+                      <!-- /not render any single page, like contact page. -->
+                      {{ template "section-tree-nav-mobile" dict "sect" . "currentnode" $currentNode}}
+                      {{ end }}
+                    {{ end }}
+                  {{ end }}
+                {{ end }}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
       <div class="col-xl-8 col-lg-9 col-md-8">
         <div class="px-lg-5 px-sm-4 py-5">
           <h2 class="mb-4 fw-bold">
@@ -134,6 +170,41 @@
 {{ end }}
 {{ end }}
 
+{{ define "section-tree-nav-mobile" }}
+{{ $showvisitedlinks := .showvisitedlinks }}
+{{ $currentNode := .currentnode }}
+{{ with .sect }}
+{{ safeHTML .Params.head }}
+{{ $fileUniqueID := "" }}
+{{ with .File }}{{ $fileUniqueID = .UniqueID }}{{ end }}
+{{ $currentNodeFileUniqueID := "" }}
+{{ with $currentNode.File }}{{ $currentNodeFileUniqueID = .UniqueID }}{{ end }}
+<li data-nav-id="{{.Permalink}}" title="{{.Title}}" class="sidelist-mobile {{if .IsAncestor $currentNode }}parent{{end}} {{if eq $fileUniqueID $currentNodeFileUniqueID}}active parent{{end}}">
+  <a href="{{.Permalink}}" class="d-flex align-items-center justify-content-between">
+    <span>{{ if .Page.Params.icon }} <i class="fa-solid {{ .Page.Params.icon }}"></i> &nbsp;{{ end }}{{.Title }}</span>
+    {{ $numberOfPages := (add (len .Pages) (len .Sections)) }}
+    {{ if ne $numberOfPages 0 }}
+    <i class="fas fa-chevron-down toggle-icon"></i>
+    {{ end }}
+  </a>
+  {{ $numberOfPages := (add (len .Pages) (len .Sections)) }}
+  {{ if ne $numberOfPages 0 }}
+  <ul class="mobile-submenu">
+    {{ $currentNode.Scratch.Set "pages" .Pages }}
+    {{ if .Sections}}
+    {{ $currentNode.Scratch.Set "pages" (.Pages | union .Sections) }}
+    {{ end }}
+    {{ $pages := ($currentNode.Scratch.Get "pages") }}
+
+    {{ range $pages.ByWeight }}
+    {{ template "sub-section-tree-nav-mobile" dict "sect" . "currentnode" $currentNode }}
+    {{ end }}
+  </ul>
+</li>
+{{ end }}
+{{ end }}
+{{ end }}
+
 {{ define "sub-section-tree-nav" }}
 {{ $showvisitedlinks := .showvisitedlinks }}
 {{ $currentNode := .currentnode }}
@@ -164,6 +235,40 @@
 {{ end }}
 {{ end }}
 
+{{ define "sub-section-tree-nav-mobile" }}
+{{ $showvisitedlinks := .showvisitedlinks }}
+{{ $currentNode := .currentnode }}
+{{ with .sect }}
+{{ $fileUniqueID := "" }}
+{{ with .File }}{{ $fileUniqueID = .UniqueID }}{{ end }}
+{{ $currentNodeFileUniqueID := "" }}
+{{ with $currentNode.File }}{{ $currentNodeFileUniqueID = .UniqueID }}{{ end }}
+<li data-nav-id="{{.Permalink}}" title="{{.Title}}" class="sidelist-mobile {{if .IsAncestor $currentNode }}parent{{end}} {{if eq $fileUniqueID $currentNodeFileUniqueID}}active parent{{end}}">
+  {{ $numberOfPages := (add (len .Pages) (len .Sections)) }}
+  {{ $displayChildren := (and (or (.Eq $currentNode) (.IsAncestor $currentNode)) (ne $numberOfPages 0)) }}
+  {{ $displayCaret := (and (ne $numberOfPages 0) (ne $displayChildren true)) }}
+  <a href="{{.Permalink}}" class="d-flex align-items-center justify-content-between">
+    <span>{{ if $displayCaret }} <i class="fa-solid fa-caret-right"></i> &nbsp;{{ end }} {{.Title }}</span>
+    {{ if ne $numberOfPages 0 }}
+    <i class="fas fa-chevron-down toggle-icon"></i>
+    {{ end }}
+  </a>
+  {{ if $displayChildren }}
+  <ul class="mobile-submenu">
+    {{ $currentNode.Scratch.Set "pages" .Pages }}
+    {{ if .Sections}}
+    {{ $currentNode.Scratch.Set "pages" (.Pages | union .Sections) }}
+    {{ end }}
+    {{ $pages := ($currentNode.Scratch.Get "pages") }}
+
+    {{ range $pages.ByWeight }}
+    {{ template "sub-section-tree-nav-mobile" dict "sect" . "currentnode" $currentNode }}
+    {{ end }}
+  </ul>
+</li>
+{{ end }}
+{{ end }}
+{{ end }}
 
 <!-- call to action -->
 {{ if .Site.Params.call_to_action.enable }}

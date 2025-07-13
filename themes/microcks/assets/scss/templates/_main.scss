@@ -554,6 +554,144 @@ ol {
   }
 }
 
+/* Mobile sidebar container */
+.mobile-sidebar-container {
+  position: relative;
+  z-index: 1000;
+  max-height: 70vh;
+  overflow: hidden;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  @include mobile {
+    max-height: 60vh;
+  }
+
+  @include mobile-xs {
+    max-height: 55vh;
+  }
+}
+
+.mobile-sidebar-scroll {
+  max-height: 65vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 5px;
+
+  @include mobile {
+    max-height: 55vh;
+  }
+
+  @include mobile-xs {
+    max-height: 50vh;
+  }
+
+  /* Custom scrollbar for webkit browsers */
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba($border-color, 0.1);
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba($color-primary, 0.3);
+    border-radius: 3px;
+
+    &:hover {
+      background: rgba($color-primary, 0.5);
+    }
+  }
+}
+
+/* Mobile sidenav */
+.doc-sidenav-mobile {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  .sidelist-mobile {
+    border-bottom: 1px solid $border-color;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    a {
+      padding: 15px 0;
+      color: $text-dark;
+      display: block;
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: $color-primary;
+        text-decoration: none;
+      }
+
+      .toggle-icon {
+        transition: transform 0.3s ease;
+        font-size: 14px;
+        color: $text-light;
+      }
+    }
+
+    &.parent {
+      > a {
+        color: $color-primary !important;
+        font-weight: 600;
+      }
+
+      .mobile-submenu {
+        display: none;
+        padding-left: 20px;
+        margin-top: 10px;
+        border-top: 1px solid rgba($border-color, 0.5);
+
+        li {
+          border-bottom: 1px solid rgba($border-color, 0.3);
+
+          &:last-child {
+            border-bottom: none;
+          }
+
+          a {
+            padding: 10px 0;
+            font-size: 14px;
+            font-weight: 400;
+            color: rgba($text-dark, 0.8);
+
+            &:hover {
+              color: $color-primary;
+            }
+          }
+        }
+      }
+
+      &.active {
+        .mobile-submenu {
+          display: block;
+        }
+
+        .toggle-icon {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    &.active {
+      > a {
+        color: $color-primary !important;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
 /* dark style sidenav */
 .dark .doc-sidenav {
   .parent ul a {
@@ -562,6 +700,74 @@ ol {
 
   li a {
     color: $dark-text-light;
+  }
+}
+
+/* dark style mobile sidebar */
+.dark {
+  .mobile-sidebar-container {
+    background-color: rgba($dark-body-bg, 0.95);
+    border-color: rgba($dark-body-bg, 0.3);
+  }
+
+  .mobile-sidebar-scroll {
+    &::-webkit-scrollbar-track {
+      background: rgba($dark-body-bg, 0.3);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba($color-primary, 0.4);
+
+      &:hover {
+        background: rgba($color-primary, 0.6);
+      }
+    }
+  }
+
+  .doc-sidenav-mobile {
+    .sidelist-mobile {
+      border-bottom-color: rgba($dark-body-bg, 0.3);
+
+      a {
+        color: $dark-text-light;
+
+        &:hover {
+          color: $color-primary;
+        }
+
+        .toggle-icon {
+          color: rgba($dark-text-light, 0.6);
+        }
+      }
+
+      &.parent {
+        > a {
+          color: $color-primary !important;
+        }
+
+        .mobile-submenu {
+          border-top-color: rgba($dark-body-bg, 0.3);
+
+          li {
+            border-bottom-color: rgba($dark-body-bg, 0.2);
+
+            a {
+              color: rgba($dark-text-light, 0.8);
+
+              &:hover {
+                color: $color-primary;
+              }
+            }
+          }
+        }
+      }
+
+      &.active {
+        > a {
+          color: $color-primary !important;
+        }
+      }
+    }
   }
 }
 
@@ -667,7 +873,6 @@ ol {
         top: 8px;
       }
     }
-
   }
 
   table {
@@ -741,73 +946,141 @@ ol {
   }
 }
 
-.doc-accordion-body {
-  color: $black;
-
-  *:last-child {
-    margin-bottom: 0;
-  }
-}
-
-// table of content
-#TableOfContents {
-  top: 95px;
-  position: sticky;
-  padding-left: 10px;
-  height: 100vh;
-  border-left: 1px solid $border-color;
-
-  a {
-    font-size: 14px;
-    display: block;
-    padding: 5px 0;
-    color: $text-dark;
-    font-weight: 400;
-    transition: .2s ease;
-
-    &.active {
-      position: relative;
-      color: $color-primary;
-
-      &::before {
-        position: absolute;
-        content: "";
-        left: -10px;
-        top: 25%;
-        height: 50%;
-        width: 1px;
-        background: $color-primary;
-      }
-    }
-  }
-
-  ul, ol {
-    padding-left: 0;
-    margin-bottom: 10px;
-    padding-left: 10px;
-    list-style: none;
-  }
-
-  &>ul, &>ol {
-    padding-top: 30px;
-
-    &>li:not(:last-child) {
-      //border-bottom: 1px solid $border-color;
-    }
-  }
-}
-
-// dark table of content
-.dark #TableOfContents {
-  background-color: $dark-body-bg !important;
-}
-.dark #TableOfContents > ol > li > a, .dark #TableOfContents > ol > li > ol > li > a {
-  color: $dark-text-light !important;
-}
-
 // padding-left layout
 .padding-layout {
   padding: 0 1.5rem;
+}
+
+// Documentation section margin top
+.doc-section {
+  margin-top: 2rem;
+
+  @include mobile {
+    margin-top: 1.5rem;
+  }
+
+  @include tablet {
+    margin-top: 1.75rem;
+  }
+}
+
+// Documentation main content margin top
+.doc-main-content {
+  margin-top: 1rem;
+
+  @include mobile {
+    margin-top: 0.75rem;
+  }
+
+  @include tablet {
+    margin-top: 0.875rem;
+  }
+}
+
+// Consistent margin/padding top for documentation layout
+.padding-layout {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  @include mobile {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+}
+
+// Documentation content spacing improvements
+.doc-content {
+  margin-top: 2rem;
+  padding-top: 2rem;
+
+  @include mobile {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+  }
+
+  // Consistent spacing for content elements
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  ul, ol {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  blockquote {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  pre {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  code {
+    padding-top: 0.125rem;
+    padding-bottom: 0.125rem;
+  }
+
+  table {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  img {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+// Mobile sidebar improvements
+.doc-sidenav-mobile {
+  .sidelist-mobile {
+    &.parent {
+      .mobile-submenu {
+        margin-top: 0.75rem;
+        padding-top: 0.75rem;
+      }
+    }
+  }
+}
+
+// Documentation page list improvements
+.doc-page-list {
+  margin-top: 2rem;
+  padding-top: 1rem;
+
+  @include mobile {
+    margin-top: 1.5rem;
+    padding-top: 0.75rem;
+  }
+}
+
+// Documentation pagination improvements
+.doc-pagination {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid $border-color;
+
+  @include mobile {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+  }
 }
 
 // copy to clipboard
@@ -841,4 +1114,40 @@ ol {
 .theme-toggle-icon {
   padding: .5rem .75rem;
   border-radius: 6px;
+}
+
+// Dark mode adjustments for consistent spacing
+.dark {
+  .doc-content {
+    h1, h2, h3, h4, h5, h6 {
+      color: $dark-text-light;
+    }
+
+    p, ul, ol {
+      color: $dark-text-light;
+    }
+
+    blockquote {
+      border-left-color: $color-primary;
+      background-color: rgba($dark-body-bg, 0.5);
+    }
+
+    pre {
+      background-color: rgba($dark-body-bg, 0.8);
+      border-color: rgba($dark-body-bg, 0.3);
+    }
+
+    code {
+      background-color: rgba($dark-body-bg, 0.8);
+      color: $color-primary;
+    }
+
+    table {
+      border-color: rgba($dark-body-bg, 0.3);
+    }
+  }
+
+  .doc-pagination {
+    border-top-color: rgba($dark-body-bg, 0.3);
+  }
 }

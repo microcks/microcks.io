@@ -1,5 +1,5 @@
-<!-- navigation -->
-<header class="navigation">
+{{ "<!-- unified navigation -->" | safeHTML }}
+<header class="navigation {{ if .IsPage }}{{ if eq .Type "documentation" }}doc-navigation{{ end }}{{ end }}">
   <div class="container">
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg">
@@ -9,7 +9,7 @@
       </a>
 
       <div class="d-flex align-items-center">
-        <!-- Language List -->
+        <!-- Language List for mobile -->
         {{ if .IsTranslated }}
         <select class="me-3 border-0 d-inline-block d-lg-none" onchange="location = this.value;">
           {{ $siteLanguages := site.Languages}}
@@ -30,6 +30,17 @@
           {{ end }}
         </select>
         {{ end }}
+
+        <!-- Search for mobile -->
+        {{ if eq .Type "documentation" }}
+        <form class="form-inline search-wrapper my-3 d-block d-lg-none" name="search-form" class="search-wrapper"
+          data-bs-toggle="modal" data-bs-target="#searchModal">
+          <input id="search-by" name="s" type="search" class="form-control text-dark d-none d-lg-block"
+            placeholder="{{ i18n `search_placeholder`}}" readonly>
+          <button class="border-0 pe-none" type="submit"><i class="fas fa-search"></i></button>
+        </form>
+        {{ end }}
+
         <!-- navbar toggler -->
         <button aria-label="navbar toggler" class="navbar-toggler border-0 h4 mb-0" type="button" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#navigation">
           <i class="fa-solid fa-bars"></i>
@@ -52,10 +63,16 @@
       </div>
 
       <div class="collapse navbar-collapse text-center" id="navigation">
-        <ul class="navbar-nav mx-auto">
+        <ul class="navbar-nav me-auto align-items-center">
           <!-- menu active -->
           {{ $currentPage := . }}
           {{ range site.Menus.main }}
+            {{ $menuURL := .URL | absLangURL }}
+            {{ $pageURL:= $currentPage.Permalink | absLangURL }}
+            {{ $active := or 
+              (eq $menuURL $pageURL) 
+              (and (ne $menuURL site.BaseURL) (hasPrefix $pageURL $menuURL)) 
+            }}
             {{ if .HasChildren }}
               {{ $anyChildActive := false }}
               {{ range .Children }}
@@ -79,19 +96,21 @@
                 </ul>
               </li>
             {{ else }}
-              <li class="nav-item {{ if eq $currentPage.RelPermalink (.URL | relLangURL) }}active{{ end }}">
+              <li class="nav-item {{ if $active }}active{{ end }}">
                 <a class="nav-link" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
               </li>
             {{ end }}
           {{ end }}
+          
           <li class="nav-item gh-btn">
             <a class="github-button" href="https://github.com/microcks/microcks" 
                data-color-scheme="no-preference: light; light: light; dark: dark;" 
                data-size="large" data-show-count="true" 
                aria-label="Star microcks/microcks on GitHub">Star</a>
-          </li>
+          </li>
+        </ul>
 
-        <!-- Language List -->
+        <!-- Language List for desktop -->
         {{ if .IsTranslated }}
         <select class="me-1 border-0 d-none d-lg-inline-block" id="select-language" onchange="location = this.value;">
           {{ $siteLanguages := site.Languages}}
@@ -111,6 +130,15 @@
           {{ end }}
           {{ end }}
         </select>
+        {{ end }}
+
+        <!-- Search for desktop (documentation only) -->
+        {{ if eq .Type "documentation" }}
+        <form class="form-inline search-wrapper my-3 d-none d-lg-block" data-bs-toggle="modal" data-bs-target="#searchModal">
+          <i class="search-icon fas fa-search"></i>
+          <input class="form-control form-control-sm" placeholder="{{ i18n `search`}}" readonly>
+          <button type="button" class="search-button" style="font-size:12px" data-search-toggler>{{ i18n "search" }}</button>
+        </form>
         {{ end }}
 
         {{ if site.Params.navigation_button.enable }}
@@ -137,8 +165,7 @@
     </nav>
   </div>
 </header>
-<!-- /navigation -->
-
+{{ "<!-- /unified navigation -->" | safeHTML }}
 
 <!-- theme switcher -->
 {{ if site.Params.theme_switcher }}
@@ -160,4 +187,8 @@
     })
   });
 </script>
+{{ end }}
+
+{{ if eq .Type "documentation" }}
+{{ partial "components/search-modal" . }}
 {{ end }}
