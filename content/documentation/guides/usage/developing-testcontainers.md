@@ -3,7 +3,7 @@ draft: false
 title: "Developing with Testcontainers"
 date: 2024-04-30
 publishdate: 2024-04-30
-lastmod: 2025-01-10
+lastmod: 2025-07-17
 weight: 6
 ---
 
@@ -29,7 +29,7 @@ The library is making usage of our [*Uber* distribution](/documentation/explanat
 
 ```java
 MicrocksContainer microcks = new MicrocksContainer(
-      DockerImageName.parse("quay.io/microcks/microcks-uber:1.10.0"));
+      DockerImageName.parse("quay.io/microcks/microcks-uber:1.12.0"));
 microcks.start();
 ```
 
@@ -55,7 +55,7 @@ Our Testcontainers module for JavaScript is `@microcks/microcks-testcontainers`,
 The library is making usage of our [*Uber* distribution](/documentation/explanations/deployment-options/#regular-vs-uber-distribution) and you can simply start Microcks that way:
 
 ```javascript
-const container = await new MicrocksContainer("quay.io/microcks/microcks-uber:1.10.0").start();
+const container = await new MicrocksContainer("quay.io/microcks/microcks-uber:1.12.0").start();
 ```
 
 See our [microcks-testcontainers-node repository](https://github.com/microcks/microcks-testcontainers-node) for full details and our full [demo application using NestJS](https://github.com/microcks/microcks-testcontainers-node-nest-demo)
@@ -68,7 +68,7 @@ Our Testcontainers module for JavaScript is `github.com/testcontainers/testconta
 The library is making usage of our [*Uber* distribution](/documentation/explanations/deployment-options/#regular-vs-uber-distribution) and you can simply start Microcks that way:
 
 ```go
-microcksContainer, err := microcks.RunContainer(ctx, testcontainers.WithImage("quay.io/microcks/microcks-uber:1.10.0"))
+microcksContainer, err := microcks.RunContainer(ctx, testcontainers.WithImage("quay.io/microcks/microcks-uber:1.12.0"))
 ```
 
 See our [microcks-testcontainers-go repository](https://github.com/microcks/microcks-testcontainers-go) for full details and our full [demo application](https://github.com/microcks/microcks-testcontainers-go-demo)
@@ -82,7 +82,7 @@ The library is making usage of our [*Uber* distribution](/documentation/explanat
 
 ```csharp
 MicrocksContainer container = new MicrocksBuilder()
-	.WithImage("quay.io/microcks/microcks-uber:1.10.0")
+	.WithImage("quay.io/microcks/microcks-uber:1.12.0")
 	.Build();
 await container.StartAsync();
 ```
@@ -94,7 +94,7 @@ See our [microcks-testcontainers-dotnet repository](https://github.com/microcks/
 
 Testcontainers + Microcks is a powerful combo for simplifying the write-up of robust unit or integration tests where the fixtures can be directly deduced from specifications. And the best thing is that this tooling is totally independent of your technology stack! You can use them for NodeJS, Go, Java, Ruby development, or whatever!
 
-We don't provide a built-in module for the stack you're using? Poke us on [Discord](/discord-invite/), we'd really like your suggestions and help to get this rolling!
+Check our [Testcontainers Modules reference](/documentation/references/testcontainers-modules) to see how the Microcks features are covered in your favourite language. We don't provide a built-in module for the stack you're using? Poke us on [Discord](/discord-invite/), we'd really like your suggestions and help to get this rolling!
 
 If you want to learn more about the underlying thoughts and alternatives you may have if you're not running Testcontainers, here's a set of blog posts written during our explorations:
 * [Mocking and contract-testing in your Inner Loop with Microcks - Part 1: Easy environment setup](https://medium.com/@lbroudoux/mocking-and-contract-testing-in-your-inner-loop-with-microcks-part-1-easy-environment-setup-dcd0f4355231)

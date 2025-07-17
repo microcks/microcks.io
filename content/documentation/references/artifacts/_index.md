@@ -2,7 +2,7 @@
 title: "Artifacts Reference"
 date: 2024-05-27
 description: "Here below all the documentation pages related to **Artifacts Reference**."
-weight: 6
+weight: 9
 ---
 
 As exposed in the [Main Concepts](/documentation/overview/main-concepts), `Artifacts` are the corner stone in Microcks as they **hold valuable information on how your API or microservices are expected to work**. One of Microcks's beauties is that it uses standard specifications or standard tooling files as Artifacts, allowing you to reuse existing assets. Microcks will use **constraints and examples** from them to build its knowledge base.
