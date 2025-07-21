@@ -3,7 +3,7 @@ draft: false
 title: "Tescontainers Modules"
 date: 2025-07-17
 publishdate: 2025-07-17
-lastmod: 2025-07-17
+lastmod: 2025-07-21
 weight: 7
 ---
 
@@ -13,7 +13,7 @@ As introduced in our [Developing with Testcontainers](/documentation/guides/usag
 
 We try to setup and manage a unified roadmap between modules but because they are maintained by different contributors, drifts between implementations may happen at some points. Our goal is obvisouly to make them consistent eventually. 
 
-This page lists the implementation status of various features by the different modules on July 17th, 2025. It will be updated regularly. 
+This page lists the implementation status of various features by the different modules on July 21st, 2025. It will be updated regularly. 
 
 > 💡 Of course, **we welcome external contributions**! So, if you're in a hurry and need a missing feature, don't hesitate to propose a change and to submit a _Pull Pequest_ on the associated GitHub repository 🙏
 
@@ -65,7 +65,7 @@ This sections lists the async protocols available on each language binding.
 | Protocol            | Java | JS    | Go   | .NET |
 | ------------------- | ----- | ---- | ---- | ---- |
 | Kafka               | ✅    | ✅    | ✅   | ✅   |
-| WebSocket           | ✅    | ✅    | ❌   | ❌   |
+| WebSocket           | ✅    | ✅    | ❌   | ✅   |
 | MQTT                | ✅    | ✅    | ✅   | ❌   |
 | RabbitMQ (AMQP 0.9) | ✅    | ✅    | ❌   | ✅   |
 | NATS                | ❌    | ❌    | ❌   | ❌   |
