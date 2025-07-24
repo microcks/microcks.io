@@ -221,3 +221,109 @@ if (toc) {
 		scrollOffset: 110,
 	})
 }
+
+// Mobile sidebar navigation functionality
+document.addEventListener('DOMContentLoaded', function() {
+  // Mobile sidebar toggle functionality
+  const mobileSidebarItems = document.querySelectorAll('.doc-sidenav-mobile .sidelist-mobile.parent > a');
+  
+  mobileSidebarItems.forEach(item => {
+    item.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const parent = this.closest('.sidelist-mobile');
+      const submenu = parent.querySelector('.mobile-submenu');
+      const toggleIcon = this.querySelector('.toggle-icon');
+      
+      // Close other open submenus
+      const otherOpenMenus = document.querySelectorAll('.doc-sidenav-mobile .sidelist-mobile.parent.active');
+      otherOpenMenus.forEach(openMenu => {
+        if (openMenu !== parent) {
+          openMenu.classList.remove('active');
+          const otherSubmenu = openMenu.querySelector('.mobile-submenu');
+          const otherIcon = openMenu.querySelector('.toggle-icon');
+          if (otherSubmenu) otherSubmenu.style.display = 'none';
+          if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+        }
+      });
+      
+      // Toggle current submenu
+      if (parent.classList.contains('active')) {
+        parent.classList.remove('active');
+        if (submenu) submenu.style.display = 'none';
+        if (toggleIcon) toggleIcon.style.transform = 'rotate(0deg)';
+      } else {
+        parent.classList.add('active');
+        if (submenu) submenu.style.display = 'block';
+        if (toggleIcon) toggleIcon.style.transform = 'rotate(180deg)';
+      }
+    });
+  });
+
+  // Auto-expand current page's parent menu on mobile
+  const currentPageItem = document.querySelector('.doc-sidenav-mobile .sidelist-mobile.active');
+  if (currentPageItem) {
+    const parentMenu = currentPageItem.closest('.sidelist-mobile.parent');
+    if (parentMenu) {
+      parentMenu.classList.add('active');
+      const submenu = parentMenu.querySelector('.mobile-submenu');
+      const toggleIcon = parentMenu.querySelector('.toggle-icon');
+      if (submenu) submenu.style.display = 'block';
+      if (toggleIcon) toggleIcon.style.transform = 'rotate(180deg)';
+    }
+  }
+
+  // Scroll to active item when mobile sidebar opens
+  const mobileSidebar = document.getElementById('mobileSidebar');
+  if (mobileSidebar) {
+    mobileSidebar.addEventListener('shown.bs.collapse', function() {
+      const activeItem = this.querySelector('.sidelist-mobile.active');
+      if (activeItem) {
+        const scrollContainer = this.querySelector('.mobile-sidebar-scroll');
+        if (scrollContainer) {
+          const itemTop = activeItem.offsetTop;
+          const containerHeight = scrollContainer.clientHeight;
+          const scrollTop = itemTop - (containerHeight / 2);
+          
+          scrollContainer.scrollTo({
+            top: Math.max(0, scrollTop),
+            behavior: 'smooth'
+          });
+        }
+      }
+    });
+  }
+
+  // Close mobile sidebar when clicking outside
+  document.addEventListener('click', function(e) {
+    const mobileSidebar = document.getElementById('mobileSidebar');
+    const toggleButton = document.querySelector('[data-bs-target="#mobileSidebar"]');
+    
+    if (mobileSidebar && mobileSidebar.classList.contains('show')) {
+      if (!mobileSidebar.contains(e.target) && !toggleButton.contains(e.target)) {
+        const bsCollapse = new bootstrap.Collapse(mobileSidebar);
+        bsCollapse.hide();
+      }
+    }
+  });
+
+  // Smooth scroll for anchor links in documentation
+  const docLinks = document.querySelectorAll('.doc-content a[href^="#"]');
+  docLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        const headerHeight = document.querySelector('.navigation').offsetHeight;
+        const targetPosition = targetElement.offsetTop - headerHeight - 20;
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+});
