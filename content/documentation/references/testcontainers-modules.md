@@ -19,7 +19,7 @@ This page lists the implementation status of various features by the different m
 
 ## Initialization
 
-This section lists the features related to Microcks initialization during the prepartion of setup phase of tests.
+This section lists the features related to Microcks initialization during the preparation of setup phase of tests.
 
 | Feature                 | Java  | JS   | Go   | .NET |
 | ----------------------- | ----- | ---- | ---- | ---- |
