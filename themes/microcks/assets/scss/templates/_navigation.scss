@@ -11,6 +11,7 @@
   width: 100%; 
   display: flex; 
   align-items: center;
+  border-bottom: 1px solid $border-color;
 
   @include mobile-xs {
     .navbar-brand {
@@ -90,6 +91,8 @@
       line-height: 1;
       color: $text-dark !important;
       padding: 15px 18px !important;
+      font-weight: 500;
+      transition: all 0.3s ease;
 
       @include desktop-xl {
         padding: 15px 12px !important;
@@ -99,6 +102,11 @@
     .nav-link:hover,
     &.active .nav-link {
       color: $color-primary !important;
+    }
+
+    &.active .nav-link {
+      background-color: $light;
+      border-radius: 6px;
     }
 
     &.dropdown .nav-link::after {
@@ -317,6 +325,14 @@
           display: block;
         }
       }
+    }
+
+    .navbar-nav {
+      align-items: center;
+    }
+
+    .nav-item {
+      margin: 0 5px;
     }
   }
   //end modifications
