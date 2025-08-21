@@ -67,7 +67,7 @@ var microcks = new MicrocksContainer(DockerImageName.parse("quay.io/microcks/mic
 microcks.start();
 ```
 
-Please check our [Developing with Testcontainers guide](/documentation/guides/usage/developing-testcontainers.md) to get access to comprehensive documentation regarding supported languages, configuration and demo applications.
+Please check our [Developing with Testcontainers guide](/documentation/guides/usage/developing-testcontainers/) to get access to comprehensive documentation regarding supported languages, configuration and demo applications.
 
 
 ### 2. Using Docker Desktop Extension
@@ -146,4 +146,4 @@ Helm chart and Operator default is to deploy a single MongoDB instance using a `
 
 Helm chart and Operator default is to leverage the [Strimzi Operator](https://strimzi.io) to create a Microcks dedicated Kafka instance. This instance is created with the minimal required resources and topics having a very short retention period. After all, as the exchanged messages are mock messages, there should be no need for long-term persistence. At the time of writing, topics are not secured, which means that once you get access to the broker (via a client certificate, for example), you have the ability to access every Microcks' managed topic.
 
-👉 _Providing a secured Kafka broker -even for mock purposes- can be a hard requirement. In that case, we recommend provisioning the broker your own way, with your custom security settings. The [Reusing Kafka](/documentation/references/configuration/security-config/#reusing-an-existing-secured-kafka) reference documentation provides informations on how to suply secure connection details to Microcks._
+👉 _Providing a secured Kafka broker -even for mock purposes- can be a hard requirement. In that case, we recommend provisioning the broker your own way, with your custom security settings. The [Reusing Kafka](/documentation/references/configuration/security-config/#reusing-an-existing-secured-kafka) reference documentation provides informations on how to suply secure connection details to Microcks._ 
