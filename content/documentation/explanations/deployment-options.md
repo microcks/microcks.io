@@ -67,7 +67,7 @@ var microcks = new MicrocksContainer(DockerImageName.parse("quay.io/microcks/mic
 microcks.start();
 ```
 
-Please check our [Developing with Testcontainers guide](/documentation/guides/usage/developing-testcontainers.md) to get access to comprehensive documentation regarding supported languages, configuration and demo applications.
+Please check our [Developing with Testcontainers guide](/documentation/guides/usage/developing-testcontainers/) to get access to comprehensive documentation regarding supported languages, configuration and demo applications.
 
 
 ### 2. Using Docker Desktop Extension
