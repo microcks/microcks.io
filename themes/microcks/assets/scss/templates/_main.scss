@@ -951,19 +951,6 @@ ol {
   padding: 0 1.5rem;
 }
 
-// Documentation section margin top
-.doc-section {
-  margin-top: 2rem;
-
-  @include mobile {
-    margin-top: 1.5rem;
-  }
-
-  @include tablet {
-    margin-top: 1.75rem;
-  }
-}
-
 // Documentation main content margin top
 .doc-main-content {
   margin-top: 1rem;
@@ -974,17 +961,6 @@ ol {
 
   @include tablet {
     margin-top: 0.875rem;
-  }
-}
-
-// Consistent margin/padding top for documentation layout
-.padding-layout {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-
-  @include mobile {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
   }
 }
 
