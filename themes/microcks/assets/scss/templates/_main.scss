@@ -820,6 +820,62 @@ ol {
   }
 }
 
+// table of content
+#TableOfContents {
+  top: 95px;
+  position: sticky;
+  padding-left: 10px;
+  height: 100vh;
+  border-left: 1px solid $border-color;
+
+  a {
+    font-size: 14px;
+    display: block;
+    padding: 5px 0;
+    color: $text-dark;
+    font-weight: 400;
+    transition: .2s ease;
+
+    &.active {
+      position: relative;
+      color: $color-primary;
+
+      &::before {
+        position: absolute;
+        content: "";
+        left: -10px;
+        top: 25%;
+        height: 50%;
+        width: 1px;
+        background: $color-primary;
+      }
+    }
+  }
+
+  ul, ol {
+    padding-left: 0;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    list-style: none;
+  }
+
+  &>ul, &>ol {
+    padding-top: 30px;
+
+    &>li:not(:last-child) {
+      //border-bottom: 1px solid $border-color;
+    }
+  }
+}
+
+// dark table of content
+.dark #TableOfContents {
+  background-color: $dark-body-bg !important;
+}
+.dark #TableOfContents > ol > li > a, .dark #TableOfContents > ol > li > ol > li > a {
+  color: $dark-text-light !important;
+}
+
 // content style
 .doc-content {
   span[style="color:#585b70;font-style:italic"] {
