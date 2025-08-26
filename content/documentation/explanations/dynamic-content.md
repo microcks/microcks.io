@@ -3,7 +3,7 @@ draft: false
 title: "Dynamic mock content"
 date: 2020-02-11
 publishdate: 2020-02-11
-lastmod: 2024-06-13
+lastmod: 2025-08-26
 weight: 8
 ---
 
@@ -65,7 +65,8 @@ Let's explain the few concepts behind Microcks' templating features. These are r
 * An expression should be delimited by mustaches like this: `{{ expression }}`. This pattern can be included in any textual representation of your response body content: plain text, JSON, XML, whatever... Microcks will just replace this pattern with its evaluated content or `null` if evaluation fails for any reason,
 * An expression can be a reference to a context variable. In this case, we use a `.` notation to tell which property of this variable we refer to. Built-in contextual information is attached to the variable named `request` so we may use expressions like `request.body`, for example,
 * An expression can also be a function evaluation. In this case, we use a `()` notation to indicate the function name and its arguments. For example, we use `randomString(64)` to evaluate the random string generation function with one arg being `64` (the length of the desired string),
-* An expression may also include `>` redirect character so that the result from a first evaluation is injected as an extra argument on the next function. For example, you may use `uuid() > put(myId)`. So that result from `uuid()` function is printed out and also injected as the second argument of the `put()` function so that this will be stored within the `myId` context variable,
+* An expression may include `>` redirect character so that the result from a first evaluation is injected as an extra argument on the next function. For example, you may use `uuid() > put(myId)`. So that result from `uuid()` function is printed out and also injected as the second argument of the `put()` function so that this will be stored within the `myId` context variable,
+* An expression may also include `||` fallback marker so that if the result from a first evaluation (left part ofthis marker) is `null`, the right part is then evaluated and sent as the result. For example, you may use `request.body/name || randomFirstName()` to ask reusing the incoming request name if present or generate a new random one.
 
 Pretty easy. No? 🎉
 
