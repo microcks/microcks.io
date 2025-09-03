@@ -196,16 +196,16 @@ if (headers.hasValues("testcase")) {
    def testCase = headers.get("testcase", "null")
    switch(testCase) {
       case "1":
-         return "amount negativo";
+         return "negative amount";
       case "2":
-         return "amount nullo";
+         return "null amount";
       case "3":
-         return "amount positivo";
+         return "positive amount";
       case "4":
-         return "amount standard";
+         return "standard amount";
    }
 }
-return "amount standard"
+return "standard amount"
 ```
 
 Analyse XML body payload content:
@@ -259,7 +259,10 @@ store.delete("baz");
 
 #### JavaScript Scripting
 
-JavaScript support is available through QuickJS4J integration. JavaScript scripts have access to the same runtime context objects as Groovy scripts.
+JavaScript support is available through QuickJS4J integration.
+JavaScript scripts have access to the same runtime context objects as Groovy scripts.
+
+> **NOTE**: Available from version 1.13.X
 
 **Common use-cases:**
 
@@ -271,16 +274,16 @@ log.info("testCase: " + testCase);
 if (testCase !== undefined) {
    switch(testCase) {
       case "1":
-         return "amount negativo";
+         return "negative amount";
       case "2":
-         return "amount nullo";
+         return "null amount";
       case "3":
-         return "amount positivo";
+         return "positive amount";
       case "4":
-         return "amount standard";
+         return "standard amount";
    }
 }
-return "amount standard";
+return "standard amount";
 ```
 
 Analyse JSON body payload content and set context:
