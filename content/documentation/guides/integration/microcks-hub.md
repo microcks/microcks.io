@@ -62,7 +62,7 @@ Refer to the Getting Started tutorial for screenshots of the Hub entry and flow:
 
 Access to the Hub UI is restricted to users whose role is included in `features.feature.microcks-hub.allowed-roles`.
 
-- Default: `admin,manager,manager-any`
+- Default: `admin`
 - Set an empty or stricter list to reduce access surface.
 
 Imported artifacts follow your repository labels, segmentation and permissions. See [Organizing Repository](/documentation/guides/administration/organizing-repository/).
@@ -90,3 +90,6 @@ Microcks connects to the Hub backend via the configured `endpoint` (default `htt
 
 - Is the Hub a Postman alternative? No. The Hub complements Postman by distributing mocks and conformance suites for enterprise workflows. See the [announcement](/blog/microcks-hub-announcement/#enthusiastic) for details.
 - Can I run a private Hub? The built‑in integration targets the public Hub. For private catalogs, rely on Importers pointing to your internal repositories.
+
+  > **Note:** Running a private Hub is a common community request and is currently a work in progress.  
+  > We welcome contributions on this feature: [GitHub Issue #118](https://github.com/microcks/hub.microcks.io/issues/118).
