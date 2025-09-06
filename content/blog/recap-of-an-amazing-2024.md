@@ -3,7 +3,7 @@ title: Recap of an Amazing 2024, and ready to go for 2025!
 date: 2025-01-13
 image: "images/blog/recap-of-an-amazing-2024-feature.png"
 author: "Yacine Kheddache"
-type: "featured"
+type: "regular"
 description: "Recap of an Amazing 2024, and ready to go for 2025!"
 draft: false
 ---
