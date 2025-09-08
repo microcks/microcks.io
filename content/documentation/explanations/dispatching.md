@@ -170,7 +170,7 @@ The dispatching rules of `PROXY_FALLBACK` dispatcher are expressed using a JSON 
 
 ### SCRIPT dispatcher
 
-`SCRIPT` dispatchers are the most versatile and powerful to integrate custom dispatching logic in Microcks. When using such a `Dispatcher`, `Dispatching Rule` is simply a Groovy script that is evaluated and has to return the name of mock response. 
+`SCRIPT` dispatchers are the most versatile and powerful to integrate custom dispatching logic in Microcks. When using such a `Dispatcher`, `Dispatching Rule` is a script that is evaluated and has to return the name of mock response. You need to use `GROOVY` or `JS` to specify the scripting language. 
 
 Before actually evaluating the script, Microcks builds a runtime context where elements from incoming requests are made available. Therefore, you may have access to different objects from the script.
 
@@ -181,7 +181,11 @@ Before actually evaluating the script, Microcks builds a runtime context where e
 | `log` | Access to a logger with commons methods like `debug()`, `info()`, `warn()` or `error()`. Useful for troubleshooting. |
 | `store` | Allows you to access a service-scoped persistent store for string values. Such store elements can be later reused in other operations' scripts to keep track of state or feed the `requestContext`. Store provides helpful methods like `put(key, value)`, `get(key)` or `delete(key)`. Store elements are subject to a Time-To-Live that is 10 seconds by default. This TTL can be overridden using the `put(key, value, ttlInSeconds)` method. |
 
-#### Common use-cases
+#### Groovy Scripting
+
+Groovy is the traditional scripting language supported by Microcks.
+
+**Common use-cases:**
 
 Dispatch according to a header value:
 
@@ -192,16 +196,16 @@ if (headers.hasValues("testcase")) {
    def testCase = headers.get("testcase", "null")
    switch(testCase) {
       case "1":
-         return "amount negativo";
+         return "negative amount";
       case "2":
-         return "amount nullo";
+         return "null amount";
       case "3":
-         return "amount positivo";
+         return "positive amount";
       case "4":
-         return "amount standard";
+         return "standard amount";
    }
 }
-return "amount standard"
+return "standard amount"
 ```
 
 Analyse XML body payload content:
@@ -250,5 +254,68 @@ Persist, read and delete information from the service-scoped persistent store:
 ```groovy
 def foo = store.get("foo");
 def bar = store.put("bar", "barValue");
+store.delete("baz");
+```
+
+#### JavaScript Scripting
+
+JavaScript support is available through QuickJS4J integration.
+JavaScript scripts have access to the same runtime context objects as Groovy scripts.
+
+> **NOTE**: Available from version 1.13.X
+
+**Common use-cases:**
+
+Dispatch according to a header value:
+
+```javascript
+const testCase = mockRequest.getRequestHeader("testcase")[0];
+log.info("testCase: " + testCase);
+if (testCase !== undefined) {
+   switch(testCase) {
+      case "1":
+         return "negative amount";
+      case "2":
+         return "null amount";
+      case "3":
+         return "positive amount";
+      case "4":
+         return "standard amount";
+   }
+}
+return "standard amount";
+```
+
+Analyse JSON body payload content and set context:
+
+```javascript
+log.info("request content: " + mockRequest.requestContent());
+const json = JSON.parse(mockRequest.requestContent());
+if (json.cars && json.cars.Peugeot) {
+   requestContext.brand = "Peugeot";
+   log.info("Got Peugeot");
+}
+if (json.cars && json.cars.Volvo) {
+   requestContext.brand = "Volvo";
+   log.info("Got Volvo");
+}
+return "Default";
+```
+
+Calling an external API using fetch:
+
+```javascript
+const response = fetch("http://127.0.0.1:8080/api/metrics/invocations/top");
+const invJson = response.body;
+const inv = JSON.parse(invJson)[0].dailyCount;
+log.info("daily invocation: " + inv);
+// ... rest of logic
+```
+
+Persist, read and delete information from the service-scoped persistent store:
+
+```javascript
+const foo = store.get("foo");
+const bar = store.put("bar", "barValue");
 store.delete("baz");
 ```
