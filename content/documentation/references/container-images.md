@@ -33,7 +33,7 @@ The Microcks main web application (also called `webapp`) that holds the UI resou
 
 ### Microcks Async Minion
 
-The Microcks Async Minion (`microcks-async-minion`) is a component responsible for publishing mock messages corresponding to [AsyncAPI](/documentation/references/artifacts/asyncapi-conventions) definitions. It is produced from https://github.com/microcks/microcks/tree/master/minions/async repo folder.
+The Microcks Async Minion (`microcks-async-minion`) is a component responsible for publishing mock messages corresponding to [AsyncAPI](/documentation/references/artifacts/asyncapi-conventions) definitions. It is produced from https://github.com/microcks/microcks/tree/master/distro/uber-async-minion repo folder.
 
 | Repository | Pull command      | Available tags |
 | ---------- | ----------------- | -------------- |

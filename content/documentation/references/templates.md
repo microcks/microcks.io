@@ -3,7 +3,7 @@ draft: false
 title: "Mock Templates"
 date: 2020-02-11
 publishdate: 2020-02-11
-lastmod: 2024-12-18
+lastmod: 2025-08-26
 weight: 2
 ---
 
@@ -124,6 +124,18 @@ When dealing with optional content from incoming request, it can be useful to ha
   "fullname": "{{ request.body/firstname request.body/lastname }}"
 }
 ```
+
+Starting with Microcks `1.13.0`, you also have the ability to use simple literals in fallback values (primitive types or array) like illustrated below:
+
+```js
+{
+  "name": "{{ request.body/name || 'John' }}",
+  "tags": {{ request.body/tags || '[]' }}
+}
+```
+
+> 💡 Take care of enclosing double-quotes around the `{{ }}` expression so that your get valid JSON depending on your attribute type.
+
 
 ## Context Expression
 
