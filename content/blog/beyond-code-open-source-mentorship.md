@@ -3,7 +3,7 @@ title: "Beyond Code: Open Source, Mentorship and Microcks"
 date: 2025-09-06
 image: "images/blog/beyond-code-open-source.jpg"
 author: "Krishi Agrawal"
-type: "featured"
+type: "regular"
 description: "Exploring the challenges of silent users in open source and how Microcks is building sustainability through community engagement."
 draft: false
 tags:
@@ -16,7 +16,7 @@ Open source software proves that **collective contribution creates collective va
 
 
 {{< image src="images/blog/beyond-code-open-source.jpg" alt="image" zoomable="true" >}}
-<!-- *Photo by Diva Plavalaguna from Pexels* -->
+[*Photo by Diva Plavalaguna from Pexels*](https://www.pexels.com/photo/close-up-photo-of-people-holding-puzzle-pieces-6147381/)
 
 
 ## The Reality Behind the Code
@@ -36,13 +36,13 @@ Microcks has become integral to many development workflows, saving teams countle
 
 Yet, despite this adoption, we've noticed something troubling: many users remain **silent beneficiaries**.  
 
-They download, deploy, and benefit from Microcks—but when we reach out for feedback, feature requests, or documentation help, the response is often silence.  
+They download, deploy, and benefit from Microcks, but the response is often silent when we reach out for feedback, feature requests, or documentation help. 
 
 This creates a paradox: while usage metrics climb, **lack of engagement** makes it difficult to prioritize development, understand real-world pain points, or build the collaborative ecosystem that makes open source sustainable.
 
 We find ourselves making decisions in a vacuum, unsure if we’re solving the right problems.
 
-> This isn't about demanding gratitude. We know not everyone can contribute code—but there’s a vast middle ground between passive consumption and active development.
+> This isn't about demanding gratitude. We know not everyone can contribute code, but there’s a vast middle ground between passive consumption and active development.
 
 ## The Cost of Silence
 
@@ -75,7 +75,7 @@ We’re not asking for charity,we’re asking for **partnership**.
 
 Open source works best when it’s truly collaborative, when users become stakeholders in the project’s success. The most successful open source projects aren’t just tools; they’re communities of people who care about solving problems together.
 
-Microcks has reached a critical juncture. We can continue growing as a community-driven project or remain a tool maintained by a few for the benefit of many. The choice isn’t ours alone—it belongs to everyone who has ever benefited from our work.
+Microcks has reached a critical juncture. We can continue growing as a community-driven project or remain a tool maintained by a few for the benefit of many. The choice isn’t ours alone, it belongs to everyone who has ever benefited from our work.
 
 ## Your Turn – Join Me in Building These Resources
 
@@ -89,20 +89,22 @@ Here’s how you can contribute right now:
 
 <b>The next time you see these issues or similar calls for help, don’t scroll past.</b> Your experience is precisely what we need to build resources that genuinely serve the community.
 
-These are not just documentation requests — they’re **opportunities** to save others from repeating solved challenges.  
+These are not just documentation requests, they’re **opportunities** to save others from repeating solved challenges.  
 
 👉 Explore our [community repository](https://github.com/microcks/community). The community is waiting for your insights to help ensure these initiatives succeed.
 
 ## ✨ Quote from the Maintainer
 
-> “As a maintainer of the Microcks project and mentor to Krishi during the 3-month LFX mentorship program, I was both glad and impressed to see how clearly she articulated one of the core challenges many open source projects face: the gap between being a good open source citizen and users who remain passive or silent.  
->   
-> The project she worked on was a perfect example of something maintainers often can’t take on themselves, as our focus must remain on the project's core objectives. After all, Microcks is an open source initiative, not a commercial product. This means adopters and the community must take responsibility for their deployment environments and requirements.  
->   
+> “As a maintainer of the Microcks project and mentor to Krishi during the 3-month LFX mentorship program, I was both glad and impressed to see how clearly she articulated one of the core challenges many open source projects face: the gap between being a good open source citizen and users who remain passive or silent.
+<br/>
+> The project she worked on was a perfect example of something maintainers often can’t take on themselves, as our focus must remain on the project's core objectives. After all, Microcks is an open source initiative, not a commercial product. This means adopters and the community must take responsibility for their deployment environments and requirements.
+<br/>
 > That’s exactly why Krishi initiated the community repository and installation documentation, which we hope the community will continue to maintain and grow. Sharing is caring.”
-> — **Yacine Kheddache, Microcks Maintainer**
+<br/>
+> [Yacine Kheddache](https://microcks.io/author/yacine-kheddache/), **Microcks Maintainer**
 
 ---
+</br>
 
 The future of Microcks depends not just on **code commits**, but on **community commits**.  
 💡 Are you ready to make yours?
