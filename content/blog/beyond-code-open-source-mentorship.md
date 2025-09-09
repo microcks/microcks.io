@@ -104,7 +104,7 @@ These are not just documentation requests, they’re **opportunities** to save o
 > [Yacine Kheddache](https://microcks.io/author/yacine-kheddache/), **Microcks Maintainer**
 
 ---
-</br>
 
 The future of Microcks depends not just on **code commits**, but on **community commits**.  
+
 💡 Are you ready to make yours?
