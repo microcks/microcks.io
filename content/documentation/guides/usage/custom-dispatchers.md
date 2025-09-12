@@ -33,7 +33,7 @@ We will use the `API Pastry - 2.0` sample from the Getting Started tutorial. It 
 
 ### 2.1 Load the sample API
 
-Follow the [Getting started](/documentation/tutorials/getting-started) tutorial to load the `API Pastry - 2.0` sample into your Microcks instance.
+To load the `API Pastry-2.0` sample into your Microcks instance, follow the [Getting started](/documentation/tutorials/getting-started) tutorial.
 
 ### 2.2 Set a custom dispatcher via the UI
 
