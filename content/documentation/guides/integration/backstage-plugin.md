@@ -4,7 +4,7 @@ draft: false
 title: "Configuring the Backstage Plugin"
 date: 2024-04-30
 publishdate: 2024-04-30
-lastmod: 2024-04-30
+lastmod: 2025-09-12
 weight: 3
 
 ---
