@@ -29,7 +29,7 @@ For a broader tour and advanced strategies, see [Dispatcher & dispatching rules]
 
 ## 2. Practice
 
-We will use the `API Pastry - 2.0` sample from the Getting Started tutorial. It contains multiple examples for the `GET /pastry/{name}` operation, including JSON and XML variants. We’ll set a custom dispatcher to route based on the `Accept` header.
+We will use the `API Pastry - 2.0` sample from the Getting Started tutorial. It contains multiple examples for the `GET /pastry/{name}` operation. We’ll set a custom dispatcher to demonstrate a default response using `FALLBACK` when the requested pastry doesn’t exist (something distinct from default content negotiation, which Microcks already handles automatically).
 
 ### 2.1 Load the sample API
 
@@ -40,25 +40,50 @@ To load the `API Pastry-2.0` sample into your Microcks instance, follow the [Get
 1. Open the `API Pastry - 2.0` service page.
 2. Locate the `GET /pastry/{name}` operation. Open the 3-dots menu on the right and choose **Edit Properties**.
 3. In the dispatching section:
-   - Set **Dispatcher** to `QUERY_HEADER`.
-   - Set **Dispatching rules** to `Accept`.
+   - Set **Dispatcher** to `FALLBACK`.
+   - Set **Dispatching rules** to the following JSON:
+
+```json
+{
+  "dispatcher": "URI_PARTS",
+  "dispatcherRules": "name",
+  "fallback": "Millefeuille"
+}
+```
 4. Save.
 
-This tells Microcks to select the response example whose request `Accept` header matches the incoming request header value.
+This tries to match a response by the `name` path parameter first (using `URI_PARTS`). If no example matches (unknown pastry), Microcks returns the `Millefeuille` example as a default.
+
+<div class="swiper single-slider">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      {{< image src="images/documentation/custom-dispatcher-api-pastry.png" alt="image" zoomable="true" >}}      
+    </div>
+    <div class="swiper-slide">
+      {{< image src="images/documentation/custom-dispatcher-pastry.png" alt="image" zoomable="true" >}}
+    </div>
+    <div class="swiper-slide">
+      {{< image src="images/documentation/custom-dispatcher.png" alt="image" zoomable="true" >}}
+    </div>
+  </div>
+  <div class="swiper-pagination"></div>
+</div>
+
+Note: You do not need `QUERY_HEADER` to implement content negotiation on `Accept` — Microcks already returns the appropriate representation if multiple media types exist for the same example.
 
 ### 2.3 Verify with curl
 
-Call the mock endpoint and switch the `Accept` header to observe the selected example change:
+Call the mock endpoint with an existing pastry name, then with an unknown one to observe the fallback:
 
 ```sh
-curl -X GET 'http://localhost:8585/rest/API+Pastry+-+2.0/2.0.0/pastry/Eclair%20Chocolat' -H 'Accept: application/json'
+curl -X GET 'http://localhost:8585/rest/API+Pastry+-+2.0/2.0.0/pastry/Eclair%20Cafe'
 ```
 
 ```sh
-curl -X GET 'http://localhost:8585/rest/API+Pastry+-+2.0/2.0.0/pastry/Eclair%20Chocolat' -H 'Accept: text/xml'
+curl -X GET 'http://localhost:8585/rest/API+Pastry+-+2.0/2.0.0/pastry/Unknown%20Pastry'
 ```
 
-With `QUERY_HEADER: Accept`, Microcks will choose the example that was defined with the corresponding `Accept` value in its request.
+The second call returns the `Millefeuille` example thanks to the `FALLBACK` configuration.
 
 > Tip: You can pick other strategies depending on your needs:
 > - `JSON_BODY` to route based on a value in the request payload.
@@ -78,8 +103,13 @@ paths:
   /pastry/{name}:
     get:
       x-microcks-operation:
-        dispatcher: QUERY_HEADER
-        dispatcherRules: Accept
+        dispatcher: FALLBACK
+        dispatcherRules: |
+          {
+            "dispatcher": "URI_PARTS",
+            "dispatcherRules": "name",
+            "fallback": "Millefeuille"
+          }
 ```
 
 On the next import, this will overwrite any UI-edited dispatcher configuration for that operation. See [OpenAPI extensions](/documentation/references/artifacts/openapi-conventions/#openapi-extensions).
@@ -96,8 +126,13 @@ metadata:
   version: '2.0.0'
 operations:
   'GET /pastry/{name}':
-    dispatcher: QUERY_HEADER
-    dispatcherRules: Accept
+    dispatcher: FALLBACK
+    dispatcherRules: |-
+      {
+        "dispatcher": "URI_PARTS",
+        "dispatcherRules": "name",
+        "fallback": "Millefeuille"
+      }
 ```
 
 Import this as a secondary artifact (via Importers or Upload). It will set or overwrite the dispatcher for the target operation. See [API Metadata Format](/documentation/references/metadada/#api-metadata-properties).
@@ -112,8 +147,8 @@ curl -X PUT 'https://microcks.example.com/api/services/{serviceId}/operation' \
   -H 'Content-Type: application/json' \
   -d '{
         "name": "GET /pastry/{name}",
-        "dispatcher": "QUERY_HEADER",
-        "dispatcherRules": "Accept"
+        "dispatcher": "FALLBACK",
+        "dispatcherRules": "{\n  \"dispatcher\": \"URI_PARTS\",\n  \"dispatcherRules\": \"name\",\n  \"fallback\": \"Millefeuille\"\n}"
       }'
 ```
 
