@@ -3,7 +3,7 @@ draft: false
 title: "Dispatcher & dispatching rules"
 date: 2020-03-03
 publishdate: 2020-03-03
-lastmod: 2025-01-13
+lastmod: 2025-09-22
 weight: 18
 ---
 
@@ -57,7 +57,7 @@ The `JSON_BODY` dispatching strategy allows specifying a dispatching rule that w
 The dispatching rules of `JSON_BODY` dispatcher are always expressed using a JSON payload with 3 properties:
 
 * `exp` is the expression to evaluate against the request body. It is indeed a [JSON Pointer](https://tools.ietf.org/html/rfc6901) expression. We already use this expression language in [Templating features](/documentation/references/templates/#json-body-pointer-expression). From the evaluation of this expression, we'll get a value. Here `/country` denotes the `country` field of the incoming request.
-* `op` is the operator to apply. Different operators are available like `equals`, `range`, `regexp`, `size` and `presence`,
+* `operator` is the operator to apply. Different operators are available like `equals`, `range`, `regexp`, `size` and `presence`,
 * `cases` are a number of cases where keys are values to compare to the extracted value from the incoming request.
 
 Depending on the operator applied, the `cases` may have different specification formats.
