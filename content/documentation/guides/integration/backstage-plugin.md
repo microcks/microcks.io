@@ -1,12 +1,10 @@
 ---
-
 draft: false
 title: "Configuring the Backstage Plugin"
 date: 2024-04-30
-publishdate: 2024-04-30
-lastmod: 2025-09-12
+publishdate: 205-09-29
+lastmod: 2025-09-29
 weight: 3
-
 ---
 
 The Microcks Backstage provider discovers APIs from one or more Microcks instances and syncs them into the Backstage Software Catalog as `API` entities. This page explains how to install, configure, and verify the provider in your Backstage app.
@@ -26,8 +24,10 @@ The Microcks Backstage provider discovers APIs from one or more Microcks instanc
 Add the provider to your Backstage backend:
 
 ```bash
-yarn add --cwd packages/backend @microcks/microcks-backstage-provider@^0.0.2
+yarn add --cwd packages/backend @microcks/microcks-backstage-provider@^0.0.7
 ```
+
+> Note: Check the provider's version compatibility with your Backstage release in the compatibility matrix from the [repository README](https://github.com/microcks/microcks-backstage-provider#readme) and pick the appropriate version.
 
 ## 2. Configure providers in `app-config.yaml`
 
@@ -55,7 +55,7 @@ catalog:
 ```
 
 - **baseUrl**: Public base URL of your Microcks instance (no trailing `/api/`).
-- **serviceAccount / serviceAccountCredentials**: Credentials of a Service Account in the Microcks Keycloak realm used to query Microcks. Prefer storing secrets in environment variables.
+- **serviceAccount / serviceAccountCredentials**: Credentials of a Service Account in the Microcks Keycloak realm used to query Microcks. Prefer storing secrets in environment variables. See the Service Account documentation: [/documentation/explanations/service-account](/documentation/explanations/service-account).
 - **systemLabel / ownerLabel**: Microcks labels to map onto Backstage `system` and `owner` fields of the `API` entity. Choose labels that exist on your APIs in Microcks.
 - **schedule**: Optional sync cadence. If omitted, the default provider schedule applies.
 
