@@ -24,7 +24,7 @@ The Microcks Backstage provider discovers APIs from one or more Microcks instanc
 Add the provider to your Backstage backend:
 
 ```bash
-yarn add --cwd packages/backend @microcks/microcks-backstage-provider@^0.0.7
+yarn --cwd packages/backend add @microcks/microcks-backstage-provider@^0.0.7
 ```
 
 > Note: Check the provider's version compatibility with your Backstage release in the compatibility matrix from the [repository README](https://github.com/microcks/microcks-backstage-provider#readme) and pick the appropriate version.
