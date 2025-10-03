@@ -31,11 +31,11 @@ For a broader tour and advanced strategies, see [Dispatcher & dispatching rules]
 
 We will use the `API Pastry - 2.0` sample from the Getting Started tutorial. It contains multiple examples for the `GET /pastry/{name}` operation. We’ll set a custom dispatcher to demonstrate a default response using `FALLBACK` when the requested pastry doesn’t exist (something distinct from default content negotiation, which Microcks already handles automatically).
 
-### 2.1 Load the sample API
+### Load the sample API
 
 To load the `API Pastry-2.0` sample into your Microcks instance, follow the [Getting started](/documentation/tutorials/getting-started) tutorial.
 
-### 2.2 Set a custom dispatcher via the UI
+### Set a custom dispatcher via the UI
 
 1. Open the `API Pastry - 2.0` service page.
 2. Locate the `GET /pastry/{name}` operation. Open the 3-dots menu on the right and choose **Edit Properties**.
@@ -71,7 +71,7 @@ This tries to match a response by the `name` path parameter first (using `URI_PA
 
 Note: You do not need `QUERY_HEADER` to implement content negotiation on `Accept` — Microcks already returns the appropriate representation if multiple media types exist for the same example.
 
-### 2.3 Verify with curl
+### Verify with curl
 
 Call the mock endpoint with an existing pastry name, then with an unknown one to observe the fallback:
 
@@ -94,7 +94,7 @@ The second call returns the `Millefeuille` example thanks to the `FALLBACK` conf
 
 UI editing is convenient, but you may prefer a declarative approach that travels with the API or is managed externally.
 
-### 3.1 Using OpenAPI extensions
+### Using OpenAPI extensions
 
 Add an `x-microcks-operation` block at the operation level in your OpenAPI file, then re-import:
 
@@ -114,7 +114,7 @@ paths:
 
 On the next import, this will overwrite any UI-edited dispatcher configuration for that operation. See [OpenAPI extensions](/documentation/references/artifacts/openapi-conventions/#openapi-extensions).
 
-### 3.2 Using API Metadata
+### Using API Metadata
 
 Keep dispatch config outside of the API definition using an `APIMetadata` artifact:
 
