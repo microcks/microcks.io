@@ -16,8 +16,7 @@ The Microcks Backstage provider discovers APIs from one or more Microcks instanc
 
 - A running Backstage application (backend package available)
 - A running Microcks instance and its base URL, for example: `https://microcks.acme.com`
-- A Microcks Service Account in your Keycloak realm, with client id and secret
-  - See: [/documentation/explanations/service-account](/documentation/explanations/service-account)
+- A Microcks Service Account in your Keycloak realm, with client id and secret. See [Service Account explanations](/documentation/explanations/service-account)
 
 ## 1. Install the provider
 
@@ -55,11 +54,11 @@ catalog:
 ```
 
 - **baseUrl**: Public base URL of your Microcks instance (no trailing `/api/`).
-- **serviceAccount / serviceAccountCredentials**: Credentials of a Service Account in the Microcks Keycloak realm used to query Microcks. Prefer storing secrets in environment variables. See the Service Account documentation: [/documentation/explanations/service-account](/documentation/explanations/service-account).
+- **serviceAccount / serviceAccountCredentials**: Credentials of a Service Account in the Microcks Keycloak realm used to query Microcks. Prefer storing secrets in environment variables. See the [Service Account documentation](/documentation/explanations/service-account).
 - **systemLabel / ownerLabel**: Microcks labels to map onto Backstage `system` and `owner` fields of the `API` entity. Choose labels that exist on your APIs in Microcks.
 - **schedule**: Optional sync cadence. If omitted, the default provider schedule applies.
 
-For guidance on creating and managing Service Accounts and understanding default roles, see [/documentation/explanations/service-account](/documentation/explanations/service-account). For Keycloak-related configuration in Microcks, see [/documentation/references/configuration/security-config](/documentation/references/configuration/security-config).
+> For guidance on creating and managing Service Accounts and understanding default roles, see the [Service Account documentation](/documentation/explanations/service-account). For Keycloak-related configuration in Microcks, see [Security Configuration reference](/documentation/references/configuration/security-config).
 
 ## 3. Register the provider in your backend
 
@@ -83,8 +82,8 @@ Ensure your backend loads configuration from `app-config.yaml` and that the prov
 
 The provider authenticates to Microcks using a Keycloak client (Service Account). At minimum, it needs read access to list APIs and artifacts in Microcks. If you use the default realm import, the `microcks-serviceaccount` exists by default. For production, create a dedicated client for Backstage and scope it to read-only permissions.
 
-- How to inspect or create accounts: [/documentation/explanations/service-account](/documentation/explanations/service-account)
-- How Microcks references Service Accounts in its own configs: [/documentation/references/configuration/security-config](/documentation/references/configuration/security-config)
+- How to inspect or create accounts: [Service Account explanations](/documentation/explanations/service-account)
+- How Microcks references Service Accounts in its own configs: [Security Configuration reference](/documentation/references/configuration/security-config)
 
 ## 5. Verify the synchronization
 
