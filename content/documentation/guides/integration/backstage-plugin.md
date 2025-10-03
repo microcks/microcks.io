@@ -113,6 +113,6 @@ The provider authenticates to Microcks using a Keycloak client (Service Account)
 
 ## See also
 
-- Blog overview and screenshots: [/blog/backstage-integration-launch/](/blog/backstage-integration-launch/)
-- Provider source and issues: `https://github.com/microcks/microcks-backstage-provider`
-- Backstage Catalog concepts: `https://backstage.io/docs/features/software-catalog/`
+- Blog announcement with screenshots: [Backstage Integration Launch](/blog/backstage-integration-launch/)
+- Provider source and issues: [GitHub repository](https://github.com/microcks/microcks-backstage-provider)
+- Backstage Catalog concepts: [Software Catalog](https://backstage.io/docs/features/software-catalog/)
