@@ -109,7 +109,7 @@ Using the 3-dotted menu, you can easily enable/disable or force the job.
 
 ### Configure scheduling interval
 
-The scheduling interval can be globally configured for all Jobs. It is a global setting and not a per-job one. This is achieved through the `services.update.interval` property in the `application.properties` configuration file, which takes the value of the `SERVICES_UPDATE_INTERVAL` environment variable. The value should be set to a valid [CRON expression](https://en.wikipedia.org/wiki/Cron#CRON_expression); the default is every 2 hours.
+The scheduling interval can be globally configured for all Jobs. It is a global setting and not a per-job one. This is achieved through the `services.update.interval` property in the `application.properties` configuration file, which takes the value of the `SERVICES_UPDATE_INTERVAL` environment variable. The value should be set to a valid [CRON expression](https://spring.io/blog/2020/11/10/new-in-spring-5-3-improved-cron-expressions); the default is every 2 hours.
 
 ```properties
 services.update.interval=${SERVICES_UPDATE_INTERVAL:0 0 0/2 * * *}
