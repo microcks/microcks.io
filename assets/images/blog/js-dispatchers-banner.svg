@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" role="img" aria-labelledby="title desc">
+  <title id="title">Microcks ♥ JavaScript</title>
+  <desc id="desc">Banner with Microcks logo, a heart for JavaScript, and code snippet background.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b3954"/>
+      <stop offset="100%" stop-color="#092b40"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00c7b7"/>
+      <stop offset="100%" stop-color="#2cd4d9"/>
+    </linearGradient>
+    <linearGradient id="heart" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ff6b6b"/>
+      <stop offset="100%" stop-color="#ff3b3b"/>
+    </linearGradient>
+    <style>
+      .title { font: 800 72px 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif; fill: #ffffff; letter-spacing: 0.3px; }
+      .subtitle { font: 500 28px 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif; fill: #bfe8e6; }
+      .code { font: 600 20px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; fill: #b6eae7; opacity: 0.17; }
+      .muted { fill: #6aa7a3; font: 500 18px 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="400" fill="url(#bg)"/>
+
+  <!-- Faint code snippet background -->
+  <g transform="translate(80, 60)">
+    <text class="code">const contentType = mockRequest.getRequestHeader("Accept").toString();</text>
+    <text class="code" y="32">const nameParam = mockRequest.getURIParameter("name");</text>
+    <text class="code" y="64">if (nameParam === "Eclair Cafe") {</text>
+    <text class="code" y="96">  if (contentType === "text/xml") { return "Eclair Cafe Xml"; }</text>
+    <text class="code" y="128">  return "Eclair Cafe";</text>
+    <text class="code" y="160">}</text>
+    <text class="code" y="192">return "Millefeuille";</text>
+  </g>
+  <g transform="translate(80, 280)">
+    <text class="code">curl -X GET 'http://localhost:8080/rest/API+Pastry+-+2.0/2.0.0/pastry/Eclair+Cafe' -H 'Accept: text/xml'</text>
+    <text class="code" y="28">curl -X GET 'http://localhost:8080/rest/API+Pastry+-+2.0/2.0.0/pastry/Millefeuille' -H 'Accept: application/json'</text>
+  </g>
+
+  <!-- Foreground title and logo -->
+  <g transform="translate(0, 40)">
+    <image href="/images/logo/microcks-logo-blue-name.png" x="430" y="0" width="340" height="80" preserveAspectRatio="xMinYMin meet"/>
+    <g transform="translate(0, 120)">
+      <text class="title" x="400" y="0" text-anchor="middle">Microcks</text>
+      <!-- Simple heart -->
+      <text x="600" y="0" text-anchor="middle" style="font-size: 72px; fill: #ff6b6b;">♥</text>
+      <text class="title" x="850" y="0" text-anchor="middle">JavaScript</text>
+      <text class="subtitle" x="600" y="100" text-anchor="middle">Dynamic mocking with JavaScript dispatchers</text>
+    </g>
+  </g>
+
+  <!-- Footer note -->
+  <text x="80" y="380" class="muted">microcks.io • Mock, test and govern your APIs</text>
+</svg>
+
