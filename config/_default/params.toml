@@ -37,7 +37,7 @@ table_of_content = true
 
 # copyright
 theme_copyright = false
-copyright = "The Linux Foundation® (TLF) has registered trademarks and uses trademarks. For a list of TLF trademarks, see [**Trademark Usage**.](https://www.linuxfoundation.org/legal/trademark-usage) <br> **Microcks** is a [**Cloud Native Computing Sandbox**](https://landscape.cncf.io/?selected=microcks) project 🚀"
+copyright = "The Linux Foundation® (TLF) has registered trademarks and uses trademarks. For a list of TLF trademarks, see [**Trademark Usage**.](https://www.linuxfoundation.org/legal/trademark-usage) <br> **Microcks** is a [**Cloud Native Computing Sandbox**](https://landscape.cncf.io/?selected=microcks&item=app-definition-and-development--application-definition-image-build--microcks) project 🚀"
 
 # Preloader
 [preloader]
