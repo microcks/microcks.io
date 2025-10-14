@@ -39,9 +39,6 @@ path = "github.com/gethugothemes/hugo-modules/shortcodes/button"
 path = "github.com/gethugothemes/hugo-modules/accordion"
 
 [[imports]]
-path = "github.com/gethugothemes/hugo-modules/shortcodes/notice"
-
-[[imports]]
 path = "github.com/gethugothemes/hugo-modules/shortcodes/codepen"
 
 [[imports]]
