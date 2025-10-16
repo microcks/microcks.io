@@ -11,7 +11,7 @@ subtitle: "Here are a few assets in case you want to show off your support for M
 ##### Please feel free to borrow these!
 Here are the official Microcks [logos](https://github.com/cncf/artwork/blob/main/examples/sandbox.md#microcks-logos) registered by the [CNCF](https://www.cncf.io).
 
->The Linux Foundation® (TLF) has registered trademarks and uses trademarks. For a list of TLF trademarks, see [Trademark Usage](https://www.linuxfoundation.org/legal/trademark-usage). **Microcks** is a [Cloud Native Computing Sandbox](https://landscape.cncf.io/?selected=microcks) project 🚀
+>The Linux Foundation® (TLF) has registered trademarks and uses trademarks. For a list of TLF trademarks, see [Trademark Usage](https://www.linuxfoundation.org/legal/trademark-usage). **Microcks** is a [Cloud Native Computing Sandbox](https://landscape.cncf.io/?selected=microcks&item=app-definition-and-development--application-definition-image-build--microcks) project 🚀
 
 <p>Simple logo, blue and light variants with transparent background:</p>
 <table>
