@@ -3,7 +3,7 @@ draft: false
 title: "SQS/SNS Mocking & Testing"
 date: 2023-06-06
 publishdate: 2023-06-06
-lastmod: 2024-05-13
+lastmod: 2025-10-19
 weight: 7
 ---
 
@@ -35,9 +35,9 @@ Depending on the option you chose and the way you handle secrets in your cluster
 
 ```sh
 kubectl create secret generic my-aws-credentials \
-    --from-literal=access_key_id=  AWS_ACCESS_KEY_ID \
-    --from-literal=secret_access_key=  AWS_SECRET_ACCESS_KEY \
-    --from-literal=secret_token_key=  AWS_SESSION_TOKEN \
+    --from-literal=access_key_id=$AWS_ACCESS_KEY_ID \
+    --from-literal=secret_access_key=$AWS_SECRET_ACCESS_KEY \
+    --from-literal=secret_token_key=$AWS_SESSION_TOKEN \
      -n microcks
 ```
 
@@ -105,7 +105,7 @@ features:
 
 The actual connection to the Google Pub/Sub service will only be made once Microcks sends mock messages to it. Let's see below how to use Pub/Sub binding with AsyncAPI. 
 
-> Running AWS on [LocalStack] (https://localstack.cloud)? Microcks supports that, too! Each configuration section (for SQS and SNS) allows you to provide an optional `endpointOverride` property that will allow you to target your LocalStack instance.
+> Running AWS on [LocalStack](https://localstack.cloud)? Microcks supports that, too! Each configuration section (for SQS and SNS) allows you to provide an optional `endpointOverride` property that will allow you to target your LocalStack instance.
 >
 > You'll end up with something like `features.async.sqs.endpointOverride=http://localhost:4566` for example.
 
