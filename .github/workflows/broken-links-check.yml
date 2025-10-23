@@ -11,7 +11,7 @@ jobs:
           submodules: true
 
       - name: Check
-        uses: ruzickap/action-my-broken-link-checker@f5a3296e86117675ab07b9fbf1a92027e5c340ef # v2.8.1
+        uses: ruzickap/action-my-broken-link-checker@df42b59637dfd06c247a8a95db0ab38708ea83d2 # v2.9.0
         with:
           url: https://microcks.io
           pages_path: public
