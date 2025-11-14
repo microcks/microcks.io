@@ -1,5 +1,4 @@
 ---
-draft: false
 title: Microcks 1.8.1 release 🚀
 date: 2024-01-18
 image: "images/blog/microcks-1.8.1-feature.png"
