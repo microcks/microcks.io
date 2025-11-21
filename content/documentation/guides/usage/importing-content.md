@@ -19,17 +19,17 @@ We will consider the pros and cons of the different methods.
 
 ### Via the UI
 
-The simplest way of adding new Services or API mocks to your Microcks instance is by directly uploading the artifact. From the left vertical navigation bar, just select the **Importers** menu entry and then choose `Upload`. You'll then see a dialog window allowing you to browse your filesystem and pick a new file to upload.
+The simplest and fastest way to add new Services or API mocks is to use the UI Quick Import. Click the **Quick Import** button in the top-right corner of the screen, or simply drag-and-drop a file anywhere on the UI — either action will start the upload and import flow. A dialog will appear where you can adjust options and confirm the upload.
 
 <div align="center">
 {{< figure src="images/documentation/artifacts-upload.png" width="80%" >}}
 </div>
 
-> 💡 You can also specify whether this artifact should be considered as `primary` or `secondary` per the [Multi Artifacts support](/documentation/explanations/multi-artifacts). In the case of a `secondary` artifact, you may check the *Just merge examples into existing API | Service definition*  box.
+> 💡 You can also specify whether this artifact should be considered as `primary` or `secondary` per the [Multi Artifacts support](/documentation/explanations/multi-artifacts). In the case of a `secondary` artifact, you may check the *Secondary Artifact*  box.
 
-Hit the `Upload` green button. An upload followed by an artifact import should occur, with notification messages appearing at the top right corner. Newly discovered Services and APIs can be found in the **APIs | Services** repository.
+After choosing your artifacts, click the green `Upload` button to send them to Microcks. Notification messages will appear in the top-right corner to inform you of the process. Newly discovered Services and APIs can be found in the **APIs | Services** repository.
 
-While this method is very convenient for a quick test, you'll have to re-import your artifact file on every new change...
+While this method is very convenient for a quick test, you'll have to re-import your artifact file on every new change. To watch the changes of local files you can check out the [Microcks CLI Import](https://github.com/microcks/microcks-cli/blob/master/documentation/cmd/import.md)
 
 ### Via the API
 
