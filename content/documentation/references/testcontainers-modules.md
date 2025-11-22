@@ -15,7 +15,7 @@ We try to setup and manage a unified roadmap between modules but because they ar
 
 This page lists the implementation status of various features by the different modules on July 21st, 2025. It will be updated regularly. 
 
-> 💡 Of course, **we welcome external contributions**! So, if you're in a hurry and need a missing feature, don't hesitate to propose a change and to submit a _Pull Pequest_ on the associated GitHub repository 🙏
+> 💡 Of course, **we welcome external contributions**! So, if you're in a hurry and need a missing feature, don't hesitate to propose a change and to submit a _Pull Request_ on the associated GitHub repository 🙏
 
 ## Initialization
 

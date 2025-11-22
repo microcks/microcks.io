@@ -62,7 +62,7 @@ The *Uber* distribution provide additional tags with `-native` suffix (`xyz-nati
 
 ### Microcks Uber Async Minion
 
-The Microcks Uber Async Minion (`microcks-uber-async-minion`) is responsible for publishing mock messages corresponding to [AsyncAPI](/documentation/references/artifacts/asyncapi-conventions) definitions with *Uber* distribution. It is produced from https://github.com/microcks/microcks/tree/master/distro/uber-async repo folder.
+The Microcks Uber Async Minion (`microcks-uber-async-minion`) is responsible for publishing mock messages corresponding to [AsyncAPI](/documentation/references/artifacts/asyncapi-conventions) definitions with *Uber* distribution. It is produced from https://github.com/microcks/microcks/tree/master/distro/uber-async-minion repo folder.
 
 | Repository | Pull command      | Available tags |
 | ---------- | ----------------- | -------------- |
