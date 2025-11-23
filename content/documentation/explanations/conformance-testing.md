@@ -13,7 +13,7 @@ You may have experienced the frustration of deploying to production, only to dis
 
 As introduced in [Main Concepts](/documentation/overview/main-concepts), Microcks can be used for **Contract conformance testing** of API or services under development. You spend a lot of time describing request/response pairs and matching rules: it would be a shame not to use this sample as test cases once development is underway!
 
-On the internet, you can find many different representations of how the different testing techniques relate to one another and should ideally be combined into a robust testing pipeline. At Microcks, we particularly like the Watirmelon representation below. Microcks enables you to automate **Automated API Tests** and focus specifically on **Contract conformance testing**.
+On the internet, you can find many different representations of how the different testing techniques relate to one another and should ideally be combined into a robust testing pipeline. At Microcks, we particularly like the Watermelon representation below. Microcks enables you to automate **Automated API Tests** and focus specifically on **Contract conformance testing**.
 
 <br/>
 <div align="center">
