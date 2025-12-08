@@ -11,7 +11,7 @@ banner:
   button:
     enable : true
     #label : "Microcks is a Cloud Native Computing Sandbox project 🚀"
-    label : "1.13.0 has just been released! 🚀"
+    label : "1.13.1 has just been released! 🚀"
     #label : "♻️ 1.12.1 has just been released! ♻️"
     #link : "https://microcks.io/blog/microcks-joining-cncf-sandbox/"
     getstarted: ./documentation/tutorials/getting-started/
