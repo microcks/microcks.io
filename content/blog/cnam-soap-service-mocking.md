@@ -15,7 +15,7 @@ With over 2,500 employees, the Caisse Nationale de l’Assurance Maladie [CNAM](
 Additionally, we coordinate with and assist the local organizations within our network, which consists of **164 entities deployed nationally**, regionally, and locally throughout France. We rely on [SOAP](https://nordicapis.com/apis-101-what-is-soap-simple-object-access-protocol/) (Simple Object Access Protocol) for our historical and mission-critical legacy systems to facilitate seamless information exchange among these organizations.
 
 <p>
-    {{< image src="images/blog/reseau-cnam.jpg" alt="image reseau cnam">}}
+    {{< image src="images/blog/reseau-cnam.png" alt="image reseau cnam">}}
 </p>
 <p style="text-align: center;">
     <em>Source (🇫🇷): <a href="https://www.assurance-maladie.ameli.fr/qui-sommes-nous/organisation/reseau-proximite" target="_blank">https://www.assurance-maladie.ameli.fr/qui-sommes-nous/organisation/reseau-proximite</a></em>
