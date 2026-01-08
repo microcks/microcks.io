@@ -1,9 +1,9 @@
 ---
 ####################### Banner #########################
 banner:
-  title : "The open source, cloud native tool for API Mocking and Testing"
-  image : "images/cncf-sandbox-horizontal-color.svg"
-  atom : "images/atom.svg"
+  title: "The open source, cloud native tool for API Mocking and Testing"
+  image: "images/cncf-sandbox-horizontal-color.svg"
+  atom: "images/atom.svg"
   #content : "A **dynamic**, **interconnected ecosystem** to help crafting **customized**, **multi-protocol universal** API **value chain**, powered by **cloud-native automation & standards** #APIOps"
   #content : "Microcks leverages API standards to provide uniform and multi-protocol approach, empowering your API and microservices lifecycle. It strengthen your ecosystem for crafting customized and versatile API value chain. #APIDevOps"
   #content : "Microcks leverages **API standards** to provide a **uniform and multi-protocol approach**, empowering your API and microservices lifecycle. Powered by **cloud-native automation**, it interconnects your API **value chain** ecosystem. #APIDevOps"
@@ -11,7 +11,7 @@ banner:
   button:
     enable : true
     #label : "Microcks is a Cloud Native Computing Sandbox project 🚀"
-    label : "1.13.1 has just been released! 🚀"
+    label : "1.13.2 has just been released! 🚀"
     #label : "♻️ 1.12.1 has just been released! ♻️"
     #link : "https://microcks.io/blog/microcks-joining-cncf-sandbox/"
     getstarted: ./documentation/tutorials/getting-started/
