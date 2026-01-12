@@ -1,6 +1,6 @@
 ---
 title: "Testing Google Pub/Sub Locally? Microcks Now Supports the Emulator!"
-date: 2026-02-01
+date: 2026-01-12
 image: "images/blog/google-pubsub-emulator-usage-dojo-feature.png"
 author: "Adam Hicks"
 type: "regular"
@@ -8,13 +8,13 @@ description: "Testing Google Pub/Sub Locally? Microcks Now Supports the Emulator
 draft: false
 ---
 
-{{< image src="images/blog/google-pubsub-emulator-usage-dojo-feature.png" alt="image" zoomable="true" >}}
-
-At Dojo, speed is critical. Not just in how fast our card machines process payments (which is milliseconds, by the way 😉), but in how fast we ship value to our customers.
+At [**Dojo**](https://dojo.tech/), speed is critical. Not just in how fast our card machines process payments (which is milliseconds, by the way 😉), but in how fast we ship value to our customers.
 
 Our platform relies heavily on an event-driven architecture running on Google Cloud. While this is powerful in production, it creates friction for our "inner loop" development. Developers often have to connect to real cloud resources just to test a single microservice, which means managing complex credentials, spending time waiting for cloud resources to deploy, and incurring cloud costs for every test run.
 
-We want to shift our testing left, enabling our engineers to spin up a transaction flow simulation on their laptop, completely offline. We want to publish mock payment events, verify how services consume them, and iterate instantly without waiting for a cloud deployment.
+{{< image src="images/blog/google-pubsub-emulator-usage-dojo-feature.png" alt="image" zoomable="true" >}}
+
+We want to **shift our testing left, enabling our engineers to spin up a transaction flow simulation on their laptop, completely offline**. We want to publish mock payment events, verify how services consume them, and iterate instantly without waiting for a cloud deployment.
 
 However, Microcks couldn't be used with the Google Pub/Sub emulator, so I've recently contributed a new feature to Microcks to bridge this gap.
 
@@ -168,7 +168,7 @@ Import the AsyncAPI definition above into Microcks using the Web UI uploader at 
 
 If you look at the logs for the `microcks-async-minion` container, you should see that it has detected the emulator configuration and is outputting mock message.
 
-```
+```sh
 ...snip...
 [io.git.mic.min.asy.pro.GooglePubSubProducerManager] (QuarkusQuartzScheduler_Worker-9) Using Google PubSub emulator at pubsub-emulator:8681
 [io.git.mic.min.asy.pro.GooglePubSubProducerManager] (QuarkusQuartzScheduler_Worker-9) Publishing on topic {HelloMicrocksAPI-1.0.0-receivedHellos}, message: {"greeting":"hello","fullName":"Microcks","sentAt":"1767870113823"}
@@ -241,7 +241,7 @@ PUBSUB_EMULATOR_HOST=localhost:8681 python stream.py
 
 Will output live message events
 
-```
+```sh
 Created new subscription: projects/my-project/subscriptions/stream-out-py
 Listening for messages...
 
@@ -255,7 +255,7 @@ Received: {"greeting":"hello","fullName":"Merlin","sentAt":"1767870125762"}
 
 ## Summary
 
-This small but mighty change opens up a smoother local development workflow for anyone building event-driven systems with Google Cloud. For us at Dojo, it means faster iterations and happier developers. By supporting the native Pub/Sub emulator, Microcks continues to be the most versatile tool for mocking and testing, no matter where your infrastructure lives, in the cloud or on your machine.
+This small but mighty change opens up a smoother local development workflow for anyone building event-driven systems with Google Cloud. For us at Dojo, it means faster iterations and happier developers. By supporting the native Pub/Sub emulator, **Microcks continues to be the most versatile tool for mocking and testing, no matter where your infrastructure lives, in the cloud or on your machine**.
 
 I hope this helps you streamline your testing loops! If you have any questions or feedback, feel free to reach out on GitHub.
 
