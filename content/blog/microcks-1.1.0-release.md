@@ -34,7 +34,7 @@ Not surprisingly, Microcks turning GA generates a lot of attention from users ma
 
 For the need of asynchronous API testing features, we introduced a new testing strategy called `ASYNC_API_SCHEMA`. When testing an event-based API with this strategy, Microcks will try to validate the messages received on the connected broker endpoints against a schema found in the AsyncAPI specification.
 
-> In 1.1.0 release we only deal with JSON Schema for describing message payload but we plan to include [Avro Schema](http://avro.apache.org/docs/current/spec.html) support in next releases. For more details, see the [Test Runner](https://microcks.io/documentation/references/test-endpoints/#test-runner) documentation.
+> In 1.1.0 release we only deal with JSON Schema for describing message payload but we plan to include [Avro Schema](https://avro.apache.org/docs/) support in next releases. For more details, see the [Test Runner](https://microcks.io/documentation/references/test-endpoints/#test-runner) documentation.
 
 Understanding testing value is usually not easy to evaluate and mainly because it implies having a functional application at hand. We have had a lot of comments on this point from community users and we have decided to provide a sample application from our famous `API Pastry` sample. So now, you can have a true application at hand to evaluate [OpenAPI](https://www.openapis.org/) testing 🥳
 
