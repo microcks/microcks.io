@@ -21,7 +21,7 @@ Let’s do a quick review of what’s new.
 
 ## Hub integration FTW!
 
-[hub.microcks.io](hub.microcks.io) and Microcks are now fully integrated and you can take all advantages of our new community hub and free marketplace where ever you need: **on-premise**, in the **cloud**, or go **fully hybrid** 👍 \
+[hub.microcks.io](https://hub.microcks.io) and Microcks are now fully integrated and you can take all advantages of our new community hub and free marketplace where ever you need: **on-premise**, in the **cloud**, or go **fully hybrid** 👍 \
  \
 A new `Microcks Hub` menu entry is now available by default in the vertical navigation bar. Access to this new entry can of course be restricted to certain roles in your organization or totally removed if needed (by setting the ``microcksHub.enabled`` property to `false`).
 
