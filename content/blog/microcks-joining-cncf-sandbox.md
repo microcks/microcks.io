@@ -8,7 +8,7 @@ author: "Yacine Kheddache"
 # post type (regular/featured)
 type: "regular"
 # meta description
-description: "This is meta description sandbox here"
+description: "This is a meta description sandbox here"
 # post draft
 draft: false
 ---
@@ -25,7 +25,7 @@ As a Sandbox project within the CNCF, Microcks gains a significant milestone in 
 
 Joining the CNCF will provide Microcks with an enhanced platform for collaboration and innovation. It opens up opportunities to engage with a diverse community of developers, organizations, and industry experts at the forefront of cloud-native technologies. We look forward to collaborating [even more with other CNCF projects](https://www.linkedin.com/feed/update/urn:li:activity:7076562037866147840), contributing our technical expertise, and exploring integration possibilities.
 
-We want to express our gratitude to our vibrant community who have worked tirelessly to make Microcks a thriving project. Their passion, expertise, and unwavering commitment to the open source principles have driven Microcks' growth and helped it reach this significant milestone.
+We want to express our gratitude to our vibrant community, who have worked tirelessly to make Microcks a thriving project. Their passion, expertise, and unwavering commitment to open-source principles have driven Microcks' growth and helped it reach this significant milestone.
 
 Thanks to the Postman board [Abhinav Asthana](https://www.linkedin.com/in/abhinavasthana/) and [Ankit Sobti](https://www.linkedin.com/in/ankit-sobti/) for their trust and the opportunity to join the talented Postman [Open Technologies team](https://learning.postman.com/open-technologies/) and its office led by [Jan Schenk](https://www.linkedin.com/in/janschenk/).
 
@@ -35,6 +35,6 @@ A special kudos to [Kin Lane](https://www.linkedin.com/in/kinlane/), as nothing 
 
 We are excited about the opportunities that lie ahead for Microcks as a CNCF Sandbox project. This is a fantastic community momentum, but we know it is the beginning of our level-up and the starting point of our CNCF collaboration to establish an even more robust open governance model. We are confident that this association will further accelerate the development, adoption, and impact of Microcks within the cloud-native ecosystem and are happy to welcome a diversity of[ contributors](https://www.linkedin.com/feed/update/urn:li:activity:7076562037866147840/) (new organizations and individual contributors).
 
-For more information about Microcks and our participation in the CNCF, please visit [https://microcks.io/](https://microcks.io/) and join the [community](https://microcks.io/community/) (a GitHub ⭐️ on [the project](https://github.com/microcks/microcks) is always appreciated or you can add yourself to our [growing adopters list](https://github.com/microcks/.github/blob/main/ADOPTERS.md)).
+For more information about Microcks and our participation in the CNCF, please visit [https://microcks.io/](https://microcks.io/) and join the [community](https://microcks.io/community/) (a GitHub ⭐️ on [the project](https://github.com/microcks/microcks) is always appreciated, or you can add yourself to our [growing adopters list](https://github.com/microcks/.github/blob/main/ADOPTERS.md)).
 
 Thanks for reading and supporting us! ❤️
