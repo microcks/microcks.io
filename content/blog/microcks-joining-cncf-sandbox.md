@@ -27,7 +27,7 @@ Joining the CNCF will provide Microcks with an enhanced platform for collaborati
 
 We want to express our gratitude to our vibrant community, who have worked tirelessly to make Microcks a thriving project. Their passion, expertise, and unwavering commitment to open-source principles have driven Microcks' growth and helped it reach this significant milestone.
 
-Thanks to the Postman board [Abhinav Asthana](https://www.linkedin.com/in/abhinavasthana/) and [Ankit Sobti](https://www.linkedin.com/in/ankit-sobti/) for their trust and the opportunity to join the talented Postman [Open Technologies team](https://learning.postman.com/open-technologies/) and its office led by [Jan Schenk](https://www.linkedin.com/in/janschenk/).
+Thanks to the Postman board [Abhinav Asthana](https://www.linkedin.com/in/abhinavasthana/) and [Ankit Sobti](https://www.linkedin.com/in/ankit-sobti/) for their trust and the opportunity to join the talented Postman Open Technologies team and its office led by [Jan Schenk](https://www.linkedin.com/in/janschenk/).
 
 A special kudos to [Kin Lane](https://www.linkedin.com/in/kinlane/), as nothing could have been possible without your visionary, always [curious](https://apievangelist.com/2023/02/12/the-source-of-truth-for-an-api/), and [disruptive approach](https://www.postman.com/events/breaking-changes/) to[ bringing Microcks on board](https://blog.postman.com/postman-and-microcks-partner-enterprise-grade-mocking-and-testing/).
 
