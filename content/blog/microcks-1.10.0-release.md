@@ -162,7 +162,7 @@ Microcks, a Cloud Native Computing Foundation ([CNCF](https://landscape.cncf.io/
 
 [https://camara.landscape2.io/](https://camara.landscape2.io/)
 
-######  🚀 Member of CNCF [App Development Working Group](https://tag-app-delivery.cncf.io/wgs/app-development/charter/charter.md/)
+######  🚀 Member of CNCF [App Development Working Group](https://tag-app-delivery.cncf.io/)
 
 As a CNCF project, Microcks is proud to join the App Development Working Group within the CNCF TAG App Delivery. This initiative aims to bridge the gap between developers and CNCF projects that directly impact daily workflows 🙌
 
