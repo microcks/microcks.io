@@ -86,7 +86,7 @@ The `/{service.path}` may be optioanl if your target API is deployed on the root
 
 ### Event based APIs
 
-For Event based API through [Async API](../asyncapi) testing, pattern is depending on the protocole binding you'd like to test.
+For Event based API through [Async API](/documentation/references/apis/async-api) testing, pattern is depending on the protocole binding you'd like to test.
 
 #### Kafka 
 
