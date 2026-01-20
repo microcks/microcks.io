@@ -53,7 +53,7 @@ You will now be able to create as many *Responses* attached to *Operation* as yo
 
 The screenshot above shows a Mock response corresponding to the `Andrew Request`. It is simply code `Andrew Response`. Note that you are free to setup any HTTP Header you want for responses, Microcks will reuse them later to issue real headers in responses.
 
-> 💡 Note that you can use [templating notation](/documentation/references/templates) into your SOAP responses for better/smarter/more dynamic responses. It brings specific features for XML like [XPath expressions](/documentation/references/templates/#xml-body-xpath-expression) or [context expressions](/documentation/references/templates/#context-expression) you may have initialized using a [`SCRIPT` dispatcher](/documentation/references/explanations/dispatching/#script-dispatcher).
+> 💡 Note that you can use [templating notation](/documentation/references/templates) into your SOAP responses for better/smarter/more dynamic responses. It brings specific features for XML like [XPath expressions](/documentation/references/templates/#xml-body-xpath-expression) or [context expressions](/documentation/references/templates/#context-expression) you may have initialized using a [`SCRIPT` dispatcher](/documentation/explanations/dispatching/#script-dispatcher).
 
 > 💡 Note also that for compatibility purpose, Microcks supports the SoapUI expression notation: SoapUI `${ }` notation will be translated into Microcks double-mustaches notation `{{ }}` internally. You may also of course directly use our `{{ }}` notation though 😉
 
