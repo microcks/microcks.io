@@ -77,7 +77,7 @@ These roles are:
 * `manager`: a user identified as having management roles on the Microcks repository content. Managers have the permissions of adding and removing API & Services into the repository as well as configuring mocks operation properties
 * `admin`: a user identified as having administration role on the Microcks instance. Admin have the `manager` persmission and are able to manage users, configure external repositories secrets or realize backup/restore operations.
 
-Whether a connected user has these roles is checked both on the client and the server sides using [Keycloak adapters](https://www.keycloak.org/docs/latest/securing_apps/index.html).
+Whether a connected user has these roles is checked both on the client and the server sides using [Keycloak adapters](https://www.keycloak.org/guides#securing-apps).
 
 #### Groups segmentation
 

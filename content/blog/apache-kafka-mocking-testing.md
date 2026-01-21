@@ -96,7 +96,7 @@ For defining such a test, you will need to specify:
 
 {{< image src="images/blog/apache-kafka-mocking-testing-test.png" alt="image" zoomable="true" >}}
 
-> In 1.1.0 release we only deal with JSON Schema describing message payload but we plan to include [Avro Schema](http://avro.apache.org/docs/current/spec.html) support in next releases. For more details, see the [Test Runner](https://microcks.io/documentation/references/test-endpoints/#test-runner) documentation.
+> In 1.1.0 release we only deal with JSON Schema describing message payload but we plan to include [Avro Schema](https://avro.apache.org/docs/) support in next releases. For more details, see the [Test Runner](https://microcks.io/documentation/references/test-endpoints/#test-runner) documentation.
 
 Microcks is able to launch tests asynchronously, to collect and store results and then give a restitution of the test results as well as the received messages. See the failed test below: received message triggered a validation error because the `sendAt` property was not of the expected type.
 

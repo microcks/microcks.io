@@ -39,7 +39,7 @@ You are now free to create as many *TestSteps* as you want within the *TestCases
 
 {{< image src="images/documentation/soapui-testrequest.png" zoomable="true" >}}
 
-As shown above, you are also free to add some assertions within your TestStep requests. The SoapUI documentation introduces the assertion concept on [this page](https://www.soapui.org/functional-testing/assertion-teststep.html). Assertions in TestSteps can be later reused when wanting to use Microcks for [Contract testing](../tests) of your Service.
+As shown above, you are also free to add some assertions within your TestStep requests. The SoapUI documentation introduces the assertion concept on [this page](https://www.soapui.org/docs/functional-testing/getting-started-with-assertions/). Assertions in TestSteps can be later reused when wanting to use Microcks for [Contract testing](/documentation/explanations/conformance-testing/) of your Service.
 
 ### Defining Mock Responses
 

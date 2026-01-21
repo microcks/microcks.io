@@ -16,12 +16,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:          
       - name: Checkout repository
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
 
       # Link Checker run with lychee action 
       - name: Link Checker
         id: lychee
-        uses: lycheeverse/lychee-action@885c65f3dc543b57c898c8099f4e08c8afd178a2 # v2.6.1
+        uses: lycheeverse/lychee-action@a8c4c7cb88f0c7386610c35eb25108e448569cb0 # v2.7.0
         with:
           args: --no-progress --insecure --user-agent 'curl/8.4.0' --scheme https --scheme http --header "accept=*/*" https://microcks.io/
           # Use markdown as output format
@@ -49,7 +49,7 @@ jobs:
       - name: Create Issue From File
         id: create_issue
         if: env.has_errors == 'true'
-        uses: peter-evans/create-issue-from-file@e8ef132d6df98ed982188e460ebb3b5d4ef3a9cd # v5.0.1
+        uses: peter-evans/create-issue-from-file@fca9117c27cdc29c6c4db3b86c48e4115a786710 # v6.0.0
         with:
           title: "External Link Check Report - ${{ env.DATE }}"
           content-filepath: ./lychee/out.md

@@ -1,5 +1,4 @@
 ---
-draft: false
 title: Microcks 1.8.0 release 🚀
 date: 2023-10-17
 image: "images/blog/microcks-1.8.0-feature.png"

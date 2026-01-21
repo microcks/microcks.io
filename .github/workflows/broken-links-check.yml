@@ -6,12 +6,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           submodules: true
 
       - name: Check
-        uses: ruzickap/action-my-broken-link-checker@f5a3296e86117675ab07b9fbf1a92027e5c340ef # v2.8.1
+        uses: ruzickap/action-my-broken-link-checker@68d00ba73d919c9f70715625f6cf70f0b0ba19a9 # v3.0.0
         with:
           url: https://microcks.io
           pages_path: public

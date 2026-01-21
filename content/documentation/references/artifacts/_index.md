@@ -13,12 +13,12 @@ Microcks supports the following specifications and tooling file formats as artif
 
 We provide built-in parsers and importers for the following formats:
 
-* [SoapUI projects](https://www.soapui.org/soapui-projects/soapui-projects.html) files starting with version 5.1 of SoapUI. See the Microcks' [SoapUI Conventions](./soapui-conventions),
+* [SoapUI projects](https://www.soapui.org/docs/getting-started/projects/working-with-projects/) files starting with version 5.1 of SoapUI. See the Microcks' [SoapUI Conventions](./soapui-conventions),
 * [Swagger v2](https://swagger.io/specification/v2/) files. See the Microcks' [Swagger Conventions](./swagger-conventions),
 * [OpenAPI v3.x](https://spec.openapis.org/) files in either YAML or JSON format. See the Microcks' [OpenAPI Conventions](./openapi-conventions),
 * [AsyncAPI v2.x](https://v2.asyncapi.com/docs/reference/specification/v2.6.0) and [AsyncAPI v3.x](https://www.asyncapi.com/docs/reference/specification/v3.0.0) files in either YAML or JSON format. See the Microcks' [AsyncAPI Conventions](./asyncapi-conventions),
 * [Postman collections](https://www.postman.com/collection/) files with v2.x file format,
-* [gRPC / Protocol buffers v3](https://grpc.io/docs/what-is-grpc/introduction/) `.proto` files. See the Microcks' [gRPC Conventions](./gRPC-conventions),
+* [gRPC / Protocol buffers v3](https://grpc.io/docs/what-is-grpc/introduction/) `.proto` files. See the Microcks' [gRPC Conventions](https://microcks.io/documentation/references/artifacts/grpc-conventions/),
 * [GraphQL Schema](https://graphql.org/learn/schema/) `.graphql` files. See the Microcks' [GraphQL Conventions](./graphql-conventions),
 * [HTTP Archive Format (HAR)](https://w3c.github.io/web-performance/specs/HAR/Overview.html) JSON files. See the Microcks' [HAR Conventions](./har-conventions),
 

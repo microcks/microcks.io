@@ -177,7 +177,7 @@ $timestamp  // 1581425292309
 
 #### UUID generator
 
-The `uuid()` function allows to simply generate a UUID compliant with RFC 4122 (see https://www.cryptosys.net/pki/uuid-rfc4122.html). It can also be invoked using the `guid()` or `randomUUID()`. 
+The `uuid()` function allows to simply generate a UUID compliant with RFC 4122 (see [https://www.cryptosys.net/pki/uuid-rfc4122.html](https://www.cryptosys.net/pki/uuid-rfc4122.html)). It can also be invoked using the `guid()` or `randomUUID()`. 
 
 ```js
 uuid() // 3F897E85-62CE-4B2C-A957-FCF0CCE649FD

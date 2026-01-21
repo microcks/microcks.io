@@ -10,7 +10,7 @@ draft: false
 
 We are excited to announce today the `1.10.0` release of Microcks, the [CNCF](https://landscape.cncf.io/?selected=microcks)'s open-source cloud-native tool for API Mocking and Testing, ready for summer ☀️ vacations! 🚀
 
-For this release, we received help from **4 new code committers** and dozens of others who opened, contributed, and reviewed **46 issues**. Most of them are adopters! Kudos to all of them 👏 and see greetings along the notes below.
+For this release, we received help from **4 new code committers** and from dozens of others who opened, contributed to, and reviewed **46 issues**. Most of them are adopters! Kudos to all of them 👏, and see the greetings in the notes below.
 
 `1.10.0` release brings you a wave of new features, including **Stateful mocks support**, a **new lightweight API Examples specification format**, tons of **enhancements in the Uber and Native distributions**, and a **big refresh on installation dependencies**.
 
@@ -25,7 +25,7 @@ Microcks has allowed specifying [dynamic mock content](https://microcks.io/docum
 
 But sometimes, you may need to provide even more realistic behavior, and that’s where stateful mocks may be of interest. **Stateful mocks are a game-changer in the pursuit of an  even smartest mocking experience.** You can now experience enhanced realism in your API simulations and free your creativity!
 
-However, automatically turning mocks into stateful simulations is impossible as numerous design guidelines need to be considered. At Microcks, we put this power in the user’s hand, providing powerful primitives like `scripts`, `store`, `requestContext`, and [template expressions](https://microcks.io/documentation/references/templates) to manage persistence where it makes sense for your simulations. This feature is now available at your convenience via the `store` service that is directly usable from scripts like this:
+However, automatically turning mocks into stateful simulations is impossible, as numerous design guidelines need to be considered. At Microcks, we put this power in the user’s hand, providing powerful primitives like `scripts`, `store`, `requestContext`, and [template expressions](https://microcks.io/documentation/references/templates) to manage persistence where it makes sense for your simulations. This feature is now available at your convenience via the `store` service that is directly usable from scripts like this:
 
 ```groovy
 store.put("my-key", "Any value represented as a String");
@@ -33,14 +33,14 @@ def value = store.get("my-key");
 store.delete("my-key");
 ```
 
-> Check our new[ Configuring stateful mocks](https://microcks.io/documentation/guides/usage/stateful-mocks/) how-to guide, which will take you through a real use-case of managing a realistic shopping cart where customers' items are persisted during the process.
+> Check our new [Configuring stateful mocks](https://microcks.io/documentation/guides/usage/stateful-mocks/) how-to guide, which takes you through a real use case of managing a shopping cart where customers' items are persisted during the process.
 
 
 ## A new API Examples specification format
 
-While Microcks' motto is not to reinvent the wheel and reuse standard artifacts (see [artifacts reference](https://microcks.io/documentation/references/artifacts/)), we think `1.10.0` may be the right time to introduce our own specification format,  which will be fully driven by the goal of importing mock datasets into Microcks.
+While Microcks' motto is not to reinvent the wheel and reuse standard artifacts (see [artifacts reference](https://microcks.io/documentation/references/artifacts/)), we think `1.10.0` may be the right time to introduce our own specification format, fully driven by the goal of importing mock datasets into Microcks.
 
-`APIExamples` can be seen as a lightweight, general-purpose specification that solely serves the need to provide mock datasets. The goal of this specification is to keep the Microcks adoption curve very smooth with development teams but also for non-developers. The files are simple YAML and aim to be very easy to understand and edit.
+`APIExamples` can be seen as a lightweight, general-purpose specification that solely serves the need to provide mock datasets. The goal of this specification is to keep the Microcks adoption curve very smooth for both development teams and non-developers. The files are simple YAML and aim to be very easy to understand and edit.
 
 Moreover, the description is independent of the API protocol! We’re rather attached to describing examples depending on the API interaction style: Request/Response based or Event-driven/Asynchronous.
 
@@ -89,7 +89,7 @@ operations:
         }
 ```
 
-This format is intended to be used as a secondary artifact format. It would be a companion to our existing [APIMetada format](https://microcks.io/documentation/references/metadada/) but dedicated to API Examples.
+This format is intended for use as a secondary artifact. It would be a companion to our existing [APIMetada format](https://microcks.io/documentation/references/metadada/) but dedicated to API Examples.
 
 > Be sure to read our [API Examples Format](https://microcks.io/documentation/references/examples/) reference documentation that details the different properties available and how to use this format for different types of APIs.
 
@@ -103,28 +103,28 @@ Starting with `1.10.0`, we reduced this feature gap a lot by making:
 * [MQTT](https://mqtt.org/) and [RabbitMQ/AMQP](https://www.rabbitmq.com/) protocols available to the Uber distribution,
 * [gRPC](https://grpc.io/) features and full templating features work into the Native-variant of this Uber distribution.
 
-The long-term goal we’re pursuing and are close to achieving is full feature parity between the regular/uber/uber-native distributions—except for some structural ones that would be impossible to port. Typically, the Groovy `SCRIPT` feature will never be available in native mode as dynamic evaluation is, by definition, antagonistic to static compilation.
+The long-term goal we’re pursuing and are close to achieving is full feature parity between the regular/uber/uber-native distributions—except for some structural ones that would be impossible to port. Typically, the Groovy `SCRIPT` feature is not available in native mode, as dynamic evaluation is, by definition, antagonistic to static compilation.
 
 > If you want to learn more about feature gap reduction and associated changesets, please refer to [#1239](https://github.com/microcks/microcks/issues/1239) for MQTT support, [#1240](https://github.com/microcks/microcks/issues/1240) for RabbitMQ support, [#1227](https://github.com/microcks/microcks/issues/1227) for gRPC testing features support, and [#1226](https://github.com/microcks/microcks/issues/1226) for templating features support.
 
 
 ## Dependencies and installation upgrade
 
-While considering upgrading to `1.10.0`, you should also plan your update carefully depending on your setup. We’ve made significant updates on external container dependencies like MongoDB, Keycloak, and theirits associated Postgres database.
+While considering upgrading to `1.10.0`, you should also carefully plan your update based on your setup. We’ve made significant updates to external container dependencies, including MongoDB, Keycloak, and their associated Postgres databases.
 
 These are noticeable changes you should take care of: 
 
-* The `centos/mongodb-36-centos7` that was no longer maintained for 3 years has been replaced by the `library/mongo:4.4.29` that Is 3 months old and still updated,
+* The `centos/mongodb-36-centos7` that was no longer maintained for 3 years has been replaced by the `library/mongo:4.4.29` that is 3 months old and still updated,
 * The `quay.io/keycloak/keycloak:22.0.3` has reported CVEs and has been replaced by the fresher `quay.io/keycloak/keycloak:24.0.4`,
 * The `centos/postgresql-95-centos7:latest` has not been updated in 5 years and has been replaced by a fresher `library/postgres:16.3-alpine` updated 12 days ago.
 
-Unfortunately, updating MongoDB and Postgres engines cannot be done without breaking things. That’s why **we recommend not rolling in-place upgrades of existing installations but rather proceeding with care**: exporting and backing up your data from MongoDB and Postgres before importing it again in new instances. This can be done with low-level tools (like [mongodump](https://www.mongodb.com/docs/database-tools/mongodump/) and [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html)) or at an application level (using [Microcks snapshots ](https://microcks.io/documentation/guides/administration/snapshots/)or [Keycloak realm exports](https://www.keycloak.org/server/importExport#_exporting_a_realm_to_a_file)).
+Unfortunately, updating MongoDB and Postgres engines cannot be done without breaking things. That’s why **we recommend not rolling in-place upgrades of existing installations but rather proceeding with care**: exporting and backing up your data from MongoDB and Postgres before importing it into new instances. This can be done with low-level tools (like [mongodump](https://www.mongodb.com/docs/database-tools/mongodump/) and [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html)) or at an application level (using [Microcks snapshots ](https://microcks.io/documentation/guides/administration/snapshots/)or [Keycloak realm exports](https://www.keycloak.org/server/importExport#_exporting_a_realm_to_a_file)).
 
 > ⚠️ _Warning_
 >
-> Be cautious that the dependencies Microcks proposes during installation are provided for commodity purposes only. Our take is that _you shouldn't rely on them for crucial "production" workloads but rather use an external component_. You can override the default image OR completely disable the installation of external dependencies in our Helm Chart or Operator.
+> Be cautious: the dependencies Microcks proposes during installation are provided for convenience only. Our take is that _you shouldn't rely on them for crucial "production" workloads; instead, use an external component_. You can override the default image OR completely disable the installation of external dependencies in our Helm Chart or Operator.
 
-In addition to these upgrades, we also changed the way you can customize the images and external dependencies artifacts in our Helm Chart. Where we previously had a single `image` field for each component (the main one, postman, keycloak, mongo, etc…), we have split these single fields into multiple properties `registry`, `repository`, `tag` or `digest` like illustrated below:
+In addition to these upgrades, we also changed how you can customize the images and external dependency artifacts in our Helm Chart. Where we previously had a single `image` field for each component (the main one, postman, keycloak, mongo, etc), we have split these single fields into multiple properties `registry`, `repository`, `tag` or `digest` as illustrated below:
 
 ```yaml
 image:
@@ -162,7 +162,7 @@ Microcks, a Cloud Native Computing Foundation ([CNCF](https://landscape.cncf.io/
 
 [https://camara.landscape2.io/](https://camara.landscape2.io/)
 
-######  🚀 Member of CNCF [App Development Working Group](https://tag-app-delivery.cncf.io/wgs/app-development/charter/charter.md/)
+######  🚀 Member of CNCF [App Development Working Group](https://tag-app-delivery.cncf.io/)
 
 As a CNCF project, Microcks is proud to join the App Development Working Group within the CNCF TAG App Delivery. This initiative aims to bridge the gap between developers and CNCF projects that directly impact daily workflows 🙌
 
@@ -181,11 +181,11 @@ We are excited to announce that we have reached over 2000 followers on LinkedIn!
 
 ## What’s coming next?
 
-As usual, we will eagerly prioritize items according to community feedback. You can check and collaborate via our list of [issues on GitHub](https://github.com/microcks/microcks/issues) and the project [roadmap](https://github.com/orgs/microcks/projects/1).
+As usual, we will prioritize items based on community feedback. You can check and collaborate via our list of [issues on GitHub](https://github.com/microcks/microcks/issues) and the project [roadmap](https://github.com/orgs/microcks/projects/1).
 
-More than ever, we want to involve community members in design discussions and start some discussion about significant additions regarding [OpenAPI callbacks, webhooks and AsyncAPI](https://github.com/orgs/microcks/discussions/1039) in Microcks. Please join us to shape the future!
+More than ever, we want to involve community members in design discussions and start a discussion about significant additions to [OpenAPI callbacks, webhooks, and AsyncAPI](https://github.com/orgs/microcks/discussions/1039) in Microcks. Please join us to shape the future!
 
-Remember that we are an open community, which means you, too, can jump on board to make Microcks even greater! Come and say hi! on our [GitHub discussion](https://github.com/microcks/microcks/discussions) or [Discord chat](https://microcks.io/discord-invite/) 👻, send some love through [GitHub stars](https://github.com/microcks/microcks) ⭐️ or follow us on [Twitter](https://twitter.com/microcksio), [Mastodon](https://hachyderm.io/@microcksio@mastodon.social), [LinkedIn](https://www.linkedin.com/company/microcks/), and our [YouTube channel](https://www.youtube.com/c/Microcks)!
+Remember that we are an open community, which means you, too, can jump on board to make Microcks even greater! Come and say hi! on our [GitHub discussion](https://github.com/microcks/microcks/discussions) or [Discord chat](https://microcks.io/discord-invite/) 👻, send some love through [GitHub stars](https://github.com/microcks/microcks) ⭐️ or follow us on [X](https://x.com/microcksio), [Mastodon](https://hachyderm.io/@microcksio@mastodon.social), [LinkedIn](https://www.linkedin.com/company/microcks/), and our [YouTube channel](https://www.youtube.com/c/Microcks)!
 
 Thanks for reading and supporting us! ❤️
 

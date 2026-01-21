@@ -3,7 +3,7 @@ draft: false
 title: "Microcks' OpenAPI"
 date: 2019-11-11
 publishdate: 2019-11-11
-lastmod: 2025-02-24
+lastmod: 2025-10-24
 weight: 1
 ---
 
@@ -13,5 +13,5 @@ The Swagger-UI below allows you to browse and discover the various API endpoints
 
 Previous releases of the API definitions can be found in the [GitHub repository](https://github.com/microcks/microcks/tree/master/api).
 
-{{< oai-spec url="https://raw.githubusercontent.com/microcks/microcks/master/api/microcks-openapi-v1.11.yaml" >}}
+{{< oai-spec url="https://raw.githubusercontent.com/microcks/microcks/master/api/microcks-openapi-v1.12.yaml" >}}
 

@@ -1,6 +1,6 @@
 ---
 title: "Troubleshooting"
-date: 2025-02-03
+date: 2025-12-08
 description: "Below are all the guides related to **Troubleshooting**."
 weight: 6
 ---
@@ -43,67 +43,31 @@ After the next operator reconciliation, the log level is changed in both the mai
 <details>
   <summary><strong>Docker or Podman Compose</strong></summary>
 
-When using [Docker or Podman Compose](/documentation/guides/installation/docker-compose/) for running Microcks, you should have a local `logback.xml` file mounted into the running containers in the `/deployments/config`.
+When using [Docker or Podman Compose](/documentation/guides/installation/docker-compose/) for running Microcks, you just have to add additional environment variables to the `microcks` and `microcks-async-minoin` containers. 
 
-First thing is to initialize this file into a local folder at the same location of your `docker-compose.yml` file, let's say `config-logs/`:
-
-```sh
-mkdir config-logs
-cd config-logs
-cat <<EOF >logback.xml
-<?xml version="1.0" encoding="UTF-8"?>
-
-<configuration scan="true">
-  <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
-
-  <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter" />
-  <conversionRule conversionWord="wex" converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter" />
-  <conversionRule conversionWord="wEx" converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter" />
-
-  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
-    <encoder>
-      <charset>utf-8</charset>
-      <pattern>%clr(%d{HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%10.10t]){faint} %clr(%-40.40logger{36}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}</pattern>
-    </encoder>
-  </appender>
-
-  <logger name="io.github.microcks" level="DEBUG"/>
-
-  <root level="INFO">
-    <appender-ref ref="CONSOLE"/>
-  </root>
-</configuration>
-EOF
-```
-
-In this folder, you also have to create a simple `application.properties` file that makes the main webapp component consider the `logback.xml` file as its reference and enable debug level for the Async Minion component:
-
-```sh
-cat <<EOF >application.properties
-# Logging configuration properties
-logging.config=/deployments/config/logback.xml
-
-%docker-compose.quarkus.log.level=DEBUG
-%docker-compose.quarkus.log.console.level=DEBUG
-EOF
-```
-
-Finally, you have to edit the `docker-compose.yml` file to mount those files in the containers. You can do it by adding new volumes like below:
+You just have to edit the `docker-compose.yml` file to uncomment/enable the correct environement variables:
 
 ```yaml
   app:
     # [...]
     container_name: microcks
-    volumes:
-      - "./config-logs:/deployments/config"
+    environment:
+      # [...]
+      - LOGGING_LEVEL_IO_GITHUB_MICROCKS=DEBUG
     # [...]
 
   async-minion:
     depends_on:
       - app
     # [...]
-    volumes:
-      - "./config-logs:/deployments/config"
+    container_name: microcks-async-minion
+    environment:
+      # [...]
+      - QUARKUS_LOG_CONSOLE_LEVEL=DEBUG
+      - QUARKUS_LOG_CATEGORY__IO_GITHUB_MICROCKS__LEVEL=DEBUG
     # [...]
 ```
+
+> Depending on the type of deployment (with or without asynchronous features), these container definitions may be distributed on different files.
+
 </details>
