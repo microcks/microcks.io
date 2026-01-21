@@ -1,5 +1,5 @@
 ---
-title: JavaScript dispatchers
+title: Dynamic Mocking with JavaScript Dispatchers in Microcks
 date: 2026-01-21
 image: "images/blog/js-dispatchers-banner.png"
 author: "Andrea Peruffo"
@@ -8,16 +8,12 @@ description: "Announcing JavaScript dispatcher in Microcks 1.13"
 draft: false
 ---
 
-# Dynamic Mocking with JavaScript Dispatchers in Microcks
-
 One of the most exciting new features introduced in [**Microcks 1.13**](https://microcks.io/blog/microcks-1.13.0-release/) is the ability to write [**JavaScript dispatchers**](https://microcks.io/documentation/explanations/dispatching/#javascript-scripting).
 This gives you fine-grained control over how mock responses are selected and tailored—based not only on static examples but also on request headers, payloads, and parameters.
 
 This is a powerful step forward: instead of static mocks, you can now create dynamic, context-aware simulations that behave much closer to real services.
 
 > ℹ️ **Note:** Microcks already supported **Groovy-based dispatchers** in earlier releases. JavaScript is now offered as an alternative, making it easier for teams who prefer JS or want to align dispatcher logic with front-end or Node.js skills.
-
----
 
 ## Setting up Microcks locally
 
@@ -146,8 +142,6 @@ return "Millefeuille";
 
 Check your Microcks container/server logs to see these messages and understand which path the script took.
 
----
-
 ## Why it matters
 
 With JavaScript dispatchers, Microcks becomes much more flexible:
@@ -159,14 +153,12 @@ With JavaScript dispatchers, Microcks becomes much more flexible:
 
 This makes it easier to mock APIs for contract testing, early integration, or even demos where you want your mock to “feel alive”.
 
----
-
 ## Next steps
 
-We’ve only scratched the surface here. In the full documentation you’ll find:
+We’ve only scratched the surface here. In the full documentation, you’ll find:
 
 * How to write and attach dispatcher scripts
-* The full request/response object model available in scripts
+* The full request/response object model is available in scripts
 * Examples covering REST, gRPC, and event-based APIs
 
 👉 [Check the official documentation](https://microcks.io/documentation/) for more details and start experimenting with your own mocks.
