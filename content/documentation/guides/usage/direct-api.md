@@ -163,7 +163,7 @@ Direct API is also able to manage Event Driven API that are described using Asyn
 <br/>
 </div>
 
-Then adding a reference JSON payload - such a payload can also include some [templating expressions](./advanced/templates) to get some more dynamic data. Here we define producing random stock symbols and range price values:
+Then adding a reference JSON payload - such a payload can also include some [templating expressions](/documentation/references/templates/) to get some more dynamic data. Here we define producing random stock symbols and range price values:
 
 <div align="center">
 <br/>
