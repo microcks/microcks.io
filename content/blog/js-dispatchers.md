@@ -11,6 +11,8 @@ draft: false
 One of the most exciting new features introduced in [**Microcks 1.13**](https://microcks.io/blog/microcks-1.13.0-release/) is the ability to write [**JavaScript dispatchers**](https://microcks.io/documentation/explanations/dispatching/#javascript-scripting).
 This gives you fine-grained control over how mock responses are selected and tailored—based not only on static examples but also on request headers, payloads, and parameters.
 
+{{< image src="images/blog/js-dispatchers-banner.png" alt="image" zoomable="true" >}}
+
 This is a powerful step forward: instead of static mocks, you can now create dynamic, context-aware simulations that behave much closer to real services.
 
 > ℹ️ **Note:** Microcks already supported **Groovy-based dispatchers** in earlier releases. JavaScript is now offered as an alternative, making it easier for teams who prefer JS or want to align dispatcher logic with front-end or Node.js skills.
