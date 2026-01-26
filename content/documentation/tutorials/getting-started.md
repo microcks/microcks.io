@@ -11,7 +11,7 @@ weight: 1
 
 In this tutorial, you will discover Microcks mocking features by re-using a simple REST API sample. For that: you will run Microcks on your local machine, then load a sample provided by the Microcks team, explore the web user interface and then interact with an API mock.
 
-The easiest way to get started with Microcks is using [Docker](https://docs.docker.com/get-docker/) or [Podman](https://podman.io/) with our ephemral all-in-one Microcks distribution. 
+The easiest way to get started with Microcks is using [Docker](https://docs.docker.com/get-docker/) or [Podman](https://podman.io/) with our ephemeral all-in-one Microcks distribution. 
 
 In your terminal issue the following command - maybe replacing `8585` by another port of your choice if this one is not free:
 
