@@ -97,7 +97,7 @@ As an administrator of the Microcks instance, you can now assign users to differ
 
 ## Wrap-up
 
-Walking through this guide, you have learned the different means available for organizing your API & Services repository thanks to `labels` 🏷️. It's important to note that labels are saved into Microcks' database and not replaced by a new import of your Service or API definition. They can be independently set and updated using the [Microcks APIs](/documentation/references/apis/open-api), [Microcks Metadata](/documentation/references/metadada), [OpenAPI extensions](/documentation/references/artifacts/openapi-conventions/#openapi-extensions) or [AsyncAPI extensions](/documentation/references/artifacts/asyncapi-conventions/#asyncapi-extensions).
+Walking through this guide, you have learned the different means available for organizing your API & Services repository thanks to `labels` 🏷️. It's important to note that labels are saved into Microcks' database and not replaced by a new import of your Service or API definition. They can be independently set and updated using the [Microcks APIs](/documentation/references/apis/open-api), [Microcks Metadata](/documentation/references/metadata), [OpenAPI extensions](/documentation/references/artifacts/openapi-conventions/#openapi-extensions) or [AsyncAPI extensions](/documentation/references/artifacts/asyncapi-conventions/#asyncapi-extensions).
 
 You may follow up this guide with the one related to [Managing Users](/documentation/guides/administration/users) or [Snapshotting/restoring your Repository](/documentation/guides/administration/snapshots)
 
