@@ -71,3 +71,43 @@ You just have to edit the `docker-compose.yml` file to uncomment/enable the corr
 > Depending on the type of deployment (with or without asynchronous features), these container definitions may be distributed on different files.
 
 </details>
+
+## Import Issues
+
+Common problems when importing API artifacts into Microcks.
+
+<details>
+  <summary><strong>"No service found" or empty import</strong></summary>
+
+Things to check:
+- **Artifact format**: Ensure your file follows the expected conventions for your API type. See [Artifacts Reference](/documentation/references/artifacts/) for format-specific rules.
+- **Examples defined**: Microcks relies on examples to create mocks. Verify you have defined examples in your OpenAPI, AsyncAPI, Postman collection, or other supported formats.
+- **YAML/JSON syntax**: Validate your artifact with a linter. Malformed files may silently fail to import.
+- **API version**: Make sure the `info.version` field is present and not empty.
+
+</details>
+
+<details>
+  <summary><strong>Artifact validation errors</strong></summary>
+
+Things to check:
+- **Schema compliance**: Validate your artifact against the appropriate specification (OpenAPI, AsyncAPI, etc.) using tools like [Swagger Editor](https://editor.swagger.io/) or [AsyncAPI Studio](https://studio.asyncapi.com/).
+- **File encoding**: Use UTF-8 encoding without BOM. Special characters may cause parsing failures.
+- **Required fields**: Check for missing required fields like `operationId` in OpenAPI or `message` examples in AsyncAPI.
+
+Related documentation:
+- [OpenAPI conventions](/documentation/references/artifacts/openapi-conventions/)
+- [AsyncAPI conventions](/documentation/references/artifacts/asyncapi-conventions/)
+- [Postman conventions](/documentation/references/artifacts/postman-conventions/)
+
+</details>
+
+<details>
+  <summary><strong>External references ($ref) not resolved</strong></summary>
+
+Things to check:
+- **Import method**: Direct upload does not resolve external `$ref` by default. Use an Importer job instead, which can handle relative and remote references.
+- **Reference base URL**: When using Importers, configure the reference base URL if your references use relative paths. See [Importing Services & APIs](/documentation/guides/usage/importing-content/#configure-dependency-resolution).
+- **Multi-artifact strategy**: For complex setups, consider the multi-artifact approach. See [Multi-artifacts explanations](/documentation/explanations/multi-artifacts/).
+
+</details>
