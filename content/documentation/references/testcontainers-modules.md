@@ -3,7 +3,7 @@ draft: false
 title: "Testcontainers Modules"
 date: 2025-07-17
 publishdate: 2025-07-17
-lastmod: 2026-01-07
+lastmod: 2026-01-30
 weight: 7
 ---
 
@@ -30,7 +30,7 @@ This section lists the features related to Microcks initialization during the pr
 | Remote urls (primary)   | ✅    | ✅   | ✅   | ✅   |
 | Remote urls (secondary) | ✅    | ✅   | ✅   | ✅   |
 | Remote urls with Secret | ✅    | ✅   | ❌   | ✅   |
-| Enable DEBUG log level  | ✅    | ❌   | ❌   | ✅   |
+| Enable DEBUG log level  | ✅    | ✅   | ✅   | ✅   |
 
 ## Mocking features
 
@@ -72,4 +72,4 @@ This sections lists the async protocols available on each language binding.
 | NATS                | ❌    | ❌   | ❌   | ❌   |
 | AWS SQS             | ✅    | ✅   | ✅   | ❌   |
 | AWS SNS             | ✅    | ✅   | ✅   | ❌   |
-| Google PubSub       | ✅    | ❌   | ❌   | ❌   |
+| Google PubSub       | ✅    | ✅   | ✅   | ❌   |
