@@ -772,6 +772,27 @@ entries:
   microcks-operator:
   - apiVersion: v2
     appVersion: latest
+    created: "2026-02-05T11:50:51.527166+01:00"
+    description: Helm chart to install the Microcks Operator and CRDs
+    digest: cb428058125efea7f5ae0e50a0090bb6df9a4527a8af94578f483148c2c96d04
+    home: https://microcks.io/
+    keywords:
+    - microcks
+    - operator
+    - kubernetes-operator
+    kubeVersion: '>=1.22.0-0'
+    maintainers:
+    - name: Microcks Maintainers
+      url: https://github.com/microcks
+    name: microcks-operator
+    sources:
+    - https://github.com/microcks/microcks-operator
+    type: application
+    urls:
+    - https://microcks.io/helm/microcks-operator-0.0.7.tgz
+    version: 0.0.7
+  - apiVersion: v2
+    appVersion: latest
     created: "2025-11-04T14:40:14.160354+01:00"
     description: Helm chart to install the Microcks Operator and CRDs
     digest: f2cf640faaafcffb54712398a764c58a6b96bed9a0341eb94a82318c733cbf11
@@ -791,4 +812,4 @@ entries:
     urls:
     - https://microcks.io/helm/microcks-operator-0.0.6.tgz
     version: 0.0.6
-generated: "2026-01-06T17:54:37.769347441+01:00"
+generated: "2026-02-05T11:50:51.526389+01:00"
