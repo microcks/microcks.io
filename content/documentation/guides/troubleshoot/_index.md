@@ -15,7 +15,7 @@ Changing the log level depends on the way you installed Microcks.
 <details>
   <summary><strong>Helm Chart</strong></summary>
 
-When using the [Helm Chart](/documentation/references/configuration/helm-chart-config/) to deploy Microcks, there's a `microcks.logLevel`spec property you can set to `DEBUG`. Change it into your `values.yaml` file or as a command line argument using `--set microcks.logLevel=DEBUG` when redeploying the chart. This property changes both values for the main webapp and Async Miniong components.
+When using the [Helm Chart](/documentation/references/configuration/helm-chart-config/) to deploy Microcks, there's a `microcks.logLevel`spec property you can set to `DEBUG`. Change it into your `values.yaml` file or as a command line argument using `--set microcks.logLevel=DEBUG` when redeploying the chart. This property changes both values for the main webapp and Async Minion components.
 </details>
 
 <details>
@@ -45,7 +45,7 @@ After the next operator reconciliation, the log level is changed in both the mai
 
 When using [Docker or Podman Compose](/documentation/guides/installation/docker-compose/) for running Microcks, you just have to add additional environment variables to the `microcks` and `microcks-async-minoin` containers. 
 
-You just have to edit the `docker-compose.yml` file to uncomment/enable the correct environement variables:
+You just have to edit the `docker-compose.yml` file to uncomment/enable the correct environment variables:
 
 ```yaml
   app:

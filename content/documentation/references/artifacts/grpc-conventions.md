@@ -99,6 +99,6 @@ The next step is now to create a bunch of examples for each of the requests/oper
 
 If the default inferred dispatchers don't match with your use-case, you'll need an additional step for assembling data coming from gRPC Protofile and Postman Collection is to define how to dispatch requests. For gRPC, your can typically use a `JSON_BODY` or a `SCRIPT` dispatcher as mentionned above.
 
-You can use a [Metadata artifact](/documentation/references/metadada) for that or directly edit the dispatcher in the Web UI. Here-after we have defined a simple rule that is routing incoming requests depending on the value of the `firstname` property of the incoming message.
+You can use a [Metadata artifact](/documentation/references/metadata) for that or directly edit the dispatcher in the Web UI. Here-after we have defined a simple rule that is routing incoming requests depending on the value of the `firstname` property of the incoming message.
 
 {{< image src="images/documentation/grpc-dispatch-rule.png" alt="image" zoomable="true" >}}

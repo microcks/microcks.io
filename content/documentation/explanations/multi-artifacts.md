@@ -35,7 +35,7 @@ Also, note that multiple artifacts for one API definition don't necessarily invo
 
 {{< image src="images/documentation/artifacts-merging-overlay.png" alt="image" zoomable="true" >}}
 
-One specific case of the merging process - that can be used in combination with any other artifact as a `primary` one - relates to the [Microcks APIMetadata](/documentation/references/metadada) format. When importing such artifacts as secondary ones, the merging process involves the metadata of the API or Service and not the examples or tests, as illustrated below:
+One specific case of the merging process - that can be used in combination with any other artifact as a `primary` one - relates to the [Microcks APIMetadata](/documentation/references/metadata) format. When importing such artifacts as secondary ones, the merging process involves the metadata of the API or Service and not the examples or tests, as illustrated below:
 
 {{< image src="images/documentation/artifacts-merging-metadata.png" alt="image" zoomable="true" >}}
 
