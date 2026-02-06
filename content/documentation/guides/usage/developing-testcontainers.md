@@ -3,8 +3,8 @@ draft: false
 title: "Developing with Testcontainers"
 date: 2024-04-30
 publishdate: 2024-04-30
-lastmod: 2025-07-17
-weight: 6
+lastmod: 2026-02-06
+weight: 7
 ---
 
 ## Overview
@@ -29,7 +29,7 @@ The library is making usage of our [*Uber* distribution](/documentation/explanat
 
 ```java
 MicrocksContainer microcks = new MicrocksContainer(
-      DockerImageName.parse("quay.io/microcks/microcks-uber:1.12.0"));
+      DockerImageName.parse("quay.io/microcks/microcks-uber:1.13.0"));
 microcks.start();
 ```
 
@@ -55,7 +55,7 @@ Our Testcontainers module for JavaScript is `@microcks/microcks-testcontainers`,
 The library is making usage of our [*Uber* distribution](/documentation/explanations/deployment-options/#regular-vs-uber-distribution) and you can simply start Microcks that way:
 
 ```javascript
-const container = await new MicrocksContainer("quay.io/microcks/microcks-uber:1.12.0").start();
+const container = await new MicrocksContainer("quay.io/microcks/microcks-uber:1.13.0").start();
 ```
 
 See our [microcks-testcontainers-node repository](https://github.com/microcks/microcks-testcontainers-node) for full details and our full [demo application using NestJS](https://github.com/microcks/microcks-testcontainers-node-nest-demo)
@@ -68,7 +68,7 @@ Our Testcontainers module for JavaScript is `github.com/testcontainers/testconta
 The library is making usage of our [*Uber* distribution](/documentation/explanations/deployment-options/#regular-vs-uber-distribution) and you can simply start Microcks that way:
 
 ```go
-microcksContainer, err := microcks.RunContainer(ctx, testcontainers.WithImage("quay.io/microcks/microcks-uber:1.12.0"))
+microcksContainer, err := microcks.RunContainer(ctx, testcontainers.WithImage("quay.io/microcks/microcks-uber:1.13.0"))
 ```
 
 See our [microcks-testcontainers-go repository](https://github.com/microcks/microcks-testcontainers-go) for full details and our full [demo application](https://github.com/microcks/microcks-testcontainers-go-demo)
@@ -82,7 +82,7 @@ The library is making usage of our [*Uber* distribution](/documentation/explanat
 
 ```csharp
 MicrocksContainer container = new MicrocksBuilder()
-	.WithImage("quay.io/microcks/microcks-uber:1.12.0")
+	.WithImage("quay.io/microcks/microcks-uber:1.13.0")
 	.Build();
 await container.StartAsync();
 ```
