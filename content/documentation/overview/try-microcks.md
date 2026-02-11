@@ -4,7 +4,7 @@ title: "Try Microcks"
 date: 2025-06-10
 publishdate: 2025-06-10
 lastmod: 2025-06-10
-weight: 3
+weight: 4
 ---
 
 If you're looking to quickly explore Microcks without any installation, you can use our public demo instance:

@@ -4,7 +4,7 @@ title: "Main Concepts"
 date: 2024-04-29
 publishdate: 2024-04-29
 lastmod: 2024-05-23
-weight: 2
+weight: 3
 ---
 
 Before diving in, it is useful to briefly introduce or recall concepts or terminology we frequently use in the documentation.
