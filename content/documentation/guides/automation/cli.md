@@ -3,7 +3,7 @@ draft: false
 title: "Using Microcks CLI"
 date: 2024-04-30
 publishdate: 2024-04-30
-lastmod: 2024-05-16
+lastmod: 2026-02-11
 weight: 2
 ---
 
@@ -53,7 +53,7 @@ microcks-cli test 'API Pastry - 2.0:2.0.0' http://host.docker.internal:8282 OPEN
     --keycloakClientId=microcks-serviceaccount \
     --keycloakClientSecret="ab54d329-e435-41ae-a900-ec6b3fe15c54" \
     --operationsHeaders='{"globals": [{"name": "x-api-key", "values": "azertyuiop"}], "GET /pastries": [{"name": "x-trace-id", "values": "qsdfghjklm"}]}' \
-    --insecure --waitFor=6sec
+    --insecure-tls --waitFor=6sec
 ```
 
 With some explanations on arguments and flags:
@@ -65,13 +65,13 @@ With some explanations on arguments and flags:
 The same command can also be executed using the container image:
 
 ```sh
-docker run -it quay.io/microcks/microcks-cli:latest microcks-cli test \
+docker run -it quay.io/microcks/microcks-cli:latest microcks test \
     'API Pastry - 2.0:2.0.0' http://host.docker.internal:8282 OPEN_API_SCHEMA \
     --microcksURL=http://host.docker.internal:8585/api/ \
     --keycloakClientId=microcks-serviceaccount \
     --keycloakClientSecret="ab54d329-e435-41ae-a900-ec6b3fe15c54" \
     --operationsHeaders='{"globals": [{"name": "x-api-key", "values": "azertyuiop"}], "GET /pastries": [{"name": "x-trace-id", "values": "qsdfghjklm"}]}' \
-    --insecure --waitFor=6sec
+    --insecure-tls --waitFor=6sec
 ```
 
 Check the `microcks-cli` [README](https://github.com/microcks/microcks-cli/blob/master/README.md) for full instructions on arguments and flags.
