@@ -87,7 +87,7 @@ So cool! 🙌 You have now defined a per-request delay that will change with the
 
 Defining the **Default delay** view in the Microcks UI can be cumbersome. You have plenty of other ways to do so:
 * Using our [OpenAPI extensions](/documentation/references/artifacts/openapi-conventions/#openapi-extensions) if you're dealing with REST APIs,
-* Using an additional [APIMetadata artifact](/documentation/references/metadada/#api-metadata-properties) if you don't want this information to be mixed with your API definition or if you're dealing with GraphQL or gRPC services,
+* Using an additional [APIMetadata artifact](/documentation/references/metadata/#api-metadata-properties) if you don't want this information to be mixed with your API definition or if you're dealing with GraphQL or gRPC services,
 * Via the [Microcks API](/documentation/references/apis/open-api/) using the `PUT /services/{id}/operation` directly.
 
 ## Wrap-up

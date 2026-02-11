@@ -135,7 +135,7 @@ operations:
       }
 ```
 
-Import this as a secondary artifact (via Importers or Upload). It will set or overwrite the dispatcher for the target operation. See [API Metadata Format](/documentation/references/metadada/#api-metadata-properties).
+Import this as a secondary artifact (via Importers or Upload). It will set or overwrite the dispatcher for the target operation. See [API Metadata Format](/documentation/references/metadata/#api-metadata-properties).
 
 ### 3.3 Using the Microcks API
 
@@ -163,5 +163,5 @@ Next steps and related topics:
 
 - **Learn more about strategies**: [Dispatcher & dispatching rules](/documentation/explanations/dispatching)
 - **Keep it in your artifact**: [OpenAPI extensions](/documentation/references/artifacts/openapi-conventions/#openapi-extensions)
-- **Manage separately**: [API Metadata](/documentation/references/metadada)
+- **Manage separately**: [API Metadata](/documentation/references/metadata)
 - **See similar guides**: [Importing Services & APIs](/documentation/guides/usage/importing-content) · [Defining delays for mocks](/documentation/guides/usage/delays)
