@@ -1,0 +1,27 @@
+{{- $src := .Get "src" -}} {{- $alt := .Get "alt" | default "" -}} {{- $width :=
+.Get "width" -}} {{- $height := .Get "height" -}} {{- $sizes := .Get "sizes" |
+default "(max-width: 800px) 100vw, 800px" -}} {{- /* For real responsive images,
+you would generate resized versions. Here, we use the same src for all for
+simplicity. */ -}} {{- $srcset := printf "%s 400w, %s 800w, %s 1200w" $src $src
+$src -}}
+<img
+  src="{{ $src }}"
+  alt="{{ $alt }}"
+  {{
+  with
+  $width
+  }}width="{{ . }}"
+  {{
+  end
+  }}
+  {{
+  with
+  $height
+  }}height="{{ . }}"
+  {{
+  end
+  }}
+  srcset="{{ $srcset }}"
+  sizes="{{ $sizes }}"
+  loading="lazy"
+/>

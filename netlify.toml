@@ -1,0 +1,17 @@
+[build]
+  publish = "public"
+  command = "npm run build"
+
+[context.deploy-preview]
+  command = "npm run build"
+
+[context.branch-deploy]
+  command = "npm run build"
+
+[context.production]
+  command = "npm run build"
+
+[context.production.environment]
+  HUGO_BASEURL = "https://microcks.io/"
+  HUGO_ENV = "production"
+  HUGO_ENABLEGITINFO = "true"
