@@ -9,7 +9,7 @@ weight: 5
 
 ## Overview
 
-In OpenAPI v3 specs, you can define callbacks – asynchronous, out-of-band requests that your service will send to some other service in response to certain events. These notifications will be “out-of-band”, that is, they will go through a connection other than the connection through which a visitor works, and they will be asynchronous, as they will be out of the regular request-response flow
+In OpenAPI v3 specs, you can define callbacks – asynchronous, out-of-band requests that your service will send to some other service in response to certain events. These notifications will be “out-of-band”, that is, they will go through a connection other than the connection through which a visitor works, and they will be asynchronous, as they will be out of the regular request-response flow.
 
 Callbacks are **useful when an asynchronous and long-running process** is triggered by an initial API interaction and you want to **notity progress to the caller**. Typical examples are:
 * Payment services process: the provider sends you a callback when payment is either processed or refused,
@@ -24,7 +24,7 @@ Let's take the example of a User registration process! 🛎️
 
 ## 1. An Example
 
-The `UserRegistration` API must be used so that people post their User profile information (identity, preferences, etc.). This API responds immediately to confirm it receives the request and returns a `PENDING` status. Then, an asynchronous process starts to validate User registration (it could be identity verification, KYC checks, etc.). Once this process is running, it sends notifications back to the initial caller (via callbacks) with information on process stages. Three notifications are expected: 
+The `UserRegistration` API must be used so that people post their User profile information (identity, preferences, etc.) to register. This API responds immediately to confirm it receives the request and returns a `PENDING` status. Then, an asynchronous process starts to validate User registration (it could be identity verification, KYC checks, etc.). Once this process is running, it sends notifications back to the initial caller (via callbacks) with information on process stages. Three notifications are expected: 
 * one after the User is `VERIFIED`, 
 * one after the User is `REGISTERED`, and
 * one at the end of the process with the `COMPLETE` status.
@@ -148,7 +148,7 @@ The important things to notice here:
 * We defined the three callbacks: `onVerified`, `onRegistered` and `onCompleted`. These callbacks are defined using the `{$request.body#/callbackUrl}` callback URL location expression
 * In the `requestBody` of those callbacks (the part that is sent back to the caller), we used the `{{ request.body/user/firstName }}` template expression, which means "the firstName property of the user from the initial request". The initial request is captured once and transferred to each callback
 * Callback examples have the same `John Doe` name as the initial request/response pair examples. This allows Microcks to gather things together and to dterminer that these callbacks messages will be associated with the matched initial request/response.
-  * For callback where no response body is expected, we used the `x-microcks-refs` extension to explicitly attache the response with matching request.
+  * For callback where no response body is expected, we used the `x-microcks-refs` extension to explicitly attach the response with matching request.
 
 > 🚨 In the OpenAPI callback spec, there's actually **no way to specify an order/sequence** between different callbacks. We propose to do this by adding a specific `x-microcks-callback.order` property on the callback. This must be an integer ; **callbacks will be sorted by natural growing order** of this order property. If not provided, the callback order will be random.
 
@@ -167,7 +167,7 @@ Once imported, you should get access to its details in Microcks UI. Let explore 
 
 {{< image src="images/documentation/callbacks-ui.png" alt="image" zoomable="true" >}}
 
-Within a mock thumb (here the `JOhn Doe` sample), you can now see a new **Callbacks** section below the traditional **Request** and **Response** section. For better usability, the callback details are not displayed by default, you have to click on a callback thumb to make the details appear. We find here our three callback definitions.
+Within a mock thumb (here the `John Doe` sample), you can now see a new **Callbacks** section below the traditional **Request** and **Response** section. For better usability, the callback details are not displayed by default, you have to click on a callback thumb to make the details appear. We find here our three callback definitions.
 
 On the above screenshot, we can see the details of the `onComplete` callback for the `John Doe` sample, and you can see that it's more or less a traditional Request/Response display. The only difference here is the presence of the **Callback URL expression** that informs you that callback will be sent using the `POST` HTTP method, to the `callbackUrl` argument found in the request body.
 
