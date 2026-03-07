@@ -20,7 +20,7 @@ Microcks images repositories are primilarly located on <img src="https://quay.io
 
 ## Container images
 
-Here is below the list of available container images. For more information on their role in the archutecture, you may check the [Architecture & deployment options](/documentation/explanations/deployment-options) explanations.
+Here is below the list of available container images. For more information on their role in the architecture, you may check the [Architecture & deployment options](/documentation/explanations/deployment-options) explanations.
 
 ### Microcks App
 
