@@ -85,7 +85,7 @@ channels:
         description: An event describing that a user just signed up.
         # [...]
         examples:
-          - constextualized:
+          - contextualized:
               headers:
                 my-app-header: 25
               payload:
