@@ -1,8 +1,19 @@
-<meta charset="utf-8">
+<meta charset="utf-8" />
 <title>{{.Title | default site.Title}}</title>
 
+{{- if .Params.canonical }}
+<link rel="canonical" href="{{ .Params.canonical }}" />
+{{- else }}
+<link rel="canonical" href="{{ .Permalink }}" />
+{{- end -}}
+
+
+
 <!-- responsive meta -->
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, maximum-scale=5"
+/>
 
 <meta name="theme-name" content="bigspring-hugo" />
 
@@ -16,7 +27,10 @@
 {{ partialCached "site-verifications.html" . }}
 
 <!-- opengraph and twitter card -->
-{{ partial "basic-seo.html" . }}
+{{ partial "basic-seo.html" . }} {{- if and .IsPage (not .Draft) -}} {{- if
+templates.Exists "partials/single.jsonld" -}} {{- partial "single.jsonld" . -}}
+{{- else if fileExists "layouts/_default/single.jsonld" -}} {{- partial
+"_default/single.jsonld" . -}} {{- end -}} {{- end -}}
 
 <!-- custom script -->
 {{ partialCached "custom-script.html" . }}
