@@ -2,7 +2,8 @@
 ####################### Banner #########################
 banner:
   title: "The open source, cloud native tool for API Mocking and Testing"
-  image: "images/cncf-sandbox-horizontal-color.svg"
+  image: "images/cncf-color.svg"
+  image_dark: "images/cncf-white.svg"
   atom: "images/atom.svg"
   #content : "A **dynamic**, **interconnected ecosystem** to help crafting **customized**, **multi-protocol universal** API **value chain**, powered by **cloud-native automation & standards** #APIOps"
   #content : "Microcks leverages API standards to provide uniform and multi-protocol approach, empowering your API and microservices lifecycle. It strengthen your ecosystem for crafting customized and versatile API value chain. #APIDevOps"

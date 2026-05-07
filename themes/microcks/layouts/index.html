@@ -41,7 +41,12 @@
     </div>
     <div class="cloud-native-sandbox">
       <a href="https://landscape.cncf.io/?selected=microcks" title="Microcks is a Cloud Native Computing Sandbox project 🚀">
-        {{ partial "image" (dict "Src" .image "Alt" "banner image" "Size" "300x") }}
+        <span class="only-light">
+          {{ partial "image" (dict "Src" .image "Alt" "banner image" "Size" "450x") }}
+        </span>
+        <span class="only-dark">
+          {{ partial "image" (dict "Src" .image_dark "Alt" "banner image" "Size" "450x") }}
+        </span>
       </a>
     </div>
   </div>
