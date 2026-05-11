@@ -3,7 +3,7 @@ title: A Thriving year in the CNCF Sandbox and Its Transformative Impacts
 date: 2024-06-24
 image: "images/blog/microcks-contributors.png"
 author: "Diane Mueller"
-type: "featured"
+type: "regular"
 description: "A Thriving year in the CNCF Sandbox and Its Transformative Impacts"
 draft: false
 Params:
