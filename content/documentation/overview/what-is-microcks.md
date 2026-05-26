@@ -11,7 +11,7 @@ Microcks is a tool for **mocking and testing** your APIs and microservices. It l
 
 Microcks facilitates **rapid simulation generation**, **automated API testing**, and **seamless CI/CD integration**, streamlining development and deployment processes. Microcks **empowers teams** to optimize services and **accelerate product releases**, gaining a competitive advantage.
 
-Microcks is a [Cloud Native Computing Foundation (CNCF) Sandbox project](https://landscape.cncf.io/?selected=microcks) and a 100% open source, community-driven initiative.
+Microcks is a [Cloud Native Computing Foundation (CNCF) Incubating project](https://landscape.cncf.io/?selected=microcks) and a 100% open source, community-driven initiative.
 
 <br/>
 
