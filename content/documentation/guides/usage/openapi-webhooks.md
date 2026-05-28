@@ -24,7 +24,7 @@ Let's take the example of a Petstore event stream for new pets registration! ðŸ›
 
 ## 1. An Example
 
-The `Petstore Webhooks` API declares a single webhook to allow consumers to receive information about new pets avaialble into our store. A pet definition is simplictic here: it has an `id`, a `name` and a `tag` (either a cat or a dog).
+The `Petstore Webhooks` API declares a single webhook to allow consumers to receive information about new pets available into our store. A pet definition is simplistic here: it has an `id`, a `name` and a `tag` (either a cat or a dog).
 
 Bolow is an example on how you would define this with OpenAPI Spec. You can get our full [`Petstore-webhooks-openapi.yaml`](https://github.com/microcks/microcks/blob/1.13.x/samples/Petstore-webhooks-openapi.yaml) file from our samples.
 
