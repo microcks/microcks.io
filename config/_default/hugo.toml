@@ -22,9 +22,6 @@ disqusShortname = "microcks-io"
 #hasCJKLanguage = true # If hasCJKLanguage true, auto-detect Chinese/Japanese/Korean Languages in the content.
 hasCJKLanguage = false
 
-# Increase Hugo build timeout to prevent aborts during heavy image processing
-timeout = "300s"
-
 ############################# Modules ############################
 [module]
 [[module.mounts]]
@@ -64,7 +61,7 @@ home = ["HTML", "RSS", "JSON", "WebAppManifest"]
 # See https://github.com/disintegration/imaging
 # Default JPEG or WebP quality setting. Default is 75.
 quality = 90
-resampleFilter = "Lanczos"
+resampleFilter = "lanczos"
 
 ############################# Caches ###############################
 [caches]
