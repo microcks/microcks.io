@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^5.0.0",
-    "postcss": "^8.4.20",
+    "postcss": "^8.5.15",
     "postcss-cli": "^10.1.0",
     "prettier": "^2.8.1",
     "prettier-plugin-go-template": "0.0.13"
