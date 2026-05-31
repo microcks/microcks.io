@@ -19,6 +19,8 @@ As of today, we provide support for the following languages:
 * Golang - via a library distributed via our GitHub,
 * .NET -  starting from .NET 6.0 to latest releases - via a library available on [Nuget](https://www.nuget.org/packages/Microcks.Testcontainers).
 
+In addition, a **community-maintained module for Python** 🐍 is available — see the [Community modules](#5-community-modules) section below.
+
 Let’s go 🧊
 
 ## 1. Java support
@@ -88,6 +90,42 @@ await container.StartAsync();
 ```
 
 See our [microcks-testcontainers-dotnet repository](https://github.com/microcks/microcks-testcontainers-dotnet) for full details and our (incoming) full [demo application](https://github.com/microcks/microcks-testcontainers-dotnet-demo)
+
+
+## 5. Community modules
+
+Beyond the officially maintained modules above, the community is actively working on bindings for additional languages. These modules are **not (yet) part of the official Microcks organization**, but they follow the same approach and may be promoted to official modules in the future as they mature. We're sharing them here to highlight the work and gather feedback — contributions and early adopters are very welcome! 🙌
+
+### Python support 🐍
+
+A community-maintained Testcontainers module for Python is available as `microcks_testcontainers`. As it's not yet published on [PyPI](https://pypi.org), you can install it directly from GitHub:
+
+```bash
+pip install git+https://github.com/Caesarsage/microcks-testcontainers-python.git
+```
+
+Like the other modules, it leverages our [*Uber* distribution](/documentation/explanations/deployment-options/#regular-vs-uber-distribution) and you can simply start Microcks that way:
+
+```python
+from microcks_testcontainers import MicrocksContainer
+
+container = MicrocksContainer("quay.io/microcks/microcks-uber:1.13.0")
+container.start()
+```
+
+It can also be used as a context manager to automatically manage the container lifecycle:
+
+```python
+from microcks_testcontainers import MicrocksContainer
+
+with MicrocksContainer().with_main_artifacts(["my-api.yaml"]) as microcks:
+    endpoint = microcks.get_rest_mock_endpoint("My API", "1.0")
+    # Use the endpoint in your tests
+```
+
+Despite being a young project, this module already covers a broad feature set — REST/SOAP/GraphQL/gRPC mocking, conformance testing, secrets, OAuth2-secured endpoints and a Microcks *ensemble* with a Postman runtime and an Async Minion for Kafka, MQTT, AMQP, AWS SQS/SNS and Google PubSub. See the [Testcontainers Modules reference](/documentation/references/testcontainers-modules/#community-modules) for the detailed feature coverage and the [microcks-testcontainers-python repository](https://github.com/Caesarsage/microcks-testcontainers-python) for full details, as well as a full [demo application using Flask](https://github.com/Caesarsage/microcks-testcontainers-python-demo-flask) 🐍
+
+This module is moving toward becoming an official one, and the best way to help is to **give it a try, ⭐ star the [repository](https://github.com/Caesarsage/microcks-testcontainers-python), open issues and contribute**! Feedback is highly appreciated — feel free to reach out on [Discord](/discord-invite/) too. 🙌
 
 
 ## Wrap-up
