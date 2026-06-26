@@ -3,7 +3,7 @@ draft: false
 title: "Security Configuration"
 date: 2024-04-29
 publishdate: 2024-04-29
-lastmod: 2024-09-30
+lastmod: 2026-06-26
 weight: 2
 ---
 
@@ -62,6 +62,10 @@ keycloak.ssl-required=external
 # Spring Security adapter configuration properties
 spring.security.oauth2.client.registration.keycloak.client-id=microcks-app
 spring.security.oauth2.client.registration.keycloak.authorization-grant-type=authorization_code
+spring.security.oauth2.client.registration.keycloak.scope=openid,profile
+spring.security.oauth2.client.provider.keycloak.issuer-uri=${KEYCLOAK_URL:http://localhost:8180}/realms/${keycloak.realm}
+spring.security.oauth2.client.provider.keycloak.user-name-attribute=preferred_username
+spring.security.oauth2.resourceserver.jwt.issuer-uri=${KEYCLOAK_URL:http://localhost:8180}/realms/${keycloak.realm}
 
 # Keycloak access configuration properties
 sso.public-url=${KEYCLOAK_PUBLIC_URL:${keycloak.auth-server-url}}

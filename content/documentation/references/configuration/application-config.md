@@ -3,7 +3,7 @@ draft: false
 title: "Application Configuration"
 date: 2024-04-29
 publishdate: 2024-04-29
-lastmod: 2024-12-09
+lastmod: 2026-06-26
 weight: 1
 ---
 
@@ -74,6 +74,31 @@ management.endpoint.prometheus.enabled=true
 management.metrics.export.prometheus.enabled=true
 management.metrics.distribution.percentiles-histogram.http.server.requests=true
 management.metrics.distribution.slo.http.server.requests=1ms, 5ms, 10ms, 25ms, 50ms, 100ms, 250ms, 500ms, 1000ms, 2500ms, 5000ms, 10000ms
+
+# OpenTelemetry configuration properties
+# Service identification
+management.opentelemetry.resource-attributes."service.name"=${OTEL_SERVICE_NAME:microcks}
+management.opentelemetry.resource-attributes."service.namespace"=microcks-ns
+management.opentelemetry.resource-attributes."service.instance.id"=microcks-cnt
+management.opentelemetry.resource-attributes."service.version"=${project.version}
+
+# Tracing configuration
+management.tracing.sampling.probability=${OTEL_TRACES_SAMPLING_PROBABILITY:1.0}
+management.tracing.propagation.type=W3C,B3
+management.tracing.export.enabled=${OTEL_TRACES_EXPORTER_ENABLED:false}
+management.tracing.export.otlp.enabled=${OTEL_TRACES_EXPORTER_ENABLED:false}
+management.opentelemetry.tracing.export.otlp.endpoint=${OTEL_EXPORTER_OTLP_ENDPOINT:http://o11y_otel:4318}/v1/traces
+management.opentelemetry.tracing.export.otlp.headers.Authorization=${OTEL_EXPORTER_OTLP_HEADERS_AUTHORIZATION}
+
+# Metrics configuration
+management.otlp.metrics.export.enabled=${OTEL_METRICS_EXPORTER_ENABLED:false}
+management.otlp.metrics.export.url=${OTEL_EXPORTER_OTLP_ENDPOINT:}/v1/metrics
+management.otlp.metrics.export.headers.Authorization=${OTEL_EXPORTER_OTLP_HEADERS_AUTHORIZATION}
+
+# Logs configuration
+management.logging.export.enabled=${OTEL_LOGS_EXPORTER_ENABLED:false}
+management.opentelemetry.logging.export.otlp.endpoint=${OTEL_EXPORTER_OTLP_ENDPOINT:http://o11y_otel:4318}/v1/logs
+management.opentelemetry.logging.export.otlp.headers.Authorization=${OTEL_EXPORTER_OTLP_HEADERS_AUTHORIZATION}
 ```
 
 #### Components connection
@@ -108,9 +133,11 @@ async-api.default-binding=KAFKA
 async-api.default-frequency=3
 
 # Kafka configuration properties
-spring.kafka.producer.bootstrap-servers=${KAFKA_BOOTSTRAP_SERVER:localhost:9092}
-spring.kafka.producer.key-serializer=org.apache.kafka.common.serialization.StringSerializer
-spring.kafka.producer.value-serializer=io.github.microcks.event.ServiceViewChangeEventSerializer
+kafka.bootstrap-servers=${KAFKA_BOOTSTRAP_SERVER:localhost:9092}
+kafka.producers.service-changes.key-serializer=org.apache.kafka.common.serialization.StringSerializer
+kafka.producers.service-changes.value-serializer=io.github.microcks.event.ServiceViewChangeEventSerializer
+kafka.producers.asyncapi-triggers.key-serializer=org.apache.kafka.common.serialization.StringSerializer
+kafka.producers.asyncapi-triggers.value-serializer=io.github.microcks.event.AsyncAPITriggerCommandSerializer
 ```
 
 #### Conformance metrics computing
@@ -274,6 +301,15 @@ mp.messaging.incoming.microcks-services-updates.value.deserializer=io.github.mic
 # Do not save any consumer-offset on the broker as there's a re-sync on each minion startup.
 mp.messaging.incoming.microcks-services-updates.enable.auto.commit=false
 mp.messaging.incoming.microcks-services-updates.bootstrap.servers=localhost:9092
+
+mp.messaging.incoming.microcks-asyncapi-triggers.connector=smallrye-kafka
+mp.messaging.incoming.microcks-asyncapi-triggers.topic=microcks-asyncapi-triggers
+mp.messaging.incoming.microcks-asyncapi-triggers.key.deserializer=org.apache.kafka.common.serialization.StringDeserializer
+mp.messaging.incoming.microcks-asyncapi-triggers.value.deserializer=io.github.microcks.minion.async.client.AsyncAPITriggerCommandDeserializer
+
+# Do not save any consumer-offset on the broker as this is fire and forget consumption of events.
+mp.messaging.incoming.microcks-asyncapi-triggers.enable.auto.commit=false
+mp.messaging.incoming.microcks-asyncapi-triggers.bootstrap.servers=localhost:9092
 ```
 
 #### Optional brokers
