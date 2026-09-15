@@ -58,9 +58,9 @@ The important things to notice here:
 Specifying a trigger using above notation has the following consequences:
 
 1. Upon the execution of a mock for the `POST /register` operation, the original request and response will be captured before the response is sent back to the caller,
-2. Request and response will then be transfered asynchronously to the [Microcks Aync Minion component](/documentation/explanations/deployment-options/#complete-logical-architecture) with the information on the services, versions and operations to trigger,
+2. Request and response will then be transferred asynchronously to the [Microcks Aync Minion component](/documentation/explanations/deployment-options/#complete-logical-architecture) with the information on the services, versions and operations to trigger,
 3. The Async Minion will then take care of selecting the appropriate asynchronous service operatino and will try to find a **contextualized message** within this operation,
-4. If such a **contextualized message** is found, then it will be rendered and it will be sent over all the procotol bindings that are available for this asynchronous service (Kafka, WebSocket, etc.)
+4. If such a **contextualized message** is found, then it will be rendered and it will be sent over all the protocol bindings that are available for this asynchronous service (Kafka, WebSocket, etc.)
 
 Now you may wonder: what is a **contextualized message**? 🧐
 

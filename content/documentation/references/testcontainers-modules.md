@@ -84,7 +84,7 @@ The modules listed in the matrices above are maintained within the official Micr
 
 A community-maintained module is available at [Caesarsage/microcks-testcontainers-python](https://github.com/Caesarsage/microcks-testcontainers-python). It's not yet published on PyPI, but it already provides a remarkably complete feature set — including a Microcks ensemble (with Postman and Async Minion containers), secrets, OAuth2-secured endpoint testing and all asynchronous connection types except NATS.
 
-See the [Community modules](/documentation/guides/usage/developing-testcontainers/#5-community-modules) part of the *Developing with Testcontainers* guide for installation and usage. The feature coverage below was assessed from the module source on May 31st, 2026 — as it stabilizes, we intend to fold it into the matrices above.
+See the [Community modules](/documentation/guides/usage/developing-testcontainers/#5-community-modules) part of the *Developing with Testcontainers* guide for installation and usage. The feature coverage below was assessed from the module source on May 31st, 2026 — as it stabilizes, it may be folded into the matrices above.
 
 **Initialization**
 
