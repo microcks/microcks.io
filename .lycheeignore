@@ -26,5 +26,8 @@ bsky.app
 # Add valid URLs here, when the broken link error is due to web site rate limit... 
 https://mvnrepository.com/repos/central
 
+# Testcontainers pages consistently time out from GitHub-hosted runners.
+https://(www\.)?testcontainers\.com/
+
 # Ignore 
 \{\{*\}\}
