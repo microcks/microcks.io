@@ -40,7 +40,7 @@ jobs:
         uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
         with:
           args: >-
-            --offline --no-progress --include-fragments=anchor-only
+            --offline --no-progress --include-fragments=anchor-only --index-files index.html
             --root-dir '${{ github.workspace }}/public'
             '${{ github.workspace }}/public/**/*.html'
           format: markdown
