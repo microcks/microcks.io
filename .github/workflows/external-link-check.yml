@@ -19,6 +19,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          submodules: true
 
       - name: Collect sitemap URLs
         run: |
@@ -33,26 +35,66 @@ jobs:
           fi
           echo "Collected $URL_COUNT sitemap URLs"
 
-      - name: Link Checker
-        id: lychee
+      - name: Internal Link Checker
+        id: internal_lychee
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
+        with:
+          args: >-
+            --offline --no-progress --include-fragments=anchor-only
+            --root-dir '${{ github.workspace }}/public'
+            '${{ github.workspace }}/public/**/*.html'
+          format: markdown
+          output: ./lychee/internal.md
+          fail: false
+
+      - name: External Link Checker
+        id: external_lychee
         uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
         with:
           args: >-
             --no-progress --user-agent 'curl/8.4.0' --scheme https --scheme http
-            --header "accept: */*" --accept '100..=103,200..=299,403,429'
-            --include-fragments=anchor-only --max-concurrency 16 --host-concurrency 2
+            --header "accept: */*" --exclude '^https://microcks\.io(?:/|$)'
+            --accept '100..=103,200..=299,401,403,429'
+            --max-concurrency 16 --host-concurrency 2
             --max-retries 3 --timeout 20 --files-from lychee-inputs.txt
           format: markdown
-          output: ./lychee/out.md
+          output: ./lychee/external.md
           fail: false
 
+      - name: Prepare combined report
+        run: |
+          {
+            echo "# External Link Check Report"
+            echo
+            echo "The source pages listed below are reachable. Each entry identifies a target link found inside that page that failed validation."
+            echo
+            echo "## Internal paths and anchors"
+            echo
+            sed -e "s#file://${GITHUB_WORKSPACE}/public#https://microcks.io#g" \
+              -e "s#${GITHUB_WORKSPACE}/public#https://microcks.io#g" \
+              -e 's#/index\.html$#/#' \
+              -e 's/^# Summary$/### Summary/' \
+              -e 's/^## Errors per input$/### Broken targets grouped by source page/' \
+              -e 's/^### Errors in /#### Source page: /' \
+              -e 's/^## Timeouts per input$/### Timed-out targets grouped by source page/' \
+              -e 's/^### Timeouts in /#### Source page: /' ./lychee/internal.md
+            echo
+            echo "## External targets"
+            echo
+            sed -e 's/^# Summary$/### Summary/' \
+              -e 's/^## Errors per input$/### Broken targets grouped by source page/' \
+              -e 's/^### Errors in /#### Source page: /' \
+              -e 's/^## Timeouts per input$/### Timed-out targets grouped by source page/' \
+              -e 's/^### Timeouts in /#### Source page: /' ./lychee/external.md
+          } > ./lychee/report.md
+
       - name: Publish failing link report
-        if: steps.lychee.outputs.exit_code != '0'
+        if: steps.internal_lychee.outputs.exit_code != '0' || steps.external_lychee.outputs.exit_code != '0'
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
           REPORT_TITLE: External Link Check Report
-          REPORT_PATH: ./lychee/out.md
+          REPORT_PATH: ./lychee/report.md
         run: |
           ISSUE_NUMBER=$(gh issue list --state open --limit 100 --json number,title \
             --jq '.[] | select(.title == "External Link Check Report") | .number' | head -n 1)
@@ -69,7 +111,7 @@ jobs:
           fi
 
       - name: Close resolved link report
-        if: steps.lychee.outputs.exit_code == '0'
+        if: steps.internal_lychee.outputs.exit_code == '0' && steps.external_lychee.outputs.exit_code == '0'
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
