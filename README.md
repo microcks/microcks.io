@@ -16,6 +16,21 @@ For more detailed information on how to contribute, please take a look at our [C
 
 We appreciate your interest in contributing to the Microcks website! If you have any questions or need assistance, feel free to reach out to us: https://microcks.io/community/
 
+## Hugo version and publication checks
+
+The website requires Hugo 0.165.0 Extended. This version is pinned in `.hugo-version`, the GitHub Actions build, and the Netlify configuration.
+
+Before publishing the generated website, verify the local Hugo installation and run an isolated production build:
+
+```sh
+hugo version
+./deploy.sh --check
+```
+
+The version output must include `v0.165.0+extended`. The check command builds into a temporary directory and does not modify the `public` submodule or publish anything.
+
+Maintainers can then publish through `./deploy.sh`, which verifies the Hugo version and that the `public` submodule is initialized before changing or pushing generated files.
+
 > By the community, for the community. 🙌
 
 Thank you for helping us improve Microcks! Every contribution counts 💙
