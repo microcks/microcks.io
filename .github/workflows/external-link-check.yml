@@ -1,72 +1,83 @@
-# This link checks Microcks website links in Markdown HTML files once per day
+# Check links across all canonical pages in the live Microcks website once per week.
 # from: https://github.com/lycheeverse/lychee-action
 # link checker used is 'lychee': https://github.com/lycheeverse/lychee
 
 name: External Link Check
 on:
-  # This event will only trigger a workflow run if the workflow file is on the default branch.
-  # ucomment the following line if you want to run the workflow manually
   workflow_dispatch:
   # Run once a week on Sunday at 00h42 UTC (0:42 AM UTC aka 1:42 AM CEST with daylight saving time)
   schedule:
     - cron: "42 0 * * 0"
 
+permissions:
+  contents: read
+  issues: write
+
 jobs:
   linkChecker:
     runs-on: ubuntu-latest
-    steps:          
+    steps:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      # Link Checker run with lychee action 
+      - name: Collect sitemap URLs
+        run: |
+          curl --fail --silent --show-error https://microcks.io/sitemap.xml \
+            | grep -o '<loc>[^<]*' \
+            | sed 's#<loc>##' > lychee-inputs.txt
+
+          URL_COUNT=$(wc -l < lychee-inputs.txt)
+          if [ "$URL_COUNT" -eq 0 ]; then
+            echo "No URLs were found in the sitemap"
+            exit 1
+          fi
+          echo "Collected $URL_COUNT sitemap URLs"
+
       - name: Link Checker
         id: lychee
         uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
         with:
           args: >-
-            --no-progress --insecure --user-agent 'curl/8.4.0' --scheme https --scheme http
-            --header "accept: */*" --exclude 'linkedin\.com' https://microcks.io/
-          # Use markdown as output format
+            --no-progress --user-agent 'curl/8.4.0' --scheme https --scheme http
+            --header "accept: */*" --accept '100..=103,200..=299,403,429'
+            --include-fragments=anchor-only --max-concurrency 16 --host-concurrency 2
+            --max-retries 3 --timeout 20 --files-from lychee-inputs.txt
           format: markdown
-          token: ${{ secrets.CUSTOM_TOKEN }}
-          # Don't fail action on broken links
+          output: ./lychee/out.md
           fail: false
 
-      # Check if report contains regex errors or broken links
-      - name: Check for Errors
-        id: check_errors
-        run: |
-          if grep -q "Errors in" ./lychee/out.md; then
-            echo "has_errors=true" >> $GITHUB_ENV
-          else
-            echo "has_errors=false" >> $GITHUB_ENV
-          fi
-        
-      # Format the date for the issue title and store it in an environment variable
-      - name: Format Date
-        id: format_date
-        run: echo "DATE=$(date +'%A, %e. %b %Y')" >> $GITHUB_ENV
-
-      # Create an issue if there are broken links 
-      - name: Create Issue From File
-        id: create_issue
-        if: env.has_errors == 'true'
-        uses: peter-evans/create-issue-from-file@fca9117c27cdc29c6c4db3b86c48e4115a786710 # v6.0.0
-        with:
-          title: "External Link Check Report - ${{ env.DATE }}"
-          content-filepath: ./lychee/out.md
-          labels: report, automated issue, contribution message, help wanted, good first issue
-
-      # Store the issue number in an environment variable 
-      - name: Store Issue Number
-        if: steps.create_issue.outputs.issue-number != ''
-        run: echo "ISSUE_NUMBER=${{ steps.create_issue.outputs.issue-number }}" >> $GITHUB_ENV
-
-      # Add a comment to the issue with the contribution message  
-      - name: Add contribution message as new comment
-        if: env.ISSUE_NUMBER != ''
-        run: gh issue comment "$ISSUE_NUMBER" --body-file "$BODY"
+      - name: Publish failing link report
+        if: steps.lychee.outputs.exit_code != '0'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
-          BODY: "./.github/contribution_message.md"
+          REPORT_TITLE: External Link Check Report
+          REPORT_PATH: ./lychee/out.md
+        run: |
+          ISSUE_NUMBER=$(gh issue list --state open --limit 100 --json number,title \
+            --jq '.[] | select(.title == "External Link Check Report") | .number' | head -n 1)
+
+          if [ -n "$ISSUE_NUMBER" ]; then
+            gh issue edit "$ISSUE_NUMBER" --body-file "$REPORT_PATH"
+            gh issue comment "$ISSUE_NUMBER" \
+              --body "Report updated from [workflow run $GITHUB_RUN_NUMBER]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID)."
+          else
+            ISSUE_URL=$(gh issue create --title "$REPORT_TITLE" --body-file "$REPORT_PATH" \
+              --label "report,automated issue,contribution message,help wanted,good first issue")
+            ISSUE_NUMBER=${ISSUE_URL##*/}
+            gh issue comment "$ISSUE_NUMBER" --body-file ./.github/contribution_message.md
+          fi
+
+      - name: Close resolved link report
+        if: steps.lychee.outputs.exit_code == '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          ISSUE_NUMBER=$(gh issue list --state open --limit 100 --json number,title \
+            --jq '.[] | select(.title == "External Link Check Report") | .number' | head -n 1)
+
+          if [ -n "$ISSUE_NUMBER" ]; then
+            gh issue close "$ISSUE_NUMBER" \
+              --comment "All links passed in [workflow run $GITHUB_RUN_NUMBER]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID)."
+          fi
