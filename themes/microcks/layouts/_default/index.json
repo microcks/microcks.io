@@ -1,36 +1,32 @@
-{{- $len := sub (len (.Pages.GroupBy "Section")) 1 -}}
-[{{- range $item, $el := .Pages.GroupBy "Section" -}}
-{{- range $i, $e := .Pages -}}
-{{- if and (not .Params.ignoreSearch) (ne $e.Type "json") -}}
-  {
-    "section": "",
-    "url": "{{ $e.Permalink }}",
-    "title": "{{ with $e.Params.bannertext }}{{htmlEscape .}}{{else}}{{htmlEscape $e.Title}}{{end}}",
-    "description": "{{ htmlEscape .Description}}",
-    "searchKeyword": "{{ htmlEscape .Params.searchKeyword}}",
-    "content": {{$e.Plain | jsonify}}
-  }{{- if eq $item $len -}}{{- else -}},{{- end -}}
+{{- $.Scratch.Delete "search_index" -}}
+{{- range $item, $el := .Pages.GroupBy "Section" -}}
+  {{- range $i, $e := .Pages -}}
+    {{- if and (not $e.Params.ignoreSearch) (ne $e.Type "json") -}}
+      {{- $title := $e.Title -}}
+      {{- if $e.Params.bannertext -}}
+        {{- $title = $e.Params.bannertext -}}
+      {{- end -}}
+      {{- $entry := dict "section" "" "url" $e.Permalink "title" (htmlEscape $title) "description" (htmlEscape $e.Description) "searchKeyword" (htmlEscape $e.Params.searchKeyword) "content" $e.Plain -}}
+      {{- $.Scratch.Add "search_index" (slice $entry) -}}
+    {{- end -}}
+  {{- end -}}
 {{- end -}}
 
-{{- if .Section -}}
-{{- $section := (where site.Pages "Section" .Section) | intersect (where site.Pages ".Title" "!=" .Title) -}}
-{{- $sectionLen := len (where site.Pages "Section" .Section) -}}
-{{- $sectionLenTotal := sub $sectionLen 2 -}}
-
-{{- range $index, $page := $section -}}
-{{- if and (not .Params.ignoreSearch) (ne $page.Type "json") -}}
-  {
-    "section": "{{$page.Section | humanize}}",
-    "url": "{{ $page.Permalink }}",
-    "title": "{{ with $page.Params.bannertext }}{{htmlEscape .}}{{else}}{{htmlEscape $page.Title}}{{end}}",
-    "description": "{{ htmlEscape .Description}}",
-    "searchKeyword": "{{ htmlEscape .Params.searchKeyword}}",
-    "content": {{$page.Plain | jsonify}}
-  }{{- if eq $item $len -}}{{- if ne $index $sectionLenTotal -}},{{- end -}}{{- else -}},{{- end -}}
+{{- if $.Section -}}
+  {{- $section := (where site.Pages "Section" $.Section) | intersect (where site.Pages ".Title" "!=" $.Title) -}}
+  {{- range $index, $page := $section -}}
+    {{- if and (not $page.Params.ignoreSearch) (ne $page.Type "json") -}}
+      {{- $title := $page.Title -}}
+      {{- if $page.Params.bannertext -}}
+        {{- $title = $page.Params.bannertext -}}
+      {{- end -}}
+      {{- $entry := dict "section" ($page.Section | humanize) "url" $page.Permalink "title" (htmlEscape $title) "description" (htmlEscape $page.Description) "searchKeyword" (htmlEscape $page.Params.searchKeyword) "content" $page.Plain -}}
+      {{- $.Scratch.Add "search_index" (slice $entry) -}}
+    {{- end -}}
+  {{- end -}}
 {{- end -}}
+{{- with $.Scratch.Get "search_index" -}}
+  {{- . | jsonify -}}
+{{- else -}}
+  []
 {{- end -}}
-
-{{- end -}}
-
-{{- end -}}
-{{- end -}}]
