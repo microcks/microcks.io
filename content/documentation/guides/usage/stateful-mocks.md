@@ -29,7 +29,7 @@ Then, you'll need to [import the content](/documentation/guides/usage/importing-
 When configuring stateful mocks in Microcks, you'll require or need those useful concepts:
 
 * The `SCRIPT` dispatcher will be mandatory as it will hold your persistence logic (see the [Script explanations](/documentation/explanations/dispatching/#script-dispatcher)),
-* The `store` is a an implicit service that is available within scripts. It allows you to persist state within a simple Key/Value store. Keys and values are simple strings you may process and manage the way you want. Check the some examples in [common use-cases](/documentation/explanations/dispatching/#common-use-cases) for scripts,
+* The `store` is a an implicit service that is available within scripts. It allows you to persist state within a simple Key/Value store. Keys and values are simple strings you may process and manage the way you want. Check the some examples in [common use-cases](/documentation/explanations/dispatching/#script-dispatcher) for scripts,
 * The `requestContext` is a request-scoped context that allows passing content to [response templates](/documentation/references/templates),
 * Finally, the templating [Context Expressions](/documentation/references/templates/#context-expression) can be very useful to reuse persisted (or computed) information to mock responses!
 
