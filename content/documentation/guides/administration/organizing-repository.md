@@ -75,7 +75,7 @@ features.feature.repository-filter.label-label=Domain
 features.feature.repository-filter.label-list=domain,status
 ```
 
-> 💡 You may check the [Application Configuration reference](/documentation/references/configuration/application-config#repository-filtering-properties) documentation for a comprehensive list and explanations of the above properties.
+> 💡 You may check the [Application Configuration reference](/documentation/references/configuration/application-config#repository-filtering) documentation for a comprehensive list and explanations of the above properties.
 
 ## 3. Segmenting management responsibilities
 
