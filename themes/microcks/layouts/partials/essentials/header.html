@@ -145,7 +145,7 @@
         {{ end }} -->
 
         {{ with site.Params.navigation_button }}
-          <a href="{{ .link | safeURL }}" class="btn btn-sm btn-outline-primary ms-lg-4">{{ .label }}</a>
+          <a href="{{ .link | safeURL }}" class="btn btn-sm btn-outline-primary ms-lg-4" onclick="if(typeof gtag === 'function') { gtag('event', 'click', {'event_category': 'conversion', 'event_label': '{{ .label }}'}); }">{{ .label }}</a>
         {{ end }}  
       </div>
 

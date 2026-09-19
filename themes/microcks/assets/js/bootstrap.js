@@ -36,39 +36,41 @@ import Tab from "js/bootstrap/src/tab";
     "use strict";
   
     let searchModalEl = document.getElementById('searchModal');
-    let modalOpen = false;
-    let searchModal = new Modal(searchModalEl, {});
-    
-    const params = new Proxy(new URLSearchParams(window.location.search), {
-      get: (searchParams, prop) => searchParams.get(prop),
-    });
-    if (params.search !== null && params.search !== undefined) {
-      searchModal.show();
-      modalOpen = true;
-    } else {
-      searchModal.hide();
-      modalOpen = false;
-    }
-  
-    document.addEventListener('keydown', function(e) {
-      if (e.key === "Escape") {
+    if (searchModalEl) {
+      let modalOpen = false;
+      let searchModal = new Modal(searchModalEl, {});
+      
+      const params = new Proxy(new URLSearchParams(window.location.search), {
+        get: (searchParams, prop) => searchParams.get(prop),
+      });
+      if (params.search !== null && params.search !== undefined) {
+        searchModal.show();
+        modalOpen = true;
+      } else {
         searchModal.hide();
-      } else if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-        if (!modalOpen) {
-          e.preventDefault();
-          searchModal.show();
-          modalOpen = true;
-        } else {
-          e.preventDefault();
-          searchModal.hide();
-          modalOpen = false;
-        }
+        modalOpen = false;
       }
-    });
-  
-    searchModalEl.addEventListener('hidden.bs.modal', e => {
-      modalOpen = false;
-    });
+    
+      document.addEventListener('keydown', function(e) {
+        if (e.key === "Escape") {
+          searchModal.hide();
+        } else if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+          if (!modalOpen) {
+            e.preventDefault();
+            searchModal.show();
+            modalOpen = true;
+          } else {
+            e.preventDefault();
+            searchModal.hide();
+            modalOpen = false;
+          }
+        }
+      });
+    
+      searchModalEl.addEventListener('hidden.bs.modal', e => {
+        modalOpen = false;
+      });
+    }
     
     // document.addEventListener('keydown', function(e) {
     //   let searchModal = new Modal(document.getElementById('searchModal'), {});
