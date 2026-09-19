@@ -8,9 +8,9 @@
     <div class="row">
       <div class="col-lg-8 mx-auto">
         <!-- don't put blog image on top of post again, as we always include them in the text -->
-        <!--
+        {{/*
         {{ partial "image" (dict "Src" .Params.image "Alt" .Title "Class" "rounded-2 w-100 mb-5") }}
-        -->
+        */}}
         {{- template "author-image-name" dict "author" .Params.Author -}}
         
         {{ range .Page.Params.coauthors }}
@@ -23,6 +23,19 @@
         <h2 class="h3 my-3">{{ .Title }}</h2>
 
         <div class="mt-5 content">{{.Content}}</div>
+        
+        {{ $related := where .Site.RegularPages "Section" .Section }}
+        {{ $related = $related | complement (slice .) | first 3 }}
+        {{ with $related }}
+        <div class="related-posts mt-5 border p-4 rounded-2 bg-light">
+          <h3 class="h4 mb-3">Related Content</h3>
+          <ul class="list-unstyled mb-0">
+            {{ range . }}
+            <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i><a href="{{ .RelPermalink }}" class="text-dark">{{ .Title }}</a></li>
+            {{ end }}
+          </ul>
+        </div>
+        {{ end }}
         
         {{- template "author-full-card" dict "author" .Params.Author -}}
 

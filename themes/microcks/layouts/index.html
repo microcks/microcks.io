@@ -34,7 +34,7 @@
     <div class="mt-3 herobanner-btn-group">
       {{ if .button.enable }}
       {{ with .button }}
-      <a href="{{ .getstarted | safeURL }}" class="btn btn-primary">Get Started</a>
+      <a href="{{ .getstarted | safeURL }}" class="btn btn-primary" onclick="if(typeof gtag === 'function') { gtag('event', 'click', {'event_category': 'conversion', 'event_label': 'Get Started'}); }">Get Started</a>
       <a href="{{ .link | safeURL }}" title="{{ .label }}" class="btn btn-outline-primary">{{ .label }}</a>
       {{ end }}
       {{ end }}

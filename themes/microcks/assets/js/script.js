@@ -169,10 +169,13 @@ searchToggler.forEach((item) => {
 
 // Navbar fixed
 window.onscroll = function () {
-	if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-		document.querySelector(".navigation").classList.add("nav-bg");
-	} else {
-		document.querySelector(".navigation").classList.remove("nav-bg");
+	const nav = document.querySelector(".navigation");
+	if (nav) {
+		if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+			nav.classList.add("nav-bg");
+		} else {
+			nav.classList.remove("nav-bg");
+		}
 	}
 };
 
@@ -214,7 +217,7 @@ async function copyCode(block, button) {
 
 // table of content
 let toc = document.querySelector("#TableOfContents a");
-if (toc) {
+if (toc && typeof ScrollMenu !== 'undefined') {
 	new ScrollMenu("#TableOfContents a", {
 		duration: 50,
 		activeOffset: 110,
