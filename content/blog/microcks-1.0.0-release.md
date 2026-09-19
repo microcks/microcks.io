@@ -68,4 +68,4 @@ As you read this post, you have seen that there’s some huge new features in th
 We still have a lot to accomplish but cannot do it without your support and ideas: tell us the enhancements or new features you are dreaming about using [GitHub](https://github.com/microcks/microcks/issues) issues.
 
 We are open and you can help make Microcks an even greater tool!
-Please spread the word, send us some love through [GitHub](https://github.com/microcks/microcks) stars, follow us on [Twitter](https://twitter.com/microcksio), send us [Gitter](https://gitter.im/microcks/microcks) messages or — even better — blog posts or tweets and tell us how you use Microcks.
+Please spread the word, send us some love through [GitHub](https://github.com/microcks/microcks) stars, follow us on [Twitter](https://twitter.com/microcksio), send us [Discord](https://microcks.io/discord-invite/) messages or — even better — blog posts or tweets and tell us how you use Microcks.
