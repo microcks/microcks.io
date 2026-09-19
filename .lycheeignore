@@ -29,5 +29,15 @@ https://mvnrepository.com/repos/central
 # Testcontainers pages consistently time out from GitHub-hosted runners.
 https://(www\.)?testcontainers\.com/
 
-# Ignore 
+# gitter.im now redirects (301) to app.gitter.im, but lychee does not follow this
+# particular redirect even with a raised --max-redirects, so it always reports the
+# 301 as an error. The link itself is fine when opened in a browser.
+https://gitter\.im/
+
+# insights.lfx.linuxfoundation.org redirects to insights.lfx.dev, whose TLS
+# configuration fails the handshake for lychee's HTTP client (confirmed independent
+# of user-agent). The page loads fine in a real browser.
+https://insights\.lfx\.linuxfoundation\.org/
+
+# Ignore
 \{\{*\}\}

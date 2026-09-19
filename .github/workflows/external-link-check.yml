@@ -52,7 +52,9 @@ jobs:
         uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
         with:
           args: >-
-            --no-progress --user-agent 'curl/8.4.0' --scheme https --scheme http
+            --no-progress
+            --user-agent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36'
+            --scheme https --scheme http
             --header "accept: */*" --exclude '^https://microcks\.io(?:/|$)'
             --accept '100..=103,200..=299,401,403,429'
             --max-concurrency 16 --host-concurrency 2
