@@ -16,7 +16,7 @@ banner:
     #label : "♻️ 1.12.1 has just been released! ♻️"
     #link : "https://microcks.io/blog/microcks-joining-cncf-sandbox/"
     getstarted: ./documentation/tutorials/getting-started/
-    link : "/blog/microcks-1.14.0-release/"
+    link : "https://github.com/microcks/microcks/releases/tag/1.15.0"
 
 ################### Screenshot ########################
 screenshot:
