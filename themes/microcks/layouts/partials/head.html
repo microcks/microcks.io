@@ -18,6 +18,9 @@
 <!-- opengraph and twitter card -->
 {{ partial "basic-seo.html" . }}
 
+<!-- canonical and structured data -->
+{{ partial "seo-metadata.html" . }}
+
 <!-- custom script -->
 {{ partialCached "custom-script.html" . }}
 

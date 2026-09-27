@@ -29,7 +29,7 @@ When invoked in real life, this registration should produce an event (on a messa
 
 ## Specifying Triggers
 
-Let's assume our `User Registration` is a REST API; it can then be described using the OpenAPI specification. Below, we're going to use a specific `x-microcks-operation` [OpenAPI extension](/documentation/references/artifacts/openapi-conventions/#using-openapi-extensions) to specify a trigger:
+Let's assume our `User Registration` is a REST API; it can then be described using the OpenAPI specification. Below, we're going to use a specific `x-microcks-operation` [OpenAPI extension](/documentation/references/artifacts/openapi-conventions/#openapi-extensions) to specify a trigger:
 
 
 ```yaml

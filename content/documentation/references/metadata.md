@@ -11,7 +11,7 @@ weight: 5
 
 Some Microcks mocks specific metadata or properties cannot be fully deduced from common attributes coming from OpenAPI or AsyncAPI. Thus we should rely on default values can be later overwritten by `manager` within Microcks either using the UI or through the Microcks API.
 
-> 💡 For OpenAPI and AsyncAPI, we introduced [OpenAPI extensions](/documentation/references/artifacts/openapi-conventions/#using-openapi-extensions) and [AsyncAPI extensions](/documentation/references/artifacts/asyncapi-conventions/#using-asyncapi-extensions) to allow providing this informations using `x-microcks` properties.
+> 💡 For OpenAPI and AsyncAPI, we introduced [OpenAPI extensions](/documentation/references/artifacts/openapi-conventions/#openapi-extensions) and [AsyncAPI extensions](/documentation/references/artifacts/asyncapi-conventions/#asyncapi-extensions) to allow providing this informations using `x-microcks` properties.
 
 But sometimes you don't want to add some `x-microcks` extensions attributes into AsyncAPI / OpenAPI document **OR** you'd need to specify these metadata and properties for some other artifact types like [Protobuf](/documentation/references/artifacts/grpc-conventions) + [Postman Collection](/documentation/references/artifacts/postman-conventions) for GRPC mocking for instance 😉.
 

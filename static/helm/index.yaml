@@ -2,6 +2,30 @@ apiVersion: v1
 entries:
   microcks:
   - apiVersion: v2
+    appVersion: 1.15.0
+    created: "2026-08-21T15:02:07.783242+02:00"
+    description: Microcks - API Mocking and Testing
+    digest: 9e601eb245eb8b762b9d587d5312a4304f3d9a89fb05e0e394ecdcb69c062acb
+    home: https://microcks.io
+    icon: https://microcks.io/images/microcks-big.png
+    keywords:
+    - mocks
+    - microservice
+    - api
+    - test
+    kubeVersion: '>=1.17.0-0'
+    maintainers:
+    - email: laurent.broudoux@gmail.com
+      name: Laurent Broudoux
+    name: microcks
+    sources:
+    - http://github.com/microcks/microcks/
+    - https://microcks.io
+    type: application
+    urls:
+    - https://microcks.io/helm/microcks-1.15.0.tgz
+    version: 1.15.0
+  - apiVersion: v2
     appVersion: 1.15.0-rc1
     created: "2026-06-22T14:17:17.896378+02:00"
     description: Microcks - API Mocking and Testing
@@ -844,6 +868,27 @@ entries:
   microcks-operator:
   - apiVersion: v2
     appVersion: latest
+    created: "2026-08-14T17:30:28.190139+02:00"
+    description: Helm chart to install the Microcks Operator and CRDs
+    digest: 13548e289ec63b6ca52ee831a61e5fa9886b4b46bcd4daf08206f6834a7ca258
+    home: https://microcks.io/
+    keywords:
+    - microcks
+    - operator
+    - kubernetes-operator
+    kubeVersion: '>=1.22.0-0'
+    maintainers:
+    - name: Microcks Maintainers
+      url: https://github.com/microcks
+    name: microcks-operator
+    sources:
+    - https://github.com/microcks/microcks-operator
+    type: application
+    urls:
+    - https://microcks.io/helm/microcks-operator-0.0.11.tgz
+    version: 0.0.11
+  - apiVersion: v2
+    appVersion: latest
     created: "2026-06-22T16:53:38.174449+02:00"
     description: Helm chart to install the Microcks Operator and CRDs
     digest: 1ed0b758f52b7c174414a01d9b135635a00cc1f88214856b5073f2efad475c23
@@ -926,4 +971,4 @@ entries:
     urls:
     - https://microcks.io/helm/microcks-operator-0.0.6.tgz
     version: 0.0.6
-generated: "2026-06-22T16:53:38.172541+02:00"
+generated: "2026-08-21T15:02:07.782017+02:00"

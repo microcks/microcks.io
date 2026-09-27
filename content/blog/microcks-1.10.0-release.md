@@ -89,7 +89,7 @@ operations:
         }
 ```
 
-This format is intended for use as a secondary artifact. It would be a companion to our existing [APIMetada format](https://microcks.io/documentation/references/metadada/) but dedicated to API Examples.
+This format is intended for use as a secondary artifact. It would be a companion to our existing [APIMetada format](https://microcks.io/documentation/references/metadata/) but dedicated to API Examples.
 
 > Be sure to read our [API Examples Format](https://microcks.io/documentation/references/examples/) reference documentation that details the different properties available and how to use this format for different types of APIs.
 

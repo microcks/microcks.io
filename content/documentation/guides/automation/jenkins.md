@@ -53,7 +53,7 @@ When defining a new project in the Jenkins GUI, you may want to add a new step, 
 
 The parameters that can be set here are:
 
-* The `Server`: this is the `Name` of your running instance of Microcks that is registered into Jenkins (see the [previous setup step](./#2-setup-the-jenkins-plugin)),
+* The `Server`: this is the `Name` of your running instance of Microcks that is registered into Jenkins (see the [previous setup step](./#2-set-up-the-jenkins-plugin)),
 * The `Comma separated list of API specification` to import: this is simply a `/my/file/path[:is_primary],/my/file/path2[:is_primary]` expression. You should point to local files in your job workspace, typically those coming from a checkout or clone from the source repository. Optionally, you can specify if they should be considered as `main` or `primary` artifact (`true` value) or `secondary` artifact (`false` value). See [Multi-artifacts explanations](/documentation/explanations/multi-artifacts) documentation. The default is `true`, so it is considered primary.
 
 #### DSL plugin usage
@@ -82,7 +82,7 @@ node('master') {
 
 The parameters that can be set here are the same as those in `Build Step` usage, but take care of cases and typos:
 
-* The `server`: this is the `Name` of your running instance of Microcks that is registered into Jenkins (see the [previous setup step](./#2-setup-the-jenkins-plugin)),
+* The `server`: this is the `Name` of your running instance of Microcks that is registered into Jenkins (see the [previous setup step](./#2-set-up-the-jenkins-plugin)),
 * The `specificationFiles`: this is simply a `/my/file/path[:is_primary],/my/file/path2[:is_primary]` expression.
 
 ### Launch Test
@@ -95,7 +95,7 @@ When defining a new project in Jenkins GUI, you may want to add a new `Launch Mi
 
 The parameters that can be set here are:
 
-* The `Server`: this is the `Name` of your running instance of Microcks that is registered into Jenkins (see the [previous setup step](./#2-setup-the-jenkins-plugin)),
+* The `Server`: this is the `Name` of your running instance of Microcks that is registered into Jenkins (see the [previous setup step](./#2-set-up-the-jenkins-plugin)),
 * The `Service Identifier` to launch tests for: this is simply a `service_name:service_version` expression,
 * The `Test Endpoint` to test: this is a valid endpoint where your service or API implementation has been deployed,
 * The `Runner Type` to use: this is the test strategy you may want to have regarding the endpoint,
@@ -136,7 +136,7 @@ node('maven') {
 
 The parameters that can be set here are the same as those in `Build Step` usage, but take care of cases and typos:
 
-* The `server`: this is the `Name` of your running instance of Microcks that is registered into Jenkins (see the [previous setup step](./#2-setup-the-jenkins-plugin)),
+* The `server`: this is the `Name` of your running instance of Microcks that is registered into Jenkins (see the [previous setup step](./#2-set-up-the-jenkins-plugin)),
 * The `serviceId` to launch tests for: this is simply a `service_name:service_version` expression,
 * The `testEndpoint` to test: this is a valid endpoint where your service or API implementation has been deployed,
 * The `runnerType` to use: this is the test strategy you may want to have regarding the endpoint,

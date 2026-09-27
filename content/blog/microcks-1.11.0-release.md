@@ -32,7 +32,7 @@ With this new `1.11.0`, **we drastically enhanced the way that Constraints can b
 
 1️⃣ The [Parameters Constraints](https://microcks.io/documentation/guides/usage/mocks-constraints/) corresponding to `required` elements in query or headers are now automatically inferred and applied at runtime. Just try calling a Microcks mock missing a required header and you’ll now receive a `400` response indicating a malformed request,
 
-2️⃣ All the other constraints - type, regular expression, recopy, etc. - can now be specified in your OpenAPI or YAML artifacts using our [OpenAPI extension](https://microcks.io/documentation/references/artifacts/openapi-conventions/#openapi-extensions) or our own [APIMetadata format](https://microcks.io/documentation/references/metadada/#api-metadata-properties). You no longer need to issue an API call or connect to the console.
+2️⃣ All the other constraints - type, regular expression, recopy, etc. - can now be specified in your OpenAPI or YAML artifacts using our [OpenAPI extension](https://microcks.io/documentation/references/artifacts/openapi-conventions/#openapi-extensions) or our own [APIMetadata format](https://microcks.io/documentation/references/metadata/#api-metadata-properties). You no longer need to issue an API call or connect to the console.
 
 What about body payload? Applying full body payload validation on each incoming request can be impactful on behavior for existing users but also on performance. That’s why **we also introduced new validation-enabled mock endpoints** with this version! 
 

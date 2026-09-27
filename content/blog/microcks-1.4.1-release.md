@@ -58,7 +58,7 @@ operations:
     delay: 50
 ```
 
-> For more information on that feature, checkout the [APIMetadata documentation](https://microcks.io/documentation/references/metadada/). You can also embed such metadata directly into your [OpenAPI](https://www.openapis.org/) or [AsyncAPI](https://asyncapi.com) specification file. Please pursue your reading to the “OpenAPI & AsyncAPI Specification support” section `😉`
+> For more information on that feature, checkout the [APIMetadata documentation](https://microcks.io/documentation/references/metadata/). You can also embed such metadata directly into your [OpenAPI](https://www.openapis.org/) or [AsyncAPI](https://asyncapi.com) specification file. Please pursue your reading to the “OpenAPI & AsyncAPI Specification support” section `😉`
 
 
 ## Developer & Installation eXperiences
