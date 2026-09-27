@@ -1,7 +1,7 @@
 {{/* Canonical URL */}}
 {{ if not (eq .Kind "404") }}
   {{ $canonical := .Permalink }}
-  {{ if .IsNode }}
+  {{ if not .IsPage }}
     {{ if .Paginator }}
       {{ if gt .Paginator.PageNumber 1 }}
         {{ $canonical = .Paginator.URL | absURL }}
