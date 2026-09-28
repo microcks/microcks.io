@@ -3,7 +3,7 @@ draft: false
 title: "Test Parameters"
 date: 2024-04-29
 publishdate: 2024-04-29
-lastmod: 2024-06-13
+lastmod: 2026-09-28
 weight: 4
 ---
 
@@ -180,3 +180,21 @@ sns://{aws.region}/{sns.topic.name}[?param1=value1]
 | --------------- | ----------- |
 | `overrideUrl`   | The AWS endpoint override URI used for API calls. Handy for using SNS via [LocalStack](https://localstack.cloud) |
 
+
+#### IBM MQ
+
+> 💡 Available starting from Microcks `1.16.0`.
+
+[IBM MQ](https://www.ibm.com/products/mq) Test Endpoint has the following form with optional parameters placed just after a `?` and separated using the `&` character:
+
+```sh
+ibmmq://{brokerhost[:port]}/{queueManager}/{queue|topic}/{destination.name}[?param1=value1]
+```
+
+`queue` or `topic` is used to specify whether Microcks should connect using a point-to-point consumption on a queue or a publish/subscribe consumption on a topic. In the topic case, Microcks opens a managed, non-durable subscription that is automatically discarded once the test completes.
+
+| Optional Params | Description |
+| --------------- | ----------- |
+| `channel` | The server connection channel to use for connecting to the queue manager. Defaults to `DEV.APP.SVRCONN` if not specified. |
+
+As an example, you may have this kind of Test Endpoint values: `ibmmq://mqbroker.example.com:1414/QM1/queue/DEV.QUEUE.1` or `ibmmq://mqbroker.example.com:1414/QM1/topic/dev/topic?channel=DEV.APP.SVRCONN`
