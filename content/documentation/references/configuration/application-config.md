@@ -3,7 +3,7 @@ draft: false
 title: "Application Configuration"
 date: 2024-04-29
 publishdate: 2024-04-29
-lastmod: 2026-06-26
+lastmod: 2026-09-28
 weight: 1
 ---
 
@@ -352,4 +352,11 @@ amazonsns.credentials-type=env-variable
 amazonsns.credentials-profile-name=microcks-sns-admin
 amazonsns.credentials-profile-location=/deployments/config/amazon-sns/aws.profile
 #amazonsns.endpoint-override=http://localhost:4566
+
+# Access to IBM MQ broker.
+ibmmq.server=localhost:1414
+ibmmq.queue-manager=QM1
+ibmmq.channel=DEV.APP.SVRCONN
+ibmmq.username=
+ibmmq.password=
 ```
