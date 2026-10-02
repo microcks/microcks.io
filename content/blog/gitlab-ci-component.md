@@ -74,6 +74,10 @@ Some important things to notice here:
 
 Once this runs, your API specifications will be imported into Microcks, and your development team can immediately start consuming mock endpoints!
 
+Here's what the import job output looks like in GitLab:
+
+{{< image src="images/blog/gitlab-component-import-job.png" alt="GitLab job log of the microcks-import component" zoomable="true" >}}
+
 ## Running Contract Conformance Tests
 
 The second component, `microcks-test`, runs contract tests against your deployed API endpoints. This ensures your implementation matches your specification—automatically catching breaking changes before they reach production!
@@ -97,6 +101,10 @@ include:
 stages:
   - test
 ```
+
+When the test completes, the job log reports the result and gives you a link to the full test details in Microcks:
+
+{{< image src="images/blog/gitlab-component-test-job.png" alt="GitLab job log of the microcks-test component" zoomable="true" >}}
 
 ## Putting It All Together: A Pipeline sample
 
@@ -129,6 +137,10 @@ stages:
   - import
   - test
 ```
+
+Here's the resulting pipeline in GitLab, with the import stage followed by the test stage:
+
+{{< image src="images/blog/gitlab-component-pipeline.png" alt="GitLab pipeline with the import and test stages" zoomable="true" >}}
 
 If the contract test fails, the pipeline stops, preventing broken APIs from reaching production. It's continuous verification in action!
 
