@@ -1,8 +1,8 @@
 ---
 title: Streamline Your API Testing with Microcks GitLab Components
 date: 2025-10-16
-image: "images/blog/gitlab-components.png"
-author: "Salahddine ABERKAN"
+image: "images/blog/gitlab-component.png"
+author: "Salahddine Aberkan"
 type: "regular"
 description: "Discover how to seamlessly integrate API mocking and testing into your GitLab CI/CD pipelines using the new Microcks GitLab Components"
 draft: false
@@ -138,7 +138,7 @@ While `@~latest` is great for always getting improvements, you might want stabil
 
 ```yaml
 include:
-  - component: gitlab.com/microcks-cncf/microcks-community/microcks-gitlab-components/microcks-import@0.0.1
+  - component: gitlab.com/microcks-cncf/microcks-community/microcks-gitlab-components/microcks-import@0.0.2
 ```
 
 This ensures your pipeline behavior remains consistent even as new component versions are released.
@@ -161,4 +161,4 @@ Ready to give it a try? Check out the components in the [GitLab CI/CD Catalog](h
 
 ## Improve the GitLab Components!
 
-The Microcks GitLab Components are designed to cover the most common use cases, but we know there's always room for improvement! The underlying [Microcks CLI](https://github.com/microcks/microcks-cli) supports many **advanced options** and **flags** that aren't yet exposed as component inputs. Feel free to contibute!
+The Microcks GitLab Components are designed to cover the most common use cases, but we know there's always room for improvement! The underlying [Microcks CLI](https://github.com/microcks/microcks-cli) supports many **advanced options** and **flags** that aren't yet exposed as component inputs. Feel free to contribute!
