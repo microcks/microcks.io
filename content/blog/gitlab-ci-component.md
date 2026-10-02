@@ -13,7 +13,7 @@ tags:
   - "CI"
 ---
 
-In today's fast-paced development environment, API testing and contract validation are critical to shipping reliable software. But how do you efficiently integrate these practices into your GitLab CI/CD pipelines without complex configurations? That's exactly what we're solving with the **Microcks GitLab Components**! 
+In today's fast-paced development environment, API testing and contract validation are critical to shipping reliable software. But how do you efficiently integrate these practices into your GitLab CI/CD pipelines without complex configurations? That's exactly what we're solving with the **Microcks GitLab Components**!
 
 A reusable CI/CD components is now available in the [GitLab CI/CD Catalog](https://gitlab.com/explore/catalog/microcks-cncf/microcks-community/microcks-gitlab-components). These components make it incredibly easy to import API artifacts and run contract conformance tests directly from your pipeline—with just a few lines of YAML!
 
@@ -37,9 +37,10 @@ Before you begin, make sure you have:
 * The Service Account's `client_id` and `client_secret`
 
 > **Pro tip**: Store your credentials as masked GitLab CI variables for security! Navigate to Settings → CI/CD → Variables in your GitLab project and add:
-> - `MICROCKS_URL` → Your Microcks API endpoint
-> - `KEYCLOAK_CLIENT_ID` → Service Account client ID
-> - `KEYCLOAK_CLIENT_SECRET` → Service Account client secret
+>
+> * `MICROCKS_URL` → Your Microcks API endpoint
+> * `KEYCLOAK_CLIENT_ID` → Service Account client ID
+> * `KEYCLOAK_CLIENT_SECRET` → Service Account client secret
 
 ### Finding the Components in the Catalog
 
@@ -69,14 +70,11 @@ stages:
 ```
 
 Some important things to notice here:
+
 * You can customize the `stage` name to fit your pipeline structure
 * Using `@~latest` ensures you always get the most recent component version
 
 Once this runs, your API specifications will be imported into Microcks, and your development team can immediately start consuming mock endpoints!
-
-Here's what the import job output looks like in GitLab:
-
-{{< image src="images/blog/gitlab-component-import-job.png" alt="GitLab job log of the microcks-import component" zoomable="true" >}}
 
 ## Running Contract Conformance Tests
 
@@ -102,20 +100,15 @@ stages:
   - test
 ```
 
-When the test completes, the job log reports the result and gives you a link to the full test details in Microcks:
-
-{{< image src="images/blog/gitlab-component-test-job.png" alt="GitLab job log of the microcks-test component" zoomable="true" >}}
-
 ## Putting It All Together: A Pipeline sample
 
 Let's see how both components work together in a real-world pipeline. [The following example](https://gitlab.com/saberkan_personal/microcks-gitlab-components/-/tree/testing_components?ref_type=heads) demonstrates how to import a local spec file, and how to run the test against a running API.
 
 To run this example, you will need to:
-- Configure `$MICROCKS_DN` and `$PASTRY_API_DN` as GitLab CI variable.
-- Run the [Pastry API](https://microcks.io/documentation/tutorials/getting-started-tests/#deploying-the-api-implementation)
-- Configure a running [Microcks instance in Dev mode](https://microcks.io/documentation/guides/installation/docker-compose/#development-mode)
-- Load the [Pastry sample](https://microcks.io/documentation/tutorials/getting-started/#loading-a-sample) 
-
+* Configure `$MICROCKS_DN` and `$PASTRY_API_DN` as GitLab CI variable.
+* Run the [Pastry API](https://microcks.io/documentation/tutorials/getting-started-tests/#deploying-the-api-implementation)
+* Configure a running [Microcks instance in Dev mode](https://microcks.io/documentation/guides/installation/docker-compose/#development-mode)
+* Load the [Pastry sample](https://microcks.io/documentation/tutorials/getting-started/#loading-a-sample)
 
 ```yaml
 # .gitlab-ci.yml
@@ -165,12 +158,12 @@ The beauty of GitLab Components is that all this complexity is abstracted away�
 
 With the Microcks GitLab Components, integrating API mocking and contract testing into your CI/CD pipelines has never been easier. You get:
 
-- **Simple integration** - Just include the component, no complex scripts
-- **Reusable configuration** - Use across all your projects
-- **Version control** - Pin versions or stay on latest
+* **Simple integration** - Just include the component, no complex scripts
+* **Reusable configuration** - Use across all your projects
+* **Version control** - Pin versions or stay on latest
 
 Ready to give it a try? Check out the components in the [GitLab CI/CD Catalog](https://gitlab.com/explore/catalog/microcks-cncf/microcks-community/microcks-gitlab-components) and start mocking!
 
-## Improve the GitLab Components!
+## Improve the GitLab Components
 
 The Microcks GitLab Components are designed to cover the most common use cases, but we know there's always room for improvement! The underlying [Microcks CLI](https://github.com/microcks/microcks-cli) supports many **advanced options** and **flags** that aren't yet exposed as component inputs. Feel free to contribute!
