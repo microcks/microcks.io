@@ -1,5 +1,14 @@
 {{ "<!-- unified navigation -->" | safeHTML }}
-<header class="navigation {{ if .IsPage }}{{ if eq .Type "documentation" }}doc-navigation{{ end }}{{ end }}">
+{{ $announcement := and .IsHome .Params.announcement.enable }}
+<header class="navigation {{ if .IsPage }}{{ if eq .Type "documentation" }}doc-navigation{{ end }}{{ end }}{{ if $announcement }} has-announcement{{ end }}">
+  {{ if $announcement }}
+  {{ with .Params.announcement }}
+  <a class="announcement-banner" href="{{ .link | safeURL }}" target="_blank" rel="noopener">
+    <span class="announcement-banner-text">{{ .text }}</span>
+    {{ with .cta }}<span class="announcement-banner-cta">{{ . }}</span>{{ else }}<i class="fa-solid fa-arrow-right"></i>{{ end }}
+  </a>
+  {{ end }}
+  {{ end }}
   <div class="container">
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg">
@@ -166,6 +175,21 @@
   </div>
 </header>
 {{ "<!-- /unified navigation -->" | safeHTML }}
+
+{{ if $announcement }}
+<script>
+  (function () {
+    var banner = document.querySelector('.announcement-banner');
+    if (!banner) return;
+    var update = function () {
+      document.documentElement.style.setProperty('--announcement-height', banner.offsetHeight + 'px');
+    };
+    update();
+    window.addEventListener('resize', update);
+    window.addEventListener('load', update);
+  })();
+</script>
+{{ end }}
 
 <!-- theme switcher -->
 {{ if site.Params.theme_switcher }}

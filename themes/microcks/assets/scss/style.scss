@@ -45,3 +45,4 @@ $font-icon: '{{.font_icon | default "Font Awesome 6 Free"}}';
 @import 'preloader';
 @import 'templates/footer';
 @import 'herobanner';
+@import 'announcement';
