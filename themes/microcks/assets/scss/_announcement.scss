@@ -47,8 +47,10 @@ $announcement-height: 44px;
 }
 
 // Push the hero down by the banner height since the header is fixed.
-.has-announcement + main .herobanner {
-    margin-top: calc(12vh + #{$announcement-height});
+// A <script> sits between </header> and <main>, so use the general sibling combinator.
+// --announcement-height is set from the banner's measured height in header.html.
+.has-announcement ~ main .herobanner {
+    margin-top: calc(12vh + var(--announcement-height, #{$announcement-height}));
 }
 
 @media screen and (max-width: 768px) {
@@ -56,7 +58,15 @@ $announcement-height: 44px;
         font-size: 0.85rem;
     }
 
-    .has-announcement + main .herobanner {
-        margin-top: calc(10vh + #{$announcement-height + 20px});
+    .has-announcement ~ main .herobanner {
+        margin-top: calc(10vh + var(--announcement-height, #{$announcement-height}) + 20px);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .announcement-banner {
+        font-size: 0.78rem;
+        padding: 0.4rem 0.75rem;
+        gap: 0.35rem;
     }
 }

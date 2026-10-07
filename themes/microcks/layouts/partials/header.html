@@ -176,6 +176,21 @@
 </header>
 {{ "<!-- /unified navigation -->" | safeHTML }}
 
+{{ if $announcement }}
+<script>
+  (function () {
+    var banner = document.querySelector('.announcement-banner');
+    if (!banner) return;
+    var update = function () {
+      document.documentElement.style.setProperty('--announcement-height', banner.offsetHeight + 'px');
+    };
+    update();
+    window.addEventListener('resize', update);
+    window.addEventListener('load', update);
+  })();
+</script>
+{{ end }}
+
 <!-- theme switcher -->
 {{ if site.Params.theme_switcher }}
 <script>
