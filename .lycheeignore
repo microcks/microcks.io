@@ -39,5 +39,10 @@ https://gitter\.im/
 # of user-agent). The page loads fine in a real browser.
 https://insights\.lfx\.linuxfoundation\.org/
 
+# Ignore the false positives, which are mainly caused by CDN protections....
+https://www.adobe.com/
+https://asciinema.org/a/342055.png
+https://asciinema.org/a/342055
+
 # Ignore
 \{\{*\}\}
