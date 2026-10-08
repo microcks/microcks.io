@@ -329,4 +329,15 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
+
+  // Delegated event listener for CTA clicks (Analytics)
+  document.addEventListener('click', function(e) {
+    const ctaElement = e.target.closest('[data-cta]');
+    if (ctaElement && typeof gtag === 'function') {
+      const label = ctaElement.getAttribute('data-cta');
+      gtag('event', 'cta_click', {
+        'label': label
+      });
+    }
+  });
 });
