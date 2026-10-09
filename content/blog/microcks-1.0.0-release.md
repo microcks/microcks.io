@@ -53,7 +53,7 @@ Many users from the community also asked for enhancements when reusing an existi
 
 > More details here: https://github.com/microcks/microcks/issues/237
 
-Finally, we did move our container images repositories from [Docker Hub](https://hub.docker.com/orgs/microcks) to [Quay.io](https://quay.io/) infrastructure. The major reason for moving to Quay.io is their excellent, built-in security vulnerabilities scan for container images. Now, for each and every commit into the Microcks repository, newly produced container images are scanned and trigger a notification if a vulnerability is found.
+Finally, we did move our container images repositories from [Docker Hub](https://hub.docker.com/u/microcks) to [Quay.io](https://quay.io/) infrastructure. The major reason for moving to Quay.io is their excellent, built-in security vulnerabilities scan for container images. Now, for each and every commit into the Microcks repository, newly produced container images are scanned and trigger a notification if a vulnerability is found.
 
 {{< image src="images/blog/microcks-1.0.0-release-quay.png" alt="image" zoomable="true" >}}
 
