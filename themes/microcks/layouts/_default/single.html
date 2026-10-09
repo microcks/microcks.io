@@ -8,9 +8,9 @@
     <div class="row">
       <div class="col-lg-8 mx-auto">
         <!-- don't put blog image on top of post again, as we always include them in the text -->
-        <!--
+        {{/*
         {{ partial "image" (dict "Src" .Params.image "Alt" .Title "Class" "rounded-2 w-100 mb-5") }}
-        -->
+        */}}
         {{- template "author-image-name" dict "author" .Params.Author -}}
         
         {{ range .Page.Params.coauthors }}
