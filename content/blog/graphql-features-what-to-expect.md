@@ -15,7 +15,7 @@ At Microcks, we also identified the importance of GraphQL and thought that’s a
 
 {{< image src="images/blog/graphql-features.png" alt="image" zoomable="true" >}}
 
-You’ll see that GraphQL is no different from the other API standards we are supporting in Microcks like [OpenAPI](https://openapi.org), [AsyncAPI](https://asyncapi.org) and [gRPC](https://grpc.io). We stick to our mantra of providing a homogeneous approach whatever the technology stack, embracing diversity. But GraphQL flexibility from the consumer point of view was another opportunity to demonstrate the smartness of our engine and hence deserved this blog post.
+You’ll see that GraphQL is no different from the other API standards we are supporting in Microcks like [OpenAPI](https://openapis.org), [AsyncAPI](https://asyncapi.org) and [gRPC](https://grpc.io). We stick to our mantra of providing a homogeneous approach whatever the technology stack, embracing diversity. But GraphQL flexibility from the consumer point of view was another opportunity to demonstrate the smartness of our engine and hence deserved this blog post.
 
 Before diving into the mocking and testing features, let’s just have a quick review at what you’ll need to use them on Microcks.
 
