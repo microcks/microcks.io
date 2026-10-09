@@ -3,11 +3,12 @@
 
 name: Hugo Build and Status Check
 
-# Trigger the workflow on push events to the main branch
+# Trigger the workflow for changes targeting the main branch
 on:
-  # ucomment the following line if you want to run the workflow manually
-  # workflow_dispatch:
   push:
+    branches:
+      - master
+  pull_request:
     branches:
       - master
 
@@ -26,9 +27,8 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@2752ce1d29631191ea3f27c23495fa06139a5b78 # v3.2.1
         with:
-          # Always use the latest version of Hugo, in case of issue with the latest version, 
-          # you can specify a specific version using '0.125.5'
-          hugo-version: 'latest'
+          # Keep this aligned with .hugo-version and netlify.toml.
+          hugo-version: '0.165.0'
           # Set the extended option to true to install the extended version of Hugo, mandatory for Microcks website
           extended: true
 
