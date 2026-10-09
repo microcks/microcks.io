@@ -17,7 +17,7 @@ One easy way of installing Microcks is via a [Helm Chart](https://helm.sh/). Kub
 
 ## Helm 3 Chart
 
-Microcks provides a Helm 3 chart that is now available on our own repository: https://microcks.io/helm. This allows you to install Microcks with just 3 commands:
+Microcks provides a Helm 3 chart that is now available on our own repository: https://microcks.io/helm. This is a repository URL meant to be used with the `helm repo add` command. It is not a web page, so it isn't intended to be opened in a browser. This allows you to install Microcks with just 3 commands:
 
 ```sh
 helm repo add microcks https://microcks.io/helm
