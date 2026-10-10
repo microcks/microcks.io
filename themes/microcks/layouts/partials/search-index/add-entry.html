@@ -1,0 +1,12 @@
+{{- $page := .page -}}
+{{- $scratch := .scratch -}}
+{{- $url := $page.Permalink -}}
+{{- if not (in ($scratch.Get "urls") $url) -}}
+  {{- $title := $page.Title -}}
+  {{- if $page.Params.bannertext -}}
+    {{- $title = $page.Params.bannertext -}}
+  {{- end -}}
+  {{- $entry := dict "section" .section "url" $url "title" (htmlEscape $title) "description" (htmlEscape $page.Description) "searchKeyword" (htmlEscape $page.Params.searchKeyword) "content" $page.Plain -}}
+  {{- $scratch.Add "urls" (slice $url) -}}
+  {{- $scratch.Add "entries" (slice $entry) -}}
+{{- end -}}
