@@ -1,12 +1,13 @@
-# This GitHub Action builds and serves a Hugo website, checking for build errors on each push to the master branch.
+# This GitHub Action builds the Hugo website and validates its search index on pull requests and pushes to master.
 # The build status is checked, and if the build fails, the commit is blocked.
 
 name: Hugo Build and Status Check
 
 # Trigger the workflow on push events to the main branch
 on:
-  # ucomment the following line if you want to run the workflow manually
-  # workflow_dispatch:
+  pull_request:
+    branches:
+      - master
   push:
     branches:
       - master
@@ -33,8 +34,8 @@ jobs:
           extended: true
 
       # Step to build the site
-      - name: Build site
-        run: hugo --minify
+      - name: Build and validate search index
+        run: npm run test:search-index
         id: build
 
       # Step to start Hugo server in the background
