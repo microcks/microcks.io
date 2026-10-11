@@ -11,7 +11,7 @@ Params:
     - "Yacine Kheddache"
 ---
 
-As the world of finance undergoes **rapid digital transformation**, the need for **innovation** that aligns with **sustainable practices** has never been greater. At [BNP Paribas](https://personal-finance.bnpparibas/app/uploads/sites/4/2024/04/20240414_pres_instit_bnppf_externe_en-1.pdf), one of the world's leading banking institutions, we are proud to be at the [forefront](https://group.bnpparibas/en/our-commitments/innovation/open-innovation) of this [movement](https://group.bnpparibas/en/our-commitments/transitions/energy-efficiency).
+As the world of finance undergoes **rapid digital transformation**, the need for **innovation** that aligns with **sustainable practices** has never been greater. At [BNP Paribas](https://personal-finance.bnpparibas/wp-content/uploads/sites/4/2026/05/pres_instit_bnppf_externe_en-1.pdf), one of the world's leading banking institutions, we are proud to be at the [forefront](https://group.bnpparibas/en/our-commitments/innovation/open-innovation) of this [movement](https://group.bnpparibas/en/our-commitments/transitions/energy-efficiency).
 
 Our French Retail Banking entity (BCEF) is driving this change, with [Microcks](https://microcks.io/), a Cloud Native Computing Foundation (CNCF) [Sandbox project](https://microcks.io/blog/microcks-a-thriving-year-in-the-cncf-sandbox/), playing an instrumental role.
 
