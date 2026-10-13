@@ -21,7 +21,7 @@ When using the [Helm Chart](/documentation/references/configuration/helm-chart-c
 <details>
   <summary><strong>Microcks Operator</strong></summary>
 
-When using the [Microcks Operator](/documentation/references/configuration/operator-config/), to deploy Microcks, the `Microcks` Custom Resource holds a `microcks.logLevel` property you can set to `DEBUG`. Change your CR to something like belob before re-deploying it:
+When using the [Microcks Operator](/documentation/references/configuration/operator-config/), to deploy Microcks, the `Microcks` Custom Resource holds a `microcks.logLevel` property you can set to `DEBUG`. Change your CR to something like below before re-deploying it:
 
 ```yaml
 apiVersion: microcks.io/v1alpha1
@@ -43,7 +43,7 @@ After the next operator reconciliation, the log level is changed in both the mai
 <details>
   <summary><strong>Docker or Podman Compose</strong></summary>
 
-When using [Docker or Podman Compose](/documentation/guides/installation/docker-compose/) for running Microcks, you just have to add additional environment variables to the `microcks` and `microcks-async-minoin` containers. 
+When using [Docker or Podman Compose](/documentation/guides/installation/docker-compose/) for running Microcks, you just have to add additional environment variables to the `microcks` and `microcks-async-minion` containers. 
 
 You just have to edit the `docker-compose.yml` file to uncomment/enable the correct environment variables:
 
