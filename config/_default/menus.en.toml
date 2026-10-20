@@ -74,7 +74,7 @@ url = "/documentation/references"
 # footer menu left
 [[footer_left]]
 name = "Quick Start"
-url = "./documentation/tutorials/getting-started/"
+url = "/documentation/tutorials/getting-started/"
 
 # footer menu middle
 [[footer_middle]]
