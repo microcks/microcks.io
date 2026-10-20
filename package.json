@@ -14,7 +14,7 @@
     "format": "prettier -w ."
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^5.0.0",
+    "@fullhuman/postcss-purgecss": "^8.0.0",
     "postcss": "^8.5.28",
     "postcss-cli": "^10.1.0",
     "prettier": "^2.8.1",
