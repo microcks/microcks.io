@@ -1,0 +1,23 @@
+{{- $scratch := newScratch -}}
+{{- $scratch.Set "urls" (slice) -}}
+{{- range .Pages.GroupBy "Section" -}}
+  {{- range $page := .Pages -}}
+    {{- if and (not $page.Params.ignoreSearch) (ne $page.Type "json") -}}
+      {{- partial "search-index/add-entry.html" (dict "page" $page "section" "" "scratch" $scratch) -}}
+    {{- end -}}
+
+    {{- if $page.Section -}}
+      {{- $sectionPages := (where site.Pages "Section" $page.Section) | intersect (where site.Pages ".Title" "!=" $page.Title) -}}
+      {{- range $sectionPages -}}
+        {{- if and (not .Params.ignoreSearch) (ne .Type "json") -}}
+          {{- partial "search-index/add-entry.html" (dict "page" . "section" (.Section | humanize) "scratch" $scratch) -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- with $scratch.Get "entries" -}}
+  {{- . | jsonify -}}
+{{- else -}}
+  []
+{{- end -}}
