@@ -15,6 +15,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 3rem;
   margin-top: 4rem;
+  margin-bottom: 3rem;
 }
 .card {
   display: flex;
