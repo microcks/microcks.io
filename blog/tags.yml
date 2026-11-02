@@ -17,3 +17,13 @@ microcks:
   label: microcks
   permalink: /microcks
   description: Articles about Microcks
+
+gitlab:
+  label: gitlab
+  permalink: /gitlab
+  description: Articles about GitLab
+
+ci:
+  label: ci
+  permalink: /ci
+  description: Articles about CI/CD

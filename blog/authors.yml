@@ -103,6 +103,15 @@ nikolay-afanasyev:
   page: true
   socials:
     github: https://github.com/Afanas10101111
+salahddine-aberkan:
+  name: Salahddine Aberkan
+  title: Solutions Architect at GitLab
+  image_url: /images/blog/bio/saberkan.jpg
+  page: true
+  socials:
+    linkedin: https://www.linkedin.com/in/saberkan/
+    github: https://github.com/saberkan
+    gitlab: https://gitlab.com/saberkan
 sebastien-fraigneau:
   name: Sebastien Fraigneau
   title: Senior Software Engineer at CNAM
