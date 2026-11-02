@@ -53,8 +53,11 @@ function Card({post, featured}) {
 export default function BlogPostItems({items}) {
   const {pathname} = useLocation();
   const isIndex = /^\/blog\/?$/.test(pathname);
-  const [first, ...rest] = items;
-  const cards = isIndex ? rest : items;
+  // Featured card = newest post tagged `featured` (like the former Hugo `type: featured`); falls back to the newest post
+  const isFeatured = ({content}) => content.metadata.tags.some(t => t.label.toLowerCase() === 'featured');
+  const featuredIdx = Math.max(items.findIndex(isFeatured), 0);
+  const first = items[featuredIdx];
+  const cards = isIndex ? items.filter((_, i) => i !== featuredIdx) : items;
   return (
     <>
       {isIndex && (
