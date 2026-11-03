@@ -702,7 +702,8 @@ main h2 a:not(.button),
 }
 
 /* Category index pages: tiles with full description and tags */
-.theme-doc-card-description { white-space: normal; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.theme-doc-card-title.text--truncate { white-space: normal; overflow: visible; text-overflow: clip; }
+.theme-doc-card-description.text--truncate { white-space: normal; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .theme-doc-markdown [class*='cardContainer'] { height: 100%; }
 .mk-card-tags { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .75rem; }
 .mk-card-tag { font-size: .75rem; font-weight: 600; padding: .1rem .55rem; border-radius: 999px; background: var(--ifm-color-primary-lightest); color: #0b3a5c; }
