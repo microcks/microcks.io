@@ -1,4 +1,6 @@
 ---
+sidebar_custom_props:
+  tags: [Local K8s, Helm]
 title: On Kind with Helm
 sidebar_position: 4
 last_update:

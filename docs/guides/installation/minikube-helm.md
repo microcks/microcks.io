@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Local K8s, Helm]
 title: On Minikube with Helm
 sidebar_position: 5
 last_update:
   date: '2024-06-13'
-description: This guide will walk you through the different steps of running a full Microcks installation on your laptop using Minikube.
+description: "Full Microcks install on a local Minikube cluster using the Helm chart."
 ---
 
 ## Overview 
