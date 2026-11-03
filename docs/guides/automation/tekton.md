@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [CI/CD, Kubernetes, Tekton]
 title: Using Tekton Pipeline
 sidebar_position: 8
 last_update:
   date: '2024-06-10'
-description: This guide shows you how to integrate Microcks into your Tekton Pipelines.
+description: "Install the Microcks Tasks in your cluster and chain import and test steps in a Pipeline."
 ---
 
 ## Overview

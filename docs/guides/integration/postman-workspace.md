@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Postman, Importer]
 title: Connecting to Postman Workspaces
 sidebar_position: 8
 last_update:
   date: '2024-06-18'
-description: Postman Workspaces are a common and effective way of organizing your team's API work.
+description: "Import collections straight from a Postman Workspace with an API key and an Importer."
 ---
 
 ## Overview 

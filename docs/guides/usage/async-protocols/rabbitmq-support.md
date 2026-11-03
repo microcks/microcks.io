@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [RabbitMQ, AMQP]
 title: RabbitMQ Mocking & Testing
 sidebar_position: 4
 last_update:
   date: '2024-05-13'
-description: This guide shows you how to use the RabbitMQ protocol with Microcks.
+description: "Connect Microcks to RabbitMQ to publish mock messages and test exchanges."
 ---
 
 ## Overview

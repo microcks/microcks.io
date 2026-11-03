@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [CI/CD, GitHub]
 title: Using GitHub Actions
 sidebar_position: 3
 last_update:
   date: '2024-06-10'
-description: This guide shows you how to integrate Microcks into your Github Actions workflows.
+description: "Import artifacts and run Microcks tests in GitHub workflows with the Marketplace actions."
 ---
 
 ## Overview

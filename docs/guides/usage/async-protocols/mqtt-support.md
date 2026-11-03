@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [MQTT, IoT]
 title: MQTT Mocking & Testing
 sidebar_position: 3
 last_update:
   date: '2024-05-13'
-description: This guide shows you how to use the Message Queuing Telemetry Transport (MQTT) protocol with Microcks.
+description: "Connect Microcks to an MQTT broker to publish mock messages and test topics."
 ---
 
 ## Overview

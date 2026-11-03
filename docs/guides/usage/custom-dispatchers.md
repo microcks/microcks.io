@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Dispatcher, Advanced]
 title: Setting custom dispatcher
 sidebar_position: 2
 last_update:
   date: '2025-11-09'
-description: Custom dispatchers let you control how Microcks selects the response example to return for a given request.
+description: "Control which example Microcks returns by setting the dispatcher and rules of an operation."
 ---
 
 ## Overview

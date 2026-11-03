@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Admin, Security]
 title: Accessing secured Resources
 sidebar_position: 3
 last_update:
   date: '2024-06-13'
-description: Quickly after your initial experience with Microcks, you'll realize that it needs to access some of your private resources for smooth integration in your…
+description: "Store tokens, credentials and certificates Importers need to reach private resources."
 ---
 
 ## Overview

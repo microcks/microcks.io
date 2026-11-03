@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Admin, Labels]
 title: Organizing Repository
 sidebar_position: 1
 last_update:
   date: '2024-06-13'
-description: This guide walks through the different techniques for organizing your API & Services repository content in Microcks.
+description: "Use labels to filter the API repository and split management between teams."
 ---
 
 ## Overview

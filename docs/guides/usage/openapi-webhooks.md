@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [OpenAPI, Webhooks]
 title: Simulating OpenAPI Webhooks
 sidebar_position: 6
 last_update:
   date: '2026-03-05'
-description: In OpenAPI v3 specs, you can define webhooks - even if closely related to or confused with the callbacks feature those are different beasts.
+description: "Simulate and test OpenAPI 3.1 webhooks, and see how they differ from callbacks."
 ---
 
 ## Overview

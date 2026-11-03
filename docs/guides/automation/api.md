@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [REST API, Keycloak]
 title: Connecting to Microcks API
 sidebar_position: 1
 last_update:
   date: '2024-09-30'
-description: This guide shows you how to authenticate to and use the Microcks API for better automation of tasks.
+description: "Get an OAuth2 token from Keycloak with a service account and call the Microcks REST API."
 ---
 
 ## Overview
