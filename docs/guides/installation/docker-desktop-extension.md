@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Local, No CLI, ~2 min]
 title: As a Docker Desktop Extension
 sidebar_position: 1
 last_update:
   date: '2024-05-24'
-description: This guide shows you how to install Microcks as a Docker Desktop Extension on your local machine.
+description: "One-click install from Docker Desktop, no terminal needed. Quickest way to try Microcks on your laptop."
 ---
 
 This guide shows you how to install Microcks as a Docker Desktop Extension on your local machine. This way of installing Microcks is very convenient for people who want to start quickly with the most common Microcks capabilities and without hitting the terminal 👻

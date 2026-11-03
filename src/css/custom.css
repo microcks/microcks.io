@@ -701,59 +701,12 @@ main h2 a:not(.button),
   color: var(--mk-blue);
 }
 
-/* Category index pages: plain list of links like the original */
-.theme-doc-markdown .row:has([class*='cardContainer']) {
-  display: block;
-}
-.theme-doc-markdown .row > .col[class*='col--6'] {
-  max-width: 100%;
-  padding: 0;
-}
-.theme-doc-markdown [class*='cardContainer'] {
-  --ifm-link-hover-color: var(--mk-blue);
-  border: 0;
-  box-shadow: none;
-  margin: 0 0 1rem;
-  padding: 0;
-  background: transparent;
-}
-.theme-doc-markdown [class*='cardContainer'] [class*='cardTitle'] {
-  font-family: var(--mk-font-heading);
-  font-size: 1.4rem;
-  font-weight: 500;
-  margin: 0;
-  text-decoration: none;
-}
-.theme-doc-markdown [class*='cardContainer'] [class*='cardDescription'] {
-  display: none;
-}
-.theme-doc-markdown [class*='cardContainer'].card {
-  padding: 0;
-  margin: 0 0 0.6rem;
-  min-height: 0;
-}
-.theme-doc-markdown [class*='cardContainer'] [class*='cardTitle'] {
-  text-overflow: clip;
-  white-space: normal;
-}
-main .theme-doc-markdown a[class*='cardContainer']:hover [class*='cardTitle'] {
-  color: var(--mk-blue);
-}
-.theme-doc-markdown [class*='cardContainer'].card {
-  padding: 0 !important;
-}
-.theme-doc-markdown .row > [class*='docCardListItem'] {
-  margin-bottom: 0 !important;
-}
-.theme-doc-markdown [class*='cardContainer'] [class*='cardTitleIcon'] {
-  display: none;
-}
-.theme-doc-markdown .row:has([class*='cardContainer']) {
-  margin: 0;
-}
-main .theme-doc-markdown a[class*='cardContainer']:not(.button) {
-  text-decoration: none;
-}
+/* Category index pages: tiles with full description and tags */
+.theme-doc-card-description { white-space: normal; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.theme-doc-markdown [class*='cardContainer'] { height: 100%; }
+.mk-card-tags { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .75rem; }
+.mk-card-tag { font-size: .75rem; font-weight: 600; padding: .1rem .55rem; border-radius: 999px; background: var(--ifm-color-primary-lightest); color: #0b3a5c; }
+.mk-card-children { margin: .25rem 0 0; padding-left: 1.1rem; font-size: .9rem; color: var(--ifm-color-emphasis-700); }
 
 /* Agent directive: visually hidden but kept in the DOM so it survives HTML-to-Markdown conversion */
 .llms-txt-directive {
@@ -802,3 +755,18 @@ main .theme-doc-markdown a[class*='cardContainer']:not(.button) {
     padding: 0 0.75rem;
   }
 }
+
+/* Tiles polish */
+main .theme-doc-markdown a[class*='cardContainer'],
+main .theme-doc-markdown a[class*='cardContainer'] * { text-decoration: none !important; }
+.theme-doc-markdown a[class*='cardContainer'].card {
+  display: flex; flex-direction: column; justify-content: flex-start;
+  min-height: 0; padding: 1.25rem 1.4rem !important; border: 1px solid var(--ifm-color-emphasis-200);
+  box-shadow: none; transition: border-color .15s, box-shadow .15s;
+}
+.theme-doc-markdown a[class*='cardContainer'].card:hover { border-color: var(--ifm-color-primary); box-shadow: 0 4px 14px rgba(0,0,0,.06); }
+.theme-doc-markdown [class*='cardContainer'] h2.theme-doc-card-heading { font-size: 1.15rem; margin: 0 0 .5rem !important; }
+.theme-doc-markdown [class*='cardContainer'] [class*='cardTitle'] [class*='cardTitleText'],
+.theme-doc-markdown [class*='cardContainer'] .theme-doc-card-title { white-space: normal; overflow: visible; text-overflow: clip; }
+.theme-doc-markdown [class*='cardContainer'] .theme-doc-card-description { font-size: .9rem; color: var(--ifm-color-emphasis-800); margin: 0; }
+.theme-doc-markdown .row > [class*='docCardListItem'] { margin-bottom: 1rem; }

@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Kubernetes, Production, Operator]
 title: On Kubernetes with Operator
 sidebar_position: 9
 last_update:
   date: '2025-06-03'
-description: This guide shows you how to deploy and use the Microcks Kubernetes Operator.
+description: "Deploy and manage Microcks on any Kubernetes cluster with the Operator and its Custom Resources."
 ---
 
 ## Overview

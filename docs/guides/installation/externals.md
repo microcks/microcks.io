@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Advanced, Customization]
 title: Adding external dependencies
 sidebar_position: 20
 last_update:
   date: '2025-01-17'
-description: This guide is a walkthrough that exposes Microcks extension capabilities and explains how to leverage them.
+description: "Extend Microcks images with your own libraries and code (Groovy SCRIPT dispatcher, custom libs)."
 ---
 
 ## Overview

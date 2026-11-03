@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Local, Podman]
 title: With Podman Compose
 sidebar_position: 3
 last_update:
   date: '2024-06-18'
-description: This guide shows you how to install and run Microcks using Docker Compose.
+description: "Same as Docker Compose, but with Podman and podman-compose (rootless containers)."
 ---
 
 This guide shows you how to install and run Microcks using Docker Compose.
