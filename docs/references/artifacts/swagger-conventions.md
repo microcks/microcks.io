@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Swagger, REST]
 title: Swagger Conventions
 sidebar_position: 3
 last_update:
   date: '2024-05-27'
-description: Microcks is supporting Swagger mocking and testing thanks to multi-artifacts support feature.
+description: "Mock Swagger v2 APIs by pairing them with a secondary artifact holding the examples."
 ---
 
 Microcks is supporting Swagger mocking and testing thanks to [multi-artifacts support](/documentation/explanations/multi-artifacts) feature. In order to use Swagger in Microcks, you will need 2 artifacts for each API definition:

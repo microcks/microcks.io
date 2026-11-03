@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [AsyncAPI, Kafka]
 title: Your 1st AsyncAPI on Kafka mock
-sidebar_position: 6
+sidebar_position: 7
 last_update:
   date: '2025-03-19'
-description: This tutorial is a step-by-step walkthrough on how to use AsyncAPI v3 Specification to specify your mocks for your Asynchronous and Event-Driven API.
+description: "Write an AsyncAPI v3 spec and get mock messages published on Kafka, with dynamic data."
 ---
 
 ## Overview

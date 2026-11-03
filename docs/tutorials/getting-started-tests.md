@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Beginner, Tests]
 title: Getting started with Tests
 sidebar_position: 2
 last_update:
   date: '2024-05-15'
-description: Now that you have finished the Getting started guide, you should have a Microcks installation up-and-running and filled with some samples from the Microcks…
+description: "Deploy a sample implementation and run your first conformance test from the UI or CLI."
 ---
 
 ## Quickstart (continue) with Tests

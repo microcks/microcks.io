@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [gRPC, Protobuf]
 title: Your 1st gRPC mock
-sidebar_position: 4
+sidebar_position: 5
 last_update:
   date: '2024-08-07'
-description: This tutorial is a step-by-step walkthrough on how to use a gRPC / Protocol Buffers specification to get mocks for your gRPC Service.
+description: "Pair a .proto file with a Postman collection to mock the methods of a gRPC service."
 ---
 
 ## Overview

@@ -1,14 +1,16 @@
 ---
+sidebar_custom_props:
+  tags: [Templates, Mocks]
 title: Mock Templates
 sidebar_position: 2
 last_update:
   date: '2025-08-26'
-description: This page contains the comprehensive lists of variables and functions that can be used to genete dynamic mock content in Microcks.
+description: "Every variable, context and function expression usable in dynamic mock templates."
 ---
 
 ## Introduction
 
-This page contains the comprehensive lists of variables and functions that can be used to genete [dynamic mock content](/documentation/explanations/dynamic-content) in Microcks.
+This page contains the comprehensive lists of variables and functions that can be used to generate [dynamic mock content](/documentation/explanations/dynamic-content) in Microcks.
 
 There is 3 different kinds of expressions that can be used to generate dynamic content in mocks when included into the `{{ }}` expression marker:
 * **Variables Reference Expressions** allow reusing elements from an incoming request, accessed from variables, 

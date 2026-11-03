@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Postman]
 title: Postman Conventions
 sidebar_position: 6
 last_update:
   date: '2024-05-27'
-description: In order to be correctly imported and understood by Microcks, your Postman Collection should follow a little set of reasonable conventions and best practices.
+description: "Structure a Postman collection (examples, test scripts) so Microcks can mock and test it."
 ---
 
 ## Conventions

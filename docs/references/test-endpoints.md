@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Tests]
 title: Test Parameters
 sidebar_position: 4
 last_update:
   date: '2026-09-28'
-description: From the page displaying basic information on your API or Service mocks, you have the ability to launch new tests against different endpoints that may…
+description: "Test launch parameters: runners, endpoint syntax, timeout, secrets, OAuth2 and headers."
 ---
 
 ## Introduction

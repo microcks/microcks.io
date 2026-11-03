@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Images, Supply chain]
 title: Container Images
 sidebar_position: 1
 last_update:
   date: '2025-01-13'
-description: Microcks components are distributed as OCI container images that can be executed using container runtimes such as Docker or Podman.
+description: "All Microcks OCI images (app, async minion, uber, operator, CLI) and how they are signed."
 ---
 
 ## Introduction
