@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Mocks, Validation]
 title: Applying constraints to mocks
 sidebar_position: 3
 last_update:
   date: '2024-06-18'
-description: Sometimes, additional constraints may be required on a mock operation.
+description: "Require, echo back or regex-check query and header parameters on mock operations."
 ---
 
 ## Overview

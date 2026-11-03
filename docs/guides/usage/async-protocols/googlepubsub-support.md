@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Google Cloud, Pub/Sub]
 title: Pub/Sub Mocking & Testing
 sidebar_position: 6
 last_update:
   date: '2024-05-13'
-description: This guide shows you how to use a Google Pub/Sub messaging service with Microcks.
+description: "Connect Microcks to Google Cloud Pub/Sub to publish mock messages and test topics."
 ---
 
 ## Overview

@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Kafka, Avro, Schema Registry]
 title: Kafka, Avro & Schema Registry
 sidebar_position: 2
 last_update:
   date: '2024-05-13'
-description: This guide shows you how to use Microcks for mocking and testing Avro encoding on top of Apache Kafka.
+description: "Mock and test Avro-encoded Kafka messages, with or without a Schema Registry."
 ---
 
 ## Overview

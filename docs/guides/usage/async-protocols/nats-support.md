@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [NATS]
 title: NATS Mocking & Testing
 sidebar_position: 5
 last_update:
   date: '2024-05-13'
-description: This guide shows you how to use a NATS protocol with Microcks.
+description: "Connect Microcks to a NATS server to publish mock messages and test subjects."
 ---
 
 ## Overview

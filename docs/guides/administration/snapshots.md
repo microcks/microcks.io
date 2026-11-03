@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Admin, Snapshots]
 title: Snapshotting/restoring Repository
 sidebar_position: 4
 last_update:
   date: '2024-04-27'
-description: This guide will teach you about Microcks Snapshots and their use-case sweet spots.
+description: "Export and import a set of Services & APIs to share them or seed another instance."
 ---
 
 ## Overview 

@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [AI, LLM]
 title: Enabling the AI Copilot
 sidebar_position: 1
 last_update:
   date: '2025-03-21'
-description: This guide shows you how to enable the AI Copilot feature introduced in Microcks 1.8.0.
+description: "Turn on AI-generated mock samples (OpenAI-compatible LLM) for each install method."
 ---
 
 ## Overview
