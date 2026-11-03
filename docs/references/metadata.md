@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Format, Metadata]
 title: API Metadata Format
 sidebar_position: 5
 last_update:
   date: '2024-11-04'
-description: Some Microcks mocks specific metadata or properties cannot be fully deduced from common attributes coming from OpenAPI or AsyncAPI.
+description: "APIMetadata format for labels, delays and dispatchers that specs can't express."
 ---
 
 ## Introduction

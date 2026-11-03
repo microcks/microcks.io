@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Operator, Kubernetes]
 title: Operator Configuration
 sidebar_position: 4
 last_update:
   date: '2024-05-17'
-description: Operators are next-gen installer, maintainer and life-cycle manager for Kubernetes native applications.
+description: "Microcks Custom Resource reference for the Ansible- and Quarkus-based Operators."
 ---
 
 ## Introduction

@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [SOAP, SoapUI]
 title: Your 1st Soap mock
-sidebar_position: 5
+sidebar_position: 6
 last_update:
   date: '2024-11-12'
-description: This tutorial is a step-by-step walkthrough on how to use SoapUI projects to get mocks for your SOAP WebService.
+description: "Mock a SOAP WebService from a WSDL and a SoapUI project, dispatch rules included."
 ---
 
 ## Overview

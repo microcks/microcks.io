@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [HAR, Recording]
 title: Http Archive Conventions
 sidebar_position: 8
 last_update:
   date: '2024-05-27'
-description: In order to be correctly imported and understood by Microcks, your HAR file should follow a little set of reasonable conventions and best practices.
+description: "Import recorded HTTP Archive (HAR) traffic as a primary or secondary artifact."
 ---
 
 ## Conventions

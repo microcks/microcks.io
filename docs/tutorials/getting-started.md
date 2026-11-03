@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Beginner, Mocks]
 title: Getting started
 sidebar_position: 1
 last_update:
   date: '2025-06-07'
-description: In this tutorial, you will discover Microcks mocking features by re-using a simple REST API sample.
+description: "Run Microcks, load a sample REST API and call your first mock in minutes."
 ---
 
 ## Quickstart

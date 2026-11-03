@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Helm, Kubernetes]
 title: Helm Chart Parameters
 sidebar_position: 3
 last_update:
   date: '2024-06-17'
-description: One easy way of installing Microcks is via a Helm Chart.
+description: "Full values reference for the Microcks Helm 3 chart."
 ---
 
 ## Introduction

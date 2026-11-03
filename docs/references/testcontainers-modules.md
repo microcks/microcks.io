@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Testcontainers, Testing]
 title: Testcontainers Modules
 sidebar_position: 7
 last_update:
   date: '2026-08-13'
-description: As introduced in our Developing with Testcontainers guide, you can be embed Microcks into your unit tests with the help of Testcontainers librairies.
+description: "API of the official and community Testcontainers modules: mocks, tests and async."
 ---
 
 ## Introduction
