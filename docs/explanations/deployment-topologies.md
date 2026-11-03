@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Architecture]
 title: Deployment topologies
 sidebar_position: 1
 last_update:
   date: '2025-03-11'
-description: 'We often get the question from people who are adopting Microcks on the deployment topology: Where to deploy it and which personas to target?'
+description: "Centralized, local or process-scoped instances: who each one serves and the trade-offs."
 ---
 
 ## Introduction

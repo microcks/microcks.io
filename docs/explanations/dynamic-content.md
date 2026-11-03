@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Mocks, Templates]
 title: Dynamic mock content
-sidebar_position: 8
+sidebar_position: 5
 last_update:
   date: '2025-08-26'
-description: Whilst we deeply think that "real-world" static values for request/response samples are crucial to fully understanding the business usages and expectations of…
+description: "Why and when to generate mock values dynamically instead of using static examples."
 ---
 
 ## Introduction

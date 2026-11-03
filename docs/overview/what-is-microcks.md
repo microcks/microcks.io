@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Intro]
 title: What is Microcks?
 sidebar_position: 1
 last_update:
   date: '2025-03-11'
-description: Microcks is a tool for mocking and testing your APIs and microservices.
+description: "Microcks in a nutshell: the open source CNCF tool to mock and test any API, and who uses it."
 ---
 
 Microcks is a tool for **mocking and testing** your APIs and microservices. It leverages **API standards** to provide a **uniform and multi-protocol approach** for simulating complex distributed environments and validating service components in isolation.

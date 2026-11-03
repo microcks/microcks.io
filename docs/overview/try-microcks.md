@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [No install, Demo]
 title: Try Microcks
 sidebar_position: 4
 last_update:
   date: '2025-06-10'
-description: 'If you''re looking to quickly explore Microcks without any installation, you can use our public demo instance:'
+description: "Explore Microcks on the public demo instance with no installation, and know its limits."
 ---
 
 If you're looking to quickly explore Microcks without any installation, you can use our public demo instance:
