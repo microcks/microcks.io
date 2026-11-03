@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Architecture, Install]
 title: Architecture & deployment options
 sidebar_position: 2
 last_update:
   date: '2025-01-23'
-description: Microcks is a modular cloud-native application that can be deployed using many different installation methods.
+description: "Microcks' modular architecture, regular vs uber images, and laptop vs Kubernetes setups."
 ---
 
 ## Introduction

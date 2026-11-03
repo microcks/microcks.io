@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Security, OAuth2]
 title: Service accounts
-sidebar_position: 15
+sidebar_position: 9
 last_update:
   date: '2025-03-11'
-description: Microcks is using OpenId Connect and OAuth 2.0 bearer tokens to secure its frontend and API access.
+description: "How Microcks uses OAuth2 service accounts for CI tools and how to grant them more roles."
 ---
 
 ## Introduction

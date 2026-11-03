@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Comparison]
 title: Alternatives
-sidebar_position: 4
+sidebar_position: 5
 last_update:
   date: '2024-06-18'
-description: Comparison with alternatives is always a tough question 🤔
+description: "How Microcks compares with other API mocking and contract testing tools."
 ---
 
 > <br/> <strong>Comparison with alternatives is always a tough question 🤔</strong>

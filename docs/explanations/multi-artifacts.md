@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Artifacts]
 title: Multi-artifacts support
-sidebar_position: 8
+sidebar_position: 3
 last_update:
   date: '2024-05-27'
-description: Microcks can have multiple artifacts (one primary and many secondary) mapping to one API definition.
+description: "Why and how one API can combine a primary artifact with secondary ones."
 ---
 
 ## Introduction
