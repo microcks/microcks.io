@@ -35,4 +35,7 @@ Agent-friendliness (score 100/A+ with `npx afdocs check <url> --canonical-origin
 3. Lower DNS TTL, switch `microcks.io` to Netlify, re-check the above and the sitemap.
 4. Submit the new sitemap to Search Console.
 5. Confirm the custom domain does not send `X-Robots-Tag` (`curl -sI https://microcks.io/ | grep -i x-robots`).
-6. Confirm `editUrl` in `docusaurus.config.js` (docs and blog) points at the final repository name and that "Edit this page" opens the editor.
+6. Confirm `editUrl` in `docusaurus.config.js` (docs and blog) points at the final repository name and that "Edit this page" opens the editor. The final repository is `microcks/microcks.io` with default branch `main`, so `editUrl` must become `https://github.com/microcks/microcks.io/edit/main/`.
+7. Repository move, in this order and without any release in between: rename the Hugo repository to `microcks/microcks.io-hugo.old` and archive it (triage its open issues and PRs first), transfer this repository to the `microcks` org and rename it `microcks.io`, re-link Netlify to it, then switch DNS.
+8. Release scripts: `post-release.sh` in `microcks/microcks` and `microcks/microcks-operator` clone `https://github.com/microcks/microcks.io` (unchanged) and run `git push origin master`; change it to `git push origin main` when the move happens. They publish into `static/helm` and `static/compose`.
+9. After the move, run a test release and check that `https://microcks.io/helm/index.yaml` lists the new version and that the release leads can push to the repository.
