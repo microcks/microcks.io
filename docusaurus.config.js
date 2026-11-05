@@ -40,7 +40,7 @@ const config = {
         docs: {
           routeBasePath: 'documentation',
           sidebarPath: './sidebars.js',
-          editUrl: 'https://github.com/microcks/microcks.io/edit/master/',
+          editUrl: 'https://github.com/microcks/microcks.io/edit/main/',
           // Needs git history: enabled on Netlify/CI (or SHOW_LAST_UPDATE=true), skipped for local non-git folders.
           showLastUpdateTime: Boolean(process.env.NETLIFY || process.env.CI || process.env.SHOW_LAST_UPDATE),
         },
@@ -52,7 +52,7 @@ const config = {
           postsPerPage: 6,
           blogSidebarCount: 0,
           showReadingTime: true,
-          editUrl: 'https://github.com/microcks/microcks.io/edit/master/',
+          editUrl: 'https://github.com/microcks/microcks.io/edit/main/',
           feedOptions: {type: ['rss', 'atom'], xslt: true},
           onInlineAuthors: 'warn',
           onInlineTags: 'warn',
