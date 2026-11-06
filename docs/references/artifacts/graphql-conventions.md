@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [GraphQL]
 title: GraphQL Conventions
 sidebar_position: 4
 last_update:
   date: '2024-05-27'
-description: 'In order to use GraphQL in Microcks, you will need two artifacts for each API definition as explained in Multi-artifacts support:'
+description: "Pair a GraphQL schema with examples and pick dispatchers for queries and mutations."
 ---
 
 In order to use GraphQL in Microcks, you will need two artifacts for each API definition as explained in [Multi-artifacts support](/documentation/explanations/multi-artifacts):

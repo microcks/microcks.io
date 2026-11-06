@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [GraphQL, Postman]
 title: Your 1st GraphQL mock
 sidebar_position: 4
 last_update:
   date: '2024-07-03'
-description: This tutorial is a step-by-step walkthrough on how to use GraphQL schemas to get mocks for your GraphQL API.
+description: "Pair a GraphQL schema with a Postman collection to mock queries, variables and mutations."
 ---
 
 ## Overview

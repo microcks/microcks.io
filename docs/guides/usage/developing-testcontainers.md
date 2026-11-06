@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Testing, Testcontainers]
 title: Developing with Testcontainers
 sidebar_position: 7
 last_update:
   date: '2026-02-06'
-description: This guide will provide you with pointers on how to embed Microcks into your unit tests with the help of Testcontainers.
+description: "Embed Microcks in your unit tests with Testcontainers for Java, Node, Go and .NET."
 ---
 
 ## Overview

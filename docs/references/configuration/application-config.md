@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Config]
 title: Application Configuration
 sidebar_position: 1
 last_update:
   date: '2026-09-28'
-description: This page aims to give you a comprehensive reference on the configuration properties used within Microcks.
+description: "All application.properties and env vars of the webapp and async minion components."
 ---
 
 ## Overview

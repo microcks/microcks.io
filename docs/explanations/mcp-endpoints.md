@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [AI, MCP]
 title: MCP endpoints support
-sidebar_position: 9
+sidebar_position: 7
 last_update:
   date: '2025-05-27'
-description: You know that API and AI are closely related and that LLMs and AI agents will be among the top consumers of your APIs tomorrow and even today.
+description: "Expose OpenAPI, GraphQL and gRPC mocks as MCP tools for LLMs and AI agents."
 ---
 
 ## Introduction

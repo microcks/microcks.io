@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Mocks, State]
 title: Configuring stateful mocks
 sidebar_position: 4
 last_update:
   date: '2024-07-29'
-description: Microcks has allowed specifying dynamic mock content using expressions since the early days.
+description: "Store, retrieve and remove state across mock calls with scripts and templates."
 ---
 
 ## Overview

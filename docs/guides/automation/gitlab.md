@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [CI/CD, GitLab]
 title: Using GitLab CI
 sidebar_position: 7
 last_update:
   date: '2025-10-03'
-description: This guide shows how to integrate Microcks within your GitLab CI pipelines.
+description: "Push artifacts and run conformance tests with the Microcks GitLab CI/CD component."
 ---
 
 ## Overview

@@ -1,14 +1,16 @@
 ---
+sidebar_custom_props:
+  tags: [AsyncAPI, Events]
 title: Async API events triggers
-sidebar_position: 9
+sidebar_position: 6
 last_update:
   date: '2026-04-01'
-description: In modern distributed and decloupled architectures, it's a very common pattern to have a synchronous interaction (ie.
+description: "Publish an AsyncAPI event automatically when a REST, SOAP, GraphQL or gRPC mock is called."
 ---
 
 # Introduction
 
-In modern distributed and decloupled architectures, it's a very common pattern to have a synchronous interaction (ie. invocation of REST/SOAP/GraphQL/gRPC API operation) triggering the publication of an asynchronous event on a channel (and thus an AsyncAPI `SEND` operation)
+In modern distributed and decoupled architectures, it's a very common pattern to have a synchronous interaction (ie. invocation of REST/SOAP/GraphQL/gRPC API operation) triggering the publication of an asynchronous event on a channel (and thus an AsyncAPI `SEND` operation)
 
 So why not be able to define this triggering from the very beginning, at the mocking step in the API lifecycle? 🤔
 

@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Tests, Metrics]
 title: Conformance testing
-sidebar_position: 9
+sidebar_position: 8
 last_update:
   date: '2025-03-11'
-description: You may have experienced the frustration of deploying to production, only to discover that an API or service you integrate with has broken its contract.
+description: "How Microcks scores API conformance and keeps a history of test results."
 ---
 
 ## Introduction

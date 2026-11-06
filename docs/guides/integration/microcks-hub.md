@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Hub, Community]
 title: "Integrating with Microcks Hub"
 sidebar_position: 2
 last_update:
   date: '2025-08-24'
-description: Microcks Hub is a community hub and free marketplace where API producers publish ready-to-use API mocks and test suites for Microcks.
+description: "Browse and install ready-made API mocks from the community Microcks Hub marketplace."
 ---
 
 ## Overview

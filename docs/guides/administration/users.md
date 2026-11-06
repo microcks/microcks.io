@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Admin, Roles]
 title: Managing Users
 sidebar_position: 1
 last_update:
   date: '2024-06-13'
-description: This guide will show you how to use the Users Management capabilities of the Microcks Web UI.
+description: "Grant manager or admin roles and manage group membership from the Web UI."
 ---
 
 ## Overview

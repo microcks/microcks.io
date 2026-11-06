@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Concepts]
 title: Main Concepts
 sidebar_position: 3
 last_update:
   date: '2024-05-23'
-description: Before diving in, it is useful to briefly introduce or recall concepts or terminology we frequently use in the documentation.
+description: "Artifacts, mocks and tests: the core vocabulary used across the documentation."
 ---
 
 Before diving in, it is useful to briefly introduce or recall concepts or terminology we frequently use in the documentation.

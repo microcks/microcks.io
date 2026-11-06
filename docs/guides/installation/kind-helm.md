@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Local K8s, Helm]
 title: On Kind with Helm
 sidebar_position: 4
 last_update:
   date: '2024-06-13'
-description: This guide will walk you through the different steps of running a full Microcks installation on your laptop using Kind.
+description: "Full Microcks install on a local Kind cluster using the Helm chart, with ingress and Keycloak."
 ---
 
 ## Overview 

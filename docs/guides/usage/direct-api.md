@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [No spec, Prototyping]
 title: Generating Direct API
 sidebar_position: 6
 last_update:
   date: '2024-06-02'
-description: Even though Microcks promotes a contract-first approach for defining mocks, starting that way in real life may be difficult without a great maturity in API…
+description: "Generate a ready-to-use REST or event-driven mock without writing any spec first."
 ---
 
 ## Overview

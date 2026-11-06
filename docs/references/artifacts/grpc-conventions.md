@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [gRPC]
 title: gRPC Conventions
 sidebar_position: 5
 last_update:
   date: '2024-06-20'
-description: 'In order to use gRPC in Microcks, you will need two artifacts for each service definition as explained in Multi-artifacts support:'
+description: "Pair a .proto file with examples and define dispatch rules for gRPC methods."
 ---
 
 In order to use gRPC in Microcks, you will need two artifacts for each service definition as explained in [Multi-artifacts support](/documentation/explanations/multi-artifacts):
