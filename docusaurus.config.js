@@ -58,7 +58,7 @@ const config = {
           onInlineTags: 'warn',
           onUntruncatedBlogPosts: 'ignore',
         },
-        sitemap: {changefreq: 'weekly', priority: 0.5, filename: 'sitemap.xml'},
+        sitemap: {changefreq: 'weekly', priority: 0.5, filename: 'sitemap.xml', ignorePatterns: ['/search/**', '/search']},
         theme: {customCss: './src/css/custom.css'},
       }),
     ],
@@ -89,6 +89,8 @@ const config = {
 - [Website summary](https://microcks.io/index.md)
 - [Community](https://microcks.io/community.md)
 - [Blog index](https://microcks.io/blog.md)
+- [Events and past recordings](https://microcks.io/events.md)
+- [Resources and logos](https://microcks.io/resources.md)
 - [GitHub](https://github.com/microcks/microcks)`,
         includeOrder: ['documentation/overview/*', 'documentation/tutorials/*', 'documentation/guides/*', 'documentation/explanations/*', 'documentation/references/*'],
       },

@@ -85,6 +85,13 @@ walk(path.join(ROOT, 'blog'), p => {
   posts.push({slug: data.slug, title: data.title || data.slug, date: String(data.date || '').slice(0, 10)});
   count++;
 });
+// Standalone Markdown pages (src/pages/*.md) are outside the docs/blog plugins
+const pagesDir = path.join(ROOT, 'src', 'pages');
+for (const f of fs.readdirSync(pagesDir).filter(n => /\.mdx?$/.test(n))) {
+  const {data, content} = matter(fs.readFileSync(path.join(pagesDir, f), 'utf8'));
+  emit(`/${f.replace(/\.mdx?$/, '')}`, data, content.replace(/^# .*\n+/, ''));
+  count++;
+}
 posts.sort((a, b) => b.date.localeCompare(a.date));
 emit('/blog', {title: 'Microcks Blog'}, posts.map(x => `- [${x.title}](/blog/${x.slug}/)${x.date ? ` (${x.date})` : ''}`).join('\n'));
 emit('/community', {title: 'Microcks Community'}, `Microcks is a CNCF incubating open source project. Join the community:
