@@ -16,6 +16,10 @@
 /blog/*
   Vary: Accept, Accept-Encoding
 
+/.well-known/atproto-did
+  Content-Type: text/plain; charset=utf-8
+  Access-Control-Allow-Origin: *
+
 /helm/*
   Access-Control-Allow-Origin: *
 /schemas/*
