@@ -74,6 +74,7 @@ Good to know:
 
 - Command should be written **as-is** and directly copyable — **no `$` or shell prompts**.
 - Avoid adding characters or prefixes that are not part of the command.
+- Sample **outputs** are shown exactly as printed, even if they contain a `$` (for example the Helm install notes): only commands lose the prompt.
 - Do not include outputs in the same block as commands.
 
 **✅ Example:**
