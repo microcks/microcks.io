@@ -54,7 +54,7 @@ The authentication of *Service Account* implements the simple [OAuth 2.0 Client 
 
 ```sh
 # encode account:credentials as base 64
-$ echo "microcks-serviceaccount:ab54d329-e435-41ae-a900-ec6b3fe15c54" | base64
+echo "microcks-serviceaccount:ab54d329-e435-41ae-a900-ec6b3fe15c54" | base64
 bWljcm9ja3Mtc2VydmljZWFjY291bnQ6YWI1NGQzMjktZTQzNS00MWFlLWE5MDAtZWM2YjNmZTE1YzU0Cg=
 ```
 

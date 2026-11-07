@@ -147,15 +147,15 @@ Your release is named microcks.
 
 To learn more about the release, try:
 
-  $ helm status microcks
-  $ helm get microcks
+  helm status microcks
+  helm get microcks
 
 Microcks is available at https://microcks.m.minikube.local.
 
 GRPC mock service is available at "microcks-grpc.m.minikube.local".
 It has been exposed using TLS passthrough on the Ingress controller, you should extract the certificate for your client using:
 
-  $ kubectl get secret microcks-microcks-grpc-secret -n microcks -o jsonpath='{.data.tls\.crt}' | base64 -d > tls.crt
+  kubectl get secret microcks-microcks-grpc-secret -n microcks -o jsonpath='{.data.tls\.crt}' | base64 -d > tls.crt
 Keycloak has been deployed on https://keycloak.m.minikube.local to protect user access.
 You may want to configure an Identity Provider or add some users for your Microcks installation by login in using the
 username and password found into 'microcks-keycloak-admin' secret.
@@ -266,15 +266,15 @@ Your release is named microcks.
 
 To learn more about the release, try:
 
-  $ helm status microcks
-  $ helm get microcks
+  helm status microcks
+  helm get microcks
 
 Microcks is available at https://microcks.m.minikube.local.
 
 GRPC mock service is available at "microcks-grpc.m.minikube.local".
 It has been exposed using TLS passthrough on the Ingress controller, you should extract the certificate for your client using:
 
-  $ kubectl get secret microcks-microcks-grpc-secret -n microcks -o jsonpath='{.data.tls\.crt}' | base64 -d > tls.crt
+  kubectl get secret microcks-microcks-grpc-secret -n microcks -o jsonpath='{.data.tls\.crt}' | base64 -d > tls.crt
 Keycloak has been deployed on https://keycloak.m.minikube.local to protect user access.
 You may want to configure an Identity Provider or add some users for your Microcks installation by login in using the
 username and password found into 'microcks-keycloak-admin' secret.
@@ -282,7 +282,7 @@ username and password found into 'microcks-keycloak-admin' secret.
 Kafka broker has been deployed on microcks-kafka.kafka.m.minikube.local.
 It has been exposed using TLS passthrough on the Ingress controller, you should extract the certificate for your client using:
 
-  $ kubectl get secret microcks-kafka-cluster-ca-cert -n microcks -o jsonpath='{.data.ca\.crt}' | base64 -d > ca.crt
+  kubectl get secret microcks-kafka-cluster-ca-cert -n microcks -o jsonpath='{.data.ca\.crt}' | base64 -d > ca.crt
 ```
 
 Watch and check the pods you should get in the namespace (this can take a bit longer if you pull Kafka images for the first time):
