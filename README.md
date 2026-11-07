@@ -1,8 +1,16 @@
-# microcks.io (Docusaurus)
+# Microcks Website
 
-Docusaurus 3 site for microcks.io, deployed on Netlify. See [GUIDELINES.md](GUIDELINES.md) for the documentation guidelines and [CONTRIBUTING.md](CONTRIBUTING.md) for the contribution flow.
+Welcome to the Microcks website repository! This repository contains the source code for the official Microcks website, built with [Docusaurus 3](https://docusaurus.io/) and deployed on [Netlify](https://www.netlify.com/).
 
-## Commands
+## About Microcks
+
+Open source cloud-native tool for API Mocking and Testing. Microcks leverages API standards to provide a uniform and multi-protocol approach, empowering your API and microservices lifecycle. It strengthens your ecosystem to create an adaptable API value chain #APIDevOps
+
+To learn more about Microcks and its features, visit the [Microcks website](https://microcks.io/).
+
+## Getting started
+Requires Node.js 20 (see `.nvmrc`).
+
 - `npm install` then `npm start` — dev server
 - `npm run build` runs, in order:
   1. `prebuild` → `scripts/ensure-descriptions.mjs`: adds a derived `description` to any doc/blog page without one (authored ones are never touched; this rewrites frontmatter, so commit the result).
@@ -10,14 +18,16 @@ Docusaurus 3 site for microcks.io, deployed on Netlify. See [GUIDELINES.md](GUID
   3. `scripts/preload-fonts.mjs`: preloads the critical latin fonts in every page (avoids layout shift on font swap).
   4. `scripts/generate-route-markdown.mjs`: Markdown twins of every route (`build/<route>.md`).
   5. `scripts/validate-machine-content.mjs`: fails the build on missing/broken/non-canonical `llms.txt` links, over-long entries, Markdown twins without the AI-agent directive or with non-absolute links.
-
-Agent-friendliness (score 100/A+ with `npx afdocs check <url> --canonical-origin https://microcks.io`): a hidden `llms-txt-directive` in `src/theme/Root.js`, the main content placed before the sidebar/navbar in the DOM (`src/theme/Layout`, `src/theme/DocRoot/Layout`, restored visually with CSS `order`), and the HTML minifier disabled (`swcHtmlMinimizer: false`) because omitted `</td>`/`</tr>` tags break HTML parsers. Do not write Markdown images directly under an HTML tag without a blank line: they render as literal text.
 - `npm test` — unit checks; `npm run check:parity` — compares the live sitemap with the build
 
 ## Content
-- Docs in `docs/`, blog in `blog/`, home/community data in `src/data/home.js`.
-- The one-shot Hugo → Docusaurus migration script was retired at cutover: `docs/` and `blog/` are now the source of truth (the original Hugo content lives in the `microcks/microcks.io` history). Run `npm run optimize-images` after adding images to `static/images`.
+- Docs in `docs/`, blog in `blog/`, home/community data in `src/data/home.js`. See [GUIDELINES.md](GUIDELINES.md) for the writing rules.
+- `docs/` and `blog/` are the source of truth. The original Hugo site lives in the archived [`microcks/microcks.io-hugo.old`](https://github.com/microcks/microcks.io-hugo.old) repository.
+- Run `npm run optimize-images` after adding images to `static/images`.
 - Hugo shortcodes are gone: use plain Markdown images and `<ApiSpec kind="openapi|asyncapi" url="…" />` in `.mdx` files.
+
+## Agent-friendliness
+Score 100/A+ with `npx afdocs check <url> --canonical-origin https://microcks.io`: a hidden `llms-txt-directive` in `src/theme/Root.js`, the main content placed before the sidebar/navbar in the DOM (`src/theme/Layout`, `src/theme/DocRoot/Layout`, restored visually with CSS `order`), and the HTML minifier disabled (`swcHtmlMinimizer: false`) because omitted `</td>`/`</tr>` tags break HTML parsers. Do not write Markdown images directly under an HTML tag without a blank line: they render as literal text.
 
 ## Theming notes
 - Colour mode has two states (light/dark), no "system" option.
@@ -29,13 +39,22 @@ Agent-friendliness (score 100/A+ with `npx afdocs check <url> --canonical-origin
 - `netlify.toml`, `static/_redirects`, `static/_headers`, and the edge function `netlify/edge-functions/content-negotiation.js` (serves Markdown for `Accept: text/markdown`). `noindex-netlify-host.js` adds `X-Robots-Tag: noindex` on `*.netlify.app` hosts only, so the custom domain is unaffected.
 - Analytics (GA, Scarf) load only after cookie consent.
 
-## Cutover checklist (GitHub Pages → Netlify)
-1. Deploy preview OK; `npm run check:parity` passes.
-2. Verify `/helm/index.yaml`, `/go-client/`, `/testcontainers-go/` and a file in each of `/operator/`, `/compose/`, `/schemas/` (the directories themselves 404, as on the old site).
-3. Lower DNS TTL, switch `microcks.io` to Netlify, re-check the above and the sitemap.
-4. Submit the new sitemap to Search Console.
-5. Confirm the custom domain does not send `X-Robots-Tag` (`curl -sI https://microcks.io/ | grep -i x-robots`).
-6. Confirm `editUrl` in `docusaurus.config.js` (docs and blog) points at the final repository name and that "Edit this page" opens the editor. The final repository is `microcks/microcks.io` with default branch `main`, so `editUrl` must become `https://github.com/microcks/microcks.io/edit/main/`.
-7. Repository move, in this order and without any release in between: rename the Hugo repository to `microcks/microcks.io-hugo.old` and archive it (triage its open issues and PRs first), transfer this repository to the `microcks` org and rename it `microcks.io`, re-link Netlify to it, then switch DNS.
-8. Release scripts: `post-release.sh` in `microcks/microcks` and `microcks/microcks-operator` clone `https://github.com/microcks/microcks.io` (unchanged) and run `git push origin master`; change it to `git push origin main` when the move happens. They publish into `static/helm` and `static/compose`.
-9. After the move, run a test release and check that `https://microcks.io/helm/index.yaml` lists the new version and that the release leads can push to the repository.
+## Releases
+The release scripts (`post-release.sh` in `microcks/microcks` and `microcks/microcks-operator`) clone this repository, publish the release artifacts into `static/helm`, `static/compose` and `static/operator`, and push to `main`. They need push rights on this repository. After a release, check that `https://microcks.io/helm/index.yaml` lists the new version.
+
+## CI and automation
+- **Build and Test**: `npm run build` and `npm test` on every pull request and push to `main`.
+- **Spell Check**: `misspell` on `docs/`, `blog/` and `src/pages/`; add accepted words to `.wordlist.txt`.
+- **Microcks Website Link Check**: weekly (and on demand), internal and external links on a fresh build; broken links are reported in the "External Link Check Report" issue. Exclusions live in `.lycheeignore`.
+- **Dependabot**: weekly updates for npm and GitHub Actions.
+- Pull requests also get a Netlify deploy preview.
+
+## Contributing and community
+Read the [Documentation Guidelines](GUIDELINES.md) and the [Contribution Guidelines](CONTRIBUTING.md). See also [GOVERNANCE](GOVERNANCE.md), [MAINTAINERS](MAINTAINERS.md), [AI-POLICY](AI-POLICY.md) and the [Code of Conduct](CODE_OF_CONDUCT.md). Questions or need assistance? Reach out to us: https://microcks.io/community/
+
+> By the community, for the community. 🙌
+
+Thank you for helping us improve Microcks! Every contribution counts 💙
+
+## License
+[Apache License 2.0](LICENSE)
