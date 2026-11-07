@@ -112,8 +112,8 @@ Your release is in namespace: envoy-gateway-system. 🎉
 
 To learn more about the release, try:
 
-  helm status envoy-gateway -n envoy-gateway-system
-  helm get all envoy-gateway -n envoy-gateway-system
+  $ helm status envoy-gateway -n envoy-gateway-system
+  $ helm get all envoy-gateway -n envoy-gateway-system
 
 To have a quickstart of Envoy Gateway, please refer to https://gateway.envoyproxy.io/latest/tasks/quickstart.
 
@@ -331,15 +331,15 @@ Your release is named microcks.
 
 To learn more about the release, try:
 
-  helm status microcks
-  helm get microcks
+  $ helm status microcks
+  $ helm get microcks
 
 Microcks is available at https://microcks.127.0.0.1.nip.io.
 
 GRPC mock service is available at "microcks-grpc.127.0.0.1.nip.io".
 It has been exposed using TLS passthrough on the Ingress controller, you should extract the certificate for your client using:
 
-  kubectl get secret microcks-microcks-grpc-secret -n microcks -o jsonpath='{.data.tls\.crt}' | base64 -d > tls.crt
+  $ kubectl get secret microcks-microcks-grpc-secret -n microcks -o jsonpath='{.data.tls\.crt}' | base64 -d > tls.crt
 
 Keycloak has been deployed on https://keycloak.127.0.0.1.nip.io to protect user access.
 You may want to configure an Identity Provider or add some users for your Microcks installation by login in using the
