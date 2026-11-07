@@ -85,7 +85,15 @@ const config = {
 - **Multi-protocol**: REST, SOAP, GraphQL, gRPC and event-driven APIs (Kafka, MQTT, AMQP, WebSocket and more).
 - **Cloud native**: Deploy with Docker Compose, Helm or the Kubernetes Operator; extend with the CLI and client libraries.
 
-**Company:**
+## When to use this documentation
+Use these docs when you need to mock or test APIs with Microcks: install it (Docker Compose, Helm, Kubernetes Operator), import OpenAPI, AsyncAPI, gRPC, GraphQL, SOAP or Postman artifacts, run conformance tests (UI, CLI, CI/CD, Testcontainers) or integrate it with other tools.
+
+## How to use this file
+- Pages are grouped as Overview, Tutorials, How-To Guides, Explanations and References; start with the Tutorials to learn and the References to look up details.
+- Every page is also available as Markdown by appending \`.md\` to its URL.
+- The full documentation in a single file is at [llms-full.txt](https://microcks.io/llms-full.txt).
+
+## Company
 - [Website summary](https://microcks.io/index.md)
 - [Community](https://microcks.io/community.md)
 - [Blog index](https://microcks.io/blog.md)
