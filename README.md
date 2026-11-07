@@ -46,6 +46,7 @@ The release scripts (`post-release.sh` in `microcks/microcks` and `microcks/micr
 - **Build and Test**: `npm run build` and `npm test` on every pull request and push to `main`.
 - **Spell Check**: `misspell` on `docs/`, `blog/` and `src/pages/`; add accepted words to `.wordlist.txt`.
 - **Microcks Website Link Check**: weekly (and on demand), internal and external links on a fresh build; broken links are reported in the "External Link Check Report" issue. Exclusions live in `.lycheeignore`.
+- **Agent-friendly docs check**: weekly (and on demand), runs `afdocs` on https://microcks.io and opens an "agentdocsspec.com score dropped" issue if the score falls below 100.
 - **Dependabot**: weekly updates for npm and GitHub Actions.
 - Pull requests also get a Netlify deploy preview.
 
