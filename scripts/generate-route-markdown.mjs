@@ -68,7 +68,7 @@ Microcks is a Cloud Native Computing Foundation (CNCF) incubating project that l
 - [Community](/community/): how to chat, contribute and get involved
 - [Events and recordings](/events/): meetups, conferences and past recordings
 - [LLM index](/llms.txt): the complete documentation index for AI agents
-- [OpenAPI description of the Microcks API](/openapi.yaml)`);
+- OpenAPI description of the Microcks API: ${SITE}/openapi.yaml`);
 
 const docs = [];
 walk(path.join(ROOT, 'docs'), p => {
