@@ -1,6 +1,8 @@
 ---
 title: Documentation
 description: Microcks documentation
+pagination_prev: null
+pagination_next: overview/index
 ---
 
 <img src="/images/documentation/microcks-cncf-banner.png" alt="microcks cncf banner" data-zoom-off />
