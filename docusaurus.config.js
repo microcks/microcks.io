@@ -56,6 +56,8 @@ const config = {
 
   i18n: {defaultLocale: 'en', locales: ['en']},
 
+  clientModules: ['./src/clientModules/sidebar-footer.js'],
+
   headTags: [
     {tagName: 'link', attributes: {rel: 'manifest', href: '/site.webmanifest'}},
     {tagName: 'link', attributes: {rel: 'llmstxt', type: 'text/plain', href: '/llms.txt'}},

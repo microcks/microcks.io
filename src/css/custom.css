@@ -778,28 +778,22 @@ main .theme-doc-markdown a[class*='cardContainer']:not(.button) {
 #__docusaurus > .theme-announcement-bar { order: -2; }
 #__docusaurus > .navbar { order: -1; }
 
-/* Docs sidebar stays pinned under the navbar and always visible; on docs pages the footer starts to its right */
+/* Docs sidebar is sticky under the navbar and ends where the full-width footer starts */
 @media (min-width: 997px) {
-  .docs-doc-page footer.footer {
-    margin-left: var(--doc-sidebar-width);
-  }
   .theme-doc-sidebar-container {
-    clip-path: none !important;
+    margin-top: 0 !important;
   }
   [class*='sidebarViewport'] {
-    position: fixed !important;
+    position: sticky !important;
     top: 5.5rem !important;
-    width: var(--doc-sidebar-width);
-    height: calc(100vh - 5.5rem) !important;
+    height: calc(100vh - 5.5rem - var(--footer-overlap, 0px)) !important;
     max-height: none !important;
-    z-index: 1;
+  }
+  .docs-doc-page [class*='docMainContainer'] {
+    min-height: calc(100vh - 5.5rem);
   }
   [class*='sidebarViewport'] > [class*='sidebar_'] {
     padding-top: 1rem;
-  }
-  .footer, footer {
-    position: relative;
-    z-index: 2;
   }
 }
 
