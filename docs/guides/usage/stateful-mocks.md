@@ -94,7 +94,7 @@ As a first test, you may check the initial state of our cart by issuing the foll
 
 ```sh
 # Check johndoes's cart
-$ curl -X GET 'http://localhost:8585/rest/Cart+API/1.0.0/cart' -H 'Accept: application/json' -H 'customerId: johndoe'
+curl -X GET 'http://localhost:8585/rest/Cart+API/1.0.0/cart' -H 'Accept: application/json' -H 'customerId: johndoe'
 ```
 ```json
 {
@@ -157,7 +157,7 @@ We may now fully test that we're able to save a state by adding items and then r
 
 ```sh
 # Add a millefeuille to the cart for user johndoe
-$ curl -X PUT 'http://localhost:8585/rest/Cart+API/1.0.0/cart/items' -d '{"productId":"Millefeuille","quantity":2,"price":4.0}' -H 'Content-Type: application/json' -H 'customerId: johndoe'
+curl -X PUT 'http://localhost:8585/rest/Cart+API/1.0.0/cart/items' -d '{"productId":"Millefeuille","quantity":2,"price":4.0}' -H 'Content-Type: application/json' -H 'customerId: johndoe'
 ```
 ```json
 {
@@ -169,7 +169,7 @@ $ curl -X PUT 'http://localhost:8585/rest/Cart+API/1.0.0/cart/items' -d '{"produ
 ```sh
 
 # Check johndoes's cart
-$ curl -X GET 'http://localhost:8585/rest/Cart+API/1.0.0/cart' -H 'Accept: application/json' -H 'customerId: johndoe'
+curl -X GET 'http://localhost:8585/rest/Cart+API/1.0.0/cart' -H 'Accept: application/json' -H 'customerId: johndoe'
 ```
 ```json
 {
@@ -229,7 +229,7 @@ curl -X PUT 'http://localhost:8585/rest/Cart+API/1.0.0/cart/items' -d '{"product
 ```sh
 
 # Check johndoes's cart
-$ curl -X GET 'http://localhost:8585/rest/Cart+API/1.0.0/cart' -H 'Accept: application/json' -H 'customerId: johndoe'
+curl -X GET 'http://localhost:8585/rest/Cart+API/1.0.0/cart' -H 'Accept: application/json' -H 'customerId: johndoe'
 ```
 ```json
 {
@@ -250,7 +250,7 @@ $ curl -X GET 'http://localhost:8585/rest/Cart+API/1.0.0/cart' -H 'Accept: appli
 }
 
 # Empty johndoe's cart
-$ curl -X POST 'http://localhost:8585/rest/Cart+API/1.0.0/cart/empty' -H 'Accept: application/json' -H 'customerId: johndoe'
+curl -X POST 'http://localhost:8585/rest/Cart+API/1.0.0/cart/empty' -H 'Accept: application/json' -H 'customerId: johndoe'
 ```
 ```json
 {
@@ -261,7 +261,7 @@ $ curl -X POST 'http://localhost:8585/rest/Cart+API/1.0.0/cart/empty' -H 'Accept
 ```
 ```sh
 # Check johndoes's cart
-$ curl -X GET 'http://localhost:8585/rest/Cart+API/1.0.0/cart' -H 'Accept: application/json' -H 'customerId: johndoe'
+curl -X GET 'http://localhost:8585/rest/Cart+API/1.0.0/cart' -H 'Accept: application/json' -H 'customerId: johndoe'
 ```
 ```json
 {
