@@ -1,9 +1,9 @@
-# Check links across the Microcks website once per week: internal paths and anchors on a fresh build,
-# external targets from the live sitemap.
+# Check links across the Microcks website once per week on a fresh build: internal paths and anchors,
+# then external targets.
 # from: https://github.com/lycheeverse/lychee-action
 # link checker used is 'lychee': https://github.com/lycheeverse/lychee
 
-name: External Link Check
+name: Microcks Website Link Check
 on:
   workflow_dispatch:
   # Run once a week on Sunday at 00h42 UTC (0:42 AM UTC aka 1:42 AM CEST with daylight saving time)
@@ -32,19 +32,6 @@ jobs:
           npm ci
           npm run build
 
-      - name: Collect sitemap URLs
-        run: |
-          curl --fail --silent --show-error https://microcks.io/sitemap.xml \
-            | grep -o '<loc>[^<]*' \
-            | sed 's#<loc>##' > lychee-inputs.txt
-
-          URL_COUNT=$(wc -l < lychee-inputs.txt)
-          if [ "$URL_COUNT" -eq 0 ]; then
-            echo "No URLs were found in the sitemap"
-            exit 1
-          fi
-          echo "Collected $URL_COUNT sitemap URLs"
-
       - name: Internal Link Checker
         id: internal_lychee
         uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
@@ -65,13 +52,21 @@ jobs:
             --no-progress
             --user-agent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36'
             --scheme https --scheme http
-            --header "accept: */*" --exclude '^https://microcks\.io(?:/|$)'
+            --header "accept: */*" --root-dir '${{ github.workspace }}/build'
+            --exclude '^https://microcks\.io(?:/|$)' --exclude '^file:'
             --accept '100..=103,200..=299,401,403,429'
             --max-concurrency 16 --host-concurrency 2
-            --max-retries 3 --timeout 20 --files-from lychee-inputs.txt
+            --max-retries 3 --timeout 20
+            '${{ github.workspace }}/build/**/*.html'
           format: markdown
           output: ./lychee/external.md
           fail: false
+
+      - name: Fail if lychee crashed
+        if: ${{ !contains(fromJSON('["0","2"]'), steps.internal_lychee.outputs.exit_code) || !contains(fromJSON('["0","2"]'), steps.external_lychee.outputs.exit_code) }}
+        run: |
+          echo "lychee did not complete normally (internal: ${{ steps.internal_lychee.outputs.exit_code }}, external: ${{ steps.external_lychee.outputs.exit_code }})" >&2
+          exit 1
 
       - name: Prepare combined report
         run: |
@@ -93,7 +88,10 @@ jobs:
             echo
             echo "## External targets"
             echo
-            sed -e 's/^# Summary$/### Summary/' \
+            sed -e "s#file://${GITHUB_WORKSPACE}/build#https://microcks.io#g" \
+              -e "s#${GITHUB_WORKSPACE}/build#https://microcks.io#g" \
+              -e 's#/index\.html$#/#' \
+              -e 's/^# Summary$/### Summary/' \
               -e 's/^## Errors per input$/### Broken targets grouped by source page/' \
               -e 's/^### Errors in /#### Source page: /' \
               -e 's/^## Timeouts per input$/### Timed-out targets grouped by source page/' \
