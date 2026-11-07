@@ -19,7 +19,7 @@ Let's inspect the properties of the default *Service Account* to check its anato
 Just issue the following unauthenticated API call to Microcks to get the Keycloak URL and the name of the realm you're using:
 
 ```sh
-  curl https://microcks.example.com/api/keycloak/config -s -k | jq .
+curl https://microcks.example.com/api/keycloak/config -s -k | jq .
 ```
 
 ```json

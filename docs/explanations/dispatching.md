@@ -89,9 +89,9 @@ Given the templated responses and the above dispatching rule for evaluating the 
 Let's start by creating a new beer coming from Belgium:
 
 ```sh
-  curl -X POST http://microcks.example.com/rest/Beer+Catalog+API/1.0/beer \
-    -H 'Content-type: application/json' \
-    -d '{"name": "Abbey Brune", "country": "Belgium", "type": "Brown ale", "rating": 4.2, "references": [ { "referenceId": 1234 }, { "referenceId": 5678 } ]}'
+curl -X POST http://microcks.example.com/rest/Beer+Catalog+API/1.0/beer \
+  -H 'Content-type: application/json' \
+  -d '{"name": "Abbey Brune", "country": "Belgium", "type": "Brown ale", "rating": 4.2, "references": [ { "referenceId": 1234 }, { "referenceId": 5678 } ]}'
 ```
 
 ```sh    
@@ -112,9 +112,9 @@ It is a success as the `country` has the `Belgium` value, and the `Accepted` res
 Now let's try with a German beer... You'll see that the `Not accepted` response is matched (look also at the return code) and adapted regarding the incoming request:
 
 ```sh
-  curl -X POST http://microcks.example.com/rest/Beer+Catalog+API/1.0/beer \
-    -H 'Content-type: application/json' \
-    -d '{"name": "Spaten Oktoberfiest", "country": "Germany", "type": "Amber", "rating": 2.8, "references": []}'
+curl -X POST http://microcks.example.com/rest/Beer+Catalog+API/1.0/beer \
+  -H 'Content-type: application/json' \
+  -d '{"name": "Spaten Oktoberfiest", "country": "Germany", "type": "Amber", "rating": 2.8, "references": []}'
 ```
 
 ```sh
@@ -144,7 +144,7 @@ Here is the sample that was introduced in the aforementioned blog post. In case 
 Just issue an HTTP request with an unmanaged region like below:
 
 ```sh
-  curl 'https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast?region=center&apiKey=qwertyuiop' -k
+curl 'https://microcks.apps.example.com/rest/WeatherForecast+API/1.0.0/forecast?region=center&apiKey=qwertyuiop' -k
 ```
 
 ```sh
