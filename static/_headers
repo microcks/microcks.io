@@ -24,5 +24,11 @@
 
 /helm/*
   Access-Control-Allow-Origin: *
+/openapi.yaml
+  Content-Type: application/yaml; charset=utf-8
+  Access-Control-Allow-Origin: *
+/asyncapi.yaml
+  Content-Type: application/yaml; charset=utf-8
+  Access-Control-Allow-Origin: *
 /schemas/*
   Access-Control-Allow-Origin: *
