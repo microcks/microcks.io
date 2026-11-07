@@ -1,6 +1,6 @@
 # microcks.io (Docusaurus)
 
-Docusaurus 3 site for microcks.io, deployed on Netlify.
+Docusaurus 3 site for microcks.io, deployed on Netlify. See [GUIDELINES.md](GUIDELINES.md) for the documentation guidelines and [CONTRIBUTING.md](CONTRIBUTING.md) for the contribution flow.
 
 ## Commands
 - `npm install` then `npm start` — dev server

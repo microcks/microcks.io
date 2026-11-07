@@ -1,0 +1,45 @@
+# These links are ignored by our link checker https://github.com/lycheeverse/lychee
+# The file allows you to list multiple regular expressions for exclusion (one pattern per line).
+
+# Ignore Google fonts performance optimization (DNS PREFETCH on PRECONNECT): fault positive
+https://fonts.gstatic.com/
+https://use.fontawesome.com/
+
+# Exclude localhost:8080 as it is consistently linked to docker-compose, which is ok.
+# Any other ports should be regarded as suspicious and undergo examination by the checker.
+http://localhost:8080/
+
+# Exclude Microcks HELM Chart repo as it is a non-browsable URL
+https://microcks.io/helm
+
+# Avoid some medium.com URLs since the site appears to be sensitive to concurrent requests...
+https://medium.com/@lbroudoux/
+
+# The AMQP website certificate has expired on June 3rd, 2024, so let's exclude it
+https://www.amqp.org/
+
+# Exclude social media profiles to prevent false positives caused by rate limiting, ex: "Failed: Network error: Too Many Requests"
+(facebook|github|linkedin|x|hachyderm)\.com
+hachyderm.io
+bsky.app
+
+# Add valid URLs here, when the broken link error is due to web site rate limit... 
+https://mvnrepository.com/repos/central
+
+# Testcontainers pages consistently time out from GitHub-hosted runners.
+https://(www\.)?testcontainers\.com/
+
+# gitter.im now redirects (301) to app.gitter.im, but lychee does not follow this
+# particular redirect even with a raised --max-redirects, so it always reports the
+# 301 as an error. The link itself is fine when opened in a browser.
+https://gitter\.im/
+
+# insights.lfx.linuxfoundation.org redirects to insights.lfx.dev, whose TLS
+# configuration fails the handshake for lychee's HTTP client (confirmed independent
+# of user-agent). The page loads fine in a real browser.
+https://insights\.lfx\.linuxfoundation\.org/
+
+# Ignore the false positives, which are mainly caused by CDN protections....
+https://www.adobe.com/
+https://asciinema.org/a/342055.png
+https://asciinema.org/a/342055
