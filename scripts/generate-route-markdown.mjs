@@ -53,10 +53,22 @@ function emit(route, data, body) {
 let count = 0;
 emit('/', {title: 'Microcks'}, `Microcks is an open source, cloud native tool for API mocking and testing (OpenAPI, AsyncAPI, gRPC, GraphQL, SOAP), a CNCF incubating project.
 
-- [Documentation](/documentation/)
-- [Blog](/blog/)
-- [Community](/community/)
-- [LLM index](/llms.txt)`);
+Microcks is a Cloud Native Computing Foundation (CNCF) incubating project that leverages API standards to provide a uniform, multi-protocol approach to mocking and testing APIs across your API and microservices lifecycle.
+
+## What you can do with Microcks
+
+- Mock REST, SOAP, GraphQL, gRPC and event-driven APIs directly from OpenAPI, AsyncAPI, Postman collections, SoapUI projects and other API artifacts.
+- Run conformance tests of your API implementations against their contracts, from your CI/CD pipelines or from the UI.
+- Deploy it anywhere: Docker, Kubernetes with Helm or the Operator, Testcontainers in your integration tests, or the Microcks Hub.
+
+## Where to go next
+
+- [Documentation](/documentation/): installation guides, tutorials, explanations and references
+- [Blog](/blog/): release notes and stories from the community
+- [Community](/community/): how to chat, contribute and get involved
+- [Events and recordings](/events/): meetups, conferences and past recordings
+- [LLM index](/llms.txt): the complete documentation index for AI agents
+- [OpenAPI description of the Microcks API](/openapi.yaml)`);
 
 const docs = [];
 walk(path.join(ROOT, 'docs'), p => {
