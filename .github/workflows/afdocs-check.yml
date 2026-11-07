@@ -1,0 +1,69 @@
+name: Agent-friendly docs check
+
+on:
+  schedule:
+    - cron: '30 23 * * 0'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-26.04
+    steps:
+      - name: Set up Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22'
+
+      - name: Run agent-friendly docs check
+        id: afdocs
+        run: |
+          # afdocs exits non-zero whenever a check fails: capture the result so the job can react to it.
+          npx --yes afdocs check https://microcks.io --format json --score > afdocs-result.json || true
+
+          # A missing score (tool error, site unreachable) counts as the worst case.
+          overall=$(jq '.scoring.overall // 0' afdocs-result.json)
+          grade=$(jq -r '.scoring.grade // "F"' afdocs-result.json)
+          echo "score=$overall" >> "$GITHUB_OUTPUT"
+          echo "grade=$grade" >> "$GITHUB_OUTPUT"
+          if [ "$overall" -lt 100 ]; then
+            echo "regression=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "regression=false" >> "$GITHUB_OUTPUT"
+          fi
+
+          {
+            echo "Weekly [agentdocsspec.com](https://agentdocsspec.com/spec/) check on https://microcks.io dropped below a perfect score."
+            echo
+            echo "**Overall: ${overall}/100 (${grade})**"
+            echo
+            echo "### Categories below 100"
+            jq -r '.scoring.categoryScores | to_entries[] | select(.value.score != null and .value.score < 100) | "- \(.key): \(.value.score)/100 (\(.value.grade))"' afdocs-result.json
+            echo
+            echo "### Failing / warning checks"
+            jq -r '.results[] | select(.status == "fail" or .status == "warn") | "- **\(.id)** (\(.category), \(.status)): \(.message)"' afdocs-result.json
+            echo
+            echo "Re-run locally: \`npx afdocs check https://microcks.io --format scorecard\`"
+          } > afdocs-body.md
+
+      - name: Open issue on regression
+        if: steps.afdocs.outputs.regression == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SCORE: ${{ steps.afdocs.outputs.score }}
+          GRADE: ${{ steps.afdocs.outputs.grade }}
+        run: |
+          # Dedupe on the title text: only one open regression issue at a time.
+          existing=$(gh issue list --repo "$GITHUB_REPOSITORY" --search "agentdocsspec.com score dropped in:title" --state open --json number --jq 'length')
+          if [ "$existing" -gt 0 ]; then
+            echo "An open agentdocsspec.com regression issue already exists, skipping."
+            exit 0
+          fi
+
+          gh issue create --repo "$GITHUB_REPOSITORY" \
+            --title "agentdocsspec.com score dropped to ${SCORE}/100 (${GRADE})" \
+            --label "report" --label "automated issue" \
+            --body-file afdocs-body.md
