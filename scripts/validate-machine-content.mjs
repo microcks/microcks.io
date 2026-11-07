@@ -13,7 +13,18 @@ for (const f of ['llms.txt', 'llms-full.txt', 'index.md']) {
 const llmsPath = path.join(BUILD, 'llms.txt');
 if (fs.existsSync(llmsPath)) {
   const llms = fs.readFileSync(llmsPath, 'utf8');
+  // Paths served by a Netlify 200 rewrite (e.g. the proxied OpenAPI description) have no file in build/.
+  const redirectsPath = path.join(BUILD, '_redirects');
+  const rewritten = new Set(
+    fs.existsSync(redirectsPath)
+      ? fs.readFileSync(redirectsPath, 'utf8').split('\n')
+          .map(l => l.trim().split(/\s+/))
+          .filter(p => p.length >= 3 && !p[0].startsWith('#') && p[p.length - 1] === '200')
+          .map(p => p[0])
+      : [],
+  );
   const exists = rel => {
+    if (rewritten.has('/' + rel.replace(/[?#].*$/, '').replace(/^\//, ''))) return true;
     const clean = rel.replace(/[?#].*$/, '').replace(/^\/|\/$/g, '');
     return [`${clean}.md`, path.join(clean, 'index.html'), clean].some(c => {
       const p = path.join(BUILD, c);

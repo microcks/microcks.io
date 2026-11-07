@@ -30,6 +30,7 @@ const config = {
   headTags: [
     {tagName: 'link', attributes: {rel: 'manifest', href: '/site.webmanifest'}},
     {tagName: 'link', attributes: {rel: 'llmstxt', type: 'text/plain', href: '/llms.txt'}},
+    {tagName: 'link', attributes: {rel: 'service-desc', type: 'application/yaml', href: '/openapi.yaml', title: 'Microcks server OpenAPI description'}},
   ],
 
   presets: [
@@ -91,6 +92,7 @@ Use these docs when you need to mock or test APIs with Microcks: install it (Doc
 ## How to use this file
 - Pages are grouped as Overview, Tutorials, How-To Guides, Explanations and References; start with the Tutorials to learn and the References to look up details.
 - Every page is also available as Markdown by appending \`.md\` to its URL.
+- The OpenAPI description of the Microcks server API is at [openapi.yaml](https://microcks.io/openapi.yaml) (AsyncAPI: [asyncapi.yaml](https://microcks.io/asyncapi.yaml)).
 - The full documentation in a single file is at [llms-full.txt](https://microcks.io/llms-full.txt).
 
 ## Company
