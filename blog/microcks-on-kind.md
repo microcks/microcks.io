@@ -2,7 +2,7 @@
 title: Microcks on Kind 🚢
 slug: microcks-on-kind
 date: '2023-12-28'
-image: //images/blog/microcks-on-kind-feature.png
+image: /images/blog/microcks-on-kind-feature.png
 authors:
   - laurent-broudoux
 description: I'm still on housekeeping duty!

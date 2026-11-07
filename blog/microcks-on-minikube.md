@@ -2,7 +2,7 @@
 title: Microcks on Minikube 🧊
 slug: microcks-on-minikube
 date: '2023-12-27'
-image: //images/blog/microcks-on-minikube-feature.png
+image: /images/blog/microcks-on-minikube-feature.png
 authors:
   - laurent-broudoux
 description: As we close the year, it's a good time for some housekeeping!
