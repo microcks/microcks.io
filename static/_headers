@@ -11,8 +11,10 @@
 
 /
   Vary: Accept, Accept-Encoding
+  Link: </openapi.yaml>; rel="service-desc"; type="application/yaml"
 /documentation/*
   Vary: Accept, Accept-Encoding
+  Link: </openapi.yaml>; rel="service-desc"; type="application/yaml"
 /blog/*
   Vary: Accept, Accept-Encoding
 
