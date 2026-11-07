@@ -778,8 +778,14 @@ main .theme-doc-markdown a[class*='cardContainer']:not(.button) {
 #__docusaurus > .theme-announcement-bar { order: -2; }
 #__docusaurus > .navbar { order: -1; }
 
-/* Docs sidebar stays pinned under the navbar, even when the footer scrolls into view (the footer slides over it) */
+/* Docs sidebar stays pinned under the navbar and always visible; on docs pages the footer starts to its right */
 @media (min-width: 997px) {
+  .docs-doc-page footer.footer {
+    margin-left: var(--doc-sidebar-width);
+  }
+  .theme-doc-sidebar-container {
+    clip-path: none !important;
+  }
   [class*='sidebarViewport'] {
     position: fixed !important;
     top: 5.5rem !important;
