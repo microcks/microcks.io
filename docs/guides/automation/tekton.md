@@ -90,7 +90,7 @@ The parameters that can be set here are:
 `Pipeline` can be executed through a new `PipelineRun` resource creation or using the `tkn` CLI tool. This time, we're using the CLI tool to start a new pipeline:
 
 ```sh
-  tkn pipelinerun start user-registration-tekton-pipeline
+tkn pipelinerun start user-registration-tekton-pipeline
 ```
 
 ```sh
@@ -102,7 +102,7 @@ Showing logs...
 `tkn` can also be used later to retrieve the logs for the pipeline execution:
 
 ```sh
-  tkn pipeline logs user-registration-tekton-pipeline-run-64xf7 -f -n user-registration
+tkn pipeline logs user-registration-tekton-pipeline-run-64xf7 -f -n user-registration
 ```
 
 ```sh

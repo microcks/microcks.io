@@ -29,8 +29,8 @@ You'll notice that the response payload is expressed using some templating musta
 When invoked twice with different params at different dates, here are the results:
 
 ```sh
-  curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H 'Content-type: application/json' \
-    -d '{"name": "World"}' -s | jq .
+curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H 'Content-type: application/json' \
+  -d '{"name": "World"}' -s | jq .
 
 ```
 
@@ -43,8 +43,8 @@ When invoked twice with different params at different dates, here are the result
 ```
 # Wait for a day...
 ```sh
-  curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H 'Content-type: application/json' \
-    -d '{"name": "Laurent"}' -s | jq .
+curl -XGET http://microcks.example.com/rest/Hello+Dynamic+API/1.0.0/hello -H 'Content-type: application/json' \
+  -d '{"name": "Laurent"}' -s | jq .
 ```
 
 ```json
