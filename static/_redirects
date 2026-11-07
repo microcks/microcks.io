@@ -10,3 +10,7 @@
 /tags/*                 /blog/tags/:splat       301
 /author                 /blog/authors/          301
 /author/                /blog/authors/          301
+
+# Stable URLs for the Microcks server API descriptions (bump on each release)
+/openapi.yaml           https://raw.githubusercontent.com/microcks/microcks/master/api/microcks-openapi-v1.15.yaml   200
+/asyncapi.yaml          https://raw.githubusercontent.com/microcks/microcks/master/api/microcks-asyncapi-v1.10.yaml  200

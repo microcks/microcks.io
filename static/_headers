@@ -11,8 +11,10 @@
 
 /
   Vary: Accept, Accept-Encoding
+  Link: </openapi.yaml>; rel="service-desc"; type="application/yaml"
 /documentation/*
   Vary: Accept, Accept-Encoding
+  Link: </openapi.yaml>; rel="service-desc"; type="application/yaml"
 /blog/*
   Vary: Accept, Accept-Encoding
 
@@ -21,6 +23,10 @@
   Access-Control-Allow-Origin: *
 
 /helm/*
+  Access-Control-Allow-Origin: *
+/openapi.yaml
+  Access-Control-Allow-Origin: *
+/asyncapi.yaml
   Access-Control-Allow-Origin: *
 /schemas/*
   Access-Control-Allow-Origin: *
