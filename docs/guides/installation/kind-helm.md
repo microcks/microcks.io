@@ -19,8 +19,8 @@ Let's go 🚀
 On a Mac, people usually use [brew](https://brew.sh) to install `kind`. However, it is also available from several different package managers out there. You can check the [Quick Start](https://kind.sigs.k8s.io/docs/user/quick-start/#installation) guide for that. Obviously, you'll also need the [`kubectl`](https://kubernetes.io/docs/tasks/tools/#kubectl) utility to interact with your cluster, and the [`helm`](https://helm.sh) binary to install Envoy Gateway and Microcks.
 
 ```sh
-  brew install kind helm
-  kind --version
+brew install kind helm
+kind --version
 ```
 
 ```sh
@@ -30,9 +30,9 @@ kind version 0.33.0
 In a dedicated folder, prepare a `cluster-kind.yaml` configuration file like this:
 
 ```sh
-  cd ~/tmp
-  mkdir microcks && cd microcks
-  cat > cluster-kind.yaml <<EOF
+cd ~/tmp
+mkdir microcks && cd microcks
+cat > cluster-kind.yaml <<EOF
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
 nodes:
@@ -50,7 +50,7 @@ EOF
 We're now going to start a Kube cluster. Start your `kind` cluster using the `cluster-kind.yaml` configuration file we just created before:
 
 ```sh
-  kind create cluster --config=cluster-kind.yaml
+kind create cluster --config=cluster-kind.yaml
 ```
 
 ```sh
@@ -72,7 +72,7 @@ Have a question, bug, or feature request? Let us know! https://kind.sigs.k8s.io/
 Check that the node is available:
 
 ```sh
-  kubectl get nodes
+kubectl get nodes
 ```
 
 ```sh
@@ -87,7 +87,7 @@ Envoy Gateway implements Kubernetes Gateway API and provides the proxy that will
 Install Envoy Gateway using its Helm chart:
 
 ```sh
-  helm install envoy-gateway oci://docker.io/envoyproxy/gateway-helm -n envoy-gateway-system --create-namespace
+helm install envoy-gateway oci://docker.io/envoyproxy/gateway-helm -n envoy-gateway-system --create-namespace
 ```
 
 ```sh
@@ -123,7 +123,7 @@ To get more details, please visit https://gateway.envoyproxy.io and https://gith
 Wait for the deployment to become ready:
 
 ```sh
-  kubectl wait \
+kubectl wait \
   --namespace envoy-gateway-system \
   --for=condition=Available \
   deployment/envoy-gateway \
@@ -135,7 +135,7 @@ This installation also installs the Gateway API CRDs.
 Create a `GatewayClass`:
 
 ```sh
-  cat <<EOF | kubectl apply -f -
+cat <<EOF | kubectl apply -f -
 apiVersion: gateway.networking.k8s.io/v1
 kind: GatewayClass
 metadata:
@@ -152,7 +152,7 @@ gatewayclass.gateway.networking.k8s.io/envoy created
 Verify that the `GatewayClass` has been accepted:
 
 ```sh
-  kubectl get gatewayclass envoy
+kubectl get gatewayclass envoy
 ```
 
 ```sh
@@ -165,13 +165,13 @@ envoy   gateway.envoyproxy.io/gatewayclass-controller   True       22s
 Create the Microcks namespace:
 
 ```sh
-  kubectl create namespace microcks
+kubectl create namespace microcks
 ```
 
 Generate a TLS certificate for the Gateway API listeners. It covers the Microcks, Keycloak and Microcks WebSocket hostnames:
 
 ```sh
-  openssl req -x509 -nodes -days 365 \
+openssl req -x509 -nodes -days 365 \
   -newkey rsa:2048 \
   -keyout microcks-local.key \
   -out microcks-local.crt \
@@ -182,7 +182,7 @@ Generate a TLS certificate for the Gateway API listeners. It covers the Microcks
 Store it in a Kubernetes secret:
 
 ```sh
-  kubectl create secret tls microcks-local-tls \
+kubectl create secret tls microcks-local-tls \
   --namespace microcks \
   --key=microcks-local.key \
   --cert=microcks-local.crt
@@ -191,7 +191,7 @@ Store it in a Kubernetes secret:
 Check that the secret is created:
 
 ```sh
-  kubectl get secret microcks-local-tls -n microcks
+kubectl get secret microcks-local-tls -n microcks
 ```
 
 ```sh
@@ -205,7 +205,7 @@ Note that the certificate is self-signed, so the browser will display a security
 Configure an `EnvoyProxy` for the Kind cluster:
 
 ```sh
-  cat <<EOF | kubectl apply -f -
+cat <<EOF | kubectl apply -f -
 apiVersion: gateway.envoyproxy.io/v1alpha1
 kind: EnvoyProxy
 metadata:
@@ -230,7 +230,7 @@ EOF
 Create a Gateway with three HTTPS listeners on port 443: one for Microcks, one for Keycloak and one for the Microcks WebSocket endpoint (used by the asynchronous features of step 6). All listeners use the same certificate, which covers the three hostnames.
 
 ```sh
-  cat <<EOF | kubectl apply -f -
+cat <<EOF | kubectl apply -f -
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
@@ -294,14 +294,14 @@ We're now going to install Microcks with basic options, using the Helm Chart.
 Add the Microcks Helm repository:
 
 ```sh
-  helm repo add microcks https://microcks.io/helm/
-  helm repo update
+helm repo add microcks https://microcks.io/helm/
+helm repo update
 ```
 
 Install Microcks with Gateway API routes enabled and Ingress resources disabled:
 
 ```sh
-  helm install microcks microcks/microcks \
+helm install microcks microcks/microcks \
   --namespace microcks \
   --set ingresses=false \
   --set gatewayRoutes=true \
@@ -351,7 +351,7 @@ username and password found into 'microcks-keycloak-admin' secret.
 Wait for the pods to become ready:
 
 ```sh
-  kubectl get pods -n microcks
+kubectl get pods -n microcks
 ```
 
 ```sh
@@ -367,7 +367,7 @@ microcks-postman-runtime-566748c78-f7mzk        1/1     Running   0          118
 Inspect the generated routes:
 
 ```sh
-  kubectl get httproute -n microcks
+kubectl get httproute -n microcks
 ```
 
 ```sh
@@ -390,13 +390,13 @@ The Kafka cluster that the Microcks Helm chart can install for you is exposed th
 Install the latest version of the Strimzi operator in the `microcks` namespace:
 
 ```sh
-  kubectl apply -f 'https://strimzi.io/install/latest?namespace=microcks' -n microcks
+kubectl apply -f 'https://strimzi.io/install/latest?namespace=microcks' -n microcks
 ```
 
 Wait for the operator to become ready:
 
 ```sh
-  kubectl wait \
+kubectl wait \
   --namespace microcks \
   --for=condition=Available \
   deployment/strimzi-cluster-operator \
@@ -406,20 +406,20 @@ Wait for the operator to become ready:
 Kafka clients use TLS and Server Name Indication (SNI) to reach the bootstrap server and each broker. Add a TLS passthrough listener for the Kafka hostnames to the Gateway, so Envoy forwards the encrypted traffic directly to the brokers:
 
 ```sh
-  kubectl patch gateway microcks-gateway -n microcks --type=json -p '[
-    {
-      "op": "add",
-      "path": "/spec/listeners/-",
-      "value": {
-        "name": "kafka-tls",
-        "hostname": "*.kafka.127.0.0.1.nip.io",
-        "port": 443,
-        "protocol": "TLS",
-        "tls": { "mode": "Passthrough" },
-        "allowedRoutes": { "namespaces": { "from": "Same" } }
-      }
+kubectl patch gateway microcks-gateway -n microcks --type=json -p '[
+  {
+    "op": "add",
+    "path": "/spec/listeners/-",
+    "value": {
+      "name": "kafka-tls",
+      "hostname": "*.kafka.127.0.0.1.nip.io",
+      "port": 443,
+      "protocol": "TLS",
+      "tls": { "mode": "Passthrough" },
+      "allowedRoutes": { "namespaces": { "from": "Same" } }
     }
-  ]'
+  }
+]'
 ```
 
 ```sh
@@ -429,7 +429,7 @@ gateway.gateway.networking.k8s.io/microcks-gateway patched
 Create a single-node Kafka cluster with an external `tlsroute` listener attached to this Gateway listener, and the topic Microcks uses to share service updates:
 
 ```sh
-  cat <<EOF | kubectl apply -n microcks -f -
+cat <<EOF | kubectl apply -n microcks -f -
 apiVersion: kafka.strimzi.io/v1
 kind: KafkaNodePool
 metadata:
@@ -494,13 +494,13 @@ EOF
 Wait for the Kafka cluster to become ready (pulling the images may take a few minutes):
 
 ```sh
-  kubectl wait kafka/microcks-kafka -n microcks --for=condition=Ready --timeout=600s
+kubectl wait kafka/microcks-kafka -n microcks --for=condition=Ready --timeout=600s
 ```
 
 Check that Strimzi created the TLS routes for the bootstrap server and the broker:
 
 ```sh
-  kubectl get tlsroute -n microcks
+kubectl get tlsroute -n microcks
 ```
 
 ```sh
@@ -512,7 +512,7 @@ microcks-kafka-kafka-bootstrap   ["bootstrap.kafka.127.0.0.1.nip.io"]   1m
 Now, upgrade the Microcks release to enable the asynchronous features. Microcks and its async minion connect to Kafka from inside the cluster, using the internal bootstrap service. The WebSocket endpoint is attached to the `microcks-ws-https` listener created in step 4:
 
 ```sh
-  helm upgrade microcks microcks/microcks \
+helm upgrade microcks microcks/microcks \
   --namespace microcks \
   --reuse-values \
   --set features.async.enabled=true \
@@ -524,7 +524,7 @@ Now, upgrade the Microcks release to enable the asynchronous features. Microcks 
 Check that the WebSocket route has been created next to the Microcks and Keycloak ones:
 
 ```sh
-  kubectl get httproute -n microcks
+kubectl get httproute -n microcks
 ```
 
 ```sh
@@ -537,7 +537,7 @@ microcks-ws         ["microcks-ws.127.0.0.1.nip.io"]   30s
 Watch and check the pods you should get in the namespace:
 
 ```sh
-  kubectl get pods -n microcks
+kubectl get pods -n microcks
 ```
 
 You should see the `microcks-async-minion`, `microcks-kafka-dual-role-0`, `microcks-kafka-entity-operator` and `strimzi-cluster-operator` pods running, in addition to the pods from the basic installation. The async minion may restart a few times while Kafka is starting.
@@ -545,7 +545,7 @@ You should see the `microcks-async-minion`, `microcks-kafka-dual-role-0`, `micro
 Extract the Kafka cluster CA certificate, which external clients need to trust the brokers:
 
 ```sh
-  kubectl get secret microcks-kafka-cluster-ca-cert -n microcks -o jsonpath='{.data.ca\.crt}' | base64 -d > ca.crt
+kubectl get secret microcks-kafka-cluster-ca-cert -n microcks -o jsonpath='{.data.ca\.crt}' | base64 -d > ca.crt
 ```
 
 You can now apply the checks found at [Async Features with Docker Compose](https://microcks.io/blog/async-features-with-docker-compose/).
@@ -555,7 +555,7 @@ Start with loading the [User signed-up API](https://microcks.io/blog/async-featu
 Now connect to the Kafka broker pod to check that a topic has been correctly created and that you can consume messages from there:
 
 ```sh
-  kubectl -n microcks exec microcks-kafka-dual-role-0 -it -- /bin/sh
+kubectl -n microcks exec microcks-kafka-dual-role-0 -it -- /bin/sh
 ```
 ```sh
 --- INPUT ---
@@ -579,7 +579,7 @@ command terminated with exit code 130
 And finally, from your Mac host, you can install the [`kcat`](https://github.com/edenhill/kcat) utility to consume messages through the Gateway as well. You'll need to refer to the `ca.crt` certificate you previously extracted:
 
 ```sh
-  kcat -b bootstrap.kafka.127.0.0.1.nip.io:443 -X security.protocol=SSL -X ssl.ca.location=ca.crt -t UsersignedupAPI-0.1.1-user-signedup
+kcat -b bootstrap.kafka.127.0.0.1.nip.io:443 -X security.protocol=SSL -X ssl.ca.location=ca.crt -t UsersignedupAPI-0.1.1-user-signedup
 ```
 ```sh
 
@@ -600,7 +600,7 @@ To remove the Microcks installation, delete the Helm releases and the Kubernetes
 Delete Microcks first:
 
 ```sh
-  helm delete microcks -n microcks
+helm delete microcks -n microcks
 ```
 
 ```sh
@@ -611,23 +611,23 @@ Release "microcks" uninstalled
 If you followed step 6, delete the Kafka cluster and the Strimzi operator:
 
 ```sh
-  kubectl delete kafkatopic,kafka,kafkanodepool --all -n microcks
-  kubectl delete -f 'https://strimzi.io/install/latest?namespace=microcks' -n microcks
+kubectl delete kafkatopic,kafka,kafkanodepool --all -n microcks
+kubectl delete -f 'https://strimzi.io/install/latest?namespace=microcks' -n microcks
 ```
 
 Delete the Gateway and its supporting resources:
 
 ```sh
-  kubectl delete gateway microcks-gateway -n microcks
-  kubectl delete envoyproxy microcks-proxy -n microcks
-  kubectl delete secret microcks-local-tls -n microcks
-  kubectl delete gatewayclass envoy
+kubectl delete gateway microcks-gateway -n microcks
+kubectl delete envoyproxy microcks-proxy -n microcks
+kubectl delete secret microcks-local-tls -n microcks
+kubectl delete gatewayclass envoy
 ```
 
 Then uninstall Envoy Gateway:
 
 ```sh
-  helm uninstall envoy-gateway -n envoy-gateway-system
+helm uninstall envoy-gateway -n envoy-gateway-system
 ```
 
 ```sh
@@ -638,14 +638,14 @@ Release "envoy-gateway" uninstalled
 Helm does not remove the CRDs installed by the Envoy Gateway chart. Delete the Gateway API and Envoy Gateway CRDs, then the namespaces:
 
 ```sh
-  kubectl get crd -o name | grep -E 'gateway\.networking\.k8s\.io|gateway\.envoyproxy\.io' | xargs kubectl delete
-  kubectl delete namespace microcks envoy-gateway-system
+kubectl get crd -o name | grep -E 'gateway\.networking\.k8s\.io|gateway\.envoyproxy\.io' | xargs kubectl delete
+kubectl delete namespace microcks envoy-gateway-system
 ```
 
 Finally, you can delete the cluster if you want:
 
 ```sh
-  kind delete cluster
+kind delete cluster
 ```
 
 ```sh
