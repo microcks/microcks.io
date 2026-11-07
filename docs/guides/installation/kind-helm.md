@@ -195,7 +195,6 @@ kubectl get secret microcks-local-tls -n microcks
 ```
 
 ```sh
-
 NAME                 TYPE                DATA   AGE
 microcks-local-tls   kubernetes.io/tls   2      20s
 ```
@@ -317,7 +316,6 @@ helm install microcks microcks/microcks \
 ```
 
 ```sh
-
 NAME: microcks
 LAST DEPLOYED: Fri Oct  9 22:41:23 2026
 NAMESPACE: microcks
@@ -355,7 +353,6 @@ kubectl get pods -n microcks
 ```
 
 ```sh
-
 NAME                                            READY   STATUS    RESTARTS   AGE
 microcks-68657ccb64-l9zkx                       1/1     Running   0          118s
 microcks-keycloak-7c995cbf6d-xtb69              1/1     Running   0          118s
@@ -371,7 +368,6 @@ kubectl get httproute -n microcks
 ```
 
 ```sh
-
 NAME                HOSTNAMES                       AGE
 microcks            ["microcks.127.0.0.1.nip.io"]   2m16s
 microcks-keycloak   ["keycloak.127.0.0.1.nip.io"]   2m16s
@@ -582,7 +578,6 @@ And finally, from your Mac host, you can install the [`kcat`](https://github.com
 kcat -b bootstrap.kafka.127.0.0.1.nip.io:443 -X security.protocol=SSL -X ssl.ca.location=ca.crt -t UsersignedupAPI-0.1.1-user-signedup
 ```
 ```sh
-
 % Auto-selecting Consumer mode (use -P or -C to override)
 {"id": "zYcAzFlRoTGvu9Mu4ajg30lr1fBa4Kah", "sendAt": "1703699827456", "fullName": "Laurent Broudoux", "email": "laurent@microcks.io", "age": 41}
 {"id":"v0TkDvd1Z7RxynQvi1i0NmXAaLPzuYXE","sendAt":"1703699827585","fullName":"John Doe","email":"john@microcks.io","age":36}
@@ -604,7 +599,6 @@ helm delete microcks -n microcks
 ```
 
 ```sh
-
 Release "microcks" uninstalled
 ```
 
@@ -631,7 +625,6 @@ helm uninstall envoy-gateway -n envoy-gateway-system
 ```
 
 ```sh
-
 Release "envoy-gateway" uninstalled
 ```
 
@@ -649,7 +642,6 @@ kind delete cluster
 ```
 
 ```sh
-
 Deleting cluster "kind" ...
 Deleted nodes: ["kind-control-plane"]
 ```
