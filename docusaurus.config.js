@@ -1,8 +1,37 @@
 // @ts-check
-import {announcement} from './src/data/home.js';
+import {announcement, socials} from './src/data/home.js';
 import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://microcks.io/#organization',
+      name: 'Microcks',
+      url: 'https://microcks.io/',
+      description: 'Microcks is an open source, cloud native tool for API Mocking and Testing, a Cloud Native Computing Foundation (CNCF) incubating project.',
+      logo: 'https://microcks.io/images/microcks-logo-blue-name.png',
+      sameAs: socials.filter(s => s.icon !== 'discord').map(s => s.href),
+      contactPoint: {'@type': 'ContactPoint', contactType: 'community support', url: 'https://microcks.io/community/'},
+    },
+    {
+      '@type': 'SoftwareApplication',
+      '@id': 'https://microcks.io/#software',
+      name: 'Microcks',
+      url: 'https://microcks.io/',
+      description: 'Open source, cloud native tool for mocking and testing APIs (OpenAPI, AsyncAPI, gRPC, GraphQL, SOAP).',
+      applicationCategory: 'DeveloperApplication',
+      operatingSystem: 'Linux, macOS, Windows, Kubernetes, Docker',
+      license: 'https://www.apache.org/licenses/LICENSE-2.0',
+      downloadUrl: 'https://microcks.io/documentation/tutorials/getting-started/',
+      offers: {'@type': 'Offer', price: '0', priceCurrency: 'USD'},
+      publisher: {'@id': 'https://microcks.io/#organization'},
+    },
+  ],
+};
+
 const config = {
   title: 'Microcks',
   tagline: 'The open source, cloud native tool for API Mocking and Testing',
@@ -31,6 +60,7 @@ const config = {
     {tagName: 'link', attributes: {rel: 'manifest', href: '/site.webmanifest'}},
     {tagName: 'link', attributes: {rel: 'llmstxt', type: 'text/plain', href: '/llms.txt'}},
     {tagName: 'link', attributes: {rel: 'service-desc', type: 'application/yaml', href: '/openapi.yaml', title: 'Microcks server OpenAPI description'}},
+    {tagName: 'script', attributes: {type: 'application/ld+json'}, innerHTML: JSON.stringify(jsonLd)},
   ],
 
   presets: [
@@ -131,6 +161,7 @@ Use these docs when you need to mock or test APIs with Microcks: install it (Doc
     ({
       image: 'images/microcks-logo-blue-name.png',
       metadata: [
+        {property: 'og:type', content: 'website'},
         {name: 'keywords', content: 'Microcks, open source, API, microservices, OpenAPI, AsyncAPI, GraphQL, gRPC, Kafka, mocking, testing'},
         {name: 'author', content: 'Microcks'},
       ],
