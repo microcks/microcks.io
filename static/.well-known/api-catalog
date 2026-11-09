@@ -1,0 +1,22 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://microcks.io/documentation/references/apis/open-api/",
+      "service-desc": [
+        {"href": "https://microcks.io/openapi.yaml", "type": "application/yaml"}
+      ],
+      "service-doc": [
+        {"href": "https://microcks.io/documentation/references/apis/open-api/", "type": "text/html"}
+      ]
+    },
+    {
+      "anchor": "https://microcks.io/documentation/references/apis/async-api/",
+      "service-desc": [
+        {"href": "https://microcks.io/asyncapi.yaml", "type": "application/yaml"}
+      ],
+      "service-doc": [
+        {"href": "https://microcks.io/documentation/references/apis/async-api/", "type": "text/html"}
+      ]
+    }
+  ]
+}
