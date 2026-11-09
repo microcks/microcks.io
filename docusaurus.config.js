@@ -61,8 +61,6 @@ const config = {
   headTags: [
     {tagName: 'link', attributes: {rel: 'manifest', href: '/site.webmanifest'}},
     {tagName: 'link', attributes: {rel: 'llmstxt', type: 'text/plain', href: '/llms.txt'}},
-    {tagName: 'link', attributes: {rel: 'api-catalog', type: 'application/linkset+json', href: '/.well-known/api-catalog'}},
-    {tagName: 'link', attributes: {rel: 'service-desc', type: 'application/yaml', href: '/openapi.yaml', title: 'Microcks server OpenAPI description'}},
     {tagName: 'script', attributes: {type: 'application/ld+json'}, innerHTML: JSON.stringify(jsonLd)},
   ],
 
