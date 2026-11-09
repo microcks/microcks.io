@@ -11,12 +11,17 @@
 
 /
   Vary: Accept, Accept-Encoding
+  Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"
   Link: </openapi.yaml>; rel="service-desc"; type="application/yaml"
 /documentation/*
   Vary: Accept, Accept-Encoding
   Link: </openapi.yaml>; rel="service-desc"; type="application/yaml"
 /blog/*
   Vary: Accept, Accept-Encoding
+
+/.well-known/api-catalog
+  Content-Type: application/linkset+json; profile="https://www.rfc-editor.org/info/rfc9727"
+  Access-Control-Allow-Origin: *
 
 /.well-known/atproto-did
   Content-Type: text/plain; charset=utf-8
