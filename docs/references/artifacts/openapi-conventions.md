@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [OpenAPI, REST]
 title: OpenAPI Conventions
 sidebar_position: 1
 last_update:
   date: '2024-11-04'
-description: In addition of schema information, Microcks uses OpenAPI Example Objects to produce working mocks and build test suite for validating your implementation.
+description: "How OpenAPI example names link params, requests and responses into mocks and tests."
 ---
 
 ## Conventions

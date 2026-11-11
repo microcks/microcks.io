@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Observability]
 title: Monitoring & Observability
-sidebar_position: 20
+sidebar_position: 10
 last_update:
   date: '2025-03-11'
-description: As a cloud-native application, we take great care of providing observability on what's going on within a Microcks instance.
+description: "Functional and technical metrics, OpenTelemetry, Grafana dashboard and benchmark suite."
 ---
 
 ## Introduction

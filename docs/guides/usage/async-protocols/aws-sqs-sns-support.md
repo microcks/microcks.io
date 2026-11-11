@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [AWS, SQS, SNS]
 title: SQS/SNS Mocking & Testing
 sidebar_position: 7
 last_update:
   date: '2025-10-19'
-description: This guide shows you how to use a Amazon SQS and Amazon SNS messaging service with Microcks.
+description: "Connect Microcks to Amazon SQS and SNS (or LocalStack) to mock and test queues and topics."
 ---
 
 ## Overview

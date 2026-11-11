@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting
-description: Below are all the guides related to **Troubleshooting**.
+description: "Fixes for common issues: changing log levels, failed or empty imports, unresolved $ref."
 sidebar_position: 6
 ---
 

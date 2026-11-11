@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Vision]
 title: Project Goals
 sidebar_position: 2
 last_update:
   date: '2026-02-11'
-description: The goal of the Microcks project is to accelerate cloud‑native application adoption by addressing the challenges of complex, distributed, multi‑protocol…
+description: "Why Microcks exists: speeding up cloud-native adoption across protocols and teams."
 ---
 
 The goal of the Microcks project is to accelerate cloud‑native application adoption by addressing the challenges of complex, distributed, multi‑protocol systems:

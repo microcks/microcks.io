@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [SOAP, SoapUI]
 title: SoapUI Conventions
 sidebar_position: 7
 last_update:
   date: '2024-05-27'
-description: In order to be correctly imported and understood by Microcks, your SoapUI project should follow a little set of reasonable conventions and best practices.
+description: "Structure a SoapUI project (requests, responses, XPath or Groovy dispatch) for Microcks."
 ---
 
 ## Conventions

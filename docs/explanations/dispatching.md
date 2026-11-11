@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Dispatcher, Mocks]
 title: Dispatcher & dispatching rules
-sidebar_position: 18
+sidebar_position: 4
 last_update:
   date: '2025-09-22'
-description: In order to provide smart mocks, Microcks is using Dispatcher and Dispatching Rules to find the most appropriate response to return when receiving a request.
+description: "How Microcks picks a response: inferred dispatchers, rule overrides, fallback and proxy."
 ---
 
 ## Introduction

@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Mocks, Latency]
 title: Defining delays for mocks
 sidebar_position: 4
 last_update:
   date: '2025-05-06'
-description: When using mocks to simulate a backend dependency, it may be more realistic to have responses that do not come immediately but reproduce the dependency…
+description: "Simulate backend latency with delays set per operation or per request header."
 ---
 
 ## Overview

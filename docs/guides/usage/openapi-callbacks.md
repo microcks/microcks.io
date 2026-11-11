@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [OpenAPI, Callbacks]
 title: Simulating OpenAPI Callbacks
 sidebar_position: 5
 last_update:
   date: '2026-02-06'
-description: In OpenAPI v3 specs, you can define callbacks – asynchronous, out-of-band requests that your service will send to some other service in response to certain…
+description: "Have Microcks fire the OpenAPI v3 callbacks of a mocked operation, and test them."
 ---
 
 ## Overview

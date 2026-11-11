@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Backstage, Catalog]
 title: Configuring the Backstage Plugin
 sidebar_position: 3
 last_update:
   date: '2025-09-29'
-description: The Microcks Backstage provider discovers APIs from one or more Microcks instances and syncs them into the Backstage Software Catalog as API entities.
+description: "Sync APIs from Microcks instances into the Backstage Software Catalog."
 ---
 
 The Microcks Backstage provider discovers APIs from one or more Microcks instances and syncs them into the Backstage Software Catalog as `API` entities. This page explains how to install, configure, and verify the provider in your Backstage app.

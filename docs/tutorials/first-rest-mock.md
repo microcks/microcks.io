@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [REST, OpenAPI]
 title: Your 1st REST mock
 sidebar_position: 3
 last_update:
   date: '2024-06-18'
-description: This tutorial is a step-by-step walkthrough on how to use OpenAPI v3 Specification to specify your mocks for your API.
+description: "Write an OpenAPI v3 spec with examples to mock query, path params and POST operations."
 ---
 
 ## Overview

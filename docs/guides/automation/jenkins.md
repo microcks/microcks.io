@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [CI/CD, Jenkins]
 title: Using Jenkins Pipeline
 sidebar_position: 6
 last_update:
   date: '2025-04-28'
-description: This guide illustrates how you can integrate the Microcks Jenkins plugin to keep Microcks in sync with your API specifications and integrate test stages…
+description: "Keep Microcks in sync with your specs and add test stages with the Jenkins plugin."
 ---
 
 ## Overview

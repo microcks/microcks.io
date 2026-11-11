@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [AsyncAPI, Events]
 title: AsyncAPI Conventions
 sidebar_position: 2
 last_update:
   date: '2024-11-04'
-description: In addition of schema information, Microcks uses AsyncAPI Message Example Objects to produce example messages for mocking purpose.
+description: "How AsyncAPI v2/v3 message examples, headers and bindings drive async mocks and tests."
 ---
 
 ## Conventions

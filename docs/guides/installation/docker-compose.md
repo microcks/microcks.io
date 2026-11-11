@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Local, Docker, Async add-on]
 title: With Docker Compose
 sidebar_position: 2
 last_update:
   date: '2025-05-11'
-description: This guide shows you how to install and run Microcks using Docker Compose.
+description: "Run Microcks locally with a single docker compose up. Optional add-on for Async APIs (Kafka)."
 ---
 
 This guide shows you how to install and run Microcks using Docker Compose.

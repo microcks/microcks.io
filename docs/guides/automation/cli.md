@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [CLI, CI/CD]
 title: Using Microcks CLI
 sidebar_position: 2
 last_update:
   date: '2026-02-11'
-description: This guide illustrates the usage of microcks-cli, a command-line tool for interacting with Microcks APIs.
+description: "Install microcks-cli and launch conformance tests from any shell or CI runner."
 ---
 
 ## Overview

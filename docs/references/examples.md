@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Format, Examples]
 title: API Examples Format
 sidebar_position: 6
 last_update:
   date: '2024-10-09'
-description: APIExamples format is Microcks' own specification format for defining examples intended to be used by Microcks mocks.
+description: "APIExamples format to provide mock datasets without touching the API spec itself."
 ---
 
 ## Introduction

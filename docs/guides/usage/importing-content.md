@@ -1,9 +1,11 @@
 ---
+sidebar_custom_props:
+  tags: [Getting started, Importer]
 title: Importing Services & APIs
 sidebar_position: 1
 last_update:
   date: '2024-06-07'
-description: This guide will show you and discuss the different options for importing Services and APIs into Microcks.
+description: "Load artifacts by one-off upload (UI or CLI) or with scheduled Importer jobs."
 ---
 
 ## Overview
