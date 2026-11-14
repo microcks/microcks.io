@@ -207,7 +207,9 @@ post:
 
 > 💡 Note that we can use multi-line notation in YAML but we will have to escape everything and put `\` before double-quotes and `\n` characters if specified using JSON.
 
-Once `labels` and dispatching rules are defined that way, they will overwrite the different customizations you may have done through UI or API during the next import of the OpenAPI document.
+Labels declared in `info.x-microcks` overwrite the saved labels when re-importing an OpenAPI document with the same service name and version.
+
+For matching operations, saved UI or API overrides are preserved on re-import, even if `x-microcks-operation` has changed. This includes the dispatcher, dispatching rules, default delay, delay strategy, and parameter constraints. The first import of a new service version uses the values declared in its OpenAPI document. To update the dispatcher and rules of an existing operation, edit them through the UI or API, or import [API Metadata](/documentation/references/metadata/#api-metadata-properties) as a secondary artifact.
 
 Starting with Microcks `1.11.0`, you can also declare [mock constraints](/documentation/guides/usage/mocks-constraints) using the `x-microcks-operation` extension:
 
