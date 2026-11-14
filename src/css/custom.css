@@ -121,6 +121,13 @@ div[class*='announcementBar'] a {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+div[class*='announcementBar'] button[class*='closeButton'] {
+  color: #fff;
+  opacity: 1;
+}
+div[class*='announcementBar'] button[class*='closeButton'] svg {
+  fill: currentColor;
+}
 .sr-only {
   position: absolute;
   width: 1px;
