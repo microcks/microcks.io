@@ -2,13 +2,6 @@
 // Bump LATEST_RELEASE on each Microcks release.
 export const LATEST_RELEASE = '1.15.0';
 
-export const announcement = {
-  enable: false,
-  text: 'Join us at KubeCon + CloudNativeCon North America on Nov 9-12 🎉',
-  cta: 'Register Today!',
-  link: 'https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/register/?utm_source=microcks&utm_medium=ribbon-banner&utm_campaign=KubeCon-CloudNativeCon-NA-2026&utm_content=hero',
-};
-
 export const hero = {
   title: 'The open source, cloud native tool for API Mocking and Testing',
   content:
