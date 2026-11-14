@@ -207,7 +207,7 @@ post:
 
 > 💡 Note that we can use multi-line notation in YAML but we will have to escape everything and put `\` before double-quotes and `\n` characters if specified using JSON.
 
-On re-import, `x-microcks` labels update the service metadata. Operation settings edited through the UI or API are saved as overrides, so re-importing the same service version keeps those settings instead of replacing them with changed `x-microcks-operation` values. A new service version uses the values in its OpenAPI document. To change a saved operation override, edit it through the UI or API, or import [API Metadata](/documentation/references/metadata/#api-metadata-properties).
+Once `labels` and dispatching rules are defined that way, they will overwrite the different customizations you may have done through UI or API during the next import of the OpenAPI document.
 
 Starting with Microcks `1.11.0`, you can also declare [mock constraints](/documentation/guides/usage/mocks-constraints) using the `x-microcks-operation` extension:
 
