@@ -1,5 +1,6 @@
 // @ts-check
-import {announcement, socials} from './src/data/home.js';
+import {socials} from './src/data/home.js';
+import {announcement} from './src/data/announcement.js';
 import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
@@ -167,7 +168,7 @@ Use these docs when you need to mock or test APIs with Microcks: install it (Doc
         {name: 'author', content: 'Microcks'},
       ],
       announcementBar: announcement.enable ? {
-        id: 'kubecon-na-2026',
+        id: announcement.id,
         content: `${announcement.text} <a target="_blank" rel="noopener noreferrer" href="${announcement.link}">${announcement.cta}</a>`,
         backgroundColor: '#63a9ec',
         textColor: '#ffffff',
