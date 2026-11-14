@@ -24,7 +24,7 @@ When to use this guide:
 
 - **Dispatcher**: The strategy that defines which request elements are examined (for example: `QUERY_HEADER`, `URI_PARTS`, `JSON_BODY`, `SCRIPT`, `FALLBACK`, `PROXY`, `PROXY_FALLBACK`).
 - **Dispatching rules**: The expression or configuration associated with a dispatcher. For example, for `QUERY_HEADER`, it’s the list of header names to consider; for `JSON_BODY`, it’s a JSON Pointer-based expression with cases; for `SCRIPT`, it’s a Groovy or JavaScript script returning a response name.
-- **Scope**: Dispatchers are configured at the operation level (for example, `GET /pastry/{name}`). They are persisted in Microcks and survive future refreshes/imports unless overwritten by extensions or metadata.
+- **Scope**: Dispatchers are configured at the operation level (for example, `GET /pastry/{name}`). UI or API edits are saved as overrides and survive re-imports with the same service name and version. API Metadata can overwrite the dispatcher and rules, including saved overrides.
 
 For a broader tour and advanced strategies, see [Dispatcher & dispatching rules](/documentation/explanations/dispatching).
 
@@ -113,7 +113,7 @@ paths:
           }
 ```
 
-On the next import, this will overwrite any UI-edited dispatcher configuration for that operation. See [OpenAPI extensions](/documentation/references/artifacts/openapi-conventions/#openapi-extensions).
+The extension sets the dispatcher when the service is first imported. If you later edit that operation through the UI or API, re-importing with the same service name and version keeps the saved override for the matching operation, even if the extension has changed. The first import of a new service version uses the dispatcher declared in its OpenAPI document. To update the existing operation, edit it through the UI or API, or import [API Metadata](/documentation/references/metadata/#api-metadata-properties). See [OpenAPI extensions](/documentation/references/artifacts/openapi-conventions/#openapi-extensions).
 
 ### Using API Metadata
 
@@ -136,7 +136,7 @@ operations:
       }
 ```
 
-Import this as a secondary artifact (via Importers or Upload). It will set or overwrite the dispatcher for the target operation. See [API Metadata Format](/documentation/references/metadata/#api-metadata-properties).
+Import this as a secondary artifact (via Importers or Upload). For the service name and version specified in the metadata, it will set or overwrite the supplied dispatcher and rules for the matching operation, including saved UI or API overrides. See [API Metadata Format](/documentation/references/metadata/#api-metadata-properties).
 
 ### 3.3 Using the Microcks API
 
