@@ -2,7 +2,7 @@
 title: Microcks 1.16.0 release 🚀
 slug: microcks-1.16.0-release
 date: '2026-11-17'
-draft: true
+draft: false
 image: /images/blog/microcks-1.16.0-feature.jpg
 authors:
   - laurent-broudoux
