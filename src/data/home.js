@@ -1,13 +1,13 @@
 // Content of the landing page and community page, ported from the Hugo front matter.
 // Bump LATEST_RELEASE on each Microcks release.
-export const LATEST_RELEASE = '1.15.0';
+export const LATEST_RELEASE = '1.16.0';
 
 export const hero = {
   title: 'The open source, cloud native tool for API Mocking and Testing',
   content:
     'Microcks leverages **API standards** to provide a **uniform and multi-protocol approach**, empowering your API and microservices lifecycle. It strengthens your **ecosystem** to create an adaptable API **value chain** #APIDevOps',
   releaseLabel: `${LATEST_RELEASE} has just been released! 🚀`,
-  releaseLink: `https://github.com/microcks/microcks/releases/tag/${LATEST_RELEASE}`,
+  releaseLink: `https://microcks.io/blog/microcks-1.16.0-release/`,
   getStartedLink: '/documentation/tutorials/getting-started/',
 };
 
