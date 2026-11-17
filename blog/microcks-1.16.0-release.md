@@ -13,17 +13,17 @@ We are excited to announce the `1.16.0` release of Microcks, the [CNCF](https://
 
 Your API landscape rarely fits into a single tool or messaging platform. A collection created in Bruno, an enterprise application using IBM MQ, and a cloud service exchanging messages over Google Pub/Sub can all be part of the same business flow. Testing these systems means connecting those worlds without making your development environment harder to run.
 
-That's the common thread of Microcks `1.16.0`: **more connections, less waiting!** This release opens new routes into your API simulation environment while making Microcks itself faster to start. Here are the highlights:
+That's the common thread of Microcks `1.16.0`: **more connections, less waiting!** This release opens new routes into your API simulation environment while making Microcks itself faster to start. To illustrate these new connections and faster starts, we chose a bridge carrying trails of light into the sunrise:
+
+![Light trails crossing a bridge at sunrise in Sweden](/images/blog/microcks-1.16.0-feature.jpg)
+
+Here are the highlights:
 
 - **OpenCollection support** brings a new source of API mocks, especially for teams using Bruno.
 - **Docker Hardened Images and Java 25 AOT caching** give our JVM-based containers a new foundation and faster startup.
 - **IBM MQ support** extends AsyncAPI mocking and testing to another enterprise messaging platform.
 - **Google Pub/Sub request/reply** lets you simulate asynchronous conversations, not just independent events.
 - **Improved Avro handling and Avro binary publishing over NATS** make event-based mocks and contract tests more reliable.
-
-To illustrate these new connections and faster starts, we chose a bridge carrying trails of light into the sunrise:
-
-![Light trails crossing a bridge at sunrise in Sweden](/images/blog/microcks-1.16.0-feature.jpg)
 
 Let's take a closer look! 
 
