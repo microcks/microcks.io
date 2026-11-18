@@ -4,7 +4,7 @@ sidebar_custom_props:
 title: OpenAPI Conventions
 sidebar_position: 1
 last_update:
-  date: '2024-11-04'
+  date: '2026-11-18'
 description: "How OpenAPI example names link params, requests and responses into mocks and tests."
 ---
 
@@ -105,6 +105,57 @@ responses:
                   {"name": "jean-pierre", "model": "Peugeot Traveller", "year": 2017}
               ]
 ```
+
+#### Binary response payload
+
+Use `externalValue` in a named response example to serve a binary file such as a PNG. Since Microcks `1.13.2`, `externalValue` supports relative paths and remote URLs.
+
+Save this OpenAPI document as `openapi.yaml` and put a PNG named `example.png` beside it.
+
+```yaml
+openapi: 3.0.3
+info:
+  title: Binary Download
+  version: 1.0.0
+paths:
+  /example.png:
+    get:
+      responses:
+        '200':
+          description: Example image
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
+              examples:
+                sample:
+                  externalValue: ./example.png
+```
+
+Host both files in the same directory on an HTTP server that Microcks can reach.
+
+Open **Quick Import** and select **Download Artifact**. Enter the URL of `openapi.yaml` in **Artifact URL**. Click **Download & Import**. Microcks fetches `./example.png` relative to the document URL during import.
+
+> 💡 Configure a [default artifacts repository](/documentation/guides/usage/importing-content/#configure-dependency-resolution) when using **Upload Artifact** with a local YAML file. This lets Microcks resolve the external file.
+
+Enable binary response decoding by starting the Microcks Webapp component with `ENABLE_BINARY_RESPONSE_DECODE=true` in its environment. This variable controls the `mocks.enable-binary-response-decode` property, which defaults to `false`. With decoding disabled, the PNG example is returned as Base64 data URI text.
+
+Download the mock response using the following command. Replace `http://localhost:8080` with your Microcks server URL if needed.
+
+```sh
+curl --fail --header 'Accept: image/png' --output downloaded.png 'http://localhost:8080/rest/Binary+Download/1.0.0/example.png'
+```
+
+Compare the SHA-256 hashes of the original and downloaded files. Run the following Linux command from the directory containing both files.
+
+```sh
+sha256sum example.png downloaded.png
+```
+
+Use `shasum -a 256 example.png downloaded.png` on macOS. Use `Get-FileHash -Algorithm SHA256 -Path example.png, downloaded.png` in PowerShell. Run the download command with `curl.exe` in Windows PowerShell.
+
+The two hashes should match and `downloaded.png` should open as an image. An empty response can indicate a problem fetching the image during import. Check the import logs and confirm that Microcks can reach the image URL.
 
 #### No content response payload
 
@@ -209,7 +260,11 @@ post:
 
 Labels declared in `info.x-microcks` overwrite the saved labels when re-importing an OpenAPI document with the same service name and version.
 
-For matching operations, saved UI or API overrides are preserved on re-import, even if `x-microcks-operation` has changed. This includes the dispatcher, dispatching rules, default delay, delay strategy, and parameter constraints. The first import of a new service version uses the values declared in its OpenAPI document. To update the dispatcher and rules of an existing operation, edit them through the UI or API, or import [API Metadata](/documentation/references/metadata/#api-metadata-properties) as a secondary artifact.
+Microcks keeps saved overrides for matching operations when you re-import the same service version. These overrides take precedence over changes to `x-microcks-operation`. They include the dispatcher, dispatching rules, default delay, delay strategy and parameter constraints.
+
+New service versions use the settings declared in their OpenAPI document.
+
+Update an existing operation's dispatcher and rules through the UI or API. You can also import [API Metadata](/documentation/references/metadata/#api-metadata-properties) as a secondary artifact.
 
 Starting with Microcks `1.11.0`, you can also declare [mock constraints](/documentation/guides/usage/mocks-constraints) using the `x-microcks-operation` extension:
 
