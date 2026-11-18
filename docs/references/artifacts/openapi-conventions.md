@@ -4,7 +4,7 @@ sidebar_custom_props:
 title: OpenAPI Conventions
 sidebar_position: 1
 last_update:
-  date: '2024-11-04'
+  date: '2026-11-18'
 description: "How OpenAPI example names link params, requests and responses into mocks and tests."
 ---
 
@@ -105,6 +105,55 @@ responses:
                   {"name": "jean-pierre", "model": "Peugeot Traveller", "year": 2017}
               ]
 ```
+
+#### Binary response payload
+
+Use `externalValue` in a named response example to serve a binary file such as a PNG. Since Microcks `1.13.2`, `externalValue` supports relative paths and remote URLs.
+
+Save this OpenAPI document as `openapi.yaml` and put a PNG named `example.png` beside it.
+
+```yaml
+openapi: 3.0.3
+info:
+  title: Binary Download
+  version: 1.0.0
+paths:
+  /example.png:
+    get:
+      responses:
+        '200':
+          description: Example image
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
+              examples:
+                sample:
+                  externalValue: ./example.png
+```
+
+Host both files in the same directory on an HTTP server that the Microcks server can reach. Open **Quick Import**, select **Download Artifact**, enter the URL of `openapi.yaml` in **Artifact URL**, and click **Download & Import**. Microcks fetches `./example.png` relative to the document URL during import.
+
+> 💡 When using **Upload Artifact** with a local YAML file, configure a [default artifacts repository](/documentation/guides/usage/importing-content/#configure-dependency-resolution) so Microcks can resolve the external file.
+
+Enable binary response decoding by starting the Microcks Webapp component with `ENABLE_BINARY_RESPONSE_DECODE=true` in its environment. This variable controls the `mocks.enable-binary-response-decode` property, which defaults to `false`. With decoding disabled, the PNG example is returned as Base64 data URI text.
+
+Download the mock response using the following command. Replace `http://localhost:8080` with your Microcks server URL if needed.
+
+```sh
+curl --fail --header 'Accept: image/png' --output downloaded.png 'http://localhost:8080/rest/Binary+Download/1.0.0/example.png'
+```
+
+Compare the SHA-256 hashes of the original and downloaded files. On Linux, run the following command from the directory containing both files.
+
+```sh
+sha256sum example.png downloaded.png
+```
+
+On macOS, use `shasum -a 256 example.png downloaded.png`. In PowerShell, use `Get-FileHash -Algorithm SHA256 -Path example.png, downloaded.png`, and run the download command with `curl.exe`.
+
+The two hashes should match, and `downloaded.png` should open as an image. If the response is empty, check the import logs and confirm that Microcks could reach the image URL during import.
 
 #### No content response payload
 
