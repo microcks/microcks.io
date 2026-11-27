@@ -122,12 +122,14 @@ sebastien-fraigneau:
     github: https://github.com/sfraigneau
 yacine-kheddache:
   name: Yacine Kheddache
-  title: Co-founder of Microcks | Director of Product Strategy & Innovation at Postman Open Technologies
+  title: Co-founder of Microcks & reShapr | CNCF Ambassador
+  url: https://kheddache.me
   image_url: /images/blog/bio/yadayac.jpg
   page: true
   socials:
+    website: https://kheddache.me
     linkedin: https://www.linkedin.com/in/yacinekheddache/
     bluesky: https://bsky.app/profile/kheddache.me
     mastodon: https://hachyderm.io/@YadaYac
     github: https://github.com/yada
-    X: https://x.com/YadaYac
+    x: https://x.com/YadaYac
